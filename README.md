@@ -50,7 +50,7 @@ Don't worry about it. If it doesn't affect the compile-time of the parent projec
 
 Don't panic. Perfect is the enemy of good. We never ask the contributors to fix all the regressions before landing their patches.
 
-Please follow the [InstCombineContributorGuide](https://llvm.org/docs/InstCombineContributorGuide.html#generalization) to generalize your patch to cover the regression. If it doesn't works, try to find the pattern and file a separate issue. If it is hard to be catched by a separate transformation, try to bail out on the regression case. If we cannot make it better, the patch can still be accepted if the net effect is positive. Ask your reviewer to help you with the decision.
+Please follow the [InstCombineContributorGuide](https://llvm.org/docs/InstCombineContributorGuide.html#generalization) to generalize your patch to cover the regression. If it doesn't work, try to find the pattern and file a separate issue. If it is hard to be caught by a separate transformation, try to bail out on the regression case. If we cannot make it better, the patch can still be accepted if the net effect is positive. Ask your reviewer to help you with the decision.
 
 ### My method is expensive in compile time. But it shows some optimization opportunities. Should I abandon it?
 
@@ -65,7 +65,7 @@ The following patches may not be suitable for this benchmark:
 + Sanitizer/Instrumentation/GPU patches. The related patterns are not included in this corpus.
 + Patches which handle scalable vectors. This corpus only contains fixed-width vectors (generated from X86 intrinsics).
 
-### Does the regressions in IR-diff imply the run-time performance regressions?
+### Do the regressions in IR-diff imply the run-time performance regressions?
 
 Not necessarily. The IR-diff is only a proxy for the run-time performance. Generally fewer instructions at IR level implies better analysis result and less instructions at run-time. However, it depends on the target micro-architecture and the LLVM CodeGen components. For example, a canonicalization in InstCombine may cause the SelectionDAG to not recognize certain patterns, leading to bad codegen. Please refer to [llvm-codegen-benchmark](https://github.com/dtcxzyw/llvm-codegen-benchmark) for frequent isel patterns. Anyway, the run-time performance should be the golden metric. The IR-diff only helps us to find the root cause of regressions.
 
