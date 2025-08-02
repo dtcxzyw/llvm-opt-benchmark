@@ -17,6 +17,60 @@ Please cite this work with the following BibTex entry:
 }
 ```
 
+## FAQs
+
+I and some other LLVM developers may use this corpus to assess the impact of your patches on real-world applications. If you see a link to this repository in your PR, it means that the target PR demonstrates some performance regressions or improvements caused by your changes. Here are some common questions you may have:
+
+### How can I reproduce the regression locally?
+
+You should be able to reproduce the regression locally in the following steps:
+
+```
+# Apply your patch and rebuild opt.
+...
+# Download the source IR. Note that you should replace `optimized` with `original`.
+wget https://raw.githubusercontent.com/dtcxzyw/llvm-opt-benchmark/refs/heads/main/bench/<program_name>/original/<file_name>.ll
+# Run opt to generate the optimized IR.
+bin/opt -O3 -disable-loop-unrolling -vectorize-loops=false -vectorize-slp=false -S <file_name>.ll -o opt.ll
+```
+
+Note that you don't need to clone the whole repository.
+
+### How can I evaluate my patch on this benchmark locally?
+
+It is not recommended, as you can use the online service to evaluate your patch on GitHub if you have commit access to the LLVM repository.
+
+You can use `python3 ./scripts/gen_optimized.py bench <path-to-opt>`. It will update the optimized IR files. Then you can review the diff with git.
+
+### The compile-time evaluation shows a huge impact on some files. What should I do?
+
+Don't worry about it. If it doesn't affect the compile-time of the parent projects, it is generally acceptable. Otherwise, you may need to adjust the threshold or just handle simple cases.
+
+### What should I do when I see a regression?
+
+Don't panic. Perfect is the enemy of good. We never ask the contributors to fix all the regressions before landing their patches.
+
+Please follow the [InstCombineContributorGuide](https://llvm.org/docs/InstCombineContributorGuide.html#generalization) to generalize your patch to cover the regression. If it doesn't works, try to find the pattern and file a separate issue. If it is hard to be catched by a separate transformation, try to bail out on the regression case. If we cannot make it better, the patch can still be accepted if the net effect is positive. Ask your reviewer to help you with the decision.
+
+### My method is expensive in compile time. But it shows some optimization opportunities. Should I abandon it?
+
+Though we cannot accept the patch, we still encourage you to explore alternative approaches to handle the exposed optimization opportunities. As the distribution of the real-world code is not uniform, in general, a simple heuristic is good enough to cover most of the cases.
+
+### The evaluation result shows my patch has no effect on the benchmark. What does it mean?
+
+We ask the issue reporter and the contributor to provide a motivating example from real-world scenarios. This benchmark only provides additional evidences to support the claim. It is highly recommended to run this benchmark if the real-world use case is missing, or it is found by fuzzers and super-optimizers. See also [InstCombineContributorGuide](https://llvm.org/docs/InstCombineContributorGuide.html#real-world-usefulness).
+
+The following patches may not be suitable for this benchmark:
++ SLPVectorizer/LoopVectorize/LoopUnroll patches. Vectorization and loop unrolling are disabled since the diff is huge and hard to review. The performance is highly dependent on the target machine so the running time may be more representative.
++ Sanitizer/Instrumentation/GPU patches. The related patterns are not included in this corpus.
++ Patches which handle scalable vectors. This corpus only contains fixed-width vectors (generated from X86 intrinsics).
+
+### Does the regressions in IR-diff imply the run-time performance regressions?
+
+Not necessarily. The IR-diff is only a proxy for the run-time performance. Generally fewer instructions at IR level implies better analysis result and less instructions at run-time. However, it depends on the target micro-architecture and the LLVM CodeGen components. For example, a canonicalization in InstCombine may cause the SelectionDAG to not recognize certain patterns, leading to bad codegen. Please refer to [llvm-codegen-benchmark](https://github.com/dtcxzyw/llvm-codegen-benchmark) for frequent isel patterns. Anyway, the run-time performance should be the golden metric. The IR-diff only helps us to find the root cause of regressions.
+
+In addition, most of IR snippets are not the hot paths in the real-world applications. I choose to keep all the source IR files instead of only keeping the hot spots, as it is useful for monitoring the code size changes, which is also critical for the frontend performance on modern devices. Another reason is that we cannot find the hot paths in large applications like LLVM and verilator-generated simulators. BTW the training data for PGO in some programs is unavailable or highly biased, you know :).
+
 ## Online services (previously hosted by PLCT Lab, ISCAS/currently hosted by SUSTech ARiSE Lab)
 
 **Special Acknowledgement**: Thank @goldsteinn for providing additional computational resources to meet the growing demand for testing!
