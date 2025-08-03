@@ -19,7 +19,7 @@ Please cite this work with the following BibTex entry:
 
 ## FAQs
 
-I and some other LLVM developers may use this corpus to assess the impact of your patches on real-world applications. If you see a link to this repository in your PR, it means that the target PR demonstrates some performance regressions or improvements caused by your changes. Here are some common questions you may have:
+LLVM developers use this corpus to assess the impact of your patches on real-world applications. If you see a link to this repository in your PR, it means that the target PR demonstrates some performance regressions or improvements caused by your changes. Here are some common questions you may have:
 
 ### How can I reproduce the regression locally?
 
