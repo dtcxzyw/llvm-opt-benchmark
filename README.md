@@ -73,8 +73,8 @@ In addition, most of IR snippets are not the hot paths in the real-world applica
 
 ### The IR diff looks weird. It contains some invalid instructions. Is it a bug?
 
-Many IR diff only changes the name of instructions and basic blocks. Previously, I used
-`llvm-diff` to reduce meaningless changes. However, it is slow and ineffective. Now I use a heuristic name-remapping algorithm to reduce the noise. The algorithm can reduce up to 70% of line changes. However, as it works on textural diff and does not understand the semantics of LLVM IR, it may produce some invalid instructions. Please check the raw diff in the previous commit `pre-commit: Update`.
+Many IR diffs only change the name of instructions and basic blocks. Previously, I used
+`llvm-diff` to reduce meaningless changes. However, it is slow and ineffective. Now I use a heuristic name-remapping algorithm to reduce the noise. The algorithm can reduce up to 70% of line changes. However, as it works on textual diff and does not understand the semantics of LLVM IR, it may produce some invalid instructions. Please check the raw diff in the previous commit `pre-commit: Update`.
 
 ### The IR diff contains hundreds of file changes. How can I review it efficiently?
 
