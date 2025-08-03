@@ -318,34 +318,34 @@ define dso_local i32 @revert_num_unit(ptr noundef readonly captures(address_is_n
   %.027 = load i32, ptr %.027.in, align 4
   br label %10
 
-10:                                               ; preds = %2, %13
-  %indvars.iv = phi i64 [ 1, %2 ], [ %indvars.iv.next, %13 ]
-  %11 = phi i8 [ 75, %2 ], [ %15, %13 ]
-  %12 = sext i8 %11 to i32
-  %.not34 = icmp eq i32 %.027, %12
-  br i1 %.not34, label %.split.loop.exit, label %13
+10:                                               ; preds = %2, %14
+  %indvars.iv = phi i64 [ 1, %2 ], [ %indvars.iv.next, %14 ]
+  %11 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.73, i64 1), %2 ], [ %15, %14 ]
+  %12 = load i8, ptr %11, align 1
+  %13 = sext i8 %12 to i32
+  %.not34 = icmp eq i32 %.027, %13
+  br i1 %.not34, label %.split.loop.exit, label %14
 
-13:                                               ; preds = %10
+14:                                               ; preds = %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw i8, ptr @.str.73, i64 %indvars.iv.next
-  %15 = load i8, ptr %14, align 1
+  %15 = getelementptr inbounds nuw i8, ptr @.str.73, i64 %indvars.iv.next
   %exitcond = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond, label %.split.loop.exit35, label %10, !llvm.loop !14
+  br i1 %exitcond, label %.split.loop.exit36, label %10, !llvm.loop !14
 
 .split.loop.exit:                                 ; preds = %10
   %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = shl nsw i32 %16, 10
-  br label %.split.loop.exit35
+  br label %.split.loop.exit36
 
-.split.loop.exit35:                               ; preds = %13, %.split.loop.exit
-  %18 = phi i32 [ %17, %.split.loop.exit ], [ 1, %13 ]
+.split.loop.exit36:                               ; preds = %14, %.split.loop.exit
+  %18 = phi i32 [ %17, %.split.loop.exit ], [ 1, %14 ]
   %19 = tail call i64 @strtol(ptr noundef nonnull captures(none) %0, ptr noundef null, i32 noundef 10) #19
   %20 = trunc i64 %19 to i32
   %.028 = mul nsw i32 %18, %20
   br label %21
 
-21:                                               ; preds = %1, %.split.loop.exit35
-  %.0 = phi i32 [ %.028, %.split.loop.exit35 ], [ -1, %1 ]
+21:                                               ; preds = %1, %.split.loop.exit36
+  %.0 = phi i32 [ %.028, %.split.loop.exit36 ], [ -1, %1 ]
   ret i32 %.0
 }
 

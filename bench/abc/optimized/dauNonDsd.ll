@@ -3991,8 +3991,8 @@ define void @Dau_DecFindSetsTest3() local_unnamed_addr #10 {
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %11 = getelementptr inbounds nuw i8, ptr @.str.14, i64 %indvars.iv.next.i
   %12 = load i8, ptr %11, align 1, !tbaa !38
-  %exitcond = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond, label %Dau_DecReadSet.exit, label %.lr.ph.i, !llvm.loop !39
+  %.not.i = icmp eq i64 %indvars.iv.next.i, 3
+  br i1 %.not.i, label %Dau_DecReadSet.exit, label %.lr.ph.i, !llvm.loop !39
 
 Dau_DecReadSet.exit:                              ; preds = %8, %10
   %.019.lcssa.i = phi i32 [ %.01926.i, %8 ], [ %.1.i, %10 ]

@@ -542,18 +542,18 @@ define void @Init_date_core() local_unnamed_addr #0 {
 
 34:                                               ; preds = %40, %0
   %.01214.i = phi i64 [ 0, %0 ], [ %42, %40 ]
-  %35 = getelementptr inbounds nuw ptr, ptr @monthnames, i64 %.01214.i
-  %36 = load ptr, ptr %35, align 8, !tbaa !12
-  %.not.i = icmp eq ptr %36, null
-  br i1 %.not.i, label %40, label %37
+  %.not.i = icmp eq i64 %.01214.i, 0
+  br i1 %.not.i, label %40, label %35
 
-37:                                               ; preds = %34
-  %38 = tail call i64 @rb_usascii_str_new_cstr(ptr noundef nonnull %36) #21
+35:                                               ; preds = %34
+  %36 = getelementptr inbounds nuw ptr, ptr @monthnames, i64 %.01214.i
+  %37 = load ptr, ptr %36, align 8, !tbaa !12
+  %38 = tail call i64 @rb_usascii_str_new_cstr(ptr noundef nonnull %37) #21
   %39 = tail call i64 @rb_obj_freeze(i64 noundef %38) #21
   br label %40
 
-40:                                               ; preds = %37, %34
-  %.0.i = phi i64 [ %38, %37 ], [ 4, %34 ]
+40:                                               ; preds = %35, %34
+  %.0.i = phi i64 [ %38, %35 ], [ 4, %34 ]
   %41 = tail call i64 @rb_ary_push(i64 noundef %33, i64 noundef %.0.i) #21
   %42 = add nuw nsw i64 %.01214.i, 1
   %exitcond.not.i = icmp eq i64 %42, 13
@@ -568,18 +568,18 @@ mk_ary_of_str.exit:                               ; preds = %40
 
 46:                                               ; preds = %52, %mk_ary_of_str.exit
   %.01214.i1 = phi i64 [ 0, %mk_ary_of_str.exit ], [ %54, %52 ]
-  %47 = getelementptr inbounds nuw ptr, ptr @abbr_monthnames, i64 %.01214.i1
-  %48 = load ptr, ptr %47, align 8, !tbaa !12
-  %.not.i2 = icmp eq ptr %48, null
-  br i1 %.not.i2, label %52, label %49
+  %.not.i2 = icmp eq i64 %.01214.i1, 0
+  br i1 %.not.i2, label %52, label %47
 
-49:                                               ; preds = %46
-  %50 = tail call i64 @rb_usascii_str_new_cstr(ptr noundef nonnull %48) #21
+47:                                               ; preds = %46
+  %48 = getelementptr inbounds nuw ptr, ptr @abbr_monthnames, i64 %.01214.i1
+  %49 = load ptr, ptr %48, align 8, !tbaa !12
+  %50 = tail call i64 @rb_usascii_str_new_cstr(ptr noundef nonnull %49) #21
   %51 = tail call i64 @rb_obj_freeze(i64 noundef %50) #21
   br label %52
 
-52:                                               ; preds = %49, %46
-  %.0.i3 = phi i64 [ %50, %49 ], [ 4, %46 ]
+52:                                               ; preds = %47, %46
+  %.0.i3 = phi i64 [ %50, %47 ], [ 4, %46 ]
   %53 = tail call i64 @rb_ary_push(i64 noundef %45, i64 noundef %.0.i3) #21
   %54 = add nuw nsw i64 %.01214.i1, 1
   %exitcond.not.i4 = icmp eq i64 %54, 13
@@ -592,404 +592,388 @@ mk_ary_of_str.exit5:                              ; preds = %52
   %57 = tail call i64 @rb_ary_new_capa(i64 noundef 7) #21
   br label %58
 
-58:                                               ; preds = %64, %mk_ary_of_str.exit5
-  %.01214.i6 = phi i64 [ 0, %mk_ary_of_str.exit5 ], [ %66, %64 ]
+58:                                               ; preds = %mk_ary_of_str.exit5, %58
+  %.01214.i6 = phi i64 [ 0, %mk_ary_of_str.exit5 ], [ %64, %58 ]
   %59 = getelementptr inbounds nuw ptr, ptr @daynames, i64 %.01214.i6
   %60 = load ptr, ptr %59, align 8, !tbaa !12
-  %.not.i7 = icmp eq ptr %60, null
-  br i1 %.not.i7, label %64, label %61
-
-61:                                               ; preds = %58
-  %62 = tail call i64 @rb_usascii_str_new_cstr(ptr noundef nonnull %60) #21
-  %63 = tail call i64 @rb_obj_freeze(i64 noundef %62) #21
-  br label %64
-
-64:                                               ; preds = %61, %58
-  %.0.i8 = phi i64 [ %62, %61 ], [ 4, %58 ]
-  %65 = tail call i64 @rb_ary_push(i64 noundef %57, i64 noundef %.0.i8) #21
-  %66 = add nuw nsw i64 %.01214.i6, 1
-  %exitcond.not.i9 = icmp eq i64 %66, 7
+  %61 = tail call i64 @rb_usascii_str_new_cstr(ptr noundef nonnull %60) #21
+  %62 = tail call i64 @rb_obj_freeze(i64 noundef %61) #21
+  %63 = tail call i64 @rb_ary_push(i64 noundef %57, i64 noundef %61) #21
+  %64 = add nuw nsw i64 %.01214.i6, 1
+  %exitcond.not.i9 = icmp eq i64 %64, 7
   br i1 %exitcond.not.i9, label %mk_ary_of_str.exit10, label %58, !llvm.loop !15
 
-mk_ary_of_str.exit10:                             ; preds = %64
-  %67 = tail call i64 @rb_ary_freeze(i64 noundef %57) #21
+mk_ary_of_str.exit10:                             ; preds = %58
+  %65 = tail call i64 @rb_ary_freeze(i64 noundef %57) #21
   tail call void @rb_define_const(i64 noundef %56, ptr noundef nonnull @.str.18, i64 noundef %57) #21
-  %68 = load i64, ptr @cDate, align 8, !tbaa !6
-  %69 = tail call i64 @rb_ary_new_capa(i64 noundef 7) #21
-  br label %70
+  %66 = load i64, ptr @cDate, align 8, !tbaa !6
+  %67 = tail call i64 @rb_ary_new_capa(i64 noundef 7) #21
+  br label %68
 
-70:                                               ; preds = %76, %mk_ary_of_str.exit10
-  %.01214.i11 = phi i64 [ 0, %mk_ary_of_str.exit10 ], [ %78, %76 ]
-  %71 = getelementptr inbounds nuw ptr, ptr @abbr_daynames, i64 %.01214.i11
-  %72 = load ptr, ptr %71, align 8, !tbaa !12
-  %.not.i12 = icmp eq ptr %72, null
-  br i1 %.not.i12, label %76, label %73
+68:                                               ; preds = %mk_ary_of_str.exit10, %68
+  %.01214.i11 = phi i64 [ 0, %mk_ary_of_str.exit10 ], [ %74, %68 ]
+  %69 = getelementptr inbounds nuw ptr, ptr @abbr_daynames, i64 %.01214.i11
+  %70 = load ptr, ptr %69, align 8, !tbaa !12
+  %71 = tail call i64 @rb_usascii_str_new_cstr(ptr noundef nonnull %70) #21
+  %72 = tail call i64 @rb_obj_freeze(i64 noundef %71) #21
+  %73 = tail call i64 @rb_ary_push(i64 noundef %67, i64 noundef %71) #21
+  %74 = add nuw nsw i64 %.01214.i11, 1
+  %exitcond.not.i14 = icmp eq i64 %74, 7
+  br i1 %exitcond.not.i14, label %mk_ary_of_str.exit15, label %68, !llvm.loop !15
 
-73:                                               ; preds = %70
-  %74 = tail call i64 @rb_usascii_str_new_cstr(ptr noundef nonnull %72) #21
-  %75 = tail call i64 @rb_obj_freeze(i64 noundef %74) #21
-  br label %76
-
-76:                                               ; preds = %73, %70
-  %.0.i13 = phi i64 [ %74, %73 ], [ 4, %70 ]
-  %77 = tail call i64 @rb_ary_push(i64 noundef %69, i64 noundef %.0.i13) #21
-  %78 = add nuw nsw i64 %.01214.i11, 1
-  %exitcond.not.i14 = icmp eq i64 %78, 7
-  br i1 %exitcond.not.i14, label %mk_ary_of_str.exit15, label %70, !llvm.loop !15
-
-mk_ary_of_str.exit15:                             ; preds = %76
-  %79 = tail call i64 @rb_ary_freeze(i64 noundef %69) #21
-  tail call void @rb_define_const(i64 noundef %68, ptr noundef nonnull @.str.19, i64 noundef %69) #21
+mk_ary_of_str.exit15:                             ; preds = %68
+  %75 = tail call i64 @rb_ary_freeze(i64 noundef %67) #21
+  tail call void @rb_define_const(i64 noundef %66, ptr noundef nonnull @.str.19, i64 noundef %67) #21
+  %76 = load i64, ptr @cDate, align 8, !tbaa !6
+  tail call void @rb_define_const(i64 noundef %76, ptr noundef nonnull @.str.20, i64 noundef 4598323) #21
+  %77 = load i64, ptr @cDate, align 8, !tbaa !6
+  tail call void @rb_define_const(i64 noundef %77, ptr noundef nonnull @.str.21, i64 noundef 4722445) #21
+  %78 = load i64, ptr @cDate, align 8, !tbaa !6
+  %79 = tail call i64 @rb_float_new(double noundef 0x7FF0000000000000) #21
+  tail call void @rb_define_const(i64 noundef %78, ptr noundef nonnull @.str.22, i64 noundef %79) #21
   %80 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_const(i64 noundef %80, ptr noundef nonnull @.str.20, i64 noundef 4598323) #21
-  %81 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_const(i64 noundef %81, ptr noundef nonnull @.str.21, i64 noundef 4722445) #21
+  %81 = tail call i64 @rb_float_new(double noundef 0xFFF0000000000000) #21
+  tail call void @rb_define_const(i64 noundef %80, ptr noundef nonnull @.str.23, i64 noundef %81) #21
   %82 = load i64, ptr @cDate, align 8, !tbaa !6
-  %83 = tail call i64 @rb_float_new(double noundef 0x7FF0000000000000) #21
-  tail call void @rb_define_const(i64 noundef %82, ptr noundef nonnull @.str.22, i64 noundef %83) #21
+  tail call void @rb_define_alloc_func(i64 noundef %82, ptr noundef nonnull @d_lite_s_alloc_simple) #21
+  %83 = load i64, ptr @cDate, align 8, !tbaa !6
+  tail call void @rb_define_singleton_method(i64 noundef %83, ptr noundef nonnull @.str.24, ptr noundef nonnull @date_s_valid_jd_p, i32 noundef -1) #21
   %84 = load i64, ptr @cDate, align 8, !tbaa !6
-  %85 = tail call i64 @rb_float_new(double noundef 0xFFF0000000000000) #21
-  tail call void @rb_define_const(i64 noundef %84, ptr noundef nonnull @.str.23, i64 noundef %85) #21
+  tail call void @rb_define_singleton_method(i64 noundef %84, ptr noundef nonnull @.str.25, ptr noundef nonnull @date_s_valid_ordinal_p, i32 noundef -1) #21
+  %85 = load i64, ptr @cDate, align 8, !tbaa !6
+  tail call void @rb_define_singleton_method(i64 noundef %85, ptr noundef nonnull @.str.26, ptr noundef nonnull @date_s_valid_civil_p, i32 noundef -1) #21
   %86 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_alloc_func(i64 noundef %86, ptr noundef nonnull @d_lite_s_alloc_simple) #21
+  tail call void @rb_define_singleton_method(i64 noundef %86, ptr noundef nonnull @.str.27, ptr noundef nonnull @date_s_valid_civil_p, i32 noundef -1) #21
   %87 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %87, ptr noundef nonnull @.str.24, ptr noundef nonnull @date_s_valid_jd_p, i32 noundef -1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %87, ptr noundef nonnull @.str.28, ptr noundef nonnull @date_s_valid_commercial_p, i32 noundef -1) #21
   %88 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %88, ptr noundef nonnull @.str.25, ptr noundef nonnull @date_s_valid_ordinal_p, i32 noundef -1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %88, ptr noundef nonnull @.str.29, ptr noundef nonnull @date_s_julian_leap_p, i32 noundef 1) #21
   %89 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %89, ptr noundef nonnull @.str.26, ptr noundef nonnull @date_s_valid_civil_p, i32 noundef -1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %89, ptr noundef nonnull @.str.30, ptr noundef nonnull @date_s_gregorian_leap_p, i32 noundef 1) #21
   %90 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %90, ptr noundef nonnull @.str.27, ptr noundef nonnull @date_s_valid_civil_p, i32 noundef -1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %90, ptr noundef nonnull @.str.31, ptr noundef nonnull @date_s_gregorian_leap_p, i32 noundef 1) #21
   %91 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %91, ptr noundef nonnull @.str.28, ptr noundef nonnull @date_s_valid_commercial_p, i32 noundef -1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %91, ptr noundef nonnull @.str.32, ptr noundef nonnull @date_s_jd, i32 noundef -1) #21
   %92 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %92, ptr noundef nonnull @.str.29, ptr noundef nonnull @date_s_julian_leap_p, i32 noundef 1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %92, ptr noundef nonnull @.str.33, ptr noundef nonnull @date_s_ordinal, i32 noundef -1) #21
   %93 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %93, ptr noundef nonnull @.str.30, ptr noundef nonnull @date_s_gregorian_leap_p, i32 noundef 1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %93, ptr noundef nonnull @.str.34, ptr noundef nonnull @date_s_civil, i32 noundef -1) #21
   %94 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %94, ptr noundef nonnull @.str.31, ptr noundef nonnull @date_s_gregorian_leap_p, i32 noundef 1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %94, ptr noundef nonnull @.str.35, ptr noundef nonnull @date_s_commercial, i32 noundef -1) #21
   %95 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %95, ptr noundef nonnull @.str.32, ptr noundef nonnull @date_s_jd, i32 noundef -1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %95, ptr noundef nonnull @.str.36, ptr noundef nonnull @date_s_today, i32 noundef -1) #21
   %96 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %96, ptr noundef nonnull @.str.33, ptr noundef nonnull @date_s_ordinal, i32 noundef -1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %96, ptr noundef nonnull @.str.37, ptr noundef nonnull @date_s__strptime, i32 noundef -1) #21
   %97 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %97, ptr noundef nonnull @.str.34, ptr noundef nonnull @date_s_civil, i32 noundef -1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %97, ptr noundef nonnull @.str.38, ptr noundef nonnull @date_s_strptime, i32 noundef -1) #21
   %98 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %98, ptr noundef nonnull @.str.35, ptr noundef nonnull @date_s_commercial, i32 noundef -1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %98, ptr noundef nonnull @.str.39, ptr noundef nonnull @date_s__parse, i32 noundef -1) #21
   %99 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %99, ptr noundef nonnull @.str.36, ptr noundef nonnull @date_s_today, i32 noundef -1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %99, ptr noundef nonnull @.str.40, ptr noundef nonnull @date_s_parse, i32 noundef -1) #21
   %100 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %100, ptr noundef nonnull @.str.37, ptr noundef nonnull @date_s__strptime, i32 noundef -1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %100, ptr noundef nonnull @.str.41, ptr noundef nonnull @date_s__iso8601, i32 noundef -1) #21
   %101 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %101, ptr noundef nonnull @.str.38, ptr noundef nonnull @date_s_strptime, i32 noundef -1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %101, ptr noundef nonnull @.str.42, ptr noundef nonnull @date_s_iso8601, i32 noundef -1) #21
   %102 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %102, ptr noundef nonnull @.str.39, ptr noundef nonnull @date_s__parse, i32 noundef -1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %102, ptr noundef nonnull @.str.43, ptr noundef nonnull @date_s__rfc3339, i32 noundef -1) #21
   %103 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %103, ptr noundef nonnull @.str.40, ptr noundef nonnull @date_s_parse, i32 noundef -1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %103, ptr noundef nonnull @.str.44, ptr noundef nonnull @date_s_rfc3339, i32 noundef -1) #21
   %104 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %104, ptr noundef nonnull @.str.41, ptr noundef nonnull @date_s__iso8601, i32 noundef -1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %104, ptr noundef nonnull @.str.45, ptr noundef nonnull @date_s__xmlschema, i32 noundef -1) #21
   %105 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %105, ptr noundef nonnull @.str.42, ptr noundef nonnull @date_s_iso8601, i32 noundef -1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %105, ptr noundef nonnull @.str.46, ptr noundef nonnull @date_s_xmlschema, i32 noundef -1) #21
   %106 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %106, ptr noundef nonnull @.str.43, ptr noundef nonnull @date_s__rfc3339, i32 noundef -1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %106, ptr noundef nonnull @.str.47, ptr noundef nonnull @date_s__rfc2822, i32 noundef -1) #21
   %107 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %107, ptr noundef nonnull @.str.44, ptr noundef nonnull @date_s_rfc3339, i32 noundef -1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %107, ptr noundef nonnull @.str.48, ptr noundef nonnull @date_s__rfc2822, i32 noundef -1) #21
   %108 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %108, ptr noundef nonnull @.str.45, ptr noundef nonnull @date_s__xmlschema, i32 noundef -1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %108, ptr noundef nonnull @.str.49, ptr noundef nonnull @date_s_rfc2822, i32 noundef -1) #21
   %109 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %109, ptr noundef nonnull @.str.46, ptr noundef nonnull @date_s_xmlschema, i32 noundef -1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %109, ptr noundef nonnull @.str.50, ptr noundef nonnull @date_s_rfc2822, i32 noundef -1) #21
   %110 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %110, ptr noundef nonnull @.str.47, ptr noundef nonnull @date_s__rfc2822, i32 noundef -1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %110, ptr noundef nonnull @.str.51, ptr noundef nonnull @date_s__httpdate, i32 noundef -1) #21
   %111 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %111, ptr noundef nonnull @.str.48, ptr noundef nonnull @date_s__rfc2822, i32 noundef -1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %111, ptr noundef nonnull @.str.52, ptr noundef nonnull @date_s_httpdate, i32 noundef -1) #21
   %112 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %112, ptr noundef nonnull @.str.49, ptr noundef nonnull @date_s_rfc2822, i32 noundef -1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %112, ptr noundef nonnull @.str.53, ptr noundef nonnull @date_s__jisx0301, i32 noundef -1) #21
   %113 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %113, ptr noundef nonnull @.str.50, ptr noundef nonnull @date_s_rfc2822, i32 noundef -1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %113, ptr noundef nonnull @.str.54, ptr noundef nonnull @date_s_jisx0301, i32 noundef -1) #21
   %114 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %114, ptr noundef nonnull @.str.51, ptr noundef nonnull @date_s__httpdate, i32 noundef -1) #21
+  tail call void @rb_define_method(i64 noundef %114, ptr noundef nonnull @.str.55, ptr noundef nonnull @date_initialize, i32 noundef -1) #21
   %115 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %115, ptr noundef nonnull @.str.52, ptr noundef nonnull @date_s_httpdate, i32 noundef -1) #21
+  tail call void @rb_define_method(i64 noundef %115, ptr noundef nonnull @.str.56, ptr noundef nonnull @d_lite_initialize_copy, i32 noundef 1) #21
   %116 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %116, ptr noundef nonnull @.str.53, ptr noundef nonnull @date_s__jisx0301, i32 noundef -1) #21
+  tail call void @rb_define_method(i64 noundef %116, ptr noundef nonnull @.str.57, ptr noundef nonnull @d_lite_ajd, i32 noundef 0) #21
   %117 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %117, ptr noundef nonnull @.str.54, ptr noundef nonnull @date_s_jisx0301, i32 noundef -1) #21
+  tail call void @rb_define_method(i64 noundef %117, ptr noundef nonnull @.str.58, ptr noundef nonnull @d_lite_amjd, i32 noundef 0) #21
   %118 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %118, ptr noundef nonnull @.str.55, ptr noundef nonnull @date_initialize, i32 noundef -1) #21
+  tail call void @rb_define_method(i64 noundef %118, ptr noundef nonnull @.str.32, ptr noundef nonnull @d_lite_jd, i32 noundef 0) #21
   %119 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %119, ptr noundef nonnull @.str.56, ptr noundef nonnull @d_lite_initialize_copy, i32 noundef 1) #21
+  tail call void @rb_define_method(i64 noundef %119, ptr noundef nonnull @.str.59, ptr noundef nonnull @d_lite_mjd, i32 noundef 0) #21
   %120 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %120, ptr noundef nonnull @.str.57, ptr noundef nonnull @d_lite_ajd, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %120, ptr noundef nonnull @.str.60, ptr noundef nonnull @d_lite_ld, i32 noundef 0) #21
   %121 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %121, ptr noundef nonnull @.str.58, ptr noundef nonnull @d_lite_amjd, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %121, ptr noundef nonnull @.str.4, ptr noundef nonnull @d_lite_year, i32 noundef 0) #21
   %122 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %122, ptr noundef nonnull @.str.32, ptr noundef nonnull @d_lite_jd, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %122, ptr noundef nonnull @.str.6, ptr noundef nonnull @d_lite_yday, i32 noundef 0) #21
   %123 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %123, ptr noundef nonnull @.str.59, ptr noundef nonnull @d_lite_mjd, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %123, ptr noundef nonnull @.str.61, ptr noundef nonnull @d_lite_mon, i32 noundef 0) #21
   %124 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %124, ptr noundef nonnull @.str.60, ptr noundef nonnull @d_lite_ld, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %124, ptr noundef nonnull @.str.5, ptr noundef nonnull @d_lite_mon, i32 noundef 0) #21
   %125 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %125, ptr noundef nonnull @.str.4, ptr noundef nonnull @d_lite_year, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %125, ptr noundef nonnull @.str.62, ptr noundef nonnull @d_lite_mday, i32 noundef 0) #21
   %126 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %126, ptr noundef nonnull @.str.6, ptr noundef nonnull @d_lite_yday, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %126, ptr noundef nonnull @.str.8, ptr noundef nonnull @d_lite_mday, i32 noundef 0) #21
   %127 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %127, ptr noundef nonnull @.str.61, ptr noundef nonnull @d_lite_mon, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %127, ptr noundef nonnull @.str.63, ptr noundef nonnull @d_lite_day_fraction, i32 noundef 0) #21
   %128 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %128, ptr noundef nonnull @.str.5, ptr noundef nonnull @d_lite_mon, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %128, ptr noundef nonnull @.str.64, ptr noundef nonnull @d_lite_cwyear, i32 noundef 0) #21
   %129 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %129, ptr noundef nonnull @.str.62, ptr noundef nonnull @d_lite_mday, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %129, ptr noundef nonnull @.str.65, ptr noundef nonnull @d_lite_cweek, i32 noundef 0) #21
   %130 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %130, ptr noundef nonnull @.str.8, ptr noundef nonnull @d_lite_mday, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %130, ptr noundef nonnull @.str.66, ptr noundef nonnull @d_lite_cwday, i32 noundef 0) #21
   %131 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %131, ptr noundef nonnull @.str.63, ptr noundef nonnull @d_lite_day_fraction, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %131, ptr noundef nonnull @.str.7, ptr noundef nonnull @d_lite_wday, i32 noundef 0) #21
   %132 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %132, ptr noundef nonnull @.str.64, ptr noundef nonnull @d_lite_cwyear, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %132, ptr noundef nonnull @.str.67, ptr noundef nonnull @d_lite_sunday_p, i32 noundef 0) #21
   %133 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %133, ptr noundef nonnull @.str.65, ptr noundef nonnull @d_lite_cweek, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %133, ptr noundef nonnull @.str.68, ptr noundef nonnull @d_lite_monday_p, i32 noundef 0) #21
   %134 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %134, ptr noundef nonnull @.str.66, ptr noundef nonnull @d_lite_cwday, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %134, ptr noundef nonnull @.str.69, ptr noundef nonnull @d_lite_tuesday_p, i32 noundef 0) #21
   %135 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %135, ptr noundef nonnull @.str.7, ptr noundef nonnull @d_lite_wday, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %135, ptr noundef nonnull @.str.70, ptr noundef nonnull @d_lite_wednesday_p, i32 noundef 0) #21
   %136 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %136, ptr noundef nonnull @.str.67, ptr noundef nonnull @d_lite_sunday_p, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %136, ptr noundef nonnull @.str.71, ptr noundef nonnull @d_lite_thursday_p, i32 noundef 0) #21
   %137 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %137, ptr noundef nonnull @.str.68, ptr noundef nonnull @d_lite_monday_p, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %137, ptr noundef nonnull @.str.72, ptr noundef nonnull @d_lite_friday_p, i32 noundef 0) #21
   %138 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %138, ptr noundef nonnull @.str.69, ptr noundef nonnull @d_lite_tuesday_p, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %138, ptr noundef nonnull @.str.73, ptr noundef nonnull @d_lite_saturday_p, i32 noundef 0) #21
   %139 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %139, ptr noundef nonnull @.str.70, ptr noundef nonnull @d_lite_wednesday_p, i32 noundef 0) #21
+  tail call void @rb_define_private_method(i64 noundef %139, ptr noundef nonnull @.str.9, ptr noundef nonnull @d_lite_zero, i32 noundef 0) #21
   %140 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %140, ptr noundef nonnull @.str.71, ptr noundef nonnull @d_lite_thursday_p, i32 noundef 0) #21
+  tail call void @rb_define_private_method(i64 noundef %140, ptr noundef nonnull @.str.10, ptr noundef nonnull @d_lite_zero, i32 noundef 0) #21
   %141 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %141, ptr noundef nonnull @.str.72, ptr noundef nonnull @d_lite_friday_p, i32 noundef 0) #21
+  tail call void @rb_define_private_method(i64 noundef %141, ptr noundef nonnull @.str.74, ptr noundef nonnull @d_lite_zero, i32 noundef 0) #21
   %142 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %142, ptr noundef nonnull @.str.73, ptr noundef nonnull @d_lite_saturday_p, i32 noundef 0) #21
+  tail call void @rb_define_private_method(i64 noundef %142, ptr noundef nonnull @.str.11, ptr noundef nonnull @d_lite_zero, i32 noundef 0) #21
   %143 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_private_method(i64 noundef %143, ptr noundef nonnull @.str.9, ptr noundef nonnull @d_lite_zero, i32 noundef 0) #21
+  tail call void @rb_define_private_method(i64 noundef %143, ptr noundef nonnull @.str.75, ptr noundef nonnull @d_lite_zero, i32 noundef 0) #21
   %144 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_private_method(i64 noundef %144, ptr noundef nonnull @.str.10, ptr noundef nonnull @d_lite_zero, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %144, ptr noundef nonnull @.str.76, ptr noundef nonnull @d_lite_julian_p, i32 noundef 0) #21
   %145 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_private_method(i64 noundef %145, ptr noundef nonnull @.str.74, ptr noundef nonnull @d_lite_zero, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %145, ptr noundef nonnull @.str.77, ptr noundef nonnull @d_lite_gregorian_p, i32 noundef 0) #21
   %146 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_private_method(i64 noundef %146, ptr noundef nonnull @.str.11, ptr noundef nonnull @d_lite_zero, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %146, ptr noundef nonnull @.str.31, ptr noundef nonnull @d_lite_leap_p, i32 noundef 0) #21
   %147 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_private_method(i64 noundef %147, ptr noundef nonnull @.str.75, ptr noundef nonnull @d_lite_zero, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %147, ptr noundef nonnull @.str.78, ptr noundef nonnull @d_lite_start, i32 noundef 0) #21
   %148 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %148, ptr noundef nonnull @.str.76, ptr noundef nonnull @d_lite_julian_p, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %148, ptr noundef nonnull @.str.79, ptr noundef nonnull @d_lite_new_start, i32 noundef -1) #21
   %149 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %149, ptr noundef nonnull @.str.77, ptr noundef nonnull @d_lite_gregorian_p, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %149, ptr noundef nonnull @.str.80, ptr noundef nonnull @d_lite_italy, i32 noundef 0) #21
   %150 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %150, ptr noundef nonnull @.str.31, ptr noundef nonnull @d_lite_leap_p, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %150, ptr noundef nonnull @.str.81, ptr noundef nonnull @d_lite_england, i32 noundef 0) #21
   %151 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %151, ptr noundef nonnull @.str.78, ptr noundef nonnull @d_lite_start, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %151, ptr noundef nonnull @.str.82, ptr noundef nonnull @d_lite_julian, i32 noundef 0) #21
   %152 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %152, ptr noundef nonnull @.str.79, ptr noundef nonnull @d_lite_new_start, i32 noundef -1) #21
+  tail call void @rb_define_method(i64 noundef %152, ptr noundef nonnull @.str.83, ptr noundef nonnull @d_lite_gregorian, i32 noundef 0) #21
   %153 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %153, ptr noundef nonnull @.str.80, ptr noundef nonnull @d_lite_italy, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %153, ptr noundef nonnull @.str.84, ptr noundef nonnull @d_lite_plus, i32 noundef 1) #21
   %154 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %154, ptr noundef nonnull @.str.81, ptr noundef nonnull @d_lite_england, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %154, ptr noundef nonnull @.str.85, ptr noundef nonnull @d_lite_minus, i32 noundef 1) #21
   %155 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %155, ptr noundef nonnull @.str.82, ptr noundef nonnull @d_lite_julian, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %155, ptr noundef nonnull @.str.86, ptr noundef nonnull @d_lite_next_day, i32 noundef -1) #21
   %156 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %156, ptr noundef nonnull @.str.83, ptr noundef nonnull @d_lite_gregorian, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %156, ptr noundef nonnull @.str.87, ptr noundef nonnull @d_lite_prev_day, i32 noundef -1) #21
   %157 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %157, ptr noundef nonnull @.str.84, ptr noundef nonnull @d_lite_plus, i32 noundef 1) #21
+  tail call void @rb_define_method(i64 noundef %157, ptr noundef nonnull @.str.88, ptr noundef nonnull @d_lite_next, i32 noundef 0) #21
   %158 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %158, ptr noundef nonnull @.str.85, ptr noundef nonnull @d_lite_minus, i32 noundef 1) #21
+  tail call void @rb_define_method(i64 noundef %158, ptr noundef nonnull @.str.89, ptr noundef nonnull @d_lite_next, i32 noundef 0) #21
   %159 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %159, ptr noundef nonnull @.str.86, ptr noundef nonnull @d_lite_next_day, i32 noundef -1) #21
+  tail call void @rb_define_method(i64 noundef %159, ptr noundef nonnull @.str.90, ptr noundef nonnull @d_lite_rshift, i32 noundef 1) #21
   %160 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %160, ptr noundef nonnull @.str.87, ptr noundef nonnull @d_lite_prev_day, i32 noundef -1) #21
+  tail call void @rb_define_method(i64 noundef %160, ptr noundef nonnull @.str.91, ptr noundef nonnull @d_lite_lshift, i32 noundef 1) #21
   %161 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %161, ptr noundef nonnull @.str.88, ptr noundef nonnull @d_lite_next, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %161, ptr noundef nonnull @.str.92, ptr noundef nonnull @d_lite_next_month, i32 noundef -1) #21
   %162 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %162, ptr noundef nonnull @.str.89, ptr noundef nonnull @d_lite_next, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %162, ptr noundef nonnull @.str.93, ptr noundef nonnull @d_lite_prev_month, i32 noundef -1) #21
   %163 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %163, ptr noundef nonnull @.str.90, ptr noundef nonnull @d_lite_rshift, i32 noundef 1) #21
+  tail call void @rb_define_method(i64 noundef %163, ptr noundef nonnull @.str.94, ptr noundef nonnull @d_lite_next_year, i32 noundef -1) #21
   %164 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %164, ptr noundef nonnull @.str.91, ptr noundef nonnull @d_lite_lshift, i32 noundef 1) #21
+  tail call void @rb_define_method(i64 noundef %164, ptr noundef nonnull @.str.95, ptr noundef nonnull @d_lite_prev_year, i32 noundef -1) #21
   %165 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %165, ptr noundef nonnull @.str.92, ptr noundef nonnull @d_lite_next_month, i32 noundef -1) #21
+  tail call void @rb_define_method(i64 noundef %165, ptr noundef nonnull @.str.96, ptr noundef nonnull @d_lite_step, i32 noundef -1) #21
   %166 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %166, ptr noundef nonnull @.str.93, ptr noundef nonnull @d_lite_prev_month, i32 noundef -1) #21
+  tail call void @rb_define_method(i64 noundef %166, ptr noundef nonnull @.str.97, ptr noundef nonnull @d_lite_upto, i32 noundef 1) #21
   %167 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %167, ptr noundef nonnull @.str.94, ptr noundef nonnull @d_lite_next_year, i32 noundef -1) #21
+  tail call void @rb_define_method(i64 noundef %167, ptr noundef nonnull @.str.98, ptr noundef nonnull @d_lite_downto, i32 noundef 1) #21
   %168 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %168, ptr noundef nonnull @.str.95, ptr noundef nonnull @d_lite_prev_year, i32 noundef -1) #21
+  tail call void @rb_define_method(i64 noundef %168, ptr noundef nonnull @.str, ptr noundef nonnull @d_lite_cmp, i32 noundef 1) #21
   %169 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %169, ptr noundef nonnull @.str.96, ptr noundef nonnull @d_lite_step, i32 noundef -1) #21
+  tail call void @rb_define_method(i64 noundef %169, ptr noundef nonnull @.str.99, ptr noundef nonnull @d_lite_equal, i32 noundef 1) #21
   %170 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %170, ptr noundef nonnull @.str.97, ptr noundef nonnull @d_lite_upto, i32 noundef 1) #21
+  tail call void @rb_define_method(i64 noundef %170, ptr noundef nonnull @.str.100, ptr noundef nonnull @d_lite_eql_p, i32 noundef 1) #21
   %171 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %171, ptr noundef nonnull @.str.98, ptr noundef nonnull @d_lite_downto, i32 noundef 1) #21
+  tail call void @rb_define_method(i64 noundef %171, ptr noundef nonnull @.str.101, ptr noundef nonnull @d_lite_hash, i32 noundef 0) #21
   %172 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %172, ptr noundef nonnull @.str, ptr noundef nonnull @d_lite_cmp, i32 noundef 1) #21
+  tail call void @rb_define_method(i64 noundef %172, ptr noundef nonnull @.str.102, ptr noundef nonnull @d_lite_to_s, i32 noundef 0) #21
   %173 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %173, ptr noundef nonnull @.str.99, ptr noundef nonnull @d_lite_equal, i32 noundef 1) #21
+  tail call void @rb_define_method(i64 noundef %173, ptr noundef nonnull @.str.103, ptr noundef nonnull @d_lite_inspect, i32 noundef 0) #21
   %174 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %174, ptr noundef nonnull @.str.100, ptr noundef nonnull @d_lite_eql_p, i32 noundef 1) #21
+  tail call void @rb_define_method(i64 noundef %174, ptr noundef nonnull @.str.104, ptr noundef nonnull @d_lite_strftime, i32 noundef -1) #21
   %175 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %175, ptr noundef nonnull @.str.101, ptr noundef nonnull @d_lite_hash, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %175, ptr noundef nonnull @.str.105, ptr noundef nonnull @d_lite_asctime, i32 noundef 0) #21
   %176 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %176, ptr noundef nonnull @.str.102, ptr noundef nonnull @d_lite_to_s, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %176, ptr noundef nonnull @.str.106, ptr noundef nonnull @d_lite_asctime, i32 noundef 0) #21
   %177 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %177, ptr noundef nonnull @.str.103, ptr noundef nonnull @d_lite_inspect, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %177, ptr noundef nonnull @.str.42, ptr noundef nonnull @d_lite_iso8601, i32 noundef 0) #21
   %178 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %178, ptr noundef nonnull @.str.104, ptr noundef nonnull @d_lite_strftime, i32 noundef -1) #21
+  tail call void @rb_define_method(i64 noundef %178, ptr noundef nonnull @.str.46, ptr noundef nonnull @d_lite_iso8601, i32 noundef 0) #21
   %179 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %179, ptr noundef nonnull @.str.105, ptr noundef nonnull @d_lite_asctime, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %179, ptr noundef nonnull @.str.44, ptr noundef nonnull @d_lite_rfc3339, i32 noundef 0) #21
   %180 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %180, ptr noundef nonnull @.str.106, ptr noundef nonnull @d_lite_asctime, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %180, ptr noundef nonnull @.str.49, ptr noundef nonnull @d_lite_rfc2822, i32 noundef 0) #21
   %181 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %181, ptr noundef nonnull @.str.42, ptr noundef nonnull @d_lite_iso8601, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %181, ptr noundef nonnull @.str.50, ptr noundef nonnull @d_lite_rfc2822, i32 noundef 0) #21
   %182 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %182, ptr noundef nonnull @.str.46, ptr noundef nonnull @d_lite_iso8601, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %182, ptr noundef nonnull @.str.52, ptr noundef nonnull @d_lite_httpdate, i32 noundef 0) #21
   %183 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %183, ptr noundef nonnull @.str.44, ptr noundef nonnull @d_lite_rfc3339, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %183, ptr noundef nonnull @.str.54, ptr noundef nonnull @d_lite_jisx0301, i32 noundef 0) #21
   %184 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %184, ptr noundef nonnull @.str.49, ptr noundef nonnull @d_lite_rfc2822, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %184, ptr noundef nonnull @.str.107, ptr noundef nonnull @d_lite_deconstruct_keys, i32 noundef 1) #21
   %185 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %185, ptr noundef nonnull @.str.50, ptr noundef nonnull @d_lite_rfc2822, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %185, ptr noundef nonnull @.str.108, ptr noundef nonnull @d_lite_marshal_dump, i32 noundef 0) #21
   %186 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %186, ptr noundef nonnull @.str.52, ptr noundef nonnull @d_lite_httpdate, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %186, ptr noundef nonnull @.str.109, ptr noundef nonnull @d_lite_marshal_load, i32 noundef 1) #21
   %187 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %187, ptr noundef nonnull @.str.54, ptr noundef nonnull @d_lite_jisx0301, i32 noundef 0) #21
+  tail call void @rb_define_singleton_method(i64 noundef %187, ptr noundef nonnull @.str.110, ptr noundef nonnull @date_s__load, i32 noundef 1) #21
   %188 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %188, ptr noundef nonnull @.str.107, ptr noundef nonnull @d_lite_deconstruct_keys, i32 noundef 1) #21
-  %189 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %189, ptr noundef nonnull @.str.108, ptr noundef nonnull @d_lite_marshal_dump, i32 noundef 0) #21
-  %190 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %190, ptr noundef nonnull @.str.109, ptr noundef nonnull @d_lite_marshal_load, i32 noundef 1) #21
-  %191 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %191, ptr noundef nonnull @.str.110, ptr noundef nonnull @date_s__load, i32 noundef 1) #21
-  %192 = load i64, ptr @cDate, align 8, !tbaa !6
-  %193 = tail call i64 @rb_define_class(ptr noundef nonnull @.str.111, i64 noundef %192) #21
-  store i64 %193, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_alloc_func(i64 noundef %193, ptr noundef nonnull @d_lite_s_alloc_complex) #21
+  %189 = tail call i64 @rb_define_class(ptr noundef nonnull @.str.111, i64 noundef %188) #21
+  store i64 %189, ptr @cDateTime, align 8, !tbaa !6
+  tail call void @rb_define_alloc_func(i64 noundef %189, ptr noundef nonnull @d_lite_s_alloc_complex) #21
+  %190 = load i64, ptr @cDateTime, align 8, !tbaa !6
+  tail call void @rb_define_singleton_method(i64 noundef %190, ptr noundef nonnull @.str.32, ptr noundef nonnull @datetime_s_jd, i32 noundef -1) #21
+  %191 = load i64, ptr @cDateTime, align 8, !tbaa !6
+  tail call void @rb_define_singleton_method(i64 noundef %191, ptr noundef nonnull @.str.33, ptr noundef nonnull @datetime_s_ordinal, i32 noundef -1) #21
+  %192 = load i64, ptr @cDateTime, align 8, !tbaa !6
+  tail call void @rb_define_singleton_method(i64 noundef %192, ptr noundef nonnull @.str.34, ptr noundef nonnull @datetime_s_civil, i32 noundef -1) #21
+  %193 = load i64, ptr @cDateTime, align 8, !tbaa !6
+  tail call void @rb_define_singleton_method(i64 noundef %193, ptr noundef nonnull @.str.112, ptr noundef nonnull @datetime_s_civil, i32 noundef -1) #21
   %194 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %194, ptr noundef nonnull @.str.32, ptr noundef nonnull @datetime_s_jd, i32 noundef -1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %194, ptr noundef nonnull @.str.35, ptr noundef nonnull @datetime_s_commercial, i32 noundef -1) #21
   %195 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %195, ptr noundef nonnull @.str.33, ptr noundef nonnull @datetime_s_ordinal, i32 noundef -1) #21
-  %196 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %196, ptr noundef nonnull @.str.34, ptr noundef nonnull @datetime_s_civil, i32 noundef -1) #21
-  %197 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %197, ptr noundef nonnull @.str.112, ptr noundef nonnull @datetime_s_civil, i32 noundef -1) #21
-  %198 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %198, ptr noundef nonnull @.str.35, ptr noundef nonnull @datetime_s_commercial, i32 noundef -1) #21
-  %199 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  %200 = icmp eq i64 %199, 0
-  %201 = and i64 %199, 7
-  %202 = icmp ne i64 %201, 0
-  %203 = or i1 %200, %202
-  br i1 %203, label %207, label %204
+  %196 = icmp eq i64 %195, 0
+  %197 = and i64 %195, 7
+  %198 = icmp ne i64 %197, 0
+  %199 = or i1 %196, %198
+  br i1 %199, label %203, label %200
 
-204:                                              ; preds = %mk_ary_of_str.exit15
-  %205 = inttoptr i64 %199 to ptr
-  %206 = getelementptr inbounds nuw i8, ptr %205, i64 8
+200:                                              ; preds = %mk_ary_of_str.exit15
+  %201 = inttoptr i64 %195 to ptr
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 8
   br label %rb_class_of.exit
 
-207:                                              ; preds = %mk_ary_of_str.exit15
-  switch i64 %199, label %210 [
+203:                                              ; preds = %mk_ary_of_str.exit15
+  switch i64 %195, label %206 [
     i64 0, label %rb_class_of.exit
-    i64 4, label %208
-    i64 20, label %209
+    i64 4, label %204
+    i64 20, label %205
   ]
 
-208:                                              ; preds = %207
+204:                                              ; preds = %203
   br label %rb_class_of.exit
 
-209:                                              ; preds = %207
+205:                                              ; preds = %203
   br label %rb_class_of.exit
 
-210:                                              ; preds = %207
-  %211 = and i64 %199, 1
-  %.not.i17 = icmp eq i64 %211, 0
-  br i1 %.not.i17, label %212, label %rb_class_of.exit
+206:                                              ; preds = %203
+  %207 = and i64 %195, 1
+  %.not.i17 = icmp eq i64 %207, 0
+  br i1 %.not.i17, label %208, label %rb_class_of.exit
 
-212:                                              ; preds = %210
-  %213 = and i64 %199, 254
-  %214 = icmp eq i64 %213, 12
-  %spec.select.i = select i1 %214, ptr @rb_cSymbol, ptr @rb_cFloat
+208:                                              ; preds = %206
+  %209 = and i64 %195, 254
+  %210 = icmp eq i64 %209, 12
+  %spec.select.i = select i1 %210, ptr @rb_cSymbol, ptr @rb_cFloat
   br label %rb_class_of.exit
 
-rb_class_of.exit:                                 ; preds = %204, %207, %208, %209, %210, %212
-  %.0.in.i = phi ptr [ @rb_cNilClass, %208 ], [ @rb_cTrueClass, %209 ], [ %206, %204 ], [ @rb_cFalseClass, %207 ], [ @rb_cInteger, %210 ], [ %spec.select.i, %212 ]
+rb_class_of.exit:                                 ; preds = %200, %203, %204, %205, %206, %208
+  %.0.in.i = phi ptr [ @rb_cNilClass, %204 ], [ @rb_cTrueClass, %205 ], [ %202, %200 ], [ @rb_cFalseClass, %203 ], [ @rb_cInteger, %206 ], [ %spec.select.i, %208 ]
   %.0.i16 = load i64, ptr %.0.in.i, align 8, !tbaa !6
   tail call void @rb_undef_method(i64 noundef %.0.i16, ptr noundef nonnull @.str.36) #21
+  %211 = load i64, ptr @cDateTime, align 8, !tbaa !6
+  tail call void @rb_define_singleton_method(i64 noundef %211, ptr noundef nonnull @.str.113, ptr noundef nonnull @datetime_s_now, i32 noundef -1) #21
+  %212 = load i64, ptr @cDateTime, align 8, !tbaa !6
+  tail call void @rb_define_singleton_method(i64 noundef %212, ptr noundef nonnull @.str.37, ptr noundef nonnull @datetime_s__strptime, i32 noundef -1) #21
+  %213 = load i64, ptr @cDateTime, align 8, !tbaa !6
+  tail call void @rb_define_singleton_method(i64 noundef %213, ptr noundef nonnull @.str.38, ptr noundef nonnull @datetime_s_strptime, i32 noundef -1) #21
+  %214 = load i64, ptr @cDateTime, align 8, !tbaa !6
+  tail call void @rb_define_singleton_method(i64 noundef %214, ptr noundef nonnull @.str.40, ptr noundef nonnull @datetime_s_parse, i32 noundef -1) #21
   %215 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %215, ptr noundef nonnull @.str.113, ptr noundef nonnull @datetime_s_now, i32 noundef -1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %215, ptr noundef nonnull @.str.42, ptr noundef nonnull @datetime_s_iso8601, i32 noundef -1) #21
   %216 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %216, ptr noundef nonnull @.str.37, ptr noundef nonnull @datetime_s__strptime, i32 noundef -1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %216, ptr noundef nonnull @.str.44, ptr noundef nonnull @datetime_s_rfc3339, i32 noundef -1) #21
   %217 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %217, ptr noundef nonnull @.str.38, ptr noundef nonnull @datetime_s_strptime, i32 noundef -1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %217, ptr noundef nonnull @.str.46, ptr noundef nonnull @datetime_s_xmlschema, i32 noundef -1) #21
   %218 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %218, ptr noundef nonnull @.str.40, ptr noundef nonnull @datetime_s_parse, i32 noundef -1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %218, ptr noundef nonnull @.str.49, ptr noundef nonnull @datetime_s_rfc2822, i32 noundef -1) #21
   %219 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %219, ptr noundef nonnull @.str.42, ptr noundef nonnull @datetime_s_iso8601, i32 noundef -1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %219, ptr noundef nonnull @.str.50, ptr noundef nonnull @datetime_s_rfc2822, i32 noundef -1) #21
   %220 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %220, ptr noundef nonnull @.str.44, ptr noundef nonnull @datetime_s_rfc3339, i32 noundef -1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %220, ptr noundef nonnull @.str.52, ptr noundef nonnull @datetime_s_httpdate, i32 noundef -1) #21
   %221 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %221, ptr noundef nonnull @.str.46, ptr noundef nonnull @datetime_s_xmlschema, i32 noundef -1) #21
+  tail call void @rb_define_singleton_method(i64 noundef %221, ptr noundef nonnull @.str.54, ptr noundef nonnull @datetime_s_jisx0301, i32 noundef -1) #21
   %222 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %222, ptr noundef nonnull @.str.49, ptr noundef nonnull @datetime_s_rfc2822, i32 noundef -1) #21
+  tail call void @rb_define_method(i64 noundef %222, ptr noundef nonnull @.str.9, ptr noundef nonnull @d_lite_hour, i32 noundef 0) #21
   %223 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %223, ptr noundef nonnull @.str.50, ptr noundef nonnull @datetime_s_rfc2822, i32 noundef -1) #21
+  tail call void @rb_define_method(i64 noundef %223, ptr noundef nonnull @.str.10, ptr noundef nonnull @d_lite_min, i32 noundef 0) #21
   %224 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %224, ptr noundef nonnull @.str.52, ptr noundef nonnull @datetime_s_httpdate, i32 noundef -1) #21
+  tail call void @rb_define_method(i64 noundef %224, ptr noundef nonnull @.str.74, ptr noundef nonnull @d_lite_min, i32 noundef 0) #21
   %225 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %225, ptr noundef nonnull @.str.54, ptr noundef nonnull @datetime_s_jisx0301, i32 noundef -1) #21
+  tail call void @rb_define_method(i64 noundef %225, ptr noundef nonnull @.str.11, ptr noundef nonnull @d_lite_sec, i32 noundef 0) #21
   %226 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %226, ptr noundef nonnull @.str.9, ptr noundef nonnull @d_lite_hour, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %226, ptr noundef nonnull @.str.75, ptr noundef nonnull @d_lite_sec, i32 noundef 0) #21
   %227 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %227, ptr noundef nonnull @.str.10, ptr noundef nonnull @d_lite_min, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %227, ptr noundef nonnull @.str.12, ptr noundef nonnull @d_lite_sec_fraction, i32 noundef 0) #21
   %228 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %228, ptr noundef nonnull @.str.74, ptr noundef nonnull @d_lite_min, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %228, ptr noundef nonnull @.str.114, ptr noundef nonnull @d_lite_sec_fraction, i32 noundef 0) #21
   %229 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %229, ptr noundef nonnull @.str.11, ptr noundef nonnull @d_lite_sec, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %229, ptr noundef nonnull @.str.115, ptr noundef nonnull @d_lite_offset, i32 noundef 0) #21
   %230 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %230, ptr noundef nonnull @.str.75, ptr noundef nonnull @d_lite_sec, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %230, ptr noundef nonnull @.str.13, ptr noundef nonnull @d_lite_zone, i32 noundef 0) #21
   %231 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %231, ptr noundef nonnull @.str.12, ptr noundef nonnull @d_lite_sec_fraction, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %231, ptr noundef nonnull @.str.116, ptr noundef nonnull @d_lite_new_offset, i32 noundef -1) #21
   %232 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %232, ptr noundef nonnull @.str.114, ptr noundef nonnull @d_lite_sec_fraction, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %232, ptr noundef nonnull @.str.102, ptr noundef nonnull @dt_lite_to_s, i32 noundef 0) #21
   %233 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %233, ptr noundef nonnull @.str.115, ptr noundef nonnull @d_lite_offset, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %233, ptr noundef nonnull @.str.104, ptr noundef nonnull @dt_lite_strftime, i32 noundef -1) #21
   %234 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %234, ptr noundef nonnull @.str.13, ptr noundef nonnull @d_lite_zone, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %234, ptr noundef nonnull @.str.42, ptr noundef nonnull @dt_lite_iso8601, i32 noundef -1) #21
   %235 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %235, ptr noundef nonnull @.str.116, ptr noundef nonnull @d_lite_new_offset, i32 noundef -1) #21
+  tail call void @rb_define_method(i64 noundef %235, ptr noundef nonnull @.str.46, ptr noundef nonnull @dt_lite_iso8601, i32 noundef -1) #21
   %236 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %236, ptr noundef nonnull @.str.102, ptr noundef nonnull @dt_lite_to_s, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %236, ptr noundef nonnull @.str.44, ptr noundef nonnull @dt_lite_rfc3339, i32 noundef -1) #21
   %237 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %237, ptr noundef nonnull @.str.104, ptr noundef nonnull @dt_lite_strftime, i32 noundef -1) #21
+  tail call void @rb_define_method(i64 noundef %237, ptr noundef nonnull @.str.54, ptr noundef nonnull @dt_lite_jisx0301, i32 noundef -1) #21
   %238 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %238, ptr noundef nonnull @.str.42, ptr noundef nonnull @dt_lite_iso8601, i32 noundef -1) #21
-  %239 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %239, ptr noundef nonnull @.str.46, ptr noundef nonnull @dt_lite_iso8601, i32 noundef -1) #21
-  %240 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %240, ptr noundef nonnull @.str.44, ptr noundef nonnull @dt_lite_rfc3339, i32 noundef -1) #21
-  %241 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %241, ptr noundef nonnull @.str.54, ptr noundef nonnull @dt_lite_jisx0301, i32 noundef -1) #21
-  %242 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %242, ptr noundef nonnull @.str.107, ptr noundef nonnull @dt_lite_deconstruct_keys, i32 noundef 1) #21
-  %243 = load i64, ptr @rb_cTime, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %243, ptr noundef nonnull @.str.117, ptr noundef nonnull @time_to_time, i32 noundef 0) #21
-  %244 = load i64, ptr @rb_cTime, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %244, ptr noundef nonnull @.str.118, ptr noundef nonnull @time_to_date, i32 noundef 0) #21
-  %245 = load i64, ptr @rb_cTime, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %245, ptr noundef nonnull @.str.119, ptr noundef nonnull @time_to_datetime, i32 noundef 0) #21
-  %246 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %246, ptr noundef nonnull @.str.117, ptr noundef nonnull @date_to_time, i32 noundef 0) #21
-  %247 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %247, ptr noundef nonnull @.str.118, ptr noundef nonnull @date_to_date, i32 noundef 0) #21
-  %248 = load i64, ptr @cDate, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %248, ptr noundef nonnull @.str.119, ptr noundef nonnull @date_to_datetime, i32 noundef 0) #21
-  %249 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %249, ptr noundef nonnull @.str.117, ptr noundef nonnull @datetime_to_time, i32 noundef 0) #21
-  %250 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %250, ptr noundef nonnull @.str.118, ptr noundef nonnull @datetime_to_date, i32 noundef 0) #21
-  %251 = load i64, ptr @cDateTime, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %251, ptr noundef nonnull @.str.119, ptr noundef nonnull @datetime_to_datetime, i32 noundef 0) #21
+  tail call void @rb_define_method(i64 noundef %238, ptr noundef nonnull @.str.107, ptr noundef nonnull @dt_lite_deconstruct_keys, i32 noundef 1) #21
+  %239 = load i64, ptr @rb_cTime, align 8, !tbaa !6
+  tail call void @rb_define_method(i64 noundef %239, ptr noundef nonnull @.str.117, ptr noundef nonnull @time_to_time, i32 noundef 0) #21
+  %240 = load i64, ptr @rb_cTime, align 8, !tbaa !6
+  tail call void @rb_define_method(i64 noundef %240, ptr noundef nonnull @.str.118, ptr noundef nonnull @time_to_date, i32 noundef 0) #21
+  %241 = load i64, ptr @rb_cTime, align 8, !tbaa !6
+  tail call void @rb_define_method(i64 noundef %241, ptr noundef nonnull @.str.119, ptr noundef nonnull @time_to_datetime, i32 noundef 0) #21
+  %242 = load i64, ptr @cDate, align 8, !tbaa !6
+  tail call void @rb_define_method(i64 noundef %242, ptr noundef nonnull @.str.117, ptr noundef nonnull @date_to_time, i32 noundef 0) #21
+  %243 = load i64, ptr @cDate, align 8, !tbaa !6
+  tail call void @rb_define_method(i64 noundef %243, ptr noundef nonnull @.str.118, ptr noundef nonnull @date_to_date, i32 noundef 0) #21
+  %244 = load i64, ptr @cDate, align 8, !tbaa !6
+  tail call void @rb_define_method(i64 noundef %244, ptr noundef nonnull @.str.119, ptr noundef nonnull @date_to_datetime, i32 noundef 0) #21
+  %245 = load i64, ptr @cDateTime, align 8, !tbaa !6
+  tail call void @rb_define_method(i64 noundef %245, ptr noundef nonnull @.str.117, ptr noundef nonnull @datetime_to_time, i32 noundef 0) #21
+  %246 = load i64, ptr @cDateTime, align 8, !tbaa !6
+  tail call void @rb_define_method(i64 noundef %246, ptr noundef nonnull @.str.118, ptr noundef nonnull @datetime_to_date, i32 noundef 0) #21
+  %247 = load i64, ptr @cDateTime, align 8, !tbaa !6
+  tail call void @rb_define_method(i64 noundef %247, ptr noundef nonnull @.str.119, ptr noundef nonnull @datetime_to_datetime, i32 noundef 0) #21
   ret void
 }
 

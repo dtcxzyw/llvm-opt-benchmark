@@ -1478,38 +1478,34 @@ define internal void @parse_cmd_option(ptr readnone captures(none) %0, ptr nound
   %scevgep.i = getelementptr i8, ptr %1, i64 8
   br label %4
 
-4:                                                ; preds = %6, %3
-  %.07.i = phi ptr [ %1, %3 ], [ %7, %6 ]
-  %.06.idx.i = phi i64 [ 0, %3 ], [ %.06.add.i, %6 ]
-  %.06.ptr.i = getelementptr inbounds nuw i8, ptr @.str.3, i64 %.06.idx.i
-  %5 = load i8, ptr %.06.ptr.i, align 1, !tbaa !24
+4:                                                ; preds = %5, %3
+  %.07.i = phi ptr [ %1, %3 ], [ %7, %5 ]
+  %.06.idx.i = phi i64 [ 0, %3 ], [ %.06.add.i, %5 ]
   %exitcond.i = icmp eq i64 %.06.idx.i, 8
-  br i1 %exitcond.i, label %skip_prefix.exit, label %6
+  br i1 %exitcond.i, label %10, label %5
 
-6:                                                ; preds = %4
+5:                                                ; preds = %4
+  %.06.ptr.i = getelementptr inbounds nuw i8, ptr @.str.3, i64 %.06.idx.i
+  %6 = load i8, ptr %.06.ptr.i, align 1, !tbaa !24
   %7 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
   %8 = load i8, ptr %.07.i, align 1, !tbaa !24
   %.06.add.i = add nuw nsw i64 %.06.idx.i, 1
-  %9 = icmp eq i8 %8, %5
+  %9 = icmp eq i8 %8, %6
   br i1 %9, label %4, label %skip_prefix.exit, !llvm.loop !60
 
-skip_prefix.exit:                                 ; preds = %4, %6
-  %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %10, label %16
-
-10:                                               ; preds = %skip_prefix.exit
+10:                                               ; preds = %4
   %11 = load i8, ptr %scevgep.i, align 1, !tbaa !24
   %12 = sext i8 %11 to i32
   %.b = load i1, ptr @line_termination, align 1
   %13 = select i1 %.b, i32 0, i32 10
   %14 = icmp eq i32 %13, %12
-  br i1 %14, label %15, label %16
+  br i1 %14, label %15, label %skip_prefix.exit
 
 15:                                               ; preds = %10
   store i32 1, ptr @update_flags, align 4, !tbaa !4
   ret void
 
-16:                                               ; preds = %10, %skip_prefix.exit
+skip_prefix.exit:                                 ; preds = %5, %10
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.77, ptr noundef %1) #12
   unreachable
 }

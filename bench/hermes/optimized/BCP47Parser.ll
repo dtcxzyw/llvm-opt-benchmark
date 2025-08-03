@@ -4444,9 +4444,9 @@ while.end:                                        ; preds = %land.rhs, %if.end70
   %_M_string_length.i.i228 = getelementptr inbounds nuw i8, ptr %this, i64 248
   %75 = load i64, ptr %_M_string_length.i.i228, align 8
   %cmp.i229 = icmp eq i64 %75, 0
-  br i1 %cmp.i229, label %if.end80, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit258
+  br i1 %cmp.i229, label %if.end80, label %while.cond.i.i230.preheader
 
-_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit258: ; preds = %while.end
+while.cond.i.i230.preheader:                      ; preds = %while.end
   %transformedLanguageIdentifier = getelementptr inbounds nuw i8, ptr %this, i64 240
   store i16 45, ptr %74, align 8
   store i64 1, ptr %_M_string_length.i.i.i227, align 8
@@ -4456,11 +4456,11 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit258: ; 
   %cmp.i.i.i262 = icmp ugt i64 %75, 2305843009213693950
   br i1 %cmp.i.i.i262, label %if.then.i.i.i281, label %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i266
 
-if.then.i.i.i281:                                 ; preds = %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit258
+if.then.i.i.i281:                                 ; preds = %while.cond.i.i230.preheader
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #16
   unreachable
 
-_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i266: ; preds = %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit258
+_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i266: ; preds = %while.cond.i.i230.preheader
   %add.i.i.i264 = add nuw nsw i64 %75, 1
   %cmp.not.i.i.i268 = icmp samesign ugt i64 %75, 6
   br i1 %cmp.not.i.i.i268, label %if.else.i.i.i278, label %if.then3.i.i.i271
@@ -5370,9 +5370,9 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit736: ;
   %_M_string_length.i.i737 = getelementptr inbounds nuw i8, ptr %__begin2165.sroa.0.01158, i64 72
   %179 = load i64, ptr %_M_string_length.i.i737, align 8
   %cmp.i738 = icmp eq i64 %179, 0
-  br i1 %cmp.i738, label %for.inc188, label %for.body.i.i.i.i.preheader
+  br i1 %cmp.i738, label %for.inc188, label %while.cond.i.i.i.i.preheader
 
-for.body.i.i.i.i.preheader:                       ; preds = %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit736
+while.cond.i.i.i.i.preheader:                     ; preds = %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit736
   %.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %179, i64 4)
   %180 = load ptr, ptr %second179, align 8
   br label %for.body.i.i.i.i
@@ -5382,8 +5382,8 @@ for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
   %exitcond.not.i.i.i.i = icmp eq i64 %inc.i5.i.i.i, %.sroa.speculated.i.i.i
   br i1 %exitcond.not.i.i.i.i, label %_ZStneIDsSt11char_traitsIDsESaIDsEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit, label %for.body.i.i.i.i, !llvm.loop !26
 
-for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.preheader, %for.cond.i.i.i.i
-  %__i.010.i.i.i.i = phi i64 [ %inc.i5.i.i.i, %for.cond.i.i.i.i ], [ 0, %for.body.i.i.i.i.preheader ]
+for.body.i.i.i.i:                                 ; preds = %while.cond.i.i.i.i.preheader, %for.cond.i.i.i.i
+  %__i.010.i.i.i.i = phi i64 [ %inc.i5.i.i.i, %for.cond.i.i.i.i ], [ 0, %while.cond.i.i.i.i.preheader ]
   %arrayidx.i3.i.i.i = getelementptr inbounds nuw i16, ptr %180, i64 %__i.010.i.i.i.i
   %arrayidx1.i.i.i.i = getelementptr inbounds nuw i16, ptr @.str.2, i64 %__i.010.i.i.i.i
   %181 = load i16, ptr %arrayidx.i3.i.i.i, align 2

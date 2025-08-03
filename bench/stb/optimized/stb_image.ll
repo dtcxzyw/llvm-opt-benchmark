@@ -4362,8 +4362,8 @@ define range(i32 0, 2) i32 @stbi__hdr_test(ptr noundef %0) local_unnamed_addr #2
 
 12:                                               ; preds = %stbi__get8.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond = icmp eq i64 %indvars.iv.next.i, 11
-  br i1 %exitcond, label %stbi__hdr_test_core.exit, label %13, !llvm.loop !86
+  %.not.i = icmp eq i64 %indvars.iv.next.i, 11
+  br i1 %.not.i, label %stbi__hdr_test_core.exit, label %13, !llvm.loop !86
 
 13:                                               ; preds = %12, %1
   %14 = phi ptr [ %.pre12.i, %1 ], [ %42, %12 ]
@@ -4444,8 +4444,8 @@ stbi__hdr_test_core.exit:                         ; preds = %12
 
 53:                                               ; preds = %stbi__get8.exit.i13
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i8, 1
-  %exitcond23 = icmp eq i64 %indvars.iv.next.i17, 7
-  br i1 %exitcond23, label %stbi__hdr_test_core.exit20, label %54, !llvm.loop !86
+  %.not.i18 = icmp eq i64 %indvars.iv.next.i17, 7
+  br i1 %.not.i18, label %stbi__hdr_test_core.exit20, label %54, !llvm.loop !86
 
 54:                                               ; preds = %53, %49
   %55 = phi ptr [ %50, %49 ], [ %84, %53 ]
@@ -4514,11 +4514,11 @@ stbi__get8.exit.i13:                              ; preds = %stbi__refill_buffer
   br i1 %.not8.i15, label %53, label %stbi__hdr_test_core.exit20
 
 stbi__hdr_test_core.exit20:                       ; preds = %stbi__get8.exit.i13, %53, %stbi__hdr_test_core.exit
-  %storemerge26 = phi ptr [ %47, %stbi__hdr_test_core.exit ], [ %84, %53 ], [ %84, %stbi__get8.exit.i13 ]
+  %storemerge25 = phi ptr [ %47, %stbi__hdr_test_core.exit ], [ %84, %53 ], [ %84, %stbi__get8.exit.i13 ]
   %storemerge.in = phi ptr [ %48, %stbi__hdr_test_core.exit ], [ %51, %53 ], [ %51, %stbi__get8.exit.i13 ]
   %.0 = phi i32 [ 1, %stbi__hdr_test_core.exit ], [ 0, %stbi__get8.exit.i13 ], [ 1, %53 ]
   %storemerge = load ptr, ptr %storemerge.in, align 8, !tbaa !15
-  store ptr %storemerge26, ptr %2, align 8, !tbaa !14
+  store ptr %storemerge25, ptr %2, align 8, !tbaa !14
   store ptr %storemerge, ptr %3, align 8, !tbaa !16
   ret i32 %.0
 }

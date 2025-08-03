@@ -5635,7 +5635,7 @@ psqlscan_extract_substring.exit:                  ; preds = %30, %12, %14
 
 .thread:                                          ; preds = %psqlscan_extract_substring.exit
   tail call void @free(ptr noundef nonnull %8) #27
-  br label %62
+  br label %49
 
 37:                                               ; preds = %psqlscan_extract_substring.exit
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -5643,93 +5643,53 @@ psqlscan_extract_substring.exit:                  ; preds = %30, %12, %14
   %40 = tail call ptr %36(ptr noundef nonnull %8, i32 noundef 0, ptr noundef %39) #27
   tail call void @free(ptr noundef nonnull %8) #27
   %.not12 = icmp eq ptr %40, null
-  br i1 %.not12, label %62, label %41
+  br i1 %.not12, label %49, label %41
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = load i8, ptr %9, align 4, !range !6, !noundef !7
   %45 = trunc nuw i8 %44 to i1
-  br i1 %45, label %46, label %47
+  br i1 %45, label %46, label %.lr.ph.i14
 
 46:                                               ; preds = %41
   tail call void @appendBinaryPQExpBuffer(ptr noundef %43, ptr noundef nonnull @.str.21, i64 noundef 4) #27
   br label %psqlscan_emit.exit
 
-47:                                               ; preds = %41
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %51 = load ptr, ptr %50, align 8
-  %52 = ptrtoint ptr %51 to i64
-  %53 = sub i64 ptrtoint (ptr @.str.21 to i64), %52
-  %54 = getelementptr inbounds i8, ptr %49, i64 %53
-  br label %.lr.ph.i14
-
-.lr.ph.i14:                                       ; preds = %61, %47
-  %indvars.iv.i15 = phi i64 [ 0, %47 ], [ %indvars.iv.next.i17, %61 ]
-  %55 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %indvars.iv.i15
-  %56 = load i8, ptr %55, align 1
-  %57 = icmp eq i8 %56, -1
-  br i1 %57, label %58, label %61
-
-58:                                               ; preds = %.lr.ph.i14
-  %59 = getelementptr inbounds nuw i8, ptr %54, i64 %indvars.iv.i15
-  %60 = load i8, ptr %59, align 1
-  br label %61
-
-61:                                               ; preds = %58, %.lr.ph.i14
-  %.0.i16 = phi i8 [ %60, %58 ], [ %56, %.lr.ph.i14 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %43, i8 noundef signext %.0.i16) #27
+.lr.ph.i14:                                       ; preds = %41, %.lr.ph.i14
+  %indvars.iv.i15 = phi i64 [ %indvars.iv.next.i17, %.lr.ph.i14 ], [ 0, %41 ]
+  %47 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %indvars.iv.i15
+  %48 = load i8, ptr %47, align 1
+  tail call void @appendPQExpBufferChar(ptr noundef %43, i8 noundef signext %48) #27
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i15, 1
   %exitcond.not.i18 = icmp eq i64 %indvars.iv.next.i17, 4
   br i1 %exitcond.not.i18, label %psqlscan_emit.exit, label %.lr.ph.i14, !llvm.loop !8
 
-psqlscan_emit.exit:                               ; preds = %61, %46
-  tail call void @free(ptr noundef %40) #27
+psqlscan_emit.exit:                               ; preds = %.lr.ph.i14, %46
+  tail call void @free(ptr noundef nonnull %40) #27
   br label %psqlscan_emit.exit25
 
-62:                                               ; preds = %.thread, %37
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %64 = load ptr, ptr %63, align 8
-  %65 = load i8, ptr %9, align 4, !range !6, !noundef !7
-  %66 = trunc nuw i8 %65 to i1
-  br i1 %66, label %67, label %68
+49:                                               ; preds = %.thread, %37
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %51 = load ptr, ptr %50, align 8
+  %52 = load i8, ptr %9, align 4, !range !6, !noundef !7
+  %53 = trunc nuw i8 %52 to i1
+  br i1 %53, label %54, label %.lr.ph.i20
 
-67:                                               ; preds = %62
-  tail call void @appendBinaryPQExpBuffer(ptr noundef %64, ptr noundef nonnull @.str.22, i64 noundef 5) #27
+54:                                               ; preds = %49
+  tail call void @appendBinaryPQExpBuffer(ptr noundef %51, ptr noundef nonnull @.str.22, i64 noundef 5) #27
   br label %psqlscan_emit.exit25
 
-68:                                               ; preds = %62
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %72 = load ptr, ptr %71, align 8
-  %73 = ptrtoint ptr %72 to i64
-  %74 = sub i64 ptrtoint (ptr @.str.22 to i64), %73
-  %75 = getelementptr inbounds i8, ptr %70, i64 %74
-  br label %.lr.ph.i20
-
-.lr.ph.i20:                                       ; preds = %82, %68
-  %indvars.iv.i21 = phi i64 [ 0, %68 ], [ %indvars.iv.next.i23, %82 ]
-  %76 = getelementptr inbounds nuw i8, ptr @.str.22, i64 %indvars.iv.i21
-  %77 = load i8, ptr %76, align 1
-  %78 = icmp eq i8 %77, -1
-  br i1 %78, label %79, label %82
-
-79:                                               ; preds = %.lr.ph.i20
-  %80 = getelementptr inbounds nuw i8, ptr %75, i64 %indvars.iv.i21
-  %81 = load i8, ptr %80, align 1
-  br label %82
-
-82:                                               ; preds = %79, %.lr.ph.i20
-  %.0.i22 = phi i8 [ %81, %79 ], [ %77, %.lr.ph.i20 ]
-  tail call void @appendPQExpBufferChar(ptr noundef %64, i8 noundef signext %.0.i22) #27
+.lr.ph.i20:                                       ; preds = %49, %.lr.ph.i20
+  %indvars.iv.i21 = phi i64 [ %indvars.iv.next.i23, %.lr.ph.i20 ], [ 0, %49 ]
+  %55 = getelementptr inbounds nuw i8, ptr @.str.22, i64 %indvars.iv.i21
+  %56 = load i8, ptr %55, align 1
+  tail call void @appendPQExpBufferChar(ptr noundef %51, i8 noundef signext %56) #27
   %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i21, 1
   %exitcond.not.i24 = icmp eq i64 %indvars.iv.next.i23, 5
   br i1 %exitcond.not.i24, label %psqlscan_emit.exit25, label %.lr.ph.i20, !llvm.loop !8
 
-psqlscan_emit.exit25:                             ; preds = %82, %67, %psqlscan_emit.exit
+psqlscan_emit.exit25:                             ; preds = %.lr.ph.i20, %54, %psqlscan_emit.exit
   ret void
 }
 

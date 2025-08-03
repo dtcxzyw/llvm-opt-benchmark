@@ -236,7 +236,7 @@ _ZNK5folly5RangeIPKcE3strB5cxx11Ev.exit:          ; preds = %._crit_edge.i.i.i.i
 
 30:                                               ; preds = %_ZNK5folly5RangeIPKcE3strB5cxx11Ev.exit
   %31 = invoke noundef i32 @_ZN5folly13XlogLevelInfoILb1EE13loadLevelFullENS_5RangeIPKcEEb(ptr noundef nonnull align 4 dereferenceable(4) @_ZZZN7example13ExampleObjectC1EN5folly5RangeIPKcEEENKUlvE_clEvE23folly_detail_xlog_level, ptr nonnull @.str.21, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.21, i64 116), i1 noundef zeroext false)
-          to label %_ZZN7example13ExampleObjectC1EN5folly5RangeIPKcEEENKUlvE_clEv.exit unwind label %82
+          to label %_ZZN7example13ExampleObjectC1EN5folly5RangeIPKcEEENKUlvE_clEv.exit unwind label %79
 
 _ZZN7example13ExampleObjectC1EN5folly5RangeIPKcEEENKUlvE_clEv.exit: ; preds = %30
   %32 = icmp ult i32 %31, 1999
@@ -254,164 +254,158 @@ tailrecurse.i.i:                                  ; preds = %tailrecurse.backedg
   %35 = load i8, ptr %34, align 1, !tbaa !24
   switch i8 %35, label %.thread.i.i [
     i8 58, label %36
-    i8 0, label %39
+    i8 0, label %36
   ]
 
-36:                                               ; preds = %tailrecurse.i.i
-  %37 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.tr42.i.i
-  %38 = load i8, ptr %37, align 1, !tbaa !24
-  %.not.i.i = icmp eq i8 %38, 58
-  br i1 %.not.i.i, label %.thread.i.i, label %39
+36:                                               ; preds = %tailrecurse.i.i, %tailrecurse.i.i
+  %37 = icmp ne i64 %.tr42.i.i, 0
+  %or.cond.i.i = and i1 %.tr43.i.i, %37
+  br i1 %or.cond.i.i, label %38, label %54
 
-39:                                               ; preds = %36, %tailrecurse.i.i
-  %40 = icmp ne i64 %.tr42.i.i, 0
-  %or.cond.i.i = and i1 %.tr43.i.i, %40
-  br i1 %or.cond.i.i, label %41, label %57
+38:                                               ; preds = %36
+  %39 = getelementptr i8, ptr @.str.3, i64 %.tr42.i.i
+  %40 = getelementptr i8, ptr %39, i64 -1
+  %41 = load i8, ptr %40, align 1, !tbaa !24
+  %42 = icmp eq i8 %41, 47
+  br i1 %42, label %tailrecurse.i2.i.preheader, label %43
 
-41:                                               ; preds = %39
-  %42 = getelementptr i8, ptr @.str.3, i64 %.tr42.i.i
-  %43 = getelementptr i8, ptr %42, i64 -1
-  %44 = load i8, ptr %43, align 1, !tbaa !24
-  %45 = icmp eq i8 %44, 47
-  br i1 %45, label %tailrecurse.i2.i.preheader, label %46
+43:                                               ; preds = %38
+  %44 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.tr42.i.i
+  %45 = load i8, ptr %44, align 1, !tbaa !24
+  %46 = icmp eq i8 %45, 47
+  br i1 %46, label %tailrecurse.i2.i.preheader, label %54
 
-46:                                               ; preds = %41
-  %47 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.tr42.i.i
-  %48 = load i8, ptr %47, align 1, !tbaa !24
-  %49 = icmp eq i8 %48, 47
-  br i1 %49, label %tailrecurse.i2.i.preheader, label %57
-
-tailrecurse.i2.i.preheader:                       ; preds = %46, %41
+tailrecurse.i2.i.preheader:                       ; preds = %43, %38
   br label %tailrecurse.i2.i
 
-tailrecurse.i2.i:                                 ; preds = %tailrecurse.i2.i.preheader, %55
-  %.tr14.i.i = phi i64 [ %56, %55 ], [ %.tr42.i.i, %tailrecurse.i2.i.preheader ]
-  %50 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.tr14.i.i
-  %51 = load i8, ptr %50, align 1, !tbaa !24
-  switch i8 %51, label %.loopexit29.loopexit [
-    i8 0, label %52
-    i8 47, label %55
+tailrecurse.i2.i:                                 ; preds = %tailrecurse.i2.i.preheader, %52
+  %.tr14.i.i = phi i64 [ %53, %52 ], [ %.tr42.i.i, %tailrecurse.i2.i.preheader ]
+  %47 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.tr14.i.i
+  %48 = load i8, ptr %47, align 1, !tbaa !24
+  switch i8 %48, label %.loopexit29.loopexit [
+    i8 0, label %49
+    i8 47, label %52
   ]
+
+49:                                               ; preds = %tailrecurse.i2.i
+  %50 = add i64 %.tr41.i.i, 1
+  %51 = invoke noundef ptr @_ZN5folly6detail26xlogStripFilenameRecursiveEPKcS2_mmb(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.3, i64 noundef %50, i64 noundef 0, i1 noundef zeroext true) #24
+          to label %.loopexit29 unwind label %81
 
 52:                                               ; preds = %tailrecurse.i2.i
-  %53 = add i64 %.tr41.i.i, 1
-  %54 = invoke noundef ptr @_ZN5folly6detail26xlogStripFilenameRecursiveEPKcS2_mmb(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.3, i64 noundef %53, i64 noundef 0, i1 noundef zeroext true) #24
-          to label %.loopexit29 unwind label %84
-
-55:                                               ; preds = %tailrecurse.i2.i
-  %56 = add i64 %.tr14.i.i, 1
+  %53 = add i64 %.tr14.i.i, 1
   br label %tailrecurse.i2.i
 
-57:                                               ; preds = %46, %39
-  %58 = icmp eq i8 %35, 0
-  br i1 %58, label %.loopexit29, label %tailrecurse.backedge.i.i
+54:                                               ; preds = %43, %36
+  %55 = icmp eq i64 %.tr41.i.i, 165
+  br i1 %55, label %.loopexit29, label %tailrecurse.backedge.i.i
 
-tailrecurse.backedge.i.i:                         ; preds = %66, %63, %.thread.i.i, %57
-  %.tr42.be.i.i = phi i64 [ %67, %66 ], [ 0, %57 ], [ 0, %63 ], [ 0, %.thread.i.i ]
-  %.tr43.be.i.i = phi i1 [ true, %66 ], [ true, %57 ], [ false, %63 ], [ false, %.thread.i.i ]
+tailrecurse.backedge.i.i:                         ; preds = %63, %60, %.thread.i.i, %54
+  %.tr42.be.i.i = phi i64 [ %64, %63 ], [ 0, %54 ], [ 0, %60 ], [ 0, %.thread.i.i ]
+  %.tr43.be.i.i = phi i1 [ true, %63 ], [ true, %54 ], [ false, %60 ], [ false, %.thread.i.i ]
   %.tr41.be.i.i = add i64 %.tr41.i.i, 1
   br label %tailrecurse.i.i
 
-.thread.i.i:                                      ; preds = %36, %tailrecurse.i.i
-  br i1 %.tr43.i.i, label %59, label %tailrecurse.backedge.i.i
+.thread.i.i:                                      ; preds = %tailrecurse.i.i
+  br i1 %.tr43.i.i, label %56, label %tailrecurse.backedge.i.i
 
-59:                                               ; preds = %.thread.i.i
-  %60 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.tr42.i.i
-  %61 = load i8, ptr %60, align 1, !tbaa !24
-  %62 = icmp eq i8 %35, %61
-  br i1 %62, label %66, label %63
+56:                                               ; preds = %.thread.i.i
+  %57 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.tr42.i.i
+  %58 = load i8, ptr %57, align 1, !tbaa !24
+  %59 = icmp eq i8 %35, %58
+  br i1 %59, label %63, label %60
 
-63:                                               ; preds = %59
-  %64 = icmp eq i8 %35, 47
-  %65 = icmp eq i8 %61, 47
-  %or.cond39.i.i = and i1 %64, %65
-  br i1 %or.cond39.i.i, label %66, label %tailrecurse.backedge.i.i
+60:                                               ; preds = %56
+  %61 = icmp eq i8 %35, 47
+  %62 = icmp eq i8 %58, 47
+  %or.cond39.i.i = and i1 %61, %62
+  br i1 %or.cond39.i.i, label %63, label %tailrecurse.backedge.i.i
 
-66:                                               ; preds = %63, %59
-  %67 = add i64 %.tr42.i.i, 1
+63:                                               ; preds = %60, %56
+  %64 = add i64 %.tr42.i.i, 1
   br label %tailrecurse.backedge.i.i
 
 .loopexit29.loopexit:                             ; preds = %tailrecurse.i2.i
-  %68 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.tr14.i.i
+  %65 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.tr14.i.i
   br label %.loopexit29
 
-.loopexit29:                                      ; preds = %57, %.loopexit29.loopexit, %52
-  %69 = phi ptr [ %54, %52 ], [ %68, %.loopexit29.loopexit ], [ @.str.21, %57 ]
-  %70 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %69) #23
-  %71 = getelementptr inbounds nuw i8, ptr %69, i64 %70
+.loopexit29:                                      ; preds = %54, %.loopexit29.loopexit, %49
+  %66 = phi ptr [ %51, %49 ], [ %65, %.loopexit29.loopexit ], [ @.str.21, %54 ]
+  %67 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #23
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 %67
   store ptr %0, ptr %9, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr @__func__._ZN7example13ExampleObjectC2EN5folly5RangeIPKcEE, ptr %5, align 8
   %.sroa.215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @__func__._ZN7example13ExampleObjectC2EN5folly5RangeIPKcEE, i64 13), ptr %.sroa.215.0..sroa_idx, align 8
-  store ptr %69, ptr %6, align 8
+  store ptr %66, ptr %6, align 8
   %.sroa.217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %71, ptr %.sroa.217.0..sroa_idx, align 8
+  store ptr %68, ptr %.sroa.217.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #23
   call void @_ZN5folly18LogStreamProcessor15formatLogStringIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvEEES7_NS_5RangeIPKcEEDpRKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(464) %8, ptr nonnull @.str.22, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.22, i64 35), ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %9) #23
   call void @_ZN5folly18LogStreamProcessorC2EPNS_16XlogCategoryInfoILb1EEENS_8LogLevelENS_5RangeIPKcEEbS8_jS8_NS0_12InternalTypeEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(464) %8, ptr noundef nonnull @_ZZZN7example13ExampleObjectC1EN5folly5RangeIPKcEEENKUlvE0_clEvE26folly_detail_xlog_category, i32 noundef 1998, ptr nonnull @.str.21, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.21, i64 116), i1 noundef zeroext false, ptr noundef nonnull byval(%"class.folly::Range") align 8 %6, i32 noundef 30, ptr noundef nonnull byval(%"class.folly::Range") align 8 %5, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %4) #23
-  %72 = load ptr, ptr %4, align 8, !tbaa !22
-  %73 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %74 = icmp eq ptr %72, %73
-  br i1 %74, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %69 = load ptr, ptr %4, align 8, !tbaa !22
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %71 = icmp eq ptr %69, %70
+  br i1 %71, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %.loopexit29
-  %75 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %76 = load i64, ptr %75, align 8, !tbaa !25
-  %77 = icmp ult i64 %76, 16
-  call void @llvm.assume(i1 %77)
-  br label %80
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %73 = load i64, ptr %72, align 8, !tbaa !25
+  %74 = icmp ult i64 %73, 16
+  call void @llvm.assume(i1 %74)
+  br label %77
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %.loopexit29
-  %78 = load i64, ptr %73, align 8, !tbaa !24
-  %79 = add i64 %78, 1
-  call void @_ZdlPvm(ptr noundef %72, i64 noundef %79) #25
-  br label %80
+  %75 = load i64, ptr %70, align 8, !tbaa !24
+  %76 = add i64 %75, 1
+  call void @_ZdlPvm(ptr noundef %69, i64 noundef %76) #25
+  br label %77
 
-80:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
+77:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @_ZN5folly18LogStreamProcessorD1Ev(ptr noundef nonnull align 8 dereferenceable(464) %8) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #23
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %8) #23
-  br label %81
+  br label %78
 
 .critedge:                                        ; preds = %_ZNK5folly5RangeIPKcE3strB5cxx11Ev.exit, %_ZZN7example13ExampleObjectC1EN5folly5RangeIPKcEEENKUlvE_clEv.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #23
-  br label %81
+  br label %78
 
-81:                                               ; preds = %.critedge, %80
+78:                                               ; preds = %.critedge, %77
   ret void
 
-82:                                               ; preds = %30
-  %83 = landingpad { ptr, i32 }
+79:                                               ; preds = %30
+  %80 = landingpad { ptr, i32 }
           cleanup
-  br label %86
+  br label %83
 
-84:                                               ; preds = %52
-  %85 = landingpad { ptr, i32 }
+81:                                               ; preds = %49
+  %82 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %8) #23
-  br label %86
+  br label %83
 
-86:                                               ; preds = %84, %82
-  %.pn.pn.pn = phi { ptr, i32 } [ %85, %84 ], [ %83, %82 ]
-  %87 = load ptr, ptr %0, align 8, !tbaa !22
-  %88 = icmp eq ptr %87, %13
-  br i1 %88, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+83:                                               ; preds = %81, %79
+  %.pn.pn.pn = phi { ptr, i32 } [ %82, %81 ], [ %80, %79 ]
+  %84 = load ptr, ptr %0, align 8, !tbaa !22
+  %85 = icmp eq ptr %84, %13
+  br i1 %85, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %86
-  %89 = load i64, ptr %25, align 8, !tbaa !25
-  %90 = icmp ult i64 %89, 16
-  call void @llvm.assume(i1 %90)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %83
+  %86 = load i64, ptr %25, align 8, !tbaa !25
+  %87 = icmp ult i64 %86, 16
+  call void @llvm.assume(i1 %87)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %86
-  %91 = load i64, ptr %13, align 8, !tbaa !24
-  %92 = add i64 %91, 1
-  call void @_ZdlPvm(ptr noundef %87, i64 noundef %92) #25
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %83
+  %88 = load i64, ptr %13, align 8, !tbaa !24
+  %89 = add i64 %88, 1
+  call void @_ZdlPvm(ptr noundef %84, i64 noundef %89) #25
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -484,100 +478,94 @@ tailrecurse.i.i:                                  ; preds = %tailrecurse.backedg
   %39 = load i8, ptr %38, align 1, !tbaa !24
   switch i8 %39, label %.thread.i.i [
     i8 58, label %40
-    i8 0, label %43
+    i8 0, label %40
   ]
 
-40:                                               ; preds = %tailrecurse.i.i
-  %41 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i
-  %42 = load i8, ptr %41, align 1, !tbaa !24
-  %.not.i.i = icmp eq i8 %42, 58
-  br i1 %.not.i.i, label %.thread.i.i, label %43
+40:                                               ; preds = %tailrecurse.i.i, %tailrecurse.i.i
+  %41 = icmp ne i64 %.tr42.i.i, 0
+  %or.cond.i.i = and i1 %.tr43.i.i, %41
+  br i1 %or.cond.i.i, label %42, label %58
 
-43:                                               ; preds = %40, %tailrecurse.i.i
-  %44 = icmp ne i64 %.tr42.i.i, 0
-  %or.cond.i.i = and i1 %.tr43.i.i, %44
-  br i1 %or.cond.i.i, label %45, label %61
+42:                                               ; preds = %40
+  %43 = getelementptr i8, ptr @.str.3, i64 %.tr42.i.i
+  %44 = getelementptr i8, ptr %43, i64 -1
+  %45 = load i8, ptr %44, align 1, !tbaa !24
+  %46 = icmp eq i8 %45, 47
+  br i1 %46, label %tailrecurse.i2.i.preheader, label %47
 
-45:                                               ; preds = %43
-  %46 = getelementptr i8, ptr @.str.3, i64 %.tr42.i.i
-  %47 = getelementptr i8, ptr %46, i64 -1
-  %48 = load i8, ptr %47, align 1, !tbaa !24
-  %49 = icmp eq i8 %48, 47
-  br i1 %49, label %tailrecurse.i2.i.preheader, label %50
+47:                                               ; preds = %42
+  %48 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i
+  %49 = load i8, ptr %48, align 1, !tbaa !24
+  %50 = icmp eq i8 %49, 47
+  br i1 %50, label %tailrecurse.i2.i.preheader, label %58
 
-50:                                               ; preds = %45
-  %51 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i
-  %52 = load i8, ptr %51, align 1, !tbaa !24
-  %53 = icmp eq i8 %52, 47
-  br i1 %53, label %tailrecurse.i2.i.preheader, label %61
-
-tailrecurse.i2.i.preheader:                       ; preds = %50, %45
+tailrecurse.i2.i.preheader:                       ; preds = %47, %42
   br label %tailrecurse.i2.i
 
-tailrecurse.i2.i:                                 ; preds = %tailrecurse.i2.i.preheader, %59
-  %.tr14.i.i = phi i64 [ %60, %59 ], [ %.tr42.i.i, %tailrecurse.i2.i.preheader ]
-  %54 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i
-  %55 = load i8, ptr %54, align 1, !tbaa !24
-  switch i8 %55, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit.loopexit [
-    i8 0, label %56
-    i8 47, label %59
+tailrecurse.i2.i:                                 ; preds = %tailrecurse.i2.i.preheader, %56
+  %.tr14.i.i = phi i64 [ %57, %56 ], [ %.tr42.i.i, %tailrecurse.i2.i.preheader ]
+  %51 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i
+  %52 = load i8, ptr %51, align 1, !tbaa !24
+  switch i8 %52, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit.loopexit [
+    i8 0, label %53
+    i8 47, label %56
   ]
 
-56:                                               ; preds = %tailrecurse.i2.i
-  %57 = add i64 %.tr41.i.i, 1
-  %58 = tail call noundef ptr @_ZN5folly6detail26xlogStripFilenameRecursiveEPKcS2_mmb(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i64 noundef %57, i64 noundef 0, i1 noundef zeroext true) #24
+53:                                               ; preds = %tailrecurse.i2.i
+  %54 = add i64 %.tr41.i.i, 1
+  %55 = tail call noundef ptr @_ZN5folly6detail26xlogStripFilenameRecursiveEPKcS2_mmb(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i64 noundef %54, i64 noundef 0, i1 noundef zeroext true) #24
   br label %_ZN5folly17xlogStripFilenameEPKcS1_.exit
 
-59:                                               ; preds = %tailrecurse.i2.i
-  %60 = add i64 %.tr14.i.i, 1
+56:                                               ; preds = %tailrecurse.i2.i
+  %57 = add i64 %.tr14.i.i, 1
   br label %tailrecurse.i2.i
 
-61:                                               ; preds = %50, %43
-  %62 = icmp eq i8 %39, 0
-  br i1 %62, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit, label %tailrecurse.backedge.i.i
+58:                                               ; preds = %47, %40
+  %59 = icmp eq i64 %.tr41.i.i, 165
+  br i1 %59, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit, label %tailrecurse.backedge.i.i
 
-tailrecurse.backedge.i.i:                         ; preds = %70, %67, %.thread.i.i, %61
-  %.tr42.be.i.i = phi i64 [ %71, %70 ], [ 0, %61 ], [ 0, %67 ], [ 0, %.thread.i.i ]
-  %.tr43.be.i.i = phi i1 [ true, %70 ], [ true, %61 ], [ false, %67 ], [ false, %.thread.i.i ]
+tailrecurse.backedge.i.i:                         ; preds = %67, %64, %.thread.i.i, %58
+  %.tr42.be.i.i = phi i64 [ %68, %67 ], [ 0, %58 ], [ 0, %64 ], [ 0, %.thread.i.i ]
+  %.tr43.be.i.i = phi i1 [ true, %67 ], [ true, %58 ], [ false, %64 ], [ false, %.thread.i.i ]
   %.tr41.be.i.i = add i64 %.tr41.i.i, 1
   br label %tailrecurse.i.i
 
-.thread.i.i:                                      ; preds = %40, %tailrecurse.i.i
-  br i1 %.tr43.i.i, label %63, label %tailrecurse.backedge.i.i
+.thread.i.i:                                      ; preds = %tailrecurse.i.i
+  br i1 %.tr43.i.i, label %60, label %tailrecurse.backedge.i.i
 
-63:                                               ; preds = %.thread.i.i
-  %64 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i
-  %65 = load i8, ptr %64, align 1, !tbaa !24
-  %66 = icmp eq i8 %39, %65
-  br i1 %66, label %70, label %67
+60:                                               ; preds = %.thread.i.i
+  %61 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i
+  %62 = load i8, ptr %61, align 1, !tbaa !24
+  %63 = icmp eq i8 %39, %62
+  br i1 %63, label %67, label %64
 
-67:                                               ; preds = %63
-  %68 = icmp eq i8 %39, 47
-  %69 = icmp eq i8 %65, 47
-  %or.cond39.i.i = and i1 %68, %69
-  br i1 %or.cond39.i.i, label %70, label %tailrecurse.backedge.i.i
+64:                                               ; preds = %60
+  %65 = icmp eq i8 %39, 47
+  %66 = icmp eq i8 %62, 47
+  %or.cond39.i.i = and i1 %65, %66
+  br i1 %or.cond39.i.i, label %67, label %tailrecurse.backedge.i.i
 
-70:                                               ; preds = %67, %63
-  %71 = add i64 %.tr42.i.i, 1
+67:                                               ; preds = %64, %60
+  %68 = add i64 %.tr42.i.i, 1
   br label %tailrecurse.backedge.i.i
 
 _ZN5folly17xlogStripFilenameEPKcS1_.exit.loopexit: ; preds = %tailrecurse.i2.i
-  %72 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i
+  %69 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i
   br label %_ZN5folly17xlogStripFilenameEPKcS1_.exit
 
-_ZN5folly17xlogStripFilenameEPKcS1_.exit:         ; preds = %61, %_ZN5folly17xlogStripFilenameEPKcS1_.exit.loopexit, %56
-  %73 = phi ptr [ %58, %56 ], [ %72, %_ZN5folly17xlogStripFilenameEPKcS1_.exit.loopexit ], [ @.str.2, %61 ]
-  %74 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %73) #23
-  %75 = getelementptr inbounds nuw i8, ptr %73, i64 %74
+_ZN5folly17xlogStripFilenameEPKcS1_.exit:         ; preds = %58, %_ZN5folly17xlogStripFilenameEPKcS1_.exit.loopexit, %53
+  %70 = phi ptr [ %55, %53 ], [ %69, %_ZN5folly17xlogStripFilenameEPKcS1_.exit.loopexit ], [ @.str.2, %58 ]
+  %71 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %70) #23
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 %71
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
   store ptr @__func__.main, ptr %16, align 8
   %.sroa.2379.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @__func__.main, i64 4), ptr %.sroa.2379.0..sroa_idx, align 8
-  call void @_ZN5folly18LogStreamProcessorC2EPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPKcEEjS7_NS0_10AppendTypeE(ptr noundef nonnull align 8 dereferenceable(464) %19, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE, i32 noundef 1000, ptr nonnull %73, ptr nonnull %75, i32 noundef 40, ptr noundef nonnull byval(%"class.folly::Range") align 8 %16, i32 noundef 0) #23
+  call void @_ZN5folly18LogStreamProcessorC2EPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPKcEEjS7_NS0_10AppendTypeE(ptr noundef nonnull align 8 dereferenceable(464) %19, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE, i32 noundef 1000, ptr nonnull %70, ptr nonnull %72, i32 noundef 40, ptr noundef nonnull byval(%"class.folly::Range") align 8 %16, i32 noundef 0) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
-  %76 = getelementptr inbounds nuw i8, ptr %19, i64 88
-  %77 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull @.str.4, i64 noundef 62)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %489
+  %73 = getelementptr inbounds nuw i8, ptr %19, i64 88
+  %74 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef nonnull @.str.4, i64 noundef 62)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %462
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZN5folly17xlogStripFilenameEPKcS1_.exit
   call void @_ZN5folly18LogStreamProcessorD1Ev(ptr noundef nonnull align 8 dereferenceable(464) %19) #23
@@ -585,121 +573,115 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZN5fol
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %"_ZZ4mainENK3$_0clEv.exit", %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-  %78 = load atomic i32, ptr @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE monotonic, align 8
-  %79 = icmp ugt i32 %78, 4000
-  br i1 %79, label %.critedge102, label %"_ZZ4mainENK3$_3clEv.exit", !prof !26
+  %75 = load atomic i32, ptr @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE monotonic, align 8
+  %76 = icmp ugt i32 %75, 4000
+  br i1 %76, label %.critedge102, label %"_ZZ4mainENK3$_3clEv.exit", !prof !26
 
 "_ZZ4mainENK3$_3clEv.exit":                       ; preds = %.critedge
-  %80 = call noundef i32 @_ZN5folly13XlogLevelInfoILb0EE13loadLevelFullENS_5RangeIPKcEEbPNS_17XlogFileScopeInfoE(ptr nonnull @.str.2, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 119), i1 noundef zeroext false, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE)
-  %81 = icmp ult i32 %80, 4001
-  br i1 %81, label %82, label %.critedge102
+  %77 = call noundef i32 @_ZN5folly13XlogLevelInfoILb0EE13loadLevelFullENS_5RangeIPKcEEbPNS_17XlogFileScopeInfoE(ptr nonnull @.str.2, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 119), i1 noundef zeroext false, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE)
+  %78 = icmp ult i32 %77, 4001
+  br i1 %78, label %79, label %.critedge102
 
-82:                                               ; preds = %"_ZZ4mainENK3$_3clEv.exit"
+79:                                               ; preds = %"_ZZ4mainENK3$_3clEv.exit"
   call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %20) #23
   br label %tailrecurse.i.i118
 
-tailrecurse.i.i118:                               ; preds = %tailrecurse.backedge.i.i123, %82
-  %.tr41.i.i119 = phi i64 [ 0, %82 ], [ %.tr41.be.i.i126, %tailrecurse.backedge.i.i123 ]
-  %.tr42.i.i120 = phi i64 [ 0, %82 ], [ %.tr42.be.i.i124, %tailrecurse.backedge.i.i123 ]
-  %.tr43.i.i121 = phi i1 [ true, %82 ], [ %.tr43.be.i.i125, %tailrecurse.backedge.i.i123 ]
-  %83 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %.tr41.i.i119
-  %84 = load i8, ptr %83, align 1, !tbaa !24
-  switch i8 %84, label %.thread.i.i131 [
-    i8 58, label %85
-    i8 0, label %88
+tailrecurse.i.i118:                               ; preds = %tailrecurse.backedge.i.i123, %79
+  %.tr41.i.i119 = phi i64 [ 0, %79 ], [ %.tr41.be.i.i126, %tailrecurse.backedge.i.i123 ]
+  %.tr42.i.i120 = phi i64 [ 0, %79 ], [ %.tr42.be.i.i124, %tailrecurse.backedge.i.i123 ]
+  %.tr43.i.i121 = phi i1 [ true, %79 ], [ %.tr43.be.i.i125, %tailrecurse.backedge.i.i123 ]
+  %80 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %.tr41.i.i119
+  %81 = load i8, ptr %80, align 1, !tbaa !24
+  switch i8 %81, label %.thread.i.i131 [
+    i8 58, label %82
+    i8 0, label %82
   ]
 
-85:                                               ; preds = %tailrecurse.i.i118
-  %86 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i120
+82:                                               ; preds = %tailrecurse.i.i118, %tailrecurse.i.i118
+  %83 = icmp ne i64 %.tr42.i.i120, 0
+  %or.cond.i.i122 = and i1 %.tr43.i.i121, %83
+  br i1 %or.cond.i.i122, label %84, label %100
+
+84:                                               ; preds = %82
+  %85 = getelementptr i8, ptr @.str.3, i64 %.tr42.i.i120
+  %86 = getelementptr i8, ptr %85, i64 -1
   %87 = load i8, ptr %86, align 1, !tbaa !24
-  %.not.i.i130 = icmp eq i8 %87, 58
-  br i1 %.not.i.i130, label %.thread.i.i131, label %88
+  %88 = icmp eq i8 %87, 47
+  br i1 %88, label %tailrecurse.i2.i127.preheader, label %89
 
-88:                                               ; preds = %85, %tailrecurse.i.i118
-  %89 = icmp ne i64 %.tr42.i.i120, 0
-  %or.cond.i.i122 = and i1 %.tr43.i.i121, %89
-  br i1 %or.cond.i.i122, label %90, label %106
+89:                                               ; preds = %84
+  %90 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i120
+  %91 = load i8, ptr %90, align 1, !tbaa !24
+  %92 = icmp eq i8 %91, 47
+  br i1 %92, label %tailrecurse.i2.i127.preheader, label %100
 
-90:                                               ; preds = %88
-  %91 = getelementptr i8, ptr @.str.3, i64 %.tr42.i.i120
-  %92 = getelementptr i8, ptr %91, i64 -1
-  %93 = load i8, ptr %92, align 1, !tbaa !24
-  %94 = icmp eq i8 %93, 47
-  br i1 %94, label %tailrecurse.i2.i127.preheader, label %95
-
-95:                                               ; preds = %90
-  %96 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i120
-  %97 = load i8, ptr %96, align 1, !tbaa !24
-  %98 = icmp eq i8 %97, 47
-  br i1 %98, label %tailrecurse.i2.i127.preheader, label %106
-
-tailrecurse.i2.i127.preheader:                    ; preds = %95, %90
+tailrecurse.i2.i127.preheader:                    ; preds = %89, %84
   br label %tailrecurse.i2.i127
 
-tailrecurse.i2.i127:                              ; preds = %tailrecurse.i2.i127.preheader, %104
-  %.tr14.i.i128 = phi i64 [ %105, %104 ], [ %.tr42.i.i120, %tailrecurse.i2.i127.preheader ]
-  %99 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i128
-  %100 = load i8, ptr %99, align 1, !tbaa !24
-  switch i8 %100, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit133.loopexit [
-    i8 0, label %101
-    i8 47, label %104
+tailrecurse.i2.i127:                              ; preds = %tailrecurse.i2.i127.preheader, %98
+  %.tr14.i.i128 = phi i64 [ %99, %98 ], [ %.tr42.i.i120, %tailrecurse.i2.i127.preheader ]
+  %93 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i128
+  %94 = load i8, ptr %93, align 1, !tbaa !24
+  switch i8 %94, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit133.loopexit [
+    i8 0, label %95
+    i8 47, label %98
   ]
 
-101:                                              ; preds = %tailrecurse.i2.i127
-  %102 = add i64 %.tr41.i.i119, 1
-  %103 = call noundef ptr @_ZN5folly6detail26xlogStripFilenameRecursiveEPKcS2_mmb(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i64 noundef %102, i64 noundef 0, i1 noundef zeroext true) #24
+95:                                               ; preds = %tailrecurse.i2.i127
+  %96 = add i64 %.tr41.i.i119, 1
+  %97 = call noundef ptr @_ZN5folly6detail26xlogStripFilenameRecursiveEPKcS2_mmb(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i64 noundef %96, i64 noundef 0, i1 noundef zeroext true) #24
   br label %_ZN5folly17xlogStripFilenameEPKcS1_.exit133
 
-104:                                              ; preds = %tailrecurse.i2.i127
-  %105 = add i64 %.tr14.i.i128, 1
+98:                                               ; preds = %tailrecurse.i2.i127
+  %99 = add i64 %.tr14.i.i128, 1
   br label %tailrecurse.i2.i127
 
-106:                                              ; preds = %95, %88
-  %107 = icmp eq i8 %84, 0
-  br i1 %107, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit133, label %tailrecurse.backedge.i.i123
+100:                                              ; preds = %89, %82
+  %101 = icmp eq i64 %.tr41.i.i119, 165
+  br i1 %101, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit133, label %tailrecurse.backedge.i.i123
 
-tailrecurse.backedge.i.i123:                      ; preds = %115, %112, %.thread.i.i131, %106
-  %.tr42.be.i.i124 = phi i64 [ %116, %115 ], [ 0, %106 ], [ 0, %112 ], [ 0, %.thread.i.i131 ]
-  %.tr43.be.i.i125 = phi i1 [ true, %115 ], [ true, %106 ], [ false, %112 ], [ false, %.thread.i.i131 ]
+tailrecurse.backedge.i.i123:                      ; preds = %109, %106, %.thread.i.i131, %100
+  %.tr42.be.i.i124 = phi i64 [ %110, %109 ], [ 0, %100 ], [ 0, %106 ], [ 0, %.thread.i.i131 ]
+  %.tr43.be.i.i125 = phi i1 [ true, %109 ], [ true, %100 ], [ false, %106 ], [ false, %.thread.i.i131 ]
   %.tr41.be.i.i126 = add i64 %.tr41.i.i119, 1
   br label %tailrecurse.i.i118
 
-.thread.i.i131:                                   ; preds = %85, %tailrecurse.i.i118
-  br i1 %.tr43.i.i121, label %108, label %tailrecurse.backedge.i.i123
+.thread.i.i131:                                   ; preds = %tailrecurse.i.i118
+  br i1 %.tr43.i.i121, label %102, label %tailrecurse.backedge.i.i123
 
-108:                                              ; preds = %.thread.i.i131
-  %109 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i120
-  %110 = load i8, ptr %109, align 1, !tbaa !24
-  %111 = icmp eq i8 %84, %110
-  br i1 %111, label %115, label %112
+102:                                              ; preds = %.thread.i.i131
+  %103 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i120
+  %104 = load i8, ptr %103, align 1, !tbaa !24
+  %105 = icmp eq i8 %81, %104
+  br i1 %105, label %109, label %106
 
-112:                                              ; preds = %108
-  %113 = icmp eq i8 %84, 47
-  %114 = icmp eq i8 %110, 47
-  %or.cond39.i.i132 = and i1 %113, %114
-  br i1 %or.cond39.i.i132, label %115, label %tailrecurse.backedge.i.i123
+106:                                              ; preds = %102
+  %107 = icmp eq i8 %81, 47
+  %108 = icmp eq i8 %104, 47
+  %or.cond39.i.i132 = and i1 %107, %108
+  br i1 %or.cond39.i.i132, label %109, label %tailrecurse.backedge.i.i123
 
-115:                                              ; preds = %112, %108
-  %116 = add i64 %.tr42.i.i120, 1
+109:                                              ; preds = %106, %102
+  %110 = add i64 %.tr42.i.i120, 1
   br label %tailrecurse.backedge.i.i123
 
 _ZN5folly17xlogStripFilenameEPKcS1_.exit133.loopexit: ; preds = %tailrecurse.i2.i127
-  %117 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i128
+  %111 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i128
   br label %_ZN5folly17xlogStripFilenameEPKcS1_.exit133
 
-_ZN5folly17xlogStripFilenameEPKcS1_.exit133:      ; preds = %106, %_ZN5folly17xlogStripFilenameEPKcS1_.exit133.loopexit, %101
-  %118 = phi ptr [ %103, %101 ], [ %117, %_ZN5folly17xlogStripFilenameEPKcS1_.exit133.loopexit ], [ @.str.2, %106 ]
-  %119 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %118) #23
-  %120 = getelementptr inbounds nuw i8, ptr %118, i64 %119
+_ZN5folly17xlogStripFilenameEPKcS1_.exit133:      ; preds = %100, %_ZN5folly17xlogStripFilenameEPKcS1_.exit133.loopexit, %95
+  %112 = phi ptr [ %97, %95 ], [ %111, %_ZN5folly17xlogStripFilenameEPKcS1_.exit133.loopexit ], [ @.str.2, %100 ]
+  %113 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %112) #23
+  %114 = getelementptr inbounds nuw i8, ptr %112, i64 %113
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
   store ptr @__func__.main, ptr %15, align 8
   %.sroa.2371.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @__func__.main, i64 4), ptr %.sroa.2371.0..sroa_idx, align 8
-  call void @_ZN5folly18LogStreamProcessorC2EPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPKcEEjS7_NS0_10AppendTypeE(ptr noundef nonnull align 8 dereferenceable(464) %20, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE, i32 noundef 4000, ptr nonnull %118, ptr nonnull %120, i32 noundef 41, ptr noundef nonnull byval(%"class.folly::Range") align 8 %15, i32 noundef 0) #23
+  call void @_ZN5folly18LogStreamProcessorC2EPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPKcEEjS7_NS0_10AppendTypeE(ptr noundef nonnull align 8 dereferenceable(464) %20, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE, i32 noundef 4000, ptr nonnull %112, ptr nonnull %114, i32 noundef 41, ptr noundef nonnull byval(%"class.folly::Range") align 8 %15, i32 noundef 0) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
-  %121 = getelementptr inbounds nuw i8, ptr %20, i64 88
-  %122 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %121, ptr noundef nonnull @.str.5, i64 noundef 60)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit137 unwind label %491
+  %115 = getelementptr inbounds nuw i8, ptr %20, i64 88
+  %116 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %115, ptr noundef nonnull @.str.5, i64 noundef 60)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit137 unwind label %464
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit137: ; preds = %_ZN5folly17xlogStripFilenameEPKcS1_.exit133
   call void @_ZN5folly18LogStreamProcessorD1Ev(ptr noundef nonnull align 8 dereferenceable(464) %20) #23
@@ -709,259 +691,247 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit137: ; preds = %_ZN5
 .critedge102:                                     ; preds = %.critedge, %"_ZZ4mainENK3$_3clEv.exit", %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit137
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %21) #23
   call void @_ZN5folly4InitC1EPiPPPcb(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull %17, ptr noundef nonnull %18, i1 noundef zeroext true)
-  %123 = load atomic i32, ptr @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE monotonic, align 8
-  %124 = icmp ugt i32 %123, 2000
-  br i1 %124, label %.critedge104, label %125, !prof !26
+  %117 = load atomic i32, ptr @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE monotonic, align 8
+  %118 = icmp ugt i32 %117, 2000
+  br i1 %118, label %.critedge104, label %119, !prof !26
 
-125:                                              ; preds = %.critedge102
-  %126 = invoke noundef i32 @_ZN5folly13XlogLevelInfoILb0EE13loadLevelFullENS_5RangeIPKcEEbPNS_17XlogFileScopeInfoE(ptr nonnull @.str.2, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 119), i1 noundef zeroext false, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE)
-          to label %"_ZZ4mainENK3$_6clEv.exit" unwind label %493
+119:                                              ; preds = %.critedge102
+  %120 = invoke noundef i32 @_ZN5folly13XlogLevelInfoILb0EE13loadLevelFullENS_5RangeIPKcEEbPNS_17XlogFileScopeInfoE(ptr nonnull @.str.2, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 119), i1 noundef zeroext false, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE)
+          to label %"_ZZ4mainENK3$_6clEv.exit" unwind label %466
 
-"_ZZ4mainENK3$_6clEv.exit":                       ; preds = %125
-  %127 = icmp ult i32 %126, 2001
-  br i1 %127, label %128, label %.critedge104
+"_ZZ4mainENK3$_6clEv.exit":                       ; preds = %119
+  %121 = icmp ult i32 %120, 2001
+  br i1 %121, label %122, label %.critedge104
 
-128:                                              ; preds = %"_ZZ4mainENK3$_6clEv.exit"
+122:                                              ; preds = %"_ZZ4mainENK3$_6clEv.exit"
   call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %22) #23
   br label %tailrecurse.i.i139
 
-tailrecurse.i.i139:                               ; preds = %tailrecurse.backedge.i.i144, %128
-  %.tr41.i.i140 = phi i64 [ 0, %128 ], [ %.tr41.be.i.i147, %tailrecurse.backedge.i.i144 ]
-  %.tr42.i.i141 = phi i64 [ 0, %128 ], [ %.tr42.be.i.i145, %tailrecurse.backedge.i.i144 ]
-  %.tr43.i.i142 = phi i1 [ true, %128 ], [ %.tr43.be.i.i146, %tailrecurse.backedge.i.i144 ]
-  %129 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %.tr41.i.i140
+tailrecurse.i.i139:                               ; preds = %tailrecurse.backedge.i.i144, %122
+  %.tr41.i.i140 = phi i64 [ 0, %122 ], [ %.tr41.be.i.i147, %tailrecurse.backedge.i.i144 ]
+  %.tr42.i.i141 = phi i64 [ 0, %122 ], [ %.tr42.be.i.i145, %tailrecurse.backedge.i.i144 ]
+  %.tr43.i.i142 = phi i1 [ true, %122 ], [ %.tr43.be.i.i146, %tailrecurse.backedge.i.i144 ]
+  %123 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %.tr41.i.i140
+  %124 = load i8, ptr %123, align 1, !tbaa !24
+  switch i8 %124, label %.thread.i.i152 [
+    i8 58, label %125
+    i8 0, label %125
+  ]
+
+125:                                              ; preds = %tailrecurse.i.i139, %tailrecurse.i.i139
+  %126 = icmp ne i64 %.tr42.i.i141, 0
+  %or.cond.i.i143 = and i1 %.tr43.i.i142, %126
+  br i1 %or.cond.i.i143, label %127, label %143
+
+127:                                              ; preds = %125
+  %128 = getelementptr i8, ptr @.str.3, i64 %.tr42.i.i141
+  %129 = getelementptr i8, ptr %128, i64 -1
   %130 = load i8, ptr %129, align 1, !tbaa !24
-  switch i8 %130, label %.thread.i.i152 [
-    i8 58, label %131
-    i8 0, label %134
-  ]
+  %131 = icmp eq i8 %130, 47
+  br i1 %131, label %tailrecurse.i2.i148.preheader, label %132
 
-131:                                              ; preds = %tailrecurse.i.i139
-  %132 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i141
-  %133 = load i8, ptr %132, align 1, !tbaa !24
-  %.not.i.i151 = icmp eq i8 %133, 58
-  br i1 %.not.i.i151, label %.thread.i.i152, label %134
+132:                                              ; preds = %127
+  %133 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i141
+  %134 = load i8, ptr %133, align 1, !tbaa !24
+  %135 = icmp eq i8 %134, 47
+  br i1 %135, label %tailrecurse.i2.i148.preheader, label %143
 
-134:                                              ; preds = %131, %tailrecurse.i.i139
-  %135 = icmp ne i64 %.tr42.i.i141, 0
-  %or.cond.i.i143 = and i1 %.tr43.i.i142, %135
-  br i1 %or.cond.i.i143, label %136, label %152
-
-136:                                              ; preds = %134
-  %137 = getelementptr i8, ptr @.str.3, i64 %.tr42.i.i141
-  %138 = getelementptr i8, ptr %137, i64 -1
-  %139 = load i8, ptr %138, align 1, !tbaa !24
-  %140 = icmp eq i8 %139, 47
-  br i1 %140, label %tailrecurse.i2.i148.preheader, label %141
-
-141:                                              ; preds = %136
-  %142 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i141
-  %143 = load i8, ptr %142, align 1, !tbaa !24
-  %144 = icmp eq i8 %143, 47
-  br i1 %144, label %tailrecurse.i2.i148.preheader, label %152
-
-tailrecurse.i2.i148.preheader:                    ; preds = %141, %136
+tailrecurse.i2.i148.preheader:                    ; preds = %132, %127
   br label %tailrecurse.i2.i148
 
-tailrecurse.i2.i148:                              ; preds = %tailrecurse.i2.i148.preheader, %150
-  %.tr14.i.i149 = phi i64 [ %151, %150 ], [ %.tr42.i.i141, %tailrecurse.i2.i148.preheader ]
-  %145 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i149
-  %146 = load i8, ptr %145, align 1, !tbaa !24
-  switch i8 %146, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit155.loopexit [
-    i8 0, label %147
-    i8 47, label %150
+tailrecurse.i2.i148:                              ; preds = %tailrecurse.i2.i148.preheader, %141
+  %.tr14.i.i149 = phi i64 [ %142, %141 ], [ %.tr42.i.i141, %tailrecurse.i2.i148.preheader ]
+  %136 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i149
+  %137 = load i8, ptr %136, align 1, !tbaa !24
+  switch i8 %137, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit155.loopexit [
+    i8 0, label %138
+    i8 47, label %141
   ]
 
-147:                                              ; preds = %tailrecurse.i2.i148
-  %148 = add i64 %.tr41.i.i140, 1
-  %149 = invoke noundef ptr @_ZN5folly6detail26xlogStripFilenameRecursiveEPKcS2_mmb(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i64 noundef %148, i64 noundef 0, i1 noundef zeroext true) #24
-          to label %_ZN5folly17xlogStripFilenameEPKcS1_.exit155 unwind label %495
+138:                                              ; preds = %tailrecurse.i2.i148
+  %139 = add i64 %.tr41.i.i140, 1
+  %140 = invoke noundef ptr @_ZN5folly6detail26xlogStripFilenameRecursiveEPKcS2_mmb(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i64 noundef %139, i64 noundef 0, i1 noundef zeroext true) #24
+          to label %_ZN5folly17xlogStripFilenameEPKcS1_.exit155 unwind label %468
 
-150:                                              ; preds = %tailrecurse.i2.i148
-  %151 = add i64 %.tr14.i.i149, 1
+141:                                              ; preds = %tailrecurse.i2.i148
+  %142 = add i64 %.tr14.i.i149, 1
   br label %tailrecurse.i2.i148
 
-152:                                              ; preds = %141, %134
-  %153 = icmp eq i8 %130, 0
-  br i1 %153, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit155, label %tailrecurse.backedge.i.i144
+143:                                              ; preds = %132, %125
+  %144 = icmp eq i64 %.tr41.i.i140, 165
+  br i1 %144, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit155, label %tailrecurse.backedge.i.i144
 
-tailrecurse.backedge.i.i144:                      ; preds = %161, %158, %.thread.i.i152, %152
-  %.tr42.be.i.i145 = phi i64 [ %162, %161 ], [ 0, %152 ], [ 0, %158 ], [ 0, %.thread.i.i152 ]
-  %.tr43.be.i.i146 = phi i1 [ true, %161 ], [ true, %152 ], [ false, %158 ], [ false, %.thread.i.i152 ]
+tailrecurse.backedge.i.i144:                      ; preds = %152, %149, %.thread.i.i152, %143
+  %.tr42.be.i.i145 = phi i64 [ %153, %152 ], [ 0, %143 ], [ 0, %149 ], [ 0, %.thread.i.i152 ]
+  %.tr43.be.i.i146 = phi i1 [ true, %152 ], [ true, %143 ], [ false, %149 ], [ false, %.thread.i.i152 ]
   %.tr41.be.i.i147 = add i64 %.tr41.i.i140, 1
   br label %tailrecurse.i.i139
 
-.thread.i.i152:                                   ; preds = %131, %tailrecurse.i.i139
-  br i1 %.tr43.i.i142, label %154, label %tailrecurse.backedge.i.i144
+.thread.i.i152:                                   ; preds = %tailrecurse.i.i139
+  br i1 %.tr43.i.i142, label %145, label %tailrecurse.backedge.i.i144
 
-154:                                              ; preds = %.thread.i.i152
-  %155 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i141
-  %156 = load i8, ptr %155, align 1, !tbaa !24
-  %157 = icmp eq i8 %130, %156
-  br i1 %157, label %161, label %158
+145:                                              ; preds = %.thread.i.i152
+  %146 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i141
+  %147 = load i8, ptr %146, align 1, !tbaa !24
+  %148 = icmp eq i8 %124, %147
+  br i1 %148, label %152, label %149
 
-158:                                              ; preds = %154
-  %159 = icmp eq i8 %130, 47
-  %160 = icmp eq i8 %156, 47
-  %or.cond39.i.i153 = and i1 %159, %160
-  br i1 %or.cond39.i.i153, label %161, label %tailrecurse.backedge.i.i144
+149:                                              ; preds = %145
+  %150 = icmp eq i8 %124, 47
+  %151 = icmp eq i8 %147, 47
+  %or.cond39.i.i153 = and i1 %150, %151
+  br i1 %or.cond39.i.i153, label %152, label %tailrecurse.backedge.i.i144
 
-161:                                              ; preds = %158, %154
-  %162 = add i64 %.tr42.i.i141, 1
+152:                                              ; preds = %149, %145
+  %153 = add i64 %.tr42.i.i141, 1
   br label %tailrecurse.backedge.i.i144
 
 _ZN5folly17xlogStripFilenameEPKcS1_.exit155.loopexit: ; preds = %tailrecurse.i2.i148
-  %163 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i149
+  %154 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i149
   br label %_ZN5folly17xlogStripFilenameEPKcS1_.exit155
 
-_ZN5folly17xlogStripFilenameEPKcS1_.exit155:      ; preds = %152, %_ZN5folly17xlogStripFilenameEPKcS1_.exit155.loopexit, %147
-  %164 = phi ptr [ %149, %147 ], [ %163, %_ZN5folly17xlogStripFilenameEPKcS1_.exit155.loopexit ], [ @.str.2, %152 ]
-  %165 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %164) #23
-  %166 = getelementptr inbounds nuw i8, ptr %164, i64 %165
+_ZN5folly17xlogStripFilenameEPKcS1_.exit155:      ; preds = %143, %_ZN5folly17xlogStripFilenameEPKcS1_.exit155.loopexit, %138
+  %155 = phi ptr [ %140, %138 ], [ %154, %_ZN5folly17xlogStripFilenameEPKcS1_.exit155.loopexit ], [ @.str.2, %143 ]
+  %156 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %155) #23
+  %157 = getelementptr inbounds nuw i8, ptr %155, i64 %156
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
   store ptr @__func__.main, ptr %14, align 8
   %.sroa.2363.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @__func__.main, i64 4), ptr %.sroa.2363.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #23
   call void @_ZN5folly18LogStreamProcessor15createLogStringIJRA46_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr noundef nonnull align 8 dereferenceable(464) %22, ptr noundef nonnull align 1 dereferenceable(46) @.str.6) #23
-  call void @_ZN5folly18LogStreamProcessorC2EPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPKcEEjS7_NS0_12InternalTypeEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(464) %22, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE, i32 noundef 2000, ptr nonnull %164, ptr nonnull %166, i32 noundef 50, ptr noundef nonnull byval(%"class.folly::Range") align 8 %14, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %13) #23
-  %167 = load ptr, ptr %13, align 8, !tbaa !22
-  %168 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %169 = icmp eq ptr %167, %168
-  br i1 %169, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  call void @_ZN5folly18LogStreamProcessorC2EPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPKcEEjS7_NS0_12InternalTypeEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(464) %22, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE, i32 noundef 2000, ptr nonnull %155, ptr nonnull %157, i32 noundef 50, ptr noundef nonnull byval(%"class.folly::Range") align 8 %14, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %13) #23
+  %158 = load ptr, ptr %13, align 8, !tbaa !22
+  %159 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %160 = icmp eq ptr %158, %159
+  br i1 %160, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZN5folly17xlogStripFilenameEPKcS1_.exit155
-  %170 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %171 = load i64, ptr %170, align 8, !tbaa !25
-  %172 = icmp ult i64 %171, 16
-  call void @llvm.assume(i1 %172)
-  br label %175
+  %161 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %162 = load i64, ptr %161, align 8, !tbaa !25
+  %163 = icmp ult i64 %162, 16
+  call void @llvm.assume(i1 %163)
+  br label %166
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZN5folly17xlogStripFilenameEPKcS1_.exit155
-  %173 = load i64, ptr %168, align 8, !tbaa !24
-  %174 = add i64 %173, 1
-  call void @_ZdlPvm(ptr noundef %167, i64 noundef %174) #25
-  br label %175
+  %164 = load i64, ptr %159, align 8, !tbaa !24
+  %165 = add i64 %164, 1
+  call void @_ZdlPvm(ptr noundef %158, i64 noundef %165) #25
+  br label %166
 
-175:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
+166:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   call void @_ZN5folly18LogStreamProcessorD1Ev(ptr noundef nonnull align 8 dereferenceable(464) %22) #23
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %22) #23
   br label %.critedge104
 
-.critedge104:                                     ; preds = %.critedge102, %"_ZZ4mainENK3$_6clEv.exit", %175
+.critedge104:                                     ; preds = %.critedge102, %"_ZZ4mainENK3$_6clEv.exit", %166
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #23
-  %176 = load atomic i32, ptr @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE monotonic, align 8
-  %177 = icmp ugt i32 %176, 1998
-  br i1 %177, label %.critedge106, label %178, !prof !26
+  %167 = load atomic i32, ptr @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE monotonic, align 8
+  %168 = icmp ugt i32 %167, 1998
+  br i1 %168, label %.critedge106, label %169, !prof !26
 
-178:                                              ; preds = %.critedge104
-  %179 = invoke noundef i32 @_ZN5folly13XlogLevelInfoILb0EE13loadLevelFullENS_5RangeIPKcEEbPNS_17XlogFileScopeInfoE(ptr nonnull @.str.2, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 119), i1 noundef zeroext false, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE)
-          to label %"_ZZ4mainENK3$_9clEv.exit" unwind label %497
+169:                                              ; preds = %.critedge104
+  %170 = invoke noundef i32 @_ZN5folly13XlogLevelInfoILb0EE13loadLevelFullENS_5RangeIPKcEEbPNS_17XlogFileScopeInfoE(ptr nonnull @.str.2, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 119), i1 noundef zeroext false, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE)
+          to label %"_ZZ4mainENK3$_9clEv.exit" unwind label %470
 
-"_ZZ4mainENK3$_9clEv.exit":                       ; preds = %178
-  %180 = icmp ult i32 %179, 1999
-  br i1 %180, label %181, label %.critedge106
+"_ZZ4mainENK3$_9clEv.exit":                       ; preds = %169
+  %171 = icmp ult i32 %170, 1999
+  br i1 %171, label %172, label %.critedge106
 
-181:                                              ; preds = %"_ZZ4mainENK3$_9clEv.exit"
+172:                                              ; preds = %"_ZZ4mainENK3$_9clEv.exit"
   call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %23) #23
   br label %tailrecurse.i.i161
 
-tailrecurse.i.i161:                               ; preds = %tailrecurse.backedge.i.i166, %181
-  %.tr41.i.i162 = phi i64 [ 0, %181 ], [ %.tr41.be.i.i169, %tailrecurse.backedge.i.i166 ]
-  %.tr42.i.i163 = phi i64 [ 0, %181 ], [ %.tr42.be.i.i167, %tailrecurse.backedge.i.i166 ]
-  %.tr43.i.i164 = phi i1 [ true, %181 ], [ %.tr43.be.i.i168, %tailrecurse.backedge.i.i166 ]
-  %182 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %.tr41.i.i162
-  %183 = load i8, ptr %182, align 1, !tbaa !24
-  switch i8 %183, label %.thread.i.i174 [
-    i8 58, label %184
-    i8 0, label %187
+tailrecurse.i.i161:                               ; preds = %tailrecurse.backedge.i.i166, %172
+  %.tr41.i.i162 = phi i64 [ 0, %172 ], [ %.tr41.be.i.i169, %tailrecurse.backedge.i.i166 ]
+  %.tr42.i.i163 = phi i64 [ 0, %172 ], [ %.tr42.be.i.i167, %tailrecurse.backedge.i.i166 ]
+  %.tr43.i.i164 = phi i1 [ true, %172 ], [ %.tr43.be.i.i168, %tailrecurse.backedge.i.i166 ]
+  %173 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %.tr41.i.i162
+  %174 = load i8, ptr %173, align 1, !tbaa !24
+  switch i8 %174, label %.thread.i.i174 [
+    i8 58, label %175
+    i8 0, label %175
   ]
 
-184:                                              ; preds = %tailrecurse.i.i161
-  %185 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i163
-  %186 = load i8, ptr %185, align 1, !tbaa !24
-  %.not.i.i173 = icmp eq i8 %186, 58
-  br i1 %.not.i.i173, label %.thread.i.i174, label %187
+175:                                              ; preds = %tailrecurse.i.i161, %tailrecurse.i.i161
+  %176 = icmp ne i64 %.tr42.i.i163, 0
+  %or.cond.i.i165 = and i1 %.tr43.i.i164, %176
+  br i1 %or.cond.i.i165, label %177, label %193
 
-187:                                              ; preds = %184, %tailrecurse.i.i161
-  %188 = icmp ne i64 %.tr42.i.i163, 0
-  %or.cond.i.i165 = and i1 %.tr43.i.i164, %188
-  br i1 %or.cond.i.i165, label %189, label %205
+177:                                              ; preds = %175
+  %178 = getelementptr i8, ptr @.str.3, i64 %.tr42.i.i163
+  %179 = getelementptr i8, ptr %178, i64 -1
+  %180 = load i8, ptr %179, align 1, !tbaa !24
+  %181 = icmp eq i8 %180, 47
+  br i1 %181, label %tailrecurse.i2.i170.preheader, label %182
 
-189:                                              ; preds = %187
-  %190 = getelementptr i8, ptr @.str.3, i64 %.tr42.i.i163
-  %191 = getelementptr i8, ptr %190, i64 -1
-  %192 = load i8, ptr %191, align 1, !tbaa !24
-  %193 = icmp eq i8 %192, 47
-  br i1 %193, label %tailrecurse.i2.i170.preheader, label %194
+182:                                              ; preds = %177
+  %183 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i163
+  %184 = load i8, ptr %183, align 1, !tbaa !24
+  %185 = icmp eq i8 %184, 47
+  br i1 %185, label %tailrecurse.i2.i170.preheader, label %193
 
-194:                                              ; preds = %189
-  %195 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i163
-  %196 = load i8, ptr %195, align 1, !tbaa !24
-  %197 = icmp eq i8 %196, 47
-  br i1 %197, label %tailrecurse.i2.i170.preheader, label %205
-
-tailrecurse.i2.i170.preheader:                    ; preds = %194, %189
+tailrecurse.i2.i170.preheader:                    ; preds = %182, %177
   br label %tailrecurse.i2.i170
 
-tailrecurse.i2.i170:                              ; preds = %tailrecurse.i2.i170.preheader, %203
-  %.tr14.i.i171 = phi i64 [ %204, %203 ], [ %.tr42.i.i163, %tailrecurse.i2.i170.preheader ]
-  %198 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i171
-  %199 = load i8, ptr %198, align 1, !tbaa !24
-  switch i8 %199, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit177.loopexit [
-    i8 0, label %200
-    i8 47, label %203
+tailrecurse.i2.i170:                              ; preds = %tailrecurse.i2.i170.preheader, %191
+  %.tr14.i.i171 = phi i64 [ %192, %191 ], [ %.tr42.i.i163, %tailrecurse.i2.i170.preheader ]
+  %186 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i171
+  %187 = load i8, ptr %186, align 1, !tbaa !24
+  switch i8 %187, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit177.loopexit [
+    i8 0, label %188
+    i8 47, label %191
   ]
 
-200:                                              ; preds = %tailrecurse.i2.i170
-  %201 = add i64 %.tr41.i.i162, 1
-  %202 = invoke noundef ptr @_ZN5folly6detail26xlogStripFilenameRecursiveEPKcS2_mmb(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i64 noundef %201, i64 noundef 0, i1 noundef zeroext true) #24
-          to label %_ZN5folly17xlogStripFilenameEPKcS1_.exit177 unwind label %499
+188:                                              ; preds = %tailrecurse.i2.i170
+  %189 = add i64 %.tr41.i.i162, 1
+  %190 = invoke noundef ptr @_ZN5folly6detail26xlogStripFilenameRecursiveEPKcS2_mmb(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i64 noundef %189, i64 noundef 0, i1 noundef zeroext true) #24
+          to label %_ZN5folly17xlogStripFilenameEPKcS1_.exit177 unwind label %472
 
-203:                                              ; preds = %tailrecurse.i2.i170
-  %204 = add i64 %.tr14.i.i171, 1
+191:                                              ; preds = %tailrecurse.i2.i170
+  %192 = add i64 %.tr14.i.i171, 1
   br label %tailrecurse.i2.i170
 
-205:                                              ; preds = %194, %187
-  %206 = icmp eq i8 %183, 0
-  br i1 %206, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit177, label %tailrecurse.backedge.i.i166
+193:                                              ; preds = %182, %175
+  %194 = icmp eq i64 %.tr41.i.i162, 165
+  br i1 %194, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit177, label %tailrecurse.backedge.i.i166
 
-tailrecurse.backedge.i.i166:                      ; preds = %214, %211, %.thread.i.i174, %205
-  %.tr42.be.i.i167 = phi i64 [ %215, %214 ], [ 0, %205 ], [ 0, %211 ], [ 0, %.thread.i.i174 ]
-  %.tr43.be.i.i168 = phi i1 [ true, %214 ], [ true, %205 ], [ false, %211 ], [ false, %.thread.i.i174 ]
+tailrecurse.backedge.i.i166:                      ; preds = %202, %199, %.thread.i.i174, %193
+  %.tr42.be.i.i167 = phi i64 [ %203, %202 ], [ 0, %193 ], [ 0, %199 ], [ 0, %.thread.i.i174 ]
+  %.tr43.be.i.i168 = phi i1 [ true, %202 ], [ true, %193 ], [ false, %199 ], [ false, %.thread.i.i174 ]
   %.tr41.be.i.i169 = add i64 %.tr41.i.i162, 1
   br label %tailrecurse.i.i161
 
-.thread.i.i174:                                   ; preds = %184, %tailrecurse.i.i161
-  br i1 %.tr43.i.i164, label %207, label %tailrecurse.backedge.i.i166
+.thread.i.i174:                                   ; preds = %tailrecurse.i.i161
+  br i1 %.tr43.i.i164, label %195, label %tailrecurse.backedge.i.i166
 
-207:                                              ; preds = %.thread.i.i174
-  %208 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i163
-  %209 = load i8, ptr %208, align 1, !tbaa !24
-  %210 = icmp eq i8 %183, %209
-  br i1 %210, label %214, label %211
+195:                                              ; preds = %.thread.i.i174
+  %196 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i163
+  %197 = load i8, ptr %196, align 1, !tbaa !24
+  %198 = icmp eq i8 %174, %197
+  br i1 %198, label %202, label %199
 
-211:                                              ; preds = %207
-  %212 = icmp eq i8 %183, 47
-  %213 = icmp eq i8 %209, 47
-  %or.cond39.i.i175 = and i1 %212, %213
-  br i1 %or.cond39.i.i175, label %214, label %tailrecurse.backedge.i.i166
+199:                                              ; preds = %195
+  %200 = icmp eq i8 %174, 47
+  %201 = icmp eq i8 %197, 47
+  %or.cond39.i.i175 = and i1 %200, %201
+  br i1 %or.cond39.i.i175, label %202, label %tailrecurse.backedge.i.i166
 
-214:                                              ; preds = %211, %207
-  %215 = add i64 %.tr42.i.i163, 1
+202:                                              ; preds = %199, %195
+  %203 = add i64 %.tr42.i.i163, 1
   br label %tailrecurse.backedge.i.i166
 
 _ZN5folly17xlogStripFilenameEPKcS1_.exit177.loopexit: ; preds = %tailrecurse.i2.i170
-  %216 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i171
+  %204 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i171
   br label %_ZN5folly17xlogStripFilenameEPKcS1_.exit177
 
-_ZN5folly17xlogStripFilenameEPKcS1_.exit177:      ; preds = %205, %_ZN5folly17xlogStripFilenameEPKcS1_.exit177.loopexit, %200
-  %217 = phi ptr [ %202, %200 ], [ %216, %_ZN5folly17xlogStripFilenameEPKcS1_.exit177.loopexit ], [ @.str.2, %205 ]
-  %218 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %217) #23
-  %219 = getelementptr inbounds nuw i8, ptr %217, i64 %218
+_ZN5folly17xlogStripFilenameEPKcS1_.exit177:      ; preds = %193, %_ZN5folly17xlogStripFilenameEPKcS1_.exit177.loopexit, %188
+  %205 = phi ptr [ %190, %188 ], [ %204, %_ZN5folly17xlogStripFilenameEPKcS1_.exit177.loopexit ], [ @.str.2, %193 ]
+  %206 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %205) #23
+  %207 = getelementptr inbounds nuw i8, ptr %205, i64 %206
   store i32 12345, ptr %24, align 4, !tbaa !28
   store double 9.200000e+01, ptr %25, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
@@ -970,150 +940,144 @@ _ZN5folly17xlogStripFilenameEPKcS1_.exit177:      ; preds = %205, %_ZN5folly17xl
   store ptr getelementptr inbounds nuw (i8, ptr @__func__.main, i64 4), ptr %.sroa.2355.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #23
   call void @_ZN5folly18LogStreamProcessor15createLogStringIJRA33_KciRA3_S2_dEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(464) %23, ptr noundef nonnull align 1 dereferenceable(33) @.str.7, ptr noundef nonnull align 4 dereferenceable(4) %24, ptr noundef nonnull align 1 dereferenceable(3) @.str.8, ptr noundef nonnull align 8 dereferenceable(8) %25) #23
-  call void @_ZN5folly18LogStreamProcessorC2EPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPKcEEjS7_NS0_12InternalTypeEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(464) %23, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE, i32 noundef 1998, ptr nonnull %217, ptr nonnull %219, i32 noundef 52, ptr noundef nonnull byval(%"class.folly::Range") align 8 %12, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %11) #23
-  %220 = load ptr, ptr %11, align 8, !tbaa !22
-  %221 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %222 = icmp eq ptr %220, %221
-  br i1 %222, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i182, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i181
+  call void @_ZN5folly18LogStreamProcessorC2EPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPKcEEjS7_NS0_12InternalTypeEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(464) %23, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE, i32 noundef 1998, ptr nonnull %205, ptr nonnull %207, i32 noundef 52, ptr noundef nonnull byval(%"class.folly::Range") align 8 %12, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %11) #23
+  %208 = load ptr, ptr %11, align 8, !tbaa !22
+  %209 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %210 = icmp eq ptr %208, %209
+  br i1 %210, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i182, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i181
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i182: ; preds = %_ZN5folly17xlogStripFilenameEPKcS1_.exit177
-  %223 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %224 = load i64, ptr %223, align 8, !tbaa !25
-  %225 = icmp ult i64 %224, 16
-  call void @llvm.assume(i1 %225)
-  br label %228
+  %211 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %212 = load i64, ptr %211, align 8, !tbaa !25
+  %213 = icmp ult i64 %212, 16
+  call void @llvm.assume(i1 %213)
+  br label %216
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i181: ; preds = %_ZN5folly17xlogStripFilenameEPKcS1_.exit177
-  %226 = load i64, ptr %221, align 8, !tbaa !24
-  %227 = add i64 %226, 1
-  call void @_ZdlPvm(ptr noundef %220, i64 noundef %227) #25
-  br label %228
+  %214 = load i64, ptr %209, align 8, !tbaa !24
+  %215 = add i64 %214, 1
+  call void @_ZdlPvm(ptr noundef %208, i64 noundef %215) #25
+  br label %216
 
-228:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i181, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i182
+216:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i181, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i182
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   call void @_ZN5folly18LogStreamProcessorD1Ev(ptr noundef nonnull align 8 dereferenceable(464) %23) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #23
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #23
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %23) #23
-  br label %229
+  br label %217
 
 .critedge106:                                     ; preds = %.critedge104, %"_ZZ4mainENK3$_9clEv.exit"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #23
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #23
-  br label %229
+  br label %217
 
-229:                                              ; preds = %.critedge106, %228
+217:                                              ; preds = %.critedge106, %216
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #23
-  %230 = load atomic i32, ptr @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE monotonic, align 8
-  %231 = icmp ugt i32 %230, 1998
-  br i1 %231, label %.critedge108, label %232, !prof !26
+  %218 = load atomic i32, ptr @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE monotonic, align 8
+  %219 = icmp ugt i32 %218, 1998
+  br i1 %219, label %.critedge108, label %220, !prof !26
 
-232:                                              ; preds = %229
-  %233 = invoke noundef i32 @_ZN5folly13XlogLevelInfoILb0EE13loadLevelFullENS_5RangeIPKcEEbPNS_17XlogFileScopeInfoE(ptr nonnull @.str.2, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 119), i1 noundef zeroext false, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE)
-          to label %"_ZZ4mainENK4$_12clEv.exit" unwind label %501
+220:                                              ; preds = %217
+  %221 = invoke noundef i32 @_ZN5folly13XlogLevelInfoILb0EE13loadLevelFullENS_5RangeIPKcEEbPNS_17XlogFileScopeInfoE(ptr nonnull @.str.2, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 119), i1 noundef zeroext false, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE)
+          to label %"_ZZ4mainENK4$_12clEv.exit" unwind label %474
 
-"_ZZ4mainENK4$_12clEv.exit":                      ; preds = %232
-  %234 = icmp ult i32 %233, 1999
-  br i1 %234, label %235, label %.critedge108
+"_ZZ4mainENK4$_12clEv.exit":                      ; preds = %220
+  %222 = icmp ult i32 %221, 1999
+  br i1 %222, label %223, label %.critedge108
 
-235:                                              ; preds = %"_ZZ4mainENK4$_12clEv.exit"
+223:                                              ; preds = %"_ZZ4mainENK4$_12clEv.exit"
   call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %26) #23
   br label %tailrecurse.i.i185
 
-tailrecurse.i.i185:                               ; preds = %tailrecurse.backedge.i.i190, %235
-  %.tr41.i.i186 = phi i64 [ 0, %235 ], [ %.tr41.be.i.i193, %tailrecurse.backedge.i.i190 ]
-  %.tr42.i.i187 = phi i64 [ 0, %235 ], [ %.tr42.be.i.i191, %tailrecurse.backedge.i.i190 ]
-  %.tr43.i.i188 = phi i1 [ true, %235 ], [ %.tr43.be.i.i192, %tailrecurse.backedge.i.i190 ]
-  %236 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %.tr41.i.i186
-  %237 = load i8, ptr %236, align 1, !tbaa !24
-  switch i8 %237, label %.thread.i.i198 [
-    i8 58, label %238
-    i8 0, label %241
+tailrecurse.i.i185:                               ; preds = %tailrecurse.backedge.i.i190, %223
+  %.tr41.i.i186 = phi i64 [ 0, %223 ], [ %.tr41.be.i.i193, %tailrecurse.backedge.i.i190 ]
+  %.tr42.i.i187 = phi i64 [ 0, %223 ], [ %.tr42.be.i.i191, %tailrecurse.backedge.i.i190 ]
+  %.tr43.i.i188 = phi i1 [ true, %223 ], [ %.tr43.be.i.i192, %tailrecurse.backedge.i.i190 ]
+  %224 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %.tr41.i.i186
+  %225 = load i8, ptr %224, align 1, !tbaa !24
+  switch i8 %225, label %.thread.i.i198 [
+    i8 58, label %226
+    i8 0, label %226
   ]
 
-238:                                              ; preds = %tailrecurse.i.i185
-  %239 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i187
-  %240 = load i8, ptr %239, align 1, !tbaa !24
-  %.not.i.i197 = icmp eq i8 %240, 58
-  br i1 %.not.i.i197, label %.thread.i.i198, label %241
+226:                                              ; preds = %tailrecurse.i.i185, %tailrecurse.i.i185
+  %227 = icmp ne i64 %.tr42.i.i187, 0
+  %or.cond.i.i189 = and i1 %.tr43.i.i188, %227
+  br i1 %or.cond.i.i189, label %228, label %244
 
-241:                                              ; preds = %238, %tailrecurse.i.i185
-  %242 = icmp ne i64 %.tr42.i.i187, 0
-  %or.cond.i.i189 = and i1 %.tr43.i.i188, %242
-  br i1 %or.cond.i.i189, label %243, label %259
+228:                                              ; preds = %226
+  %229 = getelementptr i8, ptr @.str.3, i64 %.tr42.i.i187
+  %230 = getelementptr i8, ptr %229, i64 -1
+  %231 = load i8, ptr %230, align 1, !tbaa !24
+  %232 = icmp eq i8 %231, 47
+  br i1 %232, label %tailrecurse.i2.i194.preheader, label %233
 
-243:                                              ; preds = %241
-  %244 = getelementptr i8, ptr @.str.3, i64 %.tr42.i.i187
-  %245 = getelementptr i8, ptr %244, i64 -1
-  %246 = load i8, ptr %245, align 1, !tbaa !24
-  %247 = icmp eq i8 %246, 47
-  br i1 %247, label %tailrecurse.i2.i194.preheader, label %248
+233:                                              ; preds = %228
+  %234 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i187
+  %235 = load i8, ptr %234, align 1, !tbaa !24
+  %236 = icmp eq i8 %235, 47
+  br i1 %236, label %tailrecurse.i2.i194.preheader, label %244
 
-248:                                              ; preds = %243
-  %249 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i187
-  %250 = load i8, ptr %249, align 1, !tbaa !24
-  %251 = icmp eq i8 %250, 47
-  br i1 %251, label %tailrecurse.i2.i194.preheader, label %259
-
-tailrecurse.i2.i194.preheader:                    ; preds = %248, %243
+tailrecurse.i2.i194.preheader:                    ; preds = %233, %228
   br label %tailrecurse.i2.i194
 
-tailrecurse.i2.i194:                              ; preds = %tailrecurse.i2.i194.preheader, %257
-  %.tr14.i.i195 = phi i64 [ %258, %257 ], [ %.tr42.i.i187, %tailrecurse.i2.i194.preheader ]
-  %252 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i195
-  %253 = load i8, ptr %252, align 1, !tbaa !24
-  switch i8 %253, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit201.loopexit [
-    i8 0, label %254
-    i8 47, label %257
+tailrecurse.i2.i194:                              ; preds = %tailrecurse.i2.i194.preheader, %242
+  %.tr14.i.i195 = phi i64 [ %243, %242 ], [ %.tr42.i.i187, %tailrecurse.i2.i194.preheader ]
+  %237 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i195
+  %238 = load i8, ptr %237, align 1, !tbaa !24
+  switch i8 %238, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit201.loopexit [
+    i8 0, label %239
+    i8 47, label %242
   ]
 
-254:                                              ; preds = %tailrecurse.i2.i194
-  %255 = add i64 %.tr41.i.i186, 1
-  %256 = invoke noundef ptr @_ZN5folly6detail26xlogStripFilenameRecursiveEPKcS2_mmb(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i64 noundef %255, i64 noundef 0, i1 noundef zeroext true) #24
-          to label %_ZN5folly17xlogStripFilenameEPKcS1_.exit201 unwind label %503
+239:                                              ; preds = %tailrecurse.i2.i194
+  %240 = add i64 %.tr41.i.i186, 1
+  %241 = invoke noundef ptr @_ZN5folly6detail26xlogStripFilenameRecursiveEPKcS2_mmb(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i64 noundef %240, i64 noundef 0, i1 noundef zeroext true) #24
+          to label %_ZN5folly17xlogStripFilenameEPKcS1_.exit201 unwind label %476
 
-257:                                              ; preds = %tailrecurse.i2.i194
-  %258 = add i64 %.tr14.i.i195, 1
+242:                                              ; preds = %tailrecurse.i2.i194
+  %243 = add i64 %.tr14.i.i195, 1
   br label %tailrecurse.i2.i194
 
-259:                                              ; preds = %248, %241
-  %260 = icmp eq i8 %237, 0
-  br i1 %260, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit201, label %tailrecurse.backedge.i.i190
+244:                                              ; preds = %233, %226
+  %245 = icmp eq i64 %.tr41.i.i186, 165
+  br i1 %245, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit201, label %tailrecurse.backedge.i.i190
 
-tailrecurse.backedge.i.i190:                      ; preds = %268, %265, %.thread.i.i198, %259
-  %.tr42.be.i.i191 = phi i64 [ %269, %268 ], [ 0, %259 ], [ 0, %265 ], [ 0, %.thread.i.i198 ]
-  %.tr43.be.i.i192 = phi i1 [ true, %268 ], [ true, %259 ], [ false, %265 ], [ false, %.thread.i.i198 ]
+tailrecurse.backedge.i.i190:                      ; preds = %253, %250, %.thread.i.i198, %244
+  %.tr42.be.i.i191 = phi i64 [ %254, %253 ], [ 0, %244 ], [ 0, %250 ], [ 0, %.thread.i.i198 ]
+  %.tr43.be.i.i192 = phi i1 [ true, %253 ], [ true, %244 ], [ false, %250 ], [ false, %.thread.i.i198 ]
   %.tr41.be.i.i193 = add i64 %.tr41.i.i186, 1
   br label %tailrecurse.i.i185
 
-.thread.i.i198:                                   ; preds = %238, %tailrecurse.i.i185
-  br i1 %.tr43.i.i188, label %261, label %tailrecurse.backedge.i.i190
+.thread.i.i198:                                   ; preds = %tailrecurse.i.i185
+  br i1 %.tr43.i.i188, label %246, label %tailrecurse.backedge.i.i190
 
-261:                                              ; preds = %.thread.i.i198
-  %262 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i187
-  %263 = load i8, ptr %262, align 1, !tbaa !24
-  %264 = icmp eq i8 %237, %263
-  br i1 %264, label %268, label %265
+246:                                              ; preds = %.thread.i.i198
+  %247 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i187
+  %248 = load i8, ptr %247, align 1, !tbaa !24
+  %249 = icmp eq i8 %225, %248
+  br i1 %249, label %253, label %250
 
-265:                                              ; preds = %261
-  %266 = icmp eq i8 %237, 47
-  %267 = icmp eq i8 %263, 47
-  %or.cond39.i.i199 = and i1 %266, %267
-  br i1 %or.cond39.i.i199, label %268, label %tailrecurse.backedge.i.i190
+250:                                              ; preds = %246
+  %251 = icmp eq i8 %225, 47
+  %252 = icmp eq i8 %248, 47
+  %or.cond39.i.i199 = and i1 %251, %252
+  br i1 %or.cond39.i.i199, label %253, label %tailrecurse.backedge.i.i190
 
-268:                                              ; preds = %265, %261
-  %269 = add i64 %.tr42.i.i187, 1
+253:                                              ; preds = %250, %246
+  %254 = add i64 %.tr42.i.i187, 1
   br label %tailrecurse.backedge.i.i190
 
 _ZN5folly17xlogStripFilenameEPKcS1_.exit201.loopexit: ; preds = %tailrecurse.i2.i194
-  %270 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i195
+  %255 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i195
   br label %_ZN5folly17xlogStripFilenameEPKcS1_.exit201
 
-_ZN5folly17xlogStripFilenameEPKcS1_.exit201:      ; preds = %259, %_ZN5folly17xlogStripFilenameEPKcS1_.exit201.loopexit, %254
-  %271 = phi ptr [ %256, %254 ], [ %270, %_ZN5folly17xlogStripFilenameEPKcS1_.exit201.loopexit ], [ @.str.2, %259 ]
-  %272 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %271) #23
-  %273 = getelementptr inbounds nuw i8, ptr %271, i64 %272
+_ZN5folly17xlogStripFilenameEPKcS1_.exit201:      ; preds = %244, %_ZN5folly17xlogStripFilenameEPKcS1_.exit201.loopexit, %239
+  %256 = phi ptr [ %241, %239 ], [ %255, %_ZN5folly17xlogStripFilenameEPKcS1_.exit201.loopexit ], [ @.str.2, %244 ]
+  %257 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %256) #23
+  %258 = getelementptr inbounds nuw i8, ptr %256, i64 %257
   store double 0x3FD5555555555555, ptr %27, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   store ptr @__func__.main, ptr %10, align 8
@@ -1121,458 +1085,440 @@ _ZN5folly17xlogStripFilenameEPKcS1_.exit201:      ; preds = %259, %_ZN5folly17xl
   store ptr getelementptr inbounds nuw (i8, ptr @__func__.main, i64 4), ptr %.sroa.2347.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #23
   call void @_ZN5folly18LogStreamProcessor15formatLogStringIJA7_cdEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEEDpRKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(464) %26, ptr nonnull @.str.9, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.9, i64 42), ptr noundef nonnull align 1 dereferenceable(7) @.str.10, ptr noundef nonnull align 8 dereferenceable(8) %27) #23
-  call void @_ZN5folly18LogStreamProcessorC2EPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPKcEEjS7_NS0_12InternalTypeEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(464) %26, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE, i32 noundef 1998, ptr nonnull %271, ptr nonnull %273, i32 noundef 53, ptr noundef nonnull byval(%"class.folly::Range") align 8 %10, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %9) #23
-  %274 = load ptr, ptr %9, align 8, !tbaa !22
-  %275 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %276 = icmp eq ptr %274, %275
-  br i1 %276, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i206, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i205
+  call void @_ZN5folly18LogStreamProcessorC2EPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPKcEEjS7_NS0_12InternalTypeEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(464) %26, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE, i32 noundef 1998, ptr nonnull %256, ptr nonnull %258, i32 noundef 53, ptr noundef nonnull byval(%"class.folly::Range") align 8 %10, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %9) #23
+  %259 = load ptr, ptr %9, align 8, !tbaa !22
+  %260 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %261 = icmp eq ptr %259, %260
+  br i1 %261, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i206, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i205
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i206: ; preds = %_ZN5folly17xlogStripFilenameEPKcS1_.exit201
-  %277 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %278 = load i64, ptr %277, align 8, !tbaa !25
-  %279 = icmp ult i64 %278, 16
-  call void @llvm.assume(i1 %279)
-  br label %282
+  %262 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %263 = load i64, ptr %262, align 8, !tbaa !25
+  %264 = icmp ult i64 %263, 16
+  call void @llvm.assume(i1 %264)
+  br label %267
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i205: ; preds = %_ZN5folly17xlogStripFilenameEPKcS1_.exit201
-  %280 = load i64, ptr %275, align 8, !tbaa !24
-  %281 = add i64 %280, 1
-  call void @_ZdlPvm(ptr noundef %274, i64 noundef %281) #25
-  br label %282
+  %265 = load i64, ptr %260, align 8, !tbaa !24
+  %266 = add i64 %265, 1
+  call void @_ZdlPvm(ptr noundef %259, i64 noundef %266) #25
+  br label %267
 
-282:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i205, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i206
+267:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i205, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i206
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   call void @_ZN5folly18LogStreamProcessorD1Ev(ptr noundef nonnull align 8 dereferenceable(464) %26) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #23
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %26) #23
-  br label %283
+  br label %268
 
-.critedge108:                                     ; preds = %229, %"_ZZ4mainENK4$_12clEv.exit"
+.critedge108:                                     ; preds = %217, %"_ZZ4mainENK4$_12clEv.exit"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #23
-  br label %283
+  br label %268
 
-283:                                              ; preds = %.critedge108, %282
-  %284 = load atomic i32, ptr @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE monotonic, align 8
-  %285 = icmp ugt i32 %284, 1997
-  br i1 %285, label %.critedge110, label %286, !prof !26
+268:                                              ; preds = %.critedge108, %267
+  %269 = load atomic i32, ptr @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE monotonic, align 8
+  %270 = icmp ugt i32 %269, 1997
+  br i1 %270, label %.critedge110, label %271, !prof !26
 
-286:                                              ; preds = %283
-  %287 = invoke noundef i32 @_ZN5folly13XlogLevelInfoILb0EE13loadLevelFullENS_5RangeIPKcEEbPNS_17XlogFileScopeInfoE(ptr nonnull @.str.2, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 119), i1 noundef zeroext false, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE)
-          to label %"_ZZ4mainENK4$_15clEv.exit" unwind label %505
+271:                                              ; preds = %268
+  %272 = invoke noundef i32 @_ZN5folly13XlogLevelInfoILb0EE13loadLevelFullENS_5RangeIPKcEEbPNS_17XlogFileScopeInfoE(ptr nonnull @.str.2, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 119), i1 noundef zeroext false, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE)
+          to label %"_ZZ4mainENK4$_15clEv.exit" unwind label %478
 
-"_ZZ4mainENK4$_15clEv.exit":                      ; preds = %286
-  %288 = icmp ult i32 %287, 1998
-  br i1 %288, label %289, label %.critedge110
+"_ZZ4mainENK4$_15clEv.exit":                      ; preds = %271
+  %273 = icmp ult i32 %272, 1998
+  br i1 %273, label %274, label %.critedge110
 
-289:                                              ; preds = %"_ZZ4mainENK4$_15clEv.exit"
+274:                                              ; preds = %"_ZZ4mainENK4$_15clEv.exit"
   call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %28) #23
   br label %tailrecurse.i.i209
 
-tailrecurse.i.i209:                               ; preds = %tailrecurse.backedge.i.i214, %289
-  %.tr41.i.i210 = phi i64 [ 0, %289 ], [ %.tr41.be.i.i217, %tailrecurse.backedge.i.i214 ]
-  %.tr42.i.i211 = phi i64 [ 0, %289 ], [ %.tr42.be.i.i215, %tailrecurse.backedge.i.i214 ]
-  %.tr43.i.i212 = phi i1 [ true, %289 ], [ %.tr43.be.i.i216, %tailrecurse.backedge.i.i214 ]
-  %290 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %.tr41.i.i210
-  %291 = load i8, ptr %290, align 1, !tbaa !24
-  switch i8 %291, label %.thread.i.i222 [
-    i8 58, label %292
-    i8 0, label %295
+tailrecurse.i.i209:                               ; preds = %tailrecurse.backedge.i.i214, %274
+  %.tr41.i.i210 = phi i64 [ 0, %274 ], [ %.tr41.be.i.i217, %tailrecurse.backedge.i.i214 ]
+  %.tr42.i.i211 = phi i64 [ 0, %274 ], [ %.tr42.be.i.i215, %tailrecurse.backedge.i.i214 ]
+  %.tr43.i.i212 = phi i1 [ true, %274 ], [ %.tr43.be.i.i216, %tailrecurse.backedge.i.i214 ]
+  %275 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %.tr41.i.i210
+  %276 = load i8, ptr %275, align 1, !tbaa !24
+  switch i8 %276, label %.thread.i.i222 [
+    i8 58, label %277
+    i8 0, label %277
   ]
 
-292:                                              ; preds = %tailrecurse.i.i209
-  %293 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i211
-  %294 = load i8, ptr %293, align 1, !tbaa !24
-  %.not.i.i221 = icmp eq i8 %294, 58
-  br i1 %.not.i.i221, label %.thread.i.i222, label %295
+277:                                              ; preds = %tailrecurse.i.i209, %tailrecurse.i.i209
+  %278 = icmp ne i64 %.tr42.i.i211, 0
+  %or.cond.i.i213 = and i1 %.tr43.i.i212, %278
+  br i1 %or.cond.i.i213, label %279, label %295
 
-295:                                              ; preds = %292, %tailrecurse.i.i209
-  %296 = icmp ne i64 %.tr42.i.i211, 0
-  %or.cond.i.i213 = and i1 %.tr43.i.i212, %296
-  br i1 %or.cond.i.i213, label %297, label %313
+279:                                              ; preds = %277
+  %280 = getelementptr i8, ptr @.str.3, i64 %.tr42.i.i211
+  %281 = getelementptr i8, ptr %280, i64 -1
+  %282 = load i8, ptr %281, align 1, !tbaa !24
+  %283 = icmp eq i8 %282, 47
+  br i1 %283, label %tailrecurse.i2.i218.preheader, label %284
 
-297:                                              ; preds = %295
-  %298 = getelementptr i8, ptr @.str.3, i64 %.tr42.i.i211
-  %299 = getelementptr i8, ptr %298, i64 -1
-  %300 = load i8, ptr %299, align 1, !tbaa !24
-  %301 = icmp eq i8 %300, 47
-  br i1 %301, label %tailrecurse.i2.i218.preheader, label %302
+284:                                              ; preds = %279
+  %285 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i211
+  %286 = load i8, ptr %285, align 1, !tbaa !24
+  %287 = icmp eq i8 %286, 47
+  br i1 %287, label %tailrecurse.i2.i218.preheader, label %295
 
-302:                                              ; preds = %297
-  %303 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i211
-  %304 = load i8, ptr %303, align 1, !tbaa !24
-  %305 = icmp eq i8 %304, 47
-  br i1 %305, label %tailrecurse.i2.i218.preheader, label %313
-
-tailrecurse.i2.i218.preheader:                    ; preds = %302, %297
+tailrecurse.i2.i218.preheader:                    ; preds = %284, %279
   br label %tailrecurse.i2.i218
 
-tailrecurse.i2.i218:                              ; preds = %tailrecurse.i2.i218.preheader, %311
-  %.tr14.i.i219 = phi i64 [ %312, %311 ], [ %.tr42.i.i211, %tailrecurse.i2.i218.preheader ]
-  %306 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i219
-  %307 = load i8, ptr %306, align 1, !tbaa !24
-  switch i8 %307, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit225.loopexit [
-    i8 0, label %308
-    i8 47, label %311
+tailrecurse.i2.i218:                              ; preds = %tailrecurse.i2.i218.preheader, %293
+  %.tr14.i.i219 = phi i64 [ %294, %293 ], [ %.tr42.i.i211, %tailrecurse.i2.i218.preheader ]
+  %288 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i219
+  %289 = load i8, ptr %288, align 1, !tbaa !24
+  switch i8 %289, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit225.loopexit [
+    i8 0, label %290
+    i8 47, label %293
   ]
 
-308:                                              ; preds = %tailrecurse.i2.i218
-  %309 = add i64 %.tr41.i.i210, 1
-  %310 = invoke noundef ptr @_ZN5folly6detail26xlogStripFilenameRecursiveEPKcS2_mmb(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i64 noundef %309, i64 noundef 0, i1 noundef zeroext true) #24
-          to label %_ZN5folly17xlogStripFilenameEPKcS1_.exit225 unwind label %507
+290:                                              ; preds = %tailrecurse.i2.i218
+  %291 = add i64 %.tr41.i.i210, 1
+  %292 = invoke noundef ptr @_ZN5folly6detail26xlogStripFilenameRecursiveEPKcS2_mmb(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i64 noundef %291, i64 noundef 0, i1 noundef zeroext true) #24
+          to label %_ZN5folly17xlogStripFilenameEPKcS1_.exit225 unwind label %480
 
-311:                                              ; preds = %tailrecurse.i2.i218
-  %312 = add i64 %.tr14.i.i219, 1
+293:                                              ; preds = %tailrecurse.i2.i218
+  %294 = add i64 %.tr14.i.i219, 1
   br label %tailrecurse.i2.i218
 
-313:                                              ; preds = %302, %295
-  %314 = icmp eq i8 %291, 0
-  br i1 %314, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit225, label %tailrecurse.backedge.i.i214
+295:                                              ; preds = %284, %277
+  %296 = icmp eq i64 %.tr41.i.i210, 165
+  br i1 %296, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit225, label %tailrecurse.backedge.i.i214
 
-tailrecurse.backedge.i.i214:                      ; preds = %322, %319, %.thread.i.i222, %313
-  %.tr42.be.i.i215 = phi i64 [ %323, %322 ], [ 0, %313 ], [ 0, %319 ], [ 0, %.thread.i.i222 ]
-  %.tr43.be.i.i216 = phi i1 [ true, %322 ], [ true, %313 ], [ false, %319 ], [ false, %.thread.i.i222 ]
+tailrecurse.backedge.i.i214:                      ; preds = %304, %301, %.thread.i.i222, %295
+  %.tr42.be.i.i215 = phi i64 [ %305, %304 ], [ 0, %295 ], [ 0, %301 ], [ 0, %.thread.i.i222 ]
+  %.tr43.be.i.i216 = phi i1 [ true, %304 ], [ true, %295 ], [ false, %301 ], [ false, %.thread.i.i222 ]
   %.tr41.be.i.i217 = add i64 %.tr41.i.i210, 1
   br label %tailrecurse.i.i209
 
-.thread.i.i222:                                   ; preds = %292, %tailrecurse.i.i209
-  br i1 %.tr43.i.i212, label %315, label %tailrecurse.backedge.i.i214
+.thread.i.i222:                                   ; preds = %tailrecurse.i.i209
+  br i1 %.tr43.i.i212, label %297, label %tailrecurse.backedge.i.i214
 
-315:                                              ; preds = %.thread.i.i222
-  %316 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i211
-  %317 = load i8, ptr %316, align 1, !tbaa !24
-  %318 = icmp eq i8 %291, %317
-  br i1 %318, label %322, label %319
+297:                                              ; preds = %.thread.i.i222
+  %298 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i211
+  %299 = load i8, ptr %298, align 1, !tbaa !24
+  %300 = icmp eq i8 %276, %299
+  br i1 %300, label %304, label %301
 
-319:                                              ; preds = %315
-  %320 = icmp eq i8 %291, 47
-  %321 = icmp eq i8 %317, 47
-  %or.cond39.i.i223 = and i1 %320, %321
-  br i1 %or.cond39.i.i223, label %322, label %tailrecurse.backedge.i.i214
+301:                                              ; preds = %297
+  %302 = icmp eq i8 %276, 47
+  %303 = icmp eq i8 %299, 47
+  %or.cond39.i.i223 = and i1 %302, %303
+  br i1 %or.cond39.i.i223, label %304, label %tailrecurse.backedge.i.i214
 
-322:                                              ; preds = %319, %315
-  %323 = add i64 %.tr42.i.i211, 1
+304:                                              ; preds = %301, %297
+  %305 = add i64 %.tr42.i.i211, 1
   br label %tailrecurse.backedge.i.i214
 
 _ZN5folly17xlogStripFilenameEPKcS1_.exit225.loopexit: ; preds = %tailrecurse.i2.i218
-  %324 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i219
+  %306 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i219
   br label %_ZN5folly17xlogStripFilenameEPKcS1_.exit225
 
-_ZN5folly17xlogStripFilenameEPKcS1_.exit225:      ; preds = %313, %_ZN5folly17xlogStripFilenameEPKcS1_.exit225.loopexit, %308
-  %325 = phi ptr [ %310, %308 ], [ %324, %_ZN5folly17xlogStripFilenameEPKcS1_.exit225.loopexit ], [ @.str.2, %313 ]
-  %326 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %325) #23
-  %327 = getelementptr inbounds nuw i8, ptr %325, i64 %326
+_ZN5folly17xlogStripFilenameEPKcS1_.exit225:      ; preds = %295, %_ZN5folly17xlogStripFilenameEPKcS1_.exit225.loopexit, %290
+  %307 = phi ptr [ %292, %290 ], [ %306, %_ZN5folly17xlogStripFilenameEPKcS1_.exit225.loopexit ], [ @.str.2, %295 ]
+  %308 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %307) #23
+  %309 = getelementptr inbounds nuw i8, ptr %307, i64 %308
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store ptr @__func__.main, ptr %8, align 8
   %.sroa.2337.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @__func__.main, i64 4), ptr %.sroa.2337.0..sroa_idx, align 8
-  call void @_ZN5folly18LogStreamProcessorC2EPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPKcEEjS7_NS0_10AppendTypeE(ptr noundef nonnull align 8 dereferenceable(464) %28, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE, i32 noundef 1997, ptr nonnull %325, ptr nonnull %327, i32 noundef 54, ptr noundef nonnull byval(%"class.folly::Range") align 8 %8, i32 noundef 0) #23
+  call void @_ZN5folly18LogStreamProcessorC2EPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPKcEEjS7_NS0_10AppendTypeE(ptr noundef nonnull align 8 dereferenceable(464) %28, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE, i32 noundef 1997, ptr nonnull %307, ptr nonnull %309, i32 noundef 54, ptr noundef nonnull byval(%"class.folly::Range") align 8 %8, i32 noundef 0) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %328 = getelementptr inbounds nuw i8, ptr %28, i64 88
-  %329 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %328, ptr noundef nonnull @.str.11, i64 noundef 36)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit230 unwind label %509
+  %310 = getelementptr inbounds nuw i8, ptr %28, i64 88
+  %311 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %310, ptr noundef nonnull @.str.11, i64 noundef 36)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit230 unwind label %482
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit230: ; preds = %_ZN5folly17xlogStripFilenameEPKcS1_.exit225
-  %330 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %328, i32 noundef 1234)
-          to label %331 unwind label %509
+  %312 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %310, i32 noundef 1234)
+          to label %313 unwind label %482
 
-331:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit230
+313:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit230
   call void @_ZN5folly18LogStreamProcessorD1Ev(ptr noundef nonnull align 8 dereferenceable(464) %28) #23
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %28) #23
   br label %.critedge110
 
-.critedge110:                                     ; preds = %283, %"_ZZ4mainENK4$_15clEv.exit", %331
-  %332 = load atomic i32, ptr @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE monotonic, align 8
-  %333 = icmp ugt i32 %332, 1997
-  br i1 %333, label %.critedge112, label %334, !prof !26
+.critedge110:                                     ; preds = %268, %"_ZZ4mainENK4$_15clEv.exit", %313
+  %314 = load atomic i32, ptr @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE monotonic, align 8
+  %315 = icmp ugt i32 %314, 1997
+  br i1 %315, label %.critedge112, label %316, !prof !26
 
-334:                                              ; preds = %.critedge110
-  %335 = invoke noundef i32 @_ZN5folly13XlogLevelInfoILb0EE13loadLevelFullENS_5RangeIPKcEEbPNS_17XlogFileScopeInfoE(ptr nonnull @.str.2, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 119), i1 noundef zeroext false, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE)
-          to label %"_ZZ4mainENK4$_18clEv.exit" unwind label %512
+316:                                              ; preds = %.critedge110
+  %317 = invoke noundef i32 @_ZN5folly13XlogLevelInfoILb0EE13loadLevelFullENS_5RangeIPKcEEbPNS_17XlogFileScopeInfoE(ptr nonnull @.str.2, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 119), i1 noundef zeroext false, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE)
+          to label %"_ZZ4mainENK4$_18clEv.exit" unwind label %485
 
-"_ZZ4mainENK4$_18clEv.exit":                      ; preds = %334
-  %336 = icmp ult i32 %335, 1998
-  br i1 %336, label %337, label %.critedge112
+"_ZZ4mainENK4$_18clEv.exit":                      ; preds = %316
+  %318 = icmp ult i32 %317, 1998
+  br i1 %318, label %319, label %.critedge112
 
-337:                                              ; preds = %"_ZZ4mainENK4$_18clEv.exit"
+319:                                              ; preds = %"_ZZ4mainENK4$_18clEv.exit"
   call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %29) #23
   br label %tailrecurse.i.i233
 
-tailrecurse.i.i233:                               ; preds = %tailrecurse.backedge.i.i238, %337
-  %.tr41.i.i234 = phi i64 [ 0, %337 ], [ %.tr41.be.i.i241, %tailrecurse.backedge.i.i238 ]
-  %.tr42.i.i235 = phi i64 [ 0, %337 ], [ %.tr42.be.i.i239, %tailrecurse.backedge.i.i238 ]
-  %.tr43.i.i236 = phi i1 [ true, %337 ], [ %.tr43.be.i.i240, %tailrecurse.backedge.i.i238 ]
-  %338 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %.tr41.i.i234
-  %339 = load i8, ptr %338, align 1, !tbaa !24
-  switch i8 %339, label %.thread.i.i246 [
-    i8 58, label %340
-    i8 0, label %343
+tailrecurse.i.i233:                               ; preds = %tailrecurse.backedge.i.i238, %319
+  %.tr41.i.i234 = phi i64 [ 0, %319 ], [ %.tr41.be.i.i241, %tailrecurse.backedge.i.i238 ]
+  %.tr42.i.i235 = phi i64 [ 0, %319 ], [ %.tr42.be.i.i239, %tailrecurse.backedge.i.i238 ]
+  %.tr43.i.i236 = phi i1 [ true, %319 ], [ %.tr43.be.i.i240, %tailrecurse.backedge.i.i238 ]
+  %320 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %.tr41.i.i234
+  %321 = load i8, ptr %320, align 1, !tbaa !24
+  switch i8 %321, label %.thread.i.i246 [
+    i8 58, label %322
+    i8 0, label %322
   ]
 
-340:                                              ; preds = %tailrecurse.i.i233
-  %341 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i235
-  %342 = load i8, ptr %341, align 1, !tbaa !24
-  %.not.i.i245 = icmp eq i8 %342, 58
-  br i1 %.not.i.i245, label %.thread.i.i246, label %343
+322:                                              ; preds = %tailrecurse.i.i233, %tailrecurse.i.i233
+  %323 = icmp ne i64 %.tr42.i.i235, 0
+  %or.cond.i.i237 = and i1 %.tr43.i.i236, %323
+  br i1 %or.cond.i.i237, label %324, label %340
 
-343:                                              ; preds = %340, %tailrecurse.i.i233
-  %344 = icmp ne i64 %.tr42.i.i235, 0
-  %or.cond.i.i237 = and i1 %.tr43.i.i236, %344
-  br i1 %or.cond.i.i237, label %345, label %361
+324:                                              ; preds = %322
+  %325 = getelementptr i8, ptr @.str.3, i64 %.tr42.i.i235
+  %326 = getelementptr i8, ptr %325, i64 -1
+  %327 = load i8, ptr %326, align 1, !tbaa !24
+  %328 = icmp eq i8 %327, 47
+  br i1 %328, label %tailrecurse.i2.i242.preheader, label %329
 
-345:                                              ; preds = %343
-  %346 = getelementptr i8, ptr @.str.3, i64 %.tr42.i.i235
-  %347 = getelementptr i8, ptr %346, i64 -1
-  %348 = load i8, ptr %347, align 1, !tbaa !24
-  %349 = icmp eq i8 %348, 47
-  br i1 %349, label %tailrecurse.i2.i242.preheader, label %350
+329:                                              ; preds = %324
+  %330 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i235
+  %331 = load i8, ptr %330, align 1, !tbaa !24
+  %332 = icmp eq i8 %331, 47
+  br i1 %332, label %tailrecurse.i2.i242.preheader, label %340
 
-350:                                              ; preds = %345
-  %351 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i235
-  %352 = load i8, ptr %351, align 1, !tbaa !24
-  %353 = icmp eq i8 %352, 47
-  br i1 %353, label %tailrecurse.i2.i242.preheader, label %361
-
-tailrecurse.i2.i242.preheader:                    ; preds = %350, %345
+tailrecurse.i2.i242.preheader:                    ; preds = %329, %324
   br label %tailrecurse.i2.i242
 
-tailrecurse.i2.i242:                              ; preds = %tailrecurse.i2.i242.preheader, %359
-  %.tr14.i.i243 = phi i64 [ %360, %359 ], [ %.tr42.i.i235, %tailrecurse.i2.i242.preheader ]
-  %354 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i243
-  %355 = load i8, ptr %354, align 1, !tbaa !24
-  switch i8 %355, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit249.loopexit [
-    i8 0, label %356
-    i8 47, label %359
+tailrecurse.i2.i242:                              ; preds = %tailrecurse.i2.i242.preheader, %338
+  %.tr14.i.i243 = phi i64 [ %339, %338 ], [ %.tr42.i.i235, %tailrecurse.i2.i242.preheader ]
+  %333 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i243
+  %334 = load i8, ptr %333, align 1, !tbaa !24
+  switch i8 %334, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit249.loopexit [
+    i8 0, label %335
+    i8 47, label %338
   ]
 
-356:                                              ; preds = %tailrecurse.i2.i242
-  %357 = add i64 %.tr41.i.i234, 1
-  %358 = invoke noundef ptr @_ZN5folly6detail26xlogStripFilenameRecursiveEPKcS2_mmb(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i64 noundef %357, i64 noundef 0, i1 noundef zeroext true) #24
-          to label %_ZN5folly17xlogStripFilenameEPKcS1_.exit249 unwind label %514
+335:                                              ; preds = %tailrecurse.i2.i242
+  %336 = add i64 %.tr41.i.i234, 1
+  %337 = invoke noundef ptr @_ZN5folly6detail26xlogStripFilenameRecursiveEPKcS2_mmb(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i64 noundef %336, i64 noundef 0, i1 noundef zeroext true) #24
+          to label %_ZN5folly17xlogStripFilenameEPKcS1_.exit249 unwind label %487
 
-359:                                              ; preds = %tailrecurse.i2.i242
-  %360 = add i64 %.tr14.i.i243, 1
+338:                                              ; preds = %tailrecurse.i2.i242
+  %339 = add i64 %.tr14.i.i243, 1
   br label %tailrecurse.i2.i242
 
-361:                                              ; preds = %350, %343
-  %362 = icmp eq i8 %339, 0
-  br i1 %362, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit249, label %tailrecurse.backedge.i.i238
+340:                                              ; preds = %329, %322
+  %341 = icmp eq i64 %.tr41.i.i234, 165
+  br i1 %341, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit249, label %tailrecurse.backedge.i.i238
 
-tailrecurse.backedge.i.i238:                      ; preds = %370, %367, %.thread.i.i246, %361
-  %.tr42.be.i.i239 = phi i64 [ %371, %370 ], [ 0, %361 ], [ 0, %367 ], [ 0, %.thread.i.i246 ]
-  %.tr43.be.i.i240 = phi i1 [ true, %370 ], [ true, %361 ], [ false, %367 ], [ false, %.thread.i.i246 ]
+tailrecurse.backedge.i.i238:                      ; preds = %349, %346, %.thread.i.i246, %340
+  %.tr42.be.i.i239 = phi i64 [ %350, %349 ], [ 0, %340 ], [ 0, %346 ], [ 0, %.thread.i.i246 ]
+  %.tr43.be.i.i240 = phi i1 [ true, %349 ], [ true, %340 ], [ false, %346 ], [ false, %.thread.i.i246 ]
   %.tr41.be.i.i241 = add i64 %.tr41.i.i234, 1
   br label %tailrecurse.i.i233
 
-.thread.i.i246:                                   ; preds = %340, %tailrecurse.i.i233
-  br i1 %.tr43.i.i236, label %363, label %tailrecurse.backedge.i.i238
+.thread.i.i246:                                   ; preds = %tailrecurse.i.i233
+  br i1 %.tr43.i.i236, label %342, label %tailrecurse.backedge.i.i238
 
-363:                                              ; preds = %.thread.i.i246
-  %364 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i235
-  %365 = load i8, ptr %364, align 1, !tbaa !24
-  %366 = icmp eq i8 %339, %365
-  br i1 %366, label %370, label %367
+342:                                              ; preds = %.thread.i.i246
+  %343 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i235
+  %344 = load i8, ptr %343, align 1, !tbaa !24
+  %345 = icmp eq i8 %321, %344
+  br i1 %345, label %349, label %346
 
-367:                                              ; preds = %363
-  %368 = icmp eq i8 %339, 47
-  %369 = icmp eq i8 %365, 47
-  %or.cond39.i.i247 = and i1 %368, %369
-  br i1 %or.cond39.i.i247, label %370, label %tailrecurse.backedge.i.i238
+346:                                              ; preds = %342
+  %347 = icmp eq i8 %321, 47
+  %348 = icmp eq i8 %344, 47
+  %or.cond39.i.i247 = and i1 %347, %348
+  br i1 %or.cond39.i.i247, label %349, label %tailrecurse.backedge.i.i238
 
-370:                                              ; preds = %367, %363
-  %371 = add i64 %.tr42.i.i235, 1
+349:                                              ; preds = %346, %342
+  %350 = add i64 %.tr42.i.i235, 1
   br label %tailrecurse.backedge.i.i238
 
 _ZN5folly17xlogStripFilenameEPKcS1_.exit249.loopexit: ; preds = %tailrecurse.i2.i242
-  %372 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i243
+  %351 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i243
   br label %_ZN5folly17xlogStripFilenameEPKcS1_.exit249
 
-_ZN5folly17xlogStripFilenameEPKcS1_.exit249:      ; preds = %361, %_ZN5folly17xlogStripFilenameEPKcS1_.exit249.loopexit, %356
-  %373 = phi ptr [ %358, %356 ], [ %372, %_ZN5folly17xlogStripFilenameEPKcS1_.exit249.loopexit ], [ @.str.2, %361 ]
-  %374 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %373) #23
-  %375 = getelementptr inbounds nuw i8, ptr %373, i64 %374
+_ZN5folly17xlogStripFilenameEPKcS1_.exit249:      ; preds = %340, %_ZN5folly17xlogStripFilenameEPKcS1_.exit249.loopexit, %335
+  %352 = phi ptr [ %337, %335 ], [ %351, %_ZN5folly17xlogStripFilenameEPKcS1_.exit249.loopexit ], [ @.str.2, %340 ]
+  %353 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %352) #23
+  %354 = getelementptr inbounds nuw i8, ptr %352, i64 %353
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store ptr @__func__.main, ptr %7, align 8
   %.sroa.2329.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @__func__.main, i64 4), ptr %.sroa.2329.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23
   call void @_ZN5folly18LogStreamProcessor15createLogStringIJRA21_KcRA13_S2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(464) %29, ptr noundef nonnull align 1 dereferenceable(21) @.str.12, ptr noundef nonnull align 1 dereferenceable(13) @.str.13) #23
-  call void @_ZN5folly18LogStreamProcessorC2EPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPKcEEjS7_NS0_12InternalTypeEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(464) %29, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE, i32 noundef 1997, ptr nonnull %373, ptr nonnull %375, i32 noundef 55, ptr noundef nonnull byval(%"class.folly::Range") align 8 %7, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %6) #23
-  %376 = load ptr, ptr %6, align 8, !tbaa !22
-  %377 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %378 = icmp eq ptr %376, %377
-  br i1 %378, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i254, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i253
+  call void @_ZN5folly18LogStreamProcessorC2EPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPKcEEjS7_NS0_12InternalTypeEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(464) %29, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE, i32 noundef 1997, ptr nonnull %352, ptr nonnull %354, i32 noundef 55, ptr noundef nonnull byval(%"class.folly::Range") align 8 %7, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %6) #23
+  %355 = load ptr, ptr %6, align 8, !tbaa !22
+  %356 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %357 = icmp eq ptr %355, %356
+  br i1 %357, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i254, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i253
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i254: ; preds = %_ZN5folly17xlogStripFilenameEPKcS1_.exit249
-  %379 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %380 = load i64, ptr %379, align 8, !tbaa !25
-  %381 = icmp ult i64 %380, 16
-  call void @llvm.assume(i1 %381)
+  %358 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %359 = load i64, ptr %358, align 8, !tbaa !25
+  %360 = icmp ult i64 %359, 16
+  call void @llvm.assume(i1 %360)
   br label %_ZN5folly18LogStreamProcessorC2IJRA21_KcRA13_S2_EEEPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPS2_EEbSC_jSC_NS0_10AppendTypeEDpOT_.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i253: ; preds = %_ZN5folly17xlogStripFilenameEPKcS1_.exit249
-  %382 = load i64, ptr %377, align 8, !tbaa !24
-  %383 = add i64 %382, 1
-  call void @_ZdlPvm(ptr noundef %376, i64 noundef %383) #25
+  %361 = load i64, ptr %356, align 8, !tbaa !24
+  %362 = add i64 %361, 1
+  call void @_ZdlPvm(ptr noundef %355, i64 noundef %362) #25
   br label %_ZN5folly18LogStreamProcessorC2IJRA21_KcRA13_S2_EEEPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPS2_EEbSC_jSC_NS0_10AppendTypeEDpOT_.exit
 
 _ZN5folly18LogStreamProcessorC2IJRA21_KcRA13_S2_EEEPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPS2_EEbSC_jSC_NS0_10AppendTypeEDpOT_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i254, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i253
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %384 = getelementptr inbounds nuw i8, ptr %29, i64 88
-  %385 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %384, ptr noundef nonnull @.str.14, i64 noundef 42)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit256 unwind label %516
+  %363 = getelementptr inbounds nuw i8, ptr %29, i64 88
+  %364 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %363, ptr noundef nonnull @.str.14, i64 noundef 42)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit256 unwind label %489
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit256: ; preds = %_ZN5folly18LogStreamProcessorC2IJRA21_KcRA13_S2_EEEPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPS2_EEbSC_jSC_NS0_10AppendTypeEDpOT_.exit
-  %386 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %384, i32 noundef 42)
-          to label %387 unwind label %516
+  %365 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %363, i32 noundef 42)
+          to label %366 unwind label %489
 
-387:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit256
+366:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit256
   call void @_ZN5folly18LogStreamProcessorD1Ev(ptr noundef nonnull align 8 dereferenceable(464) %29) #23
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %29) #23
   br label %.critedge112
 
-.critedge112:                                     ; preds = %.critedge110, %"_ZZ4mainENK4$_18clEv.exit", %387
-  %388 = load atomic i32, ptr @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE monotonic, align 8
-  %389 = icmp ugt i32 %388, 1996
-  br i1 %389, label %.critedge114, label %390, !prof !26
+.critedge112:                                     ; preds = %.critedge110, %"_ZZ4mainENK4$_18clEv.exit", %366
+  %367 = load atomic i32, ptr @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE monotonic, align 8
+  %368 = icmp ugt i32 %367, 1996
+  br i1 %368, label %.critedge114, label %369, !prof !26
 
-390:                                              ; preds = %.critedge112
-  %391 = invoke noundef i32 @_ZN5folly13XlogLevelInfoILb0EE13loadLevelFullENS_5RangeIPKcEEbPNS_17XlogFileScopeInfoE(ptr nonnull @.str.2, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 119), i1 noundef zeroext false, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE)
-          to label %"_ZZ4mainENK4$_21clEv.exit" unwind label %519
+369:                                              ; preds = %.critedge112
+  %370 = invoke noundef i32 @_ZN5folly13XlogLevelInfoILb0EE13loadLevelFullENS_5RangeIPKcEEbPNS_17XlogFileScopeInfoE(ptr nonnull @.str.2, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 119), i1 noundef zeroext false, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE)
+          to label %"_ZZ4mainENK4$_21clEv.exit" unwind label %492
 
-"_ZZ4mainENK4$_21clEv.exit":                      ; preds = %390
-  %392 = icmp ult i32 %391, 1997
-  br i1 %392, label %393, label %.critedge114
+"_ZZ4mainENK4$_21clEv.exit":                      ; preds = %369
+  %371 = icmp ult i32 %370, 1997
+  br i1 %371, label %372, label %.critedge114
 
-393:                                              ; preds = %"_ZZ4mainENK4$_21clEv.exit"
+372:                                              ; preds = %"_ZZ4mainENK4$_21clEv.exit"
   call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %30) #23
   br label %tailrecurse.i.i259
 
-tailrecurse.i.i259:                               ; preds = %tailrecurse.backedge.i.i264, %393
-  %.tr41.i.i260 = phi i64 [ 0, %393 ], [ %.tr41.be.i.i267, %tailrecurse.backedge.i.i264 ]
-  %.tr42.i.i261 = phi i64 [ 0, %393 ], [ %.tr42.be.i.i265, %tailrecurse.backedge.i.i264 ]
-  %.tr43.i.i262 = phi i1 [ true, %393 ], [ %.tr43.be.i.i266, %tailrecurse.backedge.i.i264 ]
-  %394 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %.tr41.i.i260
-  %395 = load i8, ptr %394, align 1, !tbaa !24
-  switch i8 %395, label %.thread.i.i272 [
-    i8 58, label %396
-    i8 0, label %399
+tailrecurse.i.i259:                               ; preds = %tailrecurse.backedge.i.i264, %372
+  %.tr41.i.i260 = phi i64 [ 0, %372 ], [ %.tr41.be.i.i267, %tailrecurse.backedge.i.i264 ]
+  %.tr42.i.i261 = phi i64 [ 0, %372 ], [ %.tr42.be.i.i265, %tailrecurse.backedge.i.i264 ]
+  %.tr43.i.i262 = phi i1 [ true, %372 ], [ %.tr43.be.i.i266, %tailrecurse.backedge.i.i264 ]
+  %373 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %.tr41.i.i260
+  %374 = load i8, ptr %373, align 1, !tbaa !24
+  switch i8 %374, label %.thread.i.i272 [
+    i8 58, label %375
+    i8 0, label %375
   ]
 
-396:                                              ; preds = %tailrecurse.i.i259
-  %397 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i261
-  %398 = load i8, ptr %397, align 1, !tbaa !24
-  %.not.i.i271 = icmp eq i8 %398, 58
-  br i1 %.not.i.i271, label %.thread.i.i272, label %399
+375:                                              ; preds = %tailrecurse.i.i259, %tailrecurse.i.i259
+  %376 = icmp ne i64 %.tr42.i.i261, 0
+  %or.cond.i.i263 = and i1 %.tr43.i.i262, %376
+  br i1 %or.cond.i.i263, label %377, label %393
 
-399:                                              ; preds = %396, %tailrecurse.i.i259
-  %400 = icmp ne i64 %.tr42.i.i261, 0
-  %or.cond.i.i263 = and i1 %.tr43.i.i262, %400
-  br i1 %or.cond.i.i263, label %401, label %417
+377:                                              ; preds = %375
+  %378 = getelementptr i8, ptr @.str.3, i64 %.tr42.i.i261
+  %379 = getelementptr i8, ptr %378, i64 -1
+  %380 = load i8, ptr %379, align 1, !tbaa !24
+  %381 = icmp eq i8 %380, 47
+  br i1 %381, label %tailrecurse.i2.i268.preheader, label %382
 
-401:                                              ; preds = %399
-  %402 = getelementptr i8, ptr @.str.3, i64 %.tr42.i.i261
-  %403 = getelementptr i8, ptr %402, i64 -1
-  %404 = load i8, ptr %403, align 1, !tbaa !24
-  %405 = icmp eq i8 %404, 47
-  br i1 %405, label %tailrecurse.i2.i268.preheader, label %406
+382:                                              ; preds = %377
+  %383 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i261
+  %384 = load i8, ptr %383, align 1, !tbaa !24
+  %385 = icmp eq i8 %384, 47
+  br i1 %385, label %tailrecurse.i2.i268.preheader, label %393
 
-406:                                              ; preds = %401
-  %407 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i261
-  %408 = load i8, ptr %407, align 1, !tbaa !24
-  %409 = icmp eq i8 %408, 47
-  br i1 %409, label %tailrecurse.i2.i268.preheader, label %417
-
-tailrecurse.i2.i268.preheader:                    ; preds = %406, %401
+tailrecurse.i2.i268.preheader:                    ; preds = %382, %377
   br label %tailrecurse.i2.i268
 
-tailrecurse.i2.i268:                              ; preds = %tailrecurse.i2.i268.preheader, %415
-  %.tr14.i.i269 = phi i64 [ %416, %415 ], [ %.tr42.i.i261, %tailrecurse.i2.i268.preheader ]
-  %410 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i269
-  %411 = load i8, ptr %410, align 1, !tbaa !24
-  switch i8 %411, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit275.loopexit [
-    i8 0, label %412
-    i8 47, label %415
+tailrecurse.i2.i268:                              ; preds = %tailrecurse.i2.i268.preheader, %391
+  %.tr14.i.i269 = phi i64 [ %392, %391 ], [ %.tr42.i.i261, %tailrecurse.i2.i268.preheader ]
+  %386 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i269
+  %387 = load i8, ptr %386, align 1, !tbaa !24
+  switch i8 %387, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit275.loopexit [
+    i8 0, label %388
+    i8 47, label %391
   ]
 
-412:                                              ; preds = %tailrecurse.i2.i268
-  %413 = add i64 %.tr41.i.i260, 1
-  %414 = invoke noundef ptr @_ZN5folly6detail26xlogStripFilenameRecursiveEPKcS2_mmb(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i64 noundef %413, i64 noundef 0, i1 noundef zeroext true) #24
-          to label %_ZN5folly17xlogStripFilenameEPKcS1_.exit275 unwind label %521
+388:                                              ; preds = %tailrecurse.i2.i268
+  %389 = add i64 %.tr41.i.i260, 1
+  %390 = invoke noundef ptr @_ZN5folly6detail26xlogStripFilenameRecursiveEPKcS2_mmb(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i64 noundef %389, i64 noundef 0, i1 noundef zeroext true) #24
+          to label %_ZN5folly17xlogStripFilenameEPKcS1_.exit275 unwind label %494
 
-415:                                              ; preds = %tailrecurse.i2.i268
-  %416 = add i64 %.tr14.i.i269, 1
+391:                                              ; preds = %tailrecurse.i2.i268
+  %392 = add i64 %.tr14.i.i269, 1
   br label %tailrecurse.i2.i268
 
-417:                                              ; preds = %406, %399
-  %418 = icmp eq i8 %395, 0
-  br i1 %418, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit275, label %tailrecurse.backedge.i.i264
+393:                                              ; preds = %382, %375
+  %394 = icmp eq i64 %.tr41.i.i260, 165
+  br i1 %394, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit275, label %tailrecurse.backedge.i.i264
 
-tailrecurse.backedge.i.i264:                      ; preds = %426, %423, %.thread.i.i272, %417
-  %.tr42.be.i.i265 = phi i64 [ %427, %426 ], [ 0, %417 ], [ 0, %423 ], [ 0, %.thread.i.i272 ]
-  %.tr43.be.i.i266 = phi i1 [ true, %426 ], [ true, %417 ], [ false, %423 ], [ false, %.thread.i.i272 ]
+tailrecurse.backedge.i.i264:                      ; preds = %402, %399, %.thread.i.i272, %393
+  %.tr42.be.i.i265 = phi i64 [ %403, %402 ], [ 0, %393 ], [ 0, %399 ], [ 0, %.thread.i.i272 ]
+  %.tr43.be.i.i266 = phi i1 [ true, %402 ], [ true, %393 ], [ false, %399 ], [ false, %.thread.i.i272 ]
   %.tr41.be.i.i267 = add i64 %.tr41.i.i260, 1
   br label %tailrecurse.i.i259
 
-.thread.i.i272:                                   ; preds = %396, %tailrecurse.i.i259
-  br i1 %.tr43.i.i262, label %419, label %tailrecurse.backedge.i.i264
+.thread.i.i272:                                   ; preds = %tailrecurse.i.i259
+  br i1 %.tr43.i.i262, label %395, label %tailrecurse.backedge.i.i264
 
-419:                                              ; preds = %.thread.i.i272
-  %420 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i261
-  %421 = load i8, ptr %420, align 1, !tbaa !24
-  %422 = icmp eq i8 %395, %421
-  br i1 %422, label %426, label %423
+395:                                              ; preds = %.thread.i.i272
+  %396 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i261
+  %397 = load i8, ptr %396, align 1, !tbaa !24
+  %398 = icmp eq i8 %374, %397
+  br i1 %398, label %402, label %399
 
-423:                                              ; preds = %419
-  %424 = icmp eq i8 %395, 47
-  %425 = icmp eq i8 %421, 47
-  %or.cond39.i.i273 = and i1 %424, %425
-  br i1 %or.cond39.i.i273, label %426, label %tailrecurse.backedge.i.i264
+399:                                              ; preds = %395
+  %400 = icmp eq i8 %374, 47
+  %401 = icmp eq i8 %397, 47
+  %or.cond39.i.i273 = and i1 %400, %401
+  br i1 %or.cond39.i.i273, label %402, label %tailrecurse.backedge.i.i264
 
-426:                                              ; preds = %423, %419
-  %427 = add i64 %.tr42.i.i261, 1
+402:                                              ; preds = %399, %395
+  %403 = add i64 %.tr42.i.i261, 1
   br label %tailrecurse.backedge.i.i264
 
 _ZN5folly17xlogStripFilenameEPKcS1_.exit275.loopexit: ; preds = %tailrecurse.i2.i268
-  %428 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i269
+  %404 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i269
   br label %_ZN5folly17xlogStripFilenameEPKcS1_.exit275
 
-_ZN5folly17xlogStripFilenameEPKcS1_.exit275:      ; preds = %417, %_ZN5folly17xlogStripFilenameEPKcS1_.exit275.loopexit, %412
-  %429 = phi ptr [ %414, %412 ], [ %428, %_ZN5folly17xlogStripFilenameEPKcS1_.exit275.loopexit ], [ @.str.2, %417 ]
-  %430 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %429) #23
-  %431 = getelementptr inbounds nuw i8, ptr %429, i64 %430
+_ZN5folly17xlogStripFilenameEPKcS1_.exit275:      ; preds = %393, %_ZN5folly17xlogStripFilenameEPKcS1_.exit275.loopexit, %388
+  %405 = phi ptr [ %390, %388 ], [ %404, %_ZN5folly17xlogStripFilenameEPKcS1_.exit275.loopexit ], [ @.str.2, %393 ]
+  %406 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %405) #23
+  %407 = getelementptr inbounds nuw i8, ptr %405, i64 %406
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr @__func__.main, ptr %5, align 8
   %.sroa.2321.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @__func__.main, i64 4), ptr %.sroa.2321.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #23
   call void @_ZN5folly18LogStreamProcessor15formatLogStringIJA4_cA7_cEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEEDpRKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(464) %30, ptr nonnull @.str.15, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.15, i64 23), ptr noundef nonnull align 1 dereferenceable(4) @.str.16, ptr noundef nonnull align 1 dereferenceable(7) @.str.17) #23
-  call void @_ZN5folly18LogStreamProcessorC2EPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPKcEEjS7_NS0_12InternalTypeEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(464) %30, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE, i32 noundef 1996, ptr nonnull %429, ptr nonnull %431, i32 noundef 57, ptr noundef nonnull byval(%"class.folly::Range") align 8 %5, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %4) #23
-  %432 = load ptr, ptr %4, align 8, !tbaa !22
-  %433 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %434 = icmp eq ptr %432, %433
-  br i1 %434, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i283, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i282
+  call void @_ZN5folly18LogStreamProcessorC2EPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPKcEEjS7_NS0_12InternalTypeEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(464) %30, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE, i32 noundef 1996, ptr nonnull %405, ptr nonnull %407, i32 noundef 57, ptr noundef nonnull byval(%"class.folly::Range") align 8 %5, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %4) #23
+  %408 = load ptr, ptr %4, align 8, !tbaa !22
+  %409 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %410 = icmp eq ptr %408, %409
+  br i1 %410, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i283, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i282
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i283: ; preds = %_ZN5folly17xlogStripFilenameEPKcS1_.exit275
-  %435 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %436 = load i64, ptr %435, align 8, !tbaa !25
-  %437 = icmp ult i64 %436, 16
-  call void @llvm.assume(i1 %437)
+  %411 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %412 = load i64, ptr %411, align 8, !tbaa !25
+  %413 = icmp ult i64 %412, 16
+  call void @llvm.assume(i1 %413)
   br label %_ZN5folly18LogStreamProcessorC2IJRA4_KcRA7_S2_EEEPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPS2_EEbSC_jSC_NS0_10FormatTypeESC_DpOT_.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i282: ; preds = %_ZN5folly17xlogStripFilenameEPKcS1_.exit275
-  %438 = load i64, ptr %433, align 8, !tbaa !24
-  %439 = add i64 %438, 1
-  call void @_ZdlPvm(ptr noundef %432, i64 noundef %439) #25
+  %414 = load i64, ptr %409, align 8, !tbaa !24
+  %415 = add i64 %414, 1
+  call void @_ZdlPvm(ptr noundef %408, i64 noundef %415) #25
   br label %_ZN5folly18LogStreamProcessorC2IJRA4_KcRA7_S2_EEEPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPS2_EEbSC_jSC_NS0_10FormatTypeESC_DpOT_.exit
 
 _ZN5folly18LogStreamProcessorC2IJRA4_KcRA7_S2_EEEPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPS2_EEbSC_jSC_NS0_10FormatTypeESC_DpOT_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i283, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i282
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %440 = getelementptr inbounds nuw i8, ptr %30, i64 88
-  %441 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %440, ptr noundef nonnull @.str.18, i64 noundef 14)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit285 unwind label %523
+  %416 = getelementptr inbounds nuw i8, ptr %30, i64 88
+  %417 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %416, ptr noundef nonnull @.str.18, i64 noundef 14)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit285 unwind label %496
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit285: ; preds = %_ZN5folly18LogStreamProcessorC2IJRA4_KcRA7_S2_EEEPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPS2_EEbSC_jSC_NS0_10FormatTypeESC_DpOT_.exit
   call void @_ZN5folly18LogStreamProcessorD1Ev(ptr noundef nonnull align 8 dereferenceable(464) %30) #23
@@ -1581,283 +1527,277 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit285: ; preds = %_ZN5
 
 .critedge114:                                     ; preds = %.critedge112, %"_ZZ4mainENK4$_21clEv.exit", %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit285
   invoke void @_ZN7example13ExampleObjectC2EN5folly5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr nonnull @.str.19, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.19, i64 3))
-          to label %442 unwind label %526
+          to label %418 unwind label %499
 
-442:                                              ; preds = %.critedge114
+418:                                              ; preds = %.critedge114
   call void @_ZN7example13ExampleObjectD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #23
-  %443 = load atomic i32, ptr @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE monotonic, align 8
-  %444 = icmp ugt i32 %443, 2000
-  br i1 %444, label %.critedge116, label %445, !prof !26
+  %419 = load atomic i32, ptr @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE monotonic, align 8
+  %420 = icmp ugt i32 %419, 2000
+  br i1 %420, label %.critedge116, label %421, !prof !26
 
-445:                                              ; preds = %442
-  %446 = invoke noundef i32 @_ZN5folly13XlogLevelInfoILb0EE13loadLevelFullENS_5RangeIPKcEEbPNS_17XlogFileScopeInfoE(ptr nonnull @.str.2, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 119), i1 noundef zeroext false, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE)
-          to label %"_ZZ4mainENK4$_24clEv.exit" unwind label %528
+421:                                              ; preds = %418
+  %422 = invoke noundef i32 @_ZN5folly13XlogLevelInfoILb0EE13loadLevelFullENS_5RangeIPKcEEbPNS_17XlogFileScopeInfoE(ptr nonnull @.str.2, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 119), i1 noundef zeroext false, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE)
+          to label %"_ZZ4mainENK4$_24clEv.exit" unwind label %501
 
-"_ZZ4mainENK4$_24clEv.exit":                      ; preds = %445
-  %447 = icmp ult i32 %446, 2001
-  br i1 %447, label %448, label %.critedge116
+"_ZZ4mainENK4$_24clEv.exit":                      ; preds = %421
+  %423 = icmp ult i32 %422, 2001
+  br i1 %423, label %424, label %.critedge116
 
-448:                                              ; preds = %"_ZZ4mainENK4$_24clEv.exit"
+424:                                              ; preds = %"_ZZ4mainENK4$_24clEv.exit"
   call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %32) #23
   br label %tailrecurse.i.i288
 
-tailrecurse.i.i288:                               ; preds = %tailrecurse.backedge.i.i293, %448
-  %.tr41.i.i289 = phi i64 [ 0, %448 ], [ %.tr41.be.i.i296, %tailrecurse.backedge.i.i293 ]
-  %.tr42.i.i290 = phi i64 [ 0, %448 ], [ %.tr42.be.i.i294, %tailrecurse.backedge.i.i293 ]
-  %.tr43.i.i291 = phi i1 [ true, %448 ], [ %.tr43.be.i.i295, %tailrecurse.backedge.i.i293 ]
-  %449 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %.tr41.i.i289
-  %450 = load i8, ptr %449, align 1, !tbaa !24
-  switch i8 %450, label %.thread.i.i301 [
-    i8 58, label %451
-    i8 0, label %454
+tailrecurse.i.i288:                               ; preds = %tailrecurse.backedge.i.i293, %424
+  %.tr41.i.i289 = phi i64 [ 0, %424 ], [ %.tr41.be.i.i296, %tailrecurse.backedge.i.i293 ]
+  %.tr42.i.i290 = phi i64 [ 0, %424 ], [ %.tr42.be.i.i294, %tailrecurse.backedge.i.i293 ]
+  %.tr43.i.i291 = phi i1 [ true, %424 ], [ %.tr43.be.i.i295, %tailrecurse.backedge.i.i293 ]
+  %425 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %.tr41.i.i289
+  %426 = load i8, ptr %425, align 1, !tbaa !24
+  switch i8 %426, label %.thread.i.i301 [
+    i8 58, label %427
+    i8 0, label %427
   ]
 
-451:                                              ; preds = %tailrecurse.i.i288
-  %452 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i290
-  %453 = load i8, ptr %452, align 1, !tbaa !24
-  %.not.i.i300 = icmp eq i8 %453, 58
-  br i1 %.not.i.i300, label %.thread.i.i301, label %454
+427:                                              ; preds = %tailrecurse.i.i288, %tailrecurse.i.i288
+  %428 = icmp ne i64 %.tr42.i.i290, 0
+  %or.cond.i.i292 = and i1 %.tr43.i.i291, %428
+  br i1 %or.cond.i.i292, label %429, label %445
 
-454:                                              ; preds = %451, %tailrecurse.i.i288
-  %455 = icmp ne i64 %.tr42.i.i290, 0
-  %or.cond.i.i292 = and i1 %.tr43.i.i291, %455
-  br i1 %or.cond.i.i292, label %456, label %472
+429:                                              ; preds = %427
+  %430 = getelementptr i8, ptr @.str.3, i64 %.tr42.i.i290
+  %431 = getelementptr i8, ptr %430, i64 -1
+  %432 = load i8, ptr %431, align 1, !tbaa !24
+  %433 = icmp eq i8 %432, 47
+  br i1 %433, label %tailrecurse.i2.i297.preheader, label %434
 
-456:                                              ; preds = %454
-  %457 = getelementptr i8, ptr @.str.3, i64 %.tr42.i.i290
-  %458 = getelementptr i8, ptr %457, i64 -1
-  %459 = load i8, ptr %458, align 1, !tbaa !24
-  %460 = icmp eq i8 %459, 47
-  br i1 %460, label %tailrecurse.i2.i297.preheader, label %461
+434:                                              ; preds = %429
+  %435 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i290
+  %436 = load i8, ptr %435, align 1, !tbaa !24
+  %437 = icmp eq i8 %436, 47
+  br i1 %437, label %tailrecurse.i2.i297.preheader, label %445
 
-461:                                              ; preds = %456
-  %462 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i290
-  %463 = load i8, ptr %462, align 1, !tbaa !24
-  %464 = icmp eq i8 %463, 47
-  br i1 %464, label %tailrecurse.i2.i297.preheader, label %472
-
-tailrecurse.i2.i297.preheader:                    ; preds = %461, %456
+tailrecurse.i2.i297.preheader:                    ; preds = %434, %429
   br label %tailrecurse.i2.i297
 
-tailrecurse.i2.i297:                              ; preds = %tailrecurse.i2.i297.preheader, %470
-  %.tr14.i.i298 = phi i64 [ %471, %470 ], [ %.tr42.i.i290, %tailrecurse.i2.i297.preheader ]
-  %465 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i298
-  %466 = load i8, ptr %465, align 1, !tbaa !24
-  switch i8 %466, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit304.loopexit [
-    i8 0, label %467
-    i8 47, label %470
+tailrecurse.i2.i297:                              ; preds = %tailrecurse.i2.i297.preheader, %443
+  %.tr14.i.i298 = phi i64 [ %444, %443 ], [ %.tr42.i.i290, %tailrecurse.i2.i297.preheader ]
+  %438 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i298
+  %439 = load i8, ptr %438, align 1, !tbaa !24
+  switch i8 %439, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit304.loopexit [
+    i8 0, label %440
+    i8 47, label %443
   ]
 
-467:                                              ; preds = %tailrecurse.i2.i297
-  %468 = add i64 %.tr41.i.i289, 1
-  %469 = invoke noundef ptr @_ZN5folly6detail26xlogStripFilenameRecursiveEPKcS2_mmb(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i64 noundef %468, i64 noundef 0, i1 noundef zeroext true) #24
-          to label %_ZN5folly17xlogStripFilenameEPKcS1_.exit304 unwind label %530
+440:                                              ; preds = %tailrecurse.i2.i297
+  %441 = add i64 %.tr41.i.i289, 1
+  %442 = invoke noundef ptr @_ZN5folly6detail26xlogStripFilenameRecursiveEPKcS2_mmb(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i64 noundef %441, i64 noundef 0, i1 noundef zeroext true) #24
+          to label %_ZN5folly17xlogStripFilenameEPKcS1_.exit304 unwind label %503
 
-470:                                              ; preds = %tailrecurse.i2.i297
-  %471 = add i64 %.tr14.i.i298, 1
+443:                                              ; preds = %tailrecurse.i2.i297
+  %444 = add i64 %.tr14.i.i298, 1
   br label %tailrecurse.i2.i297
 
-472:                                              ; preds = %461, %454
-  %473 = icmp eq i8 %450, 0
-  br i1 %473, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit304, label %tailrecurse.backedge.i.i293
+445:                                              ; preds = %434, %427
+  %446 = icmp eq i64 %.tr41.i.i289, 165
+  br i1 %446, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit304, label %tailrecurse.backedge.i.i293
 
-tailrecurse.backedge.i.i293:                      ; preds = %481, %478, %.thread.i.i301, %472
-  %.tr42.be.i.i294 = phi i64 [ %482, %481 ], [ 0, %472 ], [ 0, %478 ], [ 0, %.thread.i.i301 ]
-  %.tr43.be.i.i295 = phi i1 [ true, %481 ], [ true, %472 ], [ false, %478 ], [ false, %.thread.i.i301 ]
+tailrecurse.backedge.i.i293:                      ; preds = %454, %451, %.thread.i.i301, %445
+  %.tr42.be.i.i294 = phi i64 [ %455, %454 ], [ 0, %445 ], [ 0, %451 ], [ 0, %.thread.i.i301 ]
+  %.tr43.be.i.i295 = phi i1 [ true, %454 ], [ true, %445 ], [ false, %451 ], [ false, %.thread.i.i301 ]
   %.tr41.be.i.i296 = add i64 %.tr41.i.i289, 1
   br label %tailrecurse.i.i288
 
-.thread.i.i301:                                   ; preds = %451, %tailrecurse.i.i288
-  br i1 %.tr43.i.i291, label %474, label %tailrecurse.backedge.i.i293
+.thread.i.i301:                                   ; preds = %tailrecurse.i.i288
+  br i1 %.tr43.i.i291, label %447, label %tailrecurse.backedge.i.i293
 
-474:                                              ; preds = %.thread.i.i301
-  %475 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i290
-  %476 = load i8, ptr %475, align 1, !tbaa !24
-  %477 = icmp eq i8 %450, %476
-  br i1 %477, label %481, label %478
+447:                                              ; preds = %.thread.i.i301
+  %448 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr42.i.i290
+  %449 = load i8, ptr %448, align 1, !tbaa !24
+  %450 = icmp eq i8 %426, %449
+  br i1 %450, label %454, label %451
 
-478:                                              ; preds = %474
-  %479 = icmp eq i8 %450, 47
-  %480 = icmp eq i8 %476, 47
-  %or.cond39.i.i302 = and i1 %479, %480
-  br i1 %or.cond39.i.i302, label %481, label %tailrecurse.backedge.i.i293
+451:                                              ; preds = %447
+  %452 = icmp eq i8 %426, 47
+  %453 = icmp eq i8 %449, 47
+  %or.cond39.i.i302 = and i1 %452, %453
+  br i1 %or.cond39.i.i302, label %454, label %tailrecurse.backedge.i.i293
 
-481:                                              ; preds = %478, %474
-  %482 = add i64 %.tr42.i.i290, 1
+454:                                              ; preds = %451, %447
+  %455 = add i64 %.tr42.i.i290, 1
   br label %tailrecurse.backedge.i.i293
 
 _ZN5folly17xlogStripFilenameEPKcS1_.exit304.loopexit: ; preds = %tailrecurse.i2.i297
-  %483 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i298
+  %456 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.tr14.i.i298
   br label %_ZN5folly17xlogStripFilenameEPKcS1_.exit304
 
-_ZN5folly17xlogStripFilenameEPKcS1_.exit304:      ; preds = %472, %_ZN5folly17xlogStripFilenameEPKcS1_.exit304.loopexit, %467
-  %484 = phi ptr [ %469, %467 ], [ %483, %_ZN5folly17xlogStripFilenameEPKcS1_.exit304.loopexit ], [ @.str.2, %472 ]
-  %485 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %484) #23
-  %486 = getelementptr inbounds nuw i8, ptr %484, i64 %485
+_ZN5folly17xlogStripFilenameEPKcS1_.exit304:      ; preds = %445, %_ZN5folly17xlogStripFilenameEPKcS1_.exit304.loopexit, %440
+  %457 = phi ptr [ %442, %440 ], [ %456, %_ZN5folly17xlogStripFilenameEPKcS1_.exit304.loopexit ], [ @.str.2, %445 ]
+  %458 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %457) #23
+  %459 = getelementptr inbounds nuw i8, ptr %457, i64 %458
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store ptr @__func__.main, ptr %3, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @__func__.main, i64 4), ptr %.sroa.2.0..sroa_idx, align 8
-  call void @_ZN5folly18LogStreamProcessorC2EPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPKcEEjS7_NS0_10AppendTypeE(ptr noundef nonnull align 8 dereferenceable(464) %32, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE, i32 noundef 2000, ptr nonnull %484, ptr nonnull %486, i32 noundef 60, ptr noundef nonnull byval(%"class.folly::Range") align 8 %3, i32 noundef 0) #23
+  call void @_ZN5folly18LogStreamProcessorC2EPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPKcEEjS7_NS0_10AppendTypeE(ptr noundef nonnull align 8 dereferenceable(464) %32, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE, i32 noundef 2000, ptr nonnull %457, ptr nonnull %459, i32 noundef 60, ptr noundef nonnull byval(%"class.folly::Range") align 8 %3, i32 noundef 0) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %487 = getelementptr inbounds nuw i8, ptr %32, i64 88
-  %488 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %487, ptr noundef nonnull @.str.20, i64 noundef 14)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit309 unwind label %532
+  %460 = getelementptr inbounds nuw i8, ptr %32, i64 88
+  %461 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %460, ptr noundef nonnull @.str.20, i64 noundef 14)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit309 unwind label %505
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit309: ; preds = %_ZN5folly17xlogStripFilenameEPKcS1_.exit304
   call void @_ZN5folly18LogStreamProcessorD1Ev(ptr noundef nonnull align 8 dereferenceable(464) %32) #23
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %32) #23
   br label %.critedge116
 
-.critedge116:                                     ; preds = %442, %"_ZZ4mainENK4$_24clEv.exit", %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit309
+.critedge116:                                     ; preds = %418, %"_ZZ4mainENK4$_24clEv.exit", %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit309
   call void @_ZN5folly4InitD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21) #23
   ret i32 0
 
-489:                                              ; preds = %_ZN5folly17xlogStripFilenameEPKcS1_.exit
-  %490 = landingpad { ptr, i32 }
+462:                                              ; preds = %_ZN5folly17xlogStripFilenameEPKcS1_.exit
+  %463 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5folly18LogStreamProcessorD1Ev(ptr noundef nonnull align 8 dereferenceable(464) %19) #23
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %19) #23
-  br label %536
+  br label %509
 
-491:                                              ; preds = %_ZN5folly17xlogStripFilenameEPKcS1_.exit133
-  %492 = landingpad { ptr, i32 }
+464:                                              ; preds = %_ZN5folly17xlogStripFilenameEPKcS1_.exit133
+  %465 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5folly18LogStreamProcessorD1Ev(ptr noundef nonnull align 8 dereferenceable(464) %20) #23
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %20) #23
-  br label %536
+  br label %509
 
-493:                                              ; preds = %125
-  %494 = landingpad { ptr, i32 }
+466:                                              ; preds = %119
+  %467 = landingpad { ptr, i32 }
           cleanup
-  br label %535
+  br label %508
 
-495:                                              ; preds = %147
-  %496 = landingpad { ptr, i32 }
+468:                                              ; preds = %138
+  %469 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %22) #23
-  br label %535
+  br label %508
 
-497:                                              ; preds = %178
-  %498 = landingpad { ptr, i32 }
+470:                                              ; preds = %169
+  %471 = landingpad { ptr, i32 }
           cleanup
-  br label %535
+  br label %508
 
-499:                                              ; preds = %200
-  %500 = landingpad { ptr, i32 }
+472:                                              ; preds = %188
+  %473 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %23) #23
-  br label %535
+  br label %508
 
-501:                                              ; preds = %232
-  %502 = landingpad { ptr, i32 }
+474:                                              ; preds = %220
+  %475 = landingpad { ptr, i32 }
           cleanup
-  br label %535
+  br label %508
 
-503:                                              ; preds = %254
-  %504 = landingpad { ptr, i32 }
+476:                                              ; preds = %239
+  %477 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %26) #23
-  br label %535
+  br label %508
 
-505:                                              ; preds = %286
-  %506 = landingpad { ptr, i32 }
+478:                                              ; preds = %271
+  %479 = landingpad { ptr, i32 }
           cleanup
-  br label %535
+  br label %508
 
-507:                                              ; preds = %308
-  %508 = landingpad { ptr, i32 }
+480:                                              ; preds = %290
+  %481 = landingpad { ptr, i32 }
           cleanup
-  br label %511
+  br label %484
 
-509:                                              ; preds = %_ZN5folly17xlogStripFilenameEPKcS1_.exit225, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit230
-  %510 = landingpad { ptr, i32 }
+482:                                              ; preds = %_ZN5folly17xlogStripFilenameEPKcS1_.exit225, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit230
+  %483 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5folly18LogStreamProcessorD1Ev(ptr noundef nonnull align 8 dereferenceable(464) %28) #23
-  br label %511
+  br label %484
 
-511:                                              ; preds = %509, %507
-  %.pn87 = phi { ptr, i32 } [ %510, %509 ], [ %508, %507 ]
+484:                                              ; preds = %482, %480
+  %.pn87 = phi { ptr, i32 } [ %483, %482 ], [ %481, %480 ]
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %28) #23
-  br label %535
+  br label %508
 
-512:                                              ; preds = %334
-  %513 = landingpad { ptr, i32 }
+485:                                              ; preds = %316
+  %486 = landingpad { ptr, i32 }
           cleanup
-  br label %535
+  br label %508
 
-514:                                              ; preds = %356
-  %515 = landingpad { ptr, i32 }
+487:                                              ; preds = %335
+  %488 = landingpad { ptr, i32 }
           cleanup
-  br label %518
+  br label %491
 
-516:                                              ; preds = %_ZN5folly18LogStreamProcessorC2IJRA21_KcRA13_S2_EEEPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPS2_EEbSC_jSC_NS0_10AppendTypeEDpOT_.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit256
-  %517 = landingpad { ptr, i32 }
+489:                                              ; preds = %_ZN5folly18LogStreamProcessorC2IJRA21_KcRA13_S2_EEEPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPS2_EEbSC_jSC_NS0_10AppendTypeEDpOT_.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit256
+  %490 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5folly18LogStreamProcessorD1Ev(ptr noundef nonnull align 8 dereferenceable(464) %29) #23
-  br label %518
+  br label %491
 
-518:                                              ; preds = %516, %514
-  %.pn90 = phi { ptr, i32 } [ %517, %516 ], [ %515, %514 ]
+491:                                              ; preds = %489, %487
+  %.pn90 = phi { ptr, i32 } [ %490, %489 ], [ %488, %487 ]
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %29) #23
-  br label %535
+  br label %508
 
-519:                                              ; preds = %390
-  %520 = landingpad { ptr, i32 }
+492:                                              ; preds = %369
+  %493 = landingpad { ptr, i32 }
           cleanup
-  br label %535
+  br label %508
 
-521:                                              ; preds = %412
-  %522 = landingpad { ptr, i32 }
+494:                                              ; preds = %388
+  %495 = landingpad { ptr, i32 }
           cleanup
-  br label %525
+  br label %498
 
-523:                                              ; preds = %_ZN5folly18LogStreamProcessorC2IJRA4_KcRA7_S2_EEEPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPS2_EEbSC_jSC_NS0_10FormatTypeESC_DpOT_.exit
-  %524 = landingpad { ptr, i32 }
+496:                                              ; preds = %_ZN5folly18LogStreamProcessorC2IJRA4_KcRA7_S2_EEEPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPS2_EEbSC_jSC_NS0_10FormatTypeESC_DpOT_.exit
+  %497 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5folly18LogStreamProcessorD1Ev(ptr noundef nonnull align 8 dereferenceable(464) %30) #23
-  br label %525
+  br label %498
 
-525:                                              ; preds = %523, %521
-  %.pn93 = phi { ptr, i32 } [ %524, %523 ], [ %522, %521 ]
+498:                                              ; preds = %496, %494
+  %.pn93 = phi { ptr, i32 } [ %497, %496 ], [ %495, %494 ]
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %30) #23
-  br label %535
+  br label %508
 
-526:                                              ; preds = %.critedge114
-  %527 = landingpad { ptr, i32 }
+499:                                              ; preds = %.critedge114
+  %500 = landingpad { ptr, i32 }
           cleanup
-  br label %535
+  br label %508
 
-528:                                              ; preds = %445
-  %529 = landingpad { ptr, i32 }
+501:                                              ; preds = %421
+  %502 = landingpad { ptr, i32 }
           cleanup
-  br label %535
+  br label %508
 
-530:                                              ; preds = %467
-  %531 = landingpad { ptr, i32 }
+503:                                              ; preds = %440
+  %504 = landingpad { ptr, i32 }
           cleanup
-  br label %534
+  br label %507
 
-532:                                              ; preds = %_ZN5folly17xlogStripFilenameEPKcS1_.exit304
-  %533 = landingpad { ptr, i32 }
+505:                                              ; preds = %_ZN5folly17xlogStripFilenameEPKcS1_.exit304
+  %506 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5folly18LogStreamProcessorD1Ev(ptr noundef nonnull align 8 dereferenceable(464) %32) #23
-  br label %534
+  br label %507
 
-534:                                              ; preds = %532, %530
-  %.pn96 = phi { ptr, i32 } [ %533, %532 ], [ %531, %530 ]
+507:                                              ; preds = %505, %503
+  %.pn96 = phi { ptr, i32 } [ %506, %505 ], [ %504, %503 ]
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %32) #23
-  br label %535
+  br label %508
 
-535:                                              ; preds = %528, %534, %519, %525, %512, %518, %505, %511, %501, %503, %497, %499, %493, %495, %526
-  %.pn96.pn.pn = phi { ptr, i32 } [ %527, %526 ], [ %496, %495 ], [ %494, %493 ], [ %500, %499 ], [ %498, %497 ], [ %504, %503 ], [ %502, %501 ], [ %.pn87, %511 ], [ %506, %505 ], [ %.pn90, %518 ], [ %513, %512 ], [ %.pn93, %525 ], [ %520, %519 ], [ %.pn96, %534 ], [ %529, %528 ]
+508:                                              ; preds = %501, %507, %492, %498, %485, %491, %478, %484, %474, %476, %470, %472, %466, %468, %499
+  %.pn96.pn.pn = phi { ptr, i32 } [ %500, %499 ], [ %469, %468 ], [ %467, %466 ], [ %473, %472 ], [ %471, %470 ], [ %477, %476 ], [ %475, %474 ], [ %.pn87, %484 ], [ %479, %478 ], [ %.pn90, %491 ], [ %486, %485 ], [ %.pn93, %498 ], [ %493, %492 ], [ %.pn96, %507 ], [ %502, %501 ]
   call void @_ZN5folly4InitD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21) #23
-  br label %536
+  br label %509
 
-536:                                              ; preds = %535, %491, %489
-  %.pn96.pn.pn.pn = phi { ptr, i32 } [ %.pn96.pn.pn, %535 ], [ %492, %491 ], [ %490, %489 ]
+509:                                              ; preds = %508, %464, %462
+  %.pn96.pn.pn.pn = phi { ptr, i32 } [ %.pn96.pn.pn, %508 ], [ %465, %464 ], [ %463, %462 ]
   resume { ptr, i32 } %.pn96.pn.pn.pn
 }
 

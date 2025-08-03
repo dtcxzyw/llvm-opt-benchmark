@@ -3883,22 +3883,18 @@ _Z4trimPKc.exit309:                               ; preds = %land.rhs5.i.i303, %
   %sub.i.i.i297 = xor i64 %front.0.lcssa.i.i288, 3
   %.sroa.speculated.i.i.i298 = tail call i64 @llvm.umin.i64(i64 %sub.i.i.i297, i64 %sub13.i.i296)
   %cmp.i312 = icmp eq i64 %.sroa.speculated.i.i.i298, 1
-  br i1 %cmp.i312, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i315, label %if.then76
+  %cmp.i.i317 = icmp eq i64 %front.0.lcssa.i.i288, 2
+  %or.cond = and i1 %cmp.i.i317, %cmp.i312
+  br i1 %or.cond, label %land.rhs.i.i328.preheader, label %if.then76
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i315: ; preds = %_Z4trimPKc.exit309
-  %add.ptr.i27.i.i299 = getelementptr inbounds nuw i8, ptr @.str.61, i64 %front.0.lcssa.i.i288
-  %lhsc = load i8, ptr %add.ptr.i27.i.i299, align 1
-  %cmp.i.i317 = icmp eq i8 %lhsc, 97
-  br i1 %cmp.i.i317, label %land.rhs.i.i328.preheader, label %if.then76
-
-land.rhs.i.i328.preheader:                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i315
+land.rhs.i.i328.preheader:                        ; preds = %_Z4trimPKc.exit309
   %call2.i.i332 = tail call i32 @isspace(i32 noundef 97) #33
-  %tobool.not.i.i333 = icmp eq i32 %call2.i.i332, 0
+  %tobool.not.i.i333 = icmp ne i32 %call2.i.i332, 0
   %spec.select398 = select i1 %tobool.not.i.i283, i64 1, i64 4
-  %front.0.lcssa.i.i338 = select i1 %tobool.not.i.i333, i64 0, i64 %spec.select398
+  %front.0.lcssa.i.i338 = select i1 %tobool.not.i.i333, i64 %spec.select398, i64 0
   br label %while.cond3.i.i340
 
-if.then76:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i315, %_Z4trimPKc.exit309
+if.then76:                                        ; preds = %_Z4trimPKc.exit309
   %exception77 = tail call ptr @__cxa_allocate_exception(i64 72) #30
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp79) #30
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp78, ptr noundef nonnull @.str.63, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp79)
@@ -3959,16 +3955,11 @@ _Z4trimPKc.exit359:                               ; preds = %land.rhs5.i.i353, %
   %sub13.i.i346 = sub i64 %back.0.lcssa.i.i344, %front.0.lcssa.i.i338
   %sub.i.i.i347 = sub nuw nsw i64 4, %front.0.lcssa.i.i338
   %.sroa.speculated.i.i.i348 = tail call i64 @llvm.umin.i64(i64 %sub.i.i.i347, i64 %sub13.i.i346)
-  %cmp.i362 = icmp eq i64 %.sroa.speculated.i.i.i348, 1
-  br i1 %cmp.i362, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i365, label %if.then97
+  %cmp.i362 = icmp ne i64 %.sroa.speculated.i.i.i348, 1
+  %brmerge = or i1 %tobool.not.i.i333, %cmp.i362
+  br i1 %brmerge, label %if.then97, label %if.end113
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i365: ; preds = %_Z4trimPKc.exit359
-  %add.ptr.i27.i.i349 = getelementptr inbounds nuw i8, ptr @.str.64, i64 %front.0.lcssa.i.i338
-  %lhsc394 = load i8, ptr %add.ptr.i27.i.i349, align 1
-  %cmp.i.i367 = icmp eq i8 %lhsc394, 97
-  br i1 %cmp.i.i367, label %if.end113, label %if.then97
-
-if.then97:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i365, %_Z4trimPKc.exit359
+if.then97:                                        ; preds = %_Z4trimPKc.exit359
   %exception98 = tail call ptr @__cxa_allocate_exception(i64 72) #30
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp100) #30
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp99, ptr noundef nonnull @.str.65, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp100)
@@ -4010,7 +4001,7 @@ ehcleanup107:                                     ; preds = %lpad103
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp100) #30
   br i1 %cleanup.isactive105.0, label %eh.resume.sink.split, label %eh.resume
 
-if.end113:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i365
+if.end113:                                        ; preds = %_Z4trimPKc.exit359
   ret void
 
 eh.resume.sink.split:                             ; preds = %ehcleanup107, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i372, %ehcleanup107.thread, %ehcleanup86, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i322, %ehcleanup86.thread, %ehcleanup65, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i272, %ehcleanup65.thread, %ehcleanup44, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i222, %ehcleanup44.thread, %ehcleanup23, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i172, %ehcleanup23.thread

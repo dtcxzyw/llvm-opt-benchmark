@@ -2065,59 +2065,58 @@ define internal fastcc void @decode_state_change(ptr noundef %0, ptr noundef %1,
   %6 = zext i32 %5 to i64
   br label %7
 
-7:                                                ; preds = %19, %3
-  %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %19 ]
-  %8 = phi ptr [ @hf_drbd_state_role, %3 ], [ %21, %19 ]
-  %.02.i = phi i32 [ 0, %3 ], [ %.1.i, %19 ]
-  %9 = load i32, ptr %8, align 4
-  %10 = tail call ptr @proto_registrar_get_nth(i32 noundef %9)
-  %.not17.i = icmp eq ptr %10, null
-  br i1 %.not17.i, label %19, label %11
+7:                                                ; preds = %20, %3
+  %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %20 ]
+  %.02.i = phi i32 [ 0, %3 ], [ %.1.i, %20 ]
+  %8 = getelementptr ptr, ptr @state_fields, i64 %indvars.iv.i
+  %9 = load ptr, ptr %8, align 8
+  %10 = load i32, ptr %9, align 4
+  %11 = tail call ptr @proto_registrar_get_nth(i32 noundef %10)
+  %.not17.i = icmp eq ptr %11, null
+  br i1 %.not17.i, label %20, label %12
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %13 = load i64, ptr %12, align 8
-  %14 = and i64 %13, %6
-  %.not18.i = icmp eq i64 %14, 0
-  br i1 %.not18.i, label %19, label %15
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %14 = load i64, ptr %13, align 8
+  %15 = and i64 %14, %6
+  %.not18.i = icmp eq i64 %15, 0
+  br i1 %.not18.i, label %20, label %16
 
-15:                                               ; preds = %11
-  %16 = sext i32 %.02.i to i64
-  %17 = getelementptr ptr, ptr %4, i64 %16
-  store ptr %8, ptr %17, align 8
-  %18 = add i32 %.02.i, 1
-  br label %19
+16:                                               ; preds = %12
+  %17 = sext i32 %.02.i to i64
+  %18 = getelementptr ptr, ptr %4, i64 %17
+  store ptr %9, ptr %18, align 8
+  %19 = add i32 %.02.i, 1
+  br label %20
 
-19:                                               ; preds = %15, %11, %7
-  %.1.i = phi i32 [ %18, %15 ], [ %.02.i, %11 ], [ %.02.i, %7 ]
+20:                                               ; preds = %16, %12, %7
+  %.1.i = phi i32 [ %19, %16 ], [ %.02.i, %12 ], [ %.02.i, %7 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %20 = getelementptr ptr, ptr @state_fields, i64 %indvars.iv.next.i
-  %21 = load ptr, ptr %20, align 8
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 12
-  br i1 %exitcond.i, label %mask_fields.exit, label %7, !llvm.loop !11
+  %.not.i = icmp eq i64 %indvars.iv.next.i, 12
+  br i1 %.not.i, label %mask_fields.exit, label %7, !llvm.loop !11
 
-mask_fields.exit:                                 ; preds = %19
-  %22 = sext i32 %.1.i to i64
-  %23 = getelementptr ptr, ptr %4, i64 %22
-  store ptr null, ptr %23, align 8
-  %24 = load ptr, ptr %4, align 16
-  %.not = icmp eq ptr %24, null
-  br i1 %.not, label %30, label %25
+mask_fields.exit:                                 ; preds = %20
+  %21 = sext i32 %.1.i to i64
+  %22 = getelementptr ptr, ptr %4, i64 %21
+  store ptr null, ptr %22, align 8
+  %23 = load ptr, ptr %4, align 16
+  %.not = icmp eq ptr %23, null
+  br i1 %.not, label %29, label %24
 
-25:                                               ; preds = %mask_fields.exit
-  %26 = add nuw nsw i32 %2, 4
-  %27 = load i32, ptr @hf_drbd_state, align 4
-  %28 = load i32, ptr @ett_drbd_state, align 4
-  %29 = call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %0, i32 noundef %26, i32 noundef %27, i32 noundef %28, ptr noundef nonnull %4, i32 noundef 0)
-  br label %34
+24:                                               ; preds = %mask_fields.exit
+  %25 = add nuw nsw i32 %2, 4
+  %26 = load i32, ptr @hf_drbd_state, align 4
+  %27 = load i32, ptr @ett_drbd_state, align 4
+  %28 = call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %0, i32 noundef %25, i32 noundef %26, i32 noundef %27, ptr noundef nonnull %4, i32 noundef 0)
+  br label %33
 
-30:                                               ; preds = %mask_fields.exit
-  %31 = load i32, ptr @hf_drbd_state, align 4
-  %32 = add nuw nsw i32 %2, 4
-  %33 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %31, ptr noundef %0, i32 noundef %32, i32 noundef 4, i32 noundef 0)
-  br label %34
+29:                                               ; preds = %mask_fields.exit
+  %30 = load i32, ptr @hf_drbd_state, align 4
+  %31 = add nuw nsw i32 %2, 4
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %30, ptr noundef %0, i32 noundef %31, i32 noundef 4, i32 noundef 0)
+  br label %33
 
-34:                                               ; preds = %30, %25
+33:                                               ; preds = %29, %24
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #9
   ret void
 }

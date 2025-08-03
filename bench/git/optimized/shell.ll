@@ -521,49 +521,41 @@ define internal i32 @do_generic_cmd(ptr noundef %0, ptr noundef %1) #0 {
 6:                                                ; preds = %4
   %7 = load i8, ptr %5, align 1, !tbaa !9
   %8 = icmp eq i8 %7, 45
-  br i1 %8, label %9, label %10
+  br i1 %8, label %9, label %.preheader
 
 9:                                                ; preds = %6, %4, %2
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.28) #15
   unreachable
 
-10:                                               ; preds = %6
-  %scevgep.i = getelementptr i8, ptr %0, i64 4
-  br label %11
-
-11:                                               ; preds = %13, %10
-  %.07.i = phi ptr [ %0, %10 ], [ %14, %13 ]
-  %.06.idx.i = phi i64 [ 0, %10 ], [ %.06.add.i, %13 ]
-  %.06.ptr.i = getelementptr inbounds nuw i8, ptr @.str.29, i64 %.06.idx.i
-  %12 = load i8, ptr %.06.ptr.i, align 1, !tbaa !9
+.preheader:                                       ; preds = %6, %10
+  %.07.i = phi ptr [ %12, %10 ], [ %0, %6 ]
+  %.06.idx.i = phi i64 [ %.06.add.i, %10 ], [ 0, %6 ]
   %exitcond.i = icmp eq i64 %.06.idx.i, 4
-  br i1 %exitcond.i, label %skip_prefix.exit, label %13
+  br i1 %exitcond.i, label %15, label %10
 
-13:                                               ; preds = %11
-  %14 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
-  %15 = load i8, ptr %.07.i, align 1, !tbaa !9
+10:                                               ; preds = %.preheader
+  %.06.ptr.i = getelementptr inbounds nuw i8, ptr @.str.29, i64 %.06.idx.i
+  %11 = load i8, ptr %.06.ptr.i, align 1, !tbaa !9
+  %12 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
+  %13 = load i8, ptr %.07.i, align 1, !tbaa !9
   %.06.add.i = add nuw nsw i64 %.06.idx.i, 1
-  %16 = icmp eq i8 %15, %12
-  br i1 %16, label %11, label %skip_prefix.exit, !llvm.loop !22
+  %14 = icmp eq i8 %13, %11
+  br i1 %14, label %.preheader, label %skip_prefix.exit, !llvm.loop !22
 
-skip_prefix.exit:                                 ; preds = %11, %13
-  %.0 = phi ptr [ %0, %13 ], [ %scevgep.i, %11 ]
-  %.not.i = icmp eq i8 %12, 0
-  br i1 %.not.i, label %18, label %17
-
-17:                                               ; preds = %skip_prefix.exit
+skip_prefix.exit:                                 ; preds = %10
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.30) #15
   unreachable
 
-18:                                               ; preds = %skip_prefix.exit
-  store ptr %.0, ptr %3, align 16, !tbaa !4
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %5, ptr %19, align 8, !tbaa !4
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr null, ptr %20, align 16, !tbaa !4
-  %21 = call i32 @execv_git_cmd(ptr noundef nonnull %3) #13
+15:                                               ; preds = %.preheader
+  %scevgep.i = getelementptr i8, ptr %0, i64 4
+  store ptr %scevgep.i, ptr %3, align 16, !tbaa !4
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %5, ptr %16, align 8, !tbaa !4
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr null, ptr %17, align 16, !tbaa !4
+  %18 = call i32 @execv_git_cmd(ptr noundef nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
-  ret i32 %21
+  ret i32 %18
 }
 
 declare void @setup_path() local_unnamed_addr #6

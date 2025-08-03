@@ -1817,8 +1817,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL14stbi__hdr_testP13stbi__
 
 12:                                               ; preds = %_ZL10stbi__get8P13stbi__context.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond = icmp eq i64 %indvars.iv.next.i, 11
-  br i1 %exitcond, label %_ZL19stbi__hdr_test_coreP13stbi__contextPKc.exit, label %13, !llvm.loop !50
+  %.not.i = icmp eq i64 %indvars.iv.next.i, 11
+  br i1 %.not.i, label %_ZL19stbi__hdr_test_coreP13stbi__contextPKc.exit, label %13, !llvm.loop !50
 
 13:                                               ; preds = %12, %1
   %14 = phi ptr [ %.pre12.i, %1 ], [ %42, %12 ]
@@ -1899,8 +1899,8 @@ _ZL19stbi__hdr_test_coreP13stbi__contextPKc.exit: ; preds = %12
 
 53:                                               ; preds = %_ZL10stbi__get8P13stbi__context.exit.i13
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i8, 1
-  %exitcond23 = icmp eq i64 %indvars.iv.next.i17, 7
-  br i1 %exitcond23, label %_ZL19stbi__hdr_test_coreP13stbi__contextPKc.exit20, label %54, !llvm.loop !50
+  %.not.i18 = icmp eq i64 %indvars.iv.next.i17, 7
+  br i1 %.not.i18, label %_ZL19stbi__hdr_test_coreP13stbi__contextPKc.exit20, label %54, !llvm.loop !50
 
 54:                                               ; preds = %53, %49
   %55 = phi ptr [ %50, %49 ], [ %84, %53 ]
@@ -1969,11 +1969,11 @@ _ZL10stbi__get8P13stbi__context.exit.i13:         ; preds = %_ZL19stbi__refill_b
   br i1 %.not8.i15, label %53, label %_ZL19stbi__hdr_test_coreP13stbi__contextPKc.exit20
 
 _ZL19stbi__hdr_test_coreP13stbi__contextPKc.exit20: ; preds = %_ZL10stbi__get8P13stbi__context.exit.i13, %53, %_ZL19stbi__hdr_test_coreP13stbi__contextPKc.exit
-  %storemerge26 = phi ptr [ %47, %_ZL19stbi__hdr_test_coreP13stbi__contextPKc.exit ], [ %84, %53 ], [ %84, %_ZL10stbi__get8P13stbi__context.exit.i13 ]
+  %storemerge25 = phi ptr [ %47, %_ZL19stbi__hdr_test_coreP13stbi__contextPKc.exit ], [ %84, %53 ], [ %84, %_ZL10stbi__get8P13stbi__context.exit.i13 ]
   %storemerge.in = phi ptr [ %48, %_ZL19stbi__hdr_test_coreP13stbi__contextPKc.exit ], [ %51, %53 ], [ %51, %_ZL10stbi__get8P13stbi__context.exit.i13 ]
   %.0 = phi i32 [ 1, %_ZL19stbi__hdr_test_coreP13stbi__contextPKc.exit ], [ 0, %_ZL10stbi__get8P13stbi__context.exit.i13 ], [ 1, %53 ]
   %storemerge = load ptr, ptr %storemerge.in, align 8, !tbaa !24
-  store ptr %storemerge26, ptr %2, align 8, !tbaa !20
+  store ptr %storemerge25, ptr %2, align 8, !tbaa !20
   store ptr %storemerge, ptr %3, align 8, !tbaa !23
   ret i32 %.0
 }

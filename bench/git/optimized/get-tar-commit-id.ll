@@ -55,7 +55,7 @@ define dso_local range(i32 0, 2) i32 @cmd_get_tar_commit_id(i32 noundef %0, ptr 
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 156
   %19 = load i8, ptr %18, align 4, !tbaa !4
   %.not26 = icmp eq i8 %19, 103
-  br i1 %.not26, label %20, label %52
+  br i1 %.not26, label %20, label %skip_prefix.exit
 
 20:                                               ; preds = %17
   %21 = tail call ptr @__errno_location() #8
@@ -63,39 +63,35 @@ define dso_local range(i32 0, 2) i32 @cmd_get_tar_commit_id(i32 noundef %0, ptr 
   %22 = call i64 @strtol(ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 10) #6
   %23 = load i32, ptr %21, align 4, !tbaa !7
   %24 = icmp eq i32 %23, 34
-  br i1 %24, label %52, label %25
+  br i1 %24, label %skip_prefix.exit, label %25
 
 25:                                               ; preds = %20
   %26 = load ptr, ptr %6, align 8, !tbaa !9
   %27 = icmp eq ptr %26, %7
   %28 = icmp slt i64 %22, 0
   %or.cond = select i1 %27, i1 true, i1 %28
-  br i1 %or.cond, label %52, label %29
+  br i1 %or.cond, label %skip_prefix.exit, label %29
 
 29:                                               ; preds = %25
   %scevgep.i = getelementptr i8, ptr %26, i64 9
   br label %30
 
-30:                                               ; preds = %32, %29
-  %.07.i = phi ptr [ %26, %29 ], [ %33, %32 ]
-  %.06.idx.i = phi i64 [ 0, %29 ], [ %.06.add.i, %32 ]
-  %.06.ptr.i = getelementptr inbounds nuw i8, ptr @.str.4, i64 %.06.idx.i
-  %31 = load i8, ptr %.06.ptr.i, align 1, !tbaa !4
+30:                                               ; preds = %31, %29
+  %.07.i = phi ptr [ %26, %29 ], [ %33, %31 ]
+  %.06.idx.i = phi i64 [ 0, %29 ], [ %.06.add.i, %31 ]
   %exitcond.i = icmp eq i64 %.06.idx.i, 9
-  br i1 %exitcond.i, label %skip_prefix.exit, label %32
+  br i1 %exitcond.i, label %36, label %31
 
-32:                                               ; preds = %30
+31:                                               ; preds = %30
+  %.06.ptr.i = getelementptr inbounds nuw i8, ptr @.str.4, i64 %.06.idx.i
+  %32 = load i8, ptr %.06.ptr.i, align 1, !tbaa !4
   %33 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
   %34 = load i8, ptr %.07.i, align 1, !tbaa !4
   %.06.add.i = add nuw nsw i64 %.06.idx.i, 1
-  %35 = icmp eq i8 %34, %31
+  %35 = icmp eq i8 %34, %32
   br i1 %35, label %30, label %skip_prefix.exit, !llvm.loop !12
 
-skip_prefix.exit:                                 ; preds = %30, %32
-  %.not.i = icmp eq i8 %31, 0
-  br i1 %.not.i, label %36, label %52
-
-36:                                               ; preds = %skip_prefix.exit
+36:                                               ; preds = %30
   %37 = ptrtoint ptr %scevgep.i to i64
   %38 = ptrtoint ptr %7 to i64
   %.neg = sub i64 %38, %37
@@ -104,7 +100,7 @@ skip_prefix.exit:                                 ; preds = %30, %32
   %41 = and i64 %39, 1
   %.not27 = icmp eq i64 %41, 0
   %or.cond28 = or i1 %40, %.not27
-  br i1 %or.cond28, label %52, label %42
+  br i1 %or.cond28, label %skip_prefix.exit, label %42
 
 42:                                               ; preds = %36
   %43 = add nuw i64 %39, 8589934591
@@ -112,19 +108,19 @@ skip_prefix.exit:                                 ; preds = %30, %32
   %45 = trunc i64 %44 to i32
   %46 = call i32 @hash_algo_by_length(i32 noundef %45) #6
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %52, label %48
+  br i1 %47, label %skip_prefix.exit, label %48
 
 48:                                               ; preds = %42
   %49 = call i64 @write_in_full(i32 noundef 1, ptr noundef %scevgep.i, i64 noundef %39) #6
   %50 = icmp slt i64 %49, 0
-  br i1 %50, label %51, label %52
+  br i1 %50, label %51, label %skip_prefix.exit
 
 51:                                               ; preds = %48
   call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.5) #7
   unreachable
 
-52:                                               ; preds = %48, %36, %42, %skip_prefix.exit, %20, %25, %17
-  %.0 = phi i32 [ 1, %17 ], [ 1, %25 ], [ 1, %20 ], [ 1, %skip_prefix.exit ], [ 1, %42 ], [ 1, %36 ], [ 0, %48 ]
+skip_prefix.exit:                                 ; preds = %31, %48, %36, %42, %20, %25, %17
+  %.0 = phi i32 [ 1, %17 ], [ 1, %25 ], [ 1, %20 ], [ 1, %42 ], [ 1, %36 ], [ 0, %48 ], [ 1, %31 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #6
   ret i32 %.0

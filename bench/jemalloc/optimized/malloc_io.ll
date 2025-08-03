@@ -980,8 +980,8 @@ u2s.exit.i482:                                    ; preds = %286
   %294 = trunc nuw i8 %.0385 to i1
   %295 = sub i64 65, %indvars.iv.i
   %296 = and i64 %295, 4294967295
-  %.not.i = icmp ne i8 %289, 48
-  %or.cond530.not = select i1 %294, i1 %.not.i, i1 false
+  %.not.i = icmp ne i64 %287, 0
+  %or.cond530.not = and i1 %.not.i, %294
   br i1 %or.cond530.not, label %297, label %o2s.exit
 
 297:                                              ; preds = %u2s.exit.i482

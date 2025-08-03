@@ -2430,8 +2430,8 @@ define internal fastcc void @_ZN6dmg_fpL6hexnanEPNS_1UEPPKc(ptr noundef nonnull 
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %9 = getelementptr inbounds nuw i8, ptr @.str.6, i64 %indvars.iv.next.i.i
   %10 = load i8, ptr %9, align 1, !tbaa !3
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i.i, 10
-  br i1 %exitcond.i, label %.lr.ph.i1.i, label %.lr.ph.i.i, !llvm.loop !44
+  %.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 10
+  br i1 %.not.i.i, label %.lr.ph.i1.i, label %.lr.ph.i.i, !llvm.loop !44
 
 .lr.ph.i1.i:                                      ; preds = %.lr.ph.i.i, %.lr.ph.i1.i
   %indvars.iv.i2.i = phi i64 [ %indvars.iv.next.i3.i, %.lr.ph.i1.i ], [ 0, %.lr.ph.i.i ]
@@ -2444,8 +2444,8 @@ define internal fastcc void @_ZN6dmg_fpL6hexnanEPNS_1UEPPKc(ptr noundef nonnull 
   %indvars.iv.next.i3.i = add nuw nsw i64 %indvars.iv.i2.i, 1
   %16 = getelementptr inbounds nuw i8, ptr @.str.7, i64 %indvars.iv.next.i3.i
   %17 = load i8, ptr %16, align 1, !tbaa !3
-  %exitcond11.i = icmp eq i64 %indvars.iv.next.i3.i, 6
-  br i1 %exitcond11.i, label %.lr.ph.i6.i, label %.lr.ph.i1.i, !llvm.loop !44
+  %.not.i4.i = icmp eq i64 %indvars.iv.next.i3.i, 6
+  br i1 %.not.i4.i, label %.lr.ph.i6.i, label %.lr.ph.i1.i, !llvm.loop !44
 
 .lr.ph.i6.i:                                      ; preds = %.lr.ph.i1.i, %.lr.ph.i6.i
   %indvars.iv.i7.i = phi i64 [ %indvars.iv.next.i8.i, %.lr.ph.i6.i ], [ 0, %.lr.ph.i1.i ]
@@ -2458,8 +2458,8 @@ define internal fastcc void @_ZN6dmg_fpL6hexnanEPNS_1UEPPKc(ptr noundef nonnull 
   %indvars.iv.next.i8.i = add nuw nsw i64 %indvars.iv.i7.i, 1
   %23 = getelementptr inbounds nuw i8, ptr @.str.8, i64 %indvars.iv.next.i8.i
   %24 = load i8, ptr %23, align 1, !tbaa !3
-  %exitcond12.i = icmp eq i64 %indvars.iv.next.i8.i, 6
-  br i1 %exitcond12.i, label %_ZN6dmg_fpL11hexdig_initEv.exit, label %.lr.ph.i6.i, !llvm.loop !44
+  %.not.i9.i = icmp eq i64 %indvars.iv.next.i8.i, 6
+  br i1 %.not.i9.i, label %_ZN6dmg_fpL11hexdig_initEv.exit, label %.lr.ph.i6.i, !llvm.loop !44
 
 _ZN6dmg_fpL11hexdig_initEv.exit:                  ; preds = %.lr.ph.i6.i, %2
   %25 = load ptr, ptr %1, align 8, !tbaa !6

@@ -518,8 +518,8 @@ versionStr2Version.exit.i:                        ; preds = %45
   %67 = add nuw nsw i64 %.01422.i37.i, 1
   %68 = getelementptr inbounds nuw i8, ptr @.str.22, i64 %67
   %69 = load i8, ptr %68, align 1, !tbaa !37
-  %exitcond.i = icmp eq i64 %67, 3
-  br i1 %exitcond.i, label %versionStr2Version.exit44.i, label %.lr.ph.i35.i, !llvm.loop !53
+  %.not.i39.i = icmp eq i64 %67, 3
+  br i1 %.not.i39.i, label %versionStr2Version.exit44.i, label %.lr.ph.i35.i, !llvm.loop !53
 
 versionStr2Version.exit44.i:                      ; preds = %66, %.thread.i43.i
   %.020.i40.i = phi i16 [ %.023.i36.i, %.thread.i43.i ], [ %.2.i38.i, %66 ]
@@ -527,12 +527,12 @@ versionStr2Version.exit44.i:                      ; preds = %66, %.thread.i43.i
   br label %71
 
 71:                                               ; preds = %versionStr2Version.exit44.i, %50, %26, %gv_alloc.exit.i
-  %.sink63.i = phi ptr [ %21, %26 ], [ %70, %versionStr2Version.exit44.i ], [ %51, %50 ], [ %21, %gv_alloc.exit.i ]
+  %.sink62.i = phi ptr [ %21, %26 ], [ %70, %versionStr2Version.exit44.i ], [ %51, %50 ], [ %21, %gv_alloc.exit.i ]
   %.sink.i = phi i16 [ 12, %26 ], [ %.020.i40.i, %versionStr2Version.exit44.i ], [ %.020.i46.i, %50 ], [ 14, %gv_alloc.exit.i ]
   %.str.20.sink.i = phi ptr [ @.str.20, %26 ], [ @.str.22, %versionStr2Version.exit44.i ], [ %28, %50 ], [ @.str.19, %gv_alloc.exit.i ]
-  %72 = getelementptr inbounds nuw i8, ptr %.sink63.i, i64 80
+  %72 = getelementptr inbounds nuw i8, ptr %.sink62.i, i64 80
   store i16 %.sink.i, ptr %72, align 8, !tbaa !55
-  %73 = getelementptr inbounds nuw i8, ptr %.sink63.i, i64 88
+  %73 = getelementptr inbounds nuw i8, ptr %.sink62.i, i64 88
   store ptr %.str.20.sink.i, ptr %73, align 8, !tbaa !56
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %75 = load ptr, ptr %74, align 8, !tbaa !57
@@ -549,11 +549,11 @@ versionStr2Version.exit44.i:                      ; preds = %66, %.thread.i43.i
   br label %82
 
 81:                                               ; preds = %71
-  store ptr null, ptr %.sink63.i, align 8, !tbaa !74
+  store ptr null, ptr %.sink62.i, align 8, !tbaa !74
   br label %82
 
 82:                                               ; preds = %81, %78
-  %83 = phi ptr [ %.sink63.i, %81 ], [ %80, %78 ]
+  %83 = phi ptr [ %.sink62.i, %81 ], [ %80, %78 ]
   %84 = phi ptr [ %75, %81 ], [ %.pre.i, %78 ]
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 129
   %86 = load i8, ptr %85, align 1, !tbaa !75
@@ -567,10 +567,10 @@ versionStr2Version.exit44.i:                      ; preds = %66, %.thread.i43.i
   br label %91
 
 91:                                               ; preds = %88, %82
-  %.sink66.i = phi ptr [ %90, %88 ], [ %83, %82 ]
-  %.sink64.i = phi ptr [ %89, %88 ], [ null, %82 ]
-  %92 = getelementptr inbounds nuw i8, ptr %.sink66.i, i64 8
-  store ptr %.sink64.i, ptr %92, align 8, !tbaa !76
+  %.sink65.i = phi ptr [ %90, %88 ], [ %83, %82 ]
+  %.sink63.i = phi ptr [ %89, %88 ], [ null, %82 ]
+  %92 = getelementptr inbounds nuw i8, ptr %.sink65.i, i64 8
+  store ptr %.sink63.i, ptr %92, align 8, !tbaa !76
   %93 = call ptr @safe_dcl(ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.1) #18
   %94 = load ptr, ptr @xd, align 8, !tbaa !36
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
@@ -591,10 +591,10 @@ versionStr2Version.exit44.i:                      ; preds = %66, %.thread.i43.i
   br label %105
 
 105:                                              ; preds = %102, %91
-  %.sink69.i = phi ptr [ %104, %102 ], [ %100, %91 ]
-  %.sink67.i = phi ptr [ %103, %102 ], [ null, %91 ]
-  %106 = getelementptr inbounds nuw i8, ptr %.sink69.i, i64 40
-  store ptr %.sink67.i, ptr %106, align 8, !tbaa !80
+  %.sink68.i = phi ptr [ %104, %102 ], [ %100, %91 ]
+  %.sink66.i = phi ptr [ %103, %102 ], [ null, %91 ]
+  %106 = getelementptr inbounds nuw i8, ptr %.sink68.i, i64 40
+  store ptr %.sink66.i, ptr %106, align 8, !tbaa !80
   br i1 %17, label %107, label %110
 
 107:                                              ; preds = %105
@@ -603,10 +603,10 @@ versionStr2Version.exit44.i:                      ; preds = %66, %.thread.i43.i
   br label %110
 
 110:                                              ; preds = %107, %105
-  %.sink72.i = phi ptr [ %109, %107 ], [ %.sink69.i, %105 ]
-  %.sink70.i = phi ptr [ %108, %107 ], [ null, %105 ]
-  %111 = getelementptr inbounds nuw i8, ptr %.sink72.i, i64 48
-  store ptr %.sink70.i, ptr %111, align 8, !tbaa !81
+  %.sink71.i = phi ptr [ %109, %107 ], [ %.sink68.i, %105 ]
+  %.sink69.i = phi ptr [ %108, %107 ], [ null, %105 ]
+  %111 = getelementptr inbounds nuw i8, ptr %.sink71.i, i64 48
+  store ptr %.sink69.i, ptr %111, align 8, !tbaa !81
   %112 = load ptr, ptr %74, align 8, !tbaa !57
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 129
   %114 = load i8, ptr %113, align 1, !tbaa !75
@@ -619,19 +619,19 @@ versionStr2Version.exit44.i:                      ; preds = %66, %.thread.i43.i
   %118 = load ptr, ptr @xd, align 8, !tbaa !36
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 56
   store ptr %117, ptr %119, align 8, !tbaa !82
-  %.pre54.i = load ptr, ptr %74, align 8, !tbaa !57
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre54.i, i64 129
-  %.pre55.i = load i8, ptr %.phi.trans.insert.i, align 1, !tbaa !75
+  %.pre53.i = load ptr, ptr %74, align 8, !tbaa !57
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre53.i, i64 129
+  %.pre54.i = load i8, ptr %.phi.trans.insert.i, align 1, !tbaa !75
   br label %122
 
 120:                                              ; preds = %110
-  %121 = getelementptr inbounds nuw i8, ptr %.sink72.i, i64 56
+  %121 = getelementptr inbounds nuw i8, ptr %.sink71.i, i64 56
   store ptr null, ptr %121, align 8, !tbaa !82
   br label %122
 
 122:                                              ; preds = %120, %116
-  %123 = phi ptr [ %.sink72.i, %120 ], [ %118, %116 ]
-  %124 = phi i8 [ %114, %120 ], [ %.pre55.i, %116 ]
+  %123 = phi ptr [ %.sink71.i, %120 ], [ %118, %116 ]
+  %124 = phi i8 [ %114, %120 ], [ %.pre54.i, %116 ]
   %125 = and i8 %124, 2
   %.not33.i = icmp eq i8 %125, 0
   br i1 %.not33.i, label %130, label %126
@@ -641,9 +641,9 @@ versionStr2Version.exit44.i:                      ; preds = %66, %.thread.i43.i
   %128 = load ptr, ptr @xd, align 8, !tbaa !36
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 64
   store ptr %127, ptr %129, align 8, !tbaa !83
-  %.pre56.i = load ptr, ptr %74, align 8, !tbaa !57
-  %.phi.trans.insert57.i = getelementptr inbounds nuw i8, ptr %.pre56.i, i64 129
-  %.pre58.i = load i8, ptr %.phi.trans.insert57.i, align 1, !tbaa !75
+  %.pre55.i = load ptr, ptr %74, align 8, !tbaa !57
+  %.phi.trans.insert56.i = getelementptr inbounds nuw i8, ptr %.pre55.i, i64 129
+  %.pre57.i = load i8, ptr %.phi.trans.insert56.i, align 1, !tbaa !75
   br label %132
 
 130:                                              ; preds = %122
@@ -653,7 +653,7 @@ versionStr2Version.exit44.i:                      ; preds = %66, %.thread.i43.i
 
 132:                                              ; preds = %130, %126
   %133 = phi ptr [ %123, %130 ], [ %128, %126 ]
-  %134 = phi i8 [ %124, %130 ], [ %.pre58.i, %126 ]
+  %134 = phi i8 [ %124, %130 ], [ %.pre57.i, %126 ]
   %135 = and i8 %134, 4
   %.not34.i = icmp eq i8 %135, 0
   br i1 %.not34.i, label %xdot_begin_graph.exit, label %136
@@ -664,12 +664,12 @@ versionStr2Version.exit44.i:                      ; preds = %66, %.thread.i43.i
   br label %xdot_begin_graph.exit
 
 xdot_begin_graph.exit:                            ; preds = %136, %132
-  %.sink75.i = phi ptr [ %138, %136 ], [ %133, %132 ]
-  %.sink73.i = phi ptr [ %137, %136 ], [ null, %132 ]
-  %139 = getelementptr inbounds nuw i8, ptr %.sink75.i, i64 72
-  store ptr %.sink73.i, ptr %139, align 8, !tbaa !84
+  %.sink74.i = phi ptr [ %138, %136 ], [ %133, %132 ]
+  %.sink72.i = phi ptr [ %137, %136 ], [ null, %132 ]
+  %139 = getelementptr inbounds nuw i8, ptr %.sink74.i, i64 72
+  store ptr %.sink72.i, ptr %139, align 8, !tbaa !84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) @xbuf, i8 0, i64 256, i1 false)
-  %140 = getelementptr inbounds nuw i8, ptr %.sink75.i, i64 96
+  %140 = getelementptr inbounds nuw i8, ptr %.sink74.i, i64 96
   store double %15, ptr %140, align 8, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #18
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #18

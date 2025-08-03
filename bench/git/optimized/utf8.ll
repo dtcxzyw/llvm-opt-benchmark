@@ -1371,12 +1371,12 @@ skip_prefix.exit:                                 ; preds = %35, %36
 41:                                               ; preds = %42, %skip_prefix.exit
   %.07.i16 = phi ptr [ %scevgep.i3, %skip_prefix.exit ], [ %44, %42 ]
   %.06.idx.i17 = phi i64 [ 0, %skip_prefix.exit ], [ %.06.add.i20, %42 ]
-  %exitcond.i19 = icmp eq i64 %.06.idx.i17, 1
-  br i1 %exitcond.i19, label %skip_prefix.exit22, label %42
+  %exitcond.i18 = icmp eq i64 %.06.idx.i17, 1
+  br i1 %exitcond.i18, label %skip_prefix.exit22, label %42
 
 42:                                               ; preds = %41
-  %.06.ptr.i18 = getelementptr inbounds nuw i8, ptr @.str.22, i64 %.06.idx.i17
-  %43 = load i8, ptr %.06.ptr.i18, align 1, !tbaa !4
+  %.06.ptr.i19 = getelementptr inbounds nuw i8, ptr @.str.22, i64 %.06.idx.i17
+  %43 = load i8, ptr %.06.ptr.i19, align 1, !tbaa !4
   %44 = getelementptr inbounds nuw i8, ptr %.07.i16, i64 1
   %45 = load i8, ptr %.07.i16, align 1, !tbaa !4
   %.06.add.i20 = add nuw nsw i64 %.06.idx.i17, 1

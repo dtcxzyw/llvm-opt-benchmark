@@ -13729,8 +13729,8 @@ define linkonce_odr noundef zeroext i1 @_ZN6Gluco210BoolOption5parseEPKc(ptr nou
   %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i7, 1
   %6 = getelementptr inbounds nuw i8, ptr @.str.110, i64 %indvars.iv.next.i10
   %7 = load i8, ptr %6, align 1, !tbaa !109
-  %exitcond = icmp eq i64 %indvars.iv.next.i10, 3
-  br i1 %exitcond, label %._crit_edge.i12, label %.lr.ph.i6, !llvm.loop !325
+  %.not.i11 = icmp eq i64 %indvars.iv.next.i10, 3
+  br i1 %.not.i11, label %._crit_edge.i12, label %.lr.ph.i6, !llvm.loop !325
 
 .lr.ph.i6:                                        ; preds = %5, %3
   %indvars.iv.i7 = phi i64 [ %indvars.iv.next.i10, %5 ], [ 0, %3 ]

@@ -61,8 +61,7 @@ define dso_local noundef i32 @ls_refs(ptr noundef %0, ptr noundef %1) local_unna
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 4
   br label %17
 
-17:                                               ; preds = %.lr.ph, %47
-  %.017 = phi ptr [ undef, %.lr.ph ], [ %.1, %47 ]
+17:                                               ; preds = %.lr.ph, %46
   %18 = load ptr, ptr %13, align 8, !tbaa !9
   %19 = call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str, ptr noundef nonnull dereferenceable(1) %18) #11
   %.not11 = icmp eq i32 %19, 0
@@ -70,7 +69,7 @@ define dso_local noundef i32 @ls_refs(ptr noundef %0, ptr noundef %1) local_unna
 
 20:                                               ; preds = %17
   store i32 1, ptr %6, align 8, !tbaa !16
-  br label %47
+  br label %46
 
 21:                                               ; preds = %17
   %22 = call i32 @strcmp(ptr noundef nonnull dereferenceable(8) @.str.1, ptr noundef nonnull dereferenceable(1) %18) #11
@@ -79,160 +78,154 @@ define dso_local noundef i32 @ls_refs(ptr noundef %0, ptr noundef %1) local_unna
 
 23:                                               ; preds = %21
   store i32 1, ptr %16, align 4, !tbaa !20
-  br label %47
+  br label %46
 
 24:                                               ; preds = %21
   %scevgep.i = getelementptr i8, ptr %18, i64 11
   br label %25
 
-25:                                               ; preds = %27, %24
-  %.07.i = phi ptr [ %18, %24 ], [ %28, %27 ]
-  %.06.idx.i = phi i64 [ 0, %24 ], [ %.06.add.i, %27 ]
-  %.06.ptr.i = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.06.idx.i
-  %26 = load i8, ptr %.06.ptr.i, align 1, !tbaa !21
+25:                                               ; preds = %26, %24
+  %.07.i = phi ptr [ %18, %24 ], [ %28, %26 ]
+  %.06.idx.i = phi i64 [ 0, %24 ], [ %.06.add.i, %26 ]
   %exitcond.i = icmp eq i64 %.06.idx.i, 11
-  br i1 %exitcond.i, label %skip_prefix.exit, label %27
+  br i1 %exitcond.i, label %31, label %26
 
-27:                                               ; preds = %25
+26:                                               ; preds = %25
+  %.06.ptr.i = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.06.idx.i
+  %27 = load i8, ptr %.06.ptr.i, align 1, !tbaa !21
   %28 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
   %29 = load i8, ptr %.07.i, align 1, !tbaa !21
   %.06.add.i = add nuw nsw i64 %.06.idx.i, 1
-  %30 = icmp eq i8 %29, %26
+  %30 = icmp eq i8 %29, %27
   br i1 %30, label %25, label %skip_prefix.exit, !llvm.loop !22
 
-skip_prefix.exit:                                 ; preds = %25, %27
-  %.2 = phi ptr [ %.017, %27 ], [ %scevgep.i, %25 ]
-  %.not.i = icmp eq i8 %26, 0
-  br i1 %.not.i, label %31, label %36
-
-31:                                               ; preds = %skip_prefix.exit
+31:                                               ; preds = %25
   %32 = load i64, ptr %15, align 8, !tbaa !24
   %33 = icmp ult i64 %32, 65536
-  br i1 %33, label %34, label %47
+  br i1 %33, label %34, label %46
 
 34:                                               ; preds = %31
-  %35 = call ptr @strvec_push(ptr noundef nonnull %7, ptr noundef %.2) #10
-  br label %47
+  %35 = call ptr @strvec_push(ptr noundef nonnull %7, ptr noundef %scevgep.i) #10
+  br label %46
 
-36:                                               ; preds = %skip_prefix.exit
-  %37 = call i32 @strcmp(ptr noundef nonnull dereferenceable(7) @.str.3, ptr noundef nonnull dereferenceable(1) %18) #11
-  %.not13 = icmp eq i32 %37, 0
-  br i1 %.not13, label %38, label %45
+skip_prefix.exit:                                 ; preds = %26
+  %36 = call i32 @strcmp(ptr noundef nonnull dereferenceable(7) @.str.3, ptr noundef nonnull dereferenceable(1) %18) #11
+  %.not13 = icmp eq i32 %36, 0
+  br i1 %.not13, label %37, label %44
 
-38:                                               ; preds = %36
-  %39 = call fastcc i32 @unborn_config(ptr noundef %0)
-  %40 = icmp ne i32 %39, 0
-  %41 = zext i1 %40 to i8
-  %42 = load i8, ptr %14, align 8
-  %43 = and i8 %42, -2
-  %44 = or disjoint i8 %43, %41
-  store i8 %44, ptr %14, align 8
-  br label %47
+37:                                               ; preds = %skip_prefix.exit
+  %38 = call fastcc i32 @unborn_config(ptr noundef %0)
+  %39 = icmp ne i32 %38, 0
+  %40 = zext i1 %39 to i8
+  %41 = load i8, ptr %14, align 8
+  %42 = and i8 %41, -2
+  %43 = or disjoint i8 %42, %40
+  store i8 %43, ptr %14, align 8
+  br label %46
 
-45:                                               ; preds = %36
-  %46 = call fastcc ptr @_(ptr noundef nonnull @.str.4)
-  call void (ptr, ...) @die(ptr noundef %46, ptr noundef nonnull %18) #12
+44:                                               ; preds = %skip_prefix.exit
+  %45 = call fastcc ptr @_(ptr noundef nonnull @.str.4)
+  call void (ptr, ...) @die(ptr noundef %45, ptr noundef nonnull %18) #12
   unreachable
 
-47:                                               ; preds = %23, %31, %34, %38, %20
-  %.1 = phi ptr [ %.017, %20 ], [ %.017, %23 ], [ %.2, %34 ], [ %.2, %31 ], [ %.2, %38 ]
-  %48 = call i32 @packet_reader_read(ptr noundef %1) #10
-  %49 = icmp eq i32 %48, 1
-  br i1 %49, label %17, label %._crit_edge, !llvm.loop !25
+46:                                               ; preds = %23, %31, %34, %37, %20
+  %47 = call i32 @packet_reader_read(ptr noundef %1) #10
+  %48 = icmp eq i32 %47, 1
+  br i1 %48, label %17, label %._crit_edge, !llvm.loop !25
 
-._crit_edge:                                      ; preds = %47, %2
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %51 = load i32, ptr %50, align 8, !tbaa !26
-  %.not = icmp eq i32 %51, 2
-  br i1 %.not, label %54, label %52
+._crit_edge:                                      ; preds = %46, %2
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %50 = load i32, ptr %49, align 8, !tbaa !26
+  %.not = icmp eq i32 %50, 2
+  br i1 %.not, label %53, label %51
 
-52:                                               ; preds = %._crit_edge
-  %53 = call fastcc ptr @_(ptr noundef nonnull @.str.5)
-  call void (ptr, ...) @die(ptr noundef %53) #12
+51:                                               ; preds = %._crit_edge
+  %52 = call fastcc ptr @_(ptr noundef nonnull @.str.5)
+  call void (ptr, ...) @die(ptr noundef %52) #12
   unreachable
 
-54:                                               ; preds = %._crit_edge
-  %55 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %56 = load i64, ptr %55, align 8, !tbaa !24
-  %57 = icmp ugt i64 %56, 65535
-  br i1 %57, label %58, label %59
+53:                                               ; preds = %._crit_edge
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %55 = load i64, ptr %54, align 8, !tbaa !24
+  %56 = icmp ugt i64 %55, 65535
+  br i1 %56, label %57, label %58
 
-58:                                               ; preds = %54
+57:                                               ; preds = %53
   call void @strvec_clear(ptr noundef nonnull %7) #10
-  br label %59
+  br label %58
 
-59:                                               ; preds = %58, %54
+58:                                               ; preds = %57, %53
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.send_possibly_unborn_head.namespaced, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
-  %60 = call ptr @get_git_namespace() #10
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.13, ptr noundef %60) #10
-  %61 = load ptr, ptr @the_repository, align 8, !tbaa !4
-  %62 = call ptr @get_main_ref_store(ptr noundef %61) #10
-  %63 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %64 = load ptr, ptr %63, align 8, !tbaa !27
-  %65 = call ptr @refs_resolve_ref_unsafe(ptr noundef %62, ptr noundef %64, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
-  %.not.i14 = icmp eq ptr %65, null
-  br i1 %.not.i14, label %send_possibly_unborn_head.exit, label %66
+  %59 = call ptr @get_git_namespace() #10
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.13, ptr noundef %59) #10
+  %60 = load ptr, ptr @the_repository, align 8, !tbaa !4
+  %61 = call ptr @get_main_ref_store(ptr noundef %60) #10
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %63 = load ptr, ptr %62, align 8, !tbaa !27
+  %64 = call ptr @refs_resolve_ref_unsafe(ptr noundef %61, ptr noundef %63, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
+  %.not.i14 = icmp eq ptr %64, null
+  br i1 %.not.i14, label %send_possibly_unborn_head.exit, label %65
 
-66:                                               ; preds = %59
+65:                                               ; preds = %58
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %4, ptr noundef nonnull dereferenceable(32) @is_null_oid.null_hash, i64 32)
   %.not.i.not.i = icmp eq i32 %bcmp.i.i, 0
-  br i1 %.not.i.not.i, label %67, label %._crit_edge.i
+  br i1 %.not.i.not.i, label %66, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %66
+._crit_edge.i:                                    ; preds = %65
   %.pre.i = load i32, ptr %5, align 4, !tbaa !28
-  br label %76
+  br label %75
 
-67:                                               ; preds = %66
-  %68 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %69 = load i8, ptr %68, align 8
-  %70 = and i8 %69, 1
-  %.not5.i = icmp eq i8 %70, 0
-  %71 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %72 = load i32, ptr %71, align 4
-  %.not6.i = icmp eq i32 %72, 0
+66:                                               ; preds = %65
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %68 = load i8, ptr %67, align 8
+  %69 = and i8 %68, 1
+  %.not5.i = icmp eq i8 %69, 0
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %71 = load i32, ptr %70, align 4
+  %.not6.i = icmp eq i32 %71, 0
   %or.cond = select i1 %.not5.i, i1 true, i1 %.not6.i
-  br i1 %or.cond, label %80, label %73
+  br i1 %or.cond, label %79, label %72
 
-73:                                               ; preds = %67
-  %74 = load i32, ptr %5, align 4, !tbaa !28
-  %75 = and i32 %74, 1
-  %.not7.i = icmp eq i32 %75, 0
-  br i1 %.not7.i, label %80, label %76
+72:                                               ; preds = %66
+  %73 = load i32, ptr %5, align 4, !tbaa !28
+  %74 = and i32 %73, 1
+  %.not7.i = icmp eq i32 %74, 0
+  br i1 %.not7.i, label %79, label %75
 
-76:                                               ; preds = %73, %._crit_edge.i
-  %77 = phi i32 [ %74, %73 ], [ %.pre.i, %._crit_edge.i ]
-  %..i = phi ptr [ null, %73 ], [ %4, %._crit_edge.i ]
-  %78 = load ptr, ptr %63, align 8, !tbaa !27
-  %79 = call i32 @send_ref(ptr noundef %78, ptr poison, ptr noundef %..i, i32 noundef %77, ptr noundef nonnull %6)
-  br label %80
+75:                                               ; preds = %72, %._crit_edge.i
+  %76 = phi i32 [ %73, %72 ], [ %.pre.i, %._crit_edge.i ]
+  %..i = phi ptr [ null, %72 ], [ %4, %._crit_edge.i ]
+  %77 = load ptr, ptr %62, align 8, !tbaa !27
+  %78 = call i32 @send_ref(ptr noundef %77, ptr poison, ptr noundef %..i, i32 noundef %76, ptr noundef nonnull %6)
+  br label %79
 
-80:                                               ; preds = %76, %73, %67
+79:                                               ; preds = %75, %72, %66
   call void @strbuf_release(ptr noundef nonnull %3) #10
   br label %send_possibly_unborn_head.exit
 
-send_possibly_unborn_head.exit:                   ; preds = %59, %80
+send_possibly_unborn_head.exit:                   ; preds = %58, %79
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
-  %81 = load i64, ptr %55, align 8, !tbaa !24
-  %.not10 = icmp eq i64 %81, 0
-  br i1 %.not10, label %82, label %84
+  %80 = load i64, ptr %54, align 8, !tbaa !24
+  %.not10 = icmp eq i64 %80, 0
+  br i1 %.not10, label %81, label %83
 
-82:                                               ; preds = %send_possibly_unborn_head.exit
-  %83 = call ptr @strvec_push(ptr noundef nonnull %7, ptr noundef nonnull @.str.6) #10
-  br label %84
+81:                                               ; preds = %send_possibly_unborn_head.exit
+  %82 = call ptr @strvec_push(ptr noundef nonnull %7, ptr noundef nonnull @.str.6) #10
+  br label %83
 
-84:                                               ; preds = %82, %send_possibly_unborn_head.exit
-  %85 = call ptr @get_main_ref_store(ptr noundef %0) #10
-  %86 = call ptr @get_git_namespace() #10
-  %87 = load ptr, ptr %7, align 8, !tbaa !29
-  %88 = call ptr @hidden_refs_to_excludes(ptr noundef nonnull %9) #10
-  %89 = call i32 @refs_for_each_fullref_in_prefixes(ptr noundef %85, ptr noundef %86, ptr noundef %87, ptr noundef %88, ptr noundef nonnull @send_ref, ptr noundef nonnull %6) #10
-  %90 = load ptr, ptr @stdout, align 8, !tbaa !30
-  call void @packet_fflush(ptr noundef %90) #10
+83:                                               ; preds = %81, %send_possibly_unborn_head.exit
+  %84 = call ptr @get_main_ref_store(ptr noundef %0) #10
+  %85 = call ptr @get_git_namespace() #10
+  %86 = load ptr, ptr %7, align 8, !tbaa !29
+  %87 = call ptr @hidden_refs_to_excludes(ptr noundef nonnull %9) #10
+  %88 = call i32 @refs_for_each_fullref_in_prefixes(ptr noundef %84, ptr noundef %85, ptr noundef %86, ptr noundef %87, ptr noundef nonnull @send_ref, ptr noundef nonnull %6) #10
+  %89 = load ptr, ptr @stdout, align 8, !tbaa !30
+  call void @packet_fflush(ptr noundef %89) #10
   call void @strvec_clear(ptr noundef nonnull %7) #10
   call void @strbuf_release(ptr noundef nonnull %8) #10
   call void @strvec_clear(ptr noundef nonnull %9) #10

@@ -1892,13 +1892,13 @@ define internal range(i32 -3, 2) i32 @merge(i32 noundef %0, ptr noundef %1, ptr 
   %79 = load ptr, ptr %19, align 8, !tbaa !4
   %.not = icmp ne ptr %79, null
   %.pre.pre = load i32, ptr %16, align 4, !tbaa !24
-  %.pre51.pre = load i32, ptr %17, align 4, !tbaa !24
-  %80 = sub i32 0, %.pre51.pre
+  %.pre53.pre = load i32, ptr %17, align 4, !tbaa !24
+  %80 = sub i32 0, %.pre53.pre
   %81 = icmp eq i32 %.pre.pre, %80
-  %or.cond54 = or i1 %.not, %81
-  %spec.select = zext i1 %or.cond54 to i32
+  %or.cond56 = or i1 %.not, %81
+  %spec.select = zext i1 %or.cond56 to i32
   %82 = add nsw i32 %.pre.pre, %spec.select
-  %83 = add nsw i32 %82, %.pre51.pre
+  %83 = add nsw i32 %82, %.pre53.pre
   %.not31 = icmp eq i32 %83, 1
   br i1 %.not31, label %87, label %84
 
@@ -1910,7 +1910,7 @@ define internal range(i32 -3, 2) i32 @merge(i32 noundef %0, ptr noundef %1, ptr 
 
 87:                                               ; preds = %4
   %88 = icmp ne i32 %78, 1
-  %or.cond = select i1 %or.cond54, i1 %88, i1 false
+  %or.cond = select i1 %or.cond56, i1 %88, i1 false
   br i1 %or.cond, label %89, label %92
 
 89:                                               ; preds = %87
@@ -1921,7 +1921,7 @@ define internal range(i32 -3, 2) i32 @merge(i32 noundef %0, ptr noundef %1, ptr 
 
 92:                                               ; preds = %87
   %93 = icmp eq i32 %78, 0
-  %or.cond3.not = select i1 %or.cond54, i1 true, i1 %93
+  %or.cond3.not = select i1 %or.cond56, i1 true, i1 %93
   br i1 %or.cond3.not, label %97, label %94
 
 94:                                               ; preds = %92
@@ -1943,7 +1943,7 @@ define internal range(i32 -3, 2) i32 @merge(i32 noundef %0, ptr noundef %1, ptr 
 
 103:                                              ; preds = %97
   %104 = call fastcc i32 @merge_abort(ptr noundef %15)
-  br label %252
+  br label %251
 
 105:                                              ; preds = %97
   %106 = load i32, ptr %16, align 4, !tbaa !24
@@ -2078,7 +2078,7 @@ merge_commit.exit:                                ; preds = %146
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %9) #16
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %8) #16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #16
-  br label %252
+  br label %251
 
 158:                                              ; preds = %105
   %159 = load ptr, ptr @the_repository, align 8, !tbaa !20
@@ -2113,7 +2113,7 @@ init_notes_check.exit:                            ; preds = %158
   %172 = getelementptr inbounds nuw i8, ptr %15, i64 52
   %173 = call i32 @parse_notes_merge_strategy(ptr noundef nonnull %170, ptr noundef nonnull %172) #16
   %.not36 = icmp eq i32 %173, 0
-  br i1 %.not36, label %214, label %174
+  br i1 %.not36, label %213, label %174
 
 174:                                              ; preds = %171
   %175 = call fastcc ptr @_(ptr noundef nonnull @.str.107)
@@ -2129,170 +2129,165 @@ init_notes_check.exit:                            ; preds = %158
   %scevgep.i = getelementptr i8, ptr %179, i64 11
   br label %180
 
-180:                                              ; preds = %182, %178
-  %.07.i = phi ptr [ %179, %178 ], [ %183, %182 ]
-  %.06.idx.i = phi i64 [ 0, %178 ], [ %.06.add.i, %182 ]
-  %.06.ptr.i = getelementptr inbounds nuw i8, ptr @.str.19, i64 %.06.idx.i
-  %181 = load i8, ptr %.06.ptr.i, align 1, !tbaa !40
+180:                                              ; preds = %181, %178
+  %.07.i = phi ptr [ %179, %178 ], [ %183, %181 ]
+  %.06.idx.i = phi i64 [ 0, %178 ], [ %.06.add.i, %181 ]
   %exitcond.i = icmp eq i64 %.06.idx.i, 11
-  br i1 %exitcond.i, label %skip_prefix.exit, label %182
+  br i1 %exitcond.i, label %186, label %181
 
-182:                                              ; preds = %180
+181:                                              ; preds = %180
+  %.06.ptr.i = getelementptr inbounds nuw i8, ptr @.str.19, i64 %.06.idx.i
+  %182 = load i8, ptr %.06.ptr.i, align 1, !tbaa !40
   %183 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
   %184 = load i8, ptr %.07.i, align 1, !tbaa !40
   %.06.add.i = add nuw nsw i64 %.06.idx.i, 1
-  %185 = icmp eq i8 %184, %181
+  %185 = icmp eq i8 %184, %182
   br i1 %185, label %180, label %skip_prefix.exit, !llvm.loop !74
 
-skip_prefix.exit:                                 ; preds = %180, %182
-  %.046 = phi ptr [ null, %182 ], [ %scevgep.i, %180 ]
-  %.not.i39 = icmp eq i8 %181, 0
-  br i1 %.not.i39, label %187, label %186
-
-186:                                              ; preds = %skip_prefix.exit
+skip_prefix.exit:                                 ; preds = %181
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.44, i32 noundef 958, ptr noundef nonnull @.str.108, ptr noundef %179) #17
   unreachable
 
-187:                                              ; preds = %skip_prefix.exit
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %21, ptr noundef nonnull @.str.109, ptr noundef %.046) #16
-  %188 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %189 = load ptr, ptr %188, align 8, !tbaa !22
-  %190 = getelementptr inbounds nuw i8, ptr %15, i64 52
+186:                                              ; preds = %180
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %21, ptr noundef nonnull @.str.109, ptr noundef %scevgep.i) #16
+  %187 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %188 = load ptr, ptr %187, align 8, !tbaa !22
+  %189 = getelementptr inbounds nuw i8, ptr %15, i64 52
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
-  %191 = load ptr, ptr @the_repository, align 8, !tbaa !20
-  %192 = call i32 @repo_config_get_string(ptr noundef %191, ptr noundef %189, ptr noundef nonnull %6) #16
-  %.not.i40 = icmp eq i32 %192, 0
-  br i1 %.not.i40, label %193, label %201
+  %190 = load ptr, ptr @the_repository, align 8, !tbaa !20
+  %191 = call i32 @repo_config_get_string(ptr noundef %190, ptr noundef %188, ptr noundef nonnull %6) #16
+  %.not.i40 = icmp eq i32 %191, 0
+  br i1 %.not.i40, label %192, label %200
 
-193:                                              ; preds = %187
-  %194 = load ptr, ptr %6, align 8, !tbaa !4
-  %195 = call i32 @parse_notes_merge_strategy(ptr noundef %194, ptr noundef nonnull %190) #16
-  %.not3.i = icmp eq i32 %195, 0
-  br i1 %.not3.i, label %git_config_get_notes_strategy.exit.thread, label %196
+192:                                              ; preds = %186
+  %193 = load ptr, ptr %6, align 8, !tbaa !4
+  %194 = call i32 @parse_notes_merge_strategy(ptr noundef %193, ptr noundef nonnull %189) #16
+  %.not3.i = icmp eq i32 %194, 0
+  br i1 %.not3.i, label %git_config_get_notes_strategy.exit.thread, label %195
 
-196:                                              ; preds = %193
-  %197 = load ptr, ptr @the_repository, align 8, !tbaa !20
-  %198 = call fastcc ptr @_(ptr noundef nonnull @.str.131)
-  %199 = load ptr, ptr %6, align 8, !tbaa !4
-  call void (ptr, ptr, ptr, ...) @git_die_config(ptr noundef %197, ptr noundef %189, ptr noundef %198, ptr noundef %199) #17
+195:                                              ; preds = %192
+  %196 = load ptr, ptr @the_repository, align 8, !tbaa !20
+  %197 = call fastcc ptr @_(ptr noundef nonnull @.str.131)
+  %198 = load ptr, ptr %6, align 8, !tbaa !4
+  call void (ptr, ptr, ptr, ...) @git_die_config(ptr noundef %196, ptr noundef %188, ptr noundef %197, ptr noundef %198) #17
   unreachable
 
-git_config_get_notes_strategy.exit.thread:        ; preds = %193
-  %200 = load ptr, ptr %6, align 8, !tbaa !4
-  call void @free(ptr noundef %200) #16
+git_config_get_notes_strategy.exit.thread:        ; preds = %192
+  %199 = load ptr, ptr %6, align 8, !tbaa !4
+  call void @free(ptr noundef %199) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
-  br label %213
+  br label %212
 
-201:                                              ; preds = %187
+200:                                              ; preds = %186
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
-  %202 = load ptr, ptr @the_repository, align 8, !tbaa !20
-  %203 = call i32 @repo_config_get_string(ptr noundef %202, ptr noundef nonnull @.str.110, ptr noundef nonnull %5) #16
-  %.not.i41 = icmp eq i32 %203, 0
-  br i1 %.not.i41, label %204, label %git_config_get_notes_strategy.exit44
+  %201 = load ptr, ptr @the_repository, align 8, !tbaa !20
+  %202 = call i32 @repo_config_get_string(ptr noundef %201, ptr noundef nonnull @.str.110, ptr noundef nonnull %5) #16
+  %.not.i41 = icmp eq i32 %202, 0
+  br i1 %.not.i41, label %203, label %git_config_get_notes_strategy.exit44
 
-204:                                              ; preds = %201
-  %205 = load ptr, ptr %5, align 8, !tbaa !4
-  %206 = call i32 @parse_notes_merge_strategy(ptr noundef %205, ptr noundef nonnull %190) #16
-  %.not3.i43 = icmp eq i32 %206, 0
-  br i1 %.not3.i43, label %211, label %207
+203:                                              ; preds = %200
+  %204 = load ptr, ptr %5, align 8, !tbaa !4
+  %205 = call i32 @parse_notes_merge_strategy(ptr noundef %204, ptr noundef nonnull %189) #16
+  %.not3.i43 = icmp eq i32 %205, 0
+  br i1 %.not3.i43, label %210, label %206
 
-207:                                              ; preds = %204
-  %208 = load ptr, ptr @the_repository, align 8, !tbaa !20
-  %209 = call fastcc ptr @_(ptr noundef nonnull @.str.131)
-  %210 = load ptr, ptr %5, align 8, !tbaa !4
-  call void (ptr, ptr, ptr, ...) @git_die_config(ptr noundef %208, ptr noundef nonnull @.str.110, ptr noundef %209, ptr noundef %210) #17
+206:                                              ; preds = %203
+  %207 = load ptr, ptr @the_repository, align 8, !tbaa !20
+  %208 = call fastcc ptr @_(ptr noundef nonnull @.str.131)
+  %209 = load ptr, ptr %5, align 8, !tbaa !4
+  call void (ptr, ptr, ptr, ...) @git_die_config(ptr noundef %207, ptr noundef nonnull @.str.110, ptr noundef %208, ptr noundef %209) #17
   unreachable
 
-211:                                              ; preds = %204
-  %212 = load ptr, ptr %5, align 8, !tbaa !4
-  call void @free(ptr noundef %212) #16
+210:                                              ; preds = %203
+  %211 = load ptr, ptr %5, align 8, !tbaa !4
+  call void @free(ptr noundef %211) #16
   br label %git_config_get_notes_strategy.exit44
 
-git_config_get_notes_strategy.exit44:             ; preds = %201, %211
+git_config_get_notes_strategy.exit44:             ; preds = %200, %210
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
-  br label %213
+  br label %212
 
-213:                                              ; preds = %git_config_get_notes_strategy.exit.thread, %git_config_get_notes_strategy.exit44
+212:                                              ; preds = %git_config_get_notes_strategy.exit.thread, %git_config_get_notes_strategy.exit44
   call void @strbuf_release(ptr noundef nonnull %21) #16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21) #16
-  br label %214
+  br label %213
 
-214:                                              ; preds = %171, %213
-  %215 = load ptr, ptr %164, align 8, !tbaa !22
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %13, ptr noundef nonnull @.str.111, ptr noundef %215, ptr noundef %160) #16
-  %216 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %217 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %218 = load ptr, ptr %217, align 8, !tbaa !22
-  %219 = getelementptr inbounds nuw i8, ptr %218, i64 7
-  %220 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %221 = load i64, ptr %220, align 8, !tbaa !34
-  %222 = add i64 %221, -7
-  call void @strbuf_add(ptr noundef nonnull %216, ptr noundef nonnull %219, i64 noundef %222) #16
-  %223 = call i32 @notes_merge(ptr noundef nonnull %15, ptr noundef nonnull @default_notes_tree, ptr noundef nonnull %14) #16
-  %224 = icmp sgt i32 %223, -1
-  %225 = load ptr, ptr @the_repository, align 8, !tbaa !20
-  %226 = call ptr @get_main_ref_store(ptr noundef %225) #16
-  %227 = load ptr, ptr %217, align 8, !tbaa !22
-  br i1 %224, label %228, label %230
+213:                                              ; preds = %171, %212
+  %214 = load ptr, ptr %164, align 8, !tbaa !22
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %13, ptr noundef nonnull @.str.111, ptr noundef %214, ptr noundef %160) #16
+  %215 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %216 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %217 = load ptr, ptr %216, align 8, !tbaa !22
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 7
+  %219 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %220 = load i64, ptr %219, align 8, !tbaa !34
+  %221 = add i64 %220, -7
+  call void @strbuf_add(ptr noundef nonnull %215, ptr noundef nonnull %218, i64 noundef %221) #16
+  %222 = call i32 @notes_merge(ptr noundef nonnull %15, ptr noundef nonnull @default_notes_tree, ptr noundef nonnull %14) #16
+  %223 = icmp sgt i32 %222, -1
+  %224 = load ptr, ptr @the_repository, align 8, !tbaa !20
+  %225 = call ptr @get_main_ref_store(ptr noundef %224) #16
+  %226 = load ptr, ptr %216, align 8, !tbaa !22
+  br i1 %223, label %227, label %229
 
-228:                                              ; preds = %214
-  %229 = call i32 @refs_update_ref(ptr noundef %226, ptr noundef %227, ptr noundef %160, ptr noundef nonnull %14, ptr noundef null, i32 noundef 0, i32 noundef 1) #16
-  br label %251
+227:                                              ; preds = %213
+  %228 = call i32 @refs_update_ref(ptr noundef %225, ptr noundef %226, ptr noundef %160, ptr noundef nonnull %14, ptr noundef null, i32 noundef 0, i32 noundef 1) #16
+  br label %250
 
-230:                                              ; preds = %214
-  %231 = call i32 @refs_update_ref(ptr noundef %226, ptr noundef %227, ptr noundef nonnull @.str.112, ptr noundef nonnull %14, ptr noundef null, i32 noundef 0, i32 noundef 1) #16
-  %232 = call ptr @get_worktrees() #16
-  %233 = call ptr @find_shared_symref(ptr noundef %232, ptr noundef nonnull @.str.113, ptr noundef %160) #16
-  %.not37 = icmp eq ptr %233, null
-  br i1 %.not37, label %238, label %234
+229:                                              ; preds = %213
+  %230 = call i32 @refs_update_ref(ptr noundef %225, ptr noundef %226, ptr noundef nonnull @.str.112, ptr noundef nonnull %14, ptr noundef null, i32 noundef 0, i32 noundef 1) #16
+  %231 = call ptr @get_worktrees() #16
+  %232 = call ptr @find_shared_symref(ptr noundef %231, ptr noundef nonnull @.str.113, ptr noundef %160) #16
+  %.not37 = icmp eq ptr %232, null
+  br i1 %.not37, label %237, label %233
 
-234:                                              ; preds = %230
-  %235 = call fastcc ptr @_(ptr noundef nonnull @.str.114)
-  %236 = getelementptr inbounds nuw i8, ptr %233, i64 8
-  %237 = load ptr, ptr %236, align 8, !tbaa !75
-  call void (ptr, ...) @die(ptr noundef %235, ptr noundef %160, ptr noundef %237) #17
+233:                                              ; preds = %229
+  %234 = call fastcc ptr @_(ptr noundef nonnull @.str.114)
+  %235 = getelementptr inbounds nuw i8, ptr %232, i64 8
+  %236 = load ptr, ptr %235, align 8, !tbaa !75
+  call void (ptr, ...) @die(ptr noundef %234, ptr noundef %160, ptr noundef %236) #17
   unreachable
 
-238:                                              ; preds = %230
-  call void @free_worktrees(ptr noundef %232) #16
-  %239 = load ptr, ptr @the_repository, align 8, !tbaa !20
-  %240 = call ptr @get_main_ref_store(ptr noundef %239) #16
-  %241 = call i32 @refs_update_symref(ptr noundef %240, ptr noundef nonnull @.str.113, ptr noundef %160, ptr noundef null) #16
-  %.not38 = icmp eq i32 %241, 0
-  br i1 %.not38, label %244, label %242
+237:                                              ; preds = %229
+  call void @free_worktrees(ptr noundef %231) #16
+  %238 = load ptr, ptr @the_repository, align 8, !tbaa !20
+  %239 = call ptr @get_main_ref_store(ptr noundef %238) #16
+  %240 = call i32 @refs_update_symref(ptr noundef %239, ptr noundef nonnull @.str.113, ptr noundef %160, ptr noundef null) #16
+  %.not38 = icmp eq i32 %240, 0
+  br i1 %.not38, label %243, label %241
 
-242:                                              ; preds = %238
-  %243 = call fastcc ptr @_(ptr noundef nonnull @.str.115)
-  call void (ptr, ...) @die(ptr noundef %243, ptr noundef %160) #17
+241:                                              ; preds = %237
+  %242 = call fastcc ptr @_(ptr noundef nonnull @.str.115)
+  call void (ptr, ...) @die(ptr noundef %242, ptr noundef %160) #17
   unreachable
 
-244:                                              ; preds = %238
-  %245 = load ptr, ptr @stderr, align 8, !tbaa !31
-  %246 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !24
-  %.not4.i = icmp eq i32 %246, 0
-  br i1 %.not4.i, label %_.exit, label %247
+243:                                              ; preds = %237
+  %244 = load ptr, ptr @stderr, align 8, !tbaa !31
+  %245 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !24
+  %.not4.i = icmp eq i32 %245, 0
+  br i1 %.not4.i, label %_.exit, label %246
 
-247:                                              ; preds = %244
-  %248 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.116, i32 noundef 5) #16
+246:                                              ; preds = %243
+  %247 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.116, i32 noundef 5) #16
   br label %_.exit
 
-_.exit:                                           ; preds = %244, %247
-  %.0.i45 = phi ptr [ %248, %247 ], [ @.str.116, %244 ]
-  %249 = call ptr (ptr, ...) @git_path(ptr nonnull poison)
-  %250 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %245, ptr noundef %.0.i45, ptr noundef %249) #19
-  br label %251
+_.exit:                                           ; preds = %243, %246
+  %.0.i45 = phi ptr [ %247, %246 ], [ @.str.116, %243 ]
+  %248 = call ptr (ptr, ...) @git_path(ptr nonnull poison)
+  %249 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %244, ptr noundef %.0.i45, ptr noundef %248) #19
+  br label %250
 
-251:                                              ; preds = %_.exit, %228
+250:                                              ; preds = %_.exit, %227
   call void @free_notes(ptr noundef nonnull @default_notes_tree) #16
   call void @free(ptr noundef %160) #16
   call void @strbuf_release(ptr noundef nonnull %12) #16
   call void @strbuf_release(ptr noundef nonnull %13) #16
-  %.lobit = lshr i32 %223, 31
-  br label %252
+  %.lobit = lshr i32 %222, 31
+  br label %251
 
-252:                                              ; preds = %251, %merge_commit.exit, %103
-  %.0 = phi i32 [ %104, %103 ], [ %157, %merge_commit.exit ], [ %.lobit, %251 ]
+251:                                              ; preds = %250, %merge_commit.exit, %103
+  %.0 = phi i32 [ %104, %103 ], [ %157, %merge_commit.exit ], [ %.lobit, %250 ]
   call void @llvm.lifetime.end.p0(i64 880, ptr nonnull %20) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #16

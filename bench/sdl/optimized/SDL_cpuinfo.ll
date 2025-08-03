@@ -236,7 +236,7 @@ define internal fastcc i32 @SDL_GetCPUFeatures() unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = load i32, ptr @SDL_CPUFeatures, align 4
   %4 = icmp eq i32 %3, -1
-  br i1 %4, label %5, label %235
+  br i1 %4, label %5, label %182
 
 5:                                                ; preds = %0
   %.b8.i = load i1, ptr @CPU_calcCPUIDFeatures.checked, align 1
@@ -440,13 +440,13 @@ CPU_haveAVX512F.exit.thread:                      ; preds = %CPU_haveAVX2.exit.t
 
 .preheader.i:                                     ; preds = %CPU_haveAVX512F.exit.thread
   %91 = load i8, ptr %90, align 1
-  %.not5979.i = icmp eq i8 %91, 0
-  br i1 %.not5979.i, label %SDL_CPUFeatureMaskFromHint.exit, label %.lr.ph.i
+  %.not5988.i = icmp eq i8 %91, 0
+  br i1 %.not5988.i, label %SDL_CPUFeatureMaskFromHint.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %ref_string_equals.exit.thread
-  %.181.i = phi i32 [ %.2.i, %ref_string_equals.exit.thread ], [ -1, %.preheader.i ]
-  %.05480.i = phi ptr [ %.053.i, %ref_string_equals.exit.thread ], [ %90, %.preheader.i ]
-  %92 = call ptr @SDL_strchr_REAL(ptr noundef nonnull %.05480.i, i32 noundef 44) #7
+.lr.ph.i:                                         ; preds = %.preheader.i, %178
+  %.190.i = phi i32 [ %.2.i, %178 ], [ -1, %.preheader.i ]
+  %.05489.i = phi ptr [ %.053.i, %178 ], [ %90, %.preheader.i ]
+  %92 = call ptr @SDL_strchr_REAL(ptr noundef nonnull %.05489.i, i32 noundef 44) #7
   %.not60.i = icmp eq ptr %92, null
   br i1 %.not60.i, label %95, label %93
 
@@ -455,341 +455,272 @@ CPU_haveAVX512F.exit.thread:                      ; preds = %CPU_haveAVX2.exit.t
   br label %98
 
 95:                                               ; preds = %.lr.ph.i
-  %96 = call i64 @SDL_strlen_REAL(ptr noundef nonnull %.05480.i) #7
-  %97 = getelementptr inbounds nuw i8, ptr %.05480.i, i64 %96
+  %96 = call i64 @SDL_strlen_REAL(ptr noundef nonnull %.05489.i) #7
+  %97 = getelementptr inbounds nuw i8, ptr %.05489.i, i64 %96
   br label %98
 
 98:                                               ; preds = %95, %93
   %.053.i = phi ptr [ %94, %93 ], [ %97, %95 ]
   %.052.i = phi ptr [ %92, %93 ], [ %97, %95 ]
-  %99 = load i8, ptr %.05480.i, align 1
+  %99 = load i8, ptr %.05489.i, align 1
   switch i8 %99, label %104 [
     i8 43, label %100
     i8 45, label %102
   ]
 
 100:                                              ; preds = %98
-  %101 = getelementptr inbounds nuw i8, ptr %.05480.i, i64 1
+  %101 = getelementptr inbounds nuw i8, ptr %.05489.i, i64 1
   br label %104
 
 102:                                              ; preds = %98
-  %103 = getelementptr inbounds nuw i8, ptr %.05480.i, i64 1
+  %103 = getelementptr inbounds nuw i8, ptr %.05489.i, i64 1
   br label %104
 
 104:                                              ; preds = %102, %100, %98
-  %.155.i = phi ptr [ %101, %100 ], [ %103, %102 ], [ %.05480.i, %98 ]
+  %.155.i = phi ptr [ %101, %100 ], [ %103, %102 ], [ %.05489.i, %98 ]
   %.050.i = phi i1 [ true, %100 ], [ false, %102 ], [ true, %98 ]
   %105 = ptrtoint ptr %.052.i to i64
   %106 = ptrtoint ptr %.155.i to i64
   %107 = sub i64 %105, %106
   %108 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.10, ptr noundef nonnull %.155.i, i64 noundef %107) #7
   %109 = icmp eq i32 %108, 0
-  br i1 %109, label %110, label %ref_string_equals.exit.thread.i
+  %110 = icmp eq i64 %107, 3
+  %or.cond.i13 = and i1 %109, %110
+  br i1 %or.cond.i13, label %ref_string_equals.exit.i, label %ref_string_equals.exit.thread.i
 
-110:                                              ; preds = %104
-  %111 = getelementptr inbounds nuw i8, ptr @.str.10, i64 %107
+ref_string_equals.exit.i:                         ; preds = %104
+  %111 = getelementptr inbounds nuw i8, ptr %.155.i, i64 3
   %112 = load i8, ptr %111, align 1
-  %113 = icmp eq i8 %112, 0
-  br i1 %113, label %ref_string_equals.exit.i, label %ref_string_equals.exit.thread.i
-
-ref_string_equals.exit.i:                         ; preds = %110
-  %114 = getelementptr inbounds nuw i8, ptr %.155.i, i64 %107
-  %115 = load i8, ptr %114, align 1
-  switch i8 %115, label %ref_string_equals.exit.thread.i [
-    i8 44, label %228
-    i8 0, label %228
+  switch i8 %112, label %ref_string_equals.exit.thread.i [
+    i8 44, label %174
+    i8 0, label %174
   ]
 
-ref_string_equals.exit.thread.i:                  ; preds = %ref_string_equals.exit.i, %110, %104
-  %116 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.11, ptr noundef nonnull %.155.i, i64 noundef %107) #7
-  %117 = icmp eq i32 %116, 0
-  br i1 %117, label %118, label %ref_string_equals.exit62.thread.i
+ref_string_equals.exit.thread.i:                  ; preds = %ref_string_equals.exit.i, %104
+  %113 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.11, ptr noundef nonnull %.155.i, i64 noundef %107) #7
+  %114 = icmp eq i32 %113, 0
+  %115 = icmp eq i64 %107, 7
+  %or.cond79.i = and i1 %115, %114
+  br i1 %or.cond79.i, label %ref_string_equals.exit62.i, label %ref_string_equals.exit62.thread.i
 
-118:                                              ; preds = %ref_string_equals.exit.thread.i
-  %119 = getelementptr inbounds nuw i8, ptr @.str.11, i64 %107
-  %120 = load i8, ptr %119, align 1
-  %121 = icmp eq i8 %120, 0
-  br i1 %121, label %ref_string_equals.exit62.i, label %ref_string_equals.exit62.thread.i
+ref_string_equals.exit62.i:                       ; preds = %ref_string_equals.exit.thread.i
+  %116 = getelementptr inbounds nuw i8, ptr %.155.i, i64 7
+  %117 = load i8, ptr %116, align 1
+  switch i8 %117, label %ref_string_equals.exit64.thread.thread.i [
+    i8 44, label %174
+    i8 0, label %174
+  ]
 
-ref_string_equals.exit62.i:                       ; preds = %118
-  %122 = getelementptr inbounds nuw i8, ptr %.155.i, i64 %107
+ref_string_equals.exit64.thread.thread.i:         ; preds = %ref_string_equals.exit62.i
+  %118 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.12, ptr noundef nonnull %.155.i, i64 noundef 7) #7
+  %119 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.13, ptr noundef nonnull %.155.i, i64 noundef 7) #7
+  br label %ref_string_equals.exit66.thread.i
+
+ref_string_equals.exit62.thread.i:                ; preds = %ref_string_equals.exit.thread.i
+  %120 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.12, ptr noundef nonnull %.155.i, i64 noundef %107) #7
+  %121 = icmp eq i32 %120, 0
+  %or.cond80.i = and i1 %110, %121
+  br i1 %or.cond80.i, label %ref_string_equals.exit64.i, label %ref_string_equals.exit64.thread.i
+
+ref_string_equals.exit64.i:                       ; preds = %ref_string_equals.exit62.thread.i
+  %122 = getelementptr inbounds nuw i8, ptr %.155.i, i64 3
   %123 = load i8, ptr %122, align 1
-  switch i8 %123, label %ref_string_equals.exit62.thread.i [
-    i8 44, label %228
-    i8 0, label %228
+  switch i8 %123, label %ref_string_equals.exit64.thread.i [
+    i8 44, label %174
+    i8 0, label %174
   ]
 
-ref_string_equals.exit62.thread.i:                ; preds = %ref_string_equals.exit62.i, %118, %ref_string_equals.exit.thread.i
-  %124 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.12, ptr noundef nonnull %.155.i, i64 noundef %107) #7
+ref_string_equals.exit64.thread.i:                ; preds = %ref_string_equals.exit64.i, %ref_string_equals.exit62.thread.i
+  %124 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.13, ptr noundef nonnull %.155.i, i64 noundef %107) #7
   %125 = icmp eq i32 %124, 0
-  br i1 %125, label %126, label %ref_string_equals.exit64.thread.i
+  %or.cond81.i = and i1 %110, %125
+  br i1 %or.cond81.i, label %ref_string_equals.exit66.i, label %ref_string_equals.exit66.thread.i
 
-126:                                              ; preds = %ref_string_equals.exit62.thread.i
-  %127 = getelementptr inbounds nuw i8, ptr @.str.12, i64 %107
-  %128 = load i8, ptr %127, align 1
-  %129 = icmp eq i8 %128, 0
-  br i1 %129, label %ref_string_equals.exit64.i, label %ref_string_equals.exit64.thread.i
-
-ref_string_equals.exit64.i:                       ; preds = %126
-  %130 = getelementptr inbounds nuw i8, ptr %.155.i, i64 %107
-  %131 = load i8, ptr %130, align 1
-  switch i8 %131, label %ref_string_equals.exit64.thread.i [
-    i8 44, label %228
-    i8 0, label %228
+ref_string_equals.exit66.i:                       ; preds = %ref_string_equals.exit64.thread.i
+  %126 = getelementptr inbounds nuw i8, ptr %.155.i, i64 3
+  %127 = load i8, ptr %126, align 1
+  switch i8 %127, label %ref_string_equals.exit66.thread.i [
+    i8 44, label %174
+    i8 0, label %174
   ]
 
-ref_string_equals.exit64.thread.i:                ; preds = %ref_string_equals.exit64.i, %126, %ref_string_equals.exit62.thread.i
-  %132 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.13, ptr noundef nonnull %.155.i, i64 noundef %107) #7
-  %133 = icmp eq i32 %132, 0
-  br i1 %133, label %134, label %ref_string_equals.exit66.thread.i
+ref_string_equals.exit66.thread.i:                ; preds = %ref_string_equals.exit66.i, %ref_string_equals.exit64.thread.i, %ref_string_equals.exit64.thread.thread.i
+  %128 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.14, ptr noundef nonnull %.155.i, i64 noundef %107) #7
+  %129 = icmp eq i32 %128, 0
+  %130 = icmp eq i64 %107, 4
+  %or.cond82.i = and i1 %130, %129
+  br i1 %or.cond82.i, label %ref_string_equals.exit68.i, label %ref_string_equals.exit68.thread.i
 
-134:                                              ; preds = %ref_string_equals.exit64.thread.i
-  %135 = getelementptr inbounds nuw i8, ptr @.str.13, i64 %107
+ref_string_equals.exit68.i:                       ; preds = %ref_string_equals.exit66.thread.i
+  %131 = getelementptr inbounds nuw i8, ptr %.155.i, i64 4
+  %132 = load i8, ptr %131, align 1
+  switch i8 %132, label %ref_string_equals.exit68.thread.i [
+    i8 44, label %174
+    i8 0, label %174
+  ]
+
+ref_string_equals.exit68.thread.i:                ; preds = %ref_string_equals.exit68.i, %ref_string_equals.exit66.thread.i
+  %133 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.15, ptr noundef nonnull %.155.i, i64 noundef %107) #7
+  %134 = icmp eq i32 %133, 0
+  %or.cond83.i = and i1 %130, %134
+  br i1 %or.cond83.i, label %ref_string_equals.exit70.i, label %ref_string_equals.exit70.thread.i
+
+ref_string_equals.exit70.i:                       ; preds = %ref_string_equals.exit68.thread.i
+  %135 = getelementptr inbounds nuw i8, ptr %.155.i, i64 4
   %136 = load i8, ptr %135, align 1
-  %137 = icmp eq i8 %136, 0
-  br i1 %137, label %ref_string_equals.exit66.i, label %ref_string_equals.exit66.thread.i
-
-ref_string_equals.exit66.i:                       ; preds = %134
-  %138 = getelementptr inbounds nuw i8, ptr %.155.i, i64 %107
-  %139 = load i8, ptr %138, align 1
-  switch i8 %139, label %ref_string_equals.exit66.thread.i [
-    i8 44, label %228
-    i8 0, label %228
+  switch i8 %136, label %ref_string_equals.exit70.thread.i [
+    i8 44, label %174
+    i8 0, label %174
   ]
 
-ref_string_equals.exit66.thread.i:                ; preds = %ref_string_equals.exit66.i, %134, %ref_string_equals.exit64.thread.i
-  %140 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.14, ptr noundef nonnull %.155.i, i64 noundef %107) #7
-  %141 = icmp eq i32 %140, 0
-  br i1 %141, label %142, label %ref_string_equals.exit68.thread.i
+ref_string_equals.exit70.thread.i:                ; preds = %ref_string_equals.exit70.i, %ref_string_equals.exit68.thread.i
+  %137 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.16, ptr noundef nonnull %.155.i, i64 noundef %107) #7
+  %138 = icmp eq i32 %137, 0
+  %139 = icmp eq i64 %107, 5
+  %or.cond84.i = and i1 %139, %138
+  br i1 %or.cond84.i, label %ref_string_equals.exit72.i, label %ref_string_equals.exit72.thread.i
 
-142:                                              ; preds = %ref_string_equals.exit66.thread.i
-  %143 = getelementptr inbounds nuw i8, ptr @.str.14, i64 %107
-  %144 = load i8, ptr %143, align 1
-  %145 = icmp eq i8 %144, 0
-  br i1 %145, label %ref_string_equals.exit68.i, label %ref_string_equals.exit68.thread.i
-
-ref_string_equals.exit68.i:                       ; preds = %142
-  %146 = getelementptr inbounds nuw i8, ptr %.155.i, i64 %107
-  %147 = load i8, ptr %146, align 1
-  switch i8 %147, label %ref_string_equals.exit68.thread.i [
-    i8 44, label %228
-    i8 0, label %228
+ref_string_equals.exit72.i:                       ; preds = %ref_string_equals.exit70.thread.i
+  %140 = getelementptr inbounds nuw i8, ptr %.155.i, i64 5
+  %141 = load i8, ptr %140, align 1
+  switch i8 %141, label %ref_string_equals.exit72.thread.i [
+    i8 44, label %174
+    i8 0, label %174
   ]
 
-ref_string_equals.exit68.thread.i:                ; preds = %ref_string_equals.exit68.i, %142, %ref_string_equals.exit66.thread.i
-  %148 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.15, ptr noundef nonnull %.155.i, i64 noundef %107) #7
-  %149 = icmp eq i32 %148, 0
-  br i1 %149, label %150, label %ref_string_equals.exit70.thread.i
+ref_string_equals.exit72.thread.i:                ; preds = %ref_string_equals.exit72.i, %ref_string_equals.exit70.thread.i
+  %142 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.17, ptr noundef nonnull %.155.i, i64 noundef %107) #7
+  %143 = icmp eq i32 %142, 0
+  %or.cond85.i = and i1 %139, %143
+  br i1 %or.cond85.i, label %ref_string_equals.exit74.i, label %ref_string_equals.exit74.thread.i
 
-150:                                              ; preds = %ref_string_equals.exit68.thread.i
-  %151 = getelementptr inbounds nuw i8, ptr @.str.15, i64 %107
-  %152 = load i8, ptr %151, align 1
-  %153 = icmp eq i8 %152, 0
-  br i1 %153, label %ref_string_equals.exit70.i, label %ref_string_equals.exit70.thread.i
+ref_string_equals.exit74.i:                       ; preds = %ref_string_equals.exit72.thread.i
+  %144 = getelementptr inbounds nuw i8, ptr %.155.i, i64 5
+  %145 = load i8, ptr %144, align 1
+  switch i8 %145, label %ref_string_equals.exit74.thread.thread.i [
+    i8 44, label %174
+    i8 0, label %174
+  ]
 
-ref_string_equals.exit70.i:                       ; preds = %150
-  %154 = getelementptr inbounds nuw i8, ptr %.155.i, i64 %107
+ref_string_equals.exit74.thread.thread.i:         ; preds = %ref_string_equals.exit74.i
+  %146 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.18, ptr noundef nonnull %.155.i, i64 noundef 5) #7
+  br label %ref_string_equals.exit76.thread.thread.i
+
+ref_string_equals.exit74.thread.i:                ; preds = %ref_string_equals.exit72.thread.i
+  %147 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.18, ptr noundef nonnull %.155.i, i64 noundef %107) #7
+  %148 = icmp eq i32 %147, 0
+  %or.cond86.i = and i1 %110, %148
+  br i1 %or.cond86.i, label %ref_string_equals.exit76.i, label %ref_string_equals.exit76.thread.i
+
+ref_string_equals.exit76.i:                       ; preds = %ref_string_equals.exit74.thread.i
+  %149 = getelementptr inbounds nuw i8, ptr %.155.i, i64 3
+  %150 = load i8, ptr %149, align 1
+  switch i8 %150, label %ref_string_equals.exit76.thread.thread.i [
+    i8 44, label %174
+    i8 0, label %174
+  ]
+
+ref_string_equals.exit76.thread.thread.i:         ; preds = %ref_string_equals.exit76.i, %ref_string_equals.exit74.thread.thread.i
+  %151 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.19, ptr noundef nonnull %.155.i, i64 noundef %107) #7
+  br label %ref_string_equals.exit78.thread.i.thread
+
+ref_string_equals.exit76.thread.i:                ; preds = %ref_string_equals.exit74.thread.i
+  %152 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.19, ptr noundef nonnull %.155.i, i64 noundef %107) #7
+  %153 = icmp eq i32 %152, 0
+  %or.cond87.i = and i1 %130, %153
+  br i1 %or.cond87.i, label %ref_string_equals.exit78.i, label %ref_string_equals.exit78.thread.i
+
+ref_string_equals.exit78.i:                       ; preds = %ref_string_equals.exit76.thread.i
+  %154 = getelementptr inbounds nuw i8, ptr %.155.i, i64 4
   %155 = load i8, ptr %154, align 1
-  switch i8 %155, label %ref_string_equals.exit70.thread.i [
-    i8 44, label %228
-    i8 0, label %228
+  switch i8 %155, label %ref_string_equals.exit78.thread.i.thread [
+    i8 44, label %174
+    i8 0, label %174
   ]
 
-ref_string_equals.exit70.thread.i:                ; preds = %ref_string_equals.exit70.i, %150, %ref_string_equals.exit68.thread.i
-  %156 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.16, ptr noundef nonnull %.155.i, i64 noundef %107) #7
-  %157 = icmp eq i32 %156, 0
-  br i1 %157, label %158, label %ref_string_equals.exit72.thread.i
+ref_string_equals.exit78.thread.i.thread:         ; preds = %ref_string_equals.exit78.i, %ref_string_equals.exit76.thread.thread.i
+  %156 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.20, ptr noundef nonnull %.155.i, i64 noundef %107) #7
+  br label %ref_string_equals.exit18.thread
 
-158:                                              ; preds = %ref_string_equals.exit70.thread.i
-  %159 = getelementptr inbounds nuw i8, ptr @.str.16, i64 %107
+ref_string_equals.exit78.thread.i:                ; preds = %ref_string_equals.exit76.thread.i
+  %157 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.20, ptr noundef nonnull %.155.i, i64 noundef %107) #7
+  %158 = icmp eq i32 %157, 0
+  %or.cond = and i1 %115, %158
+  br i1 %or.cond, label %ref_string_equals.exit18, label %ref_string_equals.exit18.thread
+
+ref_string_equals.exit18:                         ; preds = %ref_string_equals.exit78.thread.i
+  %159 = getelementptr inbounds nuw i8, ptr %.155.i, i64 7
   %160 = load i8, ptr %159, align 1
-  %161 = icmp eq i8 %160, 0
-  br i1 %161, label %ref_string_equals.exit72.i, label %ref_string_equals.exit72.thread.i
-
-ref_string_equals.exit72.i:                       ; preds = %158
-  %162 = getelementptr inbounds nuw i8, ptr %.155.i, i64 %107
-  %163 = load i8, ptr %162, align 1
-  switch i8 %163, label %ref_string_equals.exit72.thread.i [
-    i8 44, label %228
-    i8 0, label %228
+  switch i8 %160, label %ref_string_equals.exit18.thread [
+    i8 44, label %174
+    i8 0, label %174
   ]
 
-ref_string_equals.exit72.thread.i:                ; preds = %ref_string_equals.exit72.i, %158, %ref_string_equals.exit70.thread.i
-  %164 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.17, ptr noundef nonnull %.155.i, i64 noundef %107) #7
-  %165 = icmp eq i32 %164, 0
-  br i1 %165, label %166, label %ref_string_equals.exit74.thread.i
+ref_string_equals.exit18.thread:                  ; preds = %ref_string_equals.exit78.thread.i.thread, %ref_string_equals.exit18, %ref_string_equals.exit78.thread.i
+  %161 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull %.155.i, i64 noundef %107) #7
+  %162 = icmp eq i32 %161, 0
+  %163 = icmp eq i64 %107, 8
+  %or.cond24 = and i1 %163, %162
+  br i1 %or.cond24, label %ref_string_equals.exit16, label %ref_string_equals.exit16.thread
 
-166:                                              ; preds = %ref_string_equals.exit72.thread.i
-  %167 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %107
-  %168 = load i8, ptr %167, align 1
-  %169 = icmp eq i8 %168, 0
-  br i1 %169, label %ref_string_equals.exit74.i, label %ref_string_equals.exit74.thread.i
-
-ref_string_equals.exit74.i:                       ; preds = %166
-  %170 = getelementptr inbounds nuw i8, ptr %.155.i, i64 %107
-  %171 = load i8, ptr %170, align 1
-  switch i8 %171, label %ref_string_equals.exit74.thread.i [
-    i8 44, label %228
-    i8 0, label %228
+ref_string_equals.exit16:                         ; preds = %ref_string_equals.exit18.thread
+  %164 = getelementptr inbounds nuw i8, ptr %.155.i, i64 8
+  %165 = load i8, ptr %164, align 1
+  switch i8 %165, label %ref_string_equals.exit16.thread.thread [
+    i8 44, label %174
+    i8 0, label %174
   ]
 
-ref_string_equals.exit74.thread.i:                ; preds = %ref_string_equals.exit74.i, %166, %ref_string_equals.exit72.thread.i
-  %172 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.18, ptr noundef nonnull %.155.i, i64 noundef %107) #7
-  %173 = icmp eq i32 %172, 0
-  br i1 %173, label %174, label %ref_string_equals.exit76.thread.i
-
-174:                                              ; preds = %ref_string_equals.exit74.thread.i
-  %175 = getelementptr inbounds nuw i8, ptr @.str.18, i64 %107
-  %176 = load i8, ptr %175, align 1
-  %177 = icmp eq i8 %176, 0
-  br i1 %177, label %ref_string_equals.exit76.i, label %ref_string_equals.exit76.thread.i
-
-ref_string_equals.exit76.i:                       ; preds = %174
-  %178 = getelementptr inbounds nuw i8, ptr %.155.i, i64 %107
-  %179 = load i8, ptr %178, align 1
-  switch i8 %179, label %ref_string_equals.exit76.thread.i [
-    i8 44, label %228
-    i8 0, label %228
-  ]
-
-ref_string_equals.exit76.thread.i:                ; preds = %ref_string_equals.exit76.i, %174, %ref_string_equals.exit74.thread.i
-  %180 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.19, ptr noundef nonnull %.155.i, i64 noundef %107) #7
-  %181 = icmp eq i32 %180, 0
-  br i1 %181, label %182, label %ref_string_equals.exit78.thread.i
-
-182:                                              ; preds = %ref_string_equals.exit76.thread.i
-  %183 = getelementptr inbounds nuw i8, ptr @.str.19, i64 %107
-  %184 = load i8, ptr %183, align 1
-  %185 = icmp eq i8 %184, 0
-  br i1 %185, label %ref_string_equals.exit78.i, label %ref_string_equals.exit78.thread.i
-
-ref_string_equals.exit78.i:                       ; preds = %182
-  %186 = getelementptr inbounds nuw i8, ptr %.155.i, i64 %107
-  %187 = load i8, ptr %186, align 1
-  switch i8 %187, label %ref_string_equals.exit78.thread.i [
-    i8 44, label %228
-    i8 0, label %228
-  ]
-
-ref_string_equals.exit78.thread.i:                ; preds = %ref_string_equals.exit78.i, %182, %ref_string_equals.exit76.thread.i
-  %188 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.20, ptr noundef nonnull %.155.i, i64 noundef %107) #7
-  %189 = icmp eq i32 %188, 0
-  br i1 %189, label %190, label %ref_string_equals.exit21.thread
-
-190:                                              ; preds = %ref_string_equals.exit78.thread.i
-  %191 = getelementptr inbounds nuw i8, ptr @.str.20, i64 %107
-  %192 = load i8, ptr %191, align 1
-  %193 = icmp eq i8 %192, 0
-  br i1 %193, label %ref_string_equals.exit21, label %ref_string_equals.exit21.thread
-
-ref_string_equals.exit21:                         ; preds = %190
-  %194 = getelementptr inbounds nuw i8, ptr %.155.i, i64 %107
-  %195 = load i8, ptr %194, align 1
-  switch i8 %195, label %ref_string_equals.exit21.thread [
-    i8 44, label %228
-    i8 0, label %228
-  ]
-
-ref_string_equals.exit21.thread:                  ; preds = %ref_string_equals.exit21, %ref_string_equals.exit78.thread.i, %190
-  %196 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull %.155.i, i64 noundef %107) #7
-  %197 = icmp eq i32 %196, 0
-  br i1 %197, label %198, label %ref_string_equals.exit19.thread
-
-198:                                              ; preds = %ref_string_equals.exit21.thread
-  %199 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %107
-  %200 = load i8, ptr %199, align 1
-  %201 = icmp eq i8 %200, 0
-  br i1 %201, label %ref_string_equals.exit19, label %ref_string_equals.exit19.thread
-
-ref_string_equals.exit19:                         ; preds = %198
-  %202 = getelementptr inbounds nuw i8, ptr %.155.i, i64 %107
-  %203 = load i8, ptr %202, align 1
-  switch i8 %203, label %ref_string_equals.exit19.thread [
-    i8 44, label %228
-    i8 0, label %228
-  ]
-
-ref_string_equals.exit19.thread:                  ; preds = %ref_string_equals.exit19, %ref_string_equals.exit21.thread, %198
-  %204 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.22, ptr noundef nonnull %.155.i, i64 noundef %107) #7
-  %205 = icmp eq i32 %204, 0
-  br i1 %205, label %206, label %ref_string_equals.exit17.thread
-
-206:                                              ; preds = %ref_string_equals.exit19.thread
-  %207 = getelementptr inbounds nuw i8, ptr @.str.22, i64 %107
-  %208 = load i8, ptr %207, align 1
-  %209 = icmp eq i8 %208, 0
-  br i1 %209, label %ref_string_equals.exit17, label %ref_string_equals.exit17.thread
-
-ref_string_equals.exit17:                         ; preds = %206
-  %210 = getelementptr inbounds nuw i8, ptr %.155.i, i64 %107
-  %211 = load i8, ptr %210, align 1
-  switch i8 %211, label %ref_string_equals.exit17.thread [
-    i8 44, label %228
-    i8 0, label %228
-  ]
-
-ref_string_equals.exit17.thread:                  ; preds = %ref_string_equals.exit17, %ref_string_equals.exit19.thread, %206
-  %212 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.23, ptr noundef nonnull %.155.i, i64 noundef %107) #7
-  %213 = icmp eq i32 %212, 0
-  br i1 %213, label %214, label %ref_string_equals.exit15.thread
-
-214:                                              ; preds = %ref_string_equals.exit17.thread
-  %215 = getelementptr inbounds nuw i8, ptr @.str.23, i64 %107
-  %216 = load i8, ptr %215, align 1
-  %217 = icmp eq i8 %216, 0
-  br i1 %217, label %ref_string_equals.exit15, label %ref_string_equals.exit15.thread
-
-ref_string_equals.exit15:                         ; preds = %214
-  %218 = getelementptr inbounds nuw i8, ptr %.155.i, i64 %107
-  %219 = load i8, ptr %218, align 1
-  switch i8 %219, label %ref_string_equals.exit15.thread [
-    i8 44, label %228
-    i8 0, label %228
-  ]
-
-ref_string_equals.exit15.thread:                  ; preds = %ref_string_equals.exit15, %ref_string_equals.exit17.thread, %214
-  %220 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.24, ptr noundef nonnull %.155.i, i64 noundef %107) #7
-  %221 = icmp eq i32 %220, 0
-  br i1 %221, label %222, label %ref_string_equals.exit.thread
-
-222:                                              ; preds = %ref_string_equals.exit15.thread
-  %223 = getelementptr inbounds nuw i8, ptr @.str.24, i64 %107
-  %224 = load i8, ptr %223, align 1
-  %225 = icmp eq i8 %224, 0
-  br i1 %225, label %ref_string_equals.exit, label %ref_string_equals.exit.thread
-
-ref_string_equals.exit:                           ; preds = %222
-  %226 = getelementptr inbounds nuw i8, ptr %.155.i, i64 %107
-  %227 = load i8, ptr %226, align 1
-  switch i8 %227, label %ref_string_equals.exit.thread [
-    i8 44, label %228
-    i8 0, label %228
-  ]
-
-228:                                              ; preds = %ref_string_equals.exit, %ref_string_equals.exit, %ref_string_equals.exit15, %ref_string_equals.exit15, %ref_string_equals.exit17, %ref_string_equals.exit17, %ref_string_equals.exit19, %ref_string_equals.exit19, %ref_string_equals.exit21, %ref_string_equals.exit21, %ref_string_equals.exit78.i, %ref_string_equals.exit78.i, %ref_string_equals.exit76.i, %ref_string_equals.exit76.i, %ref_string_equals.exit74.i, %ref_string_equals.exit74.i, %ref_string_equals.exit72.i, %ref_string_equals.exit72.i, %ref_string_equals.exit70.i, %ref_string_equals.exit70.i, %ref_string_equals.exit68.i, %ref_string_equals.exit68.i, %ref_string_equals.exit66.i, %ref_string_equals.exit66.i, %ref_string_equals.exit64.i, %ref_string_equals.exit64.i, %ref_string_equals.exit62.i, %ref_string_equals.exit62.i, %ref_string_equals.exit.i, %ref_string_equals.exit.i
-  %.051.i = phi i32 [ -1, %ref_string_equals.exit.i ], [ 1, %ref_string_equals.exit62.i ], [ 2, %ref_string_equals.exit64.i ], [ 4, %ref_string_equals.exit66.i ], [ 8, %ref_string_equals.exit68.i ], [ 16, %ref_string_equals.exit70.i ], [ 32, %ref_string_equals.exit72.i ], [ 64, %ref_string_equals.exit74.i ], [ 128, %ref_string_equals.exit76.i ], [ 256, %ref_string_equals.exit78.i ], [ 1024, %ref_string_equals.exit21 ], [ 2048, %ref_string_equals.exit19 ], [ 512, %ref_string_equals.exit17 ], [ 4096, %ref_string_equals.exit15 ], [ 8192, %ref_string_equals.exit ], [ -1, %ref_string_equals.exit.i ], [ 1, %ref_string_equals.exit62.i ], [ 2, %ref_string_equals.exit64.i ], [ 4, %ref_string_equals.exit66.i ], [ 8, %ref_string_equals.exit68.i ], [ 16, %ref_string_equals.exit70.i ], [ 32, %ref_string_equals.exit72.i ], [ 64, %ref_string_equals.exit74.i ], [ 128, %ref_string_equals.exit76.i ], [ 256, %ref_string_equals.exit78.i ], [ 1024, %ref_string_equals.exit21 ], [ 2048, %ref_string_equals.exit19 ], [ 512, %ref_string_equals.exit17 ], [ 4096, %ref_string_equals.exit15 ], [ 8192, %ref_string_equals.exit ]
-  %229 = or i32 %.051.i, %.181.i
-  %230 = xor i32 %.051.i, -1
-  %231 = and i32 %.181.i, %230
-  %.3.i = select i1 %.050.i, i32 %229, i32 %231
+ref_string_equals.exit16.thread.thread:           ; preds = %ref_string_equals.exit16
+  %166 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.22, ptr noundef nonnull %.155.i, i64 noundef %107) #7
   br label %ref_string_equals.exit.thread
 
-ref_string_equals.exit.thread:                    ; preds = %ref_string_equals.exit, %ref_string_equals.exit15.thread, %222, %228
-  %.2.i = phi i32 [ %.3.i, %228 ], [ %.181.i, %ref_string_equals.exit ], [ %.181.i, %222 ], [ %.181.i, %ref_string_equals.exit15.thread ]
-  %232 = load i8, ptr %.053.i, align 1
-  %.not59.i = icmp eq i8 %232, 0
+ref_string_equals.exit16.thread:                  ; preds = %ref_string_equals.exit18.thread
+  %167 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull @.str.22, ptr noundef nonnull %.155.i, i64 noundef %107) #7
+  %168 = icmp eq i32 %167, 0
+  %or.cond25 = and i1 %130, %168
+  br i1 %or.cond25, label %ref_string_equals.exit, label %ref_string_equals.exit.thread
+
+ref_string_equals.exit:                           ; preds = %ref_string_equals.exit16.thread
+  %169 = getelementptr inbounds nuw i8, ptr %.155.i, i64 4
+  %170 = load i8, ptr %169, align 1
+  switch i8 %170, label %ref_string_equals.exit.thread [
+    i8 44, label %174
+    i8 0, label %174
+  ]
+
+ref_string_equals.exit.thread:                    ; preds = %ref_string_equals.exit16.thread.thread, %ref_string_equals.exit, %ref_string_equals.exit16.thread
+  %171 = call fastcc zeroext i1 @ref_string_equals(ptr noundef nonnull @.str.23, ptr noundef %.155.i, ptr noundef %.052.i)
+  br i1 %171, label %174, label %172
+
+172:                                              ; preds = %ref_string_equals.exit.thread
+  %173 = call fastcc zeroext i1 @ref_string_equals(ptr noundef nonnull @.str.24, ptr noundef %.155.i, ptr noundef %.052.i)
+  br i1 %173, label %174, label %178
+
+174:                                              ; preds = %ref_string_equals.exit, %ref_string_equals.exit, %ref_string_equals.exit16, %ref_string_equals.exit16, %ref_string_equals.exit18, %ref_string_equals.exit18, %172, %ref_string_equals.exit.thread, %ref_string_equals.exit78.i, %ref_string_equals.exit78.i, %ref_string_equals.exit76.i, %ref_string_equals.exit76.i, %ref_string_equals.exit74.i, %ref_string_equals.exit74.i, %ref_string_equals.exit72.i, %ref_string_equals.exit72.i, %ref_string_equals.exit70.i, %ref_string_equals.exit70.i, %ref_string_equals.exit68.i, %ref_string_equals.exit68.i, %ref_string_equals.exit66.i, %ref_string_equals.exit66.i, %ref_string_equals.exit64.i, %ref_string_equals.exit64.i, %ref_string_equals.exit62.i, %ref_string_equals.exit62.i, %ref_string_equals.exit.i, %ref_string_equals.exit.i
+  %.051.i = phi i32 [ -1, %ref_string_equals.exit.i ], [ 1, %ref_string_equals.exit62.i ], [ 2, %ref_string_equals.exit64.i ], [ 4, %ref_string_equals.exit66.i ], [ 8, %ref_string_equals.exit68.i ], [ 16, %ref_string_equals.exit70.i ], [ 32, %ref_string_equals.exit72.i ], [ 64, %ref_string_equals.exit74.i ], [ 128, %ref_string_equals.exit76.i ], [ 256, %ref_string_equals.exit78.i ], [ 1024, %ref_string_equals.exit18 ], [ 2048, %ref_string_equals.exit16 ], [ 512, %ref_string_equals.exit ], [ 4096, %ref_string_equals.exit.thread ], [ 8192, %172 ], [ -1, %ref_string_equals.exit.i ], [ 1, %ref_string_equals.exit62.i ], [ 2, %ref_string_equals.exit64.i ], [ 4, %ref_string_equals.exit66.i ], [ 8, %ref_string_equals.exit68.i ], [ 16, %ref_string_equals.exit70.i ], [ 32, %ref_string_equals.exit72.i ], [ 64, %ref_string_equals.exit74.i ], [ 128, %ref_string_equals.exit76.i ], [ 256, %ref_string_equals.exit78.i ], [ 1024, %ref_string_equals.exit18 ], [ 2048, %ref_string_equals.exit16 ], [ 512, %ref_string_equals.exit ]
+  %175 = or i32 %.051.i, %.190.i
+  %176 = xor i32 %.051.i, -1
+  %177 = and i32 %.190.i, %176
+  %.3.i = select i1 %.050.i, i32 %175, i32 %177
+  br label %178
+
+178:                                              ; preds = %174, %172
+  %.2.i = phi i32 [ %.3.i, %174 ], [ %.190.i, %172 ]
+  %179 = load i8, ptr %.053.i, align 1
+  %.not59.i = icmp eq i8 %179, 0
   br i1 %.not59.i, label %SDL_CPUFeatureMaskFromHint.exit, label %.lr.ph.i, !llvm.loop !14
 
-SDL_CPUFeatureMaskFromHint.exit:                  ; preds = %ref_string_equals.exit.thread, %CPU_haveAVX512F.exit.thread, %.preheader.i
-  %.0.i13 = phi i32 [ -1, %CPU_haveAVX512F.exit.thread ], [ -1, %.preheader.i ], [ %.2.i, %ref_string_equals.exit.thread ]
-  %233 = load i32, ptr @SDL_CPUFeatures, align 4
-  %234 = and i32 %233, %.0.i13
-  store i32 %234, ptr @SDL_CPUFeatures, align 4
-  br label %235
+SDL_CPUFeatureMaskFromHint.exit:                  ; preds = %178, %CPU_haveAVX512F.exit.thread, %.preheader.i
+  %.0.i14 = phi i32 [ -1, %CPU_haveAVX512F.exit.thread ], [ -1, %.preheader.i ], [ %.2.i, %178 ]
+  %180 = load i32, ptr @SDL_CPUFeatures, align 4
+  %181 = and i32 %180, %.0.i14
+  store i32 %181, ptr @SDL_CPUFeatures, align 4
+  br label %182
 
-235:                                              ; preds = %SDL_CPUFeatureMaskFromHint.exit, %0
-  %236 = phi i32 [ %234, %SDL_CPUFeatureMaskFromHint.exit ], [ %3, %0 ]
-  ret i32 %236
+182:                                              ; preds = %SDL_CPUFeatureMaskFromHint.exit, %0
+  %183 = phi i32 [ %181, %SDL_CPUFeatureMaskFromHint.exit ], [ %3, %0 ]
+  ret i32 %183
 }
 
 ; Function Attrs: nounwind uwtable
@@ -940,6 +871,34 @@ declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #3
 declare ptr @SDL_strchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: nounwind uwtable
+define internal fastcc zeroext i1 @ref_string_equals(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
+  %4 = ptrtoint ptr %2 to i64
+  %5 = ptrtoint ptr %1 to i64
+  %6 = sub i64 %4, %5
+  %7 = tail call i32 @SDL_strncmp_REAL(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %6) #7
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %9, label %18
+
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %6
+  %11 = load i8, ptr %10, align 1
+  %12 = icmp eq i8 %11, 0
+  br i1 %12, label %13, label %18
+
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %6
+  %15 = load i8, ptr %14, align 1
+  %16 = icmp eq i8 %15, 0
+  %17 = icmp eq i8 %15, 44
+  %spec.select = or i1 %16, %17
+  br label %18
+
+18:                                               ; preds = %13, %9, %3
+  %19 = phi i1 [ false, %9 ], [ false, %3 ], [ %spec.select, %13 ]
+  ret i1 %19
+}
 
 declare i32 @SDL_strncmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 

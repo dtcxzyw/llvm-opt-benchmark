@@ -40,9 +40,9 @@ define void @_ZN6Gluco212parseOptionsERiPPcb(ptr noundef nonnull align 4 capture
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.critedge31
-  %indvars.iv114 = phi i64 [ %indvars.iv.next115, %.critedge31 ], [ 1, %3 ]
+  %indvars.iv112 = phi i64 [ %indvars.iv.next113, %.critedge31 ], [ 1, %3 ]
   %.02895 = phi i32 [ %.1, %.critedge31 ], [ 1, %3 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv114
+  %6 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv112
   %7 = load ptr, ptr %6, align 8, !tbaa !7
   br label %.lr.ph.i
 
@@ -50,8 +50,8 @@ define void @_ZN6Gluco212parseOptionsERiPPcb(ptr noundef nonnull align 4 capture
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %9 = getelementptr inbounds nuw i8, ptr @.str, i64 %indvars.iv.next.i
   %10 = load i8, ptr %9, align 1, !tbaa !10
-  %exitcond = icmp eq i64 %indvars.iv.next.i, 2
-  br i1 %exitcond, label %14, label %.lr.ph.i, !llvm.loop !11
+  %.not.i = icmp eq i64 %indvars.iv.next.i, 2
+  br i1 %.not.i, label %14, label %.lr.ph.i, !llvm.loop !11
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %8 ], [ 0, %.lr.ph ]
@@ -92,8 +92,8 @@ define void @_ZN6Gluco212parseOptionsERiPPcb(ptr noundef nonnull align 4 capture
   %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i43, 1
   %26 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %indvars.iv.next.i46
   %27 = load i8, ptr %26, align 1, !tbaa !10
-  %exitcond111 = icmp eq i64 %indvars.iv.next.i46, 4
-  br i1 %exitcond111, label %31, label %.lr.ph.i42, !llvm.loop !11
+  %.not.i47 = icmp eq i64 %indvars.iv.next.i46, 4
+  br i1 %.not.i47, label %31, label %.lr.ph.i42, !llvm.loop !11
 
 .lr.ph.i42:                                       ; preds = %25, %.loopexit
   %indvars.iv.i43 = phi i64 [ %indvars.iv.next.i46, %25 ], [ 0, %.loopexit ]
@@ -120,8 +120,8 @@ _ZN6Gluco2L5matchIPKcEEbRT_S2_.exit.preheader:    ; preds = %.lr.ph.i, %.lr.ph.i
   %indvars.iv.next.i56 = add nuw nsw i64 %indvars.iv.i53, 1
   %37 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %indvars.iv.next.i56
   %38 = load i8, ptr %37, align 1, !tbaa !10
-  %exitcond113 = icmp eq i64 %indvars.iv.next.i56, 5
-  br i1 %exitcond113, label %42, label %.lr.ph.i52, !llvm.loop !11
+  %.not.i57 = icmp eq i64 %indvars.iv.next.i56, 5
+  br i1 %.not.i57, label %42, label %.lr.ph.i52, !llvm.loop !11
 
 .lr.ph.i52:                                       ; preds = %31, %36
   %indvars.iv.i53 = phi i64 [ %indvars.iv.next.i56, %36 ], [ 0, %31 ]
@@ -213,14 +213,14 @@ _ZN6Gluco2L5matchIPcEEbRT_PKc.exit:               ; preds = %67, %.critedge
 
 .critedge31:                                      ; preds = %_ZN6Gluco26Option13getOptionListEv.exit63, %.lr.ph.i52, %_ZN6Gluco2L5matchIPcEEbRT_PKc.exit
   %.1 = phi i32 [ %74, %_ZN6Gluco2L5matchIPcEEbRT_PKc.exit ], [ %.02895, %.lr.ph.i52 ], [ %.02895, %_ZN6Gluco26Option13getOptionListEv.exit63 ]
-  %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
+  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %77 = load i32, ptr %0, align 4, !tbaa !3
   %78 = sext i32 %77 to i64
-  %79 = icmp slt i64 %indvars.iv.next115, %78
+  %79 = icmp slt i64 %indvars.iv.next113, %78
   br i1 %79, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !25
 
 ._crit_edge.loopexit:                             ; preds = %.critedge31
-  %80 = trunc nuw nsw i64 %indvars.iv114 to i32
+  %80 = trunc nuw nsw i64 %indvars.iv112 to i32
   %.neg98 = xor i32 %80, -1
   %81 = add i32 %.1, %.neg98
   br label %._crit_edge

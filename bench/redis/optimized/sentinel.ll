@@ -8114,8 +8114,8 @@ define dso_local void @sentinelConfigSetCommand(ptr noundef %0) local_unnamed_ad
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %12 = getelementptr inbounds nuw ptr, ptr @__const.sentinelConfigSetCommand.options, i64 %indvars.iv.next.i
   %13 = load ptr, ptr %12, align 8, !tbaa !87
-  %exitcond = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond, label %populateDict.exit, label %.lr.ph.i, !llvm.loop !251
+  %.not.i = icmp eq i64 %indvars.iv.next.i, 7
+  br i1 %.not.i, label %populateDict.exit, label %.lr.ph.i, !llvm.loop !251
 
 populateDict.exit:                                ; preds = %11, %1
   %14 = tail call ptr @dictCreate(ptr noundef nonnull @stringSetDictType) #30

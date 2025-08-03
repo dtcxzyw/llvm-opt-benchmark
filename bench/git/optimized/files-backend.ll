@@ -3303,8 +3303,8 @@ strbuf_setlen.exit.i.i:                           ; preds = %49, %47
   %63 = add nuw nsw i64 %.05.i.i, 1
   %64 = getelementptr inbounds nuw ptr, ptr @__const.files_fsck_refs.fsck_refs_fn, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !56
-  %exitcond.i = icmp eq i64 %63, 2
-  br i1 %exitcond.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !146
+  %.not31.i.i = icmp eq i64 %63, 2
+  br i1 %.not31.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !146
 
 66:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #18

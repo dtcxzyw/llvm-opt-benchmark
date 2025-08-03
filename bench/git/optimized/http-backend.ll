@@ -1210,84 +1210,80 @@ define internal fastcc noundef nonnull ptr @select_service(ptr noundef %0, ptr n
   %scevgep.i = getelementptr i8, ptr %1, i64 4
   br label %3
 
-3:                                                ; preds = %5, %2
-  %.07.i = phi ptr [ %1, %2 ], [ %6, %5 ]
-  %.06.idx.i = phi i64 [ 0, %2 ], [ %.06.add.i, %5 ]
-  %.06.ptr.i = getelementptr inbounds nuw i8, ptr @.str.57, i64 %.06.idx.i
-  %4 = load i8, ptr %.06.ptr.i, align 1, !tbaa !4
+3:                                                ; preds = %4, %2
+  %.07.i = phi ptr [ %1, %2 ], [ %6, %4 ]
+  %.06.idx.i = phi i64 [ 0, %2 ], [ %.06.add.i, %4 ]
   %exitcond.i = icmp eq i64 %.06.idx.i, 4
-  br i1 %exitcond.i, label %skip_prefix.exit, label %5
+  br i1 %exitcond.i, label %skip_prefix.exit.preheader, label %4
 
-5:                                                ; preds = %3
+4:                                                ; preds = %3
+  %.06.ptr.i = getelementptr inbounds nuw i8, ptr @.str.57, i64 %.06.idx.i
+  %5 = load i8, ptr %.06.ptr.i, align 1, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
   %7 = load i8, ptr %.07.i, align 1, !tbaa !4
   %.06.add.i = add nuw nsw i64 %.06.idx.i, 1
-  %8 = icmp eq i8 %7, %4
-  br i1 %8, label %3, label %skip_prefix.exit, !llvm.loop !49
+  %8 = icmp eq i8 %7, %5
+  br i1 %8, label %3, label %9, !llvm.loop !49
 
-skip_prefix.exit:                                 ; preds = %3, %5
-  %.not.i = icmp eq i8 %4, 0
-  br i1 %.not.i, label %.preheader, label %9
-
-9:                                                ; preds = %skip_prefix.exit
+9:                                                ; preds = %4
   tail call void (ptr, ptr, ...) @forbidden(ptr noundef %0, ptr noundef nonnull @.str.58, ptr noundef %1) #22
   unreachable
 
-10:                                               ; preds = %.preheader
+skip_prefix.exit:                                 ; preds = %skip_prefix.exit.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %14, label %.preheader, !llvm.loop !50
+  br i1 %exitcond.not, label %13, label %skip_prefix.exit.preheader, !llvm.loop !50
 
-.preheader:                                       ; preds = %skip_prefix.exit, %10
-  %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %skip_prefix.exit ]
-  %11 = getelementptr inbounds nuw [3 x %struct.rpc_service], ptr @rpc_service, i64 0, i64 %indvars.iv
-  %12 = load ptr, ptr %11, align 8, !tbaa !38
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %scevgep.i) #21
-  %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %15, label %10
+skip_prefix.exit.preheader:                       ; preds = %3, %skip_prefix.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %skip_prefix.exit ], [ 0, %3 ]
+  %10 = getelementptr inbounds nuw [3 x %struct.rpc_service], ptr @rpc_service, i64 0, i64 %indvars.iv
+  %11 = load ptr, ptr %10, align 8, !tbaa !38
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %scevgep.i) #21
+  %.not = icmp eq i32 %12, 0
+  br i1 %.not, label %14, label %skip_prefix.exit
 
-14:                                               ; preds = %10
+13:                                               ; preds = %skip_prefix.exit
   tail call void (ptr, ptr, ...) @forbidden(ptr noundef %0, ptr noundef nonnull @.str.58, ptr noundef %1) #22
   unreachable
 
-15:                                               ; preds = %.preheader
-  %16 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %17 = load i8, ptr %16, align 8
-  %.mask = and i8 %17, 4
+14:                                               ; preds = %skip_prefix.exit.preheader
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %16 = load i8, ptr %15, align 8
+  %.mask = and i8 %16, 4
   %.not24 = icmp eq i8 %.mask, 0
-  br i1 %.not24, label %27, label %18
+  br i1 %.not24, label %26, label %17
 
-18:                                               ; preds = %15
-  %19 = tail call ptr @getenv(ptr noundef nonnull @.str.59) #19
-  %.not25 = icmp eq ptr %19, null
-  br i1 %.not25, label %23, label %20
+17:                                               ; preds = %14
+  %18 = tail call ptr @getenv(ptr noundef nonnull @.str.59) #19
+  %.not25 = icmp eq ptr %18, null
+  br i1 %.not25, label %22, label %19
 
-20:                                               ; preds = %18
-  %21 = load i8, ptr %19, align 1, !tbaa !4
-  %.not26 = icmp eq i8 %21, 0
-  %22 = select i1 %.not26, i8 0, i8 2
-  br label %23
+19:                                               ; preds = %17
+  %20 = load i8, ptr %18, align 1, !tbaa !4
+  %.not26 = icmp eq i8 %20, 0
+  %21 = select i1 %.not26, i8 0, i8 2
+  br label %22
 
-23:                                               ; preds = %20, %18
-  %24 = phi i8 [ 0, %18 ], [ %22, %20 ]
-  %25 = and i8 %17, -7
-  %26 = or disjoint i8 %24, %25
-  store i8 %26, ptr %16, align 8
-  br label %27
+22:                                               ; preds = %19, %17
+  %23 = phi i8 [ 0, %17 ], [ %21, %19 ]
+  %24 = and i8 %16, -7
+  %25 = or disjoint i8 %23, %24
+  store i8 %25, ptr %15, align 8
+  br label %26
 
-27:                                               ; preds = %23, %15
-  %28 = phi i8 [ %26, %23 ], [ %17, %15 ]
-  %29 = and i8 %28, 6
-  %.not27 = icmp eq i8 %29, 0
-  br i1 %.not27, label %30, label %32
+26:                                               ; preds = %22, %14
+  %27 = phi i8 [ %25, %22 ], [ %16, %14 ]
+  %28 = and i8 %27, 6
+  %.not27 = icmp eq i8 %28, 0
+  br i1 %.not27, label %29, label %31
 
-30:                                               ; preds = %27
-  %31 = load ptr, ptr %11, align 8, !tbaa !38
-  tail call void (ptr, ptr, ...) @forbidden(ptr noundef %0, ptr noundef nonnull @.str.60, ptr noundef %31) #22
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %10, align 8, !tbaa !38
+  tail call void (ptr, ptr, ...) @forbidden(ptr noundef %0, ptr noundef nonnull @.str.60, ptr noundef %30) #22
   unreachable
 
-32:                                               ; preds = %27
-  ret ptr %11
+31:                                               ; preds = %26
+  ret ptr %10
 }
 
 declare i32 @determine_protocol_version_server() local_unnamed_addr #4

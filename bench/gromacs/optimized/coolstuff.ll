@@ -40,7 +40,6 @@ $_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm
 @__const._ZN3gmx7bromacsB5cxx11Ev.bromacsArray = private unnamed_addr constant [26 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25], align 16
 @.str.26 = private unnamed_addr constant [8 x i8] c"GROMACS\00", align 1
 @.str.27 = private unnamed_addr constant [14 x i8] c"GMX_NO_QUOTES\00", align 1
-@.str.28 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 @.str.29 = private unnamed_addr constant [54 x i8] c"If You Want Something Done You Have to Do It Yourself\00", align 1
 @.str.30 = private unnamed_addr constant [14 x i8] c"Highlander II\00", align 1
 @.str.31 = private unnamed_addr constant [35 x i8] c"I Live the Life They Wish They Did\00", align 1
@@ -1510,13 +1509,13 @@ $_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm
 define void @_ZN3gmx7bromacsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::mersenne_twister_engine", align 8
-  %4 = tail call ptr @getenv(ptr noundef nonnull @.str.27) #8
+  %4 = tail call ptr @getenv(ptr noundef nonnull @.str.27) #7
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %._crit_edge.i.i4
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %3) #8
-  %7 = tail call i64 @time(ptr noundef null) #8
+  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %3) #7
+  %7 = tail call i64 @time(ptr noundef null) #7
   store i64 %7, ptr %3, align 8, !tbaa !4
   br label %8
 
@@ -1561,68 +1560,60 @@ define void @_ZN3gmx7bromacsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%
 _ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit: ; preds = %16, %..loopexit_crit_edge.i.i.i.i
   %.0.i.i.i = phi i64 [ %extract.t16.i.i.i.i, %16 ], [ %extract.t20.le.i.i.i.i, %..loopexit_crit_edge.i.i.i.i ]
   %27 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx7bromacsB5cxx11Ev.bromacsArray, i64 %.0.i.i.i
-  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %3) #7
   %28 = load ptr, ptr %27, align 8, !tbaa !13
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %29, ptr %0, align 8, !tbaa !16
-  %30 = icmp eq ptr %28, null
-  br i1 %30, label %.noexc, label %31
+  %30 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
+  store i64 %30, ptr %2, align 8, !tbaa !4
+  %31 = icmp ugt i64 %30, 15
+  br i1 %31, label %.noexc.i, label %._crit_edge.i.i
 
-.noexc:                                           ; preds = %_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit
-  call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.28) #9
-  unreachable
-
-31:                                               ; preds = %_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit
-  %32 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
-  store i64 %32, ptr %2, align 8, !tbaa !4
-  %33 = icmp ugt i64 %32, 15
-  br i1 %33, label %.noexc.i, label %._crit_edge.i.i
-
-.noexc.i:                                         ; preds = %31
-  %34 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
-  store ptr %34, ptr %0, align 8, !tbaa !18
-  %35 = load i64, ptr %2, align 8, !tbaa !4
-  store i64 %35, ptr %29, align 8, !tbaa !20
+.noexc.i:                                         ; preds = %_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit
+  %32 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
+  store ptr %32, ptr %0, align 8, !tbaa !18
+  %33 = load i64, ptr %2, align 8, !tbaa !4
+  store i64 %33, ptr %29, align 8, !tbaa !20
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %.noexc.i, %31
-  %36 = phi ptr [ %34, %.noexc.i ], [ %29, %31 ]
-  switch i64 %32, label %39 [
-    i64 1, label %37
-    i64 0, label %40
+._crit_edge.i.i:                                  ; preds = %.noexc.i, %_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit
+  %34 = phi ptr [ %32, %.noexc.i ], [ %29, %_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE.exit ]
+  switch i64 %30, label %37 [
+    i64 1, label %35
+    i64 0, label %38
   ]
 
+35:                                               ; preds = %._crit_edge.i.i
+  %36 = load i8, ptr %28, align 1, !tbaa !20
+  store i8 %36, ptr %34, align 1, !tbaa !20
+  br label %38
+
 37:                                               ; preds = %._crit_edge.i.i
-  %38 = load i8, ptr %28, align 1, !tbaa !20
-  store i8 %38, ptr %36, align 1, !tbaa !20
-  br label %40
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr nonnull align 1 %28, i64 %30, i1 false)
+  br label %38
 
-39:                                               ; preds = %._crit_edge.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr nonnull align 1 %28, i64 %32, i1 false)
-  br label %40
-
-40:                                               ; preds = %39, %37, %._crit_edge.i.i
-  %41 = load i64, ptr %2, align 8, !tbaa !4
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %41, ptr %42, align 8, !tbaa !21
-  %43 = load ptr, ptr %0, align 8, !tbaa !18
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 %41
-  store i8 0, ptr %44, align 1, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
-  br label %48
+38:                                               ; preds = %37, %35, %._crit_edge.i.i
+  %39 = load i64, ptr %2, align 8, !tbaa !4
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %39, ptr %40, align 8, !tbaa !21
+  %41 = load ptr, ptr %0, align 8, !tbaa !18
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %39
+  store i8 0, ptr %42, align 1, !tbaa !20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
+  br label %46
 
 ._crit_edge.i.i4:                                 ; preds = %1
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %45, ptr %0, align 8, !tbaa !16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %45, ptr noundef nonnull align 1 dereferenceable(7) @.str.26, i64 7, i1 false)
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 7, ptr %46, align 8, !tbaa !21
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 23
-  store i8 0, ptr %47, align 1, !tbaa !20
-  br label %48
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %43, ptr %0, align 8, !tbaa !16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %43, ptr noundef nonnull align 1 dereferenceable(7) @.str.26, i64 7, i1 false)
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 7, ptr %44, align 8, !tbaa !21
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 23
+  store i8 0, ptr %45, align 1, !tbaa !20
+  br label %46
 
-48:                                               ; preds = %._crit_edge.i.i4, %40
+46:                                               ; preds = %._crit_edge.i.i4, %38
   ret void
 }
 
@@ -1743,25 +1734,22 @@ _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm2
   ret i64 %67
 }
 
-; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #5
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #7
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx12getCoolQuoteB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::mersenne_twister_engine", align 8
-  %4 = tail call ptr @getenv(ptr noundef nonnull @.str.27) #8
+  %4 = tail call ptr @getenv(ptr noundef nonnull @.str.27) #7
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %.noexc.i
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %3) #8
-  %7 = tail call i64 @time(ptr noundef null) #8
+  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %3) #7
+  %7 = tail call i64 @time(ptr noundef null) #7
   store i64 %7, ptr %3, align 8, !tbaa !4
   br label %8
 
@@ -1806,7 +1794,7 @@ define void @_ZN3gmx12getCoolQuoteB5cxx11Ev(ptr dead_on_unwind noalias writable 
 _ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIZNS_12getCoolQuoteB5cxx11EvE5QuoteEERKT_NS_8ArrayRefIS4_EE.exit: ; preds = %16, %..loopexit_crit_edge.i.i.i.i
   %.0.i.i.i = phi i64 [ %extract.t16.i.i.i.i, %16 ], [ %extract.t20.le.i.i.i.i, %..loopexit_crit_edge.i.i.i.i ]
   %27 = getelementptr inbounds nuw %struct.Quote, ptr @__const._ZN3gmx12getCoolQuoteB5cxx11Ev.quoteArray, i64 %.0.i.i.i
-  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %3) #7
   %.sroa.0.0.copyload = load ptr, ptr %27, align 16, !tbaa !13
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !13
@@ -1816,7 +1804,7 @@ _ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIZNS_12getCoolQuoteB5cxx11EvE5Quote
 .noexc.i:                                         ; preds = %1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %28, ptr %0, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
   store i64 41, ptr %2, align 8, !tbaa !4
   %29 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
   store ptr %29, ptr %0, align 8, !tbaa !18
@@ -1827,25 +1815,23 @@ _ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIZNS_12getCoolQuoteB5cxx11EvE5Quote
   store i64 %30, ptr %31, align 8, !tbaa !21
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 %30
   store i8 0, ptr %32, align 1, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
   br label %33
 
 33:                                               ; preds = %.noexc.i, %_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIZNS_12getCoolQuoteB5cxx11EvE5QuoteEERKT_NS_8ArrayRefIS4_EE.exit
   ret void
 }
 
-declare void @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ...) local_unnamed_addr #7
+declare void @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ...) local_unnamed_addr #6
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

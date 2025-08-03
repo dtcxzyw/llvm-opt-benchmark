@@ -344,485 +344,486 @@ countFreqs.exit.i:                                ; preds = %init_word_buffer.ex
   br label %38
 
 38:                                               ; preds = %._crit_edge.i, %countFreqs.exit.i
-  %.04.i = phi i64 [ 0, %countFreqs.exit.i ], [ %50, %._crit_edge.i ]
+  %.04.i = phi i64 [ 0, %countFreqs.exit.i ], [ %49, %._crit_edge.i ]
   %.0203.i = phi i64 [ 0, %countFreqs.exit.i ], [ %.1.lcssa.i, %._crit_edge.i ]
   %39 = getelementptr inbounds nuw i32, ptr @g_wordLen, i64 %.04.i
   %40 = load i32, ptr %39, align 4, !tbaa !9
+  %.not.i = icmp eq i32 %40, 0
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %38
   %narrow.i = tail call i32 @llvm.umin.i32(i32 %40, i32 5)
   %spec.select.i = zext nneg i32 %narrow.i to i64
   %41 = getelementptr inbounds nuw i32, ptr @kWeights, i64 %spec.select.i
   %42 = load i32, ptr %41, align 4, !tbaa !9
-  %43 = icmp sgt i32 %42, 0
-  br i1 %43, label %.lr.ph.i, label %._crit_edge.i
+  %43 = trunc nuw nsw i64 %.04.i to i32
+  %smax.i = tail call i32 @llvm.smax.i32(i32 %42, i32 1)
+  %44 = trunc i64 %.0203.i to i32
+  %45 = add i32 %smax.i, %44
+  br label %46
 
-.lr.ph.i:                                         ; preds = %38
-  %44 = trunc nuw nsw i64 %.04.i to i32
-  %45 = trunc i64 %.0203.i to i32
-  %46 = add i32 %42, %45
-  br label %47
+46:                                               ; preds = %46, %.lr.ph.i
+  %.11.i = phi i64 [ %.0203.i, %.lr.ph.i ], [ %47, %46 ]
+  %47 = add i64 %.11.i, 1
+  %48 = getelementptr inbounds nuw [650 x i32], ptr @g_distrib, i64 0, i64 %.11.i
+  store i32 %43, ptr %48, align 4, !tbaa !9
+  %lftr.wideiv = trunc i64 %47 to i32
+  %exitcond = icmp eq i32 %45, %lftr.wideiv
+  br i1 %exitcond, label %._crit_edge.i, label %46, !llvm.loop !16
 
-47:                                               ; preds = %47, %.lr.ph.i
-  %.11.i = phi i64 [ %.0203.i, %.lr.ph.i ], [ %48, %47 ]
-  %48 = add i64 %.11.i, 1
-  %49 = getelementptr inbounds nuw [650 x i32], ptr @g_distrib, i64 0, i64 %.11.i
-  store i32 %44, ptr %49, align 4, !tbaa !9
-  %lftr.wideiv = trunc i64 %48 to i32
-  %exitcond = icmp eq i32 %46, %lftr.wideiv
-  br i1 %exitcond, label %._crit_edge.i, label %47, !llvm.loop !16
-
-._crit_edge.i:                                    ; preds = %47, %38
-  %.1.lcssa.i = phi i64 [ %.0203.i, %38 ], [ %48, %47 ]
-  %50 = add nuw nsw i64 %.04.i, 1
-  %exitcond6.not.i = icmp eq i64 %50, 255
+._crit_edge.i:                                    ; preds = %46, %38
+  %.1.lcssa.i = phi i64 [ %.0203.i, %38 ], [ %47, %46 ]
+  %49 = add nuw nsw i64 %.04.i, 1
+  %exitcond6.not.i = icmp eq i64 %49, 255
   br i1 %exitcond6.not.i, label %init_word_distrib.exit, label %38, !llvm.loop !17
 
 init_word_distrib.exit:                           ; preds = %._crit_edge.i, %5
-  %51 = phi i32 [ %6, %5 ], [ %36, %._crit_edge.i ]
+  %50 = phi i32 [ %6, %5 ], [ %36, %._crit_edge.i ]
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %generateFirstSentence.exit, label %52
+  br i1 %.not, label %generateFirstSentence.exit, label %51
 
-52:                                               ; preds = %init_word_distrib.exit
-  %53 = getelementptr i8, ptr %0, i64 %1
-  %54 = getelementptr i8, ptr %53, i64 -1
-  br label %55
+51:                                               ; preds = %init_word_distrib.exit
+  %52 = getelementptr i8, ptr %0, i64 %1
+  %53 = getelementptr i8, ptr %52, i64 -1
+  br label %54
 
-55:                                               ; preds = %generateWord.exit.i, %52
-  %g_nbChars.promoted33 = phi i64 [ 0, %52 ], [ %g_nbChars.promoted32, %generateWord.exit.i ]
-  %56 = phi i64 [ 0, %52 ], [ %109, %generateWord.exit.i ]
-  %indvars.iv.i = phi i64 [ 0, %52 ], [ %indvars.iv.next.i, %generateWord.exit.i ]
-  %57 = phi i64 [ 0, %52 ], [ %110, %generateWord.exit.i ]
-  %58 = icmp eq i64 %indvars.iv.i, 4
-  %59 = icmp eq i64 %indvars.iv.i, 7
-  %60 = or i1 %59, %58
-  %.1.i = select i1 %60, i64 2, i64 1
-  %61 = getelementptr inbounds nuw [255 x ptr], ptr @g_words, i64 0, i64 %indvars.iv.i
-  %62 = load ptr, ptr %61, align 8, !tbaa !4
-  %63 = getelementptr inbounds nuw [255 x i32], ptr @g_wordLen, i64 0, i64 %indvars.iv.i
-  %64 = load i32, ptr %63, align 4, !tbaa !9
-  %65 = zext i32 %64 to i64
-  %.not.i = icmp eq i64 %indvars.iv.i, 0
-  %66 = tail call i64 @llvm.umax.i64(i64 range(i64 0, 4294967296) %65, i64 14)
-  %67 = add i64 %57, 2
-  %68 = add i64 %67, %66
-  %69 = icmp ugt i64 %68, %1
-  br i1 %69, label %70, label %99
+54:                                               ; preds = %generateWord.exit.i, %51
+  %g_nbChars.promoted34 = phi i64 [ 0, %51 ], [ %g_nbChars.promoted33, %generateWord.exit.i ]
+  %55 = phi i64 [ 0, %51 ], [ %108, %generateWord.exit.i ]
+  %indvars.iv.i = phi i64 [ 0, %51 ], [ %indvars.iv.next.i, %generateWord.exit.i ]
+  %56 = phi i64 [ 0, %51 ], [ %109, %generateWord.exit.i ]
+  %57 = icmp eq i64 %indvars.iv.i, 4
+  %58 = icmp eq i64 %indvars.iv.i, 7
+  %59 = or i1 %58, %57
+  %.1.i = select i1 %59, i64 2, i64 1
+  %60 = getelementptr inbounds nuw [255 x ptr], ptr @g_words, i64 0, i64 %indvars.iv.i
+  %61 = load ptr, ptr %60, align 8, !tbaa !4
+  %62 = getelementptr inbounds nuw [255 x i32], ptr @g_wordLen, i64 0, i64 %indvars.iv.i
+  %63 = load i32, ptr %62, align 4, !tbaa !9
+  %64 = zext i32 %63 to i64
+  %.not.i11 = icmp eq i64 %indvars.iv.i, 0
+  %65 = tail call i64 @llvm.umax.i64(i64 range(i64 0, 4294967296) %64, i64 14)
+  %66 = add i64 %56, 2
+  %67 = add i64 %66, %65
+  %68 = icmp ugt i64 %67, %1
+  br i1 %68, label %69, label %98
 
-70:                                               ; preds = %55
-  %71 = add i64 %57, %65
-  %72 = add i64 %71, 2
-  %73 = icmp ugt i64 %72, %1
-  br i1 %73, label %74, label %82
+69:                                               ; preds = %54
+  %70 = add i64 %56, %64
+  %71 = add i64 %70, 2
+  %72 = icmp ugt i64 %71, %1
+  br i1 %72, label %73, label %81
 
-74:                                               ; preds = %70
-  %75 = sub i64 %1, %57
-  %76 = icmp eq i64 %1, %57
-  br i1 %76, label %generateWord.exit.i, label %77
+73:                                               ; preds = %69
+  %74 = sub i64 %1, %56
+  %75 = icmp eq i64 %1, %56
+  br i1 %75, label %generateWord.exit.i, label %76
 
-77:                                               ; preds = %74
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 %57
-  store i8 46, ptr %78, align 1, !tbaa !18
-  %79 = icmp ugt i64 %75, 2
-  br i1 %79, label %writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i.i, label %80
+76:                                               ; preds = %73
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 %56
+  store i8 46, ptr %77, align 1, !tbaa !18
+  %78 = icmp ugt i64 %74, 2
+  br i1 %78, label %writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i.i, label %79
 
-80:                                               ; preds = %77
-  %81 = icmp eq i64 %75, 2
-  br i1 %81, label %writeLastCharacters.exit.sink.split.sink.split.i.i.i, label %generateWord.exit.i
+79:                                               ; preds = %76
+  %80 = icmp eq i64 %74, 2
+  br i1 %80, label %writeLastCharacters.exit.sink.split.sink.split.i.i.i, label %generateWord.exit.i
 
-82:                                               ; preds = %70
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 %57
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %83, ptr readonly align 1 %62, i64 range(i64 0, 4294967296) %65, i1 false)
-  br i1 %.not.i, label %84, label %87
+81:                                               ; preds = %69
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 %56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %82, ptr readonly align 1 %61, i64 range(i64 0, 4294967296) %64, i1 false)
+  br i1 %.not.i11, label %83, label %86
 
-84:                                               ; preds = %82
-  %85 = load i8, ptr %83, align 1, !tbaa !18
-  %86 = add i8 %85, -32
-  store i8 %86, ptr %83, align 1, !tbaa !18
-  br label %87
+83:                                               ; preds = %81
+  %84 = load i8, ptr %82, align 1, !tbaa !18
+  %85 = add i8 %84, -32
+  store i8 %85, ptr %82, align 1, !tbaa !18
+  br label %86
 
-87:                                               ; preds = %84, %82
-  %88 = sub i64 %1, %71
-  %89 = icmp eq i64 %1, %71
-  br i1 %89, label %generateWord.exit.i, label %90
+86:                                               ; preds = %83, %81
+  %87 = sub i64 %1, %70
+  %88 = icmp eq i64 %1, %70
+  br i1 %88, label %generateWord.exit.i, label %89
 
-90:                                               ; preds = %87
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 %71
-  store i8 46, ptr %91, align 1, !tbaa !18
-  %92 = icmp ugt i64 %88, 2
-  br i1 %92, label %writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i.i, label %93
+89:                                               ; preds = %86
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 %70
+  store i8 46, ptr %90, align 1, !tbaa !18
+  %91 = icmp ugt i64 %87, 2
+  br i1 %91, label %writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i.i, label %92
 
-93:                                               ; preds = %90
-  %94 = icmp eq i64 %88, 2
-  br i1 %94, label %writeLastCharacters.exit.sink.split.sink.split.i.i.i, label %generateWord.exit.i
+92:                                               ; preds = %89
+  %93 = icmp eq i64 %87, 2
+  br i1 %93, label %writeLastCharacters.exit.sink.split.sink.split.i.i.i, label %generateWord.exit.i
 
-writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i.i: ; preds = %90, %77
-  %95 = phi i64 [ %57, %77 ], [ %71, %90 ]
-  %.sink9.i.i.i = phi i64 [ %75, %77 ], [ %88, %90 ]
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 %95
-  %97 = getelementptr i8, ptr %96, i64 1
-  %98 = add i64 %.sink9.i.i.i, -2
-  tail call void @llvm.memset.p0.i64(ptr align 1 %97, i8 32, i64 %98, i1 false)
+writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i.i: ; preds = %89, %76
+  %94 = phi i64 [ %56, %76 ], [ %70, %89 ]
+  %.sink9.i.i.i = phi i64 [ %74, %76 ], [ %87, %89 ]
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 %94
+  %96 = getelementptr i8, ptr %95, i64 1
+  %97 = add i64 %.sink9.i.i.i, -2
+  tail call void @llvm.memset.p0.i64(ptr align 1 %96, i8 32, i64 %97, i1 false)
   br label %writeLastCharacters.exit.sink.split.sink.split.i.i.i
 
-writeLastCharacters.exit.sink.split.sink.split.i.i.i: ; preds = %writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i.i, %93, %80
-  store i8 10, ptr %54, align 1, !tbaa !18
+writeLastCharacters.exit.sink.split.sink.split.i.i.i: ; preds = %writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i.i, %92, %79
+  store i8 10, ptr %53, align 1, !tbaa !18
   br label %generateWord.exit.i
 
-99:                                               ; preds = %55
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 %57
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %100, ptr noundef nonnull readonly align 1 dereferenceable(16) %62, i64 16, i1 false)
-  br i1 %.not.i, label %101, label %104
+98:                                               ; preds = %54
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 %56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %99, ptr noundef nonnull readonly align 1 dereferenceable(16) %61, i64 16, i1 false)
+  br i1 %.not.i11, label %100, label %103
 
-101:                                              ; preds = %99
-  %102 = load i8, ptr %100, align 1, !tbaa !18
-  %103 = add i8 %102, -32
-  store i8 %103, ptr %100, align 1, !tbaa !18
-  br label %104
+100:                                              ; preds = %98
+  %101 = load i8, ptr %99, align 1, !tbaa !18
+  %102 = add i8 %101, -32
+  store i8 %102, ptr %99, align 1, !tbaa !18
+  br label %103
 
-104:                                              ; preds = %101, %99
-  %105 = add i64 %57, %65
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 %105
-  %107 = select i1 %60, i16 8236, i16 32
-  store i16 %107, ptr %106, align 1
-  %108 = add i64 %105, %.1.i
+103:                                              ; preds = %100, %98
+  %104 = add i64 %56, %64
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 %104
+  %106 = select i1 %59, i16 8236, i16 32
+  store i16 %106, ptr %105, align 1
+  %107 = add i64 %104, %.1.i
   br label %generateWord.exit.i
 
-generateWord.exit.i:                              ; preds = %80, %93, %writeLastCharacters.exit.sink.split.sink.split.i.i.i, %104, %87, %74
-  %g_nbChars.promoted32 = phi i64 [ %g_nbChars.promoted33, %74 ], [ %1, %87 ], [ %108, %104 ], [ %1, %writeLastCharacters.exit.sink.split.sink.split.i.i.i ], [ %1, %93 ], [ %1, %80 ]
-  %109 = phi i64 [ %56, %74 ], [ %1, %87 ], [ %108, %104 ], [ %1, %writeLastCharacters.exit.sink.split.sink.split.i.i.i ], [ %1, %93 ], [ %1, %80 ]
-  %110 = phi i64 [ %1, %74 ], [ %1, %87 ], [ %108, %104 ], [ %1, %writeLastCharacters.exit.sink.split.sink.split.i.i.i ], [ %1, %93 ], [ %1, %80 ]
+generateWord.exit.i:                              ; preds = %79, %92, %writeLastCharacters.exit.sink.split.sink.split.i.i.i, %103, %86, %73
+  %g_nbChars.promoted33 = phi i64 [ %g_nbChars.promoted34, %73 ], [ %1, %86 ], [ %107, %103 ], [ %1, %writeLastCharacters.exit.sink.split.sink.split.i.i.i ], [ %1, %92 ], [ %1, %79 ]
+  %108 = phi i64 [ %55, %73 ], [ %1, %86 ], [ %107, %103 ], [ %1, %writeLastCharacters.exit.sink.split.sink.split.i.i.i ], [ %1, %92 ], [ %1, %79 ]
+  %109 = phi i64 [ %1, %73 ], [ %1, %86 ], [ %107, %103 ], [ %1, %writeLastCharacters.exit.sink.split.sink.split.i.i.i ], [ %1, %92 ], [ %1, %79 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i11 = icmp eq i64 %indvars.iv.next.i, 18
-  br i1 %exitcond.not.i11, label %111, label %55, !llvm.loop !19
+  %exitcond.not.i12 = icmp eq i64 %indvars.iv.next.i, 18
+  br i1 %exitcond.not.i12, label %110, label %54, !llvm.loop !19
 
-111:                                              ; preds = %generateWord.exit.i
-  %112 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @g_words, i64 144), align 16, !tbaa !4
-  %113 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_wordLen, i64 72), align 8, !tbaa !9
-  %114 = zext i32 %113 to i64
-  %115 = tail call i64 @llvm.umax.i64(i64 range(i64 0, 4294967296) %114, i64 14)
-  %116 = add i64 %109, 2
-  %117 = add i64 %116, %115
-  %118 = icmp ugt i64 %117, %1
-  br i1 %118, label %119, label %144
+110:                                              ; preds = %generateWord.exit.i
+  %111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @g_words, i64 144), align 16, !tbaa !4
+  %112 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_wordLen, i64 72), align 8, !tbaa !9
+  %113 = zext i32 %112 to i64
+  %114 = tail call i64 @llvm.umax.i64(i64 range(i64 0, 4294967296) %113, i64 14)
+  %115 = add i64 %108, 2
+  %116 = add i64 %115, %114
+  %117 = icmp ugt i64 %116, %1
+  br i1 %117, label %118, label %143
 
-119:                                              ; preds = %111
-  %120 = add i64 %109, %114
-  %121 = add i64 %120, 2
-  %122 = icmp ugt i64 %121, %1
-  br i1 %122, label %123, label %131
+118:                                              ; preds = %110
+  %119 = add i64 %108, %113
+  %120 = add i64 %119, 2
+  %121 = icmp ugt i64 %120, %1
+  br i1 %121, label %122, label %130
 
-123:                                              ; preds = %119
-  %124 = sub i64 %1, %109
-  %125 = icmp eq i64 %1, %109
-  br i1 %125, label %generateFirstSentence.exit, label %126
+122:                                              ; preds = %118
+  %123 = sub i64 %1, %108
+  %124 = icmp eq i64 %1, %108
+  br i1 %124, label %generateFirstSentence.exit, label %125
 
-126:                                              ; preds = %123
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 %109
-  store i8 46, ptr %127, align 1, !tbaa !18
-  %128 = icmp ugt i64 %124, 2
-  br i1 %128, label %writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i16.i, label %129
+125:                                              ; preds = %122
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 %108
+  store i8 46, ptr %126, align 1, !tbaa !18
+  %127 = icmp ugt i64 %123, 2
+  br i1 %127, label %writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i16.i, label %128
 
-129:                                              ; preds = %126
-  %130 = icmp eq i64 %124, 2
-  br i1 %130, label %writeLastCharacters.exit.sink.split.sink.split.i.i14.i, label %generateFirstSentence.exit
+128:                                              ; preds = %125
+  %129 = icmp eq i64 %123, 2
+  br i1 %129, label %writeLastCharacters.exit.sink.split.sink.split.i.i14.i, label %generateFirstSentence.exit
 
-131:                                              ; preds = %119
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 %109
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %132, ptr readonly align 1 %112, i64 range(i64 0, 4294967296) %114, i1 false)
-  %133 = sub i64 %1, %120
-  %134 = icmp eq i64 %1, %120
-  br i1 %134, label %generateFirstSentence.exit, label %135
+130:                                              ; preds = %118
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 %108
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %131, ptr readonly align 1 %111, i64 range(i64 0, 4294967296) %113, i1 false)
+  %132 = sub i64 %1, %119
+  %133 = icmp eq i64 %1, %119
+  br i1 %133, label %generateFirstSentence.exit, label %134
 
-135:                                              ; preds = %131
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 %120
-  store i8 46, ptr %136, align 1, !tbaa !18
-  %137 = icmp ugt i64 %133, 2
-  br i1 %137, label %writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i16.i, label %138
+134:                                              ; preds = %130
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 %119
+  store i8 46, ptr %135, align 1, !tbaa !18
+  %136 = icmp ugt i64 %132, 2
+  br i1 %136, label %writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i16.i, label %137
 
-138:                                              ; preds = %135
-  %139 = icmp eq i64 %133, 2
-  br i1 %139, label %writeLastCharacters.exit.sink.split.sink.split.i.i14.i, label %generateFirstSentence.exit
+137:                                              ; preds = %134
+  %138 = icmp eq i64 %132, 2
+  br i1 %138, label %writeLastCharacters.exit.sink.split.sink.split.i.i14.i, label %generateFirstSentence.exit
 
-writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i16.i: ; preds = %135, %126
-  %140 = phi i64 [ %109, %126 ], [ %120, %135 ]
-  %.sink9.i.i18.i = phi i64 [ %124, %126 ], [ %133, %135 ]
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 %140
-  %142 = getelementptr i8, ptr %141, i64 1
-  %143 = add i64 %.sink9.i.i18.i, -2
-  tail call void @llvm.memset.p0.i64(ptr align 1 %142, i8 32, i64 %143, i1 false)
+writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i16.i: ; preds = %134, %125
+  %139 = phi i64 [ %108, %125 ], [ %119, %134 ]
+  %.sink9.i.i18.i = phi i64 [ %123, %125 ], [ %132, %134 ]
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 %139
+  %141 = getelementptr i8, ptr %140, i64 1
+  %142 = add i64 %.sink9.i.i18.i, -2
+  tail call void @llvm.memset.p0.i64(ptr align 1 %141, i8 32, i64 %142, i1 false)
   br label %writeLastCharacters.exit.sink.split.sink.split.i.i14.i
 
-writeLastCharacters.exit.sink.split.sink.split.i.i14.i: ; preds = %writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i16.i, %138, %129
-  store i8 10, ptr %54, align 1, !tbaa !18
+writeLastCharacters.exit.sink.split.sink.split.i.i14.i: ; preds = %writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i16.i, %137, %128
+  store i8 10, ptr %53, align 1, !tbaa !18
   br label %generateFirstSentence.exit
 
-144:                                              ; preds = %111
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 %109
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %145, ptr noundef nonnull readonly align 1 dereferenceable(16) %112, i64 16, i1 false)
-  %146 = add i64 %109, %114
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 %146
-  store i16 8238, ptr %147, align 1
-  %148 = add i64 %146, 2
+143:                                              ; preds = %110
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 %108
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %144, ptr noundef nonnull readonly align 1 dereferenceable(16) %111, i64 16, i1 false)
+  %145 = add i64 %108, %113
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 %145
+  store i16 8238, ptr %146, align 1
+  %147 = add i64 %145, 2
   br label %generateFirstSentence.exit
 
-generateFirstSentence.exit:                       ; preds = %129, %138, %writeLastCharacters.exit.sink.split.sink.split.i.i14.i, %144, %131, %123, %init_word_distrib.exit
-  %g_nbChars.promoted = phi i64 [ %1, %131 ], [ %g_nbChars.promoted32, %123 ], [ 0, %init_word_distrib.exit ], [ %148, %144 ], [ %1, %writeLastCharacters.exit.sink.split.sink.split.i.i14.i ], [ %1, %138 ], [ %1, %129 ]
-  %149 = zext i32 %51 to i64
-  %150 = getelementptr i8, ptr %0, i64 %1
-  %151 = getelementptr i8, ptr %150, i64 -1
+generateFirstSentence.exit:                       ; preds = %128, %137, %writeLastCharacters.exit.sink.split.sink.split.i.i14.i, %143, %130, %122, %init_word_distrib.exit
+  %g_nbChars.promoted = phi i64 [ %1, %130 ], [ %g_nbChars.promoted33, %122 ], [ 0, %init_word_distrib.exit ], [ %147, %143 ], [ %1, %writeLastCharacters.exit.sink.split.sink.split.i.i14.i ], [ %1, %137 ], [ %1, %128 ]
+  %148 = zext i32 %50 to i64
+  %149 = getelementptr i8, ptr %0, i64 %1
+  %150 = getelementptr i8, ptr %149, i64 -1
   %.not6 = icmp eq i32 %4, 0
-  br label %152
+  br label %151
 
-152:                                              ; preds = %generateParagraph.exit, %generateFirstSentence.exit
+151:                                              ; preds = %generateParagraph.exit, %generateFirstSentence.exit
+  %152 = phi i64 [ %319, %generateParagraph.exit ], [ %g_nbChars.promoted, %generateFirstSentence.exit ]
+  %.lcssa.lcssa23 = phi i32 [ %240, %generateParagraph.exit ], [ %2, %generateFirstSentence.exit ]
   %153 = phi i64 [ %320, %generateParagraph.exit ], [ %g_nbChars.promoted, %generateFirstSentence.exit ]
-  %.lcssa.lcssa22 = phi i32 [ %241, %generateParagraph.exit ], [ %2, %generateFirstSentence.exit ]
-  %154 = phi i64 [ %321, %generateParagraph.exit ], [ %g_nbChars.promoted, %generateFirstSentence.exit ]
-  %155 = icmp ult i64 %154, %1
-  br i1 %155, label %156, label %322
+  %154 = icmp ult i64 %153, %1
+  br i1 %154, label %155, label %321
 
-156:                                              ; preds = %152
-  %157 = mul i32 %.lcssa.lcssa22, -1640531535
-  %158 = xor i32 %157, -2048144777
-  %159 = tail call i32 @llvm.fshl.i32(i32 %158, i32 %158, i32 13)
-  %160 = zext i32 %159 to i64
-  %161 = mul nuw nsw i64 %160, 7
-  %162 = lshr i64 %161, 32
-  %163 = trunc nuw nsw i64 %162 to i32
-  %164 = mul i32 %159, -1640531535
-  %165 = xor i32 %164, -2048144777
-  %166 = tail call i32 @llvm.fshl.i32(i32 %165, i32 %165, i32 13)
-  %167 = zext i32 %166 to i64
-  %168 = mul nuw nsw i64 %167, 7
-  %169 = lshr i64 %168, 32
-  %170 = trunc nuw nsw i64 %169 to i32
-  %171 = add nuw nsw i32 %163, 1
-  %172 = add nuw nsw i32 %171, %170
-  br label %173
+155:                                              ; preds = %151
+  %156 = mul i32 %.lcssa.lcssa23, -1640531535
+  %157 = xor i32 %156, -2048144777
+  %158 = tail call i32 @llvm.fshl.i32(i32 %157, i32 %157, i32 13)
+  %159 = zext i32 %158 to i64
+  %160 = mul nuw nsw i64 %159, 7
+  %161 = lshr i64 %160, 32
+  %162 = trunc nuw nsw i64 %161 to i32
+  %163 = mul i32 %158, -1640531535
+  %164 = xor i32 %163, -2048144777
+  %165 = tail call i32 @llvm.fshl.i32(i32 %164, i32 %164, i32 13)
+  %166 = zext i32 %165 to i64
+  %167 = mul nuw nsw i64 %166, 7
+  %168 = lshr i64 %167, 32
+  %169 = trunc nuw nsw i64 %168 to i32
+  %170 = add nuw nsw i32 %162, 1
+  %171 = add nuw nsw i32 %170, %169
+  br label %172
 
-173:                                              ; preds = %generateSentence.exit.i, %156
-  %174 = phi i64 [ %153, %156 ], [ %301, %generateSentence.exit.i ]
-  %175 = phi i64 [ %154, %156 ], [ %302, %generateSentence.exit.i ]
-  %176 = phi i64 [ %154, %156 ], [ %303, %generateSentence.exit.i ]
-  %.09.i = phi i32 [ 0, %156 ], [ %307, %generateSentence.exit.i ]
-  %.lcssa68.i = phi i32 [ %166, %156 ], [ %241, %generateSentence.exit.i ]
-  %177 = phi i64 [ %154, %156 ], [ %304, %generateSentence.exit.i ]
-  %178 = mul i32 %.lcssa68.i, -1640531535
-  %179 = xor i32 %178, -2048144777
-  %180 = tail call i32 @llvm.fshl.i32(i32 %179, i32 %179, i32 13)
-  %181 = zext i32 %180 to i64
-  %182 = mul nuw nsw i64 %181, 11
-  %183 = lshr i64 %182, 32
-  %184 = trunc nuw nsw i64 %183 to i32
-  %185 = mul i32 %180, -1640531535
-  %186 = xor i32 %185, -2048144777
-  %187 = tail call i32 @llvm.fshl.i32(i32 %186, i32 %186, i32 13)
-  %188 = zext i32 %187 to i64
-  %189 = mul nuw nsw i64 %188, 11
-  %190 = lshr i64 %189, 32
-  %191 = trunc nuw nsw i64 %190 to i32
-  %192 = add nuw nsw i32 %191, %184
-  %193 = mul i32 %187, -1640531535
-  %194 = xor i32 %193, -2048144777
-  %195 = tail call i32 @llvm.fshl.i32(i32 %194, i32 %194, i32 13)
-  %196 = zext i32 %195 to i64
-  %197 = mul nuw nsw i64 %196, 9
-  %198 = lshr i64 %197, 32
-  %199 = trunc nuw nsw i64 %198 to i32
-  %200 = mul i32 %195, -1640531535
-  %201 = xor i32 %200, -2048144777
-  %202 = tail call i32 @llvm.fshl.i32(i32 %201, i32 %201, i32 13)
-  %203 = zext i32 %202 to i64
-  %204 = mul nuw nsw i64 %203, 9
-  %205 = lshr i64 %204, 32
-  %206 = trunc nuw nsw i64 %205 to i32
-  %207 = add nuw nsw i32 %199, 1
-  %208 = add nuw nsw i32 %207, %206
-  %209 = mul i32 %202, -1640531535
-  %210 = xor i32 %209, -2048144777
-  %211 = tail call i32 @llvm.fshl.i32(i32 %210, i32 %210, i32 13)
-  %212 = zext i32 %211 to i64
-  %213 = mul nuw nsw i64 %212, 7
-  %214 = lshr i64 %213, 32
-  %215 = trunc nuw nsw i64 %214 to i32
-  %216 = mul i32 %211, -1640531535
-  %217 = xor i32 %216, -2048144777
-  %218 = tail call i32 @llvm.fshl.i32(i32 %217, i32 %217, i32 13)
-  %219 = zext i32 %218 to i64
-  %220 = mul nuw nsw i64 %219, 7
-  %221 = lshr i64 %220, 32
-  %222 = trunc nuw nsw i64 %221 to i32
-  %223 = add nuw nsw i32 %208, 1
-  %224 = add nuw nsw i32 %223, %215
-  %225 = add nuw nsw i32 %224, %222
-  %226 = mul i32 %218, -1640531535
-  %227 = xor i32 %226, -2048144777
-  %228 = tail call i32 @llvm.fshl.i32(i32 %227, i32 %227, i32 13)
-  %229 = zext i32 %228 to i64
-  %230 = mul nuw nsw i64 %229, 11
-  %.mask.i.i = and i64 %230, 64424509440
-  %231 = icmp eq i64 %.mask.i.i, 30064771072
-  %.val.i.i = select i1 %231, i16 8255, i16 8238
-  br label %232
+172:                                              ; preds = %generateSentence.exit.i, %155
+  %173 = phi i64 [ %152, %155 ], [ %300, %generateSentence.exit.i ]
+  %174 = phi i64 [ %153, %155 ], [ %301, %generateSentence.exit.i ]
+  %175 = phi i64 [ %153, %155 ], [ %302, %generateSentence.exit.i ]
+  %.09.i = phi i32 [ 0, %155 ], [ %306, %generateSentence.exit.i ]
+  %.lcssa68.i = phi i32 [ %165, %155 ], [ %240, %generateSentence.exit.i ]
+  %176 = phi i64 [ %153, %155 ], [ %303, %generateSentence.exit.i ]
+  %177 = mul i32 %.lcssa68.i, -1640531535
+  %178 = xor i32 %177, -2048144777
+  %179 = tail call i32 @llvm.fshl.i32(i32 %178, i32 %178, i32 13)
+  %180 = zext i32 %179 to i64
+  %181 = mul nuw nsw i64 %180, 11
+  %182 = lshr i64 %181, 32
+  %183 = trunc nuw nsw i64 %182 to i32
+  %184 = mul i32 %179, -1640531535
+  %185 = xor i32 %184, -2048144777
+  %186 = tail call i32 @llvm.fshl.i32(i32 %185, i32 %185, i32 13)
+  %187 = zext i32 %186 to i64
+  %188 = mul nuw nsw i64 %187, 11
+  %189 = lshr i64 %188, 32
+  %190 = trunc nuw nsw i64 %189 to i32
+  %191 = add nuw nsw i32 %190, %183
+  %192 = mul i32 %186, -1640531535
+  %193 = xor i32 %192, -2048144777
+  %194 = tail call i32 @llvm.fshl.i32(i32 %193, i32 %193, i32 13)
+  %195 = zext i32 %194 to i64
+  %196 = mul nuw nsw i64 %195, 9
+  %197 = lshr i64 %196, 32
+  %198 = trunc nuw nsw i64 %197 to i32
+  %199 = mul i32 %194, -1640531535
+  %200 = xor i32 %199, -2048144777
+  %201 = tail call i32 @llvm.fshl.i32(i32 %200, i32 %200, i32 13)
+  %202 = zext i32 %201 to i64
+  %203 = mul nuw nsw i64 %202, 9
+  %204 = lshr i64 %203, 32
+  %205 = trunc nuw nsw i64 %204 to i32
+  %206 = add nuw nsw i32 %198, 1
+  %207 = add nuw nsw i32 %206, %205
+  %208 = mul i32 %201, -1640531535
+  %209 = xor i32 %208, -2048144777
+  %210 = tail call i32 @llvm.fshl.i32(i32 %209, i32 %209, i32 13)
+  %211 = zext i32 %210 to i64
+  %212 = mul nuw nsw i64 %211, 7
+  %213 = lshr i64 %212, 32
+  %214 = trunc nuw nsw i64 %213 to i32
+  %215 = mul i32 %210, -1640531535
+  %216 = xor i32 %215, -2048144777
+  %217 = tail call i32 @llvm.fshl.i32(i32 %216, i32 %216, i32 13)
+  %218 = zext i32 %217 to i64
+  %219 = mul nuw nsw i64 %218, 7
+  %220 = lshr i64 %219, 32
+  %221 = trunc nuw nsw i64 %220 to i32
+  %222 = add nuw nsw i32 %207, 1
+  %223 = add nuw nsw i32 %222, %214
+  %224 = add nuw nsw i32 %223, %221
+  %225 = mul i32 %217, -1640531535
+  %226 = xor i32 %225, -2048144777
+  %227 = tail call i32 @llvm.fshl.i32(i32 %226, i32 %226, i32 13)
+  %228 = zext i32 %227 to i64
+  %229 = mul nuw nsw i64 %228, 11
+  %.mask.i.i = and i64 %229, 64424509440
+  %230 = icmp eq i64 %.mask.i.i, 30064771072
+  %.val.i.i = select i1 %230, i16 8255, i16 8238
+  br label %231
 
-232:                                              ; preds = %generateWord.exit.i.i, %173
-  %233 = phi i64 [ %174, %173 ], [ %301, %generateWord.exit.i.i ]
-  %234 = phi i64 [ %175, %173 ], [ %302, %generateWord.exit.i.i ]
-  %235 = phi i64 [ %176, %173 ], [ %303, %generateWord.exit.i.i ]
-  %236 = phi i64 [ %177, %173 ], [ %304, %generateWord.exit.i.i ]
-  %.01922.i.i = phi i32 [ 0, %173 ], [ %306, %generateWord.exit.i.i ]
-  %237 = phi i32 [ %228, %173 ], [ %241, %generateWord.exit.i.i ]
-  %238 = phi i64 [ %177, %173 ], [ %305, %generateWord.exit.i.i ]
-  %239 = mul i32 %237, -1640531535
-  %240 = xor i32 %239, -2048144777
-  %241 = tail call i32 @llvm.fshl.i32(i32 %240, i32 %240, i32 13)
-  %242 = zext i32 %241 to i64
-  %243 = mul nuw i64 %242, %149
-  %244 = lshr i64 %243, 32
-  %245 = getelementptr inbounds nuw [650 x i32], ptr @g_distrib, i64 0, i64 %244
-  %246 = load i32, ptr %245, align 4, !tbaa !9
-  %247 = icmp eq i32 %.01922.i.i, %208
-  %248 = icmp eq i32 %.01922.i.i, %225
-  %249 = or i1 %248, %247
-  %250 = icmp eq i32 %.01922.i.i, %192
-  %251 = select i1 %250, i1 true, i1 %249
-  %.2.i.i = select i1 %251, i64 2, i64 1
-  %252 = sext i32 %246 to i64
-  %253 = getelementptr inbounds [255 x ptr], ptr @g_words, i64 0, i64 %252
-  %254 = load ptr, ptr %253, align 8, !tbaa !4
-  %255 = getelementptr inbounds [255 x i32], ptr @g_wordLen, i64 0, i64 %252
-  %256 = load i32, ptr %255, align 4, !tbaa !9
-  %257 = zext i32 %256 to i64
+231:                                              ; preds = %generateWord.exit.i.i, %172
+  %232 = phi i64 [ %173, %172 ], [ %300, %generateWord.exit.i.i ]
+  %233 = phi i64 [ %174, %172 ], [ %301, %generateWord.exit.i.i ]
+  %234 = phi i64 [ %175, %172 ], [ %302, %generateWord.exit.i.i ]
+  %235 = phi i64 [ %176, %172 ], [ %303, %generateWord.exit.i.i ]
+  %.01922.i.i = phi i32 [ 0, %172 ], [ %305, %generateWord.exit.i.i ]
+  %236 = phi i32 [ %227, %172 ], [ %240, %generateWord.exit.i.i ]
+  %237 = phi i64 [ %176, %172 ], [ %304, %generateWord.exit.i.i ]
+  %238 = mul i32 %236, -1640531535
+  %239 = xor i32 %238, -2048144777
+  %240 = tail call i32 @llvm.fshl.i32(i32 %239, i32 %239, i32 13)
+  %241 = zext i32 %240 to i64
+  %242 = mul nuw i64 %241, %148
+  %243 = lshr i64 %242, 32
+  %244 = getelementptr inbounds nuw [650 x i32], ptr @g_distrib, i64 0, i64 %243
+  %245 = load i32, ptr %244, align 4, !tbaa !9
+  %246 = icmp eq i32 %.01922.i.i, %207
+  %247 = icmp eq i32 %.01922.i.i, %224
+  %248 = or i1 %247, %246
+  %249 = icmp eq i32 %.01922.i.i, %191
+  %250 = select i1 %249, i1 true, i1 %248
+  %.2.i.i = select i1 %250, i64 2, i64 1
+  %251 = sext i32 %245 to i64
+  %252 = getelementptr inbounds [255 x ptr], ptr @g_words, i64 0, i64 %251
+  %253 = load ptr, ptr %252, align 8, !tbaa !4
+  %254 = getelementptr inbounds [255 x i32], ptr @g_wordLen, i64 0, i64 %251
+  %255 = load i32, ptr %254, align 4, !tbaa !9
+  %256 = zext i32 %255 to i64
   %.not.i.i = icmp eq i32 %.01922.i.i, 0
-  %258 = tail call i64 @llvm.umax.i64(i64 range(i64 0, 4294967296) %257, i64 14)
-  %259 = add i64 %238, 2
-  %260 = add i64 %259, %258
-  %261 = icmp ugt i64 %260, %1
-  br i1 %261, label %262, label %291
+  %257 = tail call i64 @llvm.umax.i64(i64 range(i64 0, 4294967296) %256, i64 14)
+  %258 = add i64 %237, 2
+  %259 = add i64 %258, %257
+  %260 = icmp ugt i64 %259, %1
+  br i1 %260, label %261, label %290
 
-262:                                              ; preds = %232
-  %263 = add i64 %238, %257
-  %264 = add i64 %263, 2
-  %265 = icmp ugt i64 %264, %1
-  br i1 %265, label %266, label %274
+261:                                              ; preds = %231
+  %262 = add i64 %237, %256
+  %263 = add i64 %262, 2
+  %264 = icmp ugt i64 %263, %1
+  br i1 %264, label %265, label %273
 
-266:                                              ; preds = %262
-  %267 = sub i64 %1, %238
-  %268 = icmp eq i64 %1, %238
-  br i1 %268, label %generateWord.exit.i.i, label %269
+265:                                              ; preds = %261
+  %266 = sub i64 %1, %237
+  %267 = icmp eq i64 %1, %237
+  br i1 %267, label %generateWord.exit.i.i, label %268
 
-269:                                              ; preds = %266
-  %270 = getelementptr inbounds nuw i8, ptr %0, i64 %238
-  store i8 46, ptr %270, align 1, !tbaa !18
-  %271 = icmp ugt i64 %267, 2
-  br i1 %271, label %writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i.i.i, label %272
+268:                                              ; preds = %265
+  %269 = getelementptr inbounds nuw i8, ptr %0, i64 %237
+  store i8 46, ptr %269, align 1, !tbaa !18
+  %270 = icmp ugt i64 %266, 2
+  br i1 %270, label %writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i.i.i, label %271
 
-272:                                              ; preds = %269
-  %273 = icmp eq i64 %267, 2
-  br i1 %273, label %writeLastCharacters.exit.sink.split.sink.split.i.i.i.i, label %generateWord.exit.i.i
+271:                                              ; preds = %268
+  %272 = icmp eq i64 %266, 2
+  br i1 %272, label %writeLastCharacters.exit.sink.split.sink.split.i.i.i.i, label %generateWord.exit.i.i
 
-274:                                              ; preds = %262
-  %275 = getelementptr inbounds nuw i8, ptr %0, i64 %238
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %275, ptr readonly align 1 %254, i64 range(i64 0, 4294967296) %257, i1 false)
-  br i1 %.not.i.i, label %276, label %279
+273:                                              ; preds = %261
+  %274 = getelementptr inbounds nuw i8, ptr %0, i64 %237
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %274, ptr readonly align 1 %253, i64 range(i64 0, 4294967296) %256, i1 false)
+  br i1 %.not.i.i, label %275, label %278
 
-276:                                              ; preds = %274
-  %277 = load i8, ptr %275, align 1, !tbaa !18
-  %278 = add i8 %277, -32
-  store i8 %278, ptr %275, align 1, !tbaa !18
-  br label %279
+275:                                              ; preds = %273
+  %276 = load i8, ptr %274, align 1, !tbaa !18
+  %277 = add i8 %276, -32
+  store i8 %277, ptr %274, align 1, !tbaa !18
+  br label %278
 
-279:                                              ; preds = %276, %274
-  %280 = sub i64 %1, %263
-  %281 = icmp eq i64 %1, %263
-  br i1 %281, label %generateWord.exit.i.i, label %282
+278:                                              ; preds = %275, %273
+  %279 = sub i64 %1, %262
+  %280 = icmp eq i64 %1, %262
+  br i1 %280, label %generateWord.exit.i.i, label %281
 
-282:                                              ; preds = %279
-  %283 = getelementptr inbounds nuw i8, ptr %0, i64 %263
-  store i8 46, ptr %283, align 1, !tbaa !18
-  %284 = icmp ugt i64 %280, 2
-  br i1 %284, label %writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i.i.i, label %285
+281:                                              ; preds = %278
+  %282 = getelementptr inbounds nuw i8, ptr %0, i64 %262
+  store i8 46, ptr %282, align 1, !tbaa !18
+  %283 = icmp ugt i64 %279, 2
+  br i1 %283, label %writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i.i.i, label %284
 
-285:                                              ; preds = %282
-  %286 = icmp eq i64 %280, 2
-  br i1 %286, label %writeLastCharacters.exit.sink.split.sink.split.i.i.i.i, label %generateWord.exit.i.i
+284:                                              ; preds = %281
+  %285 = icmp eq i64 %279, 2
+  br i1 %285, label %writeLastCharacters.exit.sink.split.sink.split.i.i.i.i, label %generateWord.exit.i.i
 
-writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i.i.i: ; preds = %282, %269
-  %287 = phi i64 [ %238, %269 ], [ %263, %282 ]
-  %.sink9.i.i.i.i = phi i64 [ %267, %269 ], [ %280, %282 ]
-  %288 = getelementptr inbounds nuw i8, ptr %0, i64 %287
-  %289 = getelementptr i8, ptr %288, i64 1
-  %290 = add i64 %.sink9.i.i.i.i, -2
-  tail call void @llvm.memset.p0.i64(ptr align 1 %289, i8 32, i64 %290, i1 false)
+writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i.i.i: ; preds = %281, %268
+  %286 = phi i64 [ %237, %268 ], [ %262, %281 ]
+  %.sink9.i.i.i.i = phi i64 [ %266, %268 ], [ %279, %281 ]
+  %287 = getelementptr inbounds nuw i8, ptr %0, i64 %286
+  %288 = getelementptr i8, ptr %287, i64 1
+  %289 = add i64 %.sink9.i.i.i.i, -2
+  tail call void @llvm.memset.p0.i64(ptr align 1 %288, i8 32, i64 %289, i1 false)
   br label %writeLastCharacters.exit.sink.split.sink.split.i.i.i.i
 
-writeLastCharacters.exit.sink.split.sink.split.i.i.i.i: ; preds = %writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i.i.i, %285, %272
-  store i8 10, ptr %151, align 1, !tbaa !18
+writeLastCharacters.exit.sink.split.sink.split.i.i.i.i: ; preds = %writeLastCharacters.exit.sink.split.sink.split.sink.split.i.i.i.i, %284, %271
+  store i8 10, ptr %150, align 1, !tbaa !18
   br label %generateWord.exit.i.i
 
-291:                                              ; preds = %232
-  %292 = getelementptr inbounds nuw i8, ptr %0, i64 %238
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %292, ptr noundef nonnull readonly align 1 dereferenceable(16) %254, i64 16, i1 false)
-  br i1 %.not.i.i, label %293, label %296
+290:                                              ; preds = %231
+  %291 = getelementptr inbounds nuw i8, ptr %0, i64 %237
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %291, ptr noundef nonnull readonly align 1 dereferenceable(16) %253, i64 16, i1 false)
+  br i1 %.not.i.i, label %292, label %295
 
-293:                                              ; preds = %291
-  %294 = load i8, ptr %292, align 1, !tbaa !18
-  %295 = add i8 %294, -32
-  store i8 %295, ptr %292, align 1, !tbaa !18
-  br label %296
+292:                                              ; preds = %290
+  %293 = load i8, ptr %291, align 1, !tbaa !18
+  %294 = add i8 %293, -32
+  store i8 %294, ptr %291, align 1, !tbaa !18
+  br label %295
 
-296:                                              ; preds = %293, %291
-  %297 = add i64 %238, %257
-  %298 = getelementptr inbounds nuw i8, ptr %0, i64 %297
-  %.117.val.i.i = select i1 %249, i16 8236, i16 32
-  %299 = select i1 %250, i16 %.val.i.i, i16 %.117.val.i.i
-  store i16 %299, ptr %298, align 1
-  %300 = add i64 %297, %.2.i.i
+295:                                              ; preds = %292, %290
+  %296 = add i64 %237, %256
+  %297 = getelementptr inbounds nuw i8, ptr %0, i64 %296
+  %.117.val.i.i = select i1 %248, i16 8236, i16 32
+  %298 = select i1 %249, i16 %.val.i.i, i16 %.117.val.i.i
+  store i16 %298, ptr %297, align 1
+  %299 = add i64 %296, %.2.i.i
   br label %generateWord.exit.i.i
 
-generateWord.exit.i.i:                            ; preds = %272, %285, %writeLastCharacters.exit.sink.split.sink.split.i.i.i.i, %296, %279, %266
-  %301 = phi i64 [ %233, %266 ], [ %1, %279 ], [ %300, %296 ], [ %1, %writeLastCharacters.exit.sink.split.sink.split.i.i.i.i ], [ %1, %285 ], [ %1, %272 ]
-  %302 = phi i64 [ %234, %266 ], [ %1, %279 ], [ %300, %296 ], [ %1, %writeLastCharacters.exit.sink.split.sink.split.i.i.i.i ], [ %1, %285 ], [ %1, %272 ]
-  %303 = phi i64 [ %235, %266 ], [ %1, %279 ], [ %300, %296 ], [ %1, %writeLastCharacters.exit.sink.split.sink.split.i.i.i.i ], [ %1, %285 ], [ %1, %272 ]
-  %304 = phi i64 [ %236, %266 ], [ %1, %279 ], [ %300, %296 ], [ %1, %writeLastCharacters.exit.sink.split.sink.split.i.i.i.i ], [ %1, %285 ], [ %1, %272 ]
-  %305 = phi i64 [ %1, %266 ], [ %1, %279 ], [ %300, %296 ], [ %1, %writeLastCharacters.exit.sink.split.sink.split.i.i.i.i ], [ %1, %285 ], [ %1, %272 ]
-  %306 = add nuw nsw i32 %.01922.i.i, 1
-  br i1 %250, label %generateSentence.exit.i, label %232, !llvm.loop !20
+generateWord.exit.i.i:                            ; preds = %271, %284, %writeLastCharacters.exit.sink.split.sink.split.i.i.i.i, %295, %278, %265
+  %300 = phi i64 [ %232, %265 ], [ %1, %278 ], [ %299, %295 ], [ %1, %writeLastCharacters.exit.sink.split.sink.split.i.i.i.i ], [ %1, %284 ], [ %1, %271 ]
+  %301 = phi i64 [ %233, %265 ], [ %1, %278 ], [ %299, %295 ], [ %1, %writeLastCharacters.exit.sink.split.sink.split.i.i.i.i ], [ %1, %284 ], [ %1, %271 ]
+  %302 = phi i64 [ %234, %265 ], [ %1, %278 ], [ %299, %295 ], [ %1, %writeLastCharacters.exit.sink.split.sink.split.i.i.i.i ], [ %1, %284 ], [ %1, %271 ]
+  %303 = phi i64 [ %235, %265 ], [ %1, %278 ], [ %299, %295 ], [ %1, %writeLastCharacters.exit.sink.split.sink.split.i.i.i.i ], [ %1, %284 ], [ %1, %271 ]
+  %304 = phi i64 [ %1, %265 ], [ %1, %278 ], [ %299, %295 ], [ %1, %writeLastCharacters.exit.sink.split.sink.split.i.i.i.i ], [ %1, %284 ], [ %1, %271 ]
+  %305 = add nuw nsw i32 %.01922.i.i, 1
+  br i1 %249, label %generateSentence.exit.i, label %231, !llvm.loop !20
 
 generateSentence.exit.i:                          ; preds = %generateWord.exit.i.i
-  %307 = add nuw nsw i32 %.09.i, 1
-  %exitcond.not.i14 = icmp eq i32 %307, %172
-  br i1 %exitcond.not.i14, label %._crit_edge.i15, label %173, !llvm.loop !21
+  %306 = add nuw nsw i32 %.09.i, 1
+  %exitcond.not.i15 = icmp eq i32 %306, %171
+  br i1 %exitcond.not.i15, label %._crit_edge.i16, label %172, !llvm.loop !21
 
-._crit_edge.i15:                                  ; preds = %generateSentence.exit.i
-  %308 = icmp ult i64 %303, %1
-  br i1 %308, label %309, label %312
+._crit_edge.i16:                                  ; preds = %generateSentence.exit.i
+  %307 = icmp ult i64 %302, %1
+  br i1 %307, label %308, label %311
 
-309:                                              ; preds = %._crit_edge.i15
-  %310 = add nuw i64 %303, 1
-  %311 = getelementptr inbounds nuw i8, ptr %0, i64 %303
-  store i8 10, ptr %311, align 1, !tbaa !18
-  br label %312
+308:                                              ; preds = %._crit_edge.i16
+  %309 = add nuw i64 %302, 1
+  %310 = getelementptr inbounds nuw i8, ptr %0, i64 %302
+  store i8 10, ptr %310, align 1, !tbaa !18
+  br label %311
 
-312:                                              ; preds = %309, %._crit_edge.i15
-  %313 = phi i64 [ %310, %309 ], [ %301, %._crit_edge.i15 ]
-  %314 = phi i64 [ %310, %309 ], [ %302, %._crit_edge.i15 ]
-  %315 = phi i64 [ %310, %309 ], [ %303, %._crit_edge.i15 ]
-  %316 = icmp ult i64 %315, %1
-  br i1 %316, label %317, label %generateParagraph.exit
+311:                                              ; preds = %308, %._crit_edge.i16
+  %312 = phi i64 [ %309, %308 ], [ %300, %._crit_edge.i16 ]
+  %313 = phi i64 [ %309, %308 ], [ %301, %._crit_edge.i16 ]
+  %314 = phi i64 [ %309, %308 ], [ %302, %._crit_edge.i16 ]
+  %315 = icmp ult i64 %314, %1
+  br i1 %315, label %316, label %generateParagraph.exit
 
-317:                                              ; preds = %312
-  %318 = add nuw i64 %315, 1
-  %319 = getelementptr inbounds nuw i8, ptr %0, i64 %315
-  store i8 10, ptr %319, align 1, !tbaa !18
+316:                                              ; preds = %311
+  %317 = add nuw i64 %314, 1
+  %318 = getelementptr inbounds nuw i8, ptr %0, i64 %314
+  store i8 10, ptr %318, align 1, !tbaa !18
   br label %generateParagraph.exit
 
-generateParagraph.exit:                           ; preds = %312, %317
-  %320 = phi i64 [ %313, %312 ], [ %318, %317 ]
-  %321 = phi i64 [ %314, %312 ], [ %318, %317 ]
-  br i1 %.not6, label %322, label %152
+generateParagraph.exit:                           ; preds = %311, %316
+  %319 = phi i64 [ %312, %311 ], [ %317, %316 ]
+  %320 = phi i64 [ %313, %311 ], [ %317, %316 ]
+  br i1 %.not6, label %321, label %151
 
-322:                                              ; preds = %generateParagraph.exit, %152
-  %323 = phi i64 [ %320, %generateParagraph.exit ], [ %153, %152 ]
-  ret i64 %323
+321:                                              ; preds = %generateParagraph.exit, %151
+  %322 = phi i64 [ %319, %generateParagraph.exit ], [ %152, %151 ]
+  ret i64 %322
 }
 
 ; Function Attrs: nofree nounwind uwtable
@@ -854,6 +855,9 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #6
 
 attributes #0 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

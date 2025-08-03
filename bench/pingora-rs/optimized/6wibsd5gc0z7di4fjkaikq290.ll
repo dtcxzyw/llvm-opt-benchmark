@@ -10569,8 +10569,8 @@ define internal fastcc void @_ZN12pingora_core9protocols4http11compression22adju
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #25, !noalias !945
   unreachable
 
-common.resume:                                    ; preds = %54, %31, %15
-  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %32, %31 ], [ %55, %54 ]
+common.resume:                                    ; preds = %53, %31, %15
+  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %32, %31 ], [ %54, %53 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12pingora_http13remove_header17h04303e777806c132E.exit: ; preds = %1, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$pingora_http..case_header_name..CaseHeaderName$GT$$GT$17h35ea5c620f90cc17E.exit.i"
@@ -10658,11 +10658,9 @@ _ZN12pingora_http13remove_header17h04303e777806c132E.exit8: ; preds = %"_ZN4core
   %47 = load i8, ptr %46, align 1, !alias.scope !970, !noalias !967, !noundef !16
   %48 = add i8 %47, -32
   %or.cond.i10 = icmp ult i8 %48, 95
-  %49 = icmp eq i8 %47, 9
-  %or.cond1.i = or i1 %49, %or.cond.i10
-  br i1 %or.cond1.i, label %43, label %50
+  br i1 %or.cond.i10, label %43, label %49
 
-50:                                               ; preds = %45
+49:                                               ; preds = %45
   call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8e071d1b15d522c405dc2a4db65745c3.107) #24, !noalias !972
   unreachable
 
@@ -10674,30 +10672,30 @@ _ZN4http6header5value11HeaderValue11from_static17hf2d337bf4081a6b9E.exit: ; pred
   store i64 7, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !967, !noalias !970
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !967, !noalias !970
-  %51 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i8 0, ptr %51, align 8, !alias.scope !967, !noalias !970
-  %52 = call noundef align 8 ptr @_ZN12pingora_http14ResponseHeader13insert_header17hd595e2653bfc677cE(ptr noalias noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 @anon.8e071d1b15d522c405dc2a4db65745c3.224, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %7)
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store i8 0, ptr %50, align 8, !alias.scope !967, !noalias !970
+  %51 = call noundef align 8 ptr @_ZN12pingora_http14ResponseHeader13insert_header17hd595e2653bfc677cE(ptr noalias noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 @anon.8e071d1b15d522c405dc2a4db65745c3.224, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %7)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
-  %.not.i = icmp eq ptr %52, null
-  br i1 %.not.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1a66db1eab2bd996E.exit", label %53, !prof !109
+  %.not.i = icmp eq ptr %51, null
+  br i1 %.not.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1a66db1eab2bd996E.exit", label %52, !prof !109
 
-53:                                               ; preds = %_ZN4http6header5value11HeaderValue11from_static17hf2d337bf4081a6b9E.exit
+52:                                               ; preds = %_ZN4http6header5value11HeaderValue11from_static17hf2d337bf4081a6b9E.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !973
-  store ptr %52, ptr %6, align 8, !noalias !973
+  store ptr %51, ptr %6, align 8, !noalias !973
   invoke void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.8e071d1b15d522c405dc2a4db65745c3.100, i64 noundef 43, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.8e071d1b15d522c405dc2a4db65745c3.97, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8e071d1b15d522c405dc2a4db65745c3.225) #24
-          to label %56 unwind label %54
+          to label %55 unwind label %53
 
-54:                                               ; preds = %53
-  %55 = landingpad { ptr, i32 }
+53:                                               ; preds = %52
+  %54 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr66drop_in_place$LT$alloc..boxed..Box$LT$pingora_error..Error$GT$$GT$17h2b037c1a93e720fdE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6) #26
-          to label %common.resume unwind label %57
+          to label %common.resume unwind label %56
 
-56:                                               ; preds = %53
+55:                                               ; preds = %52
   unreachable
 
-57:                                               ; preds = %54
-  %58 = landingpad { ptr, i32 }
+56:                                               ; preds = %53
+  %57 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #25
   unreachable
