@@ -19184,7 +19184,7 @@ _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj9operation14Transformati
   %713 = atomicrmw volatile add ptr %708, i32 1 acq_rel, align 4, !noalias !482
   %.pr602.pre = load ptr, ptr %33, align 8, !tbaa !428
   %.not634 = icmp eq ptr %.pr602.pre, null
-  br i1 %.not634, label %865, label %_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj9operation14TransformationENS4_19CoordinateOperationEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit.thread
+  br i1 %.not634, label %thread-pre-split, label %_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj9operation14TransformationENS4_19CoordinateOperationEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit.thread
 
 _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj9operation14TransformationENS4_19CoordinateOperationEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit.thread: ; preds = %710, %704, %_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj9operation14TransformationENS4_19CoordinateOperationEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit
   %714 = phi ptr [ %.pr602.pre, %_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj9operation14TransformationENS4_19CoordinateOperationEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit ], [ %703, %704 ], [ %703, %710 ]
@@ -19196,7 +19196,7 @@ _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj9operation14Transformati
           to label %720 unwind label %729
 
 720:                                              ; preds = %_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj9operation14TransformationENS4_19CoordinateOperationEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit.thread
-  br i1 %719, label %865, label %721
+  br i1 %719, label %thread-pre-split, label %721
 
 721:                                              ; preds = %720
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %34) #42
@@ -19389,7 +19389,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14TransformationEEEC2
   %803 = getelementptr inbounds nuw i8, ptr %802, i64 24
   %804 = load ptr, ptr %803, align 8
   call void %804(ptr noundef nonnull align 8 dereferenceable(16) %791) #42
-  br label %_ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEEaSINS2_8BoundCRSEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS3_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS4_E4typeEOSE_.exit
+  br label %_ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEEaSINS2_8BoundCRSEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS3_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS4_E4typeEOSE_.exitthread-pre-split
 
 805:                                              ; preds = %792
   %806 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !24
@@ -19408,14 +19408,18 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14TransformationEEEC2
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i322: ; preds = %809, %807
   %.0.i.i.i.i.i.i323 = phi i32 [ %796, %807 ], [ %810, %809 ]
   %811 = icmp eq i32 %.0.i.i.i.i.i.i323, 1
-  br i1 %811, label %812, label %_ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEEaSINS2_8BoundCRSEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS3_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS4_E4typeEOSE_.exit, !prof !36
+  br i1 %811, label %812, label %_ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEEaSINS2_8BoundCRSEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS3_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS4_E4typeEOSE_.exitthread-pre-split, !prof !36
 
 812:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i322
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %791) #42
+  br label %_ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEEaSINS2_8BoundCRSEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS3_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS4_E4typeEOSE_.exitthread-pre-split
+
+_ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEEaSINS2_8BoundCRSEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS3_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS4_E4typeEOSE_.exitthread-pre-split: ; preds = %812, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i322, %797
+  %.pr = load ptr, ptr %604, align 8, !tbaa !23
   br label %_ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEEaSINS2_8BoundCRSEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS3_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS4_E4typeEOSE_.exit
 
-_ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEEaSINS2_8BoundCRSEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS3_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS4_E4typeEOSE_.exit: ; preds = %788, %797, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i322, %812
-  %813 = load ptr, ptr %604, align 8, !tbaa !23
+_ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEEaSINS2_8BoundCRSEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS3_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS4_E4typeEOSE_.exit: ; preds = %_ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEEaSINS2_8BoundCRSEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS3_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS4_E4typeEOSE_.exitthread-pre-split, %788
+  %813 = phi ptr [ %.pr, %_ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEEaSINS2_8BoundCRSEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS3_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS4_E4typeEOSE_.exitthread-pre-split ], [ null, %788 ]
   %.not.i.i.i324 = icmp eq ptr %813, null
   br i1 %.not.i.i.i324, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs8BoundCRSEEED2Ev.exit328, label %814
 
@@ -19546,16 +19550,21 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt3setIN5osgeo4proj9operation15GridDescriptionESt4lessIS3_ESaIS3_EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit316
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %34) #42
-  br label %865
+  br label %thread-pre-split
 
 864:                                              ; preds = %.body, %731
   %.pn192 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %732, %731 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %34) #42
   br label %889
 
-865:                                              ; preds = %_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj9operation14TransformationENS4_19CoordinateOperationEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit.thread699, %_ZNSt3setIN5osgeo4proj9operation15GridDescriptionESt4lessIS3_ESaIS3_EED2Ev.exit, %_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj9operation14TransformationENS4_19CoordinateOperationEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit, %720
-  %.4142 = phi i1 [ false, %720 ], [ false, %_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj9operation14TransformationENS4_19CoordinateOperationEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit ], [ %859, %_ZNSt3setIN5osgeo4proj9operation15GridDescriptionESt4lessIS3_ESaIS3_EED2Ev.exit ], [ false, %_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj9operation14TransformationENS4_19CoordinateOperationEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit.thread699 ]
-  %866 = load ptr, ptr %598, align 8, !tbaa !23
+thread-pre-split:                                 ; preds = %720, %_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj9operation14TransformationENS4_19CoordinateOperationEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit, %_ZNSt3setIN5osgeo4proj9operation15GridDescriptionESt4lessIS3_ESaIS3_EED2Ev.exit
+  %.4142.ph = phi i1 [ %859, %_ZNSt3setIN5osgeo4proj9operation15GridDescriptionESt4lessIS3_ESaIS3_EED2Ev.exit ], [ false, %_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj9operation14TransformationENS4_19CoordinateOperationEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit ], [ false, %720 ]
+  %.pr701 = load ptr, ptr %598, align 8, !tbaa !23
+  br label %865
+
+865:                                              ; preds = %thread-pre-split, %_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj9operation14TransformationENS4_19CoordinateOperationEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit.thread699
+  %866 = phi ptr [ %.pr701, %thread-pre-split ], [ null, %_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj9operation14TransformationENS4_19CoordinateOperationEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit.thread699 ]
+  %.4142 = phi i1 [ %.4142.ph, %thread-pre-split ], [ false, %_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj9operation14TransformationENS4_19CoordinateOperationEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit.thread699 ]
   %.not.i.i333 = icmp eq ptr %866, null
   br i1 %.not.i.i333, label %_ZNSt12__shared_ptrIN5osgeo4proj9operation14TransformationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %867
 
@@ -19622,7 +19631,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj9operation14TransformationELN9__gnu_cxx12_Lock_p
 ._crit_edge665:                                   ; preds = %_ZNSt12__shared_ptrIN5osgeo4proj9operation14TransformationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %.pre687 = load ptr, ptr %32, align 8, !tbaa !74
   %.not638 = icmp eq ptr %.pre687, null
-  br i1 %.not638, label %.critedge217, label %890
+  br i1 %.not638, label %.critedge217thread-pre-split, label %890
 
 890:                                              ; preds = %._crit_edge665
   store ptr %.pre687, ptr %0, align 8, !tbaa !74
@@ -19651,8 +19660,8 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i
   br i1 %.not.i.i339, label %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit343, label %899
 
 899:                                              ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit.thread, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit
-  %.pr608704 = phi ptr [ %892, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit.thread ], [ %.pr608.pre, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit ]
-  %900 = getelementptr inbounds nuw i8, ptr %.pr608704, i64 8
+  %.pr608705 = phi ptr [ %892, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit.thread ], [ %.pr608.pre, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit ]
+  %900 = getelementptr inbounds nuw i8, ptr %.pr608705, i64 8
   %901 = load atomic i64, ptr %900 acquire, align 8
   %902 = icmp eq i64 %901, 4294967297
   %903 = trunc i64 %901 to i32
@@ -19660,16 +19669,16 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i
 
 904:                                              ; preds = %899
   store i32 0, ptr %900, align 8, !tbaa !33
-  %905 = getelementptr inbounds nuw i8, ptr %.pr608704, i64 12
+  %905 = getelementptr inbounds nuw i8, ptr %.pr608705, i64 12
   store i32 0, ptr %905, align 4, !tbaa !35
-  %906 = load ptr, ptr %.pr608704, align 8, !tbaa !8
+  %906 = load ptr, ptr %.pr608705, align 8, !tbaa !8
   %907 = getelementptr inbounds nuw i8, ptr %906, i64 16
   %908 = load ptr, ptr %907, align 8
-  call void %908(ptr noundef nonnull align 8 dereferenceable(16) %.pr608704) #42
-  %909 = load ptr, ptr %.pr608704, align 8, !tbaa !8
+  call void %908(ptr noundef nonnull align 8 dereferenceable(16) %.pr608705) #42
+  %909 = load ptr, ptr %.pr608705, align 8, !tbaa !8
   %910 = getelementptr inbounds nuw i8, ptr %909, i64 24
   %911 = load ptr, ptr %910, align 8
-  call void %911(ptr noundef nonnull align 8 dereferenceable(16) %.pr608704) #42
+  call void %911(ptr noundef nonnull align 8 dereferenceable(16) %.pr608705) #42
   br label %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit343
 
 912:                                              ; preds = %899
@@ -19692,7 +19701,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i341: ; preds = %916, %9
   br i1 %918, label %919, label %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit343, !prof !36
 
 919:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i341
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr608704) #42
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr608705) #42
   br label %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit343
 
 _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit343: ; preds = %890, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit, %904, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i341, %919
@@ -19880,8 +19889,12 @@ _ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj9operation26CoordinateOperation
   invoke void @__cxa_end_catch()
           to label %.critedge219 unwind label %1070
 
-.critedge217:                                     ; preds = %_ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj9operation26CoordinateOperationFactoryESt14default_deleteIS6_EEED2Ev.exit, %._crit_edge665
-  %989 = load ptr, ptr %602, align 8, !tbaa !23
+.critedge217thread-pre-split:                     ; preds = %._crit_edge665
+  %.pr706 = load ptr, ptr %602, align 8, !tbaa !23
+  br label %.critedge217
+
+.critedge217:                                     ; preds = %_ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj9operation26CoordinateOperationFactoryESt14default_deleteIS6_EEED2Ev.exit, %.critedge217thread-pre-split
+  %989 = phi ptr [ %.pr706, %.critedge217thread-pre-split ], [ null, %_ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj9operation26CoordinateOperationFactoryESt14default_deleteIS6_EEED2Ev.exit ]
   %.not.i.i362 = icmp eq ptr %989, null
   br i1 %.not.i.i362, label %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit366, label %990
 
@@ -21053,14 +21066,14 @@ _ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj9operation26CoordinateOperation
   call void @llvm.experimental.noalias.scope.decl(metadata !527)
   %1460 = load ptr, ptr %.sroa.0575.0671, align 8, !tbaa !485, !noalias !527
   %1461 = icmp eq ptr %1460, null
-  br i1 %1461, label %_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj9operation14TransformationENS4_19CoordinateOperationEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit455.thread706, label %1462
+  br i1 %1461, label %_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj9operation14TransformationENS4_19CoordinateOperationEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit455.thread708, label %1462
 
 1462:                                             ; preds = %.lr.ph672
   %1463 = call ptr @__dynamic_cast(ptr nonnull %1460, ptr nonnull @_ZTIN5osgeo4proj9operation19CoordinateOperationE, ptr nonnull @_ZTIN5osgeo4proj9operation14TransformationE, i64 -1) #42, !noalias !527
   %.not.i451 = icmp eq ptr %1463, null
-  br i1 %.not.i451, label %_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj9operation14TransformationENS4_19CoordinateOperationEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit455.thread706, label %1464
+  br i1 %.not.i451, label %_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj9operation14TransformationENS4_19CoordinateOperationEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit455.thread708, label %1464
 
-_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj9operation14TransformationENS4_19CoordinateOperationEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit455.thread706: ; preds = %.lr.ph672, %1462
+_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj9operation14TransformationENS4_19CoordinateOperationEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit455.thread708: ; preds = %.lr.ph672, %1462
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, i8 0, i64 16, i1 false), !alias.scope !527
   br label %1519
 
@@ -21197,7 +21210,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14TransformationEEED2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %57) #42
   br label %1665
 
-1519:                                             ; preds = %_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj9operation14TransformationENS4_19CoordinateOperationEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit455.thread706, %_ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit, %_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj9operation14TransformationENS4_19CoordinateOperationEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit455
+1519:                                             ; preds = %_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj9operation14TransformationENS4_19CoordinateOperationEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit455.thread708, %_ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit, %_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj9operation14TransformationENS4_19CoordinateOperationEEESt10shared_ptrIT_ERKNS0_2nnIS7_IT0_EEE.exit455
   %1520 = load ptr, ptr %.sroa.0575.0671, align 8, !tbaa !485
   %1521 = icmp eq ptr %1520, null
   br i1 %1521, label %.critedge225, label %1522
@@ -21567,14 +21580,14 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit496: ; preds = %_ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj9operation26CoordinateOperationFactoryESt14default_deleteIS6_EEED2Ev.exit447, %1676, %1673, %._crit_edge673, %1666
   %cond2.ph = phi i1 [ false, %1676 ], [ false, %1673 ], [ true, %._crit_edge673 ], [ true, %1666 ], [ true, %_ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj9operation26CoordinateOperationFactoryESt14default_deleteIS6_EEED2Ev.exit447 ]
-  %.pr = load ptr, ptr %1263, align 8, !tbaa !23
+  %.pr710 = load ptr, ptr %1263, align 8, !tbaa !23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %55) #42
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %54) #42
-  %.not.i.i497 = icmp eq ptr %.pr, null
+  %.not.i.i497 = icmp eq ptr %.pr710, null
   br i1 %.not.i.i497, label %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit501, label %1678
 
 1678:                                             ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit496
-  %1679 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
+  %1679 = getelementptr inbounds nuw i8, ptr %.pr710, i64 8
   %1680 = load atomic i64, ptr %1679 acquire, align 8
   %1681 = icmp eq i64 %1680, 4294967297
   %1682 = trunc i64 %1680 to i32
@@ -21582,16 +21595,16 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i
 
 1683:                                             ; preds = %1678
   store i32 0, ptr %1679, align 8, !tbaa !33
-  %1684 = getelementptr inbounds nuw i8, ptr %.pr, i64 12
+  %1684 = getelementptr inbounds nuw i8, ptr %.pr710, i64 12
   store i32 0, ptr %1684, align 4, !tbaa !35
-  %1685 = load ptr, ptr %.pr, align 8, !tbaa !8
+  %1685 = load ptr, ptr %.pr710, align 8, !tbaa !8
   %1686 = getelementptr inbounds nuw i8, ptr %1685, i64 16
   %1687 = load ptr, ptr %1686, align 8
-  call void %1687(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #42
-  %1688 = load ptr, ptr %.pr, align 8, !tbaa !8
+  call void %1687(ptr noundef nonnull align 8 dereferenceable(16) %.pr710) #42
+  %1688 = load ptr, ptr %.pr710, align 8, !tbaa !8
   %1689 = getelementptr inbounds nuw i8, ptr %1688, i64 24
   %1690 = load ptr, ptr %1689, align 8
-  call void %1690(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #42
+  call void %1690(ptr noundef nonnull align 8 dereferenceable(16) %.pr710) #42
   br label %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit501
 
 1691:                                             ; preds = %1678
@@ -21614,11 +21627,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i499: ; preds = %1695, %
   br i1 %1697, label %1698, label %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit501, !prof !36
 
 1698:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i499
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #42
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr710) #42
   br label %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit501
 
 _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit501: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit496.thread, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit496, %1683, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i499, %1698
-  %cond2710 = phi i1 [ false, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit496.thread ], [ %cond2.ph, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit496 ], [ %cond2.ph, %1683 ], [ %cond2.ph, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i499 ], [ %cond2.ph, %1698 ]
+  %cond2713 = phi i1 [ false, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit496.thread ], [ %cond2.ph, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit496 ], [ %cond2.ph, %1683 ], [ %cond2.ph, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i499 ], [ %cond2.ph, %1698 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %53) #42
   %1699 = load ptr, ptr %49, align 8, !tbaa !502
   %1700 = load ptr, ptr %1258, align 8, !tbaa !504
@@ -21813,7 +21826,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i526: ; preds = %1775,
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io16AuthorityFactoryEEED2Ev.exit528: ; preds = %_ZNSt12__shared_ptrIN5osgeo4proj8metadata6ExtentELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit523, %1763, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i526, %1778
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43) #42
-  br i1 %cond2710, label %.critedge227, label %.loopexit651
+  br i1 %cond2713, label %.critedge227, label %.loopexit651
 
 1779:                                             ; preds = %1665, %_ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj9operation26CoordinateOperationFactoryESt14default_deleteIS6_EEED2Ev.exit450
   %.pn178.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn178.pn.pn, %1665 ], [ %.pn173.pn, %_ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj9operation26CoordinateOperationFactoryESt14default_deleteIS6_EEED2Ev.exit450 ]
@@ -85371,8 +85384,8 @@ _ZNK5osgeo4proj3crs8BoundCRS19isTOWGS84CompatibleEv.exit: ; preds = %253
   %276 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 8
   %277 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp ne ptr %276, %266
-  %or.cond395.not = select i1 %275, i1 %.not.i.i.i.i.i, i1 false
-  br i1 %or.cond395.not, label %.lr.ph.i.i.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, !llvm.loop !1270
+  %or.cond396.not = select i1 %275, i1 %.not.i.i.i.i.i, i1 false
+  br i1 %or.cond396.not, label %.lr.ph.i.i.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, !llvm.loop !1270
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %.lr.ph.i.i.i.i.i, %272, %264
   %278 = phi i1 [ false, %264 ], [ true, %272 ], [ %275, %.lr.ph.i.i.i.i.i ]
@@ -85678,7 +85691,7 @@ _ZNSt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEEC2ERKS4_.exitthread-pre-splitth
 _ZNSt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEEC2ERKS4_.exitthread-pre-split: ; preds = %_ZNSt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEEC2ERKS4_.exitthread-pre-splitthread-pre-split, %384
   %.pr = phi ptr [ %.pr.pr, %_ZNSt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEEC2ERKS4_.exitthread-pre-splitthread-pre-split ], [ %387, %384 ]
   %411 = icmp eq ptr %.pr, null
-  br i1 %411, label %1013, label %_ZNSt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEEC2ERKS4_.exitthread-pre-split.thread
+  br i1 %411, label %thread-pre-split, label %_ZNSt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEEC2ERKS4_.exitthread-pre-split.thread
 
 _ZNSt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEEC2ERKS4_.exitthread-pre-split.thread: ; preds = %400, %_ZNSt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEEC2ERKS4_.exitthread-pre-split
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #42
@@ -87250,7 +87263,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation26CoordinateOperationContextEEclEPS
 
 _ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj9operation26CoordinateOperationContextESt14default_deleteIS6_EEED2Ev.exit: ; preds = %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEESaIS9_EED2Ev.exit, %_ZNKSt14default_deleteIN5osgeo4proj9operation26CoordinateOperationContextEEclEPS3_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #42
-  br label %1013
+  br label %thread-pre-split
 
 1006:                                             ; preds = %.body279, %923
   %.merged109 = phi { ptr, i32 } [ %.pn100, %.body279 ], [ %.merged110, %923 ]
@@ -87282,8 +87295,12 @@ _ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj9operation26CoordinateOperation
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #42
   br label %1036
 
-1013:                                             ; preds = %.thread.i158, %_ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj9operation26CoordinateOperationContextESt14default_deleteIS6_EEED2Ev.exit, %_ZNSt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEEC2ERKS4_.exitthread-pre-split
-  %1014 = load ptr, ptr %299, align 8, !tbaa !23
+thread-pre-split:                                 ; preds = %_ZNSt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEEC2ERKS4_.exitthread-pre-split, %_ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj9operation26CoordinateOperationContextESt14default_deleteIS6_EEED2Ev.exit
+  %.pr389 = load ptr, ptr %299, align 8, !tbaa !23
+  br label %1013
+
+1013:                                             ; preds = %thread-pre-split, %.thread.i158
+  %1014 = phi ptr [ %.pr389, %thread-pre-split ], [ null, %.thread.i158 ]
   %.not.i.i299 = icmp eq ptr %1014, null
   br i1 %.not.i.i299, label %_ZNSt12__shared_ptrIN5osgeo4proj3crs11GeodeticCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %1015
 
@@ -87443,7 +87460,7 @@ _ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3C
 _ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEEiESaISC_EEC2ERKSE_.exit: ; preds = %_ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEEiESaISC_EEC2ERKSE_.exit.loopexit, %1045
   %1074 = phi ptr [ %.pre386, %_ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEEiESaISC_EEC2ERKSE_.exit.loopexit ], [ %1046, %1045 ]
   %.not8.i.i311 = icmp eq ptr %1074, %10
-  br i1 %.not8.i.i311, label %.loopexit390, label %.lr.ph.i.i312
+  br i1 %.not8.i.i311, label %.loopexit391, label %.lr.ph.i.i312
 
 .lr.ph.i.i312:                                    ; preds = %_ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEEiESaISC_EEC2ERKSE_.exit, %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEEiEEEE7destroyISC_EEvRSE_PT_.exit.i.i318
   %.09.i.i313 = phi ptr [ %1075, %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEEiEEEE7destroyISC_EEvRSE_PT_.exit.i.i318 ], [ %1074, %_ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEEiESaISC_EEC2ERKSE_.exit ]
@@ -87500,7 +87517,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i316: ; pred
 _ZNSt16allocator_traitsISaISt10_List_nodeISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEEiEEEE7destroyISC_EEvRSE_PT_.exit.i.i318: ; preds = %1098, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i316, %1083, %.lr.ph.i.i312
   call void @_ZdlPvm(ptr noundef nonnull %.09.i.i313, i64 noundef 40) #41
   %.not.i.i319 = icmp eq ptr %1075, %10
-  br i1 %.not.i.i319, label %.loopexit390, label %.lr.ph.i.i312, !llvm.loop !796
+  br i1 %.not.i.i319, label %.loopexit391, label %.lr.ph.i.i312, !llvm.loop !796
 
 .body309:                                         ; preds = %216, %1072, %1044
   %.merged = phi { ptr, i32 } [ %.merged102, %1044 ], [ %217, %216 ], [ %1073, %1072 ]
@@ -87510,14 +87527,14 @@ _ZNSt16allocator_traitsISaISt10_List_nodeISt4pairIN7dropbox6oxygen2nnISt10shared
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #42
   resume { ptr, i32 } %.merged
 
-.loopexit390:                                     ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEEiEEEE7destroyISC_EEvRSE_PT_.exit.i.i318, %_ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEEiESaISC_EEC2ERKSE_.exit
+.loopexit391:                                     ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEEiEEEE7destroyISC_EEvRSE_PT_.exit.i.i318, %_ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEEiESaISC_EEC2ERKSE_.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #42
   %.pre387 = load ptr, ptr %9, align 8, !tbaa !617
   %.not8.i.i321 = icmp eq ptr %.pre387, %9
   br i1 %.not8.i.i321, label %_ZNSt7__cxx1110_List_baseISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEEiESaISC_EED2Ev.exit330, label %.lr.ph.i.i322
 
-.lr.ph.i.i322:                                    ; preds = %.loopexit390, %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEEiEEEE7destroyISC_EEvRSE_PT_.exit.i.i328
-  %.09.i.i323 = phi ptr [ %1099, %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEEiEEEE7destroyISC_EEvRSE_PT_.exit.i.i328 ], [ %.pre387, %.loopexit390 ]
+.lr.ph.i.i322:                                    ; preds = %.loopexit391, %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEEiEEEE7destroyISC_EEvRSE_PT_.exit.i.i328
+  %.09.i.i323 = phi ptr [ %1099, %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEEiEEEE7destroyISC_EEvRSE_PT_.exit.i.i328 ], [ %.pre387, %.loopexit391 ]
   %1099 = load ptr, ptr %.09.i.i323, align 8, !tbaa !617
   %1100 = getelementptr inbounds nuw i8, ptr %.09.i.i323, i64 24
   %1101 = load ptr, ptr %1100, align 8, !tbaa !23
@@ -87573,7 +87590,7 @@ _ZNSt16allocator_traitsISaISt10_List_nodeISt4pairIN7dropbox6oxygen2nnISt10shared
   %.not.i.i329 = icmp eq ptr %1099, %9
   br i1 %.not.i.i329, label %_ZNSt7__cxx1110_List_baseISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEEiESaISC_EED2Ev.exit330, label %.lr.ph.i.i322, !llvm.loop !796
 
-_ZNSt7__cxx1110_List_baseISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEEiESaISC_EED2Ev.exit330: ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEEiEEEE7destroyISC_EEvRSE_PT_.exit.i.i328, %.thread, %.loopexit390
+_ZNSt7__cxx1110_List_baseISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEEiESaISC_EED2Ev.exit330: ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEEiEEEE7destroyISC_EEvRSE_PT_.exit.i.i328, %.thread, %.loopexit391
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #42
   ret void
 }

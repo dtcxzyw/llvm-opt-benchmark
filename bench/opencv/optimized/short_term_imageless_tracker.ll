@@ -803,7 +803,7 @@ _ZSt20dynamic_pointer_castIN3vas2ot26ShortTermImagelessTrackletENS1_8TrackletEES
   %286 = atomicrmw volatile add ptr %281, i32 1 acq_rel, align 4, !noalias !111
   %.pr.pre = load ptr, ptr %11, align 8, !tbaa !72
   %.not285 = icmp eq ptr %.pr.pre, null
-  br i1 %.not285, label %.critedge138, label %_ZSt20dynamic_pointer_castIN3vas2ot26ShortTermImagelessTrackletENS1_8TrackletEESt10shared_ptrIT_ERKS4_IT0_E.exit158.thread
+  br i1 %.not285, label %.critedge138thread-pre-split, label %_ZSt20dynamic_pointer_castIN3vas2ot26ShortTermImagelessTrackletENS1_8TrackletEESt10shared_ptrIT_ERKS4_IT0_E.exit158.thread
 
 _ZSt20dynamic_pointer_castIN3vas2ot26ShortTermImagelessTrackletENS1_8TrackletEESt10shared_ptrIT_ERKS4_IT0_E.exit158.thread: ; preds = %277, %283, %_ZSt20dynamic_pointer_castIN3vas2ot26ShortTermImagelessTrackletENS1_8TrackletEESt10shared_ptrIT_ERKS4_IT0_E.exit158
   %287 = phi ptr [ %.pr.pre, %_ZSt20dynamic_pointer_castIN3vas2ot26ShortTermImagelessTrackletENS1_8TrackletEESt10shared_ptrIT_ERKS4_IT0_E.exit158 ], [ %276, %283 ], [ %276, %277 ]
@@ -1078,8 +1078,12 @@ _ZNSt12__shared_ptrIN3vas2ot26ShortTermImagelessTrackletELN9__gnu_cxx12_Lock_pol
   store i32 -1, ptr %421, align 4, !tbaa !49
   br label %453
 
-.critedge138:                                     ; preds = %_ZSt20dynamic_pointer_castIN3vas2ot26ShortTermImagelessTrackletENS1_8TrackletEESt10shared_ptrIT_ERKS4_IT0_E.exit158.thread350, %_ZSt20dynamic_pointer_castIN3vas2ot26ShortTermImagelessTrackletENS1_8TrackletEESt10shared_ptrIT_ERKS4_IT0_E.exit158
-  %431 = load ptr, ptr %215, align 8, !tbaa !75
+.critedge138thread-pre-split:                     ; preds = %_ZSt20dynamic_pointer_castIN3vas2ot26ShortTermImagelessTrackletENS1_8TrackletEESt10shared_ptrIT_ERKS4_IT0_E.exit158
+  %.pr = load ptr, ptr %215, align 8, !tbaa !75
+  br label %.critedge138
+
+.critedge138:                                     ; preds = %.critedge138thread-pre-split, %_ZSt20dynamic_pointer_castIN3vas2ot26ShortTermImagelessTrackletENS1_8TrackletEESt10shared_ptrIT_ERKS4_IT0_E.exit158.thread350
+  %431 = phi ptr [ %.pr, %.critedge138thread-pre-split ], [ null, %_ZSt20dynamic_pointer_castIN3vas2ot26ShortTermImagelessTrackletENS1_8TrackletEESt10shared_ptrIT_ERKS4_IT0_E.exit158.thread350 ]
   %.not.i.i169 = icmp eq ptr %431, null
   br i1 %.not.i.i169, label %_ZNSt12__shared_ptrIN3vas2ot26ShortTermImagelessTrackletELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit173, label %432
 
@@ -1186,7 +1190,7 @@ _ZSt20dynamic_pointer_castIN3vas2ot26ShortTermImagelessTrackletENS1_8TrackletEES
   %473 = atomicrmw volatile add ptr %468, i32 1 acq_rel, align 4, !noalias !138
   %.pr265.pre = load ptr, ptr %12, align 8, !tbaa !72
   %.not282 = icmp eq ptr %.pr265.pre, null
-  br i1 %.not282, label %530, label %_ZSt20dynamic_pointer_castIN3vas2ot26ShortTermImagelessTrackletENS1_8TrackletEESt10shared_ptrIT_ERKS4_IT0_E.exit178.thread
+  br i1 %.not282, label %thread-pre-split, label %_ZSt20dynamic_pointer_castIN3vas2ot26ShortTermImagelessTrackletENS1_8TrackletEESt10shared_ptrIT_ERKS4_IT0_E.exit178.thread
 
 _ZSt20dynamic_pointer_castIN3vas2ot26ShortTermImagelessTrackletENS1_8TrackletEESt10shared_ptrIT_ERKS4_IT0_E.exit178.thread: ; preds = %464, %470, %_ZSt20dynamic_pointer_castIN3vas2ot26ShortTermImagelessTrackletENS1_8TrackletEESt10shared_ptrIT_ERKS4_IT0_E.exit178
   %474 = phi ptr [ %.pr265.pre, %_ZSt20dynamic_pointer_castIN3vas2ot26ShortTermImagelessTrackletENS1_8TrackletEESt10shared_ptrIT_ERKS4_IT0_E.exit178 ], [ %463, %470 ], [ %463, %464 ]
@@ -1272,22 +1276,26 @@ _ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE4backEv.exit180: ; preds = %500, %509
   %520 = phi i32 [ %.pre340, %_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE4backEv.exit180 ], [ %476, %_ZSt20dynamic_pointer_castIN3vas2ot26ShortTermImagelessTrackletENS1_8TrackletEESt10shared_ptrIT_ERKS4_IT0_E.exit178.thread ]
   %521 = phi ptr [ %503, %_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE4backEv.exit180 ], [ %474, %_ZSt20dynamic_pointer_castIN3vas2ot26ShortTermImagelessTrackletENS1_8TrackletEESt10shared_ptrIT_ERKS4_IT0_E.exit178.thread ]
   %522 = icmp eq i32 %520, 2
-  br i1 %522, label %523, label %530
+  br i1 %522, label %523, label %thread-pre-split
 
 523:                                              ; preds = %.thread355, %519
   %524 = phi ptr [ %474, %.thread355 ], [ %521, %519 ]
   %525 = getelementptr inbounds nuw i8, ptr %524, i64 24
   %526 = load i32, ptr %525, align 8, !tbaa !108
   %527 = icmp sgt i32 %526, 19
-  br i1 %527, label %528, label %530
+  br i1 %527, label %528, label %thread-pre-split
 
 528:                                              ; preds = %523
   %529 = getelementptr inbounds nuw i8, ptr %524, i64 20
   store i32 -1, ptr %529, align 4, !tbaa !49
+  br label %thread-pre-split
+
+thread-pre-split:                                 ; preds = %_ZSt20dynamic_pointer_castIN3vas2ot26ShortTermImagelessTrackletENS1_8TrackletEESt10shared_ptrIT_ERKS4_IT0_E.exit178, %523, %528, %519
+  %.pr356 = load ptr, ptr %166, align 8, !tbaa !75
   br label %530
 
-530:                                              ; preds = %_ZSt20dynamic_pointer_castIN3vas2ot26ShortTermImagelessTrackletENS1_8TrackletEESt10shared_ptrIT_ERKS4_IT0_E.exit178.thread353, %519, %528, %523, %_ZSt20dynamic_pointer_castIN3vas2ot26ShortTermImagelessTrackletENS1_8TrackletEESt10shared_ptrIT_ERKS4_IT0_E.exit178
-  %531 = load ptr, ptr %166, align 8, !tbaa !75
+530:                                              ; preds = %thread-pre-split, %_ZSt20dynamic_pointer_castIN3vas2ot26ShortTermImagelessTrackletENS1_8TrackletEESt10shared_ptrIT_ERKS4_IT0_E.exit178.thread353
+  %531 = phi ptr [ %.pr356, %thread-pre-split ], [ null, %_ZSt20dynamic_pointer_castIN3vas2ot26ShortTermImagelessTrackletENS1_8TrackletEESt10shared_ptrIT_ERKS4_IT0_E.exit178.thread353 ]
   %.not.i.i181 = icmp eq ptr %531, null
   br i1 %.not.i.i181, label %_ZNSt12__shared_ptrIN3vas2ot26ShortTermImagelessTrackletELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit185, label %532
 

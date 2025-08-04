@@ -3152,55 +3152,53 @@ define dso_local void @_snd_pcm_hw_params_any(ptr noundef captures(none) initial
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(608) %0, i8 0, i64 608, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 516
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 512
   br label %7
 
-5:                                                ; preds = %7
-  store i32 %15, ptr %4, align 8
+4:                                                ; preds = %7
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  store i32 7, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 260
-  br label %18
+  br label %16
 
 7:                                                ; preds = %7, %1
-  %8 = phi i64 [ 0, %1 ], [ %16, %7 ]
-  %9 = phi i32 [ 0, %1 ], [ %15, %7 ]
-  %10 = getelementptr [3 x %struct.snd_mask], ptr %2, i64 0, i64 %8
-  store i64 -1, ptr %10, align 4
-  %11 = trunc i64 %8 to i32
-  %12 = shl nuw nsw i32 1, %11
-  %13 = load i32, ptr %3, align 4
-  %14 = or i32 %13, %12
-  store i32 %14, ptr %3, align 4
-  %15 = or i32 %12, %9
-  %16 = add nuw nsw i64 %8, 1
-  %17 = icmp eq i64 %16, 3
-  br i1 %17, label %5, label %7, !llvm.loop !28
+  %8 = phi i64 [ 0, %1 ], [ %14, %7 ]
+  %9 = getelementptr [3 x %struct.snd_mask], ptr %2, i64 0, i64 %8
+  store i64 -1, ptr %9, align 4
+  %10 = trunc i64 %8 to i32
+  %11 = shl nuw nsw i32 1, %10
+  %12 = load i32, ptr %3, align 4
+  %13 = or i32 %12, %11
+  store i32 %13, ptr %3, align 4
+  %14 = add nuw nsw i64 %8, 1
+  %15 = icmp eq i64 %14, 3
+  br i1 %15, label %4, label %7, !llvm.loop !28
 
-18:                                               ; preds = %18, %5
-  %19 = phi i64 [ 8, %5 ], [ %32, %18 ]
-  %20 = add nsw i64 %19, -8
-  %21 = getelementptr [12 x %struct.snd_interval], ptr %6, i64 0, i64 %20
-  store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %23 = load i8, ptr %22, align 4
-  %24 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  store i32 -1, ptr %24, align 4
-  %25 = and i8 %23, -16
-  store i8 %25, ptr %22, align 4
-  %26 = trunc i64 %19 to i32
-  %27 = shl nuw nsw i32 1, %26
-  %28 = load i32, ptr %3, align 4
-  %29 = or i32 %28, %27
-  store i32 %29, ptr %3, align 4
-  %30 = load i32, ptr %4, align 8
-  %31 = or i32 %30, %27
-  store i32 %31, ptr %4, align 8
-  %32 = add nuw nsw i64 %19, 1
-  %33 = icmp eq i64 %32, 20
-  br i1 %33, label %34, label %18, !llvm.loop !29
+16:                                               ; preds = %16, %4
+  %17 = phi i64 [ 8, %4 ], [ %30, %16 ]
+  %18 = add nsw i64 %17, -8
+  %19 = getelementptr [12 x %struct.snd_interval], ptr %6, i64 0, i64 %18
+  store i32 0, ptr %19, align 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = load i8, ptr %20, align 4
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  store i32 -1, ptr %22, align 4
+  %23 = and i8 %21, -16
+  store i8 %23, ptr %20, align 4
+  %24 = trunc i64 %17 to i32
+  %25 = shl nuw nsw i32 1, %24
+  %26 = load i32, ptr %3, align 4
+  %27 = or i32 %26, %25
+  store i32 %27, ptr %3, align 4
+  %28 = load i32, ptr %5, align 8
+  %29 = or i32 %28, %25
+  store i32 %29, ptr %5, align 8
+  %30 = add nuw nsw i64 %17, 1
+  %31 = icmp eq i64 %30, 20
+  br i1 %31, label %32, label %16, !llvm.loop !29
 
-34:                                               ; preds = %18
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  store i32 -1, ptr %35, align 8
+32:                                               ; preds = %16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 520
+  store i32 -1, ptr %33, align 8
   ret void
 }
 

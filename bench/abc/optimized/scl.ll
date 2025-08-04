@@ -2849,7 +2849,6 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %17, i8 0, i64 12, i1 false)
   tail call void (...) @Extra_UtilGetoptReset() #12
   %.promoted = load i32, ptr %15, align 4
-  %.promoted404 = load i32, ptr %16, align 4
   %.promoted417 = load i32, ptr %14, align 4
   %.promoted429 = load i32, ptr %13, align 4
   %.promoted441 = load i32, ptr %12, align 4
@@ -2861,7 +2860,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
   %22 = phi i32 [ %.promoted441, %3 ], [ %.be717, %.backedge ]
   %23 = phi i32 [ %.promoted429, %3 ], [ %.be718, %.backedge ]
   %24 = phi i32 [ %.promoted417, %3 ], [ %.be719, %.backedge ]
-  %25 = phi i32 [ %.promoted404, %3 ], [ %.be720, %.backedge ]
+  %25 = phi i32 [ 0, %3 ], [ %.be720, %.backedge ]
   %26 = phi i32 [ %.promoted, %3 ], [ %.be721, %.backedge ]
   %27 = phi i32 [ 0, %3 ], [ %.be722, %.backedge ]
   %28 = phi i32 [ 0, %3 ], [ %.be723, %.backedge ]

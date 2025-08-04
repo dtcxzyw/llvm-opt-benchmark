@@ -27499,7 +27499,7 @@ _ZNKSt6vectorIPKN4Json12PathArgumentESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i:
   %7 = alloca %"class.std::vector.43", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #44
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -27508,66 +27508,64 @@ _ZNKSt6vectorIPKN4Json12PathArgumentESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i:
 
 _ZNKSt6vectorIPKN4Json12PathArgumentESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i12: ; preds = %_ZNKSt6vectorIPKN4Json12PathArgumentESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
   store ptr %2, ptr %11, align 8, !tbaa !493
-  %12 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #47
-          to label %_ZNSt6vectorIPKN4Json12PathArgumentESaIS3_EE9push_backEOS3_.exit20 unwind label %24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr %11, ptr %7, align 8, !tbaa !495
+  store ptr %12, ptr %9, align 8, !tbaa !498
+  %13 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #47
+          to label %_ZNKSt6vectorIPKN4Json12PathArgumentESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i22 unwind label %23
 
-_ZNSt6vectorIPKN4Json12PathArgumentESaIS3_EE9push_backEOS3_.exit20: ; preds = %_ZNKSt6vectorIPKN4Json12PathArgumentESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i12
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %3, ptr %13, align 8, !tbaa !493
-  %14 = load i64, ptr %11, align 8
-  store i64 %14, ptr %12, align 8
+_ZNKSt6vectorIPKN4Json12PathArgumentESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i22: ; preds = %_ZNKSt6vectorIPKN4Json12PathArgumentESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i12
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr %3, ptr %14, align 8, !tbaa !493
+  %15 = load i64, ptr %11, align 8
+  store i64 %15, ptr %13, align 8
   tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 8) #45
-  store ptr %12, ptr %7, align 8, !tbaa !495
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %15, ptr %10, align 8, !tbaa !498
   %16 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #47
-          to label %.noexc29 unwind label %27
+          to label %_ZNSt6vectorIPKN4Json12PathArgumentESaIS3_EE9push_backEOS3_.exit30 unwind label %25
 
-.noexc29:                                         ; preds = %_ZNSt6vectorIPKN4Json12PathArgumentESaIS3_EE9push_backEOS3_.exit20
+_ZNSt6vectorIPKN4Json12PathArgumentESaIS3_EE9push_backEOS3_.exit30: ; preds = %_ZNKSt6vectorIPKN4Json12PathArgumentESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i22
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %4, ptr %17, align 8, !tbaa !493
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
-  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef 16) #45
-  store ptr %16, ptr %7, align 8, !tbaa !495
-  %18 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store ptr %18, ptr %10, align 8, !tbaa !498
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr %5, ptr %19, align 8, !tbaa !493
-  %20 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #47
-          to label %.noexc49 unwind label %29
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false)
+  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef 16) #45
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  store ptr %5, ptr %18, align 8, !tbaa !493
+  %19 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #47
+          to label %.noexc49 unwind label %28
 
-.noexc49:                                         ; preds = %.noexc29
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  store ptr %6, ptr %21, align 8, !tbaa !493
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false)
-  %22 = getelementptr inbounds nuw i8, ptr %20, i64 40
+.noexc49:                                         ; preds = %_ZNSt6vectorIPKN4Json12PathArgumentESaIS3_EE9push_backEOS3_.exit30
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  store ptr %6, ptr %20, align 8, !tbaa !493
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false)
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 40
   tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef 32) #45
-  store ptr %20, ptr %7, align 8, !tbaa !495
-  store ptr %22, ptr %9, align 8, !tbaa !499
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 64
-  store ptr %23, ptr %10, align 8, !tbaa !498
+  store ptr %19, ptr %7, align 8, !tbaa !495
+  store ptr %21, ptr %9, align 8, !tbaa !498
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 64
+  store ptr %22, ptr %10, align 8, !tbaa !499
   invoke void @_ZN4Json4Path8makePathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIPKNS_12PathArgumentESaISC_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(24) %7)
           to label %_ZNSt6vectorIPKN4Json12PathArgumentESaIS3_EED2Ev.exit unwind label %31
 
 _ZNSt6vectorIPKN4Json12PathArgumentESaIS3_EED2Ev.exit: ; preds = %.noexc49
-  tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef 64) #45
+  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 64) #45
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #44
   ret void
 
-24:                                               ; preds = %_ZNKSt6vectorIPKN4Json12PathArgumentESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i12
-  %25 = landingpad { ptr, i32 }
-          cleanup
-  %26 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  br label %35
-
-27:                                               ; preds = %_ZNSt6vectorIPKN4Json12PathArgumentESaIS3_EE9push_backEOS3_.exit20
-  %28 = landingpad { ptr, i32 }
+23:                                               ; preds = %_ZNKSt6vectorIPKN4Json12PathArgumentESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i12
+  %24 = landingpad { ptr, i32 }
           cleanup
   br label %35
 
-29:                                               ; preds = %.noexc29
-  %30 = landingpad { ptr, i32 }
+25:                                               ; preds = %_ZNKSt6vectorIPKN4Json12PathArgumentESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i22
+  %26 = landingpad { ptr, i32 }
           cleanup
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  br label %35
+
+28:                                               ; preds = %_ZNSt6vectorIPKN4Json12PathArgumentESaIS3_EE9push_backEOS3_.exit30
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 32
   br label %35
 
 31:                                               ; preds = %.noexc49
@@ -27580,10 +27578,10 @@ _ZNSt6vectorIPKN4Json12PathArgumentESaIS3_EED2Ev.exit: ; preds = %.noexc49
           cleanup
   br label %_ZNSt6vectorIPKN4Json12PathArgumentESaIS3_EED2Ev.exit52
 
-35:                                               ; preds = %31, %29, %27, %24
-  %.ph = phi ptr [ %26, %24 ], [ %15, %27 ], [ %18, %29 ], [ %23, %31 ]
-  %.ph63 = phi ptr [ %11, %24 ], [ %12, %27 ], [ %16, %29 ], [ %20, %31 ]
-  %.pn.ph = phi { ptr, i32 } [ %25, %24 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ]
+35:                                               ; preds = %31, %28, %25, %23
+  %.ph = phi ptr [ %12, %23 ], [ %27, %25 ], [ %30, %28 ], [ %22, %31 ]
+  %.ph63 = phi ptr [ %11, %23 ], [ %13, %25 ], [ %16, %28 ], [ %19, %31 ]
+  %.pn.ph = phi { ptr, i32 } [ %24, %23 ], [ %26, %25 ], [ %29, %28 ], [ %32, %31 ]
   %36 = ptrtoint ptr %.ph to i64
   %37 = ptrtoint ptr %.ph63 to i64
   %38 = sub i64 %36, %37
@@ -47428,8 +47426,8 @@ attributes #51 = { nounwind allocsize(0) }
 !495 = !{!496, !497, i64 0}
 !496 = !{!"_ZTSNSt12_Vector_baseIPKN4Json12PathArgumentESaIS3_EE17_Vector_impl_dataE", !497, i64 0, !497, i64 8, !497, i64 16}
 !497 = !{!"p2 _ZTSN4Json12PathArgumentE", !27, i64 0}
-!498 = !{!496, !497, i64 16}
-!499 = !{!496, !497, i64 8}
+!498 = !{!496, !497, i64 8}
+!499 = !{!496, !497, i64 16}
 !500 = !{!497, !497, i64 0}
 !501 = !{!502, !494, i64 8}
 !502 = !{!"_ZTSNSt12_Vector_baseIN4Json12PathArgumentESaIS1_EE17_Vector_impl_dataE", !494, i64 0, !494, i64 8, !494, i64 16}

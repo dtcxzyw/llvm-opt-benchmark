@@ -3284,8 +3284,8 @@ define void @_ZN7Imf_3_419MultiPartOutputFileC2EPKcPKNS_6HeaderEibi(ptr noundef 
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 32, i1 false)
   store ptr %9, ptr %8, align 8, !tbaa !17
-  %.not76 = icmp eq i32 %3, 0
-  br i1 %.not76, label %._crit_edge, label %18
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %._crit_edge, label %18
 
 18:                                               ; preds = %10
   %19 = sext i32 %3 to i64
@@ -3347,8 +3347,8 @@ _ZNSt6vectorIN7Imf_3_46HeaderESaIS1_EE6resizeEm.exit: ; preds = %18
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 144
   %42 = load ptr, ptr %41, align 8, !tbaa !21
   %43 = load ptr, ptr %40, align 8, !tbaa !24
-  %.not = icmp eq ptr %42, %43
-  br i1 %.not, label %._crit_edge66, label %.lr.ph65
+  %.not69 = icmp eq ptr %42, %43
+  br i1 %.not69, label %._crit_edge66, label %.lr.ph65
 
 .lr.ph65:                                         ; preds = %37
   %44 = icmp sgt i32 %3, 1
@@ -4019,8 +4019,8 @@ define void @_ZN7Imf_3_419MultiPartOutputFileC2ERNS_7OStreamEPKNS_6HeaderEibi(pt
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 32, i1 false)
   store ptr %9, ptr %8, align 8, !tbaa !17
-  %.not77 = icmp eq i32 %3, 0
-  br i1 %.not77, label %_ZNSt6vectorIN7Imf_3_46HeaderESaIS1_EE6resizeEm.exit.thread, label %18
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %_ZNSt6vectorIN7Imf_3_46HeaderESaIS1_EE6resizeEm.exit.thread, label %18
 
 _ZNSt6vectorIN7Imf_3_46HeaderESaIS1_EE6resizeEm.exit.thread: ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -4059,8 +4059,8 @@ _ZNSt6vectorIN7Imf_3_46HeaderESaIS1_EE6resizeEm.exit: ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 144
   %27 = load ptr, ptr %26, align 8, !tbaa !21
   %28 = load ptr, ptr %25, align 8, !tbaa !24
-  %.not = icmp eq ptr %27, %28
-  br i1 %.not, label %._crit_edge65, label %.lr.ph64
+  %.not68 = icmp eq ptr %27, %28
+  br i1 %.not68, label %._crit_edge65, label %.lr.ph64
 
 .lr.ph64:                                         ; preds = %.preheader
   %29 = icmp sgt i32 %3, 1

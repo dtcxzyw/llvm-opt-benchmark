@@ -14464,7 +14464,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %30
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 24
   %336 = load ptr, ptr %335, align 8
   call void %336(ptr noundef nonnull align 8 dereferenceable(16) %323) #17
-  br label %_ZNSt10shared_ptrIN5folly10LogHandlerEEaSEOS2_.exit
+  br label %_ZNSt10shared_ptrIN5folly10LogHandlerEEaSEOS2_.exitthread-pre-split
 
 337:                                              ; preds = %324
   %338 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !33
@@ -14483,14 +14483,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %30
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %341, %339
   %.0.i.i.i.i.i.i = phi i32 [ %328, %339 ], [ %342, %341 ]
   %343 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %343, label %344, label %_ZNSt10shared_ptrIN5folly10LogHandlerEEaSEOS2_.exit, !prof !145
+  br i1 %343, label %344, label %_ZNSt10shared_ptrIN5folly10LogHandlerEEaSEOS2_.exitthread-pre-split, !prof !145
 
 344:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %323) #17
+  br label %_ZNSt10shared_ptrIN5folly10LogHandlerEEaSEOS2_.exitthread-pre-split
+
+_ZNSt10shared_ptrIN5folly10LogHandlerEEaSEOS2_.exitthread-pre-split: ; preds = %344, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %329
+  %.pr370 = load ptr, ptr %36, align 8, !tbaa !139
   br label %_ZNSt10shared_ptrIN5folly10LogHandlerEEaSEOS2_.exit
 
-_ZNSt10shared_ptrIN5folly10LogHandlerEEaSEOS2_.exit: ; preds = %320, %329, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %344
-  %345 = load ptr, ptr %36, align 8, !tbaa !139
+_ZNSt10shared_ptrIN5folly10LogHandlerEEaSEOS2_.exit: ; preds = %_ZNSt10shared_ptrIN5folly10LogHandlerEEaSEOS2_.exitthread-pre-split, %320
+  %345 = phi ptr [ %.pr370, %_ZNSt10shared_ptrIN5folly10LogHandlerEEaSEOS2_.exitthread-pre-split ], [ null, %320 ]
   %.not.i.i115 = icmp eq ptr %345, null
   br i1 %.not.i.i115, label %_ZNSt12__shared_ptrIN5folly10LogHandlerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit119, label %346
 
@@ -14600,7 +14604,7 @@ _ZNSt12__shared_ptrIN5folly10LogHandlerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit1
   %395 = getelementptr inbounds nuw i8, ptr %394, i64 24
   %396 = load ptr, ptr %395, align 8
   call void %396(ptr noundef nonnull align 8 dereferenceable(16) %383) #17
-  br label %_ZNSt10shared_ptrIN5folly10LogHandlerEEaSEOS2_.exit125
+  br label %_ZNSt10shared_ptrIN5folly10LogHandlerEEaSEOS2_.exit125thread-pre-split
 
 397:                                              ; preds = %384
   %398 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !33
@@ -14619,14 +14623,18 @@ _ZNSt12__shared_ptrIN5folly10LogHandlerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i123: ; preds = %401, %399
   %.0.i.i.i.i.i.i124 = phi i32 [ %388, %399 ], [ %402, %401 ]
   %403 = icmp eq i32 %.0.i.i.i.i.i.i124, 1
-  br i1 %403, label %404, label %_ZNSt10shared_ptrIN5folly10LogHandlerEEaSEOS2_.exit125, !prof !145
+  br i1 %403, label %404, label %_ZNSt10shared_ptrIN5folly10LogHandlerEEaSEOS2_.exit125thread-pre-split, !prof !145
 
 404:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i123
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %383) #17
+  br label %_ZNSt10shared_ptrIN5folly10LogHandlerEEaSEOS2_.exit125thread-pre-split
+
+_ZNSt10shared_ptrIN5folly10LogHandlerEEaSEOS2_.exit125thread-pre-split: ; preds = %404, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i123, %389
+  %.pr371 = load ptr, ptr %38, align 8, !tbaa !139
   br label %_ZNSt10shared_ptrIN5folly10LogHandlerEEaSEOS2_.exit125
 
-_ZNSt10shared_ptrIN5folly10LogHandlerEEaSEOS2_.exit125: ; preds = %380, %389, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i123, %404
-  %405 = load ptr, ptr %38, align 8, !tbaa !139
+_ZNSt10shared_ptrIN5folly10LogHandlerEEaSEOS2_.exit125: ; preds = %_ZNSt10shared_ptrIN5folly10LogHandlerEEaSEOS2_.exit125thread-pre-split, %380
+  %405 = phi ptr [ %.pr371, %_ZNSt10shared_ptrIN5folly10LogHandlerEEaSEOS2_.exit125thread-pre-split ], [ null, %380 ]
   %.not.i.i126 = icmp eq ptr %405, null
   br i1 %.not.i.i126, label %_ZNSt12__shared_ptrIN5folly10LogHandlerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit130, label %406
 
@@ -15244,11 +15252,11 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br i1 %.not237.us, label %.loopexit250, label %623, !llvm.loop !343
 
 .lr.ph303.splitthread-pre-split:                  ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN5folly10LogHandlerEEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_.exit
-  %.pr370 = load i64, ptr %87, align 8, !tbaa !340
+  %.pr372 = load i64, ptr %87, align 8, !tbaa !340
   br label %.lr.ph303.split
 
 .lr.ph303.split:                                  ; preds = %.lr.ph303, %.lr.ph303.splitthread-pre-split
-  %638 = phi i64 [ %.pr370, %.lr.ph303.splitthread-pre-split ], [ %621, %.lr.ph303 ]
+  %638 = phi i64 [ %.pr372, %.lr.ph303.splitthread-pre-split ], [ %621, %.lr.ph303 ]
   %.sroa.0187.0302 = phi ptr [ %712, %.lr.ph303.splitthread-pre-split ], [ %618, %.lr.ph303 ]
   %.not.i = icmp ugt i64 %638, 20
   br i1 %.not.i, label %653, label %639

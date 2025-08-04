@@ -10596,25 +10596,23 @@ define range(i32 0, 2) i32 @dt_shortcut_key_active(i8 noundef zeroext %0, i32 no
   store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 12), align 4, !tbaa !9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_sc, i64 16), i8 0, i64 40, i1 false)
   store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 48), align 8, !tbaa !125
-  %4 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
-  %5 = and i16 %4, -1537
-  store i16 %5, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
-  %6 = tail call reassoc nsz arcp contract afn fastcc float @_process_shortcut(float noundef 0xC7EFFFFFE0000000)
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
+  %4 = tail call reassoc nsz arcp contract afn fastcc float @_process_shortcut(float noundef 0xC7EFFFFFE0000000)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) @_sc, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !tbaa.struct !249
-  %7 = frem reassoc nsz arcp contract afn float %6, 1.000000e+00
-  %8 = fcmp reassoc nsz arcp contract afn ugt float %7, -5.000000e-01
-  br i1 %8, label %9, label %13
+  %5 = frem reassoc nsz arcp contract afn float %4, 1.000000e+00
+  %6 = fcmp reassoc nsz arcp contract afn ugt float %5, -5.000000e-01
+  br i1 %6, label %7, label %11
 
-9:                                                ; preds = %2
-  %10 = frem reassoc nsz arcp contract afn float %6, 2.000000e+00
-  %11 = fcmp reassoc nsz arcp contract afn ogt float %10, 5.000000e-01
-  %12 = zext i1 %11 to i32
-  br label %13
+7:                                                ; preds = %2
+  %8 = frem reassoc nsz arcp contract afn float %4, 2.000000e+00
+  %9 = fcmp reassoc nsz arcp contract afn ogt float %8, 5.000000e-01
+  %10 = zext i1 %9 to i32
+  br label %11
 
-13:                                               ; preds = %9, %2
-  %14 = phi i32 [ 1, %2 ], [ %12, %9 ]
+11:                                               ; preds = %7, %2
+  %12 = phi i32 [ 1, %2 ], [ %10, %7 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
-  ret i32 %14
+  ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable

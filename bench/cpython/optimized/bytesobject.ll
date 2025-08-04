@@ -6401,7 +6401,7 @@ define internal fastcc ptr @_PyBytes_FromIterator(ptr noundef nonnull %0, ptr no
   call void @llvm.lifetime.start.p0(i64 552, ptr nonnull %3) #20
   %4 = tail call i64 @PyObject_LengthHint(ptr noundef nonnull %1, i64 noundef 64) #20
   %5 = icmp eq i64 %4, -1
-  br i1 %5, label %17, label %.split
+  br i1 %5, label %19, label %.split
 
 .split:                                           ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %3, i8 0, i64 32, i1 false)
@@ -6430,133 +6430,131 @@ _PyBytesWriter_Alloc.exit.thread:                 ; preds = %15
   store i64 %4, ptr %11, align 8, !tbaa !22
   br label %_PyBytesWriter_Alloc.exit._PyBytesWriter_Alloc.exit.thread46_crit_edge
 
-17:                                               ; preds = %2
-  %18 = tail call ptr @PyErr_Occurred() #20
-  %.not = icmp eq ptr %18, null
-  br i1 %.not, label %19, label %_PyBytesWriter_Dealloc.exit
-
-19:                                               ; preds = %17
-  %20 = tail call ptr @PyErr_NoMemory() #20
-  br label %_PyBytesWriter_Dealloc.exit
-
 _PyBytesWriter_Alloc.exit:                        ; preds = %15
-  %21 = call ptr @_PyBytesWriter_Resize(ptr noundef nonnull %3, ptr noundef nonnull %8, i64 noundef %4)
+  %17 = call ptr @_PyBytesWriter_Resize(ptr noundef nonnull %3, ptr noundef nonnull %8, i64 noundef %4)
   store i64 %4, ptr %11, align 8, !tbaa !22
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %_PyBytesWriter_Dealloc.exit, label %_PyBytesWriter_Alloc.exit._PyBytesWriter_Alloc.exit.thread46_crit_edge
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %_PyBytesWriter_Dealloc.exit, label %_PyBytesWriter_Alloc.exit._PyBytesWriter_Alloc.exit.thread46_crit_edge
 
 _PyBytesWriter_Alloc.exit._PyBytesWriter_Alloc.exit.thread46_crit_edge: ; preds = %_PyBytesWriter_Alloc.exit.thread, %_PyBytesWriter_Alloc.exit
-  %.015.i.i75 = phi ptr [ %8, %_PyBytesWriter_Alloc.exit.thread ], [ %21, %_PyBytesWriter_Alloc.exit ]
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !21
+  %.015.i.i74 = phi ptr [ %8, %_PyBytesWriter_Alloc.exit.thread ], [ %17, %_PyBytesWriter_Alloc.exit ]
+  %.pre = load i64, ptr %7, align 8, !tbaa !21
   br label %_PyBytesWriter_Alloc.exit.thread46
 
+19:                                               ; preds = %2
+  %20 = tail call ptr @PyErr_Occurred() #20
+  %.not = icmp eq ptr %20, null
+  br i1 %.not, label %.split30, label %_PyBytesWriter_Dealloc.exit
+
+.split30:                                         ; preds = %19
+  %21 = tail call ptr @PyErr_NoMemory() #20
+  br label %_PyBytesWriter_Dealloc.exit
+
 _PyBytesWriter_Alloc.exit.thread46:               ; preds = %_PyBytesWriter_Alloc.exit._PyBytesWriter_Alloc.exit.thread46_crit_edge, %.split
-  %23 = phi i64 [ %.pre, %_PyBytesWriter_Alloc.exit._PyBytesWriter_Alloc.exit.thread46_crit_edge ], [ 512, %.split ]
-  %phi.call48 = phi ptr [ %.015.i.i75, %_PyBytesWriter_Alloc.exit._PyBytesWriter_Alloc.exit.thread46_crit_edge ], [ %8, %.split ]
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  store i32 1, ptr %24, align 4, !tbaa !23
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %26 = call ptr @PyIter_Next(ptr noundef nonnull %0) #20
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %._crit_edge, label %.lr.ph
+  %22 = phi i64 [ %.pre, %_PyBytesWriter_Alloc.exit._PyBytesWriter_Alloc.exit.thread46_crit_edge ], [ 512, %.split ]
+  %phi.call48 = phi ptr [ %.015.i.i74, %_PyBytesWriter_Alloc.exit._PyBytesWriter_Alloc.exit.thread46_crit_edge ], [ %8, %.split ]
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  store i32 1, ptr %23, align 4, !tbaa !23
+  %24 = call ptr @PyIter_Next(ptr noundef nonnull %0) #20
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %48, %_PyBytesWriter_Alloc.exit.thread46
-  %.022.lcssa = phi ptr [ %phi.call48, %_PyBytesWriter_Alloc.exit.thread46 ], [ %50, %48 ]
-  %28 = call ptr @PyErr_Occurred() #20
-  %.not38 = icmp eq ptr %28, null
-  br i1 %.not38, label %54, label %56
+._crit_edge:                                      ; preds = %46, %_PyBytesWriter_Alloc.exit.thread46
+  %.022.lcssa = phi ptr [ %phi.call48, %_PyBytesWriter_Alloc.exit.thread46 ], [ %48, %46 ]
+  %26 = call ptr @PyErr_Occurred() #20
+  %.not38 = icmp eq ptr %26, null
+  br i1 %.not38, label %52, label %54
 
-.lr.ph:                                           ; preds = %_PyBytesWriter_Alloc.exit.thread46, %48
-  %29 = phi ptr [ %52, %48 ], [ %26, %_PyBytesWriter_Alloc.exit.thread46 ]
-  %.02270 = phi ptr [ %50, %48 ], [ %phi.call48, %_PyBytesWriter_Alloc.exit.thread46 ]
-  %.02669 = phi i64 [ %.228, %48 ], [ %23, %_PyBytesWriter_Alloc.exit.thread46 ]
-  %.02968 = phi i64 [ %51, %48 ], [ 0, %_PyBytesWriter_Alloc.exit.thread46 ]
-  %30 = call i64 @PyNumber_AsSsize_t(ptr noundef nonnull %29, ptr noundef null) #20
-  %31 = load i32, ptr %29, align 8, !tbaa !9
-  %.not.i = icmp sgt i32 %31, -1
-  br i1 %.not.i, label %32, label %Py_DECREF.exit
+.lr.ph:                                           ; preds = %_PyBytesWriter_Alloc.exit.thread46, %46
+  %27 = phi ptr [ %50, %46 ], [ %24, %_PyBytesWriter_Alloc.exit.thread46 ]
+  %.02269 = phi ptr [ %48, %46 ], [ %phi.call48, %_PyBytesWriter_Alloc.exit.thread46 ]
+  %.02668 = phi i64 [ %.228, %46 ], [ %22, %_PyBytesWriter_Alloc.exit.thread46 ]
+  %.02967 = phi i64 [ %49, %46 ], [ 0, %_PyBytesWriter_Alloc.exit.thread46 ]
+  %28 = call i64 @PyNumber_AsSsize_t(ptr noundef nonnull %27, ptr noundef null) #20
+  %29 = load i32, ptr %27, align 8, !tbaa !9
+  %.not.i = icmp sgt i32 %29, -1
+  br i1 %.not.i, label %30, label %Py_DECREF.exit
 
-32:                                               ; preds = %.lr.ph
-  %33 = add nsw i32 %31, -1
-  store i32 %33, ptr %29, align 8, !tbaa !9
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %Py_DECREF.exit
+30:                                               ; preds = %.lr.ph
+  %31 = add nsw i32 %29, -1
+  store i32 %31, ptr %27, align 8, !tbaa !9
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %Py_DECREF.exit
 
-35:                                               ; preds = %32
-  call void @_Py_Dealloc(ptr noundef nonnull %29) #20
+33:                                               ; preds = %30
+  call void @_Py_Dealloc(ptr noundef nonnull %27) #20
   br label %Py_DECREF.exit
 
-Py_DECREF.exit:                                   ; preds = %.lr.ph, %32, %35
-  %36 = icmp eq i64 %30, -1
-  br i1 %36, label %37, label %39
+Py_DECREF.exit:                                   ; preds = %.lr.ph, %30, %33
+  %34 = icmp eq i64 %28, -1
+  br i1 %34, label %35, label %37
+
+35:                                               ; preds = %Py_DECREF.exit
+  %36 = call ptr @PyErr_Occurred() #20
+  %.not36 = icmp eq ptr %36, null
+  br i1 %.not36, label %.thread, label %54
 
 37:                                               ; preds = %Py_DECREF.exit
-  %38 = call ptr @PyErr_Occurred() #20
-  %.not36 = icmp eq ptr %38, null
-  br i1 %.not36, label %.thread, label %56
+  %or.cond = icmp ugt i64 %28, 255
+  br i1 %or.cond, label %.thread, label %39
 
-39:                                               ; preds = %Py_DECREF.exit
-  %or.cond = icmp ugt i64 %30, 255
-  br i1 %or.cond, label %.thread, label %41
+.thread:                                          ; preds = %37, %35
+  %38 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !4
+  call void @PyErr_SetString(ptr noundef %38, ptr noundef nonnull @.str.56) #20
+  br label %54
 
-.thread:                                          ; preds = %39, %37
-  %40 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !4
-  call void @PyErr_SetString(ptr noundef %40, ptr noundef nonnull @.str.56) #20
-  br label %56
+39:                                               ; preds = %37
+  %.not37 = icmp slt i64 %.02967, %.02668
+  br i1 %.not37, label %46, label %40
 
-41:                                               ; preds = %39
-  %.not37 = icmp slt i64 %.02968, %.02669
-  br i1 %.not37, label %48, label %42
+40:                                               ; preds = %39
+  %41 = add i64 %.02668, 1
+  %42 = call ptr @_PyBytesWriter_Resize(ptr noundef nonnull %3, ptr noundef %.02269, i64 noundef %41)
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %_PyBytesWriter_Dealloc.exit, label %44
 
-42:                                               ; preds = %41
-  %43 = add i64 %.02669, 1
-  %44 = call ptr @_PyBytesWriter_Resize(ptr noundef nonnull %3, ptr noundef %.02270, i64 noundef %43)
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %_PyBytesWriter_Dealloc.exit, label %46
+44:                                               ; preds = %40
+  %45 = load i64, ptr %7, align 8, !tbaa !21
+  br label %46
 
-46:                                               ; preds = %42
-  %47 = load i64, ptr %25, align 8, !tbaa !21
-  br label %48
+46:                                               ; preds = %39, %44
+  %.228 = phi i64 [ %45, %44 ], [ %.02668, %39 ]
+  %.224 = phi ptr [ %42, %44 ], [ %.02269, %39 ]
+  %47 = trunc nuw i64 %28 to i8
+  %48 = getelementptr i8, ptr %.224, i64 1
+  store i8 %47, ptr %.224, align 1, !tbaa !9
+  %49 = add i64 %.02967, 1
+  %50 = call ptr @PyIter_Next(ptr noundef nonnull %0) #20
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %._crit_edge, label %.lr.ph
 
-48:                                               ; preds = %41, %46
-  %.228 = phi i64 [ %47, %46 ], [ %.02669, %41 ]
-  %.224 = phi ptr [ %44, %46 ], [ %.02270, %41 ]
-  %49 = trunc nuw i64 %30 to i8
-  %50 = getelementptr i8, ptr %.224, i64 1
-  store i8 %49, ptr %.224, align 1, !tbaa !9
-  %51 = add i64 %.02968, 1
-  %52 = call ptr @PyIter_Next(ptr noundef nonnull %0) #20
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %._crit_edge, label %.lr.ph
-
-54:                                               ; preds = %._crit_edge
-  %55 = call ptr @_PyBytesWriter_Finish(ptr noundef nonnull %3, ptr noundef %.022.lcssa)
+52:                                               ; preds = %._crit_edge
+  %53 = call ptr @_PyBytesWriter_Finish(ptr noundef nonnull %3, ptr noundef %.022.lcssa)
   br label %_PyBytesWriter_Dealloc.exit
 
-56:                                               ; preds = %.thread, %._crit_edge, %37
-  %57 = load ptr, ptr %3, align 8, !tbaa !4
-  %.not.i44 = icmp eq ptr %57, null
-  br i1 %.not.i44, label %_PyBytesWriter_Dealloc.exit, label %58
+54:                                               ; preds = %.thread, %._crit_edge, %35
+  %55 = load ptr, ptr %3, align 8, !tbaa !4
+  %.not.i44 = icmp eq ptr %55, null
+  br i1 %.not.i44, label %_PyBytesWriter_Dealloc.exit, label %56
+
+56:                                               ; preds = %54
+  store ptr null, ptr %3, align 8, !tbaa !4
+  %57 = load i32, ptr %55, align 8, !tbaa !9
+  %.not.i.i = icmp sgt i32 %57, -1
+  br i1 %.not.i.i, label %58, label %_PyBytesWriter_Dealloc.exit
 
 58:                                               ; preds = %56
-  store ptr null, ptr %3, align 8, !tbaa !4
-  %59 = load i32, ptr %57, align 8, !tbaa !9
-  %.not.i.i = icmp sgt i32 %59, -1
-  br i1 %.not.i.i, label %60, label %_PyBytesWriter_Dealloc.exit
+  %59 = add nsw i32 %57, -1
+  store i32 %59, ptr %55, align 8, !tbaa !9
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %61, label %_PyBytesWriter_Dealloc.exit
 
-60:                                               ; preds = %58
-  %61 = add nsw i32 %59, -1
-  store i32 %61, ptr %57, align 8, !tbaa !9
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %63, label %_PyBytesWriter_Dealloc.exit
-
-63:                                               ; preds = %60
-  call void @_Py_Dealloc(ptr noundef nonnull %57) #20
+61:                                               ; preds = %58
+  call void @_Py_Dealloc(ptr noundef nonnull %55) #20
   br label %_PyBytesWriter_Dealloc.exit
 
-_PyBytesWriter_Dealloc.exit:                      ; preds = %42, %19, %13, %63, %60, %58, %56, %_PyBytesWriter_Alloc.exit, %17, %54
-  %.0 = phi ptr [ %55, %54 ], [ null, %17 ], [ null, %_PyBytesWriter_Alloc.exit ], [ null, %56 ], [ null, %58 ], [ null, %60 ], [ null, %63 ], [ null, %13 ], [ null, %19 ], [ null, %42 ]
+_PyBytesWriter_Dealloc.exit:                      ; preds = %40, %.split30, %13, %61, %58, %56, %54, %_PyBytesWriter_Alloc.exit, %19, %52
+  %.0 = phi ptr [ %53, %52 ], [ null, %19 ], [ null, %_PyBytesWriter_Alloc.exit ], [ null, %54 ], [ null, %56 ], [ null, %58 ], [ null, %61 ], [ null, %13 ], [ null, %.split30 ], [ null, %40 ]
   call void @llvm.lifetime.end.p0(i64 552, ptr nonnull %3) #20
   ret ptr %.0
 }

@@ -15931,7 +15931,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj2io15DatabaseContextELN9__gnu_cxx12_Lock_policyE
           to label %.noexc unwind label %133
 
 .noexc:                                           ; preds = %100
-  br i1 %101, label %102, label %_ZNK5osgeo4proj5datum13PrimeMeridian15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE.exit
+  br i1 %101, label %102, label %_ZNK5osgeo4proj5datum13PrimeMeridian15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE.exitthread-pre-split
 
 102:                                              ; preds = %.noexc
   %103 = getelementptr inbounds nuw i8, ptr %92, i64 56
@@ -15939,11 +15939,16 @@ _ZNSt12__shared_ptrIN5osgeo4proj2io15DatabaseContextELN9__gnu_cxx12_Lock_policyE
   %105 = getelementptr inbounds nuw i8, ptr %94, i64 56
   %106 = load ptr, ptr %105, align 8, !tbaa !78
   %107 = invoke noundef zeroext i1 @_ZNK5osgeo4proj6common7Measure15_isEquivalentToERKS2_NS0_4util11IComparable9CriterionEd(ptr noundef nonnull align 8 dereferenceable(24) %104, ptr noundef nonnull align 8 dereferenceable(24) %106, i32 noundef 0, double noundef 1.000000e-08)
-          to label %_ZNK5osgeo4proj5datum13PrimeMeridian15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE.exit unwind label %133
+          to label %_ZNK5osgeo4proj5datum13PrimeMeridian15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE.exitthread-pre-split unwind label %133
 
-_ZNK5osgeo4proj5datum13PrimeMeridian15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE.exit: ; preds = %.noexc, %97, %90, %102
-  %.0.i = phi i1 [ false, %.noexc ], [ false, %90 ], [ false, %97 ], [ %107, %102 ]
-  %108 = load ptr, ptr %28, align 8, !tbaa !52
+_ZNK5osgeo4proj5datum13PrimeMeridian15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE.exitthread-pre-split: ; preds = %102, %.noexc
+  %.0.i.ph = phi i1 [ %107, %102 ], [ false, %.noexc ]
+  %.pr = load ptr, ptr %28, align 8, !tbaa !52
+  br label %_ZNK5osgeo4proj5datum13PrimeMeridian15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE.exit
+
+_ZNK5osgeo4proj5datum13PrimeMeridian15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE.exit: ; preds = %_ZNK5osgeo4proj5datum13PrimeMeridian15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE.exitthread-pre-split, %97, %90
+  %108 = phi ptr [ %.pr, %_ZNK5osgeo4proj5datum13PrimeMeridian15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE.exitthread-pre-split ], [ null, %97 ], [ null, %90 ]
+  %.0.i = phi i1 [ %.0.i.ph, %_ZNK5osgeo4proj5datum13PrimeMeridian15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE.exitthread-pre-split ], [ false, %97 ], [ false, %90 ]
   %.not.i.i46 = icmp eq ptr %108, null
   br i1 %.not.i.i46, label %_ZNSt12__shared_ptrIN5osgeo4proj2io15DatabaseContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit50, label %109
 

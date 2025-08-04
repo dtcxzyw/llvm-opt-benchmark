@@ -585,7 +585,7 @@ define internal fastcc noundef zeroext i1 @snoop_read_shomiti_wireless_pseudohea
   %6 = alloca %struct.shomiti_wireless_header, align 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #8
   %7 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 12, ptr noundef %2, ptr noundef %3)
-  br i1 %7, label %8, label %52
+  br i1 %7, label %8, label %50
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 3
@@ -598,91 +598,89 @@ define internal fastcc noundef zeroext i1 @snoop_read_shomiti_wireless_pseudohea
   store i32 -13, ptr %2, align 4
   %14 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef %11)
   store ptr %14, ptr %3, align 8
-  br label %52
+  br label %50
 
 15:                                               ; preds = %8
   %16 = add nsw i32 %11, -8
   %17 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef null, i32 noundef %16, ptr noundef %2, ptr noundef %3)
-  br i1 %17, label %18, label %52
+  br i1 %17, label %18, label %50
 
 18:                                               ; preds = %15
   call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(72) %1, i8 noundef 0, i64 noundef 72, i1 noundef false) #8
   store i32 4, ptr %1, align 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %20 = load i8, ptr %19, align 4
-  %21 = and i8 %20, -4
-  store i8 %21, ptr %19, align 4
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 0, ptr %22, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %24 = load i16, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %6, i64 11
-  %26 = load i8, ptr %25, align 1
-  %27 = zext i8 %26 to i16
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 34
-  store i16 %27, ptr %28, align 2
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 6
-  %30 = load i8, ptr %29, align 1
-  %31 = zext i8 %30 to i16
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i16 %31, ptr %32, align 8
-  %33 = or i16 %24, 13
-  store i16 %33, ptr %23, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %6, i64 9
-  %35 = load i8, ptr %34, align 1
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 42
-  store i8 %35, ptr %36, align 2
-  switch i8 %30, label %50 [
-    i8 2, label %37
-    i8 4, label %37
-    i8 11, label %37
-    i8 22, label %37
-    i8 44, label %37
-    i8 66, label %37
-    i8 12, label %41
-    i8 18, label %41
-    i8 24, label %41
-    i8 36, label %41
-    i8 48, label %41
-    i8 72, label %41
-    i8 96, label %41
-    i8 108, label %41
+  store i8 0, ptr %19, align 4
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 0, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %22 = load i16, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 11
+  %24 = load i8, ptr %23, align 1
+  %25 = zext i8 %24 to i16
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 34
+  store i16 %25, ptr %26, align 2
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 6
+  %28 = load i8, ptr %27, align 1
+  %29 = zext i8 %28 to i16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store i16 %29, ptr %30, align 8
+  %31 = or i16 %22, 13
+  store i16 %31, ptr %21, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 9
+  %33 = load i8, ptr %32, align 1
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 42
+  store i8 %33, ptr %34, align 2
+  switch i8 %28, label %48 [
+    i8 2, label %35
+    i8 4, label %35
+    i8 11, label %35
+    i8 22, label %35
+    i8 44, label %35
+    i8 66, label %35
+    i8 12, label %39
+    i8 18, label %39
+    i8 24, label %39
+    i8 36, label %39
+    i8 48, label %39
+    i8 72, label %39
+    i8 96, label %39
+    i8 108, label %39
   ]
 
-37:                                               ; preds = %18, %18, %18, %18, %18, %18
-  store i32 4, ptr %22, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %39 = load i8, ptr %38, align 4
-  %40 = and i8 %39, -2
-  store i8 %40, ptr %38, align 4
+35:                                               ; preds = %18, %18, %18, %18, %18, %18
+  store i32 4, ptr %20, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %37 = load i8, ptr %36, align 4
+  %38 = and i8 %37, -2
+  store i8 %38, ptr %36, align 4
+  br label %48
+
+39:                                               ; preds = %18, %18, %18, %18, %18, %18, %18, %18
+  %40 = icmp ult i8 %24, 15
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  br i1 %40, label %42, label %45
+
+42:                                               ; preds = %39
+  store i32 6, ptr %20, align 8
+  %43 = load i8, ptr %41, align 4
+  %44 = and i8 %43, -2
+  store i8 %44, ptr %41, align 4
+  br label %48
+
+45:                                               ; preds = %39
+  store i32 5, ptr %20, align 8
+  %46 = load i8, ptr %41, align 4
+  %47 = and i8 %46, -4
+  store i8 %47, ptr %41, align 4
+  br label %48
+
+48:                                               ; preds = %18, %45, %42, %35
+  %49 = add nuw nsw i32 %11, 4
+  store i32 %49, ptr %4, align 4
   br label %50
 
-41:                                               ; preds = %18, %18, %18, %18, %18, %18, %18, %18
-  %42 = icmp ult i8 %26, 15
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  br i1 %42, label %44, label %47
-
-44:                                               ; preds = %41
-  store i32 6, ptr %22, align 8
-  %45 = load i8, ptr %43, align 4
-  %46 = and i8 %45, -2
-  store i8 %46, ptr %43, align 4
-  br label %50
-
-47:                                               ; preds = %41
-  store i32 5, ptr %22, align 8
-  %48 = load i8, ptr %43, align 4
-  %49 = and i8 %48, -4
-  store i8 %49, ptr %43, align 4
-  br label %50
-
-50:                                               ; preds = %18, %47, %44, %37
-  %51 = add nuw nsw i32 %11, 4
-  store i32 %51, ptr %4, align 4
-  br label %52
-
-52:                                               ; preds = %15, %5, %50, %13
-  %.0 = phi i1 [ false, %13 ], [ true, %50 ], [ false, %5 ], [ false, %15 ]
+50:                                               ; preds = %15, %5, %48, %13
+  %.0 = phi i1 [ false, %13 ], [ true, %48 ], [ false, %5 ], [ false, %15 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #8
   ret i1 %.0
 }
