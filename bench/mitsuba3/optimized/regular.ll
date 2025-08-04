@@ -1266,18 +1266,18 @@ define weak_odr <4 x float> @_ZNK7mitsuba15RegularSpectrumIfN5drjit6MatrixINS_8S
   %.sroa.0.0.copyload = load <4 x float>, ptr %4, align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %7 = load <1 x float>, ptr %6, align 4
-  %8 = shufflevector <1 x float> %7, <1 x float> poison, <4 x i32> zeroinitializer
+  %7 = load <4 x float>, ptr %6, align 4
+  %8 = shufflevector <4 x float> %7, <4 x float> poison, <4 x i32> zeroinitializer
   %9 = fcmp contract oge <4 x float> %.sroa.0.0.copyload, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %11 = load <1 x float>, ptr %10, align 8
-  %12 = shufflevector <1 x float> %11, <1 x float> poison, <4 x i32> zeroinitializer
+  %11 = load <4 x float>, ptr %10, align 8
+  %12 = shufflevector <4 x float> %11, <4 x float> poison, <4 x i32> zeroinitializer
   %13 = fcmp contract ole <4 x float> %.sroa.0.0.copyload, %12
   %14 = and <4 x i1> %9, %13
   %15 = fsub contract <4 x float> %.sroa.0.0.copyload, %8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %17 = load <1 x float>, ptr %16, align 8
-  %18 = shufflevector <1 x float> %17, <1 x float> poison, <4 x i32> zeroinitializer
+  %17 = load <4 x float>, ptr %16, align 8
+  %18 = shufflevector <4 x float> %17, <4 x float> poison, <4 x i32> zeroinitializer
   %19 = fmul contract <4 x float> %15, %18
   %20 = tail call <4 x i32> @llvm.x86.avx512.mask.cvttps2udq.128(<4 x float> %19, <4 x i32> zeroinitializer, i8 -1)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1308,18 +1308,18 @@ define weak_odr <4 x float> @_ZNK7mitsuba15RegularSpectrumIfN5drjit6MatrixINS_8S
   %.sroa.0.0.copyload = load <4 x float>, ptr %4, align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %7 = load <1 x float>, ptr %6, align 4
-  %8 = shufflevector <1 x float> %7, <1 x float> poison, <4 x i32> zeroinitializer
+  %7 = load <4 x float>, ptr %6, align 4
+  %8 = shufflevector <4 x float> %7, <4 x float> poison, <4 x i32> zeroinitializer
   %9 = fcmp contract oge <4 x float> %.sroa.0.0.copyload, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %11 = load <1 x float>, ptr %10, align 8
-  %12 = shufflevector <1 x float> %11, <1 x float> poison, <4 x i32> zeroinitializer
+  %11 = load <4 x float>, ptr %10, align 8
+  %12 = shufflevector <4 x float> %11, <4 x float> poison, <4 x i32> zeroinitializer
   %13 = fcmp contract ole <4 x float> %.sroa.0.0.copyload, %12
   %14 = and <4 x i1> %9, %13
   %15 = fsub contract <4 x float> %.sroa.0.0.copyload, %8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %17 = load <1 x float>, ptr %16, align 8
-  %18 = shufflevector <1 x float> %17, <1 x float> poison, <4 x i32> zeroinitializer
+  %17 = load <4 x float>, ptr %16, align 8
+  %18 = shufflevector <4 x float> %17, <4 x float> poison, <4 x i32> zeroinitializer
   %19 = fmul contract <4 x float> %15, %18
   %20 = tail call <4 x i32> @llvm.x86.avx512.mask.cvttps2udq.128(<4 x float> %19, <4 x i32> zeroinitializer, i8 -1)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1339,8 +1339,8 @@ define weak_odr <4 x float> @_ZNK7mitsuba15RegularSpectrumIfN5drjit6MatrixINS_8S
   %35 = fmul contract <4 x float> %31, %33
   %36 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %34, <4 x float> %29, <4 x float> %35)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %38 = load <1 x float>, ptr %37, align 4
-  %39 = shufflevector <1 x float> %38, <1 x float> poison, <4 x i32> zeroinitializer
+  %38 = load <4 x float>, ptr %37, align 4
+  %39 = shufflevector <4 x float> %38, <4 x float> poison, <4 x i32> zeroinitializer
   %40 = fmul contract <4 x float> %39, %36
   ret <4 x float> %40
 }
@@ -1349,8 +1349,8 @@ define weak_odr <4 x float> @_ZNK7mitsuba15RegularSpectrumIfN5drjit6MatrixINS_8S
 define weak_odr void @_ZNK7mitsuba15RegularSpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE15sample_spectrumERKNS_18SurfaceInteractionIfS5_EERKS4_b(ptr dead_on_unwind noalias writable sret(%"struct.std::__1::pair") align 16 %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 16 dereferenceable(240) %2, ptr noundef nonnull align 16 dereferenceable(16) %3, i1 noundef zeroext %4) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.0.copyload = load <4 x float>, ptr %3, align 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %7 = load <1 x float>, ptr %6, align 8
-  %8 = shufflevector <1 x float> %7, <1 x float> poison, <4 x i32> zeroinitializer
+  %7 = load <4 x float>, ptr %6, align 8
+  %8 = shufflevector <4 x float> %7, <4 x float> poison, <4 x i32> zeroinitializer
   %9 = fmul contract <4 x float> %.sroa.0.0.copyload, %8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %11 = load i32, ptr %10, align 4
@@ -1406,8 +1406,8 @@ define weak_odr void @_ZNK7mitsuba15RegularSpectrumIfN5drjit6MatrixINS_8Spectrum
   %43 = tail call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %35, <4 x i32> %41, <4 x i1> %42, i32 4)
   %44 = fsub contract <4 x float> %9, %43
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %46 = load <1 x float>, ptr %45, align 8
-  %47 = shufflevector <1 x float> %46, <1 x float> poison, <4 x i32> zeroinitializer
+  %46 = load <4 x float>, ptr %45, align 8
+  %47 = shufflevector <4 x float> %46, <4 x float> poison, <4 x i32> zeroinitializer
   %48 = fmul contract <4 x float> %44, %47
   %49 = fmul contract <4 x float> %48, splat (float 2.000000e+00)
   %50 = fsub contract <4 x float> %40, %38
@@ -1437,14 +1437,14 @@ define weak_odr void @_ZNK7mitsuba15RegularSpectrumIfN5drjit6MatrixINS_8Spectrum
   %74 = fadd contract <4 x float> %72, %73
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 108
-  %77 = load <1 x float>, ptr %75, align 8
-  %78 = shufflevector <1 x float> %77, <1 x float> poison, <4 x i32> zeroinitializer
-  %79 = load <1 x float>, ptr %76, align 4
-  %80 = shufflevector <1 x float> %79, <1 x float> poison, <4 x i32> zeroinitializer
+  %77 = load <4 x float>, ptr %75, align 8
+  %78 = shufflevector <4 x float> %77, <4 x float> poison, <4 x i32> zeroinitializer
+  %79 = load <4 x float>, ptr %76, align 4
+  %80 = shufflevector <4 x float> %79, <4 x float> poison, <4 x i32> zeroinitializer
   %81 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %74, <4 x float> %78, <4 x float> %80)
   store <4 x float> %81, ptr %0, align 16
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %83 = shufflevector <1 x float> %7, <1 x float> poison, <4 x i32> zeroinitializer
+  %83 = shufflevector <4 x float> %7, <4 x float> poison, <4 x i32> zeroinitializer
   store <4 x float> %83, ptr %82, align 16
   ret void
 }

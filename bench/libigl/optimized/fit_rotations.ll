@@ -650,15 +650,15 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %56 = fneg <2 x double> %55
   store <2 x double> %56, ptr %28, align 16, !tbaa !52
   %57 = load <2 x double>, ptr %6, align 16, !tbaa !52
-  %58 = load <1 x double>, ptr %7, align 16
-  %59 = shufflevector <1 x double> %58, <1 x double> poison, <2 x i32> zeroinitializer
+  %58 = load <2 x double>, ptr %7, align 16
+  %59 = shufflevector <2 x double> %58, <2 x double> poison, <2 x i32> zeroinitializer
   %60 = fmul <2 x double> %57, %59
   %61 = load <2 x double>, ptr %29, align 16, !tbaa !52
   %62 = shufflevector <2 x double> %56, <2 x double> poison, <2 x i32> zeroinitializer
   %63 = fmul <2 x double> %61, %62
   %64 = fadd <2 x double> %60, %63
-  %65 = load <1 x double>, ptr %30, align 8
-  %66 = shufflevector <1 x double> %65, <1 x double> poison, <2 x i32> zeroinitializer
+  %65 = load <2 x double>, ptr %30, align 8
+  %66 = shufflevector <2 x double> %65, <2 x double> poison, <2 x i32> zeroinitializer
   %67 = fmul <2 x double> %57, %66
   %68 = shufflevector <2 x double> %56, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %69 = fmul <2 x double> %61, %68
@@ -1197,8 +1197,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %32 = fneg <2 x double> %31
   store <2 x double> %32, ptr %30, align 16, !tbaa !52
   %33 = load <2 x double>, ptr %5, align 16, !tbaa !52
-  %34 = load <1 x double>, ptr %6, align 16
-  %35 = shufflevector <1 x double> %34, <1 x double> poison, <2 x i32> zeroinitializer
+  %34 = load <2 x double>, ptr %6, align 16
+  %35 = shufflevector <2 x double> %34, <2 x double> poison, <2 x i32> zeroinitializer
   %36 = fmul <2 x double> %33, %35
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %38 = load <2 x double>, ptr %37, align 16, !tbaa !52
@@ -1206,8 +1206,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %40 = fmul <2 x double> %38, %39
   %41 = fadd <2 x double> %36, %40
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %43 = load <1 x double>, ptr %42, align 8
-  %44 = shufflevector <1 x double> %43, <1 x double> poison, <2 x i32> zeroinitializer
+  %43 = load <2 x double>, ptr %42, align 8
+  %44 = shufflevector <2 x double> %43, <2 x double> poison, <2 x i32> zeroinitializer
   %45 = fmul <2 x double> %33, %44
   %46 = shufflevector <2 x double> %32, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %47 = fmul <2 x double> %38, %46

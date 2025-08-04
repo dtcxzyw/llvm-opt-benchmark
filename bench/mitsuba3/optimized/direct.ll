@@ -1517,14 +1517,14 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4add_ERKS
   %682 = shufflevector <4 x i1> %681, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %683 = bitcast <8 x i1> %682 to i8
   %684 = icmp ne i8 %683, 0
-  %685 = load <3 x float>, ptr %69, align 16
-  %686 = shufflevector <3 x float> %685, <3 x float> poison, <4 x i32> zeroinitializer
+  %685 = load <4 x float>, ptr %69, align 16
+  %686 = shufflevector <4 x float> %685, <4 x float> poison, <4 x i32> zeroinitializer
   %687 = load <4 x float>, ptr %503, align 16
   %688 = fmul contract <4 x float> %687, %686
-  %689 = shufflevector <3 x float> %685, <3 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
+  %689 = shufflevector <4 x float> %685, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
   %690 = load <4 x float>, ptr %505, align 16
   %691 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %690, <4 x float> %689, <4 x float> %688)
-  %692 = shufflevector <3 x float> %685, <3 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
+  %692 = shufflevector <4 x float> %685, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
   %693 = load <4 x float>, ptr %504, align 16
   %694 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %693, <4 x float> %692, <4 x float> %691)
   call void @llvm.experimental.noalias.scope.decl(metadata !82)

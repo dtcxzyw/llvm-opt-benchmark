@@ -59,11 +59,11 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
   %29 = extractelement <8 x float> %27, i64 0
   %30 = fmul float %29, 5.000000e-01
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %32 = load <1 x float>, ptr %31, align 8
-  %33 = shufflevector <1 x float> %32, <1 x float> poison, <8 x i32> zeroinitializer
+  %32 = load <8 x float>, ptr %31, align 8
+  %33 = shufflevector <8 x float> %32, <8 x float> poison, <8 x i32> zeroinitializer
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %35 = load <1 x float>, ptr %34, align 4
-  %36 = shufflevector <1 x float> %35, <1 x float> poison, <8 x i32> zeroinitializer
+  %35 = load <8 x float>, ptr %34, align 4
+  %36 = shufflevector <8 x float> %35, <8 x float> poison, <8 x i32> zeroinitializer
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %38 = load float, ptr %37, align 4, !tbaa !46
   %39 = fmul float %38, %38

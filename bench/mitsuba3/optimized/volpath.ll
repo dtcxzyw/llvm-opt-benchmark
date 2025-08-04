@@ -1092,7 +1092,7 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS1_IS5_Lm4EE
   br i1 %522, label %_ZN5drjit4MaskINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_8MaskBaseIS4_Lm4ES5_EEIRKbNS6_IS4_Lm4ES5_EETnNSt3__19enable_ifIXaasr3stdE11is_scalar_vIu7__decayIT_EEntsrT0_14IsOldStyleMaskEiE4typeELi0EEEOSC_.exit1973, label %570
 
 _ZN5drjit4MaskINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_8MaskBaseIS4_Lm4ES5_EEIRKbNS6_IS4_Lm4ES5_EETnNSt3__19enable_ifIXaasr3stdE11is_scalar_vIu7__decayIT_EEntsrT0_14IsOldStyleMaskEiE4typeELi0EEEOSC_.exit1973: ; preds = %519
-  %523 = load <1 x float>, ptr %228, align 16
+  %523 = load <4 x float>, ptr %228, align 16
   %524 = load <4 x float>, ptr %225, align 16
   %525 = load float, ptr %227, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %253, i8 15, i64 16, i1 false)
@@ -1101,7 +1101,7 @@ _ZN5drjit4MaskINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_8MaskBaseIS4_Lm4E
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %79)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %80)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %79, ptr noundef nonnull align 16 dereferenceable(256) %136, i64 256, i1 false), !noalias !72
-  %526 = shufflevector <1 x float> %523, <1 x float> poison, <4 x i32> zeroinitializer
+  %526 = shufflevector <4 x float> %523, <4 x float> poison, <4 x i32> zeroinitializer
   %527 = fmul contract <4 x float> %524, %526
   %528 = fdiv contract float 1.000000e+00, %525
   %529 = insertelement <4 x float> poison, float %528, i64 0
@@ -3201,7 +3201,7 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ER
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %136, ptr noundef nonnull align 16 dereferenceable(256) %111, i64 256, i1 false)
   %1555 = load float, ptr %287, align 4
   %1556 = fmul contract float %.025552663, %1555
-  %1557 = load <3 x float>, ptr %176, align 16
+  %1557 = load <4 x float>, ptr %176, align 16
   %1558 = load <4 x float>, ptr %239, align 16
   %1559 = load <4 x float>, ptr %.sroa.2.0..sroa_idx, align 16
   %1560 = load <4 x float>, ptr %.sroa.3.0..sroa_idx, align 16
@@ -3209,9 +3209,9 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ER
   %1562 = load <4 x float>, ptr %237, align 16, !noalias !369
   %1563 = load float, ptr %234, align 4, !noalias !369
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.48..sroa_idx, ptr noundef nonnull align 16 dereferenceable(16) %235, i64 16, i1 false)
-  %1564 = shufflevector <3 x float> %1557, <3 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %1565 = shufflevector <3 x float> %1557, <3 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %1566 = shufflevector <3 x float> %1557, <3 x float> poison, <4 x i32> zeroinitializer
+  %1564 = shufflevector <4 x float> %1557, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
+  %1565 = shufflevector <4 x float> %1557, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
+  %1566 = shufflevector <4 x float> %1557, <4 x float> poison, <4 x i32> zeroinitializer
   %1567 = fmul contract <4 x float> %1558, %1566
   %1568 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %1559, <4 x float> %1565, <4 x float> %1567)
   %1569 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %1560, <4 x float> %1564, <4 x float> %1568)

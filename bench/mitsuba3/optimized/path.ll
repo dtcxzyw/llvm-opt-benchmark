@@ -1538,14 +1538,14 @@ _ZN5drjit4MaskINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_8MaskBaseIS4_Lm4E
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %184, ptr noundef nonnull align 16 dereferenceable(256) %96, i64 256, i1 false)
-  %764 = load <3 x float>, ptr %183, align 16
-  %765 = shufflevector <3 x float> %764, <3 x float> poison, <4 x i32> zeroinitializer
+  %764 = load <4 x float>, ptr %183, align 16
+  %765 = shufflevector <4 x float> %764, <4 x float> poison, <4 x i32> zeroinitializer
   %766 = load <4 x float>, ptr %181, align 16
   %767 = fmul contract <4 x float> %766, %765
-  %768 = shufflevector <3 x float> %764, <3 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
+  %768 = shufflevector <4 x float> %764, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
   %769 = load <4 x float>, ptr %182, align 16
   %770 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %769, <4 x float> %768, <4 x float> %767)
-  %771 = shufflevector <3 x float> %764, <3 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
+  %771 = shufflevector <4 x float> %764, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
   %772 = load <4 x float>, ptr %165, align 16
   %773 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %772, <4 x float> %771, <4 x float> %770)
   %774 = load <4 x i32>, ptr %163, align 16, !noalias !143

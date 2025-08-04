@@ -1081,8 +1081,8 @@ define weak_odr <4 x float> @_ZNK7mitsuba11D65SpectrumIfN5drjit6MatrixINS_8Spect
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %16 = load <1 x float>, ptr %14, align 16
-  %17 = shufflevector <1 x float> %16, <1 x float> poison, <4 x i32> zeroinitializer
+  %16 = load <4 x float>, ptr %14, align 16
+  %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> zeroinitializer
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %19 = load <4 x float>, ptr %18, align 4
   %20 = shufflevector <4 x float> %19, <4 x float> poison, <4 x i32> zeroinitializer
@@ -1158,8 +1158,8 @@ define weak_odr void @_ZNK7mitsuba11D65SpectrumIfN5drjit6MatrixINS_8SpectrumIfLm
 
 24:                                               ; preds = %.noexc
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %26 = load <1 x float>, ptr %25, align 16
-  %27 = shufflevector <1 x float> %26, <1 x float> poison, <4 x i32> zeroinitializer
+  %26 = load <4 x float>, ptr %25, align 16
+  %27 = shufflevector <4 x float> %26, <4 x float> poison, <4 x i32> zeroinitializer
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %29 = load <4 x float>, ptr %28, align 4
   %30 = shufflevector <4 x float> %29, <4 x float> poison, <4 x i32> zeroinitializer
@@ -1488,8 +1488,8 @@ define weak_odr noundef float @_ZNK7mitsuba11D65SpectrumIfN5drjit6MatrixINS_8Spe
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %12 = load <1 x float>, ptr %10, align 16
-  %13 = shufflevector <1 x float> %12, <1 x float> poison, <16 x i32> zeroinitializer
+  %12 = load <4 x float>, ptr %10, align 16
+  %13 = shufflevector <4 x float> %12, <4 x float> poison, <16 x i32> zeroinitializer
   %14 = load <4 x float>, ptr %11, align 4
   %15 = shufflevector <4 x float> %14, <4 x float> poison, <16 x i32> zeroinitializer
   %16 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %13, <16 x float> <float 3.600000e+02, float 0x4078755560000000, float 0x407A6AAAA0000000, float 4.540000e+02, float 0x407E555560000000, float 0x4080255560000000, float 5.480000e+02, float 0x40821AAAC0000000, float 0x4083155560000000, float 6.420000e+02, float 0x40850AAAC0000000, float 0x4086055560000000, float 7.360000e+02, float 0x4087FAAAC0000000, float 0x4088F55560000000, float 8.300000e+02>, <16 x float> %15)

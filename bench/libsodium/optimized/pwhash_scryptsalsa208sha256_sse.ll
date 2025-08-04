@@ -190,8 +190,8 @@ define hidden range(i32 -1, 1) i32 @_sodium_escrypt_kdf_sse(ptr noundef %0, ptr 
   tail call fastcc void @blockmix_salsa8(ptr noundef %.0.lcssa.i, ptr noundef %107, i64 noundef range(i64 1, 4294967296) %11)
   tail call fastcc void @blockmix_salsa8(ptr noundef %107, ptr noundef %69, i64 noundef range(i64 1, 4294967296) %11)
   %108 = load i32, ptr %78, align 16
-  %109 = load <2 x i32>, ptr %79, align 16
-  %110 = extractelement <2 x i32> %109, i64 1
+  %109 = load <4 x i32>, ptr %79, align 16
+  %110 = extractelement <4 x i32> %109, i64 1
   %111 = zext i32 %110 to i64
   %112 = shl nuw i64 %111, 32
   %113 = zext i32 %108 to i64

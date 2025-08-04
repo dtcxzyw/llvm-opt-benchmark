@@ -1575,11 +1575,11 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_7ProductIS1_S1_Li0EEEEERS1_RKNS_9De
   %142 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %143 = load <2 x double>, ptr %142, align 16, !tbaa !46
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #22
-  %144 = load <1 x double>, ptr %3, align 16
-  %145 = shufflevector <1 x double> %144, <1 x double> poison, <2 x i32> zeroinitializer
+  %144 = load <2 x double>, ptr %3, align 16
+  %145 = shufflevector <2 x double> %144, <2 x double> poison, <2 x i32> zeroinitializer
   %146 = fmul <2 x double> %.sroa.0.8.vec.insert, %145
-  %147 = load <1 x double>, ptr %48, align 8
-  %148 = shufflevector <1 x double> %147, <1 x double> poison, <2 x i32> zeroinitializer
+  %147 = load <2 x double>, ptr %48, align 8
+  %148 = shufflevector <2 x double> %147, <2 x double> poison, <2 x i32> zeroinitializer
   %149 = fmul <2 x double> %.sroa.8.24.vec.insert, %148
   %150 = fadd <2 x double> %146, %149
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.4)

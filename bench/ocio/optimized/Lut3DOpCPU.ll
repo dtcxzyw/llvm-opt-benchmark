@@ -1038,8 +1038,8 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut3DRendererD2Ev.exit: ; preds = %1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_113Lut3DRenderer5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) unnamed_addr #19 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load <1 x float>, ptr %5, align 8
-  %7 = shufflevector <1 x float> %6, <1 x float> poison, <4 x i32> zeroinitializer
+  %6 = load <4 x float>, ptr %5, align 8
+  %7 = shufflevector <4 x float> %6, <4 x float> poison, <4 x i32> zeroinitializer
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !95
   %10 = add i64 %9, -1

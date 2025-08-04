@@ -4274,11 +4274,11 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %92 = getelementptr inbounds double, ptr %91, i64 %.021
   %93 = load <2 x double>, ptr %92, align 1, !tbaa !20
   %94 = getelementptr inbounds nuw i8, ptr %89, i64 40
-  %95 = load <1 x double>, ptr %94, align 8
-  %96 = shufflevector <1 x double> %95, <1 x double> poison, <2 x i32> zeroinitializer
+  %95 = load <2 x double>, ptr %94, align 8
+  %96 = shufflevector <2 x double> %95, <2 x double> poison, <2 x i32> zeroinitializer
   %97 = getelementptr inbounds nuw i8, ptr %89, i64 64
-  %98 = load <1 x double>, ptr %97, align 8
-  %99 = shufflevector <1 x double> %98, <1 x double> poison, <2 x i32> zeroinitializer
+  %98 = load <2 x double>, ptr %97, align 8
+  %99 = shufflevector <2 x double> %98, <2 x double> poison, <2 x i32> zeroinitializer
   %100 = getelementptr inbounds nuw i8, ptr %89, i64 80
   %101 = load ptr, ptr %100, align 8, !tbaa !57
   %102 = getelementptr inbounds double, ptr %101, i64 %.021

@@ -1634,10 +1634,10 @@ _ZNSt3__14pairIN7mitsuba11BSDFSample3IfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EE
   %201 = load i8, ptr %200, align 4
   %202 = trunc i8 %201 to i1
   %203 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %204 = load <1 x float>, ptr %203, align 8
-  %205 = shufflevector <1 x float> %204, <1 x float> poison, <4 x i32> zeroinitializer
+  %204 = load <4 x float>, ptr %203, align 8
+  %205 = shufflevector <4 x float> %204, <4 x float> poison, <4 x i32> zeroinitializer
   %206 = fmul contract <4 x float> %199, %205
-  %207 = shufflevector <1 x float> %204, <1 x float> poison, <4 x i32> zeroinitializer
+  %207 = shufflevector <4 x float> %204, <4 x float> poison, <4 x i32> zeroinitializer
   %.sroa.0345.0 = select i1 %202, <4 x float> %206, <4 x float> %207
   %208 = fsub contract <4 x float> splat (float 1.000000e+00), %.sroa.0345.0
   %209 = fdiv contract <4 x float> %199, %208
@@ -1847,10 +1847,10 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %88 = load i8, ptr %87, align 4
   %89 = trunc i8 %88 to i1
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %91 = load <1 x float>, ptr %90, align 8
-  %92 = shufflevector <1 x float> %91, <1 x float> poison, <4 x i32> zeroinitializer
+  %91 = load <4 x float>, ptr %90, align 8
+  %92 = shufflevector <4 x float> %91, <4 x float> poison, <4 x i32> zeroinitializer
   %93 = fmul contract <4 x float> %86, %92
-  %94 = shufflevector <1 x float> %91, <1 x float> poison, <4 x i32> zeroinitializer
+  %94 = shufflevector <4 x float> %91, <4 x float> poison, <4 x i32> zeroinitializer
   %.sroa.0.0 = select i1 %89, <4 x float> %93, <4 x float> %94
   %95 = load float, ptr %22, align 8
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 84

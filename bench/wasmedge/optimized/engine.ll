@@ -7194,8 +7194,8 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2219 = load ptr, ptr %2218, align 8
   %2220 = getelementptr inbounds i8, ptr %2219, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !431)
-  %2221 = load <1 x i32>, ptr %2220, align 16, !noalias !431
-  %2222 = shufflevector <1 x i32> %2221, <1 x i32> poison, <4 x i32> zeroinitializer
+  %2221 = load <4 x i32>, ptr %2220, align 16, !noalias !431
+  %2222 = shufflevector <4 x i32> %2221, <4 x i32> poison, <4 x i32> zeroinitializer
   store <4 x i32> %2222, ptr %2220, align 16, !noalias !431
   store i64 1, ptr %0, align 4, !alias.scope !431
   br label %5006
@@ -7205,8 +7205,8 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2225 = load ptr, ptr %2224, align 8
   %2226 = getelementptr inbounds i8, ptr %2225, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !434)
-  %2227 = load <1 x i64>, ptr %2226, align 16, !noalias !434
-  %2228 = shufflevector <1 x i64> %2227, <1 x i64> poison, <2 x i32> zeroinitializer
+  %2227 = load <2 x i64>, ptr %2226, align 16, !noalias !434
+  %2228 = shufflevector <2 x i64> %2227, <2 x i64> poison, <2 x i32> zeroinitializer
   store <2 x i64> %2228, ptr %2226, align 16, !noalias !434
   store i64 1, ptr %0, align 4, !alias.scope !434
   br label %5006
@@ -7216,8 +7216,8 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2231 = load ptr, ptr %2230, align 8
   %2232 = getelementptr inbounds i8, ptr %2231, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !437)
-  %2233 = load <1 x float>, ptr %2232, align 16, !noalias !437
-  %2234 = shufflevector <1 x float> %2233, <1 x float> poison, <4 x i32> zeroinitializer
+  %2233 = load <4 x float>, ptr %2232, align 16, !noalias !437
+  %2234 = shufflevector <4 x float> %2233, <4 x float> poison, <4 x i32> zeroinitializer
   store <4 x float> %2234, ptr %2232, align 16, !noalias !437
   store i64 1, ptr %0, align 4, !alias.scope !437
   br label %5006
@@ -7227,8 +7227,8 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2237 = load ptr, ptr %2236, align 8
   %2238 = getelementptr inbounds i8, ptr %2237, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !440)
-  %2239 = load <1 x double>, ptr %2238, align 16, !noalias !440
-  %2240 = shufflevector <1 x double> %2239, <1 x double> poison, <2 x i32> zeroinitializer
+  %2239 = load <2 x double>, ptr %2238, align 16, !noalias !440
+  %2240 = shufflevector <2 x double> %2239, <2 x double> poison, <2 x i32> zeroinitializer
   store <2 x double> %2240, ptr %2238, align 16, !noalias !440
   store i64 1, ptr %0, align 4, !alias.scope !440
   br label %5006

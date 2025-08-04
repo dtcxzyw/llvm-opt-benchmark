@@ -3771,8 +3771,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 .lr.ph.i:                                         ; preds = %32, %.lr.ph.i
   %.011.i = phi i64 [ %64, %.lr.ph.i ], [ 0, %32 ]
   %53 = getelementptr inbounds nuw double, ptr %35, i64 %.011.i
-  %54 = load <1 x double>, ptr %5, align 8
-  %55 = shufflevector <1 x double> %54, <1 x double> poison, <2 x i32> zeroinitializer
+  %54 = load <2 x double>, ptr %5, align 8
+  %55 = shufflevector <2 x double> %54, <2 x double> poison, <2 x i32> zeroinitializer
   %56 = load ptr, ptr %8, align 8, !tbaa !245
   %57 = getelementptr inbounds nuw double, ptr %56, i64 %.011.i
   %58 = load <2 x double>, ptr %57, align 16, !tbaa !68

@@ -131,11 +131,11 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit:
   %21 = fmul double %18, 0.000000e+00
   %22 = insertelement <2 x double> poison, double %21, i64 0
   %.sroa.440.16.vec.insert = insertelement <2 x double> %22, double %17, i64 1
-  %23 = load <1 x double>, ptr %3, align 16
-  %24 = shufflevector <1 x double> %23, <1 x double> poison, <2 x i32> zeroinitializer
+  %23 = load <2 x double>, ptr %3, align 16
+  %24 = shufflevector <2 x double> %23, <2 x double> poison, <2 x i32> zeroinitializer
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %26 = load <1 x double>, ptr %25, align 8
-  %27 = shufflevector <1 x double> %26, <1 x double> poison, <2 x i32> zeroinitializer
+  %26 = load <2 x double>, ptr %25, align 8
+  %27 = shufflevector <2 x double> %26, <2 x double> poison, <2 x i32> zeroinitializer
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %29 = load <2 x double>, ptr %28, align 16
   %30 = shufflevector <2 x double> %29, <2 x double> poison, <2 x i32> zeroinitializer

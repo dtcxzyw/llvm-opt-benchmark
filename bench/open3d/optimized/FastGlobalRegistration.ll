@@ -3584,8 +3584,8 @@ _ZN5Eigen8internal20generic_product_implINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEN
   %302 = load ptr, ptr %65, align 8, !tbaa !143
   %303 = getelementptr inbounds nuw double, ptr %302, i64 %.011.i.i
   %304 = load <2 x double>, ptr %303, align 16, !tbaa !42
-  %305 = load <1 x double>, ptr %70, align 8
-  %306 = shufflevector <1 x double> %305, <1 x double> poison, <2 x i32> zeroinitializer
+  %305 = load <2 x double>, ptr %70, align 8
+  %306 = shufflevector <2 x double> %305, <2 x double> poison, <2 x i32> zeroinitializer
   %307 = fmul <2 x double> %304, %306
   %308 = load <2 x double>, ptr %301, align 16, !tbaa !42
   %309 = fadd <2 x double> %308, %307
@@ -3975,8 +3975,8 @@ _ZN5Eigen8internal20generic_product_implINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEN
   %475 = load ptr, ptr %73, align 8, !tbaa !143
   %476 = getelementptr inbounds nuw double, ptr %475, i64 %.011.i.i202
   %477 = load <2 x double>, ptr %476, align 16, !tbaa !42
-  %478 = load <1 x double>, ptr %78, align 8
-  %479 = shufflevector <1 x double> %478, <1 x double> poison, <2 x i32> zeroinitializer
+  %478 = load <2 x double>, ptr %78, align 8
+  %479 = shufflevector <2 x double> %478, <2 x double> poison, <2 x i32> zeroinitializer
   %480 = fmul <2 x double> %477, %479
   %481 = load <2 x double>, ptr %474, align 16, !tbaa !42
   %482 = fadd <2 x double> %481, %480
@@ -4364,8 +4364,8 @@ _ZN5Eigen8internal20generic_product_implINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEN
   %648 = load ptr, ptr %81, align 8, !tbaa !143
   %649 = getelementptr inbounds nuw double, ptr %648, i64 %.011.i.i222
   %650 = load <2 x double>, ptr %649, align 16, !tbaa !42
-  %651 = load <1 x double>, ptr %86, align 8
-  %652 = shufflevector <1 x double> %651, <1 x double> poison, <2 x i32> zeroinitializer
+  %651 = load <2 x double>, ptr %86, align 8
+  %652 = shufflevector <2 x double> %651, <2 x double> poison, <2 x i32> zeroinitializer
   %653 = fmul <2 x double> %650, %652
   %654 = load <2 x double>, ptr %647, align 16, !tbaa !42
   %655 = fadd <2 x double> %654, %653

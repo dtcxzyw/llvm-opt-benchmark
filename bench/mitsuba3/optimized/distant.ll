@@ -4360,7 +4360,7 @@ _ZN5drjit5ArrayINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_15StaticArrayImp
   %49 = load ptr, ptr %48, align 8
   call void %49(ptr dead_on_unwind nonnull writable sret(%"struct.mitsuba::PositionSample") align 16 %20, ptr noundef nonnull align 16 dereferenceable(403) %46, float noundef %2, ptr noundef nonnull align 4 dereferenceable(8) %5, i1 noundef zeroext true)
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %51 = load <1 x float>, ptr %50, align 16
+  %51 = load <4 x float>, ptr %50, align 16
   %52 = load <4 x float>, ptr %20, align 16
   %53 = getelementptr inbounds nuw i8, ptr %20, i64 44
   %54 = load float, ptr %53, align 4
@@ -4478,7 +4478,7 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS_6MatrixIS4
   %103 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %41, <4 x float> zeroinitializer, <4 x float> %102)
   %104 = fadd contract <4 x float> %43, %103
   %105 = fmul contract <4 x float> %104, splat (float 2.000000e+00)
-  %106 = shufflevector <1 x float> %51, <1 x float> poison, <4 x i32> zeroinitializer
+  %106 = shufflevector <4 x float> %51, <4 x float> poison, <4 x i32> zeroinitializer
   %107 = fmul contract <4 x float> %105, %106
   %108 = fsub contract <4 x float> %52, %107
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
@@ -5425,7 +5425,7 @@ _ZN5drjit4MaskINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_8MaskBaseIS4_Lm4E
   %38 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %41 = load <1 x float>, ptr %40, align 16
+  %41 = load <4 x float>, ptr %40, align 16
   %42 = load <4 x float>, ptr %39, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %14, ptr noundef nonnull align 16 dereferenceable(256) %38, i64 256, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %10, i8 15, i64 16, i1 false), !noalias !95
@@ -5466,7 +5466,7 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS_6MatrixIS4
   %58 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %35, <4 x float> zeroinitializer, <4 x float> %57)
   %59 = fadd contract <4 x float> %37, %58
   %60 = fmul contract <4 x float> %59, splat (float 2.000000e+00)
-  %61 = shufflevector <1 x float> %41, <1 x float> poison, <4 x i32> zeroinitializer
+  %61 = shufflevector <4 x float> %41, <4 x float> poison, <4 x i32> zeroinitializer
   %62 = fmul contract <4 x float> %60, %61
   %63 = fsub contract <4 x float> %42, %62
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
@@ -5598,7 +5598,7 @@ _ZN5drjit4MaskINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_8MaskBaseIS4_Lm4E
   %40 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %43 = load <1 x float>, ptr %42, align 16, !noalias !112
+  %43 = load <4 x float>, ptr %42, align 16, !noalias !112
   %44 = load <4 x float>, ptr %41, align 16, !noalias !112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %14, ptr noundef nonnull align 16 dereferenceable(256) %40, i64 256, i1 false), !noalias !112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %10, i8 15, i64 16, i1 false), !noalias !115
@@ -5679,7 +5679,7 @@ _ZN5drjit6detail4and_INS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEENS_4MaskIS5_Lm4E
   %75 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %37, <4 x float> zeroinitializer, <4 x float> %74)
   %76 = fadd contract <4 x float> %39, %75
   %77 = fmul contract <4 x float> %76, splat (float 2.000000e+00)
-  %78 = shufflevector <1 x float> %43, <1 x float> poison, <4 x i32> zeroinitializer
+  %78 = shufflevector <4 x float> %43, <4 x float> poison, <4 x i32> zeroinitializer
   %79 = fmul contract <4 x float> %77, %78
   %80 = fsub contract <4 x float> %44, %79
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
@@ -6242,7 +6242,7 @@ _ZN5drjit4MaskINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_8MaskBaseIS4_Lm4E
   %41 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %44 = load <1 x float>, ptr %43, align 16
+  %44 = load <4 x float>, ptr %43, align 16
   %45 = load <4 x float>, ptr %42, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %14, ptr noundef nonnull align 16 dereferenceable(256) %41, i64 256, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %10, i8 15, i64 16, i1 false), !noalias !141
@@ -6347,7 +6347,7 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS_6MatrixIS4
   %118 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %37, <4 x float> zeroinitializer, <4 x float> %117)
   %119 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %35, <4 x float> zeroinitializer, <4 x float> %114)
   %120 = fadd contract <4 x float> %37, %119
-  %121 = shufflevector <1 x float> %44, <1 x float> poison, <4 x i32> zeroinitializer
+  %121 = shufflevector <4 x float> %44, <4 x float> poison, <4 x i32> zeroinitializer
   %122 = fmul contract <4 x float> %118, %121
   %123 = fadd contract <4 x float> %45, %122
   %124 = fmul contract <4 x float> %120, %121

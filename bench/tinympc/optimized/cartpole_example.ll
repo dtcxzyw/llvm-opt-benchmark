@@ -1360,13 +1360,13 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdL
   %67 = getelementptr inbounds nuw double, ptr %41, i64 %.011.i.i.i.i.i
   %68 = getelementptr inbounds nuw double, ptr %37, i64 %.011.i.i.i.i.i
   %69 = load <2 x double>, ptr %68, align 1, !tbaa !14
-  %70 = load <1 x double>, ptr %38, align 16
-  %71 = shufflevector <1 x double> %70, <1 x double> poison, <2 x i32> zeroinitializer
+  %70 = load <2 x double>, ptr %38, align 16
+  %71 = shufflevector <2 x double> %70, <2 x double> poison, <2 x i32> zeroinitializer
   %72 = fmul <2 x double> %69, %71
   %73 = getelementptr inbounds nuw double, ptr %68, i64 %40
   %74 = load <2 x double>, ptr %73, align 1, !tbaa !14
-  %75 = load <1 x double>, ptr %46, align 8
-  %76 = shufflevector <1 x double> %75, <1 x double> poison, <2 x i32> zeroinitializer
+  %75 = load <2 x double>, ptr %46, align 8
+  %76 = shufflevector <2 x double> %75, <2 x double> poison, <2 x i32> zeroinitializer
   %77 = fmul <2 x double> %74, %76
   %78 = fadd <2 x double> %72, %77
   %79 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx.i.i.i.i.i.i.i.i.i.i

@@ -878,14 +878,14 @@ _ZN7mitsuba6string6strtofIfEET_PKcPPc.exit:       ; preds = %261
 
 271:                                              ; preds = %_ZN7mitsuba6string6strtofIfEET_PKcPPc.exit
   %.sroa.0613.0.copyload = load <4 x float>, ptr %216, align 16
-  %272 = load <3 x float>, ptr %29, align 16
-  %273 = shufflevector <3 x float> %272, <3 x float> poison, <4 x i32> zeroinitializer
+  %272 = load <4 x float>, ptr %29, align 16
+  %273 = shufflevector <4 x float> %272, <4 x float> poison, <4 x i32> zeroinitializer
   %274 = load <4 x float>, ptr %215, align 16
   %275 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %274, <4 x float> %273, <4 x float> %.sroa.0613.0.copyload)
-  %276 = shufflevector <3 x float> %272, <3 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
+  %276 = shufflevector <4 x float> %272, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
   %277 = load <4 x float>, ptr %223, align 16
   %278 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %277, <4 x float> %276, <4 x float> %275)
-  %279 = shufflevector <3 x float> %272, <3 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
+  %279 = shufflevector <4 x float> %272, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
   %280 = load <4 x float>, ptr %224, align 16
   %281 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %280, <4 x float> %279, <4 x float> %278)
   store <4 x float> %281, ptr %29, align 16
@@ -1020,13 +1020,13 @@ _ZN7mitsuba6string6strtofIfEET_PKcPPc.exit472:    ; preds = %328
 
 338:                                              ; preds = %_ZN7mitsuba6string6strtofIfEET_PKcPPc.exit472
   %.sroa.0623.0.copyload = load <4 x float>, ptr %221, align 16
-  %339 = load <3 x float>, ptr %30, align 16
-  %340 = shufflevector <3 x float> %339, <3 x float> poison, <4 x i32> zeroinitializer
+  %339 = load <4 x float>, ptr %30, align 16
+  %340 = shufflevector <4 x float> %339, <4 x float> poison, <4 x i32> zeroinitializer
   %341 = fmul contract <4 x float> %.sroa.0623.0.copyload, %340
-  %342 = shufflevector <3 x float> %339, <3 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
+  %342 = shufflevector <4 x float> %339, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
   %343 = load <4 x float>, ptr %225, align 16
   %344 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %343, <4 x float> %342, <4 x float> %341)
-  %345 = shufflevector <3 x float> %339, <3 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
+  %345 = shufflevector <4 x float> %339, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
   %346 = load <4 x float>, ptr %226, align 16
   %347 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %346, <4 x float> %345, <4 x float> %344)
   %348 = fmul contract <4 x float> %347, %347

@@ -31438,8 +31438,8 @@ define linkonce_odr void @_ZN5Eigen8internal21dense_assignment_loopINS0_31generi
   %49 = getelementptr inbounds double, ptr %45, i64 %48
   %50 = load <2 x double>, ptr %49, align 1
   %51 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %52 = load <1 x double>, ptr %51, align 8
-  %53 = shufflevector <1 x double> %52, <1 x double> poison, <2 x i32> zeroinitializer
+  %52 = load <2 x double>, ptr %51, align 8
+  %53 = shufflevector <2 x double> %52, <2 x double> poison, <2 x i32> zeroinitializer
   %54 = fdiv <2 x double> %50, %53
   store <2 x double> %54, ptr %41, align 16
   %55 = add nsw i64 %.03143, 2
@@ -31601,8 +31601,8 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6Mat
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = load <2 x double>, ptr %17, align 1
-  %21 = load <1 x double>, ptr %19, align 8
-  %22 = shufflevector <1 x double> %21, <1 x double> poison, <2 x i32> zeroinitializer
+  %21 = load <2 x double>, ptr %19, align 8
+  %22 = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> zeroinitializer
   %23 = fmul <2 x double> %20, %22
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %25 = load <2 x double>, ptr %24, align 1

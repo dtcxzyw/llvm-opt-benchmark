@@ -3795,7 +3795,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %133 = getelementptr inbounds double, ptr %132, i64 %.046
   %134 = load <2 x double>, ptr %133, align 1, !tbaa !19
   %135 = getelementptr inbounds nuw i8, ptr %126, i64 40
-  %136 = load <1 x double>, ptr %135, align 8
+  %136 = load <2 x double>, ptr %135, align 8
   %137 = getelementptr inbounds nuw i8, ptr %126, i64 64
   %138 = load ptr, ptr %137, align 8, !tbaa !172
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
@@ -3853,11 +3853,11 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdL
   %.025.i.i.i.i.i = phi <2 x double> [ zeroinitializer, %123 ], [ %.041.lcssa.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %166, %.lr.ph48.i.i.i.i.i ]
   %168 = getelementptr inbounds double, ptr %125, i64 %.046
   %169 = fadd <2 x double> %130, %134
-  %170 = shufflevector <1 x double> %136, <1 x double> poison, <2 x i32> zeroinitializer
+  %170 = shufflevector <2 x double> %136, <2 x double> poison, <2 x i32> zeroinitializer
   %171 = fdiv <2 x double> %169, %170
   %172 = getelementptr inbounds nuw i8, ptr %126, i64 80
-  %173 = load <1 x double>, ptr %172, align 8
-  %174 = shufflevector <1 x double> %173, <1 x double> poison, <2 x i32> zeroinitializer
+  %173 = load <2 x double>, ptr %172, align 8
+  %174 = shufflevector <2 x double> %173, <2 x double> poison, <2 x i32> zeroinitializer
   %175 = fdiv <2 x double> %.025.i.i.i.i.i, %174
   %176 = fsub <2 x double> %171, %175
   store <2 x double> %176, ptr %168, align 16, !tbaa !19

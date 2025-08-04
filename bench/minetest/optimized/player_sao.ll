@@ -7092,14 +7092,15 @@ entry:
   %10 = load <2 x float>, ptr %m_base_position, align 8, !tbaa !76
   %11 = fadd nsz <2 x float> %2, %10
   store <2 x float> %11, ptr %toset, align 4, !tbaa !76
-  %12 = load <2 x float>, ptr %Z.i27, align 8
-  %13 = load float, ptr %m_base_position, align 8, !tbaa !312
-  %14 = insertelement <2 x float> %12, float %13, i64 1
-  %15 = fadd nsz <2 x float> %5, %14
-  store <2 x float> %15, ptr %ref.tmp.sroa.4.0.MinEdge2.sroa_idx, align 4, !tbaa !76
-  %16 = load <2 x float>, ptr %Y.i26, align 4, !tbaa !76
-  %17 = fadd nsz <2 x float> %7, %16
-  store <2 x float> %17, ptr %Y3.i30, align 4, !tbaa !76
+  %12 = load <4 x float>, ptr %Z.i27, align 8
+  %13 = shufflevector <4 x float> %12, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
+  %14 = load float, ptr %m_base_position, align 8, !tbaa !312
+  %15 = insertelement <2 x float> %13, float %14, i64 1
+  %16 = fadd nsz <2 x float> %5, %15
+  store <2 x float> %16, ptr %ref.tmp.sroa.4.0.MinEdge2.sroa_idx, align 4, !tbaa !76
+  %17 = load <2 x float>, ptr %Y.i26, align 4, !tbaa !76
+  %18 = fadd nsz <2 x float> %7, %17
+  store <2 x float> %18, ptr %Y3.i30, align 4, !tbaa !76
   ret i1 true
 }
 

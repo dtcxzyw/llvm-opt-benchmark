@@ -459,12 +459,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 175:                                              ; preds = %161
   %176 = load <2 x double>, ptr %32, align 16, !tbaa !92
-  %177 = load <1 x double>, ptr %137, align 16
-  %178 = shufflevector <1 x double> %177, <1 x double> poison, <2 x i32> zeroinitializer
+  %177 = load <2 x double>, ptr %137, align 16
+  %178 = shufflevector <2 x double> %177, <2 x double> poison, <2 x i32> zeroinitializer
   %179 = fmul <2 x double> %176, %178
   %180 = load <2 x double>, ptr %138, align 16, !tbaa !92
-  %181 = load <1 x double>, ptr %139, align 16
-  %182 = shufflevector <1 x double> %181, <1 x double> poison, <2 x i32> zeroinitializer
+  %181 = load <2 x double>, ptr %139, align 16
+  %182 = shufflevector <2 x double> %181, <2 x double> poison, <2 x i32> zeroinitializer
   %183 = fmul <2 x double> %180, %182
   %184 = fadd <2 x double> %179, %183
   %185 = load ptr, ptr %26, align 8, !tbaa !15, !noalias !93

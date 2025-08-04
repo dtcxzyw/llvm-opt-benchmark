@@ -291,8 +291,8 @@ define weak_odr void @_ZN7mitsuba15UniformSpectrumIfN5drjit6MatrixINS_8SpectrumI
 ; Function Attrs: mustprogress uwtable
 define weak_odr <4 x float> @_ZNK7mitsuba15UniformSpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE4evalERKNS_18SurfaceInteractionIfS5_EEb(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 1 %1, i1 noundef zeroext %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load <1 x float>, ptr %4, align 8
-  %6 = shufflevector <1 x float> %5, <1 x float> poison, <4 x i32> zeroinitializer
+  %5 = load <4 x float>, ptr %4, align 8
+  %6 = shufflevector <4 x float> %5, <4 x float> poison, <4 x i32> zeroinitializer
   ret <4 x float> %6
 }
 

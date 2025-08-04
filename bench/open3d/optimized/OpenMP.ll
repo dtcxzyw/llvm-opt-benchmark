@@ -54377,8 +54377,8 @@ define internal void @_Z18TestBindedFunctionv.omp_outlined(ptr noalias noundef r
   %47 = fadd <2 x double> %.sroa.24.075, %46
   %48 = fmul <2 x double> %32, %43
   %49 = fadd <2 x double> %.sroa.27.074, %48
-  %50 = load <1 x double>, ptr %21, align 8
-  %51 = shufflevector <1 x double> %50, <1 x double> poison, <2 x i32> zeroinitializer
+  %50 = load <2 x double>, ptr %21, align 8
+  %51 = shufflevector <2 x double> %50, <2 x double> poison, <2 x i32> zeroinitializer
   %52 = fmul <2 x double> %25, %51
   %53 = fadd <2 x double> %.sroa.30.073, %52
   %54 = fmul <2 x double> %29, %51

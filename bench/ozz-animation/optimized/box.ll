@@ -90,7 +90,7 @@ define dso_local void @_ZN3ozz4math3BoxC2EPKNS0_6Float3Emm(ptr noundef nonnull w
 define dso_local void @_ZN3ozz4math12TransformBoxERKNS0_8Float4x4ERKNS0_3BoxE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.ozz::math::Box") align 4 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(64) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(24) %2) local_unnamed_addr #2 {
   %4 = load <4 x float>, ptr %2, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %6 = load <1 x float>, ptr %5, align 4
+  %6 = load <4 x float>, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load <4 x float>, ptr %7, align 4
   %9 = shufflevector <4 x float> %4, <4 x float> poison, <4 x i32> zeroinitializer
@@ -103,7 +103,7 @@ define dso_local void @_ZN3ozz4math12TransformBoxERKNS0_8Float4x4ERKNS0_3BoxE(pt
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %17 = load <4 x float>, ptr %16, align 16, !tbaa !14
   %18 = fadd <4 x float> %15, %17
-  %19 = shufflevector <1 x float> %6, <1 x float> poison, <4 x i32> zeroinitializer
+  %19 = shufflevector <4 x float> %6, <4 x float> poison, <4 x i32> zeroinitializer
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load <4 x float>, ptr %20, align 16, !tbaa !14
   %22 = fmul <4 x float> %19, %21
