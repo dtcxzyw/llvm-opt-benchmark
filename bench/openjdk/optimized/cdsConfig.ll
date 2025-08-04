@@ -166,56 +166,56 @@ define hidden noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() local_unna
 define hidden void @_ZN9CDSConfig10initializeEv() local_unnamed_addr #2 align 2 {
   %1 = load i8, ptr @_ZN9CDSConfig26_is_dumping_static_archiveE, align 1
   %2 = trunc i8 %1 to i1
-  br i1 %2, label %3, label %._crit_edge
+  br i1 %2, label %4, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %0
   %.pre2 = load i8, ptr @UseSharedSpaces, align 1
-  %.not = icmp eq i8 %.pre2, 0
-  br i1 %.not, label %8, label %7
+  %3 = icmp eq i8 %.pre2, 0
+  br i1 %3, label %8, label %9
 
-3:                                                ; preds = %0
-  %4 = load i8, ptr @RequireSharedSpaces, align 1
-  %5 = trunc i8 %4 to i1
-  br i1 %5, label %6, label %.thread
+4:                                                ; preds = %0
+  %5 = load i8, ptr @RequireSharedSpaces, align 1
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %6, label %7
 
-.thread:                                          ; preds = %3
+7:                                                ; preds = %4
   store i8 0, ptr @UseSharedSpaces, align 1
   br label %7
 
 6:                                                ; preds = %3
   tail call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str) #9
   %.pre.pre = load i8, ptr @_ZN9CDSConfig26_is_dumping_static_archiveE, align 1
-  %.pre6 = trunc i8 %.pre.pre to i1
+  %.pre8 = trunc i8 %.pre.pre to i1
   store i8 0, ptr @UseSharedSpaces, align 1
-  br i1 %.pre6, label %7, label %8
+  br i1 %.pre6, label %9, label %8
 
-7:                                                ; preds = %.thread, %._crit_edge, %6
+9:                                                ; preds = %7, %._crit_edge, %6
   tail call void @_ZN9CDSConfig25init_shared_archive_pathsEv()
   %.pre3 = load i8, ptr @_ZN9CDSConfig26_is_dumping_static_archiveE, align 1
-  br label %8
+  br label %12
 
-8:                                                ; preds = %._crit_edge, %6, %7
-  %9 = phi i8 [ %.pre.pre, %6 ], [ %.pre3, %7 ], [ %1, %._crit_edge ]
-  %10 = trunc i8 %9 to i1
+12:                                               ; preds = %._crit_edge, %6, %7
+  %.pre-phi7 = phi i8 [ %.pre.pre, %6 ], [ %.pre3, %7 ], [ %1, %._crit_edge ]
+  %10 = trunc i8 %.pre-phi7 to i1
   %.not.i = xor i1 %10, true
   %11 = load i8, ptr @_ZN10HeapShared16_disable_writingE, align 1
   %12 = trunc i8 %11 to i1
   %or.cond.i = select i1 %.not.i, i1 true, i1 %12
   br i1 %or.cond.i, label %_ZN9CDSConfig15is_dumping_heapEv.exit.thread, label %_ZN9CDSConfig15is_dumping_heapEv.exit
 
-_ZN9CDSConfig15is_dumping_heapEv.exit:            ; preds = %8
-  %13 = load i8, ptr @UseG1GC, align 1
+_ZN9CDSConfig15is_dumping_heapEv.exit:            ; preds = %12
+  %15 = load i8, ptr @UseG1GC, align 1
   %14 = trunc i8 %13 to i1
   %15 = load i8, ptr @UseCompressedClassPointers, align 1
   %16 = trunc i8 %15 to i1
   %17 = select i1 %14, i1 %16, i1 false
-  br i1 %17, label %18, label %_ZN9CDSConfig15is_dumping_heapEv.exit.thread
+  br i1 %17, label %20, label %_ZN9CDSConfig15is_dumping_heapEv.exit7
 
-_ZN9CDSConfig15is_dumping_heapEv.exit.thread:     ; preds = %8, %_ZN9CDSConfig15is_dumping_heapEv.exit
+_ZN9CDSConfig15is_dumping_heapEv.exit.thread:     ; preds = %12, %_ZN9CDSConfig15is_dumping_heapEv.exit
   store i8 0, ptr @_ZN9CDSConfig29_is_dumping_full_module_graphE, align 1
-  br label %18
+  br label %112
 
-18:                                               ; preds = %_ZN9CDSConfig15is_dumping_heapEv.exit.thread, %_ZN9CDSConfig15is_dumping_heapEv.exit
+112:                                               ; preds = %_ZN9CDSConfig15is_dumping_heapEv.exit.thread, %_ZN9CDSConfig15is_dumping_heapEv.exit
   ret void
 }
 

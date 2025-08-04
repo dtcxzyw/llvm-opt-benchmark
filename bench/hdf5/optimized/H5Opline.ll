@@ -236,8 +236,8 @@ define internal ptr @H5O__pline_shared_decode(ptr noundef %0, ptr noundef %1, i3
   %94 = ptrtoint ptr %.117419.i to i64
   %95 = sub i64 %86, %94
   %96 = icmp ult i64 %95, 2
-  %or.cond29.i = or i1 %93, %96
-  br i1 %or.cond29.i, label %97, label %101
+  %or.cond34.i = or i1 %93, %96
+  br i1 %or.cond34.i, label %97, label %101
 
 97:                                               ; preds = %91
   %98 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
@@ -266,8 +266,8 @@ define internal ptr @H5O__pline_shared_decode(ptr noundef %0, ptr noundef %1, i3
   %114 = ptrtoint ptr %109 to i64
   %115 = sub i64 %86, %114
   %116 = icmp ult i64 %115, 2
-  %or.cond32.i = select i1 %113, i1 true, i1 %116
-  br i1 %or.cond32.i, label %117, label %121
+  %or.cond37.i = select i1 %113, i1 true, i1 %116
+  br i1 %or.cond37.i, label %117, label %121
 
 117:                                              ; preds = %112
   %118 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
@@ -303,8 +303,8 @@ define internal ptr @H5O__pline_shared_decode(ptr noundef %0, ptr noundef %1, i3
   %138 = ptrtoint ptr %.2175.i to i64
   %139 = sub i64 %86, %138
   %140 = icmp ult i64 %139, 2
-  %or.cond35.i = or i1 %137, %140
-  br i1 %or.cond35.i, label %141, label %145
+  %or.cond40.i = or i1 %137, %140
+  br i1 %or.cond40.i, label %141, label %145
 
 141:                                              ; preds = %136
   %142 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
@@ -328,8 +328,8 @@ define internal ptr @H5O__pline_shared_decode(ptr noundef %0, ptr noundef %1, i3
   %156 = ptrtoint ptr %154 to i64
   %157 = sub i64 %86, %156
   %158 = icmp ult i64 %157, 2
-  %or.cond38.i = or i1 %155, %158
-  br i1 %or.cond38.i, label %159, label %163
+  %or.cond43.i = or i1 %155, %158
+  br i1 %or.cond43.i, label %159, label %163
 
 159:                                              ; preds = %145
   %160 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
@@ -449,8 +449,8 @@ define internal ptr @H5O__pline_shared_decode(ptr noundef %0, ptr noundef %1, i3
   %227 = ptrtoint ptr %.517815.i to i64
   %228 = sub i64 %86, %227
   %229 = icmp ult i64 %228, 4
-  %or.cond41.i = or i1 %226, %229
-  br i1 %or.cond41.i, label %251, label %230
+  %or.cond46.i = or i1 %226, %229
+  br i1 %or.cond46.i, label %251, label %230
 
 230:                                              ; preds = %225
   %231 = load i8, ptr %.517815.i, align 1, !tbaa !14
@@ -501,8 +501,8 @@ define internal ptr @H5O__pline_shared_decode(ptr noundef %0, ptr noundef %1, i3
   %262 = ptrtoint ptr %249 to i64
   %263 = sub i64 %86, %262
   %264 = icmp ult i64 %263, 4
-  %or.cond44.i = select i1 %261, i1 true, i1 %264
-  br i1 %or.cond44.i, label %265, label %269
+  %or.cond49.i = select i1 %261, i1 true, i1 %264
+  br i1 %or.cond49.i, label %265, label %269
 
 265:                                              ; preds = %260
   %266 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
@@ -535,7 +535,7 @@ define internal ptr @H5O__pline_shared_decode(ptr noundef %0, ptr noundef %1, i3
   %282 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %283 = load ptr, ptr %282, align 8, !tbaa !23
   %.not.i.i = icmp eq ptr %283, null
-  br i1 %.not.i.i, label %H5O__pline_reset.exit.i, label %.preheader.i.i
+  br i1 %.not.i.i, label %303, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %281
   %284 = getelementptr inbounds nuw i8, ptr %28, i64 56
@@ -586,7 +586,7 @@ define internal ptr @H5O__pline_shared_decode(ptr noundef %0, ptr noundef %1, i3
   %.pre25 = xor i1 %.pre23, true
   br label %H5O__pline_reset.exit.i
 
-H5O__pline_reset.exit.i:                          ; preds = %._crit_edge.i.i, %281
+303:                                              ; preds = %._crit_edge.i.i, %281
   %.pre-phi26 = phi i1 [ %.pre25, %._crit_edge.i.i ], [ %279, %281 ]
   %.pre-phi = phi i1 [ %.pre, %._crit_edge.i.i ], [ %276, %281 ]
   %303 = getelementptr inbounds nuw i8, ptr %28, i64 48
@@ -600,10 +600,10 @@ H5O__pline_reset.exit.i:                          ; preds = %._crit_edge.i.i, %2
   %307 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_pline_t_reg_free_list, ptr noundef nonnull %28) #12
   br label %H5O__pline_decode.exit.thread
 
-H5O__pline_decode.exit.thread:                    ; preds = %.thread.i, %30, %306, %H5O__pline_reset.exit.i
-  %308 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
-  %309 = load i64, ptr @H5E_CANTDECODE_g, align 8, !tbaa !10
-  %310 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.H5O__pline_shared_decode, i32 noundef 75, i64 noundef %308, i64 noundef %309, ptr noundef nonnull @.str.7) #12
+H5O__pline_decode.exit.thread:                    ; preds = %.thread.i, %30, %306, %303
+  %309 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
+  %310 = load i64, ptr @H5E_CANTDECODE_g, align 8, !tbaa !10
+  %311 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.H5O__pline_shared_decode, i32 noundef 75, i64 noundef %309, i64 noundef %310, ptr noundef nonnull @.str.7) #12
   br label %H5O__pline_decode.exit.thread18
 
 H5O__pline_decode.exit.thread18:                  ; preds = %271, %.preheader.i, %18, %H5O__pline_decode.exit.thread, %22, %6

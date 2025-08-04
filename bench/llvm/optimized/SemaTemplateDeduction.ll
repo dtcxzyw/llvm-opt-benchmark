@@ -25636,7 +25636,7 @@ define dso_local void @_ZN5clang4Sema26MarkUsedTemplateParametersERKNS_20Templat
 define internal fastcc noundef zeroext i1 @_ZL25hasPackExpansionBeforeEndN4llvm8ArrayRefIN5clang16TemplateArgumentEEE(ptr %0, i64 %1) unnamed_addr #0 {
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %7, %2
+.lr.ph.preheader:                                 ; preds = %7, %2
   %.tr = phi ptr [ %0, %2 ], [ %9, %7 ]
   %.tr40 = phi i64 [ %1, %2 ], [ %12, %7 ]
   %.idx = mul nuw nsw i64 %.tr40, 24
@@ -25649,17 +25649,17 @@ tailrecurse:                                      ; preds = %7, %2
   %4 = load i32, ptr %.01630, align 8
   %5 = and i32 %4, 2147483647
   %6 = icmp eq i32 %5, 9
-  br i1 %6, label %7, label %13
+  br i1 %6, label %.lr.ph, label %.lr.ph41
 
-7:                                                ; preds = %.lr.ph
+.lr.ph:                                           ; preds = %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %.01630, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !12
   %10 = getelementptr inbounds nuw i8, ptr %.01630, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !12
   %12 = zext i32 %11 to i64
-  br label %tailrecurse
+  br label %.lr.ph.preheader
 
-13:                                               ; preds = %.lr.ph
+.lr.ph41:                                         ; preds = %.lr.ph
   %14 = tail call noundef zeroext i1 @_ZNK5clang16TemplateArgument15isPackExpansionEv(ptr noundef nonnull align 8 dereferenceable(24) %.01630) #22
   %15 = getelementptr inbounds nuw i8, ptr %.01630, i64 24
   %.not = icmp ne ptr %15, %3
@@ -25667,8 +25667,8 @@ tailrecurse:                                      ; preds = %7, %2
   %brmerge = or i1 %14, %.not.not
   br i1 %brmerge, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %13, %tailrecurse
-  %spec.select19 = phi i1 [ false, %tailrecurse ], [ %.not, %13 ]
+.thread:                                          ; preds = %.lr.ph41, %.lr.ph.preheader
+  %.not26 = phi i1 [ false, %tailrecurse ], [ %.not, %13 ]
   ret i1 %spec.select19
 }
 

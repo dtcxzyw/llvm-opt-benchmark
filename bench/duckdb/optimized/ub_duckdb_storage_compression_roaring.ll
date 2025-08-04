@@ -4794,11 +4794,11 @@ define linkonce_odr void @_ZN6duckdb7roaring9AppendRunERNS0_25ContainerCompressi
   %or.cond48.not = select i1 %or.cond4, i1 %.not42, i1 false
   br i1 %or.cond48.not, label %13, label %41
 
-13:                                               ; preds = %3
+11:                                               ; preds = %3
   %14 = icmp samesign ult i16 %5, 4
   br i1 %14, label %15, label %24
 
-15:                                               ; preds = %13
+15:; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !337
   %18 = zext nneg i16 %5 to i64
@@ -4806,40 +4806,40 @@ define linkonce_odr void @_ZN6duckdb7roaring9AppendRunERNS0_25ContainerCompressi
   %20 = load i16, ptr %19, align 2, !tbaa !352
   %21 = xor i16 %20, -1
   %22 = add i16 %7, %21
-  %23 = getelementptr inbounds nuw i8, ptr %19, i64 2
-  store i16 %22, ptr %23, align 2, !tbaa !354
+  %18 = getelementptr inbounds nuw i8, ptr %19, i64 2
+  store i16 %22, ptr %18, align 2, !tbaa !354
   br label %24
 
-24:                                               ; preds = %15, %13
-  %25 = trunc i16 %7 to i8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !338
-  %28 = shl nuw nsw i32 %8, 1
-  %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 %29
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
-  store i8 %25, ptr %31, align 1, !tbaa !295
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %33 = load ptr, ptr %32, align 8, !tbaa !339
-  %34 = lshr i16 %7, 8
-  %35 = zext nneg i16 %34 to i64
-  %36 = getelementptr inbounds nuw i8, ptr %33, i64 %35
-  %37 = load i8, ptr %36, align 1, !tbaa !295
-  %38 = add i8 %37, 1
-  store i8 %38, ptr %36, align 1, !tbaa !295
-  %39 = load i16, ptr %4, align 8, !tbaa !333
-  %40 = add i16 %39, 1
-  store i16 %40, ptr %4, align 8, !tbaa !333
+26:                                               ; preds = %15, %13
+  %27 = trunc i16 %7 to i8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %29 = load ptr, ptr %28, align 8, !tbaa !338
+  %30 = shl nuw nsw i32 %8, 1
+  %31 = zext nneg i32 %30 to i64
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
+  store i8 %27, ptr %33, align 1, !tbaa !295
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %35 = load ptr, ptr %34, align 8, !tbaa !339
+  %36 = lshr i16 %7, 8
+  %37 = zext nneg i16 %36 to i64
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %37
+  %39 = load i8, ptr %38, align 1, !tbaa !295
+  %40 = add i8 %39, 1
+  store i8 %40, ptr %38, align 1, !tbaa !295
+  %41 = load i16, ptr %4, align 8, !tbaa !333
+  %42 = add i16 %41, 1
+  store i16 %42, ptr %4, align 8, !tbaa !333
   br label %66
 
-41:                                               ; preds = %3
+43:                                               ; preds = %3
   %or.cond7 = select i1 %1, i1 %9, i1 false
-  br i1 %or.cond7, label %42, label %66
+  br i1 %or.cond7, label %44, label %66
 
-42:                                               ; preds = %41
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %44 = load i8, ptr %43, align 8, !range !319
-  %.not43.not = icmp ne i8 %44, 0
+44:                                               ; preds = %43
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %46 = load i8, ptr %45, align 8, !range !319
+  %.not43.not = icmp ne i8 %46, 0
   %or.cond46.not = select i1 %10, i1 %.not43.not, i1 false
   br i1 %or.cond46.not, label %66, label %45
 
@@ -4855,7 +4855,7 @@ define linkonce_odr void @_ZN6duckdb7roaring9AppendRunERNS0_25ContainerCompressi
   store i16 %7, ptr %51, align 2, !tbaa !352
   br label %52
 
-52:                                               ; preds = %47, %45
+47:                                               ; preds = %47, %45
   %53 = trunc i16 %7 to i8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %55 = load ptr, ptr %54, align 8, !tbaa !338
@@ -4873,7 +4873,7 @@ define linkonce_odr void @_ZN6duckdb7roaring9AppendRunERNS0_25ContainerCompressi
   store i8 %65, ptr %63, align 1, !tbaa !295
   br label %66
 
-66:                                               ; preds = %42, %41, %52, %24
+49:                                               ; preds = %42, %41, %47, %24
   ret void
 }
 

@@ -657,16 +657,16 @@ define dso_local zeroext i1 @RegisterSyncRequest(ptr noundef %0, i32 noundef %1,
   %brmerge10 = or i1 %5, %.not9
   br i1 %brmerge10, label %.loopexit, label %.lr.ph.split
 
-6:                                                ; preds = %3
+.lr.ph:                                           ; preds = %3
   tail call void @RememberSyncRequest(ptr noundef %0, i32 noundef %1)
   br label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.preheader, %.lr.ph.split
-  %7 = tail call i32 @WaitLatch(ptr noundef null, i32 noundef 40, i64 noundef 10, i32 noundef 150994949) #9
-  %8 = tail call zeroext i1 @ForwardSyncRequest(ptr noundef %0, i32 noundef %1) #9
-  br i1 %8, label %.loopexit, label %.lr.ph.split
+  %9 = tail call i32 @WaitLatch(ptr noundef null, i32 noundef 40, i64 noundef 10, i32 noundef 150994949) #9
+  %10 = tail call zeroext i1 @ForwardSyncRequest(ptr noundef %0, i32 noundef %1) #9
+  br i1 %10, label %.loopexit, label %.lr.ph.split
 
-.loopexit:                                        ; preds = %.lr.ph.split, %.preheader, %6
+.loopexit:                                        ; preds = %.lr.ph.split, %.preheader, %.lr.ph
   %.0 = phi i1 [ true, %6 ], [ %5, %.preheader ], [ true, %.lr.ph.split ]
   ret i1 %.0
 }

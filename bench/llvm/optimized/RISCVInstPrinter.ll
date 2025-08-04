@@ -2467,34 +2467,34 @@ define dso_local void @_ZN4llvm16RISCVInstPrinter9printInstEPKNS_6MCInstEmNS_9St
   br label %.thread
 
 .thread:                                          ; preds = %18, %7
-  %20 = phi i8 [ %16, %7 ], [ %.pre21, %18 ]
-  %21 = phi i8 [ %14, %7 ], [ %.pre, %18 ]
-  %22 = phi ptr [ %1, %7 ], [ %spec.select, %18 ]
+  %.pre-phi = phi i8 [ %16, %7 ], [ %.pre21, %18 ]
+  %20 = phi i8 [ %14, %7 ], [ %.pre, %18 ]
+  %21 = phi ptr [ %1, %7 ], [ %spec.select, %18 ]
   %23 = trunc nuw i8 %21 to i1
   %.not18 = xor i1 %23, true
   %24 = trunc nuw i8 %20 to i1
   %or.cond20 = select i1 %.not18, i1 true, i1 %24
   br i1 %or.cond20, label %27, label %25
 
-25:                                               ; preds = %.thread
+25:; preds = %.thread
   %26 = call noundef zeroext i1 @_ZN4llvm16RISCVInstPrinter15printAliasInstrEPKNS_6MCInstEmRKNS_15MCSubtargetInfoERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %22, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(304) %5, ptr noundef nonnull align 8 dereferenceable(48) %6)
   br i1 %26, label %28, label %27
 
-27:                                               ; preds = %25, %.thread
+27:; preds = %25, %.thread
   call void @_ZN4llvm16RISCVInstPrinter16printInstructionEPKNS_6MCInstEmRKNS_15MCSubtargetInfoERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %22, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(304) %5, ptr noundef nonnull align 8 dereferenceable(48) %6)
   br label %28
 
 28:                                               ; preds = %27, %25
   call void @_ZN4llvm13MCInstPrinter15printAnnotationERNS_11raw_ostreamENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %3, i64 %4) #20
-  %29 = load ptr, ptr %9, align 8, !tbaa !28
-  %30 = icmp eq ptr %29, %10
-  br i1 %30, label %_ZN4llvm6MCInstD2Ev.exit, label %31
+  %27 = load ptr, ptr %9, align 8, !tbaa !28
+  %28 = icmp eq ptr %27, %10
+  br i1 %28, label %_ZN4llvm6MCInstD2Ev.exit, label %29
 
-31:                                               ; preds = %28
-  call void @free(ptr noundef %29) #20
+29:                                               ; preds = %28
+  call void @free(ptr noundef %27) #20
   br label %_ZN4llvm6MCInstD2Ev.exit
 
-_ZN4llvm6MCInstD2Ev.exit:                         ; preds = %28, %31
+_ZN4llvm6MCInstD2Ev.exit:                         ; preds = %28, %29
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #20
   ret void
 }

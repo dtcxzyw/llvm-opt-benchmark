@@ -5872,8 +5872,8 @@ switch.lookup:                                    ; preds = %28
   store i32 %49, ptr %8, align 4, !tbaa !20
   %50 = and i32 %49, 3
   %51 = zext nneg i32 %50 to i64
-  %switch.gep145 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.rb_io_reopen, i64 0, i64 %51
-  %switch.load146 = load i32, ptr %switch.gep145, align 4
+  %switch.gep148 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.rb_io_reopen, i64 0, i64 %51
+  %switch.load149 = load i32, ptr %switch.gep148, align 4
   %52 = shl i32 %49, 4
   %53 = and i32 %52, 1024
   %54 = lshr i32 %49, 2
@@ -5885,7 +5885,7 @@ switch.lookup:                                    ; preds = %28
   %spec.select.i73 = or disjoint i32 %55, %53
   %.2.i74 = or disjoint i32 %spec.select.i73, %57
   %.3.i75 = or disjoint i32 %.2.i74, %59
-  %.4.i76 = or disjoint i32 %.3.i75, %switch.load146
+  %.4.i76 = or disjoint i32 %.3.i75, %switch.load149
   %60 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %48, i32 noundef 58) #33
   %.not62 = icmp eq ptr %60, null
   br i1 %.not62, label %65, label %61
@@ -5957,14 +5957,14 @@ rb_io_ext_int_to_encs.exit83:                     ; preds = %76, %79
   %82 = load i32, ptr %8, align 4, !tbaa !20
   %83 = and i32 %82, 1
   %.not68 = icmp eq i32 %83, 0
-  %.pre136 = and i32 %82, 4
-  %.not69 = icmp eq i32 %.pre136, 0
+  %.pre137 = and i32 %82, 4
+  %.not69 = icmp eq i32 %.pre137, 0
   %84 = lshr i32 %82, 4
   %85 = and i32 %84, 256
   %86 = select i1 %.not69, i32 %85, i32 0
   %87 = select i1 %.not68, i32 0, i32 %86
   store i64 4, ptr %11, align 8, !tbaa !23
-  %88 = icmp eq i32 %.pre136, 0
+  %88 = icmp eq i32 %.pre137, 0
   %89 = icmp ne i32 %.158, 0
   %or.cond = select i1 %88, i1 true, i1 %89
   br i1 %or.cond, label %thread-pre-split, label %90
@@ -6053,8 +6053,8 @@ rb_num2int_inline.exit97:                         ; preds = %118, %120
   store i64 %126, ptr %7, align 8, !tbaa !23
   %127 = and i32 %123, 3
   %128 = zext nneg i32 %127 to i64
-  %switch.gep148 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.io_initialize, i64 0, i64 %128
-  %switch.load149 = load i32, ptr %switch.gep148, align 4
+  %switch.gep151 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.io_initialize, i64 0, i64 %128
+  %switch.load152 = load i32, ptr %switch.gep151, align 4
   %129 = lshr i32 %123, 4
   %130 = and i32 %129, 64
   %131 = shl i32 %123, 2
@@ -6066,7 +6066,7 @@ rb_num2int_inline.exit97:                         ; preds = %118, %120
   %spec.select.i99 = or disjoint i32 %132, %130
   %.2.i100 = or disjoint i32 %spec.select.i99, %134
   %.3.i101 = or disjoint i32 %.2.i100, %136
-  %.4.i102 = or disjoint i32 %.3.i101, %switch.load149
+  %.4.i102 = or disjoint i32 %.3.i101, %switch.load152
   store i32 %.4.i102, ptr %8, align 4, !tbaa !20
   br label %137
 
@@ -6164,29 +6164,29 @@ rb_io_ext_int_to_encs.exit115:                    ; preds = %149, %152
   br label %24
 
 thread-pre-split:                                 ; preds = %._crit_edge, %.thread119
-  %.pre134 = phi i32 [ %.pre134.pre, %.thread119 ], [ %82, %._crit_edge ]
-  %.153.ph = phi i32 [ %174, %.thread119 ], [ %87, %._crit_edge ]
-  %.1.ph = phi i32 [ %.3, %.thread119 ], [ %.051, %._crit_edge ]
+  %.pre136.pre-phi = phi i32 [ %.pre134.pre, %.thread119 ], [ %82, %._crit_edge ]
+  %.pre134 = phi i32 [ %174, %.thread119 ], [ %87, %._crit_edge ]
+  %.153.ph = phi i32 [ %.3, %.thread119 ], [ %.051, %._crit_edge ]
   %.pr = load ptr, ptr %9, align 8, !tbaa !121
   %.pre = load ptr, ptr %10, align 8, !tbaa !121
   br label %176
 
 176:                                              ; preds = %thread-pre-split, %rb_io_ext_int_to_encs.exit94
   %177 = phi i32 [ %.pre134, %thread-pre-split ], [ %82, %rb_io_ext_int_to_encs.exit94 ]
-  %178 = phi ptr [ %.pre, %thread-pre-split ], [ %storemerge.i91, %rb_io_ext_int_to_encs.exit94 ]
-  %179 = phi ptr [ %.pr, %thread-pre-split ], [ %storemerge22.i90, %rb_io_ext_int_to_encs.exit94 ]
+  %.pre-phi = phi ptr [ %.pre, %thread-pre-split ], [ %storemerge.i91, %rb_io_ext_int_to_encs.exit94 ]
+  %178 = phi ptr [ %.pr, %thread-pre-split ], [ %storemerge22.i90, %rb_io_ext_int_to_encs.exit94 ]
   %.153 = phi i32 [ %.153.ph, %thread-pre-split ], [ %87, %rb_io_ext_int_to_encs.exit94 ]
   %.1 = phi i32 [ %.1.ph, %thread-pre-split ], [ %.051, %rb_io_ext_int_to_encs.exit94 ]
-  %180 = icmp eq ptr %178, null
-  %181 = and i32 %177, 4
+  %181 = icmp eq ptr %178, null
+  %182 = and i32 %177, 4
   %.not.i116 = icmp eq i32 %181, 0
   %182 = and i32 %177, 5
   %183 = icmp eq i32 %182, 1
-  %or.cond22.i = and i1 %180, %183
+  %or.cond22.i = and i1 %181, %183
   br i1 %or.cond22.i, label %184, label %193
 
 184:                                              ; preds = %176
-  %.not17.i = icmp eq ptr %179, null
+  %.not17.i = icmp eq ptr %178, null
   br i1 %.not17.i, label %185, label %187
 
 185:                                              ; preds = %184
@@ -6194,7 +6194,7 @@ thread-pre-split:                                 ; preds = %._crit_edge, %.thre
   br label %187
 
 187:                                              ; preds = %185, %184
-  %188 = phi ptr [ %186, %185 ], [ %179, %184 ]
+  %188 = phi ptr [ %186, %185 ], [ %178, %184 ]
   %189 = getelementptr i8, ptr %188, i64 20
   %.val.i.i = load i32, ptr %189, align 4, !tbaa !68
   %.not.i.i = icmp eq i32 %.val.i.i, 1
@@ -6236,7 +6236,7 @@ validate_enc_binmode.exit:                        ; preds = %193, %.thread.i
   store i64 %200, ptr %0, align 8, !tbaa !23
   store i32 %.1, ptr %3, align 4, !tbaa !20
   store i32 %199, ptr %4, align 4, !tbaa !20
-  store ptr %179, ptr %5, align 8, !tbaa !126
+  store ptr %178, ptr %5, align 8, !tbaa !126
   %201 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %178, ptr %201, align 8, !tbaa !127
   %202 = getelementptr inbounds nuw i8, ptr %5, i64 16

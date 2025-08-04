@@ -17228,7 +17228,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit416: ; preds = %_Z
 
 117:                                              ; preds = %113
   %.pre = load i8, ptr %15, align 1, !tbaa !467, !range !160
-  br label %.thread662
+  br label %.thread663
 
 118:                                              ; preds = %111
   %119 = add i32 %100, -13
@@ -17372,7 +17372,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i42
   %.not296 = icmp eq ptr %2, null
   %169 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %169, ptr %22, align 8, !tbaa !12
-  br i1 %.not296, label %.thread658, label %170
+  br i1 %.not296, label %.thread659, label %170
 
 170:                                              ; preds = %165
   %171 = load ptr, ptr %2, align 8, !tbaa !14
@@ -17409,7 +17409,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i42
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %177, ptr align 1 %171, i64 %173, i1 false)
   br label %183
 
-.thread658:                                       ; preds = %165
+.thread659:                                       ; preds = %165
   %181 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 0, ptr %181, align 8, !tbaa !4
   store i8 0, ptr %169, align 8, !tbaa !13
@@ -17439,7 +17439,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i42
 .noexc441:                                        ; preds = %192
   unreachable
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i: ; preds = %.thread658, %183
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i: ; preds = %.thread659, %183
   %193 = phi ptr [ %182, %.thread658 ], [ %188, %183 ]
   %194 = phi i64 [ 0, %.thread658 ], [ %.pre645, %183 ]
   %195 = load ptr, ptr %22, align 8, !tbaa !14, !noalias !474
@@ -18015,11 +18015,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit507: ; preds = %_Z
 
 413:                                              ; preds = %405
   store i8 1, ptr %15, align 1, !tbaa !467
-  br label %.thread662
+  br label %.thread663
 
-.thread662:                                       ; preds = %117, %413
-  %.ph660 = phi i1 [ %378, %413 ], [ true, %117 ]
-  %.ph661 = phi i8 [ 1, %413 ], [ %.pre, %117 ]
+.thread663:                                       ; preds = %117, %413
+  %.ph661 = phi i1 [ %378, %413 ], [ true, %117 ]
+  %.ph662 = phi i8 [ 1, %413 ], [ %.pre, %117 ]
   %414 = add nsw i32 %100, -11
   br label %439
 
@@ -18058,16 +18058,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit507: ; preds = %_Z
   store i8 1, ptr %433, align 1, !tbaa !165
   %437 = load i8, ptr %0, align 1, !tbaa !163, !range !160, !noundef !161
   %438 = trunc nuw i8 %437 to i1
-  br i1 %438, label %.critedge337, label %.thread677
+  br i1 %438, label %.critedge337, label %.thread679
 
-.thread677:                                       ; preds = %436
+.thread679:                                       ; preds = %436
   store i8 1, ptr %15, align 1, !tbaa !467
   br label %.critedge361
 
-439:                                              ; preds = %.thread662, %421, %415
+439:                                              ; preds = %.thread663, %421, %415
   %440 = phi i32 [ %417, %421 ], [ %417, %415 ], [ %414, %.thread662 ]
-  %441 = phi i1 [ %378, %421 ], [ %378, %415 ], [ %.ph660, %.thread662 ]
-  %442 = phi i8 [ 0, %421 ], [ %397, %415 ], [ %.ph661, %.thread662 ]
+  %441 = phi i1 [ %378, %421 ], [ %378, %415 ], [ %.ph661, %.thread662 ]
+  %442 = phi i8 [ 0, %421 ], [ %397, %415 ], [ %.ph662, %.thread662 ]
   %443 = trunc nuw i8 %442 to i1
   %.not47 = xor i1 %443, true
   %or.cond49 = and i1 %102, %.not47
@@ -18163,11 +18163,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit513: ; preds = %_Z
 
 481:                                              ; preds = %476
   call void @_ZN11flatbuffers6Parser13TryTypedValueEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEibRNS_5ValueENS_8BaseTypeEPb(ptr dead_on_unwind writable sret(%"class.flatbuffers::CheckedError") align 1 %0, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef %2, i32 noundef %99, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(66) %3, i32 noundef 11, ptr noundef nonnull %15)
-  %482 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 1, ptr %482, align 1, !tbaa !165
-  %483 = load i8, ptr %0, align 1, !tbaa !163, !range !160, !noundef !161
-  %484 = trunc nuw i8 %483 to i1
-  br i1 %484, label %.critedge337, label %._crit_edge650
+  %483 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 1, ptr %483, align 1, !tbaa !165
+  %484 = load i8, ptr %0, align 1, !tbaa !163, !range !160, !noundef !161
+  %485 = trunc nuw i8 %484 to i1
+  br i1 %485, label %.critedge337, label %._crit_edge650
 
 ._crit_edge650:                                   ; preds = %481
   %.pre651 = load i8, ptr %15, align 1, !tbaa !467, !range !160
@@ -18176,8 +18176,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit513: ; preds = %_Z
 
 485:                                              ; preds = %._crit_edge650, %476
   %486 = phi i32 [ %.pre652, %._crit_edge650 ], [ %478, %476 ]
-  %487 = phi i8 [ %.pre651, %._crit_edge650 ], [ %477, %476 ]
-  %488 = trunc nuw i8 %487 to i1
+  %.pre-phi = phi i8 [ %.pre651, %._crit_edge650 ], [ %477, %476 ]
+  %488 = trunc nuw i8 %.pre-phi to i1
   %.not351 = xor i1 %488, true
   %489 = icmp eq i32 %99, %486
   %or.cond353 = select i1 %.not351, i1 %489, i1 false
@@ -18250,7 +18250,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit513: ; preds = %_Z
   %521 = trunc nuw i8 %520 to i1
   br i1 %521, label %.critedge337, label %.critedge361
 
-.critedge361:                                     ; preds = %504, %.thread677, %516, %500, %495, %512
+.critedge361:                                     ; preds = %504, %.thread679, %516, %500, %495, %512
   %522 = load i8, ptr %15, align 1, !tbaa !467, !range !160, !noundef !161
   %523 = trunc nuw i8 %522 to i1
   br i1 %523, label %845, label %524
@@ -18527,11 +18527,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i52
 
 switch.lookup:                                    ; preds = %619
   %626 = zext nneg i32 %100 to i64
-  %switch.gep683 = getelementptr inbounds nuw [19 x ptr], ptr @switch.table._ZN11flatbuffers6Parser13TryTypedValueEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEibRNS_5ValueENS_8BaseTypeEPb.39, i64 0, i64 %626
-  %switch.load684 = load ptr, ptr %switch.gep683, align 8
+  %switch.gep685 = getelementptr inbounds nuw [19 x ptr], ptr @switch.table._ZN11flatbuffers6Parser13TryTypedValueEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEibRNS_5ValueENS_8BaseTypeEPb.39, i64 0, i64 %626
+  %switch.load686 = load ptr, ptr %switch.gep685, align 8
   %627 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %627, ptr %32, align 8, !tbaa !12
-  %628 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load684) #36
+  %628 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load686) #36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #36
   store i64 %628, ptr %7, align 8, !tbaa !32
   %629 = icmp ugt i64 %628, 15
@@ -18555,12 +18555,12 @@ switch.lookup:                                    ; preds = %619
   ]
 
 633:                                              ; preds = %._crit_edge.i.i535
-  %634 = load i8, ptr %switch.load684, align 1, !tbaa !13
+  %634 = load i8, ptr %switch.load686, align 1, !tbaa !13
   store i8 %634, ptr %632, align 1, !tbaa !13
   br label %636
 
 635:                                              ; preds = %._crit_edge.i.i535
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %632, ptr nonnull align 1 %switch.load684, i64 %628, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %632, ptr nonnull align 1 %switch.load686, i64 %628, i1 false)
   br label %636
 
 636:                                              ; preds = %635, %633, %._crit_edge.i.i535

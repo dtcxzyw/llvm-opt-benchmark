@@ -554,7 +554,7 @@ define void @_ZN3gmx17setupStepWorkloadEiNS_8ArrayRefIKNS_8MtsLevelEEElRKNS_22Do
   store i8 %103, ptr %104, align 1, !tbaa !279
   br i1 %37, label %105, label %117
 
-105:                                              ; preds = %85
+105:; preds = %85
   %106 = getelementptr inbounds nuw i8, ptr %6, i64 22
   %107 = load i8, ptr %106, align 1, !tbaa !133, !range !16, !noundef !132
   %108 = trunc nuw i8 %107 to i1
@@ -563,16 +563,16 @@ define void @_ZN3gmx17setupStepWorkloadEiNS_8ArrayRefIKNS_8MtsLevelEEElRKNS_22Do
   %or.cond8 = and i1 %16, %110
   br i1 %or.cond8, label %111, label %117
 
-111:                                              ; preds = %105
+111:; preds = %105
   %112 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %113 = load i8, ptr %112, align 1, !range !16
   %114 = trunc nuw i8 %113 to i1
-  %or.cond39 = select i1 %69, i1 true, i1 %114
+  %114 = select i1 %69, i1 true, i1 %114
   %115 = xor i8 %101, 1
   %116 = select i1 %or.cond39, i8 0, i8 %115
   br label %117
 
-117:                                              ; preds = %111, %105, %85
+117: ; preds = %111, %105, %85
   %118 = phi i8 [ 0, %105 ], [ 0, %85 ], [ %116, %111 ]
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i8 %118, ptr %119, align 1, !tbaa !280

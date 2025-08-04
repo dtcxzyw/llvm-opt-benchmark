@@ -4865,12 +4865,12 @@ define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$co
   %45 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h535586f649549c83E"(ptr noalias noundef nonnull readonly align 1 %15, i64 noundef %42, ptr noalias noundef nonnull readonly align 1 %17, i64 noundef %44), !noalias !489
   br i1 %45, label %46, label %"_ZN85_$LT$ruff_python_ast..generated..ExprBytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h87e4980686b24163E.exit"
 
-46:                                               ; preds = %40
+46:; preds = %40
   %47 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
   %48 = load i8, ptr %47, align 8, !alias.scope !487, !noalias !488, !noundef !8
-  %49 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %50 = load i8, ptr %49, align 8, !alias.scope !488, !noalias !487, !noundef !8
-  %51 = icmp eq i8 %48, %50
+  %48 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %49 = load i8, ptr %48, align 8, !alias.scope !488, !noalias !487, !noundef !8
+  %51 = icmp eq i8 %48, %49
   br label %"_ZN85_$LT$ruff_python_ast..generated..ExprBytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h87e4980686b24163E.exit"
 
 "_ZN85_$LT$ruff_python_ast..generated..ExprBytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h87e4980686b24163E.exit": ; preds = %0, %8, %14, %21, %27, %34, %40, %46
@@ -8164,11 +8164,11 @@ define internal fastcc noundef zeroext i1 @"_ZN87_$LT$ruff_python_ast..nodes..By
   %34 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h535586f649549c83E"(ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %31, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %33)
   br i1 %34, label %35, label %9
 
-35:                                               ; preds = %29
+35:; preds = %29
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i8, ptr %36, align 8, !noundef !8
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %39 = load i8, ptr %38, align 8, !noundef !8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %38 = load i8, ptr %37, align 8, !noundef !8
   %40 = icmp eq i8 %37, %39
   br label %9
 }

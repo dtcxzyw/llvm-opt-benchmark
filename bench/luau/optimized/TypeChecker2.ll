@@ -17527,12 +17527,12 @@ _ZNKSt13unordered_mapIN4Luau13AstExprBinary2OpEPKcSt4hashIS2_ESt8equal_toIS2_ESa
 263:                                              ; preds = %_ZNKSt13unordered_mapIN4Luau13AstExprBinary2OpEPKcSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit
   %264 = extractvalue { ptr, i8 } %262, 0
   %.sroa.064.0.copyload = load ptr, ptr %0, align 8, !tbaa !139
-  %265 = invoke { ptr, i8 } @_ZN4Luau12getMetatableEPKNS_4TypeENS_7NotNullINS_12BuiltinTypesEEE(ptr noundef %77, ptr %.sroa.064.0.copyload)
+  %266 = invoke { ptr, i8 } @_ZN4Luau12getMetatableEPKNS_4TypeENS_7NotNullINS_12BuiltinTypesEEE(ptr noundef %77, ptr %.sroa.064.0.copyload)
           to label %_ZSteqIPKN4Luau4TypeES3_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS5_ERKSE_IS8_E.exit unwind label %286
 
 _ZSteqIPKN4Luau4TypeES3_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS5_ERKSE_IS8_E.exit: ; preds = %263
-  %266 = extractvalue { ptr, i8 } %262, 1
-  %267 = extractvalue { ptr, i8 } %265, 0
+  %267 = extractvalue { ptr, i8 } %262, 1
+  %268 = extractvalue { ptr, i8 } %266, 0
   %268 = extractvalue { ptr, i8 } %265, 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #34
   %269 = trunc nuw i8 %266 to i1

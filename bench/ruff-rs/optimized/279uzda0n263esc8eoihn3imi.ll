@@ -8298,11 +8298,11 @@ _ZN4core3cmp9PartialEq2ne17he63bc3f83a13ed74E.exit.i.i: ; preds = %29
   %59 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h535586f649549c83E"(ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %56, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %58)
   br i1 %59, label %60, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hb45d11cc47c54edaE.exit"
 
-60:                                               ; preds = %54
+60:; preds = %54
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %62 = load i8, ptr %61, align 8, !noundef !4
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %64 = load i8, ptr %63, align 8, !noundef !4
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %63 = load i8, ptr %62, align 8, !noundef !4
   %65 = icmp eq i8 %62, %64
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hb45d11cc47c54edaE.exit"
 }

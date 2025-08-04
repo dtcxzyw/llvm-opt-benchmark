@@ -2018,7 +2018,7 @@ define dso_local i32 @io_recvmsg(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %328 = and i32 %327, 67108864
   %329 = icmp ne i32 %328, 0
   %brmerge.not = and i1 %329, %214
-  br i1 %brmerge.not, label %330, label %.split.loop.exit38
+  br i1 %brmerge.not, label %330, label %.split.loop.exit
 
 330:                                              ; preds = %325
   %331 = or i32 %326, 2
@@ -2060,7 +2060,7 @@ define dso_local i32 @io_recvmsg(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %346 = select i1 %70, i32 -11, i32 %345
   br label %378
 
-.split.loop.exit38:                               ; preds = %325
+.split.loop.exit:                                 ; preds = %325
   %.mux.le = select i1 %329, i32 %71, i32 0
   store i32 %314, ptr %67, align 8
   store i32 %326, ptr %68, align 4

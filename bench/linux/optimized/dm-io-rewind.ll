@@ -54,12 +54,12 @@ define dso_local void @dm_io_rewind(ptr noundef captures(none) %0, ptr noundef %
   %33 = load i32, ptr %32, align 1
   %34 = add i32 %33, %13
   store i32 %34, ptr %32, align 1
-  br label %82
+  br label %83
 
 35:                                               ; preds = %22
   %36 = sub nuw i32 %29, %13
   store i32 %36, ptr %28, align 1
-  br label %82
+  br label %83
 
 37:                                               ; preds = %22
   %38 = sub nuw i32 %13, %29
@@ -107,9 +107,9 @@ define dso_local void @dm_io_rewind(ptr noundef captures(none) %0, ptr noundef %
   %69 = load i1, ptr @dm_bvec_iter_rewind.__already_done, align 1
   %70 = xor i1 %68, true
   %71 = select i1 %70, i1 true, i1 %69
-  br i1 %71, label %72, label %._crit_edge, !prof !8
+  br i1 %71, label %73, label %72, !prof !8
 
-._crit_edge:                                      ; preds = %63
+72:                                               ; preds = %63
   store i1 true, ptr @dm_bvec_iter_rewind.__already_done, align 1
   tail call void asm sideeffect "729: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 729b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 729) #2, !srcloc !9
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str) #2
@@ -118,38 +118,38 @@ define dso_local void @dm_io_rewind(ptr noundef captures(none) %0, ptr noundef %
   tail call void asm sideeffect "731: nop\0A\09.pushsection .discard.instr_end\0A\09.long 731b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 731) #2, !srcloc !12
   tail call void asm sideeffect "732: nop\0A\09.pushsection .discard.instr_end\0A\09.long 732b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 732) #2, !srcloc !13
   %.pre = load i32, ptr %25, align 1
-  br label %73
+  br label %74
 
-72:                                               ; preds = %63
-  br i1 %68, label %73, label %.thread
+73:                                               ; preds = %63
+  br i1 %68, label %74, label %.thread
 
-73:                                               ; preds = %._crit_edge, %72
-  %74 = phi i32 [ %.pre, %._crit_edge ], [ %27, %72 ]
-  %75 = sub i32 %74, %64
-  store i32 %75, ptr %25, align 1
+74:                                               ; preds = %._crit_edge, %73
+  %75 = phi i32 [ %.pre, %._crit_edge ], [ %27, %72 ]
+  %76 = sub i32 %75, %64
+  store i32 %76, ptr %25, align 1
   store i32 0, ptr %28, align 1
   store i32 0, ptr %39, align 1
-  br label %82
+  br label %83
 
 .thread:                                          ; preds = %43, %72
-  %76 = phi i32 [ %64, %72 ], [ %38, %43 ]
-  %77 = phi i32 [ %65, %72 ], [ %41, %43 ]
-  store i32 %77, ptr %39, align 1
-  %78 = sext i32 %77 to i64
-  %79 = getelementptr %struct.bio_vec, ptr %24, i64 %78, i32 1
-  %80 = load i32, ptr %79, align 8
-  %81 = sub i32 %80, %76
-  store i32 %81, ptr %28, align 1
-  br label %82
+  %77 = phi i32 [ %64, %72 ], [ %38, %43 ]
+  %78 = phi i32 [ %65, %72 ], [ %41, %43 ]
+  store i32 %78, ptr %39, align 1
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr %struct.bio_vec, ptr %24, i64 %79, i32 1
+  %81 = load i32, ptr %80, align 8
+  %82 = sub i32 %81, %77
+  store i32 %82, ptr %28, align 1
+  br label %83
 
-82:                                               ; preds = %.thread, %73, %35, %31
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %84 = load i32, ptr %83, align 4
-  %85 = zext i32 %84 to i64
-  tail call void @bio_trim(ptr noundef %7, i64 noundef 0, i64 noundef %85) #2
+83:                                               ; preds = %.thread, %74, %35, %31
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %85 = load i32, ptr %84, align 4
+  %86 = zext i32 %85 to i64
+  tail call void @bio_trim(ptr noundef %7, i64 noundef 0, i64 noundef %86) #2
   tail call void @bio_chain(ptr noundef %7, ptr noundef %4) #2
-  %86 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %86, ptr nonnull elementtype(i32) %86) #2, !srcloc !14
+  %87 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %87, ptr nonnull elementtype(i32) %87) #2, !srcloc !14
   store ptr %7, ptr %3, align 8
   ret void
 }

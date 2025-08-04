@@ -8047,11 +8047,11 @@ define hidden noundef zeroext i1 @_ZN13FileMapHeader8validateEv(ptr noundef nonn
 5:                                                ; preds = %1
   %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not24 = icmp eq ptr %6, null
-  br i1 %.not24, label %113, label %7
+  br i1 %.not24, label %114, label %7
 
 7:                                                ; preds = %5
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.173, i32 noundef %3, i32 noundef %4)
-  br label %113
+  br label %114
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 404
@@ -8065,7 +8065,7 @@ define hidden noundef zeroext i1 @_ZN13FileMapHeader8validateEv(ptr noundef nonn
 14:                                               ; preds = %8
   %15 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not25 = icmp eq ptr %15, null
-  br i1 %.not25, label %113, label %16
+  br i1 %.not25, label %114, label %16
 
 16:                                               ; preds = %14
   %17 = trunc i8 %10 to i1
@@ -8073,7 +8073,7 @@ define hidden noundef zeroext i1 @_ZN13FileMapHeader8validateEv(ptr noundef nonn
   %19 = trunc i8 %11 to i1
   %20 = select i1 %19, ptr @.str.175, ptr @.str.176
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.174, ptr noundef nonnull %18, ptr noundef nonnull %20)
-  br label %113
+  br label %114
 
 21:                                               ; preds = %8
   %22 = tail call noundef ptr @_ZN9Arguments12get_propertyEPKc(ptr noundef nonnull @.str.177) #25
@@ -8107,7 +8107,7 @@ define hidden noundef zeroext i1 @_ZN13FileMapHeader8validateEv(ptr noundef nonn
 34:                                               ; preds = %28
   %35 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not34 = icmp eq ptr %35, null
-  br i1 %.not34, label %113, label %36
+  br i1 %.not34, label %114, label %36
 
 36:                                               ; preds = %34
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.179, ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.175)
@@ -8129,12 +8129,12 @@ define hidden noundef zeroext i1 @_ZN13FileMapHeader8validateEv(ptr noundef nonn
   %or.cond4 = select i1 %.not2, i1 %46, i1 false
   br i1 %or.cond4, label %47, label %51
 
-47:                                               ; preds = %41
-  %48 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not27 = icmp eq ptr %48, null
-  br i1 %.not27, label %50, label %49
+48:                                               ; preds = %41
+  %49 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not27 = icmp eq ptr %49, null
+  br i1 %.not27, label %50, label %50
 
-49:                                               ; preds = %47
+50:                                               ; preds = %48
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.180)
   br label %50
 
@@ -8157,28 +8157,28 @@ define hidden noundef zeroext i1 @_ZN13FileMapHeader8validateEv(ptr noundef nonn
   %.not28 = icmp eq ptr %58, null
   br i1 %.not28, label %113, label %59
 
-59:                                               ; preds = %57
+52:                                               ; preds = %57
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str.181)
-  br label %113
+  br label %114
 
-60:                                               ; preds = %51
-  br i1 %54, label %61, label %64
+61:                                               ; preds = %51
+  br i1 %54, label %62, label %64
 
-61:                                               ; preds = %60
-  %62 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
-  %.not29 = icmp eq ptr %62, null
-  br i1 %.not29, label %64, label %63
+62:                                               ; preds = %61
+  %63 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %.not29 = icmp eq ptr %63, null
+  br i1 %.not29, label %64, label %64
 
-63:                                               ; preds = %61
+64:                                               ; preds = %62
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str.182)
   br label %64
 
-64:                                               ; preds = %63, %61, %60
-  %65 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not30 = icmp eq ptr %65, null
-  br i1 %.not30, label %75, label %66
+88:                                               ; preds = %63, %62, %60
+  %89 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not33 = icmp eq ptr %89, null
+  br i1 %.not33, label %75, label %90
 
-66:                                               ; preds = %64
+90:                                               ; preds = %88
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 420
   %68 = load i8, ptr %67, align 4
   %69 = and i8 %68, 1
@@ -8213,57 +8213,57 @@ define hidden noundef zeroext i1 @_ZN13FileMapHeader8validateEv(ptr noundef nonn
 
 89:                                               ; preds = %87
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.184)
-  br label %113
+  br label %114
 
-90:                                               ; preds = %81
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 422
-  %92 = load i8, ptr %91, align 2
-  %93 = trunc i8 %92 to i1
-  %.not8 = xor i1 %93, true
-  %94 = load i8, ptr @UseSecondarySupersTable, align 1
-  %95 = trunc i8 %94 to i1
-  %or.cond10 = select i1 %.not8, i1 %95, i1 false
-  br i1 %or.cond10, label %96, label %99
+91:                                               ; preds = %81
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 422
+  %93 = load i8, ptr %92, align 2
+  %94 = trunc i8 %93 to i1
+  %.not8 = xor i1 %94, true
+  %95 = load i8, ptr @UseSecondarySupersTable, align 1
+  %96 = trunc i8 %95 to i1
+  %or.cond10 = select i1 %.not8, i1 %96, i1 false
+  br i1 %or.cond10, label %97, label %100
 
-96:                                               ; preds = %90
-  %97 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
-  %.not32 = icmp eq ptr %97, null
-  br i1 %.not32, label %113, label %98
+97:                                               ; preds = %91
+  %98 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %.not32 = icmp eq ptr %98, null
+  br i1 %.not32, label %114, label %99
 
-98:                                               ; preds = %96
+99:                                               ; preds = %97
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str.185)
-  br label %113
+  br label %114
 
-99:                                               ; preds = %90
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 745
-  %101 = load i8, ptr %100, align 1
-  %102 = trunc i8 %101 to i1
-  br i1 %102, label %106, label %103
+100:                                              ; preds = %91
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 745
+  %102 = load i8, ptr %101, align 1
+  %103 = trunc i8 %102 to i1
+  br i1 %103, label %107, label %104
 
-103:                                              ; preds = %99
+104:                                              ; preds = %100
   tail call void @_ZN9CDSConfig36stop_using_optimized_module_handlingEv() #25
-  %104 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not31 = icmp eq ptr %104, null
-  br i1 %.not31, label %106, label %105
+  %105 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not31 = icmp eq ptr %105, null
+  br i1 %.not31, label %107, label %106
 
-105:                                              ; preds = %103
+106:                                              ; preds = %104
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.186)
-  br label %106
+  br label %107
 
-106:                                              ; preds = %105, %103, %99
-  %107 = load i32, ptr %0, align 8
-  %108 = icmp ne i32 %107, -267670622
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 746
-  %110 = load i8, ptr %109, align 2
-  %111 = trunc i8 %110 to i1
-  %or.cond23 = select i1 %108, i1 true, i1 %111
-  br i1 %or.cond23, label %113, label %112
+107:                                              ; preds = %106, %104, %100
+  %108 = load i32, ptr %0, align 8
+  %109 = icmp ne i32 %108, -267670622
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 746
+  %111 = load i8, ptr %110, align 2
+  %112 = trunc i8 %111 to i1
+  %or.cond23 = select i1 %109, i1 true, i1 %112
+  br i1 %or.cond23, label %114, label %113
 
-112:                                              ; preds = %106
+113:                                              ; preds = %107
   tail call void @_ZN9CDSConfig28stop_using_full_module_graphEPKc(ptr noundef nonnull @.str.187) #25
-  br label %113
+  br label %114
 
-113:                                              ; preds = %106, %112, %98, %96, %89, %87, %59, %57, %36, %34, %16, %14, %7, %5
+114:                                              ; preds = %107, %113, %99, %97, %89, %87, %59, %57, %36, %34, %16, %14, %7, %5
   %.0 = phi i1 [ false, %5 ], [ false, %7 ], [ false, %14 ], [ false, %16 ], [ false, %34 ], [ false, %36 ], [ false, %57 ], [ false, %59 ], [ false, %87 ], [ false, %89 ], [ false, %96 ], [ false, %98 ], [ true, %112 ], [ true, %106 ]
   ret i1 %.0
 }

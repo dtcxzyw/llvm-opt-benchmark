@@ -1614,9 +1614,9 @@ define internal fastcc i32 @confirm_addr_indev(ptr noundef nonnull %0, i32 nound
   %111 = and i32 %108, %110
   %112 = icmp eq i32 %111, 0
   %113 = icmp ne i32 %105, 0
-  %.not122 = select i1 %112, i1 %113, i1 false
+  %.not123 = select i1 %112, i1 %113, i1 false
   %114 = zext i1 %112 to i32
-  br i1 %.not122, label %.loopexit, label %.backedge.us54
+  br i1 %.not123, label %.loopexit, label %.backedge.us54
 
 .backedge.us54:                                   ; preds = %102, %104
   %115 = phi i32 [ %105, %104 ], [ %89, %102 ]
@@ -1627,17 +1627,17 @@ define internal fastcc i32 @confirm_addr_indev(ptr noundef nonnull %0, i32 nound
   br i1 %119, label %.loopexit, label %.lr.ph.split.split.split.us, !llvm.loop !52
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.backedge
-  %120 = phi ptr [ %156, %.backedge ], [ %24, %.lr.ph.split.split ]
-  %121 = phi i32 [ %153, %.backedge ], [ 0, %.lr.ph.split.split ]
-  %122 = phi i32 [ %154, %.backedge ], [ 0, %.lr.ph.split.split ]
+  %120 = phi ptr [ %157, %.backedge ], [ %24, %.lr.ph.split.split ]
+  %121 = phi i32 [ %154, %.backedge ], [ 0, %.lr.ph.split.split ]
+  %122 = phi i32 [ %155, %.backedge ], [ 0, %.lr.ph.split.split ]
   %123 = getelementptr inbounds nuw i8, ptr %120, i64 68
   %124 = load i8, ptr %123, align 4
   %125 = zext i8 %124 to i32
   %126 = tail call i32 @llvm.umin.i32(i32 %19, i32 %125)
   %127 = icmp ne i32 %121, 0
   %128 = icmp sgt i32 %126, %3
-  %or.cond120 = select i1 %127, i1 true, i1 %128
-  br i1 %or.cond120, label %133, label %129
+  %or.cond = select i1 %127, i1 true, i1 %128
+  br i1 %or.cond, label %133, label %129
 
 129:                                              ; preds = %.lr.ph.split.split.split
   %130 = getelementptr inbounds nuw i8, ptr %120, i64 48
@@ -1679,27 +1679,27 @@ define internal fastcc i32 @confirm_addr_indev(ptr noundef nonnull %0, i32 nound
   br label %.loopexit.thread
 
 .backedge:                                        ; preds = %133, %.thread, %148
-  %152 = phi i1 [ true, %133 ], [ %142, %.thread ], [ false, %148 ]
-  %153 = phi i32 [ %121, %133 ], [ %135, %.thread ], [ %135, %148 ]
-  %154 = zext i1 %152 to i32
-  %155 = getelementptr inbounds nuw i8, ptr %120, i64 16
-  %156 = load volatile ptr, ptr %155, align 8
-  %157 = icmp eq ptr %156, null
-  br i1 %157, label %.loopexit, label %.lr.ph.split.split.split, !llvm.loop !53
+  %153 = phi i1 [ true, %133 ], [ %142, %.thread ], [ false, %148 ]
+  %154 = phi i32 [ %121, %133 ], [ %135, %.thread ], [ %135, %148 ]
+  %155 = zext i1 %153 to i32
+  %156 = getelementptr inbounds nuw i8, ptr %120, i64 16
+  %157 = load volatile ptr, ptr %156, align 8
+  %158 = icmp eq ptr %157, null
+  br i1 %158, label %.loopexit, label %.lr.ph.split.split.split, !llvm.loop !53
 
 .loopexit:                                        ; preds = %.backedge, %.backedge.us54, %104, %.backedge.us, %67, %.thread4.us
-  %158 = phi i32 [ %.be.us, %.backedge.us ], [ %68, %67 ], [ %71, %.thread4.us ], [ %116, %.backedge.us54 ], [ %114, %104 ], [ %154, %.backedge ]
-  %159 = phi i32 [ %.be12.us, %.backedge.us ], [ %44, %67 ], [ %44, %.thread4.us ], [ %115, %.backedge.us54 ], [ %105, %104 ], [ %153, %.backedge ]
-  %.fr = freeze i32 %158
-  %160 = icmp eq i32 %.fr, 0
-  br i1 %160, label %.loopexit.thread99, label %.loopexit.thread
+  %159 = phi i32 [ %.be.us, %.backedge.us ], [ %68, %67 ], [ %71, %.thread4.us ], [ %116, %.backedge.us54 ], [ %114, %104 ], [ %155, %.backedge ]
+  %160 = phi i32 [ %.be12.us, %.backedge.us ], [ %44, %67 ], [ %44, %.thread4.us ], [ %115, %.backedge.us54 ], [ %105, %104 ], [ %154, %.backedge ]
+  %.fr = freeze i32 %159
+  %161 = icmp eq i32 %.fr, 0
+  br i1 %161, label %.loopexit.thread99, label %.loopexit.thread
 
 .loopexit.thread99:                               ; preds = %18, %.loopexit
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %129, %144, %98, %.backedge.us34, %82, %40, %61, %.split.us, %.loopexit, %.loopexit.thread99
-  %161 = phi i32 [ 0, %.loopexit.thread99 ], [ %159, %.loopexit ], [ %151, %.split.us ], [ %44, %61 ], [ %2, %40 ], [ %84, %82 ], [ 0, %.backedge.us34 ], [ %100, %98 ], [ %135, %144 ], [ %131, %129 ]
-  ret i32 %161
+  %162 = phi i32 [ 0, %.loopexit.thread99 ], [ %160, %.loopexit ], [ %151, %.split.us ], [ %44, %61 ], [ %2, %40 ], [ %84, %82 ], [ 0, %.backedge.us34 ], [ %100, %98 ], [ %135, %144 ], [ %131, %129 ]
+  ret i32 %162
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
