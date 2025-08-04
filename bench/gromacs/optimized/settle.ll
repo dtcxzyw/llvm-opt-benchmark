@@ -4520,15 +4520,15 @@ define internal fastcc void @_ZN3gmxL21settleTemplateWrapperINS_9SimdFloatENS_9S
 
 137:                                              ; preds = %134
   tail call void @llvm.experimental.noalias.scope.decl(metadata !159)
-  %138 = load <8 x float>, ptr %133, align 8, !noalias !159
-  %139 = load <8 x float>, ptr %135, align 4, !noalias !159
+  %138 = load <1 x float>, ptr %133, align 8, !noalias !159
+  %139 = load <1 x float>, ptr %135, align 4, !noalias !159
   %140 = load <8 x float>, ptr %136, align 4, !noalias !159
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %142 = load <8 x float>, ptr %141, align 8, !noalias !159
-  %143 = shufflevector <8 x float> %138, <8 x float> poison, <8 x i32> zeroinitializer
-  %144 = shufflevector <8 x float> %139, <8 x float> poison, <8 x i32> zeroinitializer
+  %142 = load <1 x float>, ptr %141, align 8, !noalias !159
+  %143 = shufflevector <1 x float> %138, <1 x float> poison, <8 x i32> zeroinitializer
+  %144 = shufflevector <1 x float> %139, <1 x float> poison, <8 x i32> zeroinitializer
   %145 = shufflevector <8 x float> %140, <8 x float> poison, <8 x i32> zeroinitializer
-  %146 = shufflevector <8 x float> %142, <8 x float> poison, <8 x i32> zeroinitializer
+  %146 = shufflevector <1 x float> %142, <1 x float> poison, <8 x i32> zeroinitializer
   %147 = icmp slt i32 %127, %132
   br i1 %147, label %.lr.ph.i, label %_ZN3gmxL14settleTemplateINS_9SimdFloatENS_9SimdFBoolELi8EPKfLb1ELb0EEEvRKNS_10SettleDataEiiT2_S4_PffS9_PA3_fPb.exit
 
@@ -5997,24 +5997,24 @@ _ZN3gmxL14settleTemplateINS_9SimdFloatENS_9SimdFBoolELi8EPKfLb1ELb0EEEvRKNS_10Se
 
 1192:                                             ; preds = %134
   tail call void @llvm.experimental.noalias.scope.decl(metadata !175)
-  %1193 = load <8 x float>, ptr %133, align 8, !noalias !175
-  %1194 = load <8 x float>, ptr %135, align 4, !noalias !175
+  %1193 = load <1 x float>, ptr %133, align 8, !noalias !175
+  %1194 = load <1 x float>, ptr %135, align 4, !noalias !175
   %1195 = load <8 x float>, ptr %136, align 4, !noalias !175
   %1196 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1197 = load <8 x float>, ptr %1196, align 8, !noalias !175
   %1198 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1199 = load <8 x float>, ptr %1198, align 8, !noalias !175
-  %1200 = load <8 x float>, ptr %0, align 8, !noalias !175
+  %1199 = load <1 x float>, ptr %1198, align 8, !noalias !175
+  %1200 = load <1 x float>, ptr %0, align 8, !noalias !175
   %1201 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %1202 = load <8 x float>, ptr %1201, align 4, !noalias !175
+  %1202 = load <1 x float>, ptr %1201, align 4, !noalias !175
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %61) #23, !noalias !175
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(288) %61, i8 0, i64 288, i1 false), !tbaa !52, !noalias !175
-  %1203 = shufflevector <8 x float> %1193, <8 x float> poison, <8 x i32> zeroinitializer
-  %1204 = shufflevector <8 x float> %1194, <8 x float> poison, <8 x i32> zeroinitializer
+  %1203 = shufflevector <1 x float> %1193, <1 x float> poison, <8 x i32> zeroinitializer
+  %1204 = shufflevector <1 x float> %1194, <1 x float> poison, <8 x i32> zeroinitializer
   %1205 = shufflevector <8 x float> %1195, <8 x float> poison, <8 x i32> zeroinitializer
-  %1206 = shufflevector <8 x float> %1199, <8 x float> poison, <8 x i32> zeroinitializer
-  %1207 = shufflevector <8 x float> %1200, <8 x float> poison, <8 x i32> zeroinitializer
-  %1208 = shufflevector <8 x float> %1202, <8 x float> poison, <8 x i32> zeroinitializer
+  %1206 = shufflevector <1 x float> %1199, <1 x float> poison, <8 x i32> zeroinitializer
+  %1207 = shufflevector <1 x float> %1200, <1 x float> poison, <8 x i32> zeroinitializer
+  %1208 = shufflevector <1 x float> %1202, <1 x float> poison, <8 x i32> zeroinitializer
   %1209 = icmp slt i32 %127, %132
   br i1 %1209, label %.lr.ph.i50, label %.preheader1059.i
 
@@ -7590,20 +7590,20 @@ _ZN3gmxL14settleTemplateINS_9SimdFloatENS_9SimdFBoolELi8EPKfLb1ELb1EEEvRKNS_10Se
   br label %4026
 
 2299:                                             ; preds = %11
-  %2300 = load <8 x float>, ptr %133, align 8
+  %2300 = load <1 x float>, ptr %133, align 8
   %2301 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %2302 = load <8 x float>, ptr %2301, align 4
+  %2302 = load <1 x float>, ptr %2301, align 4
   %2303 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %2304 = load <8 x float>, ptr %2303, align 4
   br i1 %8, label %3136, label %2305
 
 2305:                                             ; preds = %2299
   %2306 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2307 = load <8 x float>, ptr %2306, align 8
-  %2308 = shufflevector <8 x float> %2300, <8 x float> poison, <8 x i32> zeroinitializer
-  %2309 = shufflevector <8 x float> %2302, <8 x float> poison, <8 x i32> zeroinitializer
+  %2307 = load <1 x float>, ptr %2306, align 8
+  %2308 = shufflevector <1 x float> %2300, <1 x float> poison, <8 x i32> zeroinitializer
+  %2309 = shufflevector <1 x float> %2302, <1 x float> poison, <8 x i32> zeroinitializer
   %2310 = shufflevector <8 x float> %2304, <8 x float> poison, <8 x i32> zeroinitializer
-  %2311 = shufflevector <8 x float> %2307, <8 x float> poison, <8 x i32> zeroinitializer
+  %2311 = shufflevector <1 x float> %2307, <1 x float> poison, <8 x i32> zeroinitializer
   %2312 = icmp slt i32 %127, %132
   br i1 %2312, label %.lr.ph.i83, label %_ZN3gmxL14settleTemplateINS_9SimdFloatENS_9SimdFBoolELi8EPKfLb0ELb0EEEvRKNS_10SettleDataEiiT2_S4_PffS9_PA3_fPb.exit
 
@@ -8762,18 +8762,18 @@ _ZN3gmxL14settleTemplateINS_9SimdFloatENS_9SimdFBoolELi8EPKfLb0ELb0EEEvRKNS_10Se
   %3137 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3138 = load <8 x float>, ptr %3137, align 8
   %3139 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3140 = load <8 x float>, ptr %3139, align 8
-  %3141 = load <8 x float>, ptr %0, align 8
+  %3140 = load <1 x float>, ptr %3139, align 8
+  %3141 = load <1 x float>, ptr %0, align 8
   %3142 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3143 = load <8 x float>, ptr %3142, align 4
+  %3143 = load <1 x float>, ptr %3142, align 4
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %12) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(288) %12, i8 0, i64 288, i1 false), !tbaa !52
-  %3144 = shufflevector <8 x float> %2300, <8 x float> poison, <8 x i32> zeroinitializer
-  %3145 = shufflevector <8 x float> %2302, <8 x float> poison, <8 x i32> zeroinitializer
+  %3144 = shufflevector <1 x float> %2300, <1 x float> poison, <8 x i32> zeroinitializer
+  %3145 = shufflevector <1 x float> %2302, <1 x float> poison, <8 x i32> zeroinitializer
   %3146 = shufflevector <8 x float> %2304, <8 x float> poison, <8 x i32> zeroinitializer
-  %3147 = shufflevector <8 x float> %3140, <8 x float> poison, <8 x i32> zeroinitializer
-  %3148 = shufflevector <8 x float> %3141, <8 x float> poison, <8 x i32> zeroinitializer
-  %3149 = shufflevector <8 x float> %3143, <8 x float> poison, <8 x i32> zeroinitializer
+  %3147 = shufflevector <1 x float> %3140, <1 x float> poison, <8 x i32> zeroinitializer
+  %3148 = shufflevector <1 x float> %3141, <1 x float> poison, <8 x i32> zeroinitializer
+  %3149 = shufflevector <1 x float> %3143, <1 x float> poison, <8 x i32> zeroinitializer
   %3150 = icmp slt i32 %127, %132
   br i1 %3150, label %.lr.ph.i137, label %.preheader49.i133
 

@@ -312,8 +312,8 @@ define weak_odr dso_local void @_ZN3igl17unproject_on_lineIN5Eigen6MatrixIdLin1E
   call void @_ZN3igl21projection_constraintIN5Eigen6MatrixIdLin1ELi1ELi0ELi3ELi1EEENS2_IfLi4ELi4ELi0ELi4ELi4EEENS2_IfLi4ELi1ELi0ELi4ELi1EEENS2_IdLi2ELi3ELi0ELi2ELi3EEENS2_IdLi2ELi1ELi0ELi2ELi1EEEEEvRKNS1_10MatrixBaseIT_EERKNS8_IT0_EERKNS8_IT1_EERNS1_15PlainObjectBaseIT2_EERNSL_IT3_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 16 dereferenceable(48) %8, ptr noundef nonnull align 16 dereferenceable(16) %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #21
   %14 = load <2 x double>, ptr %8, align 16, !tbaa !4
-  %15 = load <2 x double>, ptr %3, align 8
-  %16 = shufflevector <2 x double> %15, <2 x double> poison, <2 x i32> zeroinitializer
+  %15 = load <1 x double>, ptr %3, align 8
+  %16 = shufflevector <1 x double> %15, <1 x double> poison, <2 x i32> zeroinitializer
   %17 = fmul <2 x double> %14, %16
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %19 = load <2 x double>, ptr %18, align 16, !tbaa !4
@@ -330,8 +330,8 @@ define weak_odr dso_local void @_ZN3igl17unproject_on_lineIN5Eigen6MatrixIdLin1E
   %30 = load <2 x double>, ptr %9, align 16, !tbaa !4
   %31 = fsub <2 x double> %29, %30
   store <2 x double> %31, ptr %10, align 16, !tbaa !4
-  %32 = load <2 x double>, ptr %4, align 8
-  %33 = shufflevector <2 x double> %32, <2 x double> poison, <2 x i32> zeroinitializer
+  %32 = load <1 x double>, ptr %4, align 8
+  %33 = shufflevector <1 x double> %32, <1 x double> poison, <2 x i32> zeroinitializer
   %34 = fmul <2 x double> %14, %33
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %36 = load <2 x double>, ptr %35, align 8
@@ -408,8 +408,8 @@ define weak_odr dso_local void @_ZN3igl17unproject_on_lineIN5Eigen6MatrixIdLi2EL
   call void @_ZN3igl21projection_constraintIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS2_IfLi4ELi4ELi0ELi4ELi4EEENS2_IfLi4ELi1ELi0ELi4ELi1EEENS2_IdLi2ELi3ELi0ELi2ELi3EEES3_EEvRKNS1_10MatrixBaseIT_EERKNS7_IT0_EERKNS7_IT1_EERNS1_15PlainObjectBaseIT2_EERNSK_IT3_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 16 dereferenceable(48) %8, ptr noundef nonnull align 16 dereferenceable(16) %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #21
   %14 = load <2 x double>, ptr %8, align 16, !tbaa !4
-  %15 = load <2 x double>, ptr %3, align 8
-  %16 = shufflevector <2 x double> %15, <2 x double> poison, <2 x i32> zeroinitializer
+  %15 = load <1 x double>, ptr %3, align 8
+  %16 = shufflevector <1 x double> %15, <1 x double> poison, <2 x i32> zeroinitializer
   %17 = fmul <2 x double> %14, %16
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %19 = load <2 x double>, ptr %18, align 16, !tbaa !4
@@ -426,8 +426,8 @@ define weak_odr dso_local void @_ZN3igl17unproject_on_lineIN5Eigen6MatrixIdLi2EL
   %30 = load <2 x double>, ptr %9, align 16, !tbaa !4
   %31 = fsub <2 x double> %29, %30
   store <2 x double> %31, ptr %10, align 16, !tbaa !4
-  %32 = load <2 x double>, ptr %4, align 8
-  %33 = shufflevector <2 x double> %32, <2 x double> poison, <2 x i32> zeroinitializer
+  %32 = load <1 x double>, ptr %4, align 8
+  %33 = shufflevector <1 x double> %32, <1 x double> poison, <2 x i32> zeroinitializer
   %34 = fmul <2 x double> %14, %33
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %36 = load <2 x double>, ptr %35, align 8
@@ -499,8 +499,8 @@ _ZN5Eigen6MatrixIdLi1ELi1ELi0ELi1ELi1EEC2INS_5SolveINS_7SVDBaseINS_9JacobiSVDINS
   call void @_ZN3igl21projection_constraintIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS2_IfLi4ELi4ELi0ELi4ELi4EEENS2_IfLi4ELi1ELi0ELi4ELi1EEENS2_IdLi2ELi3ELi0ELi2ELi3EEES3_EEvRKNS1_10MatrixBaseIT_EERKNS7_IT0_EERKNS7_IT1_EERNS1_15PlainObjectBaseIT2_EERNSK_IT3_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull align 16 dereferenceable(16) %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #21
   %13 = load <2 x double>, ptr %7, align 16, !tbaa !4
-  %14 = load <2 x double>, ptr %3, align 8
-  %15 = shufflevector <2 x double> %14, <2 x double> poison, <2 x i32> zeroinitializer
+  %14 = load <1 x double>, ptr %3, align 8
+  %15 = shufflevector <1 x double> %14, <1 x double> poison, <2 x i32> zeroinitializer
   %16 = fmul <2 x double> %13, %15
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %18 = load <2 x double>, ptr %17, align 16, !tbaa !4
@@ -517,8 +517,8 @@ _ZN5Eigen6MatrixIdLi1ELi1ELi0ELi1ELi1EEC2INS_5SolveINS_7SVDBaseINS_9JacobiSVDINS
   %29 = load <2 x double>, ptr %8, align 16, !tbaa !4
   %30 = fsub <2 x double> %28, %29
   store <2 x double> %30, ptr %9, align 16, !tbaa !4
-  %31 = load <2 x double>, ptr %4, align 8
-  %32 = shufflevector <2 x double> %31, <2 x double> poison, <2 x i32> zeroinitializer
+  %31 = load <1 x double>, ptr %4, align 8
+  %32 = shufflevector <1 x double> %31, <1 x double> poison, <2 x i32> zeroinitializer
   %33 = fmul <2 x double> %13, %32
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %35 = load <2 x double>, ptr %34, align 8

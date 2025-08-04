@@ -3074,15 +3074,15 @@ define weak_odr <4 x float> @_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 72
   %113 = load ptr, ptr %112, align 8
   %114 = tail call contract <4 x float> %113(ptr noundef nonnull align 8 dereferenceable(40) %110, ptr noundef nonnull align 16 dereferenceable(240) %2, i1 noundef zeroext %3)
-  %115 = load <4 x float>, ptr %108, align 8
-  %116 = shufflevector <4 x float> %115, <4 x float> poison, <4 x i32> zeroinitializer
+  %115 = load <1 x float>, ptr %108, align 8
+  %116 = shufflevector <1 x float> %115, <1 x float> poison, <4 x i32> zeroinitializer
   %117 = fmul contract <4 x float> %114, %116
   %.pre = load float, ptr %86, align 4
   br label %_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE10absorptionERKNS_18SurfaceInteractionIfS5_EEb.exit
 
 118:                                              ; preds = %4
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %120 = load <4 x float>, ptr %119, align 4
+  %120 = load <1 x float>, ptr %119, align 4
   %121 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %122 = load <4 x float>, ptr @_ZN7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE21EUMELANIN_SRGB_COEFFSE, align 16
   %123 = shufflevector <4 x float> %122, <4 x float> poison, <4 x i32> zeroinitializer
@@ -3113,10 +3113,10 @@ define weak_odr <4 x float> @_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4
   %148 = bitcast i8 %145 to <8 x i1>
   %149 = shufflevector <8 x i1> %148, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %150 = select contract <4 x i1> %149, <4 x float> %147, <4 x float> %144
-  %151 = shufflevector <4 x float> %120, <4 x float> poison, <4 x i32> zeroinitializer
+  %151 = shufflevector <1 x float> %120, <1 x float> poison, <4 x i32> zeroinitializer
   %152 = fmul contract <4 x float> %151, %150
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %154 = load <4 x float>, ptr %153, align 8
+  %154 = load <1 x float>, ptr %153, align 8
   %155 = load <4 x float>, ptr @_ZN7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE23PHEOMELANIN_SRGB_COEFFSE, align 16
   %156 = shufflevector <4 x float> %155, <4 x float> poison, <4 x i32> zeroinitializer
   %157 = shufflevector <4 x float> %155, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
@@ -3145,7 +3145,7 @@ define weak_odr <4 x float> @_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4
   %180 = bitcast i8 %177 to <8 x i1>
   %181 = shufflevector <8 x i1> %180, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %182 = select contract <4 x i1> %181, <4 x float> %179, <4 x float> %176
-  %183 = shufflevector <4 x float> %154, <4 x float> poison, <4 x i32> zeroinitializer
+  %183 = shufflevector <1 x float> %154, <1 x float> poison, <4 x i32> zeroinitializer
   %184 = fmul contract <4 x float> %183, %182
   %185 = fadd contract <4 x float> %152, %184
   br label %_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE10absorptionERKNS_18SurfaceInteractionIfS5_EEb.exit
@@ -3960,15 +3960,15 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 72
   %256 = load ptr, ptr %255, align 8
   %257 = tail call <4 x float> %256(ptr noundef nonnull align 8 dereferenceable(40) %253, ptr noundef nonnull align 16 dereferenceable(240) %3, i1 noundef zeroext true)
-  %258 = load <4 x float>, ptr %251, align 8
-  %259 = shufflevector <4 x float> %258, <4 x float> poison, <4 x i32> zeroinitializer
+  %258 = load <1 x float>, ptr %251, align 8
+  %259 = shufflevector <1 x float> %258, <1 x float> poison, <4 x i32> zeroinitializer
   %260 = fmul contract <4 x float> %257, %259
   %.pre = load float, ptr %208, align 4
   br label %329
 
 261:                                              ; preds = %39
   %262 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %263 = load <4 x float>, ptr %262, align 4
+  %263 = load <1 x float>, ptr %262, align 4
   %264 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %265 = load <4 x float>, ptr @_ZN7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE21EUMELANIN_SRGB_COEFFSE, align 16
   %266 = shufflevector <4 x float> %265, <4 x float> poison, <4 x i32> zeroinitializer
@@ -3999,10 +3999,10 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %291 = bitcast i8 %288 to <8 x i1>
   %292 = shufflevector <8 x i1> %291, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %293 = select contract <4 x i1> %292, <4 x float> %290, <4 x float> %287
-  %294 = shufflevector <4 x float> %263, <4 x float> poison, <4 x i32> zeroinitializer
+  %294 = shufflevector <1 x float> %263, <1 x float> poison, <4 x i32> zeroinitializer
   %295 = fmul contract <4 x float> %294, %293
   %296 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %297 = load <4 x float>, ptr %296, align 8
+  %297 = load <1 x float>, ptr %296, align 8
   %298 = load <4 x float>, ptr @_ZN7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE23PHEOMELANIN_SRGB_COEFFSE, align 16
   %299 = shufflevector <4 x float> %298, <4 x float> poison, <4 x i32> zeroinitializer
   %300 = shufflevector <4 x float> %298, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
@@ -4031,7 +4031,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %323 = bitcast i8 %320 to <8 x i1>
   %324 = shufflevector <8 x i1> %323, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %325 = select contract <4 x i1> %324, <4 x float> %322, <4 x float> %319
-  %326 = shufflevector <4 x float> %297, <4 x float> poison, <4 x i32> zeroinitializer
+  %326 = shufflevector <1 x float> %297, <1 x float> poison, <4 x i32> zeroinitializer
   %327 = fmul contract <4 x float> %326, %325
   %328 = fadd contract <4 x float> %295, %327
   br label %329
@@ -4321,14 +4321,14 @@ define weak_odr <4 x float> @_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %13 = load ptr, ptr %12, align 8
   %14 = tail call contract <4 x float> %13(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 16 dereferenceable(240) %1, i1 noundef zeroext %2)
-  %15 = load <4 x float>, ptr %8, align 8
-  %16 = shufflevector <4 x float> %15, <4 x float> poison, <4 x i32> zeroinitializer
+  %15 = load <1 x float>, ptr %8, align 8
+  %16 = shufflevector <1 x float> %15, <1 x float> poison, <4 x i32> zeroinitializer
   %17 = fmul contract <4 x float> %14, %16
   br label %86
 
 18:                                               ; preds = %3
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %20 = load <4 x float>, ptr %19, align 4
+  %20 = load <1 x float>, ptr %19, align 4
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load <4 x float>, ptr @_ZN7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE21EUMELANIN_SRGB_COEFFSE, align 16
   %23 = shufflevector <4 x float> %22, <4 x float> poison, <4 x i32> zeroinitializer
@@ -4359,10 +4359,10 @@ define weak_odr <4 x float> @_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4
   %48 = bitcast i8 %45 to <8 x i1>
   %49 = shufflevector <8 x i1> %48, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %50 = select contract <4 x i1> %49, <4 x float> %47, <4 x float> %44
-  %51 = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> zeroinitializer
+  %51 = shufflevector <1 x float> %20, <1 x float> poison, <4 x i32> zeroinitializer
   %52 = fmul contract <4 x float> %51, %50
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %54 = load <4 x float>, ptr %53, align 8
+  %54 = load <1 x float>, ptr %53, align 8
   %55 = load <4 x float>, ptr @_ZN7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE23PHEOMELANIN_SRGB_COEFFSE, align 16
   %56 = shufflevector <4 x float> %55, <4 x float> poison, <4 x i32> zeroinitializer
   %57 = shufflevector <4 x float> %55, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
@@ -4391,7 +4391,7 @@ define weak_odr <4 x float> @_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4
   %80 = bitcast i8 %77 to <8 x i1>
   %81 = shufflevector <8 x i1> %80, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %82 = select contract <4 x i1> %81, <4 x float> %79, <4 x float> %76
-  %83 = shufflevector <4 x float> %54, <4 x float> poison, <4 x i32> zeroinitializer
+  %83 = shufflevector <1 x float> %54, <1 x float> poison, <4 x i32> zeroinitializer
   %84 = fmul contract <4 x float> %83, %82
   %85 = fadd contract <4 x float> %52, %84
   br label %86
@@ -5112,15 +5112,15 @@ _ZNSt3__14pairIN5drjit6MatrixIN7mitsuba8SpectrumIfLm4EEELm4EEEfEC2B8ne190000IffT
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 72
   %259 = load ptr, ptr %258, align 8
   %260 = tail call <4 x float> %259(ptr noundef nonnull align 8 dereferenceable(40) %256, ptr noundef nonnull align 16 dereferenceable(240) %3, i1 noundef zeroext true)
-  %261 = load <4 x float>, ptr %254, align 8
-  %262 = shufflevector <4 x float> %261, <4 x float> poison, <4 x i32> zeroinitializer
+  %261 = load <1 x float>, ptr %254, align 8
+  %262 = shufflevector <1 x float> %261, <1 x float> poison, <4 x i32> zeroinitializer
   %263 = fmul contract <4 x float> %260, %262
   %.pre = load float, ptr %211, align 4
   br label %332
 
 264:                                              ; preds = %42
   %265 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %266 = load <4 x float>, ptr %265, align 4
+  %266 = load <1 x float>, ptr %265, align 4
   %267 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %268 = load <4 x float>, ptr @_ZN7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE21EUMELANIN_SRGB_COEFFSE, align 16
   %269 = shufflevector <4 x float> %268, <4 x float> poison, <4 x i32> zeroinitializer
@@ -5151,10 +5151,10 @@ _ZNSt3__14pairIN5drjit6MatrixIN7mitsuba8SpectrumIfLm4EEELm4EEEfEC2B8ne190000IffT
   %294 = bitcast i8 %291 to <8 x i1>
   %295 = shufflevector <8 x i1> %294, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %296 = select contract <4 x i1> %295, <4 x float> %293, <4 x float> %290
-  %297 = shufflevector <4 x float> %266, <4 x float> poison, <4 x i32> zeroinitializer
+  %297 = shufflevector <1 x float> %266, <1 x float> poison, <4 x i32> zeroinitializer
   %298 = fmul contract <4 x float> %297, %296
   %299 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %300 = load <4 x float>, ptr %299, align 8
+  %300 = load <1 x float>, ptr %299, align 8
   %301 = load <4 x float>, ptr @_ZN7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE23PHEOMELANIN_SRGB_COEFFSE, align 16
   %302 = shufflevector <4 x float> %301, <4 x float> poison, <4 x i32> zeroinitializer
   %303 = shufflevector <4 x float> %301, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
@@ -5183,7 +5183,7 @@ _ZNSt3__14pairIN5drjit6MatrixIN7mitsuba8SpectrumIfLm4EEELm4EEEfEC2B8ne190000IffT
   %326 = bitcast i8 %323 to <8 x i1>
   %327 = shufflevector <8 x i1> %326, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %328 = select contract <4 x i1> %327, <4 x float> %325, <4 x float> %322
-  %329 = shufflevector <4 x float> %300, <4 x float> poison, <4 x i32> zeroinitializer
+  %329 = shufflevector <1 x float> %300, <1 x float> poison, <4 x i32> zeroinitializer
   %330 = fmul contract <4 x float> %329, %328
   %331 = fadd contract <4 x float> %298, %330
   br label %332

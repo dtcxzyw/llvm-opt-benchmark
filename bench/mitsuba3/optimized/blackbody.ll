@@ -473,8 +473,8 @@ define weak_odr <4 x float> @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_
   %20 = and <4 x i1> %14, %19
   %21 = bitcast i8 %9 to <8 x i1>
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %23 = load <4 x float>, ptr %22, align 8
-  %24 = shufflevector <4 x float> %23, <4 x float> poison, <4 x i32> zeroinitializer
+  %23 = load <1 x float>, ptr %22, align 8
+  %24 = shufflevector <1 x float> %23, <1 x float> poison, <4 x i32> zeroinitializer
   %25 = fmul contract <4 x float> %5, %24
   %26 = fdiv contract <4 x float> splat (float 0x3F8D775620000000), %25
   %27 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %26, <4 x float> splat (float 0x3FF7154760000000), <4 x float> splat (float 5.000000e-01))
@@ -524,8 +524,8 @@ define weak_odr <4 x float> @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_
   %19 = fcmp contract ole <4 x float> %5, %18
   %20 = and <4 x i1> %14, %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %22 = load <4 x float>, ptr %21, align 8
-  %23 = shufflevector <4 x float> %22, <4 x float> poison, <4 x i32> zeroinitializer
+  %22 = load <1 x float>, ptr %21, align 8
+  %23 = shufflevector <1 x float> %22, <1 x float> poison, <4 x i32> zeroinitializer
   %24 = fmul contract <4 x float> %6, %23
   %25 = fdiv contract <4 x float> splat (float 0x3F8D775620000000), %24
   %26 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %25, <4 x float> splat (float 0x3FF7154760000000), <4 x float> splat (float 5.000000e-01))
@@ -575,8 +575,8 @@ define weak_odr <4 x float> @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_
   %21 = and <4 x i1> %15, %20
   %22 = bitcast i8 %10 to <8 x i1>
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %24 = load <4 x float>, ptr %23, align 8
-  %25 = shufflevector <4 x float> %24, <4 x float> poison, <4 x i32> zeroinitializer
+  %24 = load <1 x float>, ptr %23, align 8
+  %25 = shufflevector <1 x float> %24, <1 x float> poison, <4 x i32> zeroinitializer
   %26 = fmul contract <4 x float> %6, %25
   %27 = fdiv contract <4 x float> splat (float 0xBF8D775620000000), %26
   %28 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %27, <4 x float> splat (float 0x3FF7154760000000), <4 x float> splat (float 5.000000e-01))
@@ -599,8 +599,8 @@ define weak_odr <4 x float> @_ZNK7mitsuba17BlackBodySpectrumIfN5drjit6MatrixINS_
   %45 = select <4 x i1> %39, <4 x float> zeroinitializer, <4 x float> %44
   %46 = select <4 x i1> %40, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %45
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %48 = load <4 x float>, ptr %47, align 8
-  %49 = shufflevector <4 x float> %48, <4 x float> poison, <4 x i32> zeroinitializer
+  %48 = load <1 x float>, ptr %47, align 8
+  %49 = shufflevector <1 x float> %48, <1 x float> poison, <4 x i32> zeroinitializer
   %50 = fmul contract <4 x float> %9, %49
   %51 = fdiv contract <4 x float> %46, %50
   %52 = shufflevector <8 x i1> %22, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>

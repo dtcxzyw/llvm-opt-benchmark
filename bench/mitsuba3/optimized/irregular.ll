@@ -1753,12 +1753,12 @@ define weak_odr <4 x float> @_ZNK7mitsuba17IrregularSpectrumIfN5drjit6MatrixINS_
   %.sroa.0.0.copyload = load <4 x float>, ptr %4, align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %7 = load <4 x float>, ptr %6, align 8
-  %8 = shufflevector <4 x float> %7, <4 x float> poison, <4 x i32> zeroinitializer
+  %7 = load <1 x float>, ptr %6, align 8
+  %8 = shufflevector <1 x float> %7, <1 x float> poison, <4 x i32> zeroinitializer
   %9 = fcmp contract oge <4 x float> %.sroa.0.0.copyload, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %11 = load <4 x float>, ptr %10, align 4
-  %12 = shufflevector <4 x float> %11, <4 x float> poison, <4 x i32> zeroinitializer
+  %11 = load <1 x float>, ptr %10, align 4
+  %12 = shufflevector <1 x float> %11, <1 x float> poison, <4 x i32> zeroinitializer
   %13 = fcmp contract ole <4 x float> %.sroa.0.0.copyload, %12
   %14 = and <4 x i1> %9, %13
   %15 = shufflevector <4 x i1> %14, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
@@ -1832,12 +1832,12 @@ define weak_odr <4 x float> @_ZNK7mitsuba17IrregularSpectrumIfN5drjit6MatrixINS_
   %.sroa.0.0.copyload = load <4 x float>, ptr %4, align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %7 = load <4 x float>, ptr %6, align 8
-  %8 = shufflevector <4 x float> %7, <4 x float> poison, <4 x i32> zeroinitializer
+  %7 = load <1 x float>, ptr %6, align 8
+  %8 = shufflevector <1 x float> %7, <1 x float> poison, <4 x i32> zeroinitializer
   %9 = fcmp contract oge <4 x float> %.sroa.0.0.copyload, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %11 = load <4 x float>, ptr %10, align 4
-  %12 = shufflevector <4 x float> %11, <4 x float> poison, <4 x i32> zeroinitializer
+  %11 = load <1 x float>, ptr %10, align 4
+  %12 = shufflevector <1 x float> %11, <1 x float> poison, <4 x i32> zeroinitializer
   %13 = fcmp contract ole <4 x float> %.sroa.0.0.copyload, %12
   %14 = and <4 x i1> %9, %13
   %15 = shufflevector <4 x i1> %14, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
@@ -1900,8 +1900,8 @@ define weak_odr <4 x float> @_ZNK7mitsuba17IrregularSpectrumIfN5drjit6MatrixINS_
   %52 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %50, <4 x float> %51, <4 x float> %46)
   %53 = select contract <4 x i1> %.pre-phi.i.i, <4 x float> %52, <4 x float> zeroinitializer
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %55 = load <4 x float>, ptr %54, align 4
-  %56 = shufflevector <4 x float> %55, <4 x float> poison, <4 x i32> zeroinitializer
+  %55 = load <1 x float>, ptr %54, align 4
+  %56 = shufflevector <1 x float> %55, <1 x float> poison, <4 x i32> zeroinitializer
   %57 = fmul contract <4 x float> %56, %53
   ret <4 x float> %57
 }
@@ -1910,8 +1910,8 @@ define weak_odr <4 x float> @_ZNK7mitsuba17IrregularSpectrumIfN5drjit6MatrixINS_
 define weak_odr void @_ZNK7mitsuba17IrregularSpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE15sample_spectrumERKNS_18SurfaceInteractionIfS5_EERKS4_b(ptr dead_on_unwind noalias writable sret(%"struct.std::__1::pair") align 16 %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull align 16 dereferenceable(240) %2, ptr noundef nonnull align 16 dereferenceable(16) %3, i1 noundef zeroext %4) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.0.copyload = load <4 x float>, ptr %3, align 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %7 = load <4 x float>, ptr %6, align 8
-  %8 = shufflevector <4 x float> %7, <4 x float> poison, <4 x i32> zeroinitializer
+  %7 = load <1 x float>, ptr %6, align 8
+  %8 = shufflevector <1 x float> %7, <1 x float> poison, <4 x i32> zeroinitializer
   %9 = fmul contract <4 x float> %.sroa.0.0.copyload, %8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %11 = load i32, ptr %10, align 8
@@ -1988,7 +1988,7 @@ define weak_odr void @_ZNK7mitsuba17IrregularSpectrumIfN5drjit6MatrixINS_8Spectr
   %64 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %63, <4 x float> %48, <4 x float> %38)
   store <4 x float> %64, ptr %0, align 16
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %66 = shufflevector <4 x float> %7, <4 x float> poison, <4 x i32> zeroinitializer
+  %66 = shufflevector <1 x float> %7, <1 x float> poison, <4 x i32> zeroinitializer
   store <4 x float> %66, ptr %65, align 16
   ret void
 }

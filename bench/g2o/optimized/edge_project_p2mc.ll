@@ -490,23 +490,16 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3g2o15EdgeProjectP2MC14linearizeOplusEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(328) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.0224 = alloca [4 x double], align 16
   %.sroa.0 = alloca [3 x double], align 16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !46
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !43
   %6 = load ptr, ptr %3, align 8, !tbaa !43
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0224)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %8 = load <2 x double>, ptr %7, align 1, !tbaa !69
-  store <2 x double> %8, ptr %.sroa.0224, align 16, !tbaa !69
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 184
   %10 = load double, ptr %9, align 8, !tbaa !51
-  %.sroa.0224.16..sroa_idx242 = getelementptr inbounds nuw i8, ptr %.sroa.0224, i64 16
-  store double %10, ptr %.sroa.0224.16..sroa_idx242, align 16, !tbaa !51
-  %.sroa.0224.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0224, i64 24
-  store double 1.000000e+00, ptr %.sroa.0224.24..sroa_idx, align 8, !tbaa !51
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 352
   %12 = load double, ptr %11, align 8, !tbaa !51
   %13 = extractelement <2 x double> %8, i64 0
@@ -535,258 +528,254 @@ define void @_ZN3g2o15EdgeProjectP2MC14linearizeOplusEv(ptr noundef nonnull read
   unreachable
 
 33:                                               ; preds = %1
+  %.sroa.0224.sroa.4.24.vec.insert = insertelement <2 x double> poison, double %10, i64 0
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %35 = load <2 x double>, ptr %34, align 1, !tbaa !69
-  %.sroa.0224.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0224, i64 16
-  %.sroa.0224.16..sroa.0224.16..sroa.0224.16. = load <2 x double>, ptr %.sroa.0224.16..sroa_idx, align 16
-  %36 = shufflevector <2 x double> %.sroa.0224.16..sroa.0224.16..sroa.0224.16., <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %37 = fmul <2 x double> %35, %36
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 336
-  %39 = load <2 x double>, ptr %38, align 1, !tbaa !69
-  %40 = shufflevector <2 x double> %8, <2 x double> poison, <2 x i32> zeroinitializer
-  %41 = fmul <2 x double> %40, %39
-  %42 = getelementptr inbounds nuw i8, ptr %5, i64 360
-  %43 = load <2 x double>, ptr %42, align 1, !tbaa !69
-  %.sroa.0224.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0224, i64 8
-  %.sroa.0224.8..sroa.0224.8..sroa.0224.8. = load <2 x double>, ptr %.sroa.0224.8..sroa_idx, align 8
-  %44 = shufflevector <2 x double> %.sroa.0224.8..sroa.0224.8..sroa.0224.8., <2 x double> poison, <2 x i32> zeroinitializer
-  %45 = fmul <2 x double> %43, %44
-  %46 = fadd <2 x double> %41, %45
-  %47 = getelementptr inbounds nuw i8, ptr %5, i64 384
-  %48 = load <2 x double>, ptr %47, align 1, !tbaa !69
-  %49 = shufflevector <2 x double> %.sroa.0224.16..sroa.0224.16..sroa.0224.16., <2 x double> poison, <2 x i32> zeroinitializer
-  %50 = fmul <2 x double> %49, %48
-  %51 = fadd <2 x double> %50, %46
-  %52 = fadd <2 x double> %37, %51
-  %.sroa.0197.8.vec.extract = extractelement <2 x double> %52, i64 1
-  %.sroa.0197.0.vec.extract = extractelement <2 x double> %52, i64 0
-  %53 = getelementptr inbounds nuw i8, ptr %5, i64 240
-  %54 = load double, ptr %53, align 8, !tbaa !51
-  %55 = getelementptr inbounds nuw i8, ptr %5, i64 224
-  %56 = load <2 x double>, ptr %55, align 1, !tbaa !69
-  %57 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  %58 = load double, ptr %57, align 8, !tbaa !51
-  %59 = fmul double %28, %58
-  %60 = getelementptr i8, ptr %5, i64 280
-  %61 = load double, ptr %60, align 8, !tbaa !51
-  %62 = fmul double %28, %61
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 336
+  %37 = load <2 x double>, ptr %36, align 1, !tbaa !69
+  %38 = shufflevector <2 x double> %8, <2 x double> poison, <2 x i32> zeroinitializer
+  %39 = fmul <2 x double> %38, %37
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 360
+  %41 = load <2 x double>, ptr %40, align 1, !tbaa !69
+  %.sroa.0224.sroa.0.8.vec.extract = extractelement <2 x double> %8, i64 1
+  %42 = bitcast double %.sroa.0224.sroa.0.8.vec.extract to <1 x double>
+  %43 = shufflevector <1 x double> %42, <1 x double> poison, <2 x i32> zeroinitializer
+  %44 = fmul <2 x double> %41, %43
+  %45 = fadd <2 x double> %39, %44
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 384
+  %47 = load <2 x double>, ptr %46, align 1, !tbaa !69
+  %48 = shufflevector <2 x double> %.sroa.0224.sroa.4.24.vec.insert, <2 x double> poison, <2 x i32> zeroinitializer
+  %49 = fmul <2 x double> %48, %47
+  %50 = fadd <2 x double> %49, %45
+  %51 = fadd <2 x double> %35, %50
+  %.sroa.0197.8.vec.extract = extractelement <2 x double> %51, i64 1
+  %.sroa.0197.0.vec.extract = extractelement <2 x double> %51, i64 0
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 240
+  %53 = load double, ptr %52, align 8, !tbaa !51
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 224
+  %55 = load <2 x double>, ptr %54, align 1, !tbaa !69
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 248
+  %57 = load double, ptr %56, align 8, !tbaa !51
+  %58 = fmul double %28, %57
+  %59 = getelementptr i8, ptr %5, i64 280
+  %60 = load double, ptr %59, align 8, !tbaa !51
+  %61 = fmul double %28, %60
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0)
-  %63 = fsub <2 x double> %8, %56
-  store <2 x double> %63, ptr %.sroa.0, align 16, !tbaa !69
-  %64 = fsub double %10, %54
+  %62 = fsub <2 x double> %8, %55
+  store <2 x double> %62, ptr %.sroa.0, align 16, !tbaa !69
+  %63 = fsub double %10, %53
   %.sroa.0.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 16
-  store double %64, ptr %.sroa.0.16..sroa_idx, align 16, !tbaa !51
-  %65 = getelementptr inbounds nuw i8, ptr %5, i64 528
-  %66 = load <2 x double>, ptr %65, align 1, !tbaa !69
-  %67 = shufflevector <2 x double> %63, <2 x double> poison, <2 x i32> zeroinitializer
-  %68 = fmul <2 x double> %67, %66
-  %69 = getelementptr inbounds nuw i8, ptr %5, i64 552
-  %70 = load <2 x double>, ptr %69, align 1, !tbaa !69
+  store double %63, ptr %.sroa.0.16..sroa_idx, align 16, !tbaa !51
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 528
+  %65 = load <2 x double>, ptr %64, align 1, !tbaa !69
+  %66 = shufflevector <2 x double> %62, <2 x double> poison, <2 x i32> zeroinitializer
+  %67 = fmul <2 x double> %66, %65
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 552
+  %69 = load <2 x double>, ptr %68, align 1, !tbaa !69
   %.sroa.0.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
   %.sroa.0.8..sroa.0.8..sroa.0.8. = load <2 x double>, ptr %.sroa.0.8..sroa_idx, align 8
-  %71 = shufflevector <2 x double> %.sroa.0.8..sroa.0.8..sroa.0.8., <2 x double> poison, <2 x i32> zeroinitializer
-  %72 = fmul <2 x double> %70, %71
-  %73 = fadd <2 x double> %68, %72
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 576
-  %75 = load <2 x double>, ptr %74, align 1, !tbaa !69
-  %76 = shufflevector <2 x double> %.sroa.0.8..sroa.0.8..sroa.0.8., <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %77 = fmul <2 x double> %75, %76
-  %78 = fadd <2 x double> %77, %73
-  %79 = getelementptr inbounds nuw i8, ptr %5, i64 544
-  %80 = load double, ptr %79, align 8, !tbaa !51
-  %81 = extractelement <2 x double> %63, i64 0
-  %82 = fmul double %80, %81
-  %83 = getelementptr inbounds nuw i8, ptr %5, i64 568
-  %84 = load double, ptr %83, align 8, !tbaa !51
-  %85 = extractelement <2 x double> %.sroa.0.8..sroa.0.8..sroa.0.8., i64 0
-  %86 = fmul double %84, %85
-  %87 = getelementptr inbounds nuw i8, ptr %5, i64 592
-  %88 = load double, ptr %87, align 8, !tbaa !51
-  %89 = fmul double %64, %88
-  %90 = fadd double %86, %89
-  %91 = fadd double %82, %90
-  %.sroa.0137.0.vec.extract = extractelement <2 x double> %78, i64 0
-  %92 = fneg double %91
-  %93 = fmul double %.sroa.0197.0.vec.extract, %92
-  %94 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.0.vec.extract, double %93)
-  %95 = fmul double %59, %94
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %97 = load ptr, ptr %96, align 16, !tbaa !70
-  %98 = load ptr, ptr %97, align 8, !tbaa !112
-  %99 = getelementptr i8, ptr %98, i64 48
-  store double %95, ptr %99, align 8, !tbaa !51
-  %.sroa.0137.8.vec.extract = extractelement <2 x double> %78, i64 1
-  %100 = fmul double %.sroa.0197.8.vec.extract, %92
-  %101 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.8.vec.extract, double %100)
-  %102 = fmul double %62, %101
-  %103 = getelementptr i8, ptr %98, i64 56
-  store double %102, ptr %103, align 8, !tbaa !51
-  %104 = getelementptr inbounds nuw i8, ptr %5, i64 600
-  %105 = load <2 x double>, ptr %104, align 1, !tbaa !69
-  %106 = fmul <2 x double> %105, %67
-  %107 = getelementptr inbounds nuw i8, ptr %5, i64 624
-  %108 = load <2 x double>, ptr %107, align 1, !tbaa !69
-  %109 = fmul <2 x double> %108, %71
-  %110 = fadd <2 x double> %106, %109
-  %111 = getelementptr inbounds nuw i8, ptr %5, i64 648
-  %112 = load <2 x double>, ptr %111, align 1, !tbaa !69
-  %113 = fmul <2 x double> %112, %76
-  %114 = fadd <2 x double> %113, %110
-  %115 = getelementptr inbounds nuw i8, ptr %5, i64 616
-  %116 = load double, ptr %115, align 8, !tbaa !51
-  %117 = extractelement <2 x double> %63, i64 0
-  %118 = fmul double %117, %116
-  %119 = getelementptr inbounds nuw i8, ptr %5, i64 640
-  %120 = load double, ptr %119, align 8, !tbaa !51
-  %121 = extractelement <2 x double> %.sroa.0.8..sroa.0.8..sroa.0.8., i64 0
-  %122 = fmul double %121, %120
-  %123 = getelementptr inbounds nuw i8, ptr %5, i64 664
-  %124 = load double, ptr %123, align 8, !tbaa !51
-  %125 = extractelement <2 x double> %.sroa.0.8..sroa.0.8..sroa.0.8., i64 1
-  %126 = fmul double %125, %124
-  %127 = fadd double %122, %126
-  %128 = fadd double %118, %127
-  %.sroa.0137.0.vec.extract139 = extractelement <2 x double> %114, i64 0
-  %129 = fneg double %128
-  %130 = fmul double %.sroa.0197.0.vec.extract, %129
-  %131 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.0.vec.extract139, double %130)
-  %132 = fmul double %59, %131
-  %133 = getelementptr i8, ptr %98, i64 64
-  store double %132, ptr %133, align 8, !tbaa !51
-  %.sroa.0137.8.vec.extract155 = extractelement <2 x double> %114, i64 1
-  %134 = fmul double %.sroa.0197.8.vec.extract, %129
-  %135 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.8.vec.extract155, double %134)
-  %136 = fmul double %62, %135
-  %137 = getelementptr i8, ptr %98, i64 72
-  store double %136, ptr %137, align 8, !tbaa !51
-  %138 = getelementptr inbounds nuw i8, ptr %5, i64 672
-  %139 = load <2 x double>, ptr %138, align 1, !tbaa !69
-  %140 = fmul <2 x double> %139, %67
-  %141 = getelementptr inbounds nuw i8, ptr %5, i64 696
-  %142 = load <2 x double>, ptr %141, align 1, !tbaa !69
-  %143 = fmul <2 x double> %142, %71
-  %144 = fadd <2 x double> %140, %143
-  %145 = getelementptr inbounds nuw i8, ptr %5, i64 720
-  %146 = load <2 x double>, ptr %145, align 1, !tbaa !69
-  %147 = fmul <2 x double> %146, %76
-  %148 = fadd <2 x double> %147, %144
-  %149 = getelementptr inbounds nuw i8, ptr %5, i64 688
-  %150 = load double, ptr %149, align 8, !tbaa !51
-  %151 = fmul double %117, %150
-  %152 = getelementptr inbounds nuw i8, ptr %5, i64 712
-  %153 = load double, ptr %152, align 8, !tbaa !51
-  %154 = fmul double %121, %153
-  %155 = getelementptr inbounds nuw i8, ptr %5, i64 736
-  %156 = load double, ptr %155, align 8, !tbaa !51
-  %157 = fmul double %125, %156
-  %158 = fadd double %154, %157
-  %159 = fadd double %151, %158
-  %.sroa.0137.0.vec.extract141 = extractelement <2 x double> %148, i64 0
-  %160 = fneg double %159
-  %161 = fmul double %.sroa.0197.0.vec.extract, %160
-  %162 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.0.vec.extract141, double %161)
-  %163 = fmul double %59, %162
-  %164 = getelementptr i8, ptr %98, i64 80
-  store double %163, ptr %164, align 8, !tbaa !51
-  %.sroa.0137.8.vec.extract157 = extractelement <2 x double> %148, i64 1
-  %165 = fmul double %.sroa.0197.8.vec.extract, %160
-  %166 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.8.vec.extract157, double %165)
-  %167 = fmul double %62, %166
-  %168 = getelementptr i8, ptr %98, i64 88
-  store double %167, ptr %168, align 8, !tbaa !51
-  %169 = load <2 x double>, ptr %38, align 1, !tbaa !69
-  %170 = fneg <2 x double> %169
-  %171 = load double, ptr %11, align 8, !tbaa !51
-  %.sroa.0137.0.vec.extract143 = extractelement <2 x double> %170, i64 0
-  %172 = fmul double %.sroa.0197.0.vec.extract, %171
-  %173 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.0.vec.extract143, double %172)
-  %174 = fmul double %59, %173
-  store double %174, ptr %98, align 8, !tbaa !51
-  %.sroa.0137.8.vec.extract159 = extractelement <2 x double> %170, i64 1
-  %175 = fmul double %.sroa.0197.8.vec.extract, %171
-  %176 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.8.vec.extract159, double %175)
-  %177 = fmul double %62, %176
-  %178 = getelementptr i8, ptr %98, i64 8
-  store double %177, ptr %178, align 8, !tbaa !51
-  %179 = load <2 x double>, ptr %42, align 1, !tbaa !69
-  %180 = fneg <2 x double> %179
-  %181 = load double, ptr %15, align 8, !tbaa !51
-  %.sroa.0137.0.vec.extract145 = extractelement <2 x double> %180, i64 0
-  %182 = fmul double %.sroa.0197.0.vec.extract, %181
-  %183 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.0.vec.extract145, double %182)
-  %184 = fmul double %59, %183
-  %185 = getelementptr i8, ptr %98, i64 16
-  store double %184, ptr %185, align 8, !tbaa !51
-  %.sroa.0137.8.vec.extract161 = extractelement <2 x double> %180, i64 1
-  %186 = fmul double %.sroa.0197.8.vec.extract, %181
-  %187 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.8.vec.extract161, double %186)
-  %188 = fmul double %62, %187
-  %189 = getelementptr i8, ptr %98, i64 24
-  store double %188, ptr %189, align 8, !tbaa !51
-  %190 = load <2 x double>, ptr %47, align 1, !tbaa !69
-  %191 = fneg <2 x double> %190
-  %192 = load double, ptr %20, align 8, !tbaa !51
-  %.sroa.0137.0.vec.extract147 = extractelement <2 x double> %191, i64 0
-  %193 = fmul double %.sroa.0197.0.vec.extract, %192
-  %194 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.0.vec.extract147, double %193)
-  %195 = fmul double %59, %194
-  %196 = getelementptr i8, ptr %98, i64 32
-  store double %195, ptr %196, align 8, !tbaa !51
-  %.sroa.0137.8.vec.extract163 = extractelement <2 x double> %191, i64 1
-  %197 = fmul double %.sroa.0197.8.vec.extract, %192
-  %198 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.8.vec.extract163, double %197)
-  %199 = fmul double %62, %198
-  %200 = getelementptr i8, ptr %98, i64 40
-  store double %199, ptr %200, align 8, !tbaa !51
-  %201 = load <2 x double>, ptr %38, align 1, !tbaa !69
-  %202 = load double, ptr %11, align 8, !tbaa !51
-  %.sroa.0137.0.vec.extract149 = extractelement <2 x double> %201, i64 0
-  %203 = fneg double %202
-  %204 = fmul double %.sroa.0197.0.vec.extract, %203
-  %205 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.0.vec.extract149, double %204)
-  %206 = fmul double %59, %205
-  %207 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %208 = load ptr, ptr %207, align 8, !tbaa !113
-  %209 = load ptr, ptr %208, align 8, !tbaa !114
-  store double %206, ptr %209, align 8, !tbaa !51
-  %.sroa.0137.8.vec.extract165 = extractelement <2 x double> %201, i64 1
-  %210 = fmul double %.sroa.0197.8.vec.extract, %203
-  %211 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.8.vec.extract165, double %210)
-  %212 = fmul double %62, %211
-  %213 = getelementptr i8, ptr %209, i64 8
-  store double %212, ptr %213, align 8, !tbaa !51
-  %214 = load <2 x double>, ptr %42, align 1, !tbaa !69
-  %215 = load double, ptr %15, align 8, !tbaa !51
-  %.sroa.0137.0.vec.extract151 = extractelement <2 x double> %214, i64 0
-  %216 = fneg double %215
-  %217 = fmul double %.sroa.0197.0.vec.extract, %216
-  %218 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.0.vec.extract151, double %217)
-  %219 = fmul double %59, %218
-  %220 = getelementptr i8, ptr %209, i64 16
-  store double %219, ptr %220, align 8, !tbaa !51
-  %.sroa.0137.8.vec.extract167 = extractelement <2 x double> %214, i64 1
-  %221 = fmul double %.sroa.0197.8.vec.extract, %216
-  %222 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.8.vec.extract167, double %221)
-  %223 = fmul double %62, %222
-  %224 = getelementptr i8, ptr %209, i64 24
-  store double %223, ptr %224, align 8, !tbaa !51
-  %225 = load <2 x double>, ptr %47, align 1, !tbaa !69
-  %226 = load double, ptr %20, align 8, !tbaa !51
-  %.sroa.0137.0.vec.extract153 = extractelement <2 x double> %225, i64 0
-  %227 = fneg double %226
-  %228 = fmul double %.sroa.0197.0.vec.extract, %227
-  %229 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.0.vec.extract153, double %228)
-  %230 = fmul double %59, %229
-  %231 = getelementptr i8, ptr %209, i64 32
-  store double %230, ptr %231, align 8, !tbaa !51
-  %.sroa.0137.8.vec.extract169 = extractelement <2 x double> %225, i64 1
-  %232 = fmul double %.sroa.0197.8.vec.extract, %227
-  %233 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.8.vec.extract169, double %232)
-  %234 = fmul double %62, %233
-  %235 = getelementptr i8, ptr %209, i64 40
-  store double %234, ptr %235, align 8, !tbaa !51
+  %70 = shufflevector <2 x double> %.sroa.0.8..sroa.0.8..sroa.0.8., <2 x double> poison, <2 x i32> zeroinitializer
+  %71 = fmul <2 x double> %69, %70
+  %72 = fadd <2 x double> %67, %71
+  %73 = getelementptr inbounds nuw i8, ptr %5, i64 576
+  %74 = load <2 x double>, ptr %73, align 1, !tbaa !69
+  %75 = shufflevector <2 x double> %.sroa.0.8..sroa.0.8..sroa.0.8., <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %76 = fmul <2 x double> %74, %75
+  %77 = fadd <2 x double> %76, %72
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 544
+  %79 = load double, ptr %78, align 8, !tbaa !51
+  %80 = extractelement <2 x double> %62, i64 0
+  %81 = fmul double %79, %80
+  %82 = getelementptr inbounds nuw i8, ptr %5, i64 568
+  %83 = load double, ptr %82, align 8, !tbaa !51
+  %84 = extractelement <2 x double> %.sroa.0.8..sroa.0.8..sroa.0.8., i64 0
+  %85 = fmul double %83, %84
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 592
+  %87 = load double, ptr %86, align 8, !tbaa !51
+  %88 = fmul double %63, %87
+  %89 = fadd double %85, %88
+  %90 = fadd double %81, %89
+  %.sroa.0137.0.vec.extract = extractelement <2 x double> %77, i64 0
+  %91 = fneg double %90
+  %92 = fmul double %.sroa.0197.0.vec.extract, %91
+  %93 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.0.vec.extract, double %92)
+  %94 = fmul double %58, %93
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %96 = load ptr, ptr %95, align 16, !tbaa !70
+  %97 = load ptr, ptr %96, align 8, !tbaa !112
+  %98 = getelementptr i8, ptr %97, i64 48
+  store double %94, ptr %98, align 8, !tbaa !51
+  %.sroa.0137.8.vec.extract = extractelement <2 x double> %77, i64 1
+  %99 = fmul double %.sroa.0197.8.vec.extract, %91
+  %100 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.8.vec.extract, double %99)
+  %101 = fmul double %61, %100
+  %102 = getelementptr i8, ptr %97, i64 56
+  store double %101, ptr %102, align 8, !tbaa !51
+  %103 = getelementptr inbounds nuw i8, ptr %5, i64 600
+  %104 = load <2 x double>, ptr %103, align 1, !tbaa !69
+  %105 = fmul <2 x double> %104, %66
+  %106 = getelementptr inbounds nuw i8, ptr %5, i64 624
+  %107 = load <2 x double>, ptr %106, align 1, !tbaa !69
+  %108 = fmul <2 x double> %107, %70
+  %109 = fadd <2 x double> %105, %108
+  %110 = getelementptr inbounds nuw i8, ptr %5, i64 648
+  %111 = load <2 x double>, ptr %110, align 1, !tbaa !69
+  %112 = fmul <2 x double> %111, %75
+  %113 = fadd <2 x double> %112, %109
+  %114 = getelementptr inbounds nuw i8, ptr %5, i64 616
+  %115 = load double, ptr %114, align 8, !tbaa !51
+  %116 = extractelement <2 x double> %62, i64 0
+  %117 = fmul double %116, %115
+  %118 = getelementptr inbounds nuw i8, ptr %5, i64 640
+  %119 = load double, ptr %118, align 8, !tbaa !51
+  %120 = extractelement <2 x double> %.sroa.0.8..sroa.0.8..sroa.0.8., i64 0
+  %121 = fmul double %120, %119
+  %122 = getelementptr inbounds nuw i8, ptr %5, i64 664
+  %123 = load double, ptr %122, align 8, !tbaa !51
+  %124 = extractelement <2 x double> %.sroa.0.8..sroa.0.8..sroa.0.8., i64 1
+  %125 = fmul double %124, %123
+  %126 = fadd double %121, %125
+  %127 = fadd double %117, %126
+  %.sroa.0137.0.vec.extract139 = extractelement <2 x double> %113, i64 0
+  %128 = fneg double %127
+  %129 = fmul double %.sroa.0197.0.vec.extract, %128
+  %130 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.0.vec.extract139, double %129)
+  %131 = fmul double %58, %130
+  %132 = getelementptr i8, ptr %97, i64 64
+  store double %131, ptr %132, align 8, !tbaa !51
+  %.sroa.0137.8.vec.extract155 = extractelement <2 x double> %113, i64 1
+  %133 = fmul double %.sroa.0197.8.vec.extract, %128
+  %134 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.8.vec.extract155, double %133)
+  %135 = fmul double %61, %134
+  %136 = getelementptr i8, ptr %97, i64 72
+  store double %135, ptr %136, align 8, !tbaa !51
+  %137 = getelementptr inbounds nuw i8, ptr %5, i64 672
+  %138 = load <2 x double>, ptr %137, align 1, !tbaa !69
+  %139 = fmul <2 x double> %138, %66
+  %140 = getelementptr inbounds nuw i8, ptr %5, i64 696
+  %141 = load <2 x double>, ptr %140, align 1, !tbaa !69
+  %142 = fmul <2 x double> %141, %70
+  %143 = fadd <2 x double> %139, %142
+  %144 = getelementptr inbounds nuw i8, ptr %5, i64 720
+  %145 = load <2 x double>, ptr %144, align 1, !tbaa !69
+  %146 = fmul <2 x double> %145, %75
+  %147 = fadd <2 x double> %146, %143
+  %148 = getelementptr inbounds nuw i8, ptr %5, i64 688
+  %149 = load double, ptr %148, align 8, !tbaa !51
+  %150 = fmul double %116, %149
+  %151 = getelementptr inbounds nuw i8, ptr %5, i64 712
+  %152 = load double, ptr %151, align 8, !tbaa !51
+  %153 = fmul double %120, %152
+  %154 = getelementptr inbounds nuw i8, ptr %5, i64 736
+  %155 = load double, ptr %154, align 8, !tbaa !51
+  %156 = fmul double %124, %155
+  %157 = fadd double %153, %156
+  %158 = fadd double %150, %157
+  %.sroa.0137.0.vec.extract141 = extractelement <2 x double> %147, i64 0
+  %159 = fneg double %158
+  %160 = fmul double %.sroa.0197.0.vec.extract, %159
+  %161 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.0.vec.extract141, double %160)
+  %162 = fmul double %58, %161
+  %163 = getelementptr i8, ptr %97, i64 80
+  store double %162, ptr %163, align 8, !tbaa !51
+  %.sroa.0137.8.vec.extract157 = extractelement <2 x double> %147, i64 1
+  %164 = fmul double %.sroa.0197.8.vec.extract, %159
+  %165 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.8.vec.extract157, double %164)
+  %166 = fmul double %61, %165
+  %167 = getelementptr i8, ptr %97, i64 88
+  store double %166, ptr %167, align 8, !tbaa !51
+  %168 = load <2 x double>, ptr %36, align 1, !tbaa !69
+  %169 = fneg <2 x double> %168
+  %170 = load double, ptr %11, align 8, !tbaa !51
+  %.sroa.0137.0.vec.extract143 = extractelement <2 x double> %169, i64 0
+  %171 = fmul double %.sroa.0197.0.vec.extract, %170
+  %172 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.0.vec.extract143, double %171)
+  %173 = fmul double %58, %172
+  store double %173, ptr %97, align 8, !tbaa !51
+  %.sroa.0137.8.vec.extract159 = extractelement <2 x double> %169, i64 1
+  %174 = fmul double %.sroa.0197.8.vec.extract, %170
+  %175 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.8.vec.extract159, double %174)
+  %176 = fmul double %61, %175
+  %177 = getelementptr i8, ptr %97, i64 8
+  store double %176, ptr %177, align 8, !tbaa !51
+  %178 = load <2 x double>, ptr %40, align 1, !tbaa !69
+  %179 = fneg <2 x double> %178
+  %180 = load double, ptr %15, align 8, !tbaa !51
+  %.sroa.0137.0.vec.extract145 = extractelement <2 x double> %179, i64 0
+  %181 = fmul double %.sroa.0197.0.vec.extract, %180
+  %182 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.0.vec.extract145, double %181)
+  %183 = fmul double %58, %182
+  %184 = getelementptr i8, ptr %97, i64 16
+  store double %183, ptr %184, align 8, !tbaa !51
+  %.sroa.0137.8.vec.extract161 = extractelement <2 x double> %179, i64 1
+  %185 = fmul double %.sroa.0197.8.vec.extract, %180
+  %186 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.8.vec.extract161, double %185)
+  %187 = fmul double %61, %186
+  %188 = getelementptr i8, ptr %97, i64 24
+  store double %187, ptr %188, align 8, !tbaa !51
+  %189 = load <2 x double>, ptr %46, align 1, !tbaa !69
+  %190 = fneg <2 x double> %189
+  %191 = load double, ptr %20, align 8, !tbaa !51
+  %.sroa.0137.0.vec.extract147 = extractelement <2 x double> %190, i64 0
+  %192 = fmul double %.sroa.0197.0.vec.extract, %191
+  %193 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.0.vec.extract147, double %192)
+  %194 = fmul double %58, %193
+  %195 = getelementptr i8, ptr %97, i64 32
+  store double %194, ptr %195, align 8, !tbaa !51
+  %.sroa.0137.8.vec.extract163 = extractelement <2 x double> %190, i64 1
+  %196 = fmul double %.sroa.0197.8.vec.extract, %191
+  %197 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.8.vec.extract163, double %196)
+  %198 = fmul double %61, %197
+  %199 = getelementptr i8, ptr %97, i64 40
+  store double %198, ptr %199, align 8, !tbaa !51
+  %200 = load <2 x double>, ptr %36, align 1, !tbaa !69
+  %201 = load double, ptr %11, align 8, !tbaa !51
+  %.sroa.0137.0.vec.extract149 = extractelement <2 x double> %200, i64 0
+  %202 = fneg double %201
+  %203 = fmul double %.sroa.0197.0.vec.extract, %202
+  %204 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.0.vec.extract149, double %203)
+  %205 = fmul double %58, %204
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %207 = load ptr, ptr %206, align 8, !tbaa !113
+  %208 = load ptr, ptr %207, align 8, !tbaa !114
+  store double %205, ptr %208, align 8, !tbaa !51
+  %.sroa.0137.8.vec.extract165 = extractelement <2 x double> %200, i64 1
+  %209 = fmul double %.sroa.0197.8.vec.extract, %202
+  %210 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.8.vec.extract165, double %209)
+  %211 = fmul double %61, %210
+  %212 = getelementptr i8, ptr %208, i64 8
+  store double %211, ptr %212, align 8, !tbaa !51
+  %213 = load <2 x double>, ptr %40, align 1, !tbaa !69
+  %214 = load double, ptr %15, align 8, !tbaa !51
+  %.sroa.0137.0.vec.extract151 = extractelement <2 x double> %213, i64 0
+  %215 = fneg double %214
+  %216 = fmul double %.sroa.0197.0.vec.extract, %215
+  %217 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.0.vec.extract151, double %216)
+  %218 = fmul double %58, %217
+  %219 = getelementptr i8, ptr %208, i64 16
+  store double %218, ptr %219, align 8, !tbaa !51
+  %.sroa.0137.8.vec.extract167 = extractelement <2 x double> %213, i64 1
+  %220 = fmul double %.sroa.0197.8.vec.extract, %215
+  %221 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.8.vec.extract167, double %220)
+  %222 = fmul double %61, %221
+  %223 = getelementptr i8, ptr %208, i64 24
+  store double %222, ptr %223, align 8, !tbaa !51
+  %224 = load <2 x double>, ptr %46, align 1, !tbaa !69
+  %225 = load double, ptr %20, align 8, !tbaa !51
+  %.sroa.0137.0.vec.extract153 = extractelement <2 x double> %224, i64 0
+  %226 = fneg double %225
+  %227 = fmul double %.sroa.0197.0.vec.extract, %226
+  %228 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.0.vec.extract153, double %227)
+  %229 = fmul double %58, %228
+  %230 = getelementptr i8, ptr %208, i64 32
+  store double %229, ptr %230, align 8, !tbaa !51
+  %.sroa.0137.8.vec.extract169 = extractelement <2 x double> %224, i64 1
+  %231 = fmul double %.sroa.0197.8.vec.extract, %226
+  %232 = tail call double @llvm.fmuladd.f64(double %26, double %.sroa.0137.8.vec.extract169, double %231)
+  %233 = fmul double %61, %232
+  %234 = getelementptr i8, ptr %208, i64 40
+  store double %233, ptr %234, align 8, !tbaa !51
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0224)
   ret void
 }
 

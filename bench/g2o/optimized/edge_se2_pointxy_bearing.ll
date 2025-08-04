@@ -1028,8 +1028,8 @@ _ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexSE2ENS_13VertexPointXYEEE24construct
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %99, ptr noundef nonnull align 8 dereferenceable(10) %90, i64 10, i1 false)
   %100 = getelementptr inbounds nuw i8, ptr %85, i64 128
   %101 = load <2 x double>, ptr %.sroa.029.sroa.0.0.copyload.i.i2, align 16, !tbaa !60
-  %102 = load <2 x double>, ptr %76, align 8
-  %103 = shufflevector <2 x double> %102, <2 x double> poison, <2 x i32> zeroinitializer
+  %102 = load <1 x double>, ptr %76, align 8
+  %103 = shufflevector <1 x double> %102, <1 x double> poison, <2 x i32> zeroinitializer
   %104 = fmul <2 x double> %101, %103
   store <2 x double> %104, ptr %2, align 16, !tbaa !60
   %105 = getelementptr inbounds nuw i8, ptr %2, i64 32

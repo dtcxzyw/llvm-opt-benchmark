@@ -4289,88 +4289,87 @@ define linkonce_odr hidden void @_ZNK2cv7Affine3IfE11concatenateERKS1_(ptr dead_
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store float %57, ptr %58, align 4, !tbaa !34, !alias.scope !271, !noalias !268
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %60 = load <4 x float>, ptr %59, align 4, !noalias !268
-  %.sroa.0.0.vec.insert.i = shufflevector <4 x float> %60, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %62 = load float, ptr %61, align 4, !tbaa !34, !noalias !275
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %64 = load float, ptr %63, align 4, !tbaa !34, !noalias !275
-  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %62, i64 1
+  %.sroa.0.0.vec.insert.i = load <2 x float>, ptr %59, align 4
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %61 = load float, ptr %60, align 4, !tbaa !34, !noalias !275
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %63 = load float, ptr %62, align 4, !tbaa !34, !noalias !275
+  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %61, i64 1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #28, !noalias !268
-  %65 = getelementptr inbounds nuw i8, ptr %5, i64 60
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %5, i8 0, i64 60, i1 false), !noalias !268
-  store float 1.000000e+00, ptr %65, align 4, !tbaa !34, !noalias !268
+  store float 1.000000e+00, ptr %64, align 4, !tbaa !34, !noalias !268
   %.sroa.24.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %.preheader31.i
 
 .preheader31.i:                                   ; preds = %_ZNK2cv4MatxIfLi1ELi3EE3dotERKS1_.exit.i, %3
   %indvars.iv42.i = phi i64 [ 0, %3 ], [ %indvars.iv.next43.i, %_ZNK2cv4MatxIfLi1ELi3EE3dotERKS1_.exit.i ]
-  %66 = mul nuw nsw i64 %indvars.iv42.i, 3
-  %67 = shl nuw nsw i64 %indvars.iv42.i, 2
+  %65 = mul nuw nsw i64 %indvars.iv42.i, 3
+  %66 = shl nuw nsw i64 %indvars.iv42.i, 2
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %78, %.preheader31.i
-  %indvars.iv38.i = phi i64 [ 0, %.preheader31.i ], [ %indvars.iv.next39.i, %78 ]
-  br label %81
+.preheader.i:                                     ; preds = %77, %.preheader31.i
+  %indvars.iv38.i = phi i64 [ 0, %.preheader31.i ], [ %indvars.iv.next39.i, %77 ]
+  br label %80
 
-68:                                               ; preds = %78
+67:                                               ; preds = %77
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #28, !noalias !268
-  %69 = getelementptr inbounds nuw [9 x float], ptr %8, i64 0, i64 %66
-  %.sroa.0.0.copyload1.i.i = load <2 x float>, ptr %69, align 4, !tbaa !34, !noalias !268
-  %.sroa.2.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %68 = getelementptr inbounds nuw [9 x float], ptr %8, i64 0, i64 %65
+  %.sroa.0.0.copyload1.i.i = load <2 x float>, ptr %68, align 4, !tbaa !34, !noalias !268
+  %.sroa.2.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %68, i64 8
   %.sroa.2.0.copyload3.i.i = load float, ptr %.sroa.2.0..sroa_idx2.i.i, align 4, !tbaa !34, !noalias !268
   store <2 x float> %.sroa.0.0.copyload1.i.i, ptr %6, align 8, !noalias !268
   store float %.sroa.2.0.copyload3.i.i, ptr %.sroa.24.0..sroa_idx.i, align 8, !noalias !268
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #28, !noalias !268
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %7, align 8, !noalias !268
-  store float %64, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !268
-  br label %70
+  store float %63, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !268
+  br label %69
 
-70:                                               ; preds = %70, %68
-  %indvars.iv.i.i = phi i64 [ 0, %68 ], [ %indvars.iv.next.i.i, %70 ]
-  %.078.i.i = phi float [ 0.000000e+00, %68 ], [ %75, %70 ]
-  %71 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %indvars.iv.i.i
-  %72 = load float, ptr %71, align 4, !tbaa !34, !noalias !268
-  %73 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %indvars.iv.i.i
-  %74 = load float, ptr %73, align 4, !tbaa !34, !noalias !268
-  %75 = tail call float @llvm.fmuladd.f32(float %72, float %74, float %.078.i.i)
+69:                                               ; preds = %69, %67
+  %indvars.iv.i.i = phi i64 [ 0, %67 ], [ %indvars.iv.next.i.i, %69 ]
+  %.078.i.i = phi float [ 0.000000e+00, %67 ], [ %74, %69 ]
+  %70 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %indvars.iv.i.i
+  %71 = load float, ptr %70, align 4, !tbaa !34, !noalias !268
+  %72 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %indvars.iv.i.i
+  %73 = load float, ptr %72, align 4, !tbaa !34, !noalias !268
+  %74 = tail call float @llvm.fmuladd.f32(float %71, float %73, float %.078.i.i)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %_ZNK2cv4MatxIfLi1ELi3EE3dotERKS1_.exit.i, label %70, !llvm.loop !113
+  br i1 %exitcond.not.i.i, label %_ZNK2cv4MatxIfLi1ELi3EE3dotERKS1_.exit.i, label %69, !llvm.loop !113
 
-_ZNK2cv4MatxIfLi1ELi3EE3dotERKS1_.exit.i:         ; preds = %70
-  %76 = or disjoint i64 %67, 3
-  %77 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %76
-  store float %75, ptr %77, align 4, !tbaa !34, !noalias !268
+_ZNK2cv4MatxIfLi1ELi3EE3dotERKS1_.exit.i:         ; preds = %69
+  %75 = or disjoint i64 %66, 3
+  %76 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %75
+  store float %74, ptr %76, align 4, !tbaa !34, !noalias !268
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #28, !noalias !268
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #28, !noalias !268
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
   %exitcond45.not.i = icmp eq i64 %indvars.iv.next43.i, 3
   br i1 %exitcond45.not.i, label %_ZNK2cv7Affine3IfE6rotateERKNS_4MatxIfLi3ELi3EEE.exit, label %.preheader31.i, !llvm.loop !114
 
-78:                                               ; preds = %81
-  %79 = add nuw nsw i64 %indvars.iv38.i, %67
-  %80 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %79
-  store float %89, ptr %80, align 4, !tbaa !34, !noalias !268
+77:                                               ; preds = %80
+  %78 = add nuw nsw i64 %indvars.iv38.i, %66
+  %79 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %78
+  store float %88, ptr %79, align 4, !tbaa !34, !noalias !268
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next39.i, 3
-  br i1 %exitcond41.not.i, label %68, label %.preheader.i, !llvm.loop !115
+  br i1 %exitcond41.not.i, label %67, label %.preheader.i, !llvm.loop !115
 
-81:                                               ; preds = %81, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %81 ]
-  %.02333.i = phi float [ 0.000000e+00, %.preheader.i ], [ %89, %81 ]
-  %82 = add nuw nsw i64 %indvars.iv.i, %66
-  %83 = getelementptr inbounds nuw [9 x float], ptr %8, i64 0, i64 %82
-  %84 = load float, ptr %83, align 4, !tbaa !34, !noalias !268
-  %85 = mul nuw nsw i64 %indvars.iv.i, 3
-  %86 = add nuw nsw i64 %85, %indvars.iv38.i
-  %87 = getelementptr inbounds nuw [9 x float], ptr %4, i64 0, i64 %86
-  %88 = load float, ptr %87, align 4, !tbaa !34, !noalias !268
-  %89 = tail call float @llvm.fmuladd.f32(float %84, float %88, float %.02333.i)
+80:                                               ; preds = %80, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %80 ]
+  %.02333.i = phi float [ 0.000000e+00, %.preheader.i ], [ %88, %80 ]
+  %81 = add nuw nsw i64 %indvars.iv.i, %65
+  %82 = getelementptr inbounds nuw [9 x float], ptr %8, i64 0, i64 %81
+  %83 = load float, ptr %82, align 4, !tbaa !34, !noalias !268
+  %84 = mul nuw nsw i64 %indvars.iv.i, 3
+  %85 = add nuw nsw i64 %84, %indvars.iv38.i
+  %86 = getelementptr inbounds nuw [9 x float], ptr %4, i64 0, i64 %85
+  %87 = load float, ptr %86, align 4, !tbaa !34, !noalias !268
+  %88 = tail call float @llvm.fmuladd.f32(float %83, float %87, float %.02333.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %78, label %81, !llvm.loop !116
+  br i1 %exitcond.not.i, label %77, label %80, !llvm.loop !116
 
 _ZNK2cv7Affine3IfE6rotateERKNS_4MatxIfLi3ELi3EEE.exit: ; preds = %_ZNK2cv4MatxIfLi1ELi3EE3dotERKS1_.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false)
@@ -4391,21 +4390,21 @@ _ZNK2cv7Affine3IfE6rotateERKNS_4MatxIfLi3ELi3EEE.exit: ; preds = %_ZNK2cv4MatxIf
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.10.0..sroa_idx14.i, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.9.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #28, !noalias !268
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #28, !noalias !268
-  %90 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %91 = load float, ptr %90, align 4, !tbaa !34, !noalias !278
-  %92 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %93 = load float, ptr %92, align 4, !tbaa !34, !noalias !278
-  %94 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %95 = load float, ptr %94, align 4, !tbaa !34, !noalias !278
-  %96 = fadd float %.sroa.44.0.copyload, %91
-  %97 = fadd float %.sroa.65.0.copyload, %93
-  %98 = fadd float %.sroa.8.0.copyload, %95
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %90 = load float, ptr %89, align 4, !tbaa !34, !noalias !278
+  %91 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %92 = load float, ptr %91, align 4, !tbaa !34, !noalias !278
+  %93 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %94 = load float, ptr %93, align 4, !tbaa !34, !noalias !278
+  %95 = fadd float %.sroa.44.0.copyload, %90
+  %96 = fadd float %.sroa.65.0.copyload, %92
+  %97 = fadd float %.sroa.8.0.copyload, %94
   %.sroa.4.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %96, ptr %.sroa.4.0..sroa_idx4.i, align 4, !alias.scope !281
+  store float %95, ptr %.sroa.4.0..sroa_idx4.i, align 4, !alias.scope !281
   %.sroa.67.0..sroa_idx8.i = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float %97, ptr %.sroa.67.0..sroa_idx8.i, align 4, !alias.scope !281
+  store float %96, ptr %.sroa.67.0..sroa_idx8.i, align 4, !alias.scope !281
   %.sroa.811.0..sroa_idx12.i = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store float %98, ptr %.sroa.811.0..sroa_idx12.i, align 4, !alias.scope !281
+  store float %97, ptr %.sroa.811.0..sroa_idx12.i, align 4, !alias.scope !281
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %8) #28
   ret void
 }

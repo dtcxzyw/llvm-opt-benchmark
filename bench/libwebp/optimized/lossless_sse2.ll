@@ -1332,7 +1332,7 @@ define internal void @TransformColorInverse_SSE2(ptr noundef %0, ptr noundef %1,
   %43 = shl <8 x i16> %42, splat (i16 8)
   %44 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %43, <8 x i16> %30)
   %45 = bitcast <8 x i16> %44 to <4 x i32>
-  %46 = lshr <4 x i32> %45, splat (i32 8)
+  %46 = lshr exact <4 x i32> %45, splat (i32 8)
   %47 = bitcast <4 x i32> %46 to <16 x i8>
   %48 = bitcast <8 x i16> %43 to <16 x i8>
   %49 = add <16 x i8> %48, %47
@@ -1693,7 +1693,7 @@ define internal void @ConvertBGRAToRGB565_SSE2(ptr noalias noundef %0, i32 nound
   %24 = shufflevector <16 x i8> %23, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
   %25 = or disjoint <2 x i64> %19, %15
   %26 = bitcast <16 x i8> %24 to <8 x i16>
-  %27 = lshr <8 x i16> %26, splat (i16 3)
+  %27 = lshr exact <8 x i16> %26, splat (i16 3)
   %28 = bitcast <8 x i16> %27 to <2 x i64>
   %29 = or <2 x i64> %22, %28
   %30 = bitcast <2 x i64> %25 to <16 x i8>

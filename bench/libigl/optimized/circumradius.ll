@@ -6994,7 +6994,7 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdL
   %70 = load i64, ptr %69, align 8, !tbaa !56
   %71 = load ptr, ptr %10, align 8, !tbaa !586
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %73 = load <2 x double>, ptr %72, align 8
+  %73 = load <1 x double>, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 72
   %75 = load i64, ptr %74, align 8, !tbaa !538
   %76 = icmp sgt i64 %75, 0
@@ -7035,7 +7035,7 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdL
   %100 = getelementptr double, ptr %68, i64 %.02949
   %101 = mul nsw i64 %70, %.03255
   %102 = getelementptr double, ptr %100, i64 %101
-  %103 = shufflevector <2 x double> %73, <2 x double> poison, <2 x i32> zeroinitializer
+  %103 = shufflevector <1 x double> %73, <1 x double> poison, <2 x i32> zeroinitializer
   %104 = fmul <2 x double> %103, %.0.i.i.i.i
   store <2 x double> %104, ptr %102, align 16, !tbaa !73
   %105 = add nsw i64 %.02949, 2
@@ -20373,7 +20373,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1
   %61 = load ptr, ptr %60, align 8, !tbaa !1438
   %62 = load ptr, ptr %6, align 8, !tbaa !1440
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %64 = load <2 x double>, ptr %63, align 8
+  %64 = load <1 x double>, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 56
   %66 = load i64, ptr %65, align 8, !tbaa !1418
   %67 = icmp sgt i64 %66, 0
@@ -20435,7 +20435,7 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdL
   %.0.i.i.i.i = phi <2 x double> [ zeroinitializer, %.lr.ph59 ], [ %95, %.lr.ph.i.i.i.i.i ]
   %97 = getelementptr double, ptr %61, i64 %.03564
   %98 = getelementptr i8, ptr %97, i64 %.idx.i.i.i37
-  %99 = shufflevector <2 x double> %64, <2 x double> poison, <2 x i32> zeroinitializer
+  %99 = shufflevector <1 x double> %64, <1 x double> poison, <2 x i32> zeroinitializer
   %100 = fmul <2 x double> %99, %.0.i.i.i.i
   store <2 x double> %100, ptr %98, align 16, !tbaa !73
   %.not71.not = icmp eq i64 %.03564, 0

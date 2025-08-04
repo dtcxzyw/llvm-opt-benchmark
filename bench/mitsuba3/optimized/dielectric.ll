@@ -1515,11 +1515,11 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %48, ptr noundef nonnull align 16 dereferenceable(16) %190, i64 16, i1 false)
   %bc = bitcast <4 x i32> %.sroa.0945.0.copyload to <4 x float>
   %191 = shufflevector <4 x float> %bc, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %192 = load <4 x float>, ptr %79, align 8
-  %193 = shufflevector <4 x float> %192, <4 x float> poison, <4 x i32> zeroinitializer
+  %192 = load <1 x float>, ptr %79, align 8
+  %193 = shufflevector <1 x float> %192, <1 x float> poison, <4 x i32> zeroinitializer
   call void @_ZN7mitsuba7mueller19specular_reflectionINS_8SpectrumIfLm4EEES3_EEN5drjit6MatrixIT_Lm4EEES6_T0_(ptr dead_on_unwind nonnull writable sret(%"struct.drjit::Matrix") align 16 %49, <4 x float> %191, <4 x float> %193)
-  %194 = load <4 x float>, ptr %79, align 8
-  %195 = shufflevector <4 x float> %194, <4 x float> poison, <4 x i32> zeroinitializer
+  %194 = load <1 x float>, ptr %79, align 8
+  %195 = shufflevector <1 x float> %194, <1 x float> poison, <4 x i32> zeroinitializer
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %29)
   %196 = fcmp contract oge <4 x float> %191, zeroinitializer
   %197 = call contract noundef <4 x float> @llvm.x86.avx512.rcp14.ps.128(<4 x float> %195, <4 x float> zeroinitializer, i8 -1)

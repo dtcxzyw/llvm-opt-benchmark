@@ -92,11 +92,11 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
   %38 = shufflevector <8 x float> %37, <8 x float> poison, <8 x i32> zeroinitializer
   %39 = bitcast <8 x float> %38 to <8 x i32>
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %41 = load <8 x float>, ptr %40, align 8
-  %42 = shufflevector <8 x float> %41, <8 x float> poison, <8 x i32> zeroinitializer
+  %41 = load <1 x float>, ptr %40, align 8
+  %42 = shufflevector <1 x float> %41, <1 x float> poison, <8 x i32> zeroinitializer
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %44 = load <8 x float>, ptr %43, align 4
-  %45 = shufflevector <8 x float> %44, <8 x float> poison, <8 x i32> zeroinitializer
+  %44 = load <1 x float>, ptr %43, align 4
+  %45 = shufflevector <1 x float> %44, <1 x float> poison, <8 x i32> zeroinitializer
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %47 = load float, ptr %46, align 4, !tbaa !53
   %48 = fmul float %47, %47

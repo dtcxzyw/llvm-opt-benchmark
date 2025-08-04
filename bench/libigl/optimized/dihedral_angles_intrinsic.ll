@@ -1772,8 +1772,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %112 = fmul <2 x double> %111, %111
   %113 = fsub <2 x double> %107, %112
   %114 = getelementptr inbounds nuw i8, ptr %97, i64 128
-  %115 = load <2 x double>, ptr %114, align 8
-  %116 = shufflevector <2 x double> %115, <2 x double> poison, <2 x i32> zeroinitializer
+  %115 = load <1 x double>, ptr %114, align 8
+  %116 = shufflevector <1 x double> %115, <1 x double> poison, <2 x i32> zeroinitializer
   %117 = getelementptr inbounds nuw i8, ptr %97, i64 144
   %118 = load ptr, ptr %117, align 8, !tbaa !81
   %119 = getelementptr inbounds double, ptr %118, i64 %.021

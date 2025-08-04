@@ -2769,15 +2769,14 @@ define { <2 x float>, float } @_ZN32pxrInternal_v0_24__pxrReserved__21UsdPhysics
 
 107:                                              ; preds = %24, %53, %103
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  %108 = load <4 x float>, ptr %8, align 16
-  %.sroa.083.0.vec.insert = shufflevector <4 x float> %108, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %109 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %110 = load float, ptr %109, align 16
-  %111 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %112 = load float, ptr %111, align 16
-  %.sroa.083.4.vec.insert = insertelement <2 x float> %.sroa.083.0.vec.insert, float %110, i64 1
+  %.sroa.083.0.vec.insert = load <2 x float>, ptr %8, align 16
+  %108 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %109 = load float, ptr %108, align 16
+  %110 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %111 = load float, ptr %110, align 16
+  %.sroa.083.4.vec.insert = insertelement <2 x float> %.sroa.083.0.vec.insert, float %109, i64 1
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.083.4.vec.insert, 0
-  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %112, 1
+  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %111, 1
   ret { <2 x float>, float } %.fca.1.insert
 }
 

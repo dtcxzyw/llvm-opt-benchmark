@@ -360,7 +360,7 @@ define internal fastcc void @poly1305_blocks(ptr noundef captures(none) %0, ptr 
   %35 = getelementptr i8, ptr %0, i64 16
   %36 = load <4 x i32>, ptr %35, align 1
   %37 = getelementptr i8, ptr %0, i64 32
-  %38 = load <4 x i32>, ptr %37, align 1
+  %38 = load <2 x i32>, ptr %37, align 1
   %39 = shufflevector <4 x i32> %34, <4 x i32> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %40 = bitcast <4 x i32> %39 to <2 x i64>
   %41 = shufflevector <4 x i32> %34, <4 x i32> poison, <4 x i32> <i32 2, i32 2, i32 3, i32 3>
@@ -369,7 +369,7 @@ define internal fastcc void @poly1305_blocks(ptr noundef captures(none) %0, ptr 
   %44 = bitcast <4 x i32> %43 to <2 x i64>
   %45 = shufflevector <4 x i32> %36, <4 x i32> poison, <4 x i32> <i32 2, i32 2, i32 3, i32 3>
   %46 = bitcast <4 x i32> %45 to <2 x i64>
-  %47 = shufflevector <4 x i32> %38, <4 x i32> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
+  %47 = shufflevector <2 x i32> %38, <2 x i32> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %48 = bitcast <4 x i32> %47 to <2 x i64>
   br label %49
 

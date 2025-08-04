@@ -26011,8 +26011,8 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1
   %94 = getelementptr inbounds double, ptr %93, i64 %.03246
   %95 = load <2 x double>, ptr %94, align 1, !tbaa !113
   %96 = getelementptr inbounds nuw i8, ptr %87, i64 32
-  %97 = load <2 x double>, ptr %96, align 8
-  %98 = shufflevector <2 x double> %97, <2 x double> poison, <2 x i32> zeroinitializer
+  %97 = load <1 x double>, ptr %96, align 8
+  %98 = shufflevector <1 x double> %97, <1 x double> poison, <2 x i32> zeroinitializer
   %99 = fdiv <2 x double> %95, %98
   store <2 x double> %99, ptr %86, align 16, !tbaa !113
   %100 = add nsw i64 %.03246, 2

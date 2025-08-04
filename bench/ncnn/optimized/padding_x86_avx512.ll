@@ -379,8 +379,8 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %128
 
 144:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %146 = load <16 x float>, ptr %145, align 4
-  %147 = shufflevector <16 x float> %146, <16 x float> poison, <16 x i32> zeroinitializer
+  %146 = load <1 x float>, ptr %145, align 4
+  %147 = shufflevector <1 x float> %146, <1 x float> poison, <16 x i32> zeroinitializer
   %148 = load i32, ptr %28, align 8, !tbaa !45
   %149 = sdiv i32 %148, 16
   %150 = load i32, ptr %31, align 4, !tbaa !46
@@ -427,8 +427,8 @@ _ZNK4ncnn3Mat5emptyEv.exit349:                    ; preds = %162
 
 178:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit349
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %180 = load <16 x float>, ptr %179, align 4
-  %181 = shufflevector <16 x float> %180, <16 x float> poison, <16 x i32> zeroinitializer
+  %180 = load <1 x float>, ptr %179, align 4
+  %181 = shufflevector <1 x float> %180, <1 x float> poison, <16 x i32> zeroinitializer
   %182 = load i32, ptr %22, align 8, !tbaa !18
   %183 = sdiv i32 %182, 16
   %184 = load i32, ptr %25, align 4, !tbaa !47
@@ -619,8 +619,8 @@ _ZNK4ncnn3Mat5emptyEv.exit352:                    ; preds = %271
 
 285:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit352
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %287 = load <8 x float>, ptr %286, align 4
-  %288 = shufflevector <8 x float> %287, <8 x float> poison, <8 x i32> zeroinitializer
+  %287 = load <1 x float>, ptr %286, align 4
+  %288 = shufflevector <1 x float> %287, <1 x float> poison, <8 x i32> zeroinitializer
   %289 = load i32, ptr %28, align 8, !tbaa !45
   %290 = sdiv i32 %289, 8
   %291 = load i32, ptr %31, align 4, !tbaa !46
@@ -667,8 +667,8 @@ _ZNK4ncnn3Mat5emptyEv.exit353:                    ; preds = %303
 
 319:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit353
   %320 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %321 = load <8 x float>, ptr %320, align 4
-  %322 = shufflevector <8 x float> %321, <8 x float> poison, <8 x i32> zeroinitializer
+  %321 = load <1 x float>, ptr %320, align 4
+  %322 = shufflevector <1 x float> %321, <1 x float> poison, <8 x i32> zeroinitializer
   %323 = load i32, ptr %22, align 8, !tbaa !18
   %324 = sdiv i32 %323, 8
   %325 = load i32, ptr %25, align 4, !tbaa !47
@@ -854,8 +854,8 @@ _ZNK4ncnn3Mat5emptyEv.exit356:                    ; preds = %409
 
 427:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit356
   %428 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %429 = load <4 x float>, ptr %428, align 4
-  %430 = shufflevector <4 x float> %429, <4 x float> poison, <4 x i32> zeroinitializer
+  %429 = load <1 x float>, ptr %428, align 4
+  %430 = shufflevector <1 x float> %429, <1 x float> poison, <4 x i32> zeroinitializer
   %431 = load i32, ptr %28, align 8, !tbaa !45
   %432 = sdiv i32 %431, 4
   %433 = load i32, ptr %31, align 4, !tbaa !46
@@ -908,8 +908,8 @@ _ZNK4ncnn3Mat5emptyEv.exit357:                    ; preds = %447
 
 467:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit357
   %468 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %469 = load <4 x float>, ptr %468, align 4
-  %470 = shufflevector <4 x float> %469, <4 x float> poison, <4 x i32> zeroinitializer
+  %469 = load <1 x float>, ptr %468, align 4
+  %470 = shufflevector <1 x float> %469, <1 x float> poison, <4 x i32> zeroinitializer
   %471 = load i32, ptr %22, align 8, !tbaa !18
   %472 = sdiv i32 %471, 4
   %473 = load i32, ptr %25, align 4, !tbaa !47

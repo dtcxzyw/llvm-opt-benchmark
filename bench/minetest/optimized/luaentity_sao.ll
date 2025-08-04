@@ -6247,15 +6247,14 @@ if.then:                                          ; preds = %entry
   %11 = load <2 x float>, ptr %m_base_position, align 8, !tbaa !88
   %12 = fadd nsz <2 x float> %3, %11
   store <2 x float> %12, ptr %toset, align 4, !tbaa !88
-  %13 = load <4 x float>, ptr %Z.i28, align 8
-  %14 = shufflevector <4 x float> %13, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %15 = load float, ptr %m_base_position, align 8, !tbaa !218
-  %16 = insertelement <2 x float> %14, float %15, i64 1
-  %17 = fadd nsz <2 x float> %6, %16
-  store <2 x float> %17, ptr %ref.tmp.sroa.4.0.MinEdge3.sroa_idx, align 4, !tbaa !88
-  %18 = load <2 x float>, ptr %Y.i27, align 4, !tbaa !88
-  %19 = fadd nsz <2 x float> %8, %18
-  store <2 x float> %19, ptr %Y3.i31, align 4, !tbaa !88
+  %13 = load <2 x float>, ptr %Z.i28, align 8
+  %14 = load float, ptr %m_base_position, align 8, !tbaa !218
+  %15 = insertelement <2 x float> %13, float %14, i64 1
+  %16 = fadd nsz <2 x float> %6, %15
+  store <2 x float> %16, ptr %ref.tmp.sroa.4.0.MinEdge3.sroa_idx, align 4, !tbaa !88
+  %17 = load <2 x float>, ptr %Y.i27, align 4, !tbaa !88
+  %18 = fadd nsz <2 x float> %8, %17
+  store <2 x float> %18, ptr %Y3.i31, align 4, !tbaa !88
   br label %return
 
 return:                                           ; preds = %if.then, %entry

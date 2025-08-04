@@ -100,8 +100,8 @@ define void @_ZN3g2o18ParameterSE2OffsetC2Ev(ptr noundef nonnull align 16 derefe
   %15 = load <2 x double>, ptr %14, align 8
   %.sroa.8.32.vec.insert.i = insertelement <2 x double> %15, double 1.000000e+00, i64 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %17 = load <2 x double>, ptr %16, align 8, !noalias !10
-  %18 = shufflevector <2 x double> %17, <2 x double> poison, <2 x i32> zeroinitializer
+  %17 = load <1 x double>, ptr %16, align 8, !noalias !10
+  %18 = shufflevector <1 x double> %17, <1 x double> poison, <2 x i32> zeroinitializer
   %19 = fmul <2 x double> %.sroa.8.32.vec.insert.i, %18
   %20 = fsub <2 x double> <double -0.000000e+00, double 0.000000e+00>, %19
   store <2 x double> <double 1.000000e+00, double -0.000000e+00>, ptr %8, align 8
@@ -158,8 +158,8 @@ define void @_ZN3g2o18ParameterSE2Offset9setOffsetERKNS_3SE2E(ptr noundef nonnul
   %21 = shufflevector <2 x double> %17, <2 x double> poison, <2 x i32> zeroinitializer
   %22 = fmul <2 x double> %21, %20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %24 = load <2 x double>, ptr %23, align 8, !noalias !18
-  %25 = shufflevector <2 x double> %24, <2 x double> poison, <2 x i32> zeroinitializer
+  %24 = load <1 x double>, ptr %23, align 8, !noalias !18
+  %25 = shufflevector <1 x double> %24, <1 x double> poison, <2 x i32> zeroinitializer
   %26 = fmul <2 x double> %.sroa.8.32.vec.insert, %25
   %27 = fsub <2 x double> %22, %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -257,8 +257,8 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9D
   %38 = shufflevector <2 x double> %34, <2 x double> poison, <2 x i32> zeroinitializer
   %39 = fmul <2 x double> %38, %37
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %41 = load <2 x double>, ptr %40, align 8, !noalias !37
-  %42 = shufflevector <2 x double> %41, <2 x double> poison, <2 x i32> zeroinitializer
+  %41 = load <1 x double>, ptr %40, align 8, !noalias !37
+  %42 = shufflevector <1 x double> %41, <1 x double> poison, <2 x i32> zeroinitializer
   %43 = fmul <2 x double> %.sroa.8.32.vec.insert.i, %42
   %44 = fsub <2 x double> %39, %43
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 120

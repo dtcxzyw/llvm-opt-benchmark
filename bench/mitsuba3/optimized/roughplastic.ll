@@ -1902,10 +1902,10 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
 .thread141:                                       ; preds = %34, %.thread142, %47
   %48 = load float, ptr %16, align 4
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %50 = load <4 x float>, ptr %49, align 4
+  %50 = load <1 x float>, ptr %49, align 4
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %52 = load i32, ptr %51, align 8
-  %53 = shufflevector <4 x float> %50, <4 x float> poison, <16 x i32> zeroinitializer
+  %53 = shufflevector <1 x float> %50, <1 x float> poison, <16 x i32> zeroinitializer
   store i32 %52, ptr %7, align 64
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 128
@@ -4248,8 +4248,8 @@ _ZN5drjit5ArrayINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_15StaticArrayImp
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(240) %.sroa.0.i.16.i.16..sroa_idx, i8 0, i64 240, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0.i, ptr noundef nonnull align 16 dereferenceable(16) %19, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %11)
-  %183 = load <4 x float>, ptr %36, align 16
-  %184 = shufflevector <4 x float> %183, <4 x float> poison, <4 x i32> zeroinitializer
+  %183 = load <1 x float>, ptr %36, align 16
+  %184 = shufflevector <1 x float> %183, <1 x float> poison, <4 x i32> zeroinitializer
   %185 = call contract noundef <4 x float> @llvm.x86.avx512.rcp14.ps.128(<4 x float> %184, <4 x float> zeroinitializer, i8 -1)
   %186 = fadd contract <4 x float> %185, %185
   %187 = fneg contract <4 x float> %184

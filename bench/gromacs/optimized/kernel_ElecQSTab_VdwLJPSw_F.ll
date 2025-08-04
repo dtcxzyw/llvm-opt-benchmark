@@ -88,8 +88,8 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !10
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %32 = load <8 x float>, ptr %31, align 4
-  %33 = shufflevector <8 x float> %32, <8 x float> poison, <8 x i32> zeroinitializer
+  %32 = load <1 x float>, ptr %31, align 4
+  %33 = shufflevector <1 x float> %32, <1 x float> poison, <8 x i32> zeroinitializer
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %35 = load <8 x float>, ptr %34, align 8
   %36 = shufflevector <8 x float> %35, <8 x float> poison, <8 x i32> zeroinitializer

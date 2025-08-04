@@ -6684,7 +6684,7 @@ declare !callback !296 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_
 
 ; Function Attrs: alwaysinline norecurse nounwind ssp uwtable
 define internal void @_ZNK6open3d8geometry12TriangleMesh23DeformAsRigidAsPossibleERKSt6vectorIiSaIiEERKS2_IN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS9_EEmNS0_8MeshBase29DeformAsRigidAsPossibleEnergyEd.omp_outlined.11(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %7) #5 personality ptr @__gxx_personality_v0 {
-  %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i = alloca [32 x i8], align 16
+  %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0 = alloca [24 x i8], align 16
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -6726,9 +6726,9 @@ define internal void @_ZNK6open3d8geometry12TriangleMesh23DeformAsRigidAsPossibl
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %33 = sext i32 %28 to i64
-  %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx152 = getelementptr inbounds nuw i8, ptr %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
-  %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
-  %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
+  %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx154 = getelementptr inbounds nuw i8, ptr %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
+  %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx153 = getelementptr inbounds nuw i8, ptr %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0, i64 8
+  %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx155 = getelementptr inbounds nuw i8, ptr %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0, i64 16
   br label %34
 
 34:                                               ; preds = %.lr.ph102, %.loopexit76
@@ -6977,17 +6977,17 @@ _ZNSt10_HashtableIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESt4pairIKS2_dESaIS5_ENSt
   %137 = load ptr, ptr %13, align 8, !tbaa !55
   %138 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %137, i64 %indvars.iv
   %139 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %137, i64 %135
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0)
   %140 = load <2 x double>, ptr %138, align 1, !tbaa !30
   %141 = load <2 x double>, ptr %139, align 1, !tbaa !30
   %142 = fsub <2 x double> %140, %141
-  store <2 x double> %142, ptr %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i, align 16, !tbaa !30
+  store <2 x double> %142, ptr %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0, align 16, !tbaa !30
   %143 = getelementptr i8, ptr %138, i64 16
   %144 = getelementptr i8, ptr %139, i64 16
   %145 = load double, ptr %143, align 8, !tbaa !8
   %146 = load double, ptr %144, align 8, !tbaa !8
   %147 = fsub double %145, %146
-  store double %147, ptr %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx152, align 16, !tbaa !8
+  store double %147, ptr %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx154, align 16, !tbaa !8
   %.sroa.9.88.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %132, i64 0
   %148 = shufflevector <2 x double> %.sroa.9.88.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %149 = load <2 x double>, ptr %134, align 1, !tbaa !30
@@ -7003,8 +7003,8 @@ _ZNSt10_HashtableIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESt4pairIKS2_dESaIS5_ENSt
   %159 = load <2 x double>, ptr %158, align 1, !tbaa !30
   %160 = fadd <2 x double> %157, %159
   %161 = fmul <2 x double> %148, %160
-  %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.8..sroa.53.i.i.i.i.i.8..sroa.53.i.i.i.i.8..sroa.53.i.i.i.i.8..sroa.53.i.i.i.8..sroa.53.i.i.i.8..sroa.53.i.i.8..sroa.53.i.i.8..sroa.53.i.8..sroa.53.i.8..sroa.53.8..sroa.53.8..sroa.53.64..i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8
-  %162 = shufflevector <2 x double> %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.8..sroa.53.i.i.i.i.i.8..sroa.53.i.i.i.i.8..sroa.53.i.i.i.i.8..sroa.53.i.i.i.8..sroa.53.i.i.i.8..sroa.53.i.i.8..sroa.53.i.i.8..sroa.53.i.8..sroa.53.i.8..sroa.53.8..sroa.53.8..sroa.53.64..i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.8..sroa.53.i.i.i.i.i.8..sroa.53.i.i.i.i.8..sroa.53.i.i.i.i.8..sroa.53.i.i.i.8..sroa.53.i.i.i.8..sroa.53.i.i.8..sroa.53.i.i.8..sroa.53.i.8..sroa.53.i.8..sroa.53.8..sroa.53.8..sroa.53.64..i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx153, align 8
+  %162 = shufflevector <2 x double> %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.8..sroa.53.i.i.i.i.i.8..sroa.53.i.i.i.i.8..sroa.53.i.i.i.i.8..sroa.53.i.i.i.8..sroa.53.i.i.i.8..sroa.53.i.i.8..sroa.53.i.i.8..sroa.53.i.8..sroa.53.i.8..sroa.53.8..sroa.53.8..sroa.53.64..i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   %163 = fmul <2 x double> %161, %162
   %164 = fadd <2 x double> %155, %163
   %165 = getelementptr inbounds nuw i8, ptr %134, i64 48
@@ -7013,8 +7013,8 @@ _ZNSt10_HashtableIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESt4pairIKS2_dESaIS5_ENSt
   %168 = load <2 x double>, ptr %167, align 1, !tbaa !30
   %169 = fadd <2 x double> %166, %168
   %170 = fmul <2 x double> %148, %169
-  %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.53.i.i.i.i.i.i.i.i.i.i.i.16..sroa.53.i.i.i.i.i.i.i.i.i.i.i.16..sroa.53.i.i.i.i.i.i.i.i.i.i.16..sroa.53.i.i.i.i.i.i.i.i.i.i.16..sroa.53.i.i.i.i.i.i.i.i.i.16..sroa.53.i.i.i.i.i.i.i.i.i.16..sroa.53.i.i.i.i.i.i.i.i.16..sroa.53.i.i.i.i.i.i.i.i.16..sroa.53.i.i.i.i.i.i.i.16..sroa.53.i.i.i.i.i.i.i.16..sroa.53.i.i.i.i.i.i.16..sroa.53.i.i.i.i.i.i.16..sroa.53.i.i.i.i.i.16..sroa.53.i.i.i.i.i.16..sroa.53.i.i.i.i.16..sroa.53.i.i.i.i.16..sroa.53.i.i.i.16..sroa.53.i.i.i.16..sroa.53.i.i.16..sroa.53.i.i.16..sroa.53.i.16..sroa.53.i.16..sroa.53.16..sroa.53.16..sroa.53.72..i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx, align 16
-  %171 = shufflevector <2 x double> %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.16..sroa.53.i.i.i.i.i.i.i.i.i.i.i.16..sroa.53.i.i.i.i.i.i.i.i.i.i.i.16..sroa.53.i.i.i.i.i.i.i.i.i.i.16..sroa.53.i.i.i.i.i.i.i.i.i.i.16..sroa.53.i.i.i.i.i.i.i.i.i.16..sroa.53.i.i.i.i.i.i.i.i.i.16..sroa.53.i.i.i.i.i.i.i.i.16..sroa.53.i.i.i.i.i.i.i.i.16..sroa.53.i.i.i.i.i.i.i.16..sroa.53.i.i.i.i.i.i.i.16..sroa.53.i.i.i.i.i.i.16..sroa.53.i.i.i.i.i.i.16..sroa.53.i.i.i.i.i.16..sroa.53.i.i.i.i.i.16..sroa.53.i.i.i.i.16..sroa.53.i.i.i.i.16..sroa.53.i.i.i.16..sroa.53.i.i.i.16..sroa.53.i.i.16..sroa.53.i.i.16..sroa.53.i.16..sroa.53.i.16..sroa.53.16..sroa.53.16..sroa.53.72..i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16. = load <1 x double>, ptr %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.i.16.i.i.i.i.16.i.i.i.i.16.i.i.i.16.i.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx155, align 16
+  %171 = shufflevector <1 x double> %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16..sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.16., <1 x double> poison, <2 x i32> zeroinitializer
   %172 = fmul <2 x double> %170, %171
   %173 = fadd <2 x double> %164, %172
   %174 = getelementptr i8, ptr %134, i64 16
@@ -7030,7 +7030,7 @@ _ZNSt10_HashtableIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESt4pairIKS2_dESaIS5_ENSt
   %184 = load double, ptr %182, align 8, !tbaa !8
   %185 = fadd double %183, %184
   %186 = fmul double %132, %185
-  %187 = extractelement <2 x double> %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.8..sroa.53.i.i.i.i.i.8..sroa.53.i.i.i.i.8..sroa.53.i.i.i.i.8..sroa.53.i.i.i.8..sroa.53.i.i.i.8..sroa.53.i.i.8..sroa.53.i.i.8..sroa.53.i.8..sroa.53.i.8..sroa.53.8..sroa.53.8..sroa.53.64..i.i.i.i.i.i.i.i.i.i.i.i, i64 0
+  %187 = extractelement <2 x double> %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0.8..sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.i.8..sroa.53.i.i.i.i.i.8..sroa.53.i.i.i.i.i.8..sroa.53.i.i.i.i.8..sroa.53.i.i.i.i.8..sroa.53.i.i.i.8..sroa.53.i.i.i.8..sroa.53.i.i.8..sroa.53.i.i.8..sroa.53.i.8..sroa.53.i.8..sroa.53.8..sroa.53.8..sroa.53.64..i.i.i.i.i.i.i.i.i.i.i.i, i64 0
   %188 = fmul double %187, %186
   %189 = getelementptr i8, ptr %134, i64 64
   %190 = getelementptr i8, ptr %136, i64 64
@@ -7041,7 +7041,7 @@ _ZNSt10_HashtableIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESt4pairIKS2_dESaIS5_ENSt
   %195 = fmul double %147, %194
   %196 = fadd double %188, %195
   %197 = fadd double %180, %196
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.53.i.i.i.i.i.i.i.i.i.i.i.i.sroa.0)
   %198 = fadd <2 x double> %.sroa.056.295, %173
   %199 = fadd double %.sroa.9.196, %197
   %.sroa.050.0 = load ptr, ptr %.sroa.050.097, align 8, !tbaa !58
