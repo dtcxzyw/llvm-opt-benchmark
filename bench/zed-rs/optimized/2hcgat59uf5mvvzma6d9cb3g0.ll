@@ -997,20 +997,20 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i: ; preds = %.
   %53 = getelementptr inbounds i8, ptr %30, i64 %51
   %lhsc.i = load i8, ptr %53, align 1, !alias.scope !277, !noalias !278
   %54 = icmp eq i8 %lhsc.i, 47
-  br i1 %54, label %56, label %52
+  br i1 %54, label %.loopexit26, label %52
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h32fb677338f93c74E.exit12.thread": ; preds = %4, %12, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h32fb677338f93c74E.exit12"
   store ptr null, ptr %0, align 8
   br label %55
 
-55:                                               ; preds = %.loopexit, %56, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h32fb677338f93c74E.exit12.thread"
+55:                                               ; preds = %.loopexit, %.loopexit26, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h32fb677338f93c74E.exit12.thread"
   ret void
 
 .loopexit:                                        ; preds = %52, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i, %.preheader.i.i.i, %44
   store ptr null, ptr %0, align 8
   br label %55
 
-56:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h75ff3b532a687b54E.exit.i.i"
+.loopexit26:                                      ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h75ff3b532a687b54E.exit.i.i"
   %57 = sub nuw i64 %switch.i16, %50
   %58 = getelementptr inbounds i8, ptr %30, i64 %50
   store ptr %30, ptr %0, align 8

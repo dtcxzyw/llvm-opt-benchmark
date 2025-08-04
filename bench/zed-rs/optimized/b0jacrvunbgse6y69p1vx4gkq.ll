@@ -68804,7 +68804,7 @@ define internal void @"_ZN9collab_ui10chat_panel14message_editor13MessageEditor1
     i8 3, label %41
   ]
 
-default.unreachable39:                            ; preds = %.noexc112.i, %51, %3
+default.unreachable41:                            ; preds = %.noexc112.i, %51, %3
   unreachable
 
 37:                                               ; preds = %3
@@ -70157,8 +70157,8 @@ _ZN4core3ops8function6FnOnce9call_once17h244bcc1a339bbb2fE.exit.i.i.i.i.i: ; pre
 ._crit_edge.i:                                    ; preds = %490
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 1024
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !12353
-  %.phi.trans.insert365.i = getelementptr inbounds nuw i8, ptr %1, i64 1032
-  %.pre366.i = load i64, ptr %.phi.trans.insert365.i, align 8, !noalias !12353
+  %.phi.trans.insert367.i = getelementptr inbounds nuw i8, ptr %1, i64 1032
+  %.pre368.i = load i64, ptr %.phi.trans.insert367.i, align 8, !noalias !12353
   br label %492
 
 491:                                              ; preds = %490
@@ -70167,7 +70167,7 @@ _ZN4core3ops8function6FnOnce9call_once17h244bcc1a339bbb2fE.exit.i.i.i.i.i: ; pre
   br label %.thread
 
 492:                                              ; preds = %537, %._crit_edge.i
-  %493 = phi i64 [ %.pre366.i, %._crit_edge.i ], [ %.sroa.3.0.i.pn.i.i.i.i, %537 ]
+  %493 = phi i64 [ %.pre368.i, %._crit_edge.i ], [ %.sroa.3.0.i.pn.i.i.i.i, %537 ]
   %494 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %.sroa.0.0.i.pn.i.i.i.i, %537 ]
   %495 = getelementptr inbounds nuw i8, ptr %1, i64 472
   %496 = getelementptr i8, ptr %1, i64 504
@@ -70199,13 +70199,13 @@ _ZN4core3ops8function6FnOnce9call_once17h244bcc1a339bbb2fE.exit.i.i.i.i.i: ; pre
 
 509:                                              ; preds = %630, %492
   %510 = phi i64 [ 0, %492 ], [ %533, %630 ]
-  %.pre.i.i.i.i268350.i = phi i64 [ 0, %492 ], [ %.pre.i.i.i.i267.i, %630 ]
-  %.promoted.i.i.i.i273349.i = phi i64 [ 0, %492 ], [ %.promoted.i.i.i.i270.i, %630 ]
-  %511 = icmp ult i64 %493, %.promoted.i.i.i.i273349.i
+  %.pre.i.i.i.i268351.i = phi i64 [ 0, %492 ], [ %.pre.i.i.i.i267.i, %630 ]
+  %.promoted.i.i.i.i273350.i = phi i64 [ 0, %492 ], [ %.promoted.i.i.i.i270.i, %630 ]
+  %511 = icmp ult i64 %493, %.promoted.i.i.i.i273350.i
   br i1 %511, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.i.i", label %.lr.ph.split.split.i.i.i.i.i
 
 .lr.ph.split.split.i.i.i.i.i:                     ; preds = %509, %527
-  %512 = phi i64 [ %525, %527 ], [ %.promoted.i.i.i.i273349.i, %509 ]
+  %512 = phi i64 [ %525, %527 ], [ %.promoted.i.i.i.i273350.i, %509 ]
   %513 = sub nuw i64 %493, %512
   %514 = getelementptr inbounds i8, ptr %494, i64 %512
   %515 = icmp ult i64 %513, 16
@@ -70262,14 +70262,14 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i.i.i: ; pred
 
 "_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.i.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h07e71a6b90634a7fE.exit.i.i.i.i.i", %527, %.noexc173.i, %.preheader.i.i.i.i.i.i, %519, %509
   %532 = phi i1 [ true, %509 ], [ true, %519 ], [ true, %527 ], [ true, %.noexc173.i ], [ true, %.preheader.i.i.i.i.i.i ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h07e71a6b90634a7fE.exit.i.i.i.i.i" ]
-  %.promoted.i.i.i.i270.i = phi i64 [ %.promoted.i.i.i.i273349.i, %509 ], [ %493, %519 ], [ %525, %527 ], [ %493, %.noexc173.i ], [ %493, %.preheader.i.i.i.i.i.i ], [ %525, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h07e71a6b90634a7fE.exit.i.i.i.i.i" ]
-  %.pre.i.i.i.i267.i = phi i64 [ %.pre.i.i.i.i268350.i, %509 ], [ %.pre.i.i.i.i268350.i, %519 ], [ %.pre.i.i.i.i268350.i, %527 ], [ %.pre.i.i.i.i268350.i, %.noexc173.i ], [ %.pre.i.i.i.i268350.i, %.preheader.i.i.i.i.i.i ], [ %525, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h07e71a6b90634a7fE.exit.i.i.i.i.i" ]
+  %.promoted.i.i.i.i270.i = phi i64 [ %.promoted.i.i.i.i273350.i, %509 ], [ %493, %519 ], [ %525, %527 ], [ %493, %.noexc173.i ], [ %493, %.preheader.i.i.i.i.i.i ], [ %525, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h07e71a6b90634a7fE.exit.i.i.i.i.i" ]
+  %.pre.i.i.i.i267.i = phi i64 [ %.pre.i.i.i.i268351.i, %509 ], [ %.pre.i.i.i.i268351.i, %519 ], [ %.pre.i.i.i.i268351.i, %527 ], [ %.pre.i.i.i.i268351.i, %.noexc173.i ], [ %.pre.i.i.i.i268351.i, %.preheader.i.i.i.i.i.i ], [ %525, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h07e71a6b90634a7fE.exit.i.i.i.i.i" ]
   %.sroa.4.0315.i.i.i.pn.i = phi i64 [ %493, %509 ], [ %493, %519 ], [ %493, %527 ], [ %493, %.noexc173.i ], [ %493, %.preheader.i.i.i.i.i.i ], [ %526, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h07e71a6b90634a7fE.exit.i.i.i.i.i" ]
-  %.sroa.4.0.i.i.i.i = sub nuw i64 %.sroa.4.0315.i.i.i.pn.i, %.pre.i.i.i.i268350.i
-  %.sroa.0.0.i.i.i.i = getelementptr inbounds i8, ptr %494, i64 %.pre.i.i.i.i268350.i
+  %.sroa.4.0.i.i.i.i = sub nuw i64 %.sroa.4.0315.i.i.i.pn.i, %.pre.i.i.i.i268351.i
+  %.sroa.0.0.i.i.i.i = getelementptr inbounds i8, ptr %494, i64 %.pre.i.i.i.i268351.i
   %533 = add i64 %510, 1
   %.not.i = icmp eq i64 %510, 0
-  %.pre367.i = load i64, ptr %497, align 8, !alias.scope !12676, !noalias !12681
+  %.pre369.i = load i64, ptr %497, align 8, !alias.scope !12676, !noalias !12681
   br i1 %.not.i, label %561, label %572
 
 534:                                              ; preds = %180
@@ -70342,7 +70342,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i.i.i: ; pred
           to label %206 unwind label %396, !noalias !12357
 
 561:                                              ; preds = %626, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.i.i"
-  %562 = phi i64 [ 0, %626 ], [ %.pre367.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.i.i" ]
+  %562 = phi i64 [ 0, %626 ], [ %.pre369.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.i.i" ]
   %563 = load i64, ptr %508, align 8, !alias.scope !12676, !noalias !12681, !noundef !4
   %564 = sub i64 %563, %562
   %565 = icmp ugt i64 %.sroa.4.0.i.i.i.i, %564
@@ -70435,13 +70435,13 @@ _ZN4core3ops8function6FnOnce9call_once17h244bcc1a339bbb2fE.exit.i.i.i.i180.i: ; 
   store i64 0, ptr %.sroa.5293.0..sroa_idx.i, align 8, !noalias !12353
   store i32 0, ptr %.sroa.7295.0..sroa_idx.i, align 8, !noalias !12353
   store ptr %.val.i, ptr %.sroa.9297.0..sroa_idx.i, align 8, !noalias !12353
-  store i64 %.pre367.i, ptr %.sroa.10298.0..sroa_idx.i, align 8, !noalias !12353
+  store i64 %.pre369.i, ptr %.sroa.10298.0..sroa_idx.i, align 8, !noalias !12353
   store i64 0, ptr %.sroa.11299.0..sroa_idx.i, align 8, !noalias !12353
-  store i64 %.pre367.i, ptr %.sroa.12300.0..sroa_idx.i, align 8, !noalias !12353
+  store i64 %.pre369.i, ptr %.sroa.12300.0..sroa_idx.i, align 8, !noalias !12353
   store i8 0, ptr %.sroa.13301.0..sroa_idx.i, align 8, !noalias !12353
   store ptr %573, ptr %.sroa.15303.0..sroa_idx.i, align 8, !noalias !12353
   store ptr %.val.i, ptr %.sroa.16.0..sroa_idx.i, align 8, !noalias !12353
-  store i64 %.pre367.i, ptr %.sroa.17.0..sroa_idx.i, align 8, !noalias !12353
+  store i64 %.pre369.i, ptr %.sroa.17.0..sroa_idx.i, align 8, !noalias !12353
   br label %587
 
 587:                                              ; preds = %646, %586
@@ -70661,8 +70661,8 @@ _ZN4core3ops8function6FnOnce9call_once17h244bcc1a339bbb2fE.exit.i.i.i.i180.i: ; 
   br label %.body
 
 .thread:                                          ; preds = %244, %427, %491
-  %.sink375.i.ph = phi i8 [ 3, %244 ], [ 4, %427 ], [ 5, %491 ]
-  store i8 %.sink375.i.ph, ptr %53, align 8, !noalias !12353
+  %.sink377.i.ph = phi i8 [ 3, %244 ], [ 4, %427 ], [ 5, %491 ]
+  store i8 %.sink377.i.ph, ptr %53, align 8, !noalias !12353
   br label %657
 
 654:                                              ; preds = %391, %385

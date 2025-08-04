@@ -1072,11 +1072,11 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h35c
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %68, %17
-  %.lcssa118121 = phi i64 [ 0, %17 ], [ %33, %68 ]
+  %.lcssa120123 = phi i64 [ 0, %17 ], [ %33, %68 ]
   br label %.lr.ph.split.split.i
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.i, %35
-  %20 = phi i64 [ %33, %35 ], [ %.lcssa118121, %.lr.ph.i ]
+  %20 = phi i64 [ %33, %35 ], [ %.lcssa120123, %.lr.ph.i ]
   %21 = sub nuw i64 %2, %20
   %22 = getelementptr inbounds i8, ptr %1, i64 %20
   %23 = icmp ult i64 %21, 16
@@ -1106,7 +1106,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i: ; preds = %.lr.ph.split
   %30 = extractvalue { i64, i64 } %29, 0
   %31 = extractvalue { i64, i64 } %29, 1
   %switch.i = icmp eq i64 %30, 1
-  br i1 %switch.i, label %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i, label %.critedge
+  br i1 %switch.i, label %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hf1b458bba19643b2E.exit"
 
 _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i: ; preds = %.lr.ph.i.i, %.noexc37
   %.sroa.4.0.i26.i = phi i64 [ %31, %.noexc37 ], [ %.sroa.01.05.i.i, %.lr.ph.i.i ]
@@ -1136,7 +1136,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i: ; preds = %.lr
           cleanup
   br label %14
 
-.critedge:                                        ; preds = %35, %.noexc37, %.preheader.i.i, %27
+"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hf1b458bba19643b2E.exit": ; preds = %35, %.noexc37, %.preheader.i.i, %27
   %gepdiff102 = sub nsw i64 %2, %.lcssa118121
   %38 = load i64, ptr %.sroa.515.0..sroa_idx, align 8, !alias.scope !282, !noundef !4
   %39 = load i64, ptr %7, align 8, !range !289, !alias.scope !282, !noundef !4
@@ -1171,7 +1171,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i: ; preds = %.lr
 
 49:                                               ; preds = %.noexc39, %.critedge
   %50 = phi i64 [ %38, %.critedge ], [ %.pre.i.i, %.noexc39 ]
-  %51 = getelementptr inbounds i8, ptr %1, i64 %.lcssa118121
+  %51 = getelementptr inbounds i8, ptr %1, i64 %.lcssa120123
   %52 = icmp sgt i64 %50, -1
   call void @llvm.assume(i1 %52)
   %53 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !290, !nonnull !4, !noundef !4

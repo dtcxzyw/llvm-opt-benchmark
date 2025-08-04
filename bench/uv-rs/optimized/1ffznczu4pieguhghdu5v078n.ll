@@ -456,10 +456,10 @@ define void @"_ZN79_$LT$uv_git_types..GitUrl$u20$as$u20$core..convert..TryFrom$L
   %28 = getelementptr inbounds i8, ptr %20, i64 %27
   %lhsc.i = load i8, ptr %28, align 1, !alias.scope !103, !noalias !106
   %29 = icmp eq i8 %lhsc.i, 64
-  br i1 %29, label %30, label %25
+  br i1 %29, label %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h0e931a033fa8e8e1E.exit.thread16.i", label %25
 
-30:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h43ef553e583a6ebbE.exit.i.i"
-  %31 = add nuw i64 %27, 1
+"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h0e931a033fa8e8e1E.exit.thread16.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h43ef553e583a6ebbE.exit.i.i"
+  %30 = add nuw i64 %27, 1
   %32 = sub nuw i64 %21, %31
   %33 = getelementptr inbounds i8, ptr %20, i64 %31
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !108
