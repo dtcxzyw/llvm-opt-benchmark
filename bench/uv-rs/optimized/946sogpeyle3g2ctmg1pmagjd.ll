@@ -1209,12 +1209,12 @@ define void @_ZN7uv_dirs18system_config_file17haea4d69cf86794f9E(ptr dead_on_unw
 
 36:                                               ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h1aa542112e38f2a0E.exit23.i", %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17h6c50e4fd1d4bc93dE.exit"
   %37 = phi i64 [ 0, %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17h6c50e4fd1d4bc93dE.exit" ], [ %58, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h1aa542112e38f2a0E.exit23.i" ]
-  %.sroa.02.sroa.3.sroa.3.0.copyload2749.i = phi i64 [ 0, %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17h6c50e4fd1d4bc93dE.exit" ], [ %.sroa.02.sroa.3.sroa.3.0.copyload24.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h1aa542112e38f2a0E.exit23.i" ]
-  %38 = icmp ult i64 %.sroa.4.0.i, %.sroa.02.sroa.3.sroa.3.0.copyload2749.i
+  %.sroa.02.sroa.3.sroa.3.0.copyload2748.i = phi i64 [ 0, %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17h6c50e4fd1d4bc93dE.exit" ], [ %.sroa.02.sroa.3.sroa.3.0.copyload24.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h1aa542112e38f2a0E.exit23.i" ]
+  %38 = icmp ult i64 %.sroa.4.0.i, %.sroa.02.sroa.3.sroa.3.0.copyload2748.i
   br i1 %38, label %select.unfold.i.i, label %.lr.ph.split.split.i.i.i.i.i
 
 .lr.ph.split.split.i.i.i.i.i:                     ; preds = %36, %54
-  %39 = phi i64 [ %52, %54 ], [ %.sroa.02.sroa.3.sroa.3.0.copyload2749.i, %36 ]
+  %39 = phi i64 [ %52, %54 ], [ %.sroa.02.sroa.3.sroa.3.0.copyload2748.i, %36 ]
   %40 = sub nuw i64 %.sroa.4.0.i, %39
   %41 = getelementptr inbounds i8, ptr %.sroa.05.0.i, i64 %39
   %42 = icmp ult i64 %40, 16
@@ -1244,7 +1244,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i.i.i.i: ; preds = %.lr.
   %49 = extractvalue { i64, i64 } %48, 0
   %50 = extractvalue { i64, i64 } %48, 1
   %switch.i.i.i.i.i = icmp eq i64 %49, 1
-  br i1 %switch.i.i.i.i.i, label %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i.i.i.i, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hf1b458bba19643b2E.exit.i.i.i.i"
+  br i1 %switch.i.i.i.i.i, label %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i.i.i.i, label %select.unfold.i.i
 
 _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc
   %.sroa.4.0.i26.i.i.i.i.i = phi i64 [ %50, %.noexc ], [ %.sroa.01.05.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
@@ -1264,19 +1264,15 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i.i.i.i: ; pred
   %56 = icmp eq i8 %lhsc.i, 58
   br i1 %56, label %select.unfold.i.i, label %54
 
-"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hf1b458bba19643b2E.exit.i.i.i.i": ; preds = %.noexc
-  %trunc.i.i.i.i = trunc nuw i64 %49 to i1
-  br i1 %trunc.i.i.i.i, label %_ZN7uv_dirs24locate_system_config_xdg17h941a2e6ce53570b7E.exit.thread, label %select.unfold.i.i
-
-select.unfold.i.i:                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd1c4d8b31f92b034E.exit.i.i.i.i.i", %54, %.preheader.i.i.i.i.i.i, %46, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hf1b458bba19643b2E.exit.i.i.i.i", %36
-  %.sroa.02.sroa.3.sroa.3.0.copyload24.i = phi i64 [ %.sroa.4.0.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hf1b458bba19643b2E.exit.i.i.i.i" ], [ %.sroa.02.sroa.3.sroa.3.0.copyload2749.i, %36 ], [ %.sroa.4.0.i, %46 ], [ %52, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd1c4d8b31f92b034E.exit.i.i.i.i.i" ], [ %52, %54 ], [ %.sroa.4.0.i, %.preheader.i.i.i.i.i.i ]
-  %57 = phi i1 [ true, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hf1b458bba19643b2E.exit.i.i.i.i" ], [ true, %36 ], [ true, %46 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd1c4d8b31f92b034E.exit.i.i.i.i.i" ], [ true, %54 ], [ true, %.preheader.i.i.i.i.i.i ]
-  %58 = phi i64 [ %37, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hf1b458bba19643b2E.exit.i.i.i.i" ], [ %37, %36 ], [ %37, %46 ], [ %52, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd1c4d8b31f92b034E.exit.i.i.i.i.i" ], [ %37, %54 ], [ %37, %.preheader.i.i.i.i.i.i ]
-  %.sroa.4.0315.i.i.i.pn.i = phi i64 [ %.sroa.4.0.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hf1b458bba19643b2E.exit.i.i.i.i" ], [ %.sroa.4.0.i, %36 ], [ %.sroa.4.0.i, %46 ], [ %53, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd1c4d8b31f92b034E.exit.i.i.i.i.i" ], [ %.sroa.4.0.i, %54 ], [ %.sroa.4.0.i, %.preheader.i.i.i.i.i.i ]
+select.unfold.i.i:                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd1c4d8b31f92b034E.exit.i.i.i.i.i", %54, %.noexc, %.preheader.i.i.i.i.i.i, %46, %36
+  %.sroa.02.sroa.3.sroa.3.0.copyload24.i = phi i64 [ %.sroa.02.sroa.3.sroa.3.0.copyload2748.i, %36 ], [ %.sroa.4.0.i, %46 ], [ %52, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd1c4d8b31f92b034E.exit.i.i.i.i.i" ], [ %52, %54 ], [ %.sroa.4.0.i, %.noexc ], [ %.sroa.4.0.i, %.preheader.i.i.i.i.i.i ]
+  %57 = phi i1 [ true, %36 ], [ true, %46 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd1c4d8b31f92b034E.exit.i.i.i.i.i" ], [ true, %54 ], [ true, %.noexc ], [ true, %.preheader.i.i.i.i.i.i ]
+  %58 = phi i64 [ %37, %36 ], [ %37, %46 ], [ %52, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd1c4d8b31f92b034E.exit.i.i.i.i.i" ], [ %37, %54 ], [ %37, %.noexc ], [ %37, %.preheader.i.i.i.i.i.i ]
+  %.sroa.4.0315.i.i.i.pn.i = phi i64 [ %.sroa.4.0.i, %36 ], [ %.sroa.4.0.i, %46 ], [ %53, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd1c4d8b31f92b034E.exit.i.i.i.i.i" ], [ %.sroa.4.0.i, %54 ], [ %.sroa.4.0.i, %.noexc ], [ %.sroa.4.0.i, %.preheader.i.i.i.i.i.i ]
   %.not.i21.i = icmp eq i64 %.sroa.4.0315.i.i.i.pn.i, %37
   br i1 %.not.i21.i, label %_ZN7uv_dirs24locate_system_config_xdg17h941a2e6ce53570b7E.exit.thread, label %59
 
-_ZN7uv_dirs24locate_system_config_xdg17h941a2e6ce53570b7E.exit.thread: ; preds = %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hf1b458bba19643b2E.exit.i.i.i.i", %select.unfold.i.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h1aa542112e38f2a0E.exit23.i"
+_ZN7uv_dirs24locate_system_config_xdg17h941a2e6ce53570b7E.exit.thread: ; preds = %select.unfold.i.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h1aa542112e38f2a0E.exit23.i"
   %.pre = load i64, ptr %18, align 8, !range !3, !alias.scope !387
   br label %109
 

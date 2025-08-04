@@ -423,7 +423,7 @@ define void @"_ZN79_$LT$uv_git_types..GitUrl$u20$as$u20$core..convert..TryFrom$L
           cleanup
   br label %.thread37
 
-.thread44.loopexit.split-lp:                      ; preds = %71, %67, %38, %31, %17
+.thread44.loopexit.split-lp:                      ; preds = %71, %67, %38, %30, %17
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread37
@@ -441,7 +441,7 @@ define void @"_ZN79_$LT$uv_git_types..GitUrl$u20$as$u20$core..convert..TryFrom$L
 .noexc:                                           ; preds = %.lr.ph.split.i.i
   %24 = extractvalue { i64, i64 } %23, 0
   %switch.i.i = icmp eq i64 %24, 1
-  br i1 %switch.i.i, label %26, label %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h0e931a033fa8e8e1E.exit.i"
+  br i1 %switch.i.i, label %26, label %.thread51
 
 25:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h43ef553e583a6ebbE.exit.i.i", %26
   %.not.i.i = icmp ugt i64 %27, %21
@@ -456,27 +456,18 @@ define void @"_ZN79_$LT$uv_git_types..GitUrl$u20$as$u20$core..convert..TryFrom$L
   %28 = getelementptr inbounds i8, ptr %20, i64 %27
   %lhsc.i = load i8, ptr %28, align 1, !alias.scope !103, !noalias !106
   %29 = icmp eq i8 %lhsc.i, 64
-  br i1 %29, label %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h0e931a033fa8e8e1E.exit.thread16.i", label %25
+  br i1 %29, label %30, label %25
 
-"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h0e931a033fa8e8e1E.exit.thread16.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h43ef553e583a6ebbE.exit.i.i"
-  %30 = add nuw i64 %27, 1
-  br label %31
-
-"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h0e931a033fa8e8e1E.exit.i": ; preds = %.noexc
-  %trunc.i = trunc nuw i64 %24 to i1
-  br i1 %trunc.i, label %31, label %.thread51
-
-31:                                               ; preds = %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h0e931a033fa8e8e1E.exit.i", %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h0e931a033fa8e8e1E.exit.thread16.i"
-  %.sroa.7.023.i = phi i64 [ %30, %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h0e931a033fa8e8e1E.exit.thread16.i" ], [ undef, %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h0e931a033fa8e8e1E.exit.i" ]
-  %.sroa.5.022.i = phi i64 [ %27, %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h0e931a033fa8e8e1E.exit.thread16.i" ], [ undef, %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h0e931a033fa8e8e1E.exit.i" ]
-  %32 = sub nuw i64 %21, %.sroa.7.023.i
-  %33 = getelementptr inbounds i8, ptr %20, i64 %.sroa.7.023.i
+30:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h43ef553e583a6ebbE.exit.i.i"
+  %31 = add nuw i64 %27, 1
+  %32 = sub nuw i64 %21, %31
+  %33 = getelementptr inbounds i8, ptr %20, i64 %31
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !108
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !112
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17hd5d4b41f51d85bd4E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, i64 noundef %.sroa.5.022.i, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17hd5d4b41f51d85bd4E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, i64 noundef %27, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
           to label %.noexc8 unwind label %.thread44.loopexit.split-lp
 
-.noexc8:                                          ; preds = %31
+.noexc8:                                          ; preds = %30
   %34 = load i64, ptr %6, align 8, !range !101, !noalias !112, !noundef !4
   %trunc.i.i.i = trunc nuw i64 %34 to i1
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -494,15 +485,15 @@ define void @"_ZN79_$LT$uv_git_types..GitUrl$u20$as$u20$core..convert..TryFrom$L
 
 "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hfe03dddc4d434f7bE.exit.i": ; preds = %.noexc8
   %40 = load ptr, ptr %37, align 8, !noalias !112, !nonnull !4, !noundef !4
-  %41 = icmp ule i64 %.sroa.5.022.i, %36
+  %41 = icmp ule i64 %27, %36
   tail call void @llvm.assume(i1 %41)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr nonnull readonly align 1 %20, i64 %.sroa.5.022.i, i1 false), !noalias !116
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr nonnull readonly align 1 %20, i64 %27, i1 false), !noalias !116
   store i64 %36, ptr %7, align 8, !noalias !108
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %40, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !108
   %.sroa.5.0..sroa_idx.i7 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 %.sroa.5.022.i, ptr %.sroa.5.0..sroa_idx.i7, align 8, !noalias !108
+  store i64 %27, ptr %.sroa.5.0..sroa_idx.i7, align 8, !noalias !108
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !117
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17hd5d4b41f51d85bd4E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, i64 noundef %32, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
           to label %.noexc.i unwind label %48, !noalias !108
@@ -612,7 +603,7 @@ define void @"_ZN79_$LT$uv_git_types..GitUrl$u20$as$u20$core..convert..TryFrom$L
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   br label %.thread51
 
-.thread51:                                        ; preds = %25, %52, %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h0e931a033fa8e8e1E.exit.i", %75
+.thread51:                                        ; preds = %.noexc, %25, %52, %75
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %9, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
