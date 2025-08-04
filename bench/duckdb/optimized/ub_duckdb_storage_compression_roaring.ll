@@ -4788,95 +4788,92 @@ define linkonce_odr void @_ZN6duckdb7roaring9AppendRunERNS0_25ContainerCompressi
   %or.cond = select i1 %.not, i1 %9, i1 false
   %10 = icmp ne i16 %7, 0
   %or.cond4 = select i1 %or.cond, i1 %10, i1 false
-  br i1 %or.cond4, label %11, label %43
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load i8, ptr %11, align 8, !range !319
+  %.not42 = icmp ne i8 %12, 0
+  %or.cond48.not = select i1 %or.cond4, i1 %.not42, i1 false
+  br i1 %or.cond48.not, label %13, label %41
 
-11:                                               ; preds = %3
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i8, ptr %12, align 8, !tbaa !343, !range !319, !noundef !229
-  %14 = zext i1 %1 to i8
-  %.not42 = icmp eq i8 %13, %14
-  br i1 %.not42, label %43, label %15
+13:                                               ; preds = %3
+  %14 = icmp samesign ult i16 %5, 4
+  br i1 %14, label %15, label %24
 
-15:                                               ; preds = %11
-  %16 = icmp samesign ult i16 %5, 4
-  br i1 %16, label %17, label %26
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = load ptr, ptr %16, align 8, !tbaa !337
+  %18 = zext nneg i16 %5 to i64
+  %19 = getelementptr inbounds nuw %"struct.duckdb::roaring::RunContainerRLEPair", ptr %17, i64 %18
+  %20 = load i16, ptr %19, align 2, !tbaa !352
+  %21 = xor i16 %20, -1
+  %22 = add i16 %7, %21
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 2
+  store i16 %22, ptr %23, align 2, !tbaa !354
+  br label %24
 
-17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !337
-  %20 = zext nneg i16 %5 to i64
-  %21 = getelementptr inbounds nuw %"struct.duckdb::roaring::RunContainerRLEPair", ptr %19, i64 %20
-  %22 = load i16, ptr %21, align 2, !tbaa !352
-  %23 = xor i16 %22, -1
-  %24 = add i16 %7, %23
-  %25 = getelementptr inbounds nuw i8, ptr %21, i64 2
-  store i16 %24, ptr %25, align 2, !tbaa !354
-  br label %26
+24:                                               ; preds = %15, %13
+  %25 = trunc i16 %7 to i8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %27 = load ptr, ptr %26, align 8, !tbaa !338
+  %28 = shl nuw nsw i32 %8, 1
+  %29 = zext nneg i32 %28 to i64
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
+  store i8 %25, ptr %31, align 1, !tbaa !295
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %33 = load ptr, ptr %32, align 8, !tbaa !339
+  %34 = lshr i16 %7, 8
+  %35 = zext nneg i16 %34 to i64
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 %35
+  %37 = load i8, ptr %36, align 1, !tbaa !295
+  %38 = add i8 %37, 1
+  store i8 %38, ptr %36, align 1, !tbaa !295
+  %39 = load i16, ptr %4, align 8, !tbaa !333
+  %40 = add i16 %39, 1
+  store i16 %40, ptr %4, align 8, !tbaa !333
+  br label %66
 
-26:                                               ; preds = %17, %15
-  %27 = trunc i16 %7 to i8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = load ptr, ptr %28, align 8, !tbaa !338
-  %30 = shl nuw nsw i32 %8, 1
-  %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 %31
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
-  store i8 %27, ptr %33, align 1, !tbaa !295
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %35 = load ptr, ptr %34, align 8, !tbaa !339
-  %36 = lshr i16 %7, 8
-  %37 = zext nneg i16 %36 to i64
-  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %37
-  %39 = load i8, ptr %38, align 1, !tbaa !295
-  %40 = add i8 %39, 1
-  store i8 %40, ptr %38, align 1, !tbaa !295
-  %41 = load i16, ptr %4, align 8, !tbaa !333
-  %42 = add i16 %41, 1
-  store i16 %42, ptr %4, align 8, !tbaa !333
-  br label %68
-
-43:                                               ; preds = %11, %3
+41:                                               ; preds = %3
   %or.cond7 = select i1 %1, i1 %9, i1 false
-  br i1 %or.cond7, label %44, label %68
+  br i1 %or.cond7, label %42, label %66
 
-44:                                               ; preds = %43
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %46 = load i8, ptr %45, align 8, !range !319
-  %.not43.not = icmp ne i8 %46, 0
+42:                                               ; preds = %41
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %44 = load i8, ptr %43, align 8, !range !319
+  %.not43.not = icmp ne i8 %44, 0
   %or.cond46.not = select i1 %10, i1 %.not43.not, i1 false
-  br i1 %or.cond46.not, label %68, label %47
+  br i1 %or.cond46.not, label %66, label %45
 
-47:                                               ; preds = %44
-  %48 = icmp samesign ult i16 %5, 4
-  br i1 %48, label %49, label %54
+45:                                               ; preds = %42
+  %46 = icmp samesign ult i16 %5, 4
+  br i1 %46, label %47, label %52
 
-49:                                               ; preds = %47
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %51 = load ptr, ptr %50, align 8, !tbaa !337
-  %52 = zext nneg i16 %5 to i64
-  %53 = getelementptr inbounds nuw %"struct.duckdb::roaring::RunContainerRLEPair", ptr %51, i64 %52
-  store i16 %7, ptr %53, align 2, !tbaa !352
-  br label %54
+47:                                               ; preds = %45
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %49 = load ptr, ptr %48, align 8, !tbaa !337
+  %50 = zext nneg i16 %5 to i64
+  %51 = getelementptr inbounds nuw %"struct.duckdb::roaring::RunContainerRLEPair", ptr %49, i64 %50
+  store i16 %7, ptr %51, align 2, !tbaa !352
+  br label %52
 
-54:                                               ; preds = %49, %47
-  %55 = trunc i16 %7 to i8
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %57 = load ptr, ptr %56, align 8, !tbaa !338
-  %58 = shl nuw nsw i32 %8, 1
-  %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 %59
-  store i8 %55, ptr %60, align 1, !tbaa !295
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %62 = load ptr, ptr %61, align 8, !tbaa !339
-  %63 = lshr i16 %7, 8
-  %64 = zext nneg i16 %63 to i64
-  %65 = getelementptr inbounds nuw i8, ptr %62, i64 %64
-  %66 = load i8, ptr %65, align 1, !tbaa !295
-  %67 = add i8 %66, 1
-  store i8 %67, ptr %65, align 1, !tbaa !295
-  br label %68
+52:                                               ; preds = %47, %45
+  %53 = trunc i16 %7 to i8
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %55 = load ptr, ptr %54, align 8, !tbaa !338
+  %56 = shl nuw nsw i32 %8, 1
+  %57 = zext nneg i32 %56 to i64
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 %57
+  store i8 %53, ptr %58, align 1, !tbaa !295
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %60 = load ptr, ptr %59, align 8, !tbaa !339
+  %61 = lshr i16 %7, 8
+  %62 = zext nneg i16 %61 to i64
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 %62
+  %64 = load i8, ptr %63, align 1, !tbaa !295
+  %65 = add i8 %64, 1
+  store i8 %65, ptr %63, align 1, !tbaa !295
+  br label %66
 
-68:                                               ; preds = %44, %43, %54, %26
+66:                                               ; preds = %42, %41, %52, %24
   ret void
 }
 

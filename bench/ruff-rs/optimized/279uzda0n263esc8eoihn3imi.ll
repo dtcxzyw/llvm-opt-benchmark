@@ -8207,8 +8207,8 @@ define internal fastcc noundef zeroext i1 @"_ZN87_$LT$ruff_python_ast..nodes..By
 8:                                                ; preds = %2
   br i1 %4, label %9, label %41
 
-"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hb45d11cc47c54edaE.exit": ; preds = %_ZN4core3cmp9PartialEq2ne17he63bc3f83a13ed74E.exit.i.i, %29, %23, %14, %.preheader.split.i.i, %9, %48, %54, %41, %2, %61
-  %.sroa.0.0.shrunk = phi i1 [ %66, %61 ], [ false, %2 ], [ false, %41 ], [ false, %54 ], [ false, %48 ], [ false, %9 ], [ %exitcond.not.i.i, %.preheader.split.i.i ], [ %exitcond.not.i.i, %14 ], [ %exitcond.not.i.i, %23 ], [ %exitcond.not.i.i, %29 ], [ %exitcond.not.i.i, %_ZN4core3cmp9PartialEq2ne17he63bc3f83a13ed74E.exit.i.i ]
+"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hb45d11cc47c54edaE.exit": ; preds = %_ZN4core3cmp9PartialEq2ne17he63bc3f83a13ed74E.exit.i.i, %29, %23, %14, %.preheader.split.i.i, %9, %48, %54, %41, %2, %60
+  %.sroa.0.0.shrunk = phi i1 [ %65, %60 ], [ false, %2 ], [ false, %41 ], [ false, %54 ], [ false, %48 ], [ false, %9 ], [ %exitcond.not.i.i, %.preheader.split.i.i ], [ %exitcond.not.i.i, %14 ], [ %exitcond.not.i.i, %23 ], [ %exitcond.not.i.i, %29 ], [ %exitcond.not.i.i, %_ZN4core3cmp9PartialEq2ne17he63bc3f83a13ed74E.exit.i.i ]
   ret i1 %.sroa.0.0.shrunk
 
 9:                                                ; preds = %8
@@ -8295,17 +8295,15 @@ _ZN4core3cmp9PartialEq2ne17he63bc3f83a13ed74E.exit.i.i: ; preds = %29
   %56 = load i64, ptr %55, align 8, !noundef !4
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %58 = load i64, ptr %57, align 8, !noundef !4
-  %59 = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %59)
-  %60 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h535586f649549c83E"(ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %56, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %58)
-  br i1 %60, label %61, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hb45d11cc47c54edaE.exit"
+  %59 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h535586f649549c83E"(ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %56, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %58)
+  br i1 %59, label %60, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hb45d11cc47c54edaE.exit"
 
-61:                                               ; preds = %54
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %63 = load i8, ptr %62, align 8, !noundef !4
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %65 = load i8, ptr %64, align 8, !noundef !4
-  %66 = icmp eq i8 %63, %65
+60:                                               ; preds = %54
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %62 = load i8, ptr %61, align 8, !noundef !4
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %64 = load i8, ptr %63, align 8, !noundef !4
+  %65 = icmp eq i8 %62, %64
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hb45d11cc47c54edaE.exit"
 }
 

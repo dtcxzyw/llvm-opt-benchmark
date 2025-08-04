@@ -32950,8 +32950,7 @@ _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
           to label %_ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmj.exit32 unwind label %65
 
 _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmj.exit32: ; preds = %61
-  %spec.select = or i1 %57, %64
-  br i1 %spec.select, label %.thread, label %68
+  br i1 %64, label %.thread, label %68
 
 65:                                               ; preds = %61, %54, %120, %.thread
   %66 = landingpad { ptr, i32 }

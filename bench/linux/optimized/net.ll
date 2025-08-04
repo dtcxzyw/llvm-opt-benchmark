@@ -2018,12 +2018,17 @@ define dso_local i32 @io_recvmsg(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %328 = and i32 %327, 67108864
   %329 = icmp ne i32 %328, 0
   %brmerge.not = and i1 %329, %214
-  br i1 %brmerge.not, label %330, label %.split.loop.exit
+  br i1 %brmerge.not, label %330, label %.split.loop.exit38
 
 330:                                              ; preds = %325
   %331 = or i32 %326, 2
   %332 = call zeroext i1 @io_fill_cqe_req_aux(ptr noundef %0, i1 noundef zeroext %66, i32 noundef %314, i32 noundef %331) #11
-  br i1 %332, label %333, label %.split.loop.exit38
+  br i1 %332, label %333, label %.split.loop.exit38.thread
+
+.split.loop.exit38.thread:                        ; preds = %330
+  store i32 %314, ptr %67, align 8
+  store i32 %326, ptr %68, align 4
+  br label %378
 
 333:                                              ; preds = %330
   store i32 0, ptr %64, align 4
@@ -2055,12 +2060,8 @@ define dso_local i32 @io_recvmsg(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %346 = select i1 %70, i32 -11, i32 %345
   br label %378
 
-.split.loop.exit:                                 ; preds = %325
+.split.loop.exit38:                               ; preds = %325
   %.mux.le = select i1 %329, i32 %71, i32 0
-  br label %.split.loop.exit38
-
-.split.loop.exit38:                               ; preds = %330, %.split.loop.exit
-  %.ph19 = phi i32 [ %.mux.le, %.split.loop.exit ], [ %71, %330 ]
   store i32 %314, ptr %67, align 8
   store i32 %326, ptr %68, align 4
   br i1 %214, label %378, label %347
@@ -2114,8 +2115,8 @@ define dso_local i32 @io_recvmsg(ptr noundef %0, i32 noundef %1) local_unnamed_a
   store i32 %377, ptr %11, align 4
   br label %378
 
-378:                                              ; preds = %.thread21, %.thread17, %375, %.split.loop.exit38, %257, %244, %240, %234, %231, %229, %221, %81, %31, %18, %2
-  %379 = phi i32 [ %262, %257 ], [ %82, %81 ], [ %32, %31 ], [ -88, %2 ], [ %19, %18 ], [ -529, %229 ], [ -529, %231 ], [ -529, %234 ], [ -529, %240 ], [ -529, %244 ], [ %222, %221 ], [ %.ph19, %375 ], [ %.ph19, %.split.loop.exit38 ], [ %.ph, %.thread17 ], [ %346, %.thread21 ]
+378:                                              ; preds = %.split.loop.exit38.thread, %.thread21, %.thread17, %375, %.split.loop.exit38, %257, %244, %240, %234, %231, %229, %221, %81, %31, %18, %2
+  %379 = phi i32 [ %262, %257 ], [ %82, %81 ], [ %32, %31 ], [ -88, %2 ], [ %19, %18 ], [ -529, %229 ], [ -529, %231 ], [ -529, %234 ], [ -529, %240 ], [ -529, %244 ], [ %222, %221 ], [ %.mux.le, %375 ], [ %.mux.le, %.split.loop.exit38 ], [ %.ph, %.thread17 ], [ %346, %.thread21 ], [ %71, %.split.loop.exit38.thread ]
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #11
   ret i32 %379
 }

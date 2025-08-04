@@ -25634,47 +25634,41 @@ define dso_local void @_ZN5clang4Sema26MarkUsedTemplateParametersERKNS_20Templat
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZL25hasPackExpansionBeforeEndN4llvm8ArrayRefIN5clang16TemplateArgumentEEE(ptr %0, i64 %1) unnamed_addr #0 {
-  %.idx = mul nuw nsw i64 %1, 24
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
-  %.not28.not = icmp eq i64 %1, 0
-  br i1 %.not28.not, label %.thread, label %.lr.ph.preheader
+  br label %tailrecurse
 
-.lr.ph.preheader:                                 ; preds = %2
-  %4 = load i32, ptr %0, align 8
+tailrecurse:                                      ; preds = %7, %2
+  %.tr = phi ptr [ %0, %2 ], [ %9, %7 ]
+  %.tr40 = phi i64 [ %1, %2 ], [ %12, %7 ]
+  %.idx = mul nuw nsw i64 %.tr40, 24
+  %3 = getelementptr inbounds nuw i8, ptr %.tr, i64 %.idx
+  %.not28.not = icmp eq i64 %.tr40, 0
+  br i1 %.not28.not, label %.thread, label %.lr.ph
+
+.lr.ph:                                           ; preds = %tailrecurse, %13
+  %.01630 = phi ptr [ %15, %13 ], [ %.tr, %tailrecurse ]
+  %4 = load i32, ptr %.01630, align 8
   %5 = and i32 %4, 2147483647
   %6 = icmp eq i32 %5, 9
-  br i1 %6, label %.lr.ph._crit_edge, label %.lr.ph41
+  br i1 %6, label %7, label %13
 
-.lr.ph:                                           ; preds = %.lr.ph41
-  %7 = load i32, ptr %17, align 8
-  %8 = and i32 %7, 2147483647
-  %9 = icmp eq i32 %8, 9
-  br i1 %9, label %.lr.ph._crit_edge, label %.lr.ph41
+7:                                                ; preds = %.lr.ph
+  %8 = getelementptr inbounds nuw i8, ptr %.01630, i64 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !12
+  %10 = getelementptr inbounds nuw i8, ptr %.01630, i64 4
+  %11 = load i32, ptr %10, align 4, !tbaa !12
+  %12 = zext i32 %11 to i64
+  br label %tailrecurse
 
-.lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
-  %.not32.lcssa = phi i1 [ true, %.lr.ph.preheader ], [ %.not, %.lr.ph ]
-  %.01630.lcssa = phi ptr [ %0, %.lr.ph.preheader ], [ %17, %.lr.ph ]
-  %10 = getelementptr inbounds nuw i8, ptr %.01630.lcssa, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !12
-  %12 = getelementptr inbounds nuw i8, ptr %.01630.lcssa, i64 4
-  %13 = load i32, ptr %12, align 4, !tbaa !12
-  %14 = zext i32 %13 to i64
-  %15 = tail call fastcc noundef zeroext i1 @_ZL25hasPackExpansionBeforeEndN4llvm8ArrayRefIN5clang16TemplateArgumentEEE(ptr %11, i64 %14)
-  br label %.thread
-
-.lr.ph41:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0163040 = phi ptr [ %17, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %16 = tail call noundef zeroext i1 @_ZNK5clang16TemplateArgument15isPackExpansionEv(ptr noundef nonnull align 8 dereferenceable(24) %.0163040) #22
-  %17 = getelementptr inbounds nuw i8, ptr %.0163040, i64 24
-  %.not = icmp ne ptr %17, %3
+13:                                               ; preds = %.lr.ph
+  %14 = tail call noundef zeroext i1 @_ZNK5clang16TemplateArgument15isPackExpansionEv(ptr noundef nonnull align 8 dereferenceable(24) %.01630) #22
+  %15 = getelementptr inbounds nuw i8, ptr %.01630, i64 24
+  %.not = icmp ne ptr %15, %3
   %.not.not = xor i1 %.not, true
-  %brmerge = or i1 %16, %.not.not
+  %brmerge = or i1 %14, %.not.not
   br i1 %brmerge, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %.lr.ph41, %2, %.lr.ph._crit_edge
-  %.not26 = phi i1 [ %.not32.lcssa, %.lr.ph._crit_edge ], [ false, %2 ], [ %.not, %.lr.ph41 ]
-  %.1 = phi i1 [ %15, %.lr.ph._crit_edge ], [ true, %2 ], [ true, %.lr.ph41 ]
-  %spec.select19 = and i1 %.not26, %.1
+.thread:                                          ; preds = %13, %tailrecurse
+  %spec.select19 = phi i1 [ false, %tailrecurse ], [ %.not, %13 ]
   ret i1 %spec.select19
 }
 

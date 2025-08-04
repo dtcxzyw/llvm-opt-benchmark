@@ -2890,7 +2890,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
 
 .thread:                                          ; preds = %67, %89, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hde3f4f186dac6cc7E.exit29"
   %90 = phi i64 [ %17, %89 ], [ %107, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hde3f4f186dac6cc7E.exit29" ], [ %17, %67 ]
-  %.02337 = phi i1 [ %.023, %89 ], [ %.023, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hde3f4f186dac6cc7E.exit29" ], [ false, %67 ]
+  %.02337 = phi i1 [ %.023, %89 ], [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hde3f4f186dac6cc7E.exit29" ], [ false, %67 ]
   %91 = icmp eq ptr %.sroa.0.1, %15
   br i1 %91, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread", label %.lr.ph
 

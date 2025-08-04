@@ -32517,7 +32517,7 @@ define hidden noundef zeroext i1 @"_ZN68_$LT$hir_expand..attrs..RawAttrs$u20$as$
 15:                                               ; preds = %7
   %16 = getelementptr i8, ptr %3, i64 16
   %17 = getelementptr i8, ptr %5, i64 16
-  %18 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h068154aa3a3f5981E.llvm.15956212377945586164"(ptr noalias noundef nonnull readonly align 8 %16, i64 noundef %9, ptr noalias noundef nonnull readonly align 8 %17, i64 noundef %11), !noalias !4927
+  %18 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h068154aa3a3f5981E.llvm.15956212377945586164"(ptr noalias noundef nonnull readonly align 8 %16, i64 noundef %9, ptr noalias noundef nonnull readonly align 8 %17, i64 noundef %9), !noalias !4927
   br label %"_ZN81_$LT$triomphe..thin_arc..ThinArc$LT$H$C$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he4d4995e03ff9a4cE.llvm.8225647753450622592.exit"
 }
 
@@ -32883,7 +32883,7 @@ define hidden noundef zeroext i1 @"_ZN81_$LT$triomphe..thin_arc..ThinArc$LT$H$C$
 12:                                               ; preds = %2
   %13 = getelementptr i8, ptr %3, i64 16
   %14 = getelementptr i8, ptr %6, i64 16
-  %15 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h068154aa3a3f5981E.llvm.15956212377945586164"(ptr noalias noundef nonnull readonly align 8 %13, i64 noundef %5, ptr noalias noundef nonnull readonly align 8 %14, i64 noundef %8), !noalias !5030
+  %15 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h068154aa3a3f5981E.llvm.15956212377945586164"(ptr noalias noundef nonnull readonly align 8 %13, i64 noundef %5, ptr noalias noundef nonnull readonly align 8 %14, i64 noundef %5), !noalias !5030
   br label %"_ZN81_$LT$triomphe..thin_arc..ThinArc$LT$H$C$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq28_$u7b$$u7b$closure$u7d$$u7d$17h09c66f94c55dbd81E.exit"
 
 "_ZN81_$LT$triomphe..thin_arc..ThinArc$LT$H$C$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq28_$u7b$$u7b$closure$u7d$$u7d$17h09c66f94c55dbd81E.exit": ; preds = %2, %12
@@ -39846,7 +39846,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$salsa..derived..AlwaysMemoizeValue$
 15:                                               ; preds = %7
   %16 = getelementptr i8, ptr %3, i64 16
   %17 = getelementptr i8, ptr %5, i64 16
-  %18 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h068154aa3a3f5981E.llvm.15956212377945586164"(ptr noalias noundef nonnull readonly align 8 %16, i64 noundef %9, ptr noalias noundef nonnull readonly align 8 %17, i64 noundef %11), !noalias !5659
+  %18 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h068154aa3a3f5981E.llvm.15956212377945586164"(ptr noalias noundef nonnull readonly align 8 %16, i64 noundef %9, ptr noalias noundef nonnull readonly align 8 %17, i64 noundef %9), !noalias !5659
   br label %"_ZN61_$LT$hir_def..attr..Attrs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h87442dc1ddca8090E.llvm.8225647753450622592.exit"
 
 "_ZN61_$LT$hir_def..attr..Attrs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h87442dc1ddca8090E.llvm.8225647753450622592.exit": ; preds = %2, %7, %15
@@ -59104,7 +59104,7 @@ define hidden noundef zeroext i1 @"_ZN61_$LT$hir_def..attr..Attrs$u20$as$u20$cor
 15:                                               ; preds = %7
   %16 = getelementptr i8, ptr %3, i64 16
   %17 = getelementptr i8, ptr %5, i64 16
-  %18 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h068154aa3a3f5981E.llvm.15956212377945586164"(ptr noalias noundef nonnull readonly align 8 %16, i64 noundef %9, ptr noalias noundef nonnull readonly align 8 %17, i64 noundef %11), !noalias !12091
+  %18 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h068154aa3a3f5981E.llvm.15956212377945586164"(ptr noalias noundef nonnull readonly align 8 %16, i64 noundef %9, ptr noalias noundef nonnull readonly align 8 %17, i64 noundef %9), !noalias !12091
   br label %"_ZN68_$LT$hir_expand..attrs..RawAttrs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2b1a5ad5e063fa97E.llvm.8225647753450622592.exit"
 
 "_ZN68_$LT$hir_expand..attrs..RawAttrs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2b1a5ad5e063fa97E.llvm.8225647753450622592.exit": ; preds = %2, %7, %15

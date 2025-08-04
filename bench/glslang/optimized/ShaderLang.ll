@@ -1845,14 +1845,13 @@ _ZN7glslang11ProfileNameE8EProfile.exit156.i:     ; preds = %_ZN7glslang11Profil
 201:                                              ; preds = %192
   %202 = and i32 %.17479.i, 1
   %.not147.i = icmp eq i32 %202, 0
-  %..i = or i1 %.not147.i, %spec.select.i
   %not..not147.i = xor i1 %.not147.i, true
   br label %.thread95.i
 
 .thread95.i:                                      ; preds = %201, %192, %185, %181, %.thread86.i
   %203 = phi ptr [ %194, %192 ], [ %194, %201 ], [ %182, %181 ], [ %157, %.thread86.i ], [ %186, %185 ]
   %204 = phi i1 [ %193, %192 ], [ %193, %201 ], [ %184, %181 ], [ true, %.thread86.i ], [ %188, %185 ]
-  %.0128.shrunk.i = phi i1 [ %spec.select.i, %192 ], [ %..i, %201 ], [ true, %181 ], [ true, %.thread86.i ], [ true, %185 ]
+  %.0128.shrunk.i = phi i1 [ %spec.select.i, %192 ], [ %.not147.i, %201 ], [ true, %181 ], [ true, %.thread86.i ], [ true, %185 ]
   %.0127.i = phi i1 [ false, %192 ], [ %not..not147.i, %201 ], [ false, %181 ], [ false, %.thread86.i ], [ false, %185 ]
   %205 = getelementptr inbounds nuw i8, ptr %14, i64 768
   store i32 %.281.i, ptr %205, align 8
@@ -4883,14 +4882,13 @@ _ZN7glslang11ProfileNameE8EProfile.exit155.i.i:   ; preds = %_ZN7glslang11Profil
 227:                                              ; preds = %218
   %228 = and i32 %.068.i.i, 1
   %.not146.i.i = icmp eq i32 %228, 0
-  %..i.i = or i1 %.not146.i.i, %spec.select.i.i
   %not..not146.i.i = xor i1 %.not146.i.i, true
   br label %.thread80.i.i
 
 .thread80.i.i:                                    ; preds = %227, %218, %211, %207, %.thread71.i.i
   %229 = phi ptr [ %220, %218 ], [ %220, %227 ], [ %208, %207 ], [ %183, %.thread71.i.i ], [ %212, %211 ]
   %230 = phi i1 [ %219, %218 ], [ %219, %227 ], [ %210, %207 ], [ true, %.thread71.i.i ], [ %214, %211 ]
-  %.0128.shrunk.i.i = phi i1 [ %spec.select.i.i, %218 ], [ %..i.i, %227 ], [ true, %207 ], [ true, %.thread71.i.i ], [ true, %211 ]
+  %.0128.shrunk.i.i = phi i1 [ %spec.select.i.i, %218 ], [ %.not146.i.i, %227 ], [ true, %207 ], [ true, %.thread71.i.i ], [ true, %211 ]
   %.0127.i.i = phi i1 [ false, %218 ], [ %not..not146.i.i, %227 ], [ false, %207 ], [ false, %.thread71.i.i ], [ false, %211 ]
   %231 = getelementptr inbounds nuw i8, ptr %59, i64 768
   store i32 %.167.i.i, ptr %231, align 8

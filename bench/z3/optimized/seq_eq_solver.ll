@@ -447,12 +447,12 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit5
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #22
   store i8 0, ptr %4, align 1, !tbaa !202
   %61 = call noundef zeroext i1 @_ZN3smt10theory_seq8canonizeERK10ref_vectorI4expr11ast_managerERS4_RPN18dependency_managerIN25scoped_dependency_managerINS0_10assumptionEE6configEE10dependencyERb(ptr noundef nonnull align 8 dereferenceable(4328) %0, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  br i1 %61, label %62, label %190
+  br i1 %61, label %62, label %192
 
 62:                                               ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit51
   %63 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %64 = call noundef zeroext i1 @_ZN3smt10theory_seq8canonizeERK10ref_vectorI4expr11ast_managerERS4_RPN18dependency_managerIN25scoped_dependency_managerINS0_10assumptionEE6configEE10dependencyERb(ptr noundef nonnull align 8 dereferenceable(4328) %0, ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  br i1 %64, label %65, label %190
+  br i1 %64, label %65, label %192
 
 65:                                               ; preds = %62
   %66 = load ptr, ptr %3, align 8, !tbaa !201
@@ -506,7 +506,7 @@ _ZN25scoped_dependency_managerIN3smt10theory_seq10assumptionEE7mk_joinEPN18depen
 
 98:                                               ; preds = %_ZN25scoped_dependency_managerIN3smt10theory_seq10assumptionEE7mk_joinEPN18dependency_managerINS3_6configEE10dependencyES8_.exit
   %99 = call noundef zeroext i1 @_ZN3smt10theory_seq11simplify_eqER10ref_vectorI4expr11ast_managerES5_PN18dependency_managerIN25scoped_dependency_managerINS0_10assumptionEE6configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(4328) %0, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef %.0.i.i)
-  br i1 %99, label %190, label %._crit_edge
+  br i1 %99, label %192, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %98
   %.pre = load ptr, ptr %88, align 8, !tbaa !3
@@ -529,7 +529,7 @@ _ZN25scoped_dependency_managerIN3smt10theory_seq10assumptionEE7mk_joinEPN18depen
 
 108:                                              ; preds = %100
   %109 = call noundef zeroext i1 @_ZN3smt10theory_seq8lift_iteERK10ref_vectorI4expr11ast_managerES6_PN18dependency_managerIN25scoped_dependency_managerINS0_10assumptionEE6configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(4328) %0, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef %.0.i.i)
-  br i1 %109, label %190, label %._crit_edge60
+  br i1 %109, label %192, label %._crit_edge60
 
 ._crit_edge60:                                    ; preds = %108
   %.pre61 = load ptr, ptr %88, align 8, !tbaa !3
@@ -586,7 +586,7 @@ _ZN25scoped_dependency_managerIN3smt10theory_seq10assumptionEE7mk_joinEPN18depen
 127:                                              ; preds = %160, %150, %121
   %128 = landingpad { ptr, i32 }
           cleanup
-  br label %189
+  br label %191
 
 129:                                              ; preds = %125
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #22
@@ -609,7 +609,7 @@ _ZN25scoped_dependency_managerIN3smt10theory_seq10assumptionEE7mk_joinEPN18depen
 137:                                              ; preds = %134
   call void @_ZN3seq2eqD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #22
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #22
-  br label %183
+  br label %185
 
 138:                                              ; preds = %129
   %139 = landingpad { ptr, i32 }
@@ -625,7 +625,7 @@ _ZN25scoped_dependency_managerIN3smt10theory_seq10assumptionEE7mk_joinEPN18depen
 142:                                              ; preds = %140, %138
   %.pn = phi { ptr, i32 } [ %141, %140 ], [ %139, %138 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #22
-  br label %189
+  br label %191
 
 143:                                              ; preds = %._crit_edge65, %110
   %144 = phi i8 [ %.pre71, %._crit_edge65 ], [ %118, %110 ]
@@ -641,7 +641,7 @@ _ZN25scoped_dependency_managerIN3smt10theory_seq10assumptionEE7mk_joinEPN18depen
           to label %152 unwind label %127
 
 152:                                              ; preds = %150
-  br i1 %151, label %183, label %._crit_edge72
+  br i1 %151, label %185, label %._crit_edge72
 
 ._crit_edge72:                                    ; preds = %152
   %.pre73 = load ptr, ptr %88, align 8, !tbaa !3
@@ -666,7 +666,7 @@ _ZN25scoped_dependency_managerIN3smt10theory_seq10assumptionEE7mk_joinEPN18depen
           to label %162 unwind label %127
 
 162:                                              ; preds = %160
-  br i1 %161, label %183, label %._crit_edge79
+  br i1 %161, label %185, label %._crit_edge79
 
 ._crit_edge79:                                    ; preds = %162
   %.pre80 = load ptr, ptr %88, align 8, !tbaa !3
@@ -675,85 +675,85 @@ _ZN25scoped_dependency_managerIN3smt10theory_seq10assumptionEE7mk_joinEPN18depen
   %.pre83 = load ptr, ptr @_ZN3smtL20null_b_justificationE, align 8, !tbaa !19
   %.phi.trans.insert84 = getelementptr inbounds nuw i8, ptr %.pre80, i64 2416
   %.pre85 = load i8, ptr %.phi.trans.insert84, align 8, !range !21
-  %.pre86 = trunc nuw i8 %.pre85 to i1
   br label %163
 
 163:                                              ; preds = %._crit_edge79, %153
-  %.pre-phi = phi i1 [ %.pre86, %._crit_edge79 ], [ %158, %153 ]
-  %164 = phi ptr [ %.pre83, %._crit_edge79 ], [ %155, %153 ]
-  %165 = phi ptr [ %.pre82, %._crit_edge79 ], [ %156, %153 ]
-  %166 = icmp ne ptr %165, %164
-  %167 = select i1 %166, i1 true, i1 %.pre-phi
-  %.not = xor i1 %167, true
-  %168 = load i8, ptr %4, align 1, !range !21
-  %169 = trunc nuw i8 %168 to i1
-  %or.cond = select i1 %.not, i1 %169, i1 false
-  br i1 %or.cond, label %170, label %183
+  %164 = phi i8 [ %.pre85, %._crit_edge79 ], [ %154, %153 ]
+  %165 = phi ptr [ %.pre83, %._crit_edge79 ], [ %155, %153 ]
+  %166 = phi ptr [ %.pre82, %._crit_edge79 ], [ %156, %153 ]
+  %167 = icmp ne ptr %166, %165
+  %168 = trunc nuw i8 %164 to i1
+  %169 = select i1 %167, i1 true, i1 %168
+  %.not = xor i1 %169, true
+  %170 = load i8, ptr %4, align 1, !range !21
+  %171 = trunc nuw i8 %170 to i1
+  %or.cond = select i1 %.not, i1 %171, i1 false
+  br i1 %or.cond, label %172, label %185
 
-170:                                              ; preds = %163
+172:                                              ; preds = %163
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #22
-  %171 = getelementptr inbounds nuw i8, ptr %0, i64 564
-  %172 = load i32, ptr %171, align 4, !tbaa !213
-  %173 = add i32 %172, 1
-  store i32 %173, ptr %171, align 4, !tbaa !213
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 564
+  %174 = load i32, ptr %173, align 4, !tbaa !213
+  %175 = add i32 %174, 1
+  store i32 %175, ptr %173, align 4, !tbaa !213
   invoke void @_ZN3seq2eqC2ER10ref_vectorI4expr11ast_managerES5_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %20)
-          to label %174 unwind label %178
+          to label %176 unwind label %180
 
-174:                                              ; preds = %170
-  %175 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i32 %172, ptr %175, align 8, !tbaa !214
-  %176 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store ptr %.0.i.i, ptr %176, align 8, !tbaa !203
+176:                                              ; preds = %172
+  %177 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store i32 %174, ptr %177, align 8, !tbaa !214
+  %178 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  store ptr %.0.i.i, ptr %178, align 8, !tbaa !203
   invoke void @_ZN13scoped_vectorIN3smt10theory_seq5depeqEE3setEjOS2_(ptr noundef nonnull align 8 dereferenceable(64) %9, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %8)
-          to label %177 unwind label %180
+          to label %179 unwind label %182
 
-177:                                              ; preds = %174
+179:                                              ; preds = %176
   call void @_ZN3seq2eqD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #22
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #22
-  br label %183
+  br label %185
 
-178:                                              ; preds = %170
-  %179 = landingpad { ptr, i32 }
-          cleanup
-  br label %182
-
-180:                                              ; preds = %174
+180:                                              ; preds = %172
   %181 = landingpad { ptr, i32 }
           cleanup
+  br label %184
+
+182:                                              ; preds = %176
+  %183 = landingpad { ptr, i32 }
+          cleanup
   call void @_ZN3seq2eqD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #22
-  br label %182
+  br label %184
 
-182:                                              ; preds = %180, %178
-  %.pn38 = phi { ptr, i32 } [ %181, %180 ], [ %179, %178 ]
+184:                                              ; preds = %182, %180
+  %.pn38 = phi { ptr, i32 } [ %183, %182 ], [ %181, %180 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #22
-  br label %189
+  br label %191
 
-183:                                              ; preds = %163, %177, %162, %152, %137
-  %.236.ph = phi i1 [ false, %163 ], [ false, %177 ], [ true, %162 ], [ true, %152 ], [ false, %137 ]
+185:                                              ; preds = %163, %179, %162, %152, %137
+  %.236.ph = phi i1 [ false, %163 ], [ false, %179 ], [ true, %162 ], [ true, %152 ], [ false, %137 ]
   %.pr = load ptr, ptr %5, align 8, !tbaa !207
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
-  %184 = icmp eq ptr %.pr, null
-  br i1 %184, label %_ZN10scoped_ptrIN3seq2eqEED2Ev.exit, label %185
+  %186 = icmp eq ptr %.pr, null
+  br i1 %186, label %_ZN10scoped_ptrIN3seq2eqEED2Ev.exit, label %187
 
-185:                                              ; preds = %183
+187:                                              ; preds = %185
   call void @_ZN3seq2eqD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.pr) #22
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %.pr)
-          to label %_ZN10scoped_ptrIN3seq2eqEED2Ev.exit unwind label %186
+          to label %_ZN10scoped_ptrIN3seq2eqEED2Ev.exit unwind label %188
 
-186:                                              ; preds = %185
-  %187 = landingpad { ptr, i32 }
+188:                                              ; preds = %187
+  %189 = landingpad { ptr, i32 }
           catch ptr null
-  %188 = extractvalue { ptr, i32 } %187, 0
-  call void @__clang_call_terminate(ptr %188) #23
+  %190 = extractvalue { ptr, i32 } %189, 0
+  call void @__clang_call_terminate(ptr %190) #23
   unreachable
 
-_ZN10scoped_ptrIN3seq2eqEED2Ev.exit:              ; preds = %.thread, %183, %185
-  %.23654 = phi i1 [ true, %.thread ], [ %.236.ph, %183 ], [ %.236.ph, %185 ]
+_ZN10scoped_ptrIN3seq2eqEED2Ev.exit:              ; preds = %.thread, %185, %187
+  %.23654 = phi i1 [ true, %.thread ], [ %.236.ph, %185 ], [ %.236.ph, %187 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
-  br label %190
+  br label %192
 
-189:                                              ; preds = %182, %142, %127
-  %.pn38.pn = phi { ptr, i32 } [ %.pn38, %182 ], [ %128, %127 ], [ %.pn, %142 ]
+191:                                              ; preds = %184, %142, %127
+  %.pn38.pn = phi { ptr, i32 } [ %.pn38, %184 ], [ %128, %127 ], [ %.pn, %142 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
   call void @_ZN10scoped_ptrIN3seq2eqEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
@@ -761,7 +761,7 @@ _ZN10scoped_ptrIN3seq2eqEED2Ev.exit:              ; preds = %.thread, %183, %185
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
   resume { ptr, i32 } %.pn38.pn
 
-190:                                              ; preds = %_ZN10scoped_ptrIN3seq2eqEED2Ev.exit, %98, %108, %62, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit51
+192:                                              ; preds = %_ZN10scoped_ptrIN3seq2eqEED2Ev.exit, %98, %108, %62, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit51
   %.034 = phi i1 [ false, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit51 ], [ false, %62 ], [ %.23654, %_ZN10scoped_ptrIN3seq2eqEED2Ev.exit ], [ true, %98 ], [ true, %108 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22

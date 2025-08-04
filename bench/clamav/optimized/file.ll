@@ -514,7 +514,7 @@ define noundef zeroext i1 @_ZN4File5CloseEv(ptr noundef nonnull align 8 derefere
   br label %20
 
 20:                                               ; preds = %.thread9, %.thread, %18, %10
-  %.08 = phi i1 [ true, %.thread ], [ %13, %18 ], [ %13, %10 ], [ true, %.thread9 ]
+  %.08 = phi i1 [ true, %.thread ], [ false, %18 ], [ %13, %10 ], [ true, %.thread9 ]
   ret i1 %.08
 }
 
@@ -550,7 +550,7 @@ declare noundef zeroext i1 @_Z10RenameFilePKwS0_(ptr noundef, ptr noundef) local
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN4File5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8256) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = icmp eq i64 %2, 0
-  br i1 %4, label %52, label %5
+  br i1 %4, label %53, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -559,8 +559,8 @@ define noundef zeroext i1 @_ZN4File5WriteEPKvm(ptr noundef nonnull align 8 deref
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !6
   %11 = icmp eq i64 %10, -1
-  %or.cond34 = select i1 %8, i1 %11, i1 false
-  br i1 %or.cond34, label %12, label %._crit_edge
+  %or.cond32 = select i1 %8, i1 %11, i1 false
+  br i1 %or.cond32, label %12, label %._crit_edge
 
 12:                                               ; preds = %5
   %13 = tail call i32 @dup(i32 noundef 1) #19
@@ -586,59 +586,57 @@ define noundef zeroext i1 @_ZN4File5WriteEPKvm(ptr noundef nonnull align 8 deref
 
 .lr.ph:                                           ; preds = %._crit_edge
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %26 = tail call noundef zeroext i1 @_ZN12ErrorHandler14AskRepeatWriteEPKwb(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, ptr noundef nonnull %25, i1 noundef zeroext false)
-  br i1 %26, label %.lr.ph37, label %._crit_edge38
+  br label %26
 
-27:                                               ; preds = %41
+26:                                               ; preds = %.lr.ph, %42
+  %27 = phi i64 [ %18, %.lr.ph ], [ %45, %42 ]
   %28 = tail call noundef zeroext i1 @_ZN12ErrorHandler14AskRepeatWriteEPKwb(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, ptr noundef nonnull %25, i1 noundef zeroext false)
-  br i1 %28, label %.lr.ph37, label %._crit_edge38
+  br i1 %28, label %29, label %41
 
-.lr.ph37:                                         ; preds = %.lr.ph, %27
-  %29 = phi i64 [ %44, %27 ], [ %18, %.lr.ph ]
-  %30 = icmp ult i64 %29, %2
-  %31 = icmp sgt i64 %29, 0
+29:                                               ; preds = %26
+  %30 = icmp ult i64 %27, %2
+  %31 = icmp sgt i64 %27, 0
   %or.cond = and i1 %30, %31
-  br i1 %or.cond, label %32, label %41, !llvm.loop !35
+  br i1 %or.cond, label %32, label %42, !llvm.loop !35
 
-32:                                               ; preds = %.lr.ph37
+32:                                               ; preds = %29
   %33 = load ptr, ptr %0, align 8, !tbaa !3
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef i64 %35(ptr noundef nonnull align 8 dereferenceable(8256) %0)
-  %37 = sub nsw i64 %36, %29
+  %37 = sub nsw i64 %36, %27
   %38 = load ptr, ptr %0, align 8, !tbaa !3
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef nonnull align 8 dereferenceable(8256) %0, i64 noundef %37, i32 noundef 0)
-  br label %41, !llvm.loop !35
+  br label %42, !llvm.loop !35
 
-._crit_edge38:                                    ; preds = %27, %.lr.ph
-  %.lcssa = phi i1 [ %19, %.lr.ph ], [ %45, %27 ]
+41:                                               ; preds = %26
   tail call void @_ZN12ErrorHandler10WriteErrorEPKwS1_(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, ptr noundef null, ptr noundef nonnull %25)
   br label %.loopexit
 
-41:                                               ; preds = %.lr.ph37, %32
-  %42 = load i64, ptr %16, align 8, !tbaa !6
-  %43 = trunc i64 %42 to i32
-  %44 = tail call i64 @write(i32 noundef %43, ptr noundef %1, i64 noundef %2)
-  %45 = icmp eq i64 %44, %2
-  %.not = xor i1 %45, true
-  %46 = load i8, ptr %20, align 2, !range !31
-  %47 = trunc nuw i8 %46 to i1
-  %or.cond19 = select i1 %.not, i1 %47, i1 false
-  %48 = load i32, ptr %6, align 4
-  %49 = icmp eq i32 %48, 0
-  %or.cond21 = select i1 %or.cond19, i1 %49, i1 false
-  br i1 %or.cond21, label %27, label %.loopexit
+42:                                               ; preds = %29, %32
+  %43 = load i64, ptr %16, align 8, !tbaa !6
+  %44 = trunc i64 %43 to i32
+  %45 = tail call i64 @write(i32 noundef %44, ptr noundef %1, i64 noundef %2)
+  %46 = icmp eq i64 %45, %2
+  %.not = xor i1 %46, true
+  %47 = load i8, ptr %20, align 2, !range !31
+  %48 = trunc nuw i8 %47 to i1
+  %or.cond19 = select i1 %.not, i1 %48, i1 false
+  %49 = load i32, ptr %6, align 4
+  %50 = icmp eq i32 %49, 0
+  %or.cond21 = select i1 %or.cond19, i1 %50, i1 false
+  br i1 %or.cond21, label %26, label %.loopexit
 
-.loopexit:                                        ; preds = %41, %._crit_edge, %._crit_edge38
-  %50 = phi i1 [ %.lcssa, %._crit_edge38 ], [ %19, %._crit_edge ], [ %45, %41 ]
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 1, ptr %51, align 8, !tbaa !19
-  br label %52
+.loopexit:                                        ; preds = %42, %._crit_edge, %41
+  %51 = phi i1 [ false, %41 ], [ %19, %._crit_edge ], [ %46, %42 ]
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 1, ptr %52, align 8, !tbaa !19
+  br label %53
 
-52:                                               ; preds = %3, %.loopexit
-  %.014 = phi i1 [ %50, %.loopexit ], [ true, %3 ]
+53:                                               ; preds = %3, %.loopexit
+  %.014 = phi i1 [ %51, %.loopexit ], [ true, %3 ]
   ret i1 %.014
 }
 

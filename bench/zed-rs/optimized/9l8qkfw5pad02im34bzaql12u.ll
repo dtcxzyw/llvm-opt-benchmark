@@ -19762,9 +19762,9 @@ define hidden { i32, i32 } @_ZN6editor8movement19find_boundary_point17h62b2565e2
 21:                                               ; preds = %25
   resume { ptr, i32 } %lpad.phi
 
-22:                                               ; preds = %131, %6
-  %23 = phi i64 [ %12, %6 ], [ %132, %131 ]
-  %.sroa.05.0 = phi i32 [ 1114112, %6 ], [ %24, %131 ]
+22:                                               ; preds = %127, %6
+  %23 = phi i64 [ %12, %6 ], [ %128, %127 ]
+  %.sroa.05.0 = phi i32 [ 1114112, %6 ], [ %24, %127 ]
   %24 = invoke fastcc noundef i32 @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcc87bb74bbce9605E"(ptr noalias noundef align 8 dereferenceable(1208) %8)
           to label %26 unwind label %.loopexit, !range !2506
 
@@ -19773,7 +19773,7 @@ define hidden { i32, i32 } @_ZN6editor8movement19find_boundary_point17h62b2565e2
           cleanup
   br label %25
 
-.loopexit.split-lp:                               ; preds = %111, %114
+.loopexit.split-lp:                               ; preds = %107, %110
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %25
@@ -19781,7 +19781,7 @@ define hidden { i32, i32 } @_ZN6editor8movement19find_boundary_point17h62b2565e2
 25:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr343drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h209e9918554682e6E"(ptr noalias noundef nonnull align 8 dereferenceable(1208) %8) #59
-          to label %21 unwind label %133
+          to label %21 unwind label %129
 
 26:                                               ; preds = %22
   %27 = icmp ne i32 %24, 1114112
@@ -19819,7 +19819,7 @@ define hidden { i32, i32 } @_ZN6editor8movement19find_boundary_point17h62b2565e2
   %38 = extractvalue { i32, i32 } %37, 0
   %39 = extractvalue { i32, i32 } %37, 1
   %40 = call { i32, i32 } @_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %0, i32 noundef %38, i32 noundef %39, i1 noundef zeroext true)
-  br label %113
+  br label %109
 
 41:                                               ; preds = %26
   %42 = icmp eq i32 %.sroa.05.0, 1114112
@@ -19979,7 +19979,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i: ;
 99:                                               ; preds = %"_ZN3vim6motion16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h57c323072eb00594E.exit.thread20", %41
   store i64 %23, ptr %10, align 8
   %100 = icmp samesign ult i32 %24, 128
-  br i1 %100, label %131, label %127
+  br i1 %100, label %127, label %123
 
 "_ZN3vim6motion16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h57c323072eb00594E.exit.thread20": ; preds = %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i, %.noexc15, %.noexc15, %.noexc15, %.noexc15, %.noexc15, %.noexc15, %98
   %101 = load i8, ptr %20, align 1, !range !1147, !noalias !5445, !noundef !9
@@ -19993,76 +19993,71 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i: ;
   %105 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %106 = load ptr, ptr %105, align 8, !alias.scope !5445, !nonnull !9, !align !35, !noundef !9
   store i8 1, ptr %106, align 1, !noalias !5445
-  %107 = load i8, ptr %20, align 1, !range !1147, !noalias !5445, !noundef !9
-  %108 = trunc nuw i8 %107 to i1
-  %109 = or i1 %46, %108
-  %110 = zext i1 %109 to i8
-  store i8 %110, ptr %20, align 1, !noalias !5445
   br label %"_ZN3vim6motion16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h57c323072eb00594E.exit.thread"
 
 "_ZN3vim6motion16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h57c323072eb00594E.exit.thread": ; preds = %.noexc11, %"_ZN3vim6motion16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h57c323072eb00594E.exit"
-  br i1 %5, label %111, label %.loopexit22
+  br i1 %5, label %107, label %.loopexit22
 
-111:                                              ; preds = %"_ZN3vim6motion16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h57c323072eb00594E.exit.thread"
-  %112 = invoke { i32, i32 } @"_ZN61_$LT$usize$u20$as$u20$editor..display_map..ToDisplayPoint$GT$16to_display_point17hb719350ff22c3f39E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %0)
-          to label %114 unwind label %.loopexit.split-lp
+107:                                              ; preds = %"_ZN3vim6motion16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h57c323072eb00594E.exit.thread"
+  %108 = invoke { i32, i32 } @"_ZN61_$LT$usize$u20$as$u20$editor..display_map..ToDisplayPoint$GT$16to_display_point17hb719350ff22c3f39E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %0)
+          to label %110 unwind label %.loopexit.split-lp
 
-113:                                              ; preds = %"_ZN4core3ptr343drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h209e9918554682e6E.exit18", %"_ZN4core3ptr343drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h209e9918554682e6E.exit"
-  %.pn9 = phi { i32, i32 } [ %40, %"_ZN4core3ptr343drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h209e9918554682e6E.exit" ], [ %117, %"_ZN4core3ptr343drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h209e9918554682e6E.exit18" ]
+109:                                              ; preds = %"_ZN4core3ptr343drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h209e9918554682e6E.exit18", %"_ZN4core3ptr343drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h209e9918554682e6E.exit"
+  %.pn9 = phi { i32, i32 } [ %40, %"_ZN4core3ptr343drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h209e9918554682e6E.exit" ], [ %113, %"_ZN4core3ptr343drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h209e9918554682e6E.exit18" ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   ret { i32, i32 } %.pn9
 
-114:                                              ; preds = %111
-  %115 = extractvalue { i32, i32 } %112, 0
-  %116 = extractvalue { i32, i32 } %112, 1
-  %117 = invoke { i32, i32 } @_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %0, i32 noundef %115, i32 noundef %116, i1 noundef zeroext true)
-          to label %118 unwind label %.loopexit.split-lp
+110:                                              ; preds = %107
+  %111 = extractvalue { i32, i32 } %108, 0
+  %112 = extractvalue { i32, i32 } %108, 1
+  %113 = invoke { i32, i32 } @_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %0, i32 noundef %111, i32 noundef %112, i1 noundef zeroext true)
+          to label %114 unwind label %.loopexit.split-lp
 
-118:                                              ; preds = %114
-  %119 = load i64, ptr %8, align 8, !range !2441, !alias.scope !5448, !noundef !9
-  %120 = icmp eq i64 %119, 4
-  br i1 %120, label %"_ZN4core3ptr343drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h209e9918554682e6E.exit18", label %121
+114:                                              ; preds = %110
+  %115 = load i64, ptr %8, align 8, !range !2441, !alias.scope !5448, !noundef !9
+  %116 = icmp eq i64 %115, 4
+  br i1 %116, label %"_ZN4core3ptr343drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h209e9918554682e6E.exit18", label %117
 
-121:                                              ; preds = %118
-  %122 = getelementptr inbounds nuw i8, ptr %8, i64 736
-  %123 = load i32, ptr %122, align 8, !alias.scope !5457, !noundef !9
-  %.not.i.i.i.i.i.i.i.i.i.i16 = icmp eq i32 %123, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i16, label %"_ZN4core3ptr82drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$usize$GT$$GT$17hb0b30651522d1d05E.exit.i.i.i.i.i.i.i17", label %124
+117:                                              ; preds = %114
+  %118 = getelementptr inbounds nuw i8, ptr %8, i64 736
+  %119 = load i32, ptr %118, align 8, !alias.scope !5457, !noundef !9
+  %.not.i.i.i.i.i.i.i.i.i.i16 = icmp eq i32 %119, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i16, label %"_ZN4core3ptr82drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$usize$GT$$GT$17hb0b30651522d1d05E.exit.i.i.i.i.i.i.i17", label %120
 
-124:                                              ; preds = %121
-  store i32 0, ptr %122, align 8, !alias.scope !5474
+120:                                              ; preds = %117
+  store i32 0, ptr %118, align 8, !alias.scope !5474
   br label %"_ZN4core3ptr82drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$usize$GT$$GT$17hb0b30651522d1d05E.exit.i.i.i.i.i.i.i17"
 
-"_ZN4core3ptr82drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$usize$GT$$GT$17hb0b30651522d1d05E.exit.i.i.i.i.i.i.i17": ; preds = %124, %121
-  %125 = icmp eq i64 %119, 3
-  br i1 %125, label %"_ZN4core3ptr343drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h209e9918554682e6E.exit18", label %126
+"_ZN4core3ptr82drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$usize$GT$$GT$17hb0b30651522d1d05E.exit.i.i.i.i.i.i.i17": ; preds = %120, %117
+  %121 = icmp eq i64 %115, 3
+  br i1 %121, label %"_ZN4core3ptr343drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h209e9918554682e6E.exit18", label %122
 
-126:                                              ; preds = %"_ZN4core3ptr82drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$usize$GT$$GT$17hb0b30651522d1d05E.exit.i.i.i.i.i.i.i17"
+122:                                              ; preds = %"_ZN4core3ptr82drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$usize$GT$$GT$17hb0b30651522d1d05E.exit.i.i.i.i.i.i.i17"
   call void @"_ZN4core3ptr51drop_in_place$LT$language..buffer..BufferChunks$GT$17hb63b564177115de1E.llvm.16203528845727909344"(ptr noalias noundef nonnull align 8 dereferenceable(1208) %8)
   br label %"_ZN4core3ptr343drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h209e9918554682e6E.exit18"
 
-"_ZN4core3ptr343drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h209e9918554682e6E.exit18": ; preds = %118, %"_ZN4core3ptr82drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$usize$GT$$GT$17hb0b30651522d1d05E.exit.i.i.i.i.i.i.i17", %126
+"_ZN4core3ptr343drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h209e9918554682e6E.exit18": ; preds = %114, %"_ZN4core3ptr82drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$usize$GT$$GT$17hb0b30651522d1d05E.exit.i.i.i.i.i.i.i17", %122
   call void @llvm.lifetime.end.p0(i64 1208, ptr nonnull %8)
-  br label %113
+  br label %109
 
-127:                                              ; preds = %99
-  %128 = icmp samesign ult i32 %24, 2048
-  br i1 %128, label %131, label %129
+123:                                              ; preds = %99
+  %124 = icmp samesign ult i32 %24, 2048
+  br i1 %124, label %127, label %125
 
-129:                                              ; preds = %127
-  %130 = icmp samesign ult i32 %24, 65536
-  %. = select i1 %130, i64 3, i64 4
-  br label %131
+125:                                              ; preds = %123
+  %126 = icmp samesign ult i32 %24, 65536
+  %. = select i1 %126, i64 3, i64 4
+  br label %127
 
-131:                                              ; preds = %127, %129, %99
-  %.sroa.04.0 = phi i64 [ 1, %99 ], [ %., %129 ], [ 2, %127 ]
-  %132 = add i64 %.sroa.04.0, %23
-  store i64 %132, ptr %11, align 8
+127:                                              ; preds = %123, %125, %99
+  %.sroa.04.0 = phi i64 [ 1, %99 ], [ %., %125 ], [ 2, %123 ]
+  %128 = add i64 %.sroa.04.0, %23
+  store i64 %128, ptr %11, align 8
   br label %22
 
-133:                                              ; preds = %25
-  %134 = landingpad { ptr, i32 }
+129:                                              ; preds = %25
+  %130 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #57
   unreachable

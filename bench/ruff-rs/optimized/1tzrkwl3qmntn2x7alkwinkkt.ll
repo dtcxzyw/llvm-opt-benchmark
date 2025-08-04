@@ -4862,21 +4862,19 @@ define internal fastcc noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$co
   %42 = load i64, ptr %41, align 8, !alias.scope !487, !noalias !488, !noundef !8
   %43 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 8
   %44 = load i64, ptr %43, align 8, !alias.scope !488, !noalias !487, !noundef !8
-  %45 = icmp ne ptr %17, null
-  tail call void @llvm.assume(i1 %45)
-  %46 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h535586f649549c83E"(ptr noalias noundef nonnull readonly align 1 %15, i64 noundef %42, ptr noalias noundef nonnull readonly align 1 %17, i64 noundef %44), !noalias !489
-  br i1 %46, label %47, label %"_ZN85_$LT$ruff_python_ast..generated..ExprBytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h87e4980686b24163E.exit"
+  %45 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h535586f649549c83E"(ptr noalias noundef nonnull readonly align 1 %15, i64 noundef %42, ptr noalias noundef nonnull readonly align 1 %17, i64 noundef %44), !noalias !489
+  br i1 %45, label %46, label %"_ZN85_$LT$ruff_python_ast..generated..ExprBytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h87e4980686b24163E.exit"
 
-47:                                               ; preds = %40
-  %48 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
-  %49 = load i8, ptr %48, align 8, !alias.scope !487, !noalias !488, !noundef !8
-  %50 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
-  %51 = load i8, ptr %50, align 8, !alias.scope !488, !noalias !487, !noundef !8
-  %52 = icmp eq i8 %49, %51
+46:                                               ; preds = %40
+  %47 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
+  %48 = load i8, ptr %47, align 8, !alias.scope !487, !noalias !488, !noundef !8
+  %49 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
+  %50 = load i8, ptr %49, align 8, !alias.scope !488, !noalias !487, !noundef !8
+  %51 = icmp eq i8 %48, %50
   br label %"_ZN85_$LT$ruff_python_ast..generated..ExprBytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h87e4980686b24163E.exit"
 
-"_ZN85_$LT$ruff_python_ast..generated..ExprBytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h87e4980686b24163E.exit": ; preds = %0, %8, %14, %21, %27, %34, %40, %47
-  %.sroa.0.0.i = phi i1 [ false, %0 ], [ false, %8 ], [ %26, %21 ], [ %52, %47 ], [ false, %14 ], [ false, %27 ], [ false, %40 ], [ false, %34 ]
+"_ZN85_$LT$ruff_python_ast..generated..ExprBytesLiteral$u20$as$u20$core..cmp..PartialEq$GT$2eq17h87e4980686b24163E.exit": ; preds = %0, %8, %14, %21, %27, %34, %40, %46
+  %.sroa.0.0.i = phi i1 [ false, %0 ], [ false, %8 ], [ %26, %21 ], [ %51, %46 ], [ false, %14 ], [ false, %27 ], [ false, %40 ], [ false, %34 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -8123,8 +8121,8 @@ define internal fastcc noundef zeroext i1 @"_ZN87_$LT$ruff_python_ast..nodes..By
 8:                                                ; preds = %2
   br i1 %4, label %10, label %16
 
-9:                                                ; preds = %23, %29, %16, %2, %36, %10
-  %.sroa.0.0.shrunk = phi i1 [ %15, %10 ], [ %41, %36 ], [ false, %2 ], [ false, %16 ], [ false, %29 ], [ false, %23 ]
+9:                                                ; preds = %23, %29, %16, %2, %35, %10
+  %.sroa.0.0.shrunk = phi i1 [ %15, %10 ], [ %40, %35 ], [ false, %2 ], [ false, %16 ], [ false, %29 ], [ false, %23 ]
   ret i1 %.sroa.0.0.shrunk
 
 10:                                               ; preds = %8
@@ -8163,17 +8161,15 @@ define internal fastcc noundef zeroext i1 @"_ZN87_$LT$ruff_python_ast..nodes..By
   %31 = load i64, ptr %30, align 8, !noundef !8
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load i64, ptr %32, align 8, !noundef !8
-  %34 = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %34)
-  %35 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h535586f649549c83E"(ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %31, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %33)
-  br i1 %35, label %36, label %9
+  %34 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h535586f649549c83E"(ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %31, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %33)
+  br i1 %34, label %35, label %9
 
-36:                                               ; preds = %29
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %38 = load i8, ptr %37, align 8, !noundef !8
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %40 = load i8, ptr %39, align 8, !noundef !8
-  %41 = icmp eq i8 %38, %40
+35:                                               ; preds = %29
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %37 = load i8, ptr %36, align 8, !noundef !8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %39 = load i8, ptr %38, align 8, !noundef !8
+  %40 = icmp eq i8 %37, %39
   br label %9
 }
 
