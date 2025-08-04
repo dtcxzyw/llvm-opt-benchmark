@@ -1884,11 +1884,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorISt6vectorINS_6TfTypeESaIS2_EEL
   br i1 %.not394, label %.loopexit409thread-pre-split, label %.lr.ph
 
 .loopexit409thread-pre-split:                     ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorISt6vectorINS_6TfTypeESaIS2_EELb0EEppEv.exit, %459, %445
-  %.pr476 = load ptr, ptr %28, align 8
+  %.pr475 = load ptr, ptr %28, align 8
   br label %.loopexit409
 
 .loopexit409:                                     ; preds = %.loopexit409thread-pre-split, %350
-  %462 = phi ptr [ %.pr476, %.loopexit409thread-pre-split ], [ %351, %350 ]
+  %462 = phi ptr [ %.pr475, %.loopexit409thread-pre-split ], [ %351, %350 ]
   %.not.i.i.i137 = icmp eq ptr %462, null
   br i1 %.not.i.i.i137, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__6TfTypeESaIS1_EED2Ev.exit138, label %463
 
@@ -3374,11 +3374,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i2
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__22Sdf_FileFormatRegistry5_InfoEEaSERKS3_.exit301thread-pre-split
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__22Sdf_FileFormatRegistry5_InfoEEaSERKS3_.exit301thread-pre-split: ; preds = %.critedge2, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i297
-  %.pr480 = load ptr, ptr %798, align 8
+  %.pr479 = load ptr, ptr %798, align 8
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__22Sdf_FileFormatRegistry5_InfoEEaSERKS3_.exit301
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__22Sdf_FileFormatRegistry5_InfoEEaSERKS3_.exit301: ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__22Sdf_FileFormatRegistry5_InfoEEaSERKS3_.exit301thread-pre-split, %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_22Sdf_FileFormatRegistry5_InfoEENS_6TfHashESt8equal_toIS6_ESaISt4pairIKS6_SA_EEEixERSF_.exit
-  %1093 = phi ptr [ %.pr480, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__22Sdf_FileFormatRegistry5_InfoEEaSERKS3_.exit301thread-pre-split ], [ %1047, %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_22Sdf_FileFormatRegistry5_InfoEENS_6TfHashESt8equal_toIS6_ESaISt4pairIKS6_SA_EEEixERSF_.exit ]
+  %1093 = phi ptr [ %.pr479, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__22Sdf_FileFormatRegistry5_InfoEEaSERKS3_.exit301thread-pre-split ], [ %1047, %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_22Sdf_FileFormatRegistry5_InfoEENS_6TfHashESt8equal_toIS6_ESaISt4pairIKS6_SA_EEEixERSF_.exit ]
   %.not.i.i.i302 = icmp eq ptr %1093, null
   br i1 %.not.i.i.i302, label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_9TfHashMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10shared_ptrINS_22Sdf_FileFormatRegistry5_InfoEESaISC_EENS_6TfHashESt8equal_toIS7_ESaISt4pairIKS7_SE_EEEELb0EEppEv.exit, label %1094
 

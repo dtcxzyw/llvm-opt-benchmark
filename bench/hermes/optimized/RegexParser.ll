@@ -5198,23 +5198,23 @@ _ZNSt6vectorIN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS1_10Jump3
   %9 = phi ptr [ %7, %if.end.i ], [ %6, %_ZNSt12_Vector_baseIN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS1_10Jump32InsnEEESaIS5_EE13_M_deallocateEPS5_m.exit.i ]
   %10 = phi ptr [ null, %if.end.i ], [ %__first.addr.0.i.i.i.i.i.ph, %_ZNSt12_Vector_baseIN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS1_10Jump32InsnEEESaIS5_EE13_M_deallocateEPS5_m.exit.i ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 -24
-  %11 = load ptr, ptr %add.ptr.i.i, align 8
+  %8 = load ptr, ptr %add.ptr.i.i, align 8
   %_M_finish.i.i36 = getelementptr inbounds i8, ptr %3, i64 -16
-  %12 = load ptr, ptr %_M_finish.i.i36, align 8
-  %cmp.i.not6.i = icmp eq ptr %11, %12
+  %9 = load ptr, ptr %_M_finish.i.i36, align 8
+  %cmp.i.not6.i = icmp eq ptr %8, %9
   br i1 %cmp.i.not6.i, label %_ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNSt6vectorIN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS1_10Jump32InsnEEESaIS5_EE7reserveEm.exit, %for.body.i
   %result.08.i = phi i8 [ %or3.i, %for.body.i ], [ 0, %_ZNSt6vectorIN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS1_10Jump32InsnEEESaIS5_EE7reserveEm.exit ]
-  %__begin2.sroa.0.07.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %11, %_ZNSt6vectorIN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS1_10Jump32InsnEEESaIS5_EE7reserveEm.exit ]
-  %13 = load ptr, ptr %__begin2.sroa.0.07.i, align 8
-  %vtable.i = load ptr, ptr %13, align 8
+  %__begin2.sroa.0.07.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %8, %_ZNSt6vectorIN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS1_10Jump32InsnEEESaIS5_EE7reserveEm.exit ]
+  %10 = load ptr, ptr %__begin2.sroa.0.07.i, align 8
+  %vtable.i = load ptr, ptr %10, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 32
-  %14 = load ptr, ptr %vfn.i, align 8
-  %call5.i = tail call noundef zeroext i8 %14(ptr noundef nonnull align 8 dereferenceable(8) %13) #16
+  %11 = load ptr, ptr %vfn.i, align 8
+  %call5.i = tail call noundef zeroext i8 %14(ptr noundef nonnull align 8 dereferenceable(8) %10) #16
   %or3.i = or i8 %call5.i, %result.08.i
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.07.i, i64 8
-  %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %12
+  %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %9
   br i1 %cmp.i.not.i, label %_ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit.loopexit, label %for.body.i
 
 _ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit.loopexit: ; preds = %for.body.i
@@ -5222,20 +5222,20 @@ _ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit.loo
   br label %_ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit
 
 _ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit: ; preds = %_ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit.loopexit, %_ZNSt6vectorIN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS1_10Jump32InsnEEESaIS5_EE7reserveEm.exit
-  %15 = phi ptr [ %10, %_ZNSt6vectorIN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS1_10Jump32InsnEEESaIS5_EE7reserveEm.exit ], [ %.pre, %_ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit.loopexit ]
+  %12 = phi ptr [ %10, %_ZNSt6vectorIN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS1_10Jump32InsnEEESaIS5_EE7reserveEm.exit ], [ %.pre, %_ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit.loopexit ]
   %result.0.lcssa.i = phi i8 [ 0, %_ZNSt6vectorIN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS1_10Jump32InsnEEESaIS5_EE7reserveEm.exit ], [ %or3.i, %_ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit.loopexit ]
-  %add.ptr.i.i38 = getelementptr inbounds i8, ptr %15, i64 -1
+  %add.ptr.i.i38 = getelementptr inbounds i8, ptr %12, i64 -1
   store i8 %result.0.lcssa.i, ptr %add.ptr.i.i38, align 1
-  %16 = load ptr, ptr %5, align 8
-  %add.ptr.i.i40 = getelementptr inbounds i8, ptr %16, i64 -1
-  %17 = load i8, ptr %add.ptr.i.i40, align 1
-  %18 = load ptr, ptr %9, align 8
-  %add.ptr.i.i42 = getelementptr inbounds i8, ptr %18, i64 -1
-  store i8 %17, ptr %add.ptr.i.i42, align 1
-  %19 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %20 = load ptr, ptr %alternatives_, align 8
-  %sub.ptr.lhs.cast.i44 = ptrtoint ptr %19 to i64
-  %sub.ptr.rhs.cast.i45 = ptrtoint ptr %20 to i64
+  %13 = load ptr, ptr %5, align 8
+  %add.ptr.i.i40 = getelementptr inbounds i8, ptr %13, i64 -1
+  %14 = load i8, ptr %add.ptr.i.i40, align 1
+  %15 = load ptr, ptr %9, align 8
+  %add.ptr.i.i42 = getelementptr inbounds i8, ptr %15, i64 -1
+  store i8 %14, ptr %add.ptr.i.i42, align 1
+  %16 = load ptr, ptr %_M_finish.i.i.i.i, align 8
+  %17 = load ptr, ptr %alternatives_, align 8
+  %sub.ptr.lhs.cast.i44 = ptrtoint ptr %16 to i64
+  %sub.ptr.rhs.cast.i45 = ptrtoint ptr %17 to i64
   %sub.ptr.sub.i46 = sub i64 %sub.ptr.lhs.cast.i44, %sub.ptr.rhs.cast.i45
   %sub.ptr.div.i47 = sdiv exact i64 %sub.ptr.sub.i46, 24
   %sub = add nsw i64 %sub.ptr.div.i47, -1
@@ -5245,34 +5245,34 @@ _ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit: ; 
 for.body:                                         ; preds = %_ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit, %_ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit61
   %i.071 = phi i64 [ %dec, %_ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit61 ], [ %sub, %_ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit ]
   %dec = add i64 %i.071, -1
-  %21 = load ptr, ptr %alternatives_, align 8
-  %add.ptr.i48 = getelementptr inbounds %"class.std::vector", ptr %21, i64 %dec
-  %22 = load ptr, ptr %add.ptr.i48, align 8
+  %18 = load ptr, ptr %alternatives_, align 8
+  %add.ptr.i48 = getelementptr inbounds %"class.std::vector", ptr %18, i64 %dec
+  %19 = load ptr, ptr %add.ptr.i48, align 8
   %_M_finish.i.i49 = getelementptr inbounds nuw i8, ptr %add.ptr.i48, i64 8
-  %23 = load ptr, ptr %_M_finish.i.i49, align 8
-  %cmp.i.not6.i50 = icmp eq ptr %22, %23
+  %20 = load ptr, ptr %_M_finish.i.i49, align 8
+  %cmp.i.not6.i50 = icmp eq ptr %19, %20
   br i1 %cmp.i.not6.i50, label %_ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit61, label %for.body.i51
 
 for.body.i51:                                     ; preds = %for.body, %for.body.i51
   %result.08.i52 = phi i8 [ %or3.i57, %for.body.i51 ], [ 0, %for.body ]
-  %__begin2.sroa.0.07.i53 = phi ptr [ %incdec.ptr.i.i58, %for.body.i51 ], [ %22, %for.body ]
-  %24 = load ptr, ptr %__begin2.sroa.0.07.i53, align 8
-  %vtable.i54 = load ptr, ptr %24, align 8
+  %__begin2.sroa.0.07.i53 = phi ptr [ %incdec.ptr.i.i58, %for.body.i51 ], [ %19, %for.body ]
+  %21 = load ptr, ptr %__begin2.sroa.0.07.i53, align 8
+  %vtable.i54 = load ptr, ptr %21, align 8
   %vfn.i55 = getelementptr inbounds nuw i8, ptr %vtable.i54, i64 32
-  %25 = load ptr, ptr %vfn.i55, align 8
-  %call5.i56 = tail call noundef zeroext i8 %25(ptr noundef nonnull align 8 dereferenceable(8) %24) #16
+  %22 = load ptr, ptr %vfn.i55, align 8
+  %call5.i56 = tail call noundef zeroext i8 %25(ptr noundef nonnull align 8 dereferenceable(8) %21) #16
   %or3.i57 = or i8 %call5.i56, %result.08.i52
   %incdec.ptr.i.i58 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.07.i53, i64 8
-  %cmp.i.not.i59 = icmp eq ptr %incdec.ptr.i.i58, %23
+  %cmp.i.not.i59 = icmp eq ptr %incdec.ptr.i.i58, %20
   br i1 %cmp.i.not.i59, label %_ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit61, label %for.body.i51
 
 _ZN6hermes5regex4Node23matchConstraintsForListERKSt6vectorIPS1_SaIS3_EE.exit61: ; preds = %for.body.i51, %for.body
   %result.0.lcssa.i60 = phi i8 [ 0, %for.body ], [ %or3.i57, %for.body.i51 ]
   %26 = load ptr, ptr %elementConstraints_, align 8
-  %add.ptr.i62 = getelementptr inbounds i8, ptr %26, i64 %dec
-  store i8 %result.0.lcssa.i60, ptr %add.ptr.i62, align 1
+  %add.ptr.i64 = getelementptr inbounds i8, ptr %26, i64 %dec
+  store i8 %result.0.lcssa.i60, ptr %add.ptr.i64, align 1
   %27 = load ptr, ptr %restConstraints_6978, align 8
-  %add.ptr.i63 = getelementptr inbounds i8, ptr %27, i64 %i.071
+  %add.ptr.i65 = getelementptr inbounds i8, ptr %27, i64 %i.071
   %28 = load i8, ptr %add.ptr.i63, align 1
   %29 = load ptr, ptr %elementConstraints_, align 8
   %add.ptr.i64 = getelementptr inbounds i8, ptr %29, i64 %dec

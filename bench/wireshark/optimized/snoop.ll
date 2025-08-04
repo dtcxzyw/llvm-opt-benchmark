@@ -612,15 +612,15 @@ define internal fastcc noundef zeroext i1 @snoop_read_shomiti_wireless_pseudohea
   store i8 0, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %22 = load i16, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %22 = load i16, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 11
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i16
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 34
   store i16 %25, ptr %26, align 2
-  %27 = getelementptr inbounds nuw i8, ptr %6, i64 6
-  %28 = load i8, ptr %27, align 1
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 6
+  %28 = load i8, ptr %28, align 1
   %29 = zext i8 %28 to i16
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i16 %29, ptr %30, align 8
@@ -633,38 +633,38 @@ define internal fastcc noundef zeroext i1 @snoop_read_shomiti_wireless_pseudohea
   switch i8 %28, label %48 [
     i8 2, label %35
     i8 4, label %35
-    i8 11, label %35
-    i8 22, label %35
-    i8 44, label %35
-    i8 66, label %35
+    i8 11, label %37
+    i8 22, label %37
+    i8 44, label %37
+    i8 66, label %37
     i8 12, label %39
     i8 18, label %39
-    i8 24, label %39
-    i8 36, label %39
-    i8 48, label %39
-    i8 72, label %39
-    i8 96, label %39
-    i8 108, label %39
+    i8 24, label %41
+    i8 36, label %41
+    i8 48, label %41
+    i8 72, label %41
+    i8 96, label %41
+    i8 108, label %41
   ]
 
-35:                                               ; preds = %18, %18, %18, %18, %18, %18
+37:                                               ; preds = %18, %18, %18, %18, %18, %18
   store i32 4, ptr %20, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %37 = load i8, ptr %36, align 4
-  %38 = and i8 %37, -2
-  store i8 %38, ptr %36, align 4
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %39 = load i8, ptr %38, align 4
+  %40 = and i8 %39, -2
+  store i8 %40, ptr %38, align 4
   br label %48
 
-39:                                               ; preds = %18, %18, %18, %18, %18, %18, %18, %18
-  %40 = icmp ult i8 %24, 15
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  br i1 %40, label %42, label %45
+41:                                               ; preds = %18, %18, %18, %18, %18, %18, %18, %18
+  %42 = icmp ult i8 %24, 15
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  br i1 %42, label %44, label %45
 
-42:                                               ; preds = %39
+44:                                               ; preds = %41
   store i32 6, ptr %20, align 8
-  %43 = load i8, ptr %41, align 4
-  %44 = and i8 %43, -2
-  store i8 %44, ptr %41, align 4
+  %45 = load i8, ptr %43, align 4
+  %46 = and i8 %45, -2
+  store i8 %46, ptr %43, align 4
   br label %48
 
 45:                                               ; preds = %39
@@ -679,7 +679,7 @@ define internal fastcc noundef zeroext i1 @snoop_read_shomiti_wireless_pseudohea
   store i32 %49, ptr %4, align 4
   br label %50
 
-50:                                               ; preds = %15, %5, %48, %13
+47:                                               ; preds = %15, %5, %48, %13
   %.0 = phi i1 [ false, %13 ], [ true, %48 ], [ false, %5 ], [ false, %15 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #8
   ret i1 %.0

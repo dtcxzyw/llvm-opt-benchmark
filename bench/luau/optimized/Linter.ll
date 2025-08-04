@@ -18219,11 +18219,11 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau22LintDuplicateConditi
   %5 = load i32, ptr %4, align 4, !tbaa !463
   %6 = and i32 %5, -2
   %switch32 = icmp ne i32 %6, 14
-  br i1 %switch32, label %101, label %7
+  br i1 %switch32, label %102, label %7
 
 7:                                                ; preds = %2
   %8 = icmp eq i32 %5, 15
-  br i1 %8, label %9, label %.thread
+  br i1 %8, label %9, label %_ZNSt12_Vector_baseIPN4Luau7AstExprESaIS2_EE11_M_allocateEm.exit.i
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -18234,13 +18234,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau22LintDuplicateConditi
   %15 = icmp ne i32 %13, %14
   %.not2940 = icmp eq ptr %11, null
   %.not29 = or i1 %.not2940, %15
-  br i1 %.not29, label %.thread, label %16
+  br i1 %.not29, label %_ZNSt12_Vector_baseIPN4Luau7AstExprESaIS2_EE11_M_allocateEm.exit.i, label %16
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %18 = load i32, ptr %17, align 4, !tbaa !463
   %19 = icmp eq i32 %18, 14
-  br i1 %19, label %20, label %.thread
+  br i1 %19, label %20, label %_ZNSt12_Vector_baseIPN4Luau7AstExprESaIS2_EE11_M_allocateEm.exit.i
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -18261,7 +18261,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau22LintDuplicateConditi
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 28
   %32 = load i32, ptr %31, align 4, !tbaa !463
   %33 = icmp eq i32 %32, 14
-  br i1 %33, label %.thread, label %34
+  br i1 %33, label %_ZNSt12_Vector_baseIPN4Luau7AstExprESaIS2_EE11_M_allocateEm.exit.i, label %34
 
 34:                                               ; preds = %30, %20
   br i1 %.not, label %35, label %39
@@ -18270,7 +18270,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau22LintDuplicateConditi
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 28
   %37 = load i32, ptr %36, align 4, !tbaa !463
   %38 = icmp eq i32 %37, 14
-  br i1 %38, label %.thread, label %39
+  br i1 %38, label %_ZNSt12_Vector_baseIPN4Luau7AstExprESaIS2_EE11_M_allocateEm.exit.i, label %39
 
 39:                                               ; preds = %34, %35
   %40 = load ptr, ptr %22, align 8, !tbaa !40
@@ -18285,16 +18285,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau22LintDuplicateConditi
   %47 = load ptr, ptr %46, align 8, !tbaa !40
   %48 = load ptr, ptr %47, align 8
   tail call void %48(ptr noundef nonnull align 8 dereferenceable(28) %46, ptr noundef nonnull %0)
-  br label %101
+  br label %102
 
-.thread:                                          ; preds = %9, %16, %30, %35, %7
+_ZNSt12_Vector_baseIPN4Luau7AstExprESaIS2_EE11_M_allocateEm.exit.i: ; preds = %9, %16, %30, %35, %7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %50 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #29
           to label %.noexc unwind label %.loopexit.split-lp
 
-.noexc:                                           ; preds = %.thread
+_ZNSt6vectorIPN4Luau7AstExprESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstExprESaIS2_EE11_M_allocateEm.exit.i
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %50, ptr %3, align 8, !tbaa !709
   store ptr %50, ptr %51, align 8, !tbaa !711
@@ -18303,60 +18303,60 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau22LintDuplicateConditi
   invoke void @_ZN4Luau22LintDuplicateCondition14extractOpChainERSt6vectorIPNS_7AstExprESaIS3_EES3_NS_13AstExprBinary2OpE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %1, i32 noundef %5)
           to label %53 unwind label %.loopexit.split-lp
 
-53:                                               ; preds = %.noexc
+53:                                               ; preds = %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EE7reserveEm.exit
   %54 = load ptr, ptr %51, align 8, !tbaa !711
   %55 = load ptr, ptr %3, align 8, !tbaa !709
   %.not.i = icmp eq ptr %54, %55
   br i1 %.not.i, label %_ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit, label %.lr.ph34.i
 
 .lr.ph34.i:                                       ; preds = %53
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %57
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %58
 
-57:                                               ; preds = %.loopexit.i, %.lr.ph34.i
-  %58 = phi ptr [ %55, %.lr.ph34.i ], [ %.pr, %.loopexit.i ]
-  %59 = phi ptr [ %54, %.lr.ph34.i ], [ %81, %.loopexit.i ]
-  %storemerge32.i = phi i64 [ 0, %.lr.ph34.i ], [ %82, %.loopexit.i ]
-  %60 = call i64 @llvm.usub.sat.i64(i64 %storemerge32.i, i64 5)
-  %61 = icmp ult i64 %60, %storemerge32.i
-  br i1 %61, label %.lr.ph.i, label %.loopexit.i
+58:                                               ; preds = %.loopexit.i, %.lr.ph34.i
+  %59 = phi ptr [ %55, %.lr.ph34.i ], [ %.pr, %.loopexit.i ]
+  %60 = phi ptr [ %54, %.lr.ph34.i ], [ %82, %.loopexit.i ]
+  %storemerge32.i = phi i64 [ 0, %.lr.ph34.i ], [ %83, %.loopexit.i ]
+  %61 = call i64 @llvm.usub.sat.i64(i64 %storemerge32.i, i64 5)
+  %62 = icmp ult i64 %61, %storemerge32.i
+  br i1 %62, label %.lr.ph.i, label %.loopexit.i
 
-.lr.ph.i:                                         ; preds = %57
-  %62 = getelementptr inbounds nuw ptr, ptr %58, i64 %storemerge32.i
-  %63 = load ptr, ptr %62, align 8, !tbaa !329
-  br label %66
+.lr.ph.i:                                         ; preds = %58
+  %63 = getelementptr inbounds nuw ptr, ptr %59, i64 %storemerge32.i
+  %64 = load ptr, ptr %63, align 8, !tbaa !329
+  br label %67
 
-64:                                               ; preds = %66
-  %65 = add i64 %.031.i, 1
-  %exitcond.not.i = icmp eq i64 %65, %storemerge32.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %66, !llvm.loop !713
+65:                                               ; preds = %67
+  %66 = add i64 %.031.i, 1
+  %exitcond.not.i = icmp eq i64 %66, %storemerge32.i
+  br i1 %exitcond.not.i, label %.loopexit.i, label %67, !llvm.loop !713
 
-66:                                               ; preds = %64, %.lr.ph.i
-  %.031.i = phi i64 [ %60, %.lr.ph.i ], [ %65, %64 ]
-  %67 = getelementptr inbounds nuw ptr, ptr %58, i64 %.031.i
-  %68 = load ptr, ptr %67, align 8, !tbaa !329
-  %69 = call fastcc noundef zeroext i1 @_ZN4LuauL7similarEPNS_7AstExprES1_(ptr noundef %68, ptr noundef %63)
-  br i1 %69, label %70, label %64
+67:                                               ; preds = %65, %.lr.ph.i
+  %.031.i = phi i64 [ %61, %.lr.ph.i ], [ %66, %64 ]
+  %68 = getelementptr inbounds nuw ptr, ptr %59, i64 %.031.i
+  %69 = load ptr, ptr %68, align 8, !tbaa !329
+  %70 = call fastcc noundef zeroext i1 @_ZN4LuauL7similarEPNS_7AstExprES1_(ptr noundef %69, ptr noundef %64)
+  br i1 %70, label %71, label %65
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %63, i64 12
-  %72 = load i32, ptr %71, align 4, !tbaa !291
-  %73 = getelementptr inbounds nuw i8, ptr %68, i64 12
-  %74 = load i32, ptr %73, align 4, !tbaa !291
-  %75 = icmp eq i32 %72, %74
-  %76 = load ptr, ptr %56, align 8, !tbaa !239
-  br i1 %75, label %77, label %.loopexit.sink.split.i
+71:                                               ; preds = %67
+  %72 = getelementptr inbounds nuw i8, ptr %64, i64 12
+  %73 = load i32, ptr %72, align 4, !tbaa !291
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 12
+  %75 = load i32, ptr %74, align 4, !tbaa !291
+  %76 = icmp eq i32 %73, %75
+  %77 = load ptr, ptr %57, align 8, !tbaa !239
+  br i1 %76, label %78, label %.loopexit.sink.split.i
 
-77:                                               ; preds = %70
-  %78 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  %79 = load i32, ptr %78, align 4, !tbaa !714
+78:                                               ; preds = %71
+  %79 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  %80 = load i32, ptr %79, align 4, !tbaa !714
   br label %.loopexit.sink.split.i
 
-.loopexit.sink.split.i:                           ; preds = %77, %70
-  %.sink37.i = phi i32 [ %79, %77 ], [ %74, %70 ]
+.loopexit.sink.split.i:                           ; preds = %78, %71
+  %.sink37.i = phi i32 [ %80, %77 ], [ %75, %70 ]
   %.str.197.sink.i = phi ptr [ @.str.197, %77 ], [ @.str.198, %70 ]
-  %80 = add i32 %.sink37.i, 1
-  invoke void (ptr, i32, ptr, ptr, ...) @_ZN4LuauL11emitWarningERNS_11LintContextENS_11LintWarning4CodeERKNS_8LocationEPKcz(ptr noundef nonnull align 8 dereferenceable(112) %76, i32 noundef 24, ptr noundef nonnull align 4 dereferenceable(16) %71, ptr noundef nonnull %.str.197.sink.i, i32 noundef %80)
+  %81 = add i32 %.sink37.i, 1
+  invoke void (ptr, i32, ptr, ptr, ...) @_ZN4LuauL11emitWarningERNS_11LintContextENS_11LintWarning4CodeERKNS_8LocationEPKcz(ptr noundef nonnull align 8 dereferenceable(112) %77, i32 noundef 24, ptr noundef nonnull align 4 dereferenceable(16) %72, ptr noundef nonnull %.str.197.sink.i, i32 noundef %81)
           to label %.loopexit.sink.split.i..loopexit.i_crit_edge unwind label %.loopexit
 
 .loopexit.sink.split.i..loopexit.i_crit_edge:     ; preds = %.loopexit.sink.split.i
@@ -18364,63 +18364,63 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau22LintDuplicateConditi
   %.pre45 = load ptr, ptr %3, align 8, !tbaa !709
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %64, %.loopexit.sink.split.i..loopexit.i_crit_edge, %57
-  %.pr = phi ptr [ %.pre45, %.loopexit.sink.split.i..loopexit.i_crit_edge ], [ %58, %57 ], [ %58, %64 ]
-  %81 = phi ptr [ %.pre, %.loopexit.sink.split.i..loopexit.i_crit_edge ], [ %59, %57 ], [ %59, %64 ]
-  %82 = add nuw i64 %storemerge32.i, 1
-  %83 = ptrtoint ptr %81 to i64
-  %84 = ptrtoint ptr %.pr to i64
-  %85 = sub i64 %83, %84
-  %86 = ashr exact i64 %85, 3
-  %87 = icmp ult i64 %82, %86
-  br i1 %87, label %57, label %_ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit, !llvm.loop !715
+.loopexit.i:                                      ; preds = %65, %.loopexit.sink.split.i..loopexit.i_crit_edge, %58
+  %.pr = phi ptr [ %.pre45, %.loopexit.sink.split.i..loopexit.i_crit_edge ], [ %59, %57 ], [ %59, %64 ]
+  %82 = phi ptr [ %.pre, %.loopexit.sink.split.i..loopexit.i_crit_edge ], [ %60, %57 ], [ %60, %64 ]
+  %83 = add nuw i64 %storemerge32.i, 1
+  %84 = ptrtoint ptr %82 to i64
+  %85 = ptrtoint ptr %.pr to i64
+  %86 = sub i64 %84, %85
+  %87 = ashr exact i64 %86, 3
+  %88 = icmp ult i64 %83, %87
+  br i1 %88, label %58, label %_ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit, !llvm.loop !715
 
 _ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit: ; preds = %.loopexit.i, %53
-  %88 = phi ptr [ %55, %53 ], [ %.pr, %.loopexit.i ]
-  %.not.i.i.i = icmp eq ptr %88, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit, label %89
+  %89 = phi ptr [ %55, %53 ], [ %.pr, %.loopexit.i ]
+  %.not.i.i.i = icmp eq ptr %89, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit, label %90
 
-89:                                               ; preds = %_ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit
-  %90 = load ptr, ptr %49, align 8, !tbaa !712
-  %91 = ptrtoint ptr %90 to i64
-  %92 = ptrtoint ptr %88 to i64
-  %93 = sub i64 %91, %92
-  call void @_ZdlPvm(ptr noundef nonnull %88, i64 noundef %93) #30
+90:                                               ; preds = %_ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit
+  %91 = load ptr, ptr %49, align 8, !tbaa !712
+  %92 = ptrtoint ptr %91 to i64
+  %93 = ptrtoint ptr %89 to i64
+  %94 = sub i64 %92, %93
+  call void @_ZdlPvm(ptr noundef nonnull %89, i64 noundef %94) #30
   br label %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit:   ; preds = %_ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit, %89
+_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit:   ; preds = %_ZN4Luau22LintDuplicateCondition16detectDuplicatesERKSt6vectorIPNS_7AstExprESaIS3_EE.exit, %90
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #26
-  br label %101
+  br label %102
 
 .loopexit:                                        ; preds = %.loopexit.sink.split.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %94
+  br label %95
 
-.loopexit.split-lp:                               ; preds = %.noexc, %.thread
+.loopexit.split-lp:                               ; preds = %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EE7reserveEm.exit, %_ZNSt12_Vector_baseIPN4Luau7AstExprESaIS2_EE11_M_allocateEm.exit.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %94
+  br label %95
 
-94:                                               ; preds = %.loopexit.split-lp, %.loopexit
+95:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %95 = load ptr, ptr %3, align 8, !tbaa !709
-  %.not.i.i.i36 = icmp eq ptr %95, null
-  br i1 %.not.i.i.i36, label %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit37, label %96
+  %96 = load ptr, ptr %3, align 8, !tbaa !709
+  %.not.i.i.i36 = icmp eq ptr %96, null
+  br i1 %.not.i.i.i36, label %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit37, label %97
 
-96:                                               ; preds = %94
-  %97 = load ptr, ptr %49, align 8, !tbaa !712
-  %98 = ptrtoint ptr %97 to i64
-  %99 = ptrtoint ptr %95 to i64
-  %100 = sub i64 %98, %99
-  call void @_ZdlPvm(ptr noundef nonnull %95, i64 noundef %100) #30
+97:                                               ; preds = %95
+  %98 = load ptr, ptr %49, align 8, !tbaa !712
+  %99 = ptrtoint ptr %98 to i64
+  %100 = ptrtoint ptr %96 to i64
+  %101 = sub i64 %99, %100
+  call void @_ZdlPvm(ptr noundef nonnull %96, i64 noundef %101) #30
   br label %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit37
 
-_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit37: ; preds = %94, %96
+_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit37: ; preds = %95, %97
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #26
   resume { ptr, i32 } %lpad.phi
 
-101:                                              ; preds = %39, %2, %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit
+102:                                              ; preds = %39, %2, %_ZNSt6vectorIPN4Luau7AstExprESaIS2_EED2Ev.exit
   ret i1 %switch32
 }
 

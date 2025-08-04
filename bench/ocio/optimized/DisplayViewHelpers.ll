@@ -570,8 +570,8 @@ thread-pre-split:                                 ; preds = %_ZN19OpenColorIO_v2
   br label %156
 
 156:                                              ; preds = %thread-pre-split, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_25ExposureContrastTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread134
-  %157 = phi ptr [ %.pr, %thread-pre-split ], [ null, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_25ExposureContrastTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread134 ]
-  %.227 = phi i1 [ %.227.ph, %thread-pre-split ], [ %.126127, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_25ExposureContrastTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread134 ]
+  %.227 = phi ptr [ %.pr, %thread-pre-split ], [ null, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_25ExposureContrastTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread134 ]
+  %.224 = phi i1 [ %.227.ph, %thread-pre-split ], [ %.126127, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_25ExposureContrastTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread134 ]
   %.224 = phi i1 [ %.224.ph, %thread-pre-split ], [ %.123128, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_25ExposureContrastTransformEKNS_9TransformEEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread134 ]
   %.not.i.i58 = icmp eq ptr %157, null
   br i1 %.not.i.i58, label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev25ExposureContrastTransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %158

@@ -15252,11 +15252,11 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br i1 %.not237.us, label %.loopexit250, label %623, !llvm.loop !343
 
 .lr.ph303.splitthread-pre-split:                  ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN5folly10LogHandlerEEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_.exit
-  %.pr372 = load i64, ptr %87, align 8, !tbaa !340
+  %.pr370 = load i64, ptr %87, align 8, !tbaa !340
   br label %.lr.ph303.split
 
 .lr.ph303.split:                                  ; preds = %.lr.ph303, %.lr.ph303.splitthread-pre-split
-  %638 = phi i64 [ %.pr372, %.lr.ph303.splitthread-pre-split ], [ %621, %.lr.ph303 ]
+  %638 = phi i64 [ %.pr370, %.lr.ph303.splitthread-pre-split ], [ %621, %.lr.ph303 ]
   %.sroa.0187.0302 = phi ptr [ %712, %.lr.ph303.splitthread-pre-split ], [ %618, %.lr.ph303 ]
   %.not.i = icmp ugt i64 %638, 20
   br i1 %.not.i, label %653, label %639

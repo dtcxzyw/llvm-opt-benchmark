@@ -5385,7 +5385,7 @@ _ZNSt3mapIhjSt4lessIhESaISt4pairIKhjEEE4findERS3_.exit: ; preds = %_ZNSt8_Rb_tre
 38:                                               ; preds = %_ZNSt3mapIhjSt4lessIhESaISt4pairIKhjEEE4findERS3_.exit
   %39 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 36
   %40 = load i32, ptr %39, align 4
-  br label %57
+  br label %59
 
 _ZNSt3mapIhjSt4lessIhESaISt4pairIKhjEEE4findERS3_.exit.thread: ; preds = %_ZNSt3mapIjS_IhjSt4lessIhESaISt4pairIKhjEEES0_IjESaIS2_IKjS6_EEEixERS8_.exit, %_ZNSt8_Rb_treeIhSt4pairIKhjESt10_Select1stIS2_ESt4lessIhESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNSt3mapIhjSt4lessIhESaISt4pairIKhjEEE4findERS3_.exit
   %41 = load ptr, ptr %12, align 8
@@ -5404,16 +5404,16 @@ _ZNSt3mapIhjSt4lessIhESaISt4pairIKhjEEE4findERS3_.exit.thread: ; preds = %_ZNSt3
   %51 = load ptr, ptr %50, align 8
   call void %51(ptr noundef nonnull align 8 dereferenceable(8) %12, i32 noundef %44, ptr noundef nonnull align 8 dereferenceable(32) %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #23
-  %52 = load i32, ptr %2, align 4
-  %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 48
-  %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %52, i32 noundef %44)
-  %56 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIhjSt4lessIhESaISt4pairIKhjEEEixERS3_(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 1 dereferenceable(1) %7)
-  store i32 %44, ptr %56, align 4
-  br label %57
+  %54 = load i32, ptr %2, align 4
+  %55 = load ptr, ptr %0, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 48
+  %57 = load ptr, ptr %56, align 8
+  call void %55(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %54, i32 noundef %44)
+  %58 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIhjSt4lessIhESaISt4pairIKhjEEEixERS3_(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  store i32 %44, ptr %58, align 4
+  br label %59
 
-57:                                               ; preds = %_ZNSt3mapIhjSt4lessIhESaISt4pairIKhjEEE4findERS3_.exit.thread, %38
+59:                                               ; preds = %_ZNSt3mapIhjSt4lessIhESaISt4pairIKhjEEE4findERS3_.exit.thread, %38
   %.0 = phi i32 [ %40, %38 ], [ %44, %_ZNSt3mapIhjSt4lessIhESaISt4pairIKhjEEE4findERS3_.exit.thread ]
   ret i32 %.0
 }

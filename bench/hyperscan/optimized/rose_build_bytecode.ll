@@ -27410,7 +27410,7 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGrap
           to label %.noexc241 unwind label %.loopexit385
 
 .noexc241:                                        ; preds = %.lr.ph.i198
-  br i1 %1389, label %_ZN3ue2L21checkSuitableForEagerEbRKNS_7left_idERKNS_13RoseBuildImplERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISE_EEyyRNS_10eager_infoERKNS_14CompileContextE.exit.threadthread-pre-split, label %1390
+  br i1 %1389, label %_ZN3ue2L21checkSuitableForEagerEbRKNS_7left_idERKNS_13RoseBuildImplERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISE_EEyyRNS_10eager_infoERKNS_14CompileContextE.exit.thread, label %1390
 
 1390:                                             ; preds = %.noexc241
   %1391 = getelementptr inbounds nuw i8, ptr %.sroa.017.0.copyload.i, i64 24
@@ -27449,7 +27449,7 @@ _ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit.i: 
   %1409 = load i32, ptr %1353, align 8, !noalias !408
   %1410 = load i32, ptr %1408, align 4, !noalias !408
   %.not105.i = icmp ult i32 %1409, %1410
-  br i1 %.not105.i, label %.critedge.i, label %_ZN3ue2L21checkSuitableForEagerEbRKNS_7left_idERKNS_13RoseBuildImplERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISE_EEyyRNS_10eager_infoERKNS_14CompileContextE.exit.threadthread-pre-split
+  br i1 %.not105.i, label %.critedge.i, label %_ZN3ue2L21checkSuitableForEagerEbRKNS_7left_idERKNS_13RoseBuildImplERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISE_EEyyRNS_10eager_infoERKNS_14CompileContextE.exit.thread
 
 .critedge.i:                                      ; preds = %_ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit.i, %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb1EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i.i
   %1411 = getelementptr inbounds nuw i8, ptr %.sroa.099.0137.i, i64 16
@@ -27466,7 +27466,7 @@ _ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit.i: 
   %1415 = getelementptr inbounds nuw i8, ptr %1413, i64 42
   %1416 = load i16, ptr %1415, align 2
   %.not64.i = icmp eq i16 %1416, 0
-  br i1 %.not64.i, label %1417, label %_ZN3ue2L21checkSuitableForEagerEbRKNS_7left_idERKNS_13RoseBuildImplERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISE_EEyyRNS_10eager_infoERKNS_14CompileContextE.exit.threadthread-pre-split
+  br i1 %.not64.i, label %1417, label %_ZN3ue2L21checkSuitableForEagerEbRKNS_7left_idERKNS_13RoseBuildImplERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISE_EEyyRNS_10eager_infoERKNS_14CompileContextE.exit.thread
 
 1417:                                             ; preds = %1414
   %1418 = getelementptr inbounds nuw i8, ptr %1413, i64 16
@@ -27477,14 +27477,14 @@ _ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit.i: 
   %1423 = getelementptr inbounds nuw %"struct.ue2::dstate", ptr %1422, i64 %1421, i32 4, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %1424 = load i64, ptr %1423, align 8
   %.not.i.i75.i = icmp eq i64 %1424, 0
-  br i1 %.not.i.i75.i, label %1425, label %_ZN3ue2L21checkSuitableForEagerEbRKNS_7left_idERKNS_13RoseBuildImplERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISE_EEyyRNS_10eager_infoERKNS_14CompileContextE.exit.threadthread-pre-split
+  br i1 %.not.i.i75.i, label %1425, label %_ZN3ue2L21checkSuitableForEagerEbRKNS_7left_idERKNS_13RoseBuildImplERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISE_EEyyRNS_10eager_infoERKNS_14CompileContextE.exit.thread
 
 1425:                                             ; preds = %1417
   %1426 = invoke noundef zeroext i1 @_ZN3ue213can_die_earlyERKNS_7raw_dfaEj(ptr noundef nonnull align 8 dereferenceable(560) %1413, i32 noundef 10)
           to label %.noexc242 unwind label %.loopexit.split-lp386
 
 .noexc242:                                        ; preds = %1425
-  br i1 %1426, label %.critedge68.i, label %_ZN3ue2L21checkSuitableForEagerEbRKNS_7left_idERKNS_13RoseBuildImplERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISE_EEyyRNS_10eager_infoERKNS_14CompileContextE.exit.threadthread-pre-split
+  br i1 %1426, label %.critedge68.i, label %_ZN3ue2L21checkSuitableForEagerEbRKNS_7left_idERKNS_13RoseBuildImplERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISE_EEyyRNS_10eager_infoERKNS_14CompileContextE.exit.thread
 
 .critedge68.i:                                    ; preds = %.noexc242
   %1427 = load ptr, ptr %1381, align 8
@@ -27566,7 +27566,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i:
 1459:                                             ; preds = %.critedge66.i
   %1460 = load ptr, ptr %.sroa.0348.0583, align 8
   %.not59.i = icmp eq ptr %1460, null
-  br i1 %.not59.i, label %_ZN3ue2L21checkSuitableForEagerEbRKNS_7left_idERKNS_13RoseBuildImplERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISE_EEyyRNS_10eager_infoERKNS_14CompileContextE.exit.threadthread-pre-split, label %1461
+  br i1 %.not59.i, label %_ZN3ue2L21checkSuitableForEagerEbRKNS_7left_idERKNS_13RoseBuildImplERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISE_EEyyRNS_10eager_infoERKNS_14CompileContextE.exit.thread, label %1461
 
 1461:                                             ; preds = %1459
   %1462 = getelementptr inbounds nuw i8, ptr %1460, i64 88
@@ -27614,7 +27614,7 @@ _ZN3ue217proper_out_degreeINS_8NGHolderEEEmRKNT_17vertex_descriptorERKS2_.exit.i
   %.sroa.7.0.neg.i.i = phi i64 [ -1, %1470 ], [ 0, %.critedge.i.i.i.i ], [ -1, %1476 ], [ 0, %.critedge24.i.i.i.i ]
   %1480 = sub i64 0, %1464
   %.not60.i = icmp eq i64 %.sroa.7.0.neg.i.i, %1480
-  br i1 %.not60.i, label %1481, label %_ZN3ue2L21checkSuitableForEagerEbRKNS_7left_idERKNS_13RoseBuildImplERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISE_EEyyRNS_10eager_infoERKNS_14CompileContextE.exit.threadthread-pre-split
+  br i1 %.not60.i, label %1481, label %_ZN3ue2L21checkSuitableForEagerEbRKNS_7left_idERKNS_13RoseBuildImplERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISE_EEyyRNS_10eager_infoERKNS_14CompileContextE.exit.thread
 
 1481:                                             ; preds = %_ZN3ue217proper_out_degreeINS_8NGHolderEEEmRKNT_17vertex_descriptorERKS2_.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #27
@@ -28782,7 +28782,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %1963, %196
 
 _ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1944, %1951, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %1966
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #27
-  br i1 %.not63.not.i, label %_ZN3ue2L21checkSuitableForEagerEbRKNS_7left_idERKNS_13RoseBuildImplERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISE_EEyyRNS_10eager_infoERKNS_14CompileContextE.exit.threadthread-pre-split, label %_ZN3ue2L21checkSuitableForEagerEbRKNS_7left_idERKNS_13RoseBuildImplERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISE_EEyyRNS_10eager_infoERKNS_14CompileContextE.exit
+  br i1 %.not63.not.i, label %_ZN3ue2L21checkSuitableForEagerEbRKNS_7left_idERKNS_13RoseBuildImplERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISE_EEyyRNS_10eager_infoERKNS_14CompileContextE.exit.thread, label %_ZN3ue2L21checkSuitableForEagerEbRKNS_7left_idERKNS_13RoseBuildImplERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISE_EEyyRNS_10eager_infoERKNS_14CompileContextE.exit
 
 1967:                                             ; preds = %1941
   %1968 = landingpad { ptr, i32 }
@@ -28846,7 +28846,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %1987, %1
 
 _ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; preds = %1990, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %1975, %.critedge70.critedge.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #27
-  br label %_ZN3ue2L21checkSuitableForEagerEbRKNS_7left_idERKNS_13RoseBuildImplERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISE_EEyyRNS_10eager_infoERKNS_14CompileContextE.exit.threadthread-pre-split
+  br label %_ZN3ue2L21checkSuitableForEagerEbRKNS_7left_idERKNS_13RoseBuildImplERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISE_EEyyRNS_10eager_infoERKNS_14CompileContextE.exit.thread
 
 _ZN3ue2L21checkSuitableForEagerEbRKNS_7left_idERKNS_13RoseBuildImplERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISE_EEyyRNS_10eager_infoERKNS_14CompileContextE.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i, %.critedge68.i, %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %1991 = invoke noundef nonnull align 8 dereferenceable(20) ptr @_ZNSt3mapIN3ue27left_idENS0_10eager_infoESt4lessIS1_ESaISt4pairIKS1_S2_EEEixERS6_(ptr noundef nonnull align 8 dereferenceable(48) %61, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0348.0583)
@@ -28943,7 +28943,7 @@ _ZN3ue210eager_infoaSERKS0_.exit:                 ; preds = %1992, %_ZNSt16_Sp_c
   %2029 = getelementptr inbounds nuw i8, ptr %1991, i64 16
   store i32 %2028, ptr %2029, align 8
   %2030 = and i64 %1382, %.097584
-  br label %_ZN3ue2L21checkSuitableForEagerEbRKNS_7left_idERKNS_13RoseBuildImplERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISE_EEyyRNS_10eager_infoERKNS_14CompileContextE.exit.threadthread-pre-split
+  br label %_ZN3ue2L21checkSuitableForEagerEbRKNS_7left_idERKNS_13RoseBuildImplERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISE_EEyyRNS_10eager_infoERKNS_14CompileContextE.exit.thread
 
 .loopexit390:                                     ; preds = %1376
   %lpad.loopexit392 = landingpad { ptr, i32 }
@@ -28971,9 +28971,9 @@ _ZN3ue210eager_infoaSERKS0_.exit:                 ; preds = %1992, %_ZNSt16_Sp_c
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %62) #27
   br label %.body318
 
-_ZN3ue2L21checkSuitableForEagerEbRKNS_7left_idERKNS_13RoseBuildImplERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISE_EEyyRNS_10eager_infoERKNS_14CompileContextE.exit.threadthread-pre-split: ; preds = %_ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit.i, %.noexc241, %_ZN3ue210eager_infoaSERKS0_.exit, %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %.noexc242, %1417, %1414, %1459, %_ZN3ue217proper_out_degreeINS_8NGHolderEEEmRKNT_17vertex_descriptorERKS2_.exit.i, %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
-  %.198.ph = phi i64 [ %.097584, %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i ], [ %.097584, %_ZN3ue217proper_out_degreeINS_8NGHolderEEEmRKNT_17vertex_descriptorERKS2_.exit.i ], [ %.097584, %1459 ], [ %.097584, %1414 ], [ %.097584, %1417 ], [ %.097584, %.noexc242 ], [ %.097584, %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %2030, %_ZN3ue210eager_infoaSERKS0_.exit ], [ %.097584, %.noexc241 ], [ %.097584, %_ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit.i ]
-  %.pr = load ptr, ptr %1354, align 8
+_ZN3ue2L21checkSuitableForEagerEbRKNS_7left_idERKNS_13RoseBuildImplERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISE_EEyyRNS_10eager_infoERKNS_14CompileContextE.exit.thread: ; preds = %_ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit.i, %.noexc241, %_ZN3ue210eager_infoaSERKS0_.exit, %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %.noexc242, %1417, %1414, %1459, %_ZN3ue217proper_out_degreeINS_8NGHolderEEEmRKNT_17vertex_descriptorERKS2_.exit.i, %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
+  %.198 = phi i64 [ %.097584, %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i ], [ %.097584, %_ZN3ue217proper_out_degreeINS_8NGHolderEEEmRKNT_17vertex_descriptorERKS2_.exit.i ], [ %.097584, %1459 ], [ %.097584, %1414 ], [ %.097584, %1417 ], [ %.097584, %.noexc242 ], [ %.097584, %_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %2030, %_ZN3ue210eager_infoaSERKS0_.exit ], [ %.097584, %.noexc241 ], [ %.097584, %_ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit.i ]
+  %2031 = load ptr, ptr %1354, align 8
   br label %_ZN3ue2L21checkSuitableForEagerEbRKNS_7left_idERKNS_13RoseBuildImplERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISE_EEyyRNS_10eager_infoERKNS_14CompileContextE.exit.thread
 
 _ZN3ue2L21checkSuitableForEagerEbRKNS_7left_idERKNS_13RoseBuildImplERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISE_EEyyRNS_10eager_infoERKNS_14CompileContextE.exit.thread: ; preds = %_ZN3ue2L21checkSuitableForEagerEbRKNS_7left_idERKNS_13RoseBuildImplERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISE_EEyyRNS_10eager_infoERKNS_14CompileContextE.exit.threadthread-pre-split, %1379

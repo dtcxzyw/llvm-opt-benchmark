@@ -1199,7 +1199,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   invoke void @_ZN8QuantLib6TARGETC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp36)
           to label %invoke.cont38 unwind label %lpad37
 
-invoke.cont38:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+_ZN8QuantLib8CalendarD2Ev.exit120:                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %50 = load ptr, ptr %ref.tmp36, align 8, !tbaa !52
   store ptr %50, ptr %target_, align 8, !tbaa !52
   %pn.i.i103 = getelementptr inbounds nuw i8, ptr %this, i64 280
@@ -1212,7 +1212,7 @@ invoke.cont38:                                    ; preds = %_ZNSt7__cxx1112basi
   %cmp.not = icmp ult i64 %retval.sroa.0.0.copyload.i, 4294967296
   br i1 %cmp.not, label %if.then, label %do.end
 
-if.then:                                          ; preds = %invoke.cont38
+if.then:                                          ; preds = %_ZN8QuantLib8CalendarD2Ev.exit120
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream) #21
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream)
           to label %invoke.cont48 unwind label %lpad47
@@ -1493,7 +1493,7 @@ ehcleanup86:                                      ; preds = %ehcleanup85, %lpad4
   call void @_ZN8QuantLib8CalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %target_) #21
   br label %ehcleanup88
 
-do.end:                                           ; preds = %invoke.cont38
+do.end:                                           ; preds = %_ZN8QuantLib8CalendarD2Ev.exit120
   ret void
 
 ehcleanup88:                                      ; preds = %ehcleanup86, %lpad37
@@ -1917,7 +1917,7 @@ lpad.i.body:                                      ; preds = %lpad5.i.i
   call void @_ZN5boost6detail12shared_countD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %pn.i) #21
   resume { ptr, i32 } %2
 
-_ZN5boost10shared_ptrIN8QuantLib10DayCounter4ImplEEC2INS1_9Actual3604ImplEEEPT_.exit: ; preds = %entry
+_ZN5boost10shared_ptrIN8QuantLib10DayCounter4ImplEED2Ev.exit: ; preds = %entry
   %use_count_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store i32 1, ptr %use_count_.i.i.i.i, align 8, !tbaa !59
   %weak_count_.i.i.i.i3 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12

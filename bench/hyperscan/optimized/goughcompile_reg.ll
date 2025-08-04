@@ -6528,14 +6528,14 @@ _ZN5boost9container12small_vectorIjLm1ESaIjEvEaSEOS3_.exit: ; preds = %_ZN5boost
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %48 = icmp eq ptr %47, %46
   %or.cond.i.i.i.i7 = select i1 %.not.i.i.i.i6, i1 true, i1 %48
-  br i1 %or.cond.i.i.i.i7, label %_ZN5boost9container12small_vectorIjLm1ESaIjEvEaSEOS3_.exit10.thread, label %49, !prof !285
+  br i1 %or.cond.i.i.i.i7, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPjm.exit.i.i.i.i8, label %49, !prof !285
 
 49:                                               ; preds = %44
   call void @_ZdlPv(ptr noundef nonnull %46) #24
   %.pre = load ptr, ptr %3, align 8
-  br label %_ZN5boost9container12small_vectorIjLm1ESaIjEvEaSEOS3_.exit10.thread
+  br label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPjm.exit.i.i.i.i8
 
-_ZN5boost9container12small_vectorIjLm1ESaIjEvEaSEOS3_.exit10.thread: ; preds = %44, %49
+_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPjm.exit.i.i.i.i8: ; preds = %44, %49
   %50 = phi ptr [ %43, %44 ], [ %.pre, %49 ]
   store ptr %50, ptr %1, align 8
   %51 = load i64, ptr %5, align 8
@@ -6563,20 +6563,20 @@ _ZN5boost9container12small_vectorIjLm1ESaIjEvEaSEOS3_.exit10.thread: ; preds = %
   unreachable
 
 _ZN5boost9container12small_vectorIjLm1ESaIjEvEaSEOS3_.exit10: ; preds = %_ZN5boost9container12small_vectorIjLm1ESaIjEvEaSEOS3_.exit, %.noexc.i.i.i9
-  %.pr = load i64, ptr %6, align 8
-  %.not.i.i11 = icmp eq i64 %.pr, 0
-  br i1 %.not.i.i11, label %_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvED2Ev.exit, label %60
+  %60 = load i64, ptr %6, align 8
+  %.not.i.i11 = icmp eq i64 %60, 0
+  br i1 %.not.i.i11, label %_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvED2Ev.exit, label %61
 
-60:                                               ; preds = %_ZN5boost9container12small_vectorIjLm1ESaIjEvEaSEOS3_.exit10
-  %61 = load ptr, ptr %3, align 8
-  %62 = icmp eq ptr %4, %61
-  br i1 %62, label %_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvED2Ev.exit, label %63
+61:                                               ; preds = %_ZN5boost9container12small_vectorIjLm1ESaIjEvEaSEOS3_.exit10
+  %62 = load ptr, ptr %3, align 8
+  %63 = icmp eq ptr %4, %62
+  br i1 %63, label %_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvED2Ev.exit, label %64
 
-63:                                               ; preds = %60
-  call void @_ZdlPv(ptr noundef %61) #24
+64:                                               ; preds = %61
+  call void @_ZdlPv(ptr noundef %62) #24
   br label %_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvED2Ev.exit
 
-_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvED2Ev.exit: ; preds = %_ZN5boost9container12small_vectorIjLm1ESaIjEvEaSEOS3_.exit10.thread, %_ZN5boost9container12small_vectorIjLm1ESaIjEvEaSEOS3_.exit10, %60, %63
+_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvED2Ev.exit: ; preds = %_ZN5boost9container12small_vectorIjLm1ESaIjEvEaSEOS3_.exit10.thread, %_ZN5boost9container12small_vectorIjLm1ESaIjEvEaSEOS3_.exit10, %61, %64
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #22
   ret void
 }

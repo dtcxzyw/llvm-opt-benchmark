@@ -1179,9 +1179,9 @@ define void @_ZN6icu_7716PluralRuleParser5parseERKNS_13UnicodeStringEPNS_11Plura
 .critedge:                                        ; preds = %43
   %24 = load i32, ptr %14, align 8, !tbaa !47
   store i32 %24, ptr %23, align 4, !tbaa !48
-  br label %.backedge206
+  br label %.backedge205
 
-25:                                               ; preds = %.backedge206, %11
+25:                                               ; preds = %.backedge205, %11
   %26 = load i32, ptr %13, align 8, !tbaa !49
   %27 = load ptr, ptr %12, align 8, !tbaa !42
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -1303,53 +1303,53 @@ _ZN6icu_7713AndConstraint3addER10UErrorCode.exit: ; preds = %54, %58, %64
   %74 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %75 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 32) #29
   %76 = icmp eq ptr %75, null
-  br i1 %76, label %77, label %78
+  br i1 %76, label %77, label %.preheader.i.preheader
 
 77:                                               ; preds = %73
   store ptr null, ptr %74, align 8, !tbaa !62
   br label %_ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit121.thread.sink.split
 
-78:                                               ; preds = %73
-  %79 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  store i64 0, ptr %79, align 8
+.preheader.i.preheader:                           ; preds = %73
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 24
+  store i64 0, ptr %78, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6icu_7712OrConstraintE, i64 16), ptr %75, align 8, !tbaa !15
-  %80 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %80, i8 0, i64 20, i1 false)
+  %79 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %79, i8 0, i64 20, i1 false)
   store ptr %75, ptr %74, align 8, !tbaa !62
-  %81 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  store ptr null, ptr %81, align 8, !tbaa !62
+  %80 = getelementptr inbounds nuw i8, ptr %75, i64 16
+  store ptr null, ptr %80, align 8, !tbaa !62
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %78, %.preheader.i
-  %.09.i = phi ptr [ %83, %.preheader.i ], [ %75, %78 ]
-  %82 = getelementptr inbounds nuw i8, ptr %.09.i, i64 16
-  %83 = load ptr, ptr %82, align 8, !tbaa !62
-  %.not12.i = icmp eq ptr %83, null
-  br i1 %.not12.i, label %84, label %.preheader.i, !llvm.loop !66
+.preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
+  %.09.i = phi ptr [ %82, %.preheader.i ], [ %75, %78 ]
+  %81 = getelementptr inbounds nuw i8, ptr %.09.i, i64 16
+  %82 = load ptr, ptr %81, align 8, !tbaa !62
+  %.not12.i = icmp eq ptr %82, null
+  br i1 %.not12.i, label %83, label %.preheader.i, !llvm.loop !66
 
-84:                                               ; preds = %.preheader.i
-  %85 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 56) #29
-  %86 = icmp eq ptr %85, null
-  br i1 %86, label %92, label %87
+83:                                               ; preds = %.preheader.i
+  %84 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 56) #29
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %92, label %86
 
-87:                                               ; preds = %84
-  %88 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %88, i8 0, i64 40, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6icu_7713AndConstraintE, i64 16), ptr %85, align 8, !tbaa !15
-  %89 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  store i32 0, ptr %89, align 8, !tbaa !56
-  %90 = getelementptr inbounds nuw i8, ptr %85, i64 12
-  store i32 -1, ptr %90, align 4, !tbaa !57
-  store i32 -1, ptr %88, align 8, !tbaa !58
-  %91 = getelementptr inbounds nuw i8, ptr %85, i64 36
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %91, i8 0, i64 16, i1 false)
+86:                                               ; preds = %83
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %87, i8 0, i64 40, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6icu_7713AndConstraintE, i64 16), ptr %84, align 8, !tbaa !15
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  store i32 0, ptr %88, align 8, !tbaa !56
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 12
+  store i32 -1, ptr %89, align 4, !tbaa !57
+  store i32 -1, ptr %87, align 8, !tbaa !58
+  %90 = getelementptr inbounds nuw i8, ptr %84, i64 36
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %90, i8 0, i64 16, i1 false)
   br label %_ZN6icu_7712OrConstraint3addER10UErrorCode.exit
 
-92:                                               ; preds = %84
+92:                                               ; preds = %83
   store i32 7, ptr %3, align 4, !tbaa !13
   br label %_ZN6icu_7712OrConstraint3addER10UErrorCode.exit
 
-_ZN6icu_7712OrConstraint3addER10UErrorCode.exit:  ; preds = %87, %92
+_ZN6icu_7712OrConstraint3addER10UErrorCode.exit:  ; preds = %86, %92
   %93 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
   store ptr %85, ptr %93, align 8, !tbaa !67
   store ptr %85, ptr %20, align 8, !tbaa !51
@@ -1393,8 +1393,8 @@ _ZN6icu_7712OrConstraint3addER10UErrorCode.exit:  ; preds = %87, %92
   br label %_ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit121thread-pre-split
 
 _ZN6icu_7712LocalPointerINS_9UVector32EEC2EPS1_R10UErrorCode.exit: ; preds = %107
-  %.pre183 = load i32, ptr %3, align 4, !tbaa !13
-  %112 = icmp slt i32 %.pre183, 1
+  %.pre182 = load i32, ptr %3, align 4, !tbaa !13
+  %112 = icmp slt i32 %.pre182, 1
   br i1 %112, label %115, label %155
 
 113:                                              ; preds = %107
@@ -1810,48 +1810,48 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i137: ; preds = 
 325:                                              ; preds = %.thread160, %305
   %326 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 32) #29
   %327 = icmp eq ptr %326, null
-  br i1 %327, label %_ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit121.thread.sink.split, label %328
+  br i1 %327, label %_ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit121.thread.sink.split, label %.preheader.i145.preheader
 
-328:                                              ; preds = %325
-  %329 = getelementptr inbounds nuw i8, ptr %326, i64 24
-  store i64 0, ptr %329, align 8
+.preheader.i145.preheader:                        ; preds = %325
+  %328 = getelementptr inbounds nuw i8, ptr %326, i64 24
+  store i64 0, ptr %328, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6icu_7712OrConstraintE, i64 16), ptr %326, align 8, !tbaa !15
-  %330 = getelementptr inbounds nuw i8, ptr %326, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %330, i8 0, i64 20, i1 false)
-  %331 = getelementptr inbounds nuw i8, ptr %287, i64 80
-  store ptr %326, ptr %331, align 8, !tbaa !61
+  %329 = getelementptr inbounds nuw i8, ptr %326, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %329, i8 0, i64 20, i1 false)
+  %330 = getelementptr inbounds nuw i8, ptr %287, i64 80
+  store ptr %326, ptr %330, align 8, !tbaa !61
   br label %.preheader.i145
 
-.preheader.i145:                                  ; preds = %328, %.preheader.i145
-  %.09.i146 = phi ptr [ %333, %.preheader.i145 ], [ %326, %328 ]
-  %332 = getelementptr inbounds nuw i8, ptr %.09.i146, i64 16
-  %333 = load ptr, ptr %332, align 8, !tbaa !62
-  %.not12.i147 = icmp eq ptr %333, null
-  br i1 %.not12.i147, label %334, label %.preheader.i145, !llvm.loop !66
+.preheader.i145:                                  ; preds = %.preheader.i145.preheader, %.preheader.i145
+  %.09.i146 = phi ptr [ %332, %.preheader.i145 ], [ %326, %328 ]
+  %331 = getelementptr inbounds nuw i8, ptr %.09.i146, i64 16
+  %332 = load ptr, ptr %331, align 8, !tbaa !62
+  %.not12.i147 = icmp eq ptr %332, null
+  br i1 %.not12.i147, label %333, label %.preheader.i145, !llvm.loop !66
 
-334:                                              ; preds = %.preheader.i145
-  %335 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 56) #29
-  %336 = icmp eq ptr %335, null
-  br i1 %336, label %342, label %337
+333:                                              ; preds = %.preheader.i145
+  %334 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 56) #29
+  %335 = icmp eq ptr %334, null
+  br i1 %335, label %342, label %336
 
-337:                                              ; preds = %334
-  %338 = getelementptr inbounds nuw i8, ptr %335, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %338, i8 0, i64 40, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6icu_7713AndConstraintE, i64 16), ptr %335, align 8, !tbaa !15
-  %339 = getelementptr inbounds nuw i8, ptr %335, i64 8
-  store i32 0, ptr %339, align 8, !tbaa !56
-  %340 = getelementptr inbounds nuw i8, ptr %335, i64 12
-  store i32 -1, ptr %340, align 4, !tbaa !57
-  store i32 -1, ptr %338, align 8, !tbaa !58
-  %341 = getelementptr inbounds nuw i8, ptr %335, i64 36
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %341, i8 0, i64 16, i1 false)
+336:                                              ; preds = %333
+  %337 = getelementptr inbounds nuw i8, ptr %334, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %337, i8 0, i64 40, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6icu_7713AndConstraintE, i64 16), ptr %334, align 8, !tbaa !15
+  %338 = getelementptr inbounds nuw i8, ptr %334, i64 8
+  store i32 0, ptr %338, align 8, !tbaa !56
+  %339 = getelementptr inbounds nuw i8, ptr %334, i64 12
+  store i32 -1, ptr %339, align 4, !tbaa !57
+  store i32 -1, ptr %337, align 8, !tbaa !58
+  %340 = getelementptr inbounds nuw i8, ptr %334, i64 36
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %340, i8 0, i64 16, i1 false)
   br label %_ZN6icu_7712OrConstraint3addER10UErrorCode.exit148
 
-342:                                              ; preds = %334
+342:                                              ; preds = %333
   store i32 7, ptr %3, align 4, !tbaa !13
   br label %_ZN6icu_7712OrConstraint3addER10UErrorCode.exit148
 
-_ZN6icu_7712OrConstraint3addER10UErrorCode.exit148: ; preds = %337, %342
+_ZN6icu_7712OrConstraint3addER10UErrorCode.exit148: ; preds = %336, %342
   %343 = getelementptr inbounds nuw i8, ptr %.09.i146, i64 8
   store ptr %335, ptr %343, align 8, !tbaa !67
   store ptr %335, ptr %20, align 8, !tbaa !51
@@ -1929,9 +1929,9 @@ _ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit121thread-pre-split: ; preds = 
   %376 = icmp slt i32 %.pr, 1
   %377 = load i32, ptr %14, align 8, !tbaa !47
   store i32 %377, ptr %23, align 4, !tbaa !48
-  br i1 %376, label %.backedge206, label %.loopexit
+  br i1 %376, label %.backedge205, label %.loopexit
 
-.backedge206:                                     ; preds = %_ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit121thread-pre-split, %.critedge
+.backedge205:                                     ; preds = %_ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit121thread-pre-split, %.critedge
   br label %25, !llvm.loop !85
 
 _ZN6icu_7712LocalPointerINS_9UVector32EED2Ev.exit121.thread.sink.split: ; preds = %325, %286, %241, %244, %_ZNK6icu_779UVector3210elementAtiEi.exit126, %_ZNK6icu_779UVector3210elementAtiEi.exit.thread, %196, %178, %168, %100, %77

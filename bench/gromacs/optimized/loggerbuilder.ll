@@ -771,7 +771,7 @@ define void @_ZN3gmx13LoggerBuilder5buildEv(ptr dead_on_unwind noalias writable 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
   %7 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #17
   invoke void @_ZN3gmx8MDLoggerC1EPPNS_10ILogTargetE(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull %3)
-          to label %_ZSt8_DestroyIPSt10unique_ptrIN3gmx10ILogTargetESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i unwind label %139
+          to label %_ZSt8_DestroyIPSt10unique_ptrIN3gmx10ILogTargetESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i unwind label %130
 
 8:                                                ; preds = %2, %_ZNSt6vectorIPN3gmx10ILogTargetESaIS2_EE5clearEv.exit
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %_ZNSt6vectorIPN3gmx10ILogTargetESaIS2_EE5clearEv.exit ]
@@ -1030,7 +1030,7 @@ _ZNSt6vectorIPN3gmx10ILogTargetESaIS2_EE5clearEv.exit: ; preds = %_ZNSt10unique_
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
   br i1 %exitcond.not, label %6, label %8, !llvm.loop !74
 
-_ZSt8_DestroyIPSt10unique_ptrIN3gmx10ILogTargetESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i: ; preds = %6
+_ZNSt6vectorISt10unique_ptrIN3gmx10ILogTargetESt14default_deleteIS2_EESaIS5_EEaSEOS7_.exit: ; preds = %6
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %104, i8 0, i64 48, i1 false)
   %105 = load ptr, ptr %1, align 8, !tbaa !46
@@ -1048,107 +1048,107 @@ _ZSt8_DestroyIPSt10unique_ptrIN3gmx10ILogTargetESt14default_deleteIS2_EES5_EvT_S
   store ptr %114, ptr %109, align 8, !tbaa !37
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %106, i8 0, i64 24, i1 false)
   %115 = load ptr, ptr %1, align 8, !tbaa !46
-  %116 = load ptr, ptr %104, align 8, !tbaa !38
-  %117 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %118 = load ptr, ptr %117, align 8, !tbaa !41
-  %119 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %120 = load ptr, ptr %119, align 8, !tbaa !45
-  %121 = load ptr, ptr %115, align 8, !tbaa !38
+  %.pre83 = load ptr, ptr %104, align 8, !tbaa !38
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %.pre84 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !41
+  %.phi.trans.insert85 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %.pre86 = load ptr, ptr %.phi.trans.insert85, align 8, !tbaa !45
+  %.pre82 = load ptr, ptr %115, align 8, !tbaa !38
   store ptr %121, ptr %104, align 8, !tbaa !38
   %122 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %123 = load ptr, ptr %122, align 8, !tbaa !41
-  store ptr %123, ptr %117, align 8, !tbaa !41
+  store ptr %123, ptr %.phi.trans.insert, align 8, !tbaa !41
   %124 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %125 = load ptr, ptr %124, align 8, !tbaa !45
   store ptr %125, ptr %119, align 8, !tbaa !45
-  %.not4.i.i.i.i.i.i35 = icmp eq ptr %116, %118
+  %.not4.i.i.i.i.i.i35 = icmp eq ptr %.pre83, %118
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %115, i8 0, i64 24, i1 false)
   %126 = ptrtoint ptr %7 to i64
   br i1 %.not4.i.i.i.i.i.i35, label %_ZSt8_DestroyIPSt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i36
 
-.lr.ph.i.i.i.i.i.i36:                             ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN3gmx10ILogTargetESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i, %_ZSt8_DestroyISt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i37 = phi ptr [ %131, %_ZSt8_DestroyISt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i ], [ %116, %_ZSt8_DestroyIPSt10unique_ptrIN3gmx10ILogTargetESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i ]
-  %127 = load ptr, ptr %.05.i.i.i.i.i.i37, align 8, !tbaa !42
-  %.not.i.i.i.i.i.i.i.i38 = icmp eq ptr %127, null
+.lr.ph.i.i.i.i.i.i36:                             ; preds = %_ZNSt6vectorISt10unique_ptrIN3gmx10ILogTargetESt14default_deleteIS2_EESaIS5_EEaSEOS7_.exit, %_ZSt8_DestroyISt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i
+  %.05.i.i.i.i.i.i37 = phi ptr [ %122, %_ZSt8_DestroyISt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i ], [ %.pre83, %_ZSt8_DestroyIPSt10unique_ptrIN3gmx10ILogTargetESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i ]
+  %118 = load ptr, ptr %.05.i.i.i.i.i.i37, align 8, !tbaa !42
+  %.not.i.i.i.i.i.i.i.i38 = icmp eq ptr %118, null
   br i1 %.not.i.i.i.i.i.i.i.i38, label %_ZSt8_DestroyISt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN3gmx16TextOutputStreamEEclEPS1_.exit.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN3gmx16TextOutputStreamEEclEPS1_.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i36
-  %128 = load ptr, ptr %127, align 8, !tbaa !4
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
-  %130 = load ptr, ptr %129, align 8
-  call void %130(ptr noundef nonnull align 8 dereferenceable(8) %127) #15
+  %119 = load ptr, ptr %118, align 8, !tbaa !4
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
+  %121 = load ptr, ptr %120, align 8
+  call void %130(ptr noundef nonnull align 8 dereferenceable(8) %118) #15
   br label %_ZSt8_DestroyISt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN3gmx16TextOutputStreamEEclEPS1_.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i36
   store ptr null, ptr %.05.i.i.i.i.i.i37, align 8, !tbaa !42
-  %131 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i37, i64 8
-  %.not.i.i.i.i.i.i39 = icmp eq ptr %131, %118
+  %122 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i37, i64 8
+  %.not.i.i.i.i.i.i39 = icmp eq ptr %122, %.pre84
   br i1 %.not.i.i.i.i.i.i39, label %_ZSt8_DestroyIPSt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i36, !llvm.loop !44
 
-_ZSt8_DestroyIPSt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i, %_ZSt8_DestroyIPSt10unique_ptrIN3gmx10ILogTargetESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i
-  %.not.i.i.i.i.i40 = icmp eq ptr %116, null
-  br i1 %.not.i.i.i.i.i40, label %_ZNSt6vectorISt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2_EESaIS5_EEaSEOS7_.exit, label %132
+_ZSt8_DestroyIPSt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i.i.i, %_ZNSt6vectorISt10unique_ptrIN3gmx10ILogTargetESt14default_deleteIS2_EESaIS5_EEaSEOS7_.exit
+  %.not.i.i.i.i.i40 = icmp eq ptr %.pre83, null
+  br i1 %.not.i.i.i.i.i40, label %_ZNSt6vectorISt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2_EESaIS5_EEaSEOS7_.exit, label %123
 
-132:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i
-  %133 = ptrtoint ptr %120 to i64
-  %134 = ptrtoint ptr %116 to i64
-  %135 = sub i64 %133, %134
-  call void @_ZdlPvm(ptr noundef nonnull %116, i64 noundef %135) #16
+123:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i
+  %124 = ptrtoint ptr %.pre86 to i64
+  %125 = ptrtoint ptr %.pre83 to i64
+  %126 = sub i64 %124, %125
+  call void @_ZdlPvm(ptr noundef nonnull %.pre83, i64 noundef %126) #16
   br label %_ZNSt6vectorISt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2_EESaIS5_EEaSEOS7_.exit
 
-_ZNSt6vectorISt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2_EESaIS5_EEaSEOS7_.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i, %132
+_ZNSt6vectorISt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2_EESaIS5_EEaSEOS7_.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i, %123
   store i64 %126, ptr %5, align 8, !tbaa !18
   store ptr null, ptr %4, align 8, !tbaa !18
   invoke void @_ZN3gmx11LoggerOwnerC1ESt10unique_ptrINS0_4ImplESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %5)
-          to label %136 unwind label %141
+          to label %136 unwind label %132
 
-136:                                              ; preds = %_ZNSt6vectorISt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2_EESaIS5_EEaSEOS7_.exit
-  %137 = load ptr, ptr %5, align 8, !tbaa !18
-  %.not.i41 = icmp eq ptr %137, null
+127:                                              ; preds = %_ZNSt6vectorISt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2_EESaIS5_EEaSEOS7_.exit
+  %128 = load ptr, ptr %5, align 8, !tbaa !18
+  %.not.i41 = icmp eq ptr %128, null
   br i1 %.not.i41, label %_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit43, label %_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit: ; preds = %136
-  call void @_ZNKSt14default_deleteIN3gmx11LoggerOwner4ImplEEclEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %137)
-  %.pre83 = load ptr, ptr %4, align 8, !tbaa !18
+_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit: ; preds = %127
+  call void @_ZNKSt14default_deleteIN3gmx11LoggerOwner4ImplEEclEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %128)
+  %.pre93 = load ptr, ptr %4, align 8, !tbaa !18
   store ptr null, ptr %5, align 8, !tbaa !18
-  %.not.i42 = icmp eq ptr %.pre83, null
-  br i1 %.not.i42, label %_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit43, label %138
+  %.not.i42 = icmp eq ptr %.pre93, null
+  br i1 %.not.i42, label %_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit43, label %129
 
-138:                                              ; preds = %_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit
-  call void @_ZNKSt14default_deleteIN3gmx11LoggerOwner4ImplEEclEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %.pre83)
+129:                                              ; preds = %_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit
+  call void @_ZNKSt14default_deleteIN3gmx11LoggerOwner4ImplEEclEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %.pre93)
   br label %_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit43
 
-_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit43: ; preds = %136, %_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit, %138
+_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit43: ; preds = %127, %_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit, %129
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #15
   ret void
 
-139:                                              ; preds = %6
-  %140 = landingpad { ptr, i32 }
+130:                                              ; preds = %6
+  %131 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 88) #16
   br label %_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit47
 
-141:                                              ; preds = %_ZNSt6vectorISt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2_EESaIS5_EEaSEOS7_.exit
-  %142 = landingpad { ptr, i32 }
+132:                                              ; preds = %_ZNSt6vectorISt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2_EESaIS5_EEaSEOS7_.exit
+  %133 = landingpad { ptr, i32 }
           cleanup
-  %143 = load ptr, ptr %5, align 8, !tbaa !18
-  %.not.i44 = icmp eq ptr %143, null
+  %134 = load ptr, ptr %5, align 8, !tbaa !18
+  %.not.i44 = icmp eq ptr %134, null
   br i1 %.not.i44, label %_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit47, label %_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit45
 
-_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit45: ; preds = %141
-  call void @_ZNKSt14default_deleteIN3gmx11LoggerOwner4ImplEEclEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %143)
-  %.pre82 = load ptr, ptr %4, align 8, !tbaa !18
+_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit45: ; preds = %132
+  call void @_ZNKSt14default_deleteIN3gmx11LoggerOwner4ImplEEclEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %134)
+  %.pre92 = load ptr, ptr %4, align 8, !tbaa !18
   store ptr null, ptr %5, align 8, !tbaa !18
-  %.not.i46 = icmp eq ptr %.pre82, null
-  br i1 %.not.i46, label %_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit47, label %144
+  %.not.i46 = icmp eq ptr %.pre92, null
+  br i1 %.not.i46, label %_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit47, label %135
 
-144:                                              ; preds = %_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit45
-  call void @_ZNKSt14default_deleteIN3gmx11LoggerOwner4ImplEEclEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %.pre82)
+135:                                              ; preds = %_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit45
+  call void @_ZNKSt14default_deleteIN3gmx11LoggerOwner4ImplEEclEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %.pre92)
   br label %_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit47
 
-_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit47: ; preds = %144, %_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit45, %141, %139
-  %.pn = phi { ptr, i32 } [ %140, %139 ], [ %142, %141 ], [ %142, %_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit45 ], [ %142, %144 ]
+_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit47: ; preds = %135, %_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit45, %132, %130
+  %.pn = phi { ptr, i32 } [ %131, %139 ], [ %133, %141 ], [ %133, %_ZNSt10unique_ptrIN3gmx11LoggerOwner4ImplESt14default_deleteIS2_EED2Ev.exit45 ], [ %133, %144 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
   br label %_ZNSt10unique_ptrIN3gmx19LogTargetCollectionESt14default_deleteIS1_EED2Ev.exit33
 

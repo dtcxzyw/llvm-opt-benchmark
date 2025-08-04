@@ -1143,7 +1143,7 @@ define dso_local range(i64 0, -15) i64 @_ZNK5clang22ComparisonCategoryInfo7getTy
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang20ComparisonCategories25getPossibleResultsForTypeENS_22ComparisonCategoryTypeE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.394") align 8 captures(none) initializes((0, 24)) %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 2 {
-_ZNSt6vectorIN5clang24ComparisonCategoryResultESaIS1_EE9push_backEOS1_.exit20:
+_ZNSt6vectorIN5clang24ComparisonCategoryResultESaIS1_EE9push_backEOS1_.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #15
@@ -1168,7 +1168,7 @@ _ZNSt6vectorIN5clang24ComparisonCategoryResultESaIS1_EE9push_backEOS1_.exit20:
   store ptr %13, ptr %3, align 8, !tbaa !481
   br label %_ZNSt6vectorIN5clang24ComparisonCategoryResultESaIS1_EE9push_backEOS1_.exit29
 
-_ZNSt6vectorIN5clang24ComparisonCategoryResultESaIS1_EE9push_backEOS1_.exit29: ; preds = %12, %_ZNSt6vectorIN5clang24ComparisonCategoryResultESaIS1_EE9push_backEOS1_.exit20
+_ZNSt6vectorIN5clang24ComparisonCategoryResultESaIS1_EE9push_backEOS1_.exit29: ; preds = %12, %_ZNSt6vectorIN5clang24ComparisonCategoryResultESaIS1_EE9push_backEOS1_.exit
   ret void
 }
 

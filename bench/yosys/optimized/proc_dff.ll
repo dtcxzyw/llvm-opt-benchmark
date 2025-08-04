@@ -6218,14 +6218,14 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit315:              ; preds = %_ZSt8_DestroyIPN5Yo
   %.not258 = icmp eq ptr %.11492597, null
   %.not259 = icmp eq ptr %.11492597, %710
   %or.cond268 = or i1 %.not258, %.not259
-  br i1 %or.cond268, label %860, label %.invoke4151
+  br i1 %or.cond268, label %860, label %.invoke4150
 
-.invoke4151:                                      ; preds = %858, %709, %864
+.invoke4150:                                      ; preds = %858, %709, %864
   %859 = phi ptr [ @.str.117, %864 ], [ @.str.118, %709 ], [ @.str.116, %858 ]
   invoke void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull %859) #26
           to label %.cont4152 unwind label %.loopexit.split-lp
 
-.cont4152:                                        ; preds = %.invoke4151
+.cont4151:                                        ; preds = %.invoke4150
   unreachable
 
 .loopexit:                                        ; preds = %860, %865, %869, %871
@@ -6233,7 +6233,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit315:              ; preds = %_ZSt8_DestroyIPN5Yo
           cleanup
   br label %875
 
-.loopexit.split-lp:                               ; preds = %.invoke4151
+.loopexit.split-lp:                               ; preds = %.invoke4150
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %875
@@ -6251,7 +6251,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit315:              ; preds = %_ZSt8_DestroyIPN5Yo
   %.not256 = icmp eq ptr %.11982596, null
   %.not257 = icmp eq ptr %.11982596, %710
   %or.cond269 = or i1 %.not256, %.not257
-  br i1 %or.cond269, label %865, label %.invoke4151
+  br i1 %or.cond269, label %865, label %.invoke4150
 
 865:                                              ; preds = %864
   %866 = getelementptr inbounds nuw i8, ptr %.sroa.0991.02594, i64 56
@@ -7650,7 +7650,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit491: ; preds = %_Z
           cleanup
   br label %3307
 
-.loopexit.split-lp1056:                           ; preds = %.invoke4153
+.loopexit.split-lp1056:                           ; preds = %.invoke4152
   %lpad.loopexit.split-lp1058 = landingpad { ptr, i32 }
           cleanup
   br label %3307
@@ -8128,20 +8128,20 @@ _ZNSt6vectorISt4pairIN5Yosys5RTLIL7SigSpecEPNS2_8SyncRuleEESaIS6_EE5clearEv.exit
 
 1536:                                             ; preds = %_ZNSt6vectorISt4pairIN5Yosys5RTLIL7SigSpecEPNS2_8SyncRuleEESaIS6_EE5clearEv.exit575
   %.not250 = icmp eq ptr %.0148.lcssa3381, null
-  br i1 %.not250, label %1537, label %.invoke4153
+  br i1 %.not250, label %1537, label %.invoke4152
 
 1537:                                             ; preds = %1536
   %1538 = load ptr, ptr %70, align 8, !tbaa !237
   %1539 = load ptr, ptr %139, align 8, !tbaa !237
   %1540 = icmp eq ptr %1538, %1539
-  br i1 %1540, label %1542, label %.invoke4153
+  br i1 %1540, label %1542, label %.invoke4152
 
-.invoke4153:                                      ; preds = %1551, %1536, %1537
+.invoke4152:                                      ; preds = %1551, %1536, %1537
   %1541 = phi ptr [ @.str.120, %1537 ], [ @.str.120, %1536 ], [ @.str.122, %1551 ]
   invoke void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull %1541) #26
           to label %.cont4154 unwind label %.loopexit.split-lp1056
 
-.cont4154:                                        ; preds = %.invoke4153
+.cont4153:                                        ; preds = %.invoke4152
   unreachable
 
 1542:                                             ; preds = %1537
@@ -8191,7 +8191,7 @@ _ZNSt4pairIN5Yosys5RTLIL7SigSpecES2_EC2IRS2_S5_TnNSt9enable_ifIXaaclsr5_PCCPE22_
 1551:                                             ; preds = %_ZNSt6vectorISt4pairIN5Yosys5RTLIL7SigSpecEPNS2_8SyncRuleEESaIS6_EE5clearEv.exit575
   %1552 = icmp ne ptr %.0148.lcssa3381, null
   %or.cond = select i1 %1552, i1 true, i1 %.0201.lcssa3379
-  br i1 %or.cond, label %1553, label %.invoke4153
+  br i1 %or.cond, label %1553, label %.invoke4152
 
 1553:                                             ; preds = %1551
   %1554 = load ptr, ptr %139, align 8, !tbaa !251
@@ -12604,12 +12604,12 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i833: ; preds = 
   br label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit750.sink.split
 
 _ZN5Yosys5RTLIL7SigSpecD2Ev.exit750.sink.split:   ; preds = %2722, %3196
-  %.sink4159 = phi ptr [ %3197, %3196 ], [ %2723, %2722 ]
-  %.sink4158 = phi ptr [ %3195, %3196 ], [ %2721, %2722 ]
-  %3198 = ptrtoint ptr %.sink4159 to i64
-  %3199 = ptrtoint ptr %.sink4158 to i64
+  %.sink4158 = phi ptr [ %3197, %3196 ], [ %2723, %2722 ]
+  %.sink4157 = phi ptr [ %3195, %3196 ], [ %2721, %2722 ]
+  %3198 = ptrtoint ptr %.sink4158 to i64
+  %3199 = ptrtoint ptr %.sink4157 to i64
   %3200 = sub i64 %3198, %3199
-  call void @_ZdlPvm(ptr noundef nonnull %.sink4158, i64 noundef %3200) #25
+  call void @_ZdlPvm(ptr noundef nonnull %.sink4157, i64 noundef %3200) #25
   br label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit750
 
 _ZN5Yosys5RTLIL7SigSpecD2Ev.exit750:              ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit750.sink.split, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i833, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i748

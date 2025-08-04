@@ -2353,9 +2353,9 @@ _ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE4pushES1_.exit: ; preds = %_ZN14KlassInf
   store ptr %48, ptr %49, align 8
   store ptr %0, ptr %48, align 8
   store i64 1, ptr %46, align 8
-  %51 = load ptr, ptr %49, align 8
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE13free_segmentsEPS1_.exit.i.i, label %.lr.ph38
+  %52 = load ptr, ptr %49, align 8
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE13free_segmentsEPS1_.exit.i.i, label %.lr.ph38
 
 .lr.ph38:                                         ; preds = %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE4pushES1_.exit
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -2364,7 +2364,7 @@ _ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE4pushES1_.exit: ; preds = %_ZN14KlassInf
 
 .lr.ph38.split.us:                                ; preds = %.lr.ph38, %.loopexit.us
   %55 = phi i64 [ %121, %.loopexit.us ], [ 1, %.lr.ph38 ]
-  %56 = phi ptr [ %122, %.loopexit.us ], [ %51, %.lr.ph38 ]
+  %56 = phi ptr [ %122, %.loopexit.us ], [ %52, %.lr.ph38 ]
   %57 = add i64 %55, -1
   store i64 %57, ptr %46, align 8
   %58 = getelementptr inbounds ptr, ptr %56, i64 %57
@@ -2502,7 +2502,7 @@ _ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE4pushES1_.exit31.us: ; preds = %_ZN5Stac
 
 .lr.ph38.split:                                   ; preds = %.lr.ph38, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE3popEv.exit
   %126 = phi i64 [ %153, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE3popEv.exit ], [ 1, %.lr.ph38 ]
-  %127 = phi ptr [ %155, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE3popEv.exit ], [ %51, %.lr.ph38 ]
+  %127 = phi ptr [ %155, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE3popEv.exit ], [ %52, %.lr.ph38 ]
   %128 = add i64 %126, -1
   store i64 %128, ptr %46, align 8
   %129 = getelementptr inbounds ptr, ptr %127, i64 %128

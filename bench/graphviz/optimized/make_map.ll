@@ -767,7 +767,7 @@ declare ptr @agattr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_un
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @plot_dot_polygons(ptr noundef nonnull captures(none) %0, double noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef readonly captures(address_is_null) %7, ptr noundef readonly captures(address_is_null) %8, ptr noundef %9) unnamed_addr #0 {
-agxbuse.exit:
+agxbputc.exit.i:
   %10 = alloca %struct.agxbuf, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !30
@@ -785,28 +785,28 @@ agxbuse.exit:
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 9
   store i8 0, ptr %21, align 1, !tbaa !35
   store i8 0, ptr %19, align 1, !tbaa !35
-  %22 = load i8, ptr @Verbose, align 1, !tbaa !35
-  %.not = icmp eq i8 %22, 0
-  br i1 %.not, label %26, label %23
+  %24 = load i8, ptr @Verbose, align 1, !tbaa !35
+  %.not = icmp eq i8 %24, 0
+  br i1 %.not, label %28, label %25
 
-23:                                               ; preds = %agxbuse.exit
-  %24 = load ptr, ptr @stderr, align 8, !tbaa !15
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.28, i32 noundef %17) #20
-  br label %26
+25:                                               ; preds = %agxbputc.exit.i
+  %26 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.28, i32 noundef %17) #20
+  br label %28
 
-26:                                               ; preds = %23, %agxbuse.exit
-  %27 = icmp sgt i32 %17, 0
-  br i1 %27, label %.lr.ph281, label %agxbfree.exit
+28:                                               ; preds = %25, %agxbputc.exit.i
+  %29 = icmp sgt i32 %17, 0
+  br i1 %29, label %.lr.ph281, label %agxbfree.exit
 
-.lr.ph281:                                        ; preds = %26
-  %28 = load i32, ptr %16, align 4, !tbaa !19
-  %29 = tail call i32 @llvm.abs.i32(i32 %28, i1 true)
-  %30 = add nuw nsw i32 %29, 1
-  %31 = icmp ne ptr %6, null
-  %32 = icmp ne ptr %7, null
-  %or.cond = and i1 %31, %32
-  %33 = icmp ne ptr %8, null
-  %or.cond3 = and i1 %or.cond, %33
+.lr.ph281:                                        ; preds = %28
+  %30 = load i32, ptr %16, align 4, !tbaa !19
+  %31 = tail call i32 @llvm.abs.i32(i32 %30, i1 true)
+  %32 = add nuw nsw i32 %31, 1
+  %33 = icmp ne ptr %6, null
+  %34 = icmp ne ptr %7, null
+  %or.cond = and i1 %33, %34
+  %35 = icmp ne ptr %8, null
+  %or.cond3 = and i1 %or.cond, %35
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %36 = fcmp ogt double %1, 0.000000e+00
@@ -816,7 +816,7 @@ agxbuse.exit:
 37:                                               ; preds = %.lr.ph281, %dot_polygon.exit93
   %indvars.iv296 = phi i64 [ 0, %.lr.ph281 ], [ %indvars.iv.next297, %dot_polygon.exit93 ]
   %.0279 = phi ptr [ %10, %.lr.ph281 ], [ %.1.lcssa, %dot_polygon.exit93 ]
-  %.055277 = phi i32 [ %30, %.lr.ph281 ], [ %.156.lcssa, %dot_polygon.exit93 ]
+  %.055277 = phi i32 [ %32, %.lr.ph281 ], [ %.156.lcssa, %dot_polygon.exit93 ]
   %.sroa.19.0276 = phi i64 [ 0, %.lr.ph281 ], [ %.sroa.19.1.lcssa, %dot_polygon.exit93 ]
   %.sroa.16.0275 = phi i64 [ 0, %.lr.ph281 ], [ %.sroa.16.1.lcssa, %dot_polygon.exit93 ]
   %.sroa.11.0274 = phi i64 [ 0, %.lr.ph281 ], [ %.sroa.11.1.lcssa, %dot_polygon.exit93 ]
@@ -1177,17 +1177,17 @@ doubles_append.exit89:                            ; preds = %164, %170, %doubles
   %193 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #24
   %194 = add nsw i64 %192, 14
   call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %0, ptr noundef nonnull @.str.31, i64 noundef %193, ptr noundef nonnull %2, i64 noundef %194, double noundef %1, i64 noundef %.sroa.16140.1.lcssa)
-  br label %.preheader329
+  br label %.preheader323
 
 195:                                              ; preds = %189
   %196 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #24
   call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %0, ptr noundef nonnull @.str.32, i64 noundef %196, ptr noundef nonnull %2, i64 noundef %.sroa.16140.1.lcssa)
-  br label %.preheader329
+  br label %.preheader323
 
-.preheader329:                                    ; preds = %195, %190
+.preheader323:                                    ; preds = %195, %190
   br label %197
 
-197:                                              ; preds = %.preheader329, %197
+197:                                              ; preds = %.preheader323, %197
   %.025.i91 = phi i64 [ %206, %197 ], [ 0, %.preheader329 ]
   %198 = add i64 %.025.i91, %.sroa.11135.1.lcssa
   %199 = urem i64 %198, %.sroa.19146.1.lcssa
@@ -1227,9 +1227,9 @@ doubles_append.exit89:                            ; preds = %164, %170, %doubles
 
 dot_polygon.exit93:                               ; preds = %197, %210, %207, %188
   %exitcond.not = icmp eq i64 %indvars.iv.next297, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge282, label %37, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge282.loopexit, label %37, !llvm.loop !45
 
-._crit_edge282:                                   ; preds = %dot_polygon.exit93
+._crit_edge282.loopexit:                          ; preds = %dot_polygon.exit93
   %.val64.pre = load i8, ptr %19, align 1, !tbaa !35
   %220 = icmp eq i8 %.val64.pre, -1
   br i1 %220, label %221, label %agxbfree.exit

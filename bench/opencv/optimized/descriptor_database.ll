@@ -6658,7 +6658,7 @@ _ZNKSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EE12_M_check_lenEmPKc
   store ptr %7, ptr %4, align 8, !tbaa !264
   store ptr %7, ptr %5, align 8, !tbaa !265
   %8 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28
-          to label %_ZNSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EE9push_backERKS3_.exit12 unwind label %_ZNSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EED2Ev.exit
+          to label %_ZNSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EE9push_backERKS3_.exit12 unwind label %13
 
 _ZNSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EE9push_backERKS3_.exit12: ; preds = %_ZNKSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -6673,8 +6673,8 @@ _ZNSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EE9push_backERKS3_.exi
   store ptr %12, ptr %5, align 8, !tbaa !265
   ret void
 
-_ZNSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EED2Ev.exit: ; preds = %_ZNKSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-  %13 = landingpad { ptr, i32 }
+_ZNSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EED2Ev.exit:; preds = %_ZNKSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  %14 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %6) #27
   resume { ptr, i32 } %13

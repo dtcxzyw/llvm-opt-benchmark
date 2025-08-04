@@ -768,27 +768,27 @@ define hidden void @_ZN19OpenColorIO_v2_5dev12MatrixOpData7Offsets5scaleEd(ptr n
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_5dev12MatrixOpData11MatrixArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 48)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .noexc4:
-  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12MatrixOpData11MatrixArrayE, i64 16), ptr %0, align 8, !tbaa !15
   store i64 4, ptr %1, align 8, !tbaa !17
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 4, ptr %3, align 8, !tbaa !24
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 4, ptr %4, align 8, !tbaa !24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef 16)
           to label %_ZN19OpenColorIO_v2_5dev6ArrayTIdE6resizeEmm.exit unwind label %25
 
 _ZN19OpenColorIO_v2_5dev6ArrayTIdE6resizeEmm.exit: ; preds = %.noexc4
-  %5 = load ptr, ptr %0, align 8, !tbaa !15
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.pre = load ptr, ptr %0, align 8, !tbaa !15
+  %6 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = invoke noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(48) %0)
           to label %.noexc3 unwind label %25
 
 .noexc3:                                          ; preds = %_ZN19OpenColorIO_v2_5dev6ArrayTIdE6resizeEmm.exit
   %9 = load ptr, ptr %2, align 8, !tbaa !9
-  %10 = load ptr, ptr %4, align 8, !tbaa !25
+  %10 = load ptr, ptr %5, align 8, !tbaa !25
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %9 to i64
   %13 = sub i64 %11, %12

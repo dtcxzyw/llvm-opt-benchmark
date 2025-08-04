@@ -5842,7 +5842,7 @@ _ZNKSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EE12_M_check_lenEmPKc
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_end_of_storage.i, align 8
   %call5.i.i.i.i.i32 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
-          to label %invoke.cont4 unwind label %if.then.i.i.i35
+          to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %_ZNKSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %add.ptr.i.i20 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i32, i64 8
@@ -5857,7 +5857,7 @@ invoke.cont4:                                     ; preds = %_ZNKSt6vectorIPN6go
   store ptr %add.ptr19.i.i27, ptr %_M_end_of_storage.i, align 8
   ret void
 
-if.then.i.i.i35:                                  ; preds = %_ZNKSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+lpad:                                             ; preds = %_ZNKSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i1) #30

@@ -17584,7 +17584,7 @@ _ZN7rocksdb11ReadOptionsD2Ev.exit106.i:           ; preds = %381, %378
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %29) #26, !noalias !971
   %.pr.i = load i8, ptr %52, align 8, !tbaa !32, !alias.scope !971
   %387 = icmp eq i8 %.pr.i, 0
-  br i1 %387, label %388, label %.thread228.ithread-pre-split
+  br i1 %387, label %388, label %.thread228.i
 
 388:                                              ; preds = %386
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31) #26, !noalias !971
@@ -18829,7 +18829,7 @@ _ZN7rocksdb6StatusD2Ev.exit120.i:                 ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #26, !noalias !971
   %.pr215.i = load i8, ptr %52, align 8, !tbaa !32, !alias.scope !971
   %798 = icmp eq i8 %.pr215.i, 0
-  br i1 %798, label %799, label %.thread228.ithread-pre-split
+  br i1 %798, label %799, label %.thread228.i
 
 799:                                              ; preds = %797
   %800 = load ptr, ptr %28, align 8, !tbaa !974, !noalias !971
@@ -18966,7 +18966,7 @@ _ZN7rocksdb6StatusD2Ev.exit127.i:                 ; preds = %_ZN7rocksdb6Status1
 _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread219.i: ; preds = %_ZN7rocksdb6StatusD2Ev.exit127.i, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i, %826
   %.pr220.i = load i8, ptr %52, align 8, !tbaa !32, !alias.scope !971
   %850 = icmp eq i8 %.pr220.i, 0
-  br i1 %850, label %851, label %.thread228.ithread-pre-split
+  br i1 %850, label %851, label %.thread228.i
 
 851:                                              ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread219.i
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %36) #26, !noalias !971
@@ -19388,7 +19388,7 @@ _ZN7rocksdb11ReadOptionsD2Ev.exit162.i:           ; preds = %982, %980
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %36) #26, !noalias !971
   %.pr227.pr.i = load i8, ptr %52, align 8, !tbaa !32, !alias.scope !971
   %987 = icmp eq i8 %.pr227.pr.i, 0
-  br i1 %987, label %988, label %.thread228.ithread-pre-split
+  br i1 %987, label %988, label %.thread228.i
 
 988:                                              ; preds = %.thread222.i
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %45) #26, !noalias !971
@@ -19810,7 +19810,7 @@ _ZNSt10unique_ptrIN7rocksdb32FragmentedRangeTombstoneIteratorESt14default_delete
 
 _ZN7rocksdb11ReadOptionsD2Ev.exit194.i:           ; preds = %1116, %_ZNSt10unique_ptrIN7rocksdb32FragmentedRangeTombstoneIteratorESt14default_deleteIS1_EED2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %45) #26, !noalias !971
-  br label %.thread228.ithread-pre-split
+  br label %.thread228.i
 
 1121:                                             ; preds = %1110, %.loopexit.split-lp.i, %.loopexit.i, %1087
   %.pn92.pn.pn.pn.i = phi { ptr, i32 } [ %.pn92.pn.pn.i, %1110 ], [ %1088, %1087 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
@@ -19846,8 +19846,8 @@ _ZN7rocksdb11ReadOptionsD2Ev.exit200.i:           ; preds = %1127, %_ZNSt10uniqu
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %45) #26, !noalias !971
   br label %1160
 
-.thread228.ithread-pre-split:                     ; preds = %386, %797, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread219.i, %.thread222.i, %_ZN7rocksdb11ReadOptionsD2Ev.exit194.i
-  %.pr228 = load ptr, ptr %318, align 8, !tbaa !344, !noalias !971
+.thread228.i:                                     ; preds = %386, %797, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread219.i, %.thread222.i, %_ZN7rocksdb11ReadOptionsD2Ev.exit194.i
+  %1132 = load ptr, ptr %318, align 8, !tbaa !344, !noalias !971
   br label %.thread228.i
 
 .thread228.i:                                     ; preds = %.thread228.ithread-pre-split, %354

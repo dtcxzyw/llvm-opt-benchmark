@@ -2768,9 +2768,9 @@ invoke.cont:                                      ; preds = %if.end
   %field_count_.i = getelementptr inbounds nuw i8, ptr %descriptor, i64 4
   %7 = load i32, ptr %field_count_.i, align 4
   %cmp = icmp sgt i32 %7, 0
-  br i1 %cmp, label %if.end.i, label %if.else
+  br i1 %cmp, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i, label %if.else
 
-if.end.i:                                         ; preds = %invoke.cont
+_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i: ; preds = %invoke.cont
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields, i8 0, i64 24, i1 false)
   %conv = zext nneg i32 %7 to i64
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %fields, i64 16
@@ -2779,7 +2779,7 @@ if.end.i:                                         ; preds = %invoke.cont
   %call5.i.i.i.i57 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #24
           to label %for.body.lr.ph unwind label %lpad5.loopexit.split-lp
 
-for.body.lr.ph:                                   ; preds = %if.end.i
+for.body.lr.ph:                                   ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i
   store ptr %call5.i.i.i.i57, ptr %fields, align 8
   store ptr %call5.i.i.i.i57, ptr %_M_finish.i.i, align 8
   %add.ptr21.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i57, i64 %conv
@@ -2830,7 +2830,7 @@ lpad5.loopexit:                                   ; preds = %for.body
           cleanup
   br label %ehcleanup
 
-lpad5.loopexit.split-lp:                          ; preds = %if.end.i, %for.end
+lpad5.loopexit.split-lp:                          ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i, %for.end
   %lpad.loopexit.split-lp370 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -2931,9 +2931,9 @@ if.end25:                                         ; preds = %if.then.i.i.i, %inv
   %oneof_decl_count_.i = getelementptr inbounds nuw i8, ptr %descriptor, i64 120
   %25 = load i32, ptr %oneof_decl_count_.i, align 8
   %cmp27 = icmp sgt i32 %25, 0
-  br i1 %cmp27, label %if.end.i90, label %if.else62
+  br i1 %cmp27, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i97, label %if.else62
 
-if.end.i90:                                       ; preds = %if.end25
+_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i97: ; preds = %if.end25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %oneofs, i8 0, i64 24, i1 false)
   %conv32 = zext nneg i32 %25 to i64
   %_M_end_of_storage.i.i91 = getelementptr inbounds nuw i8, ptr %oneofs, i64 16
@@ -2942,7 +2942,7 @@ if.end.i90:                                       ; preds = %if.end25
   %call5.i.i.i.i120 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i101) #24
           to label %for.body39.lr.ph unwind label %lpad29.loopexit.split-lp
 
-for.body39.lr.ph:                                 ; preds = %if.end.i90
+for.body39.lr.ph:                                 ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i97
   store ptr %call5.i.i.i.i120, ptr %oneofs, align 8
   store ptr %call5.i.i.i.i120, ptr %_M_finish.i.i98, align 8
   %add.ptr21.i116 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i120, i64 %conv32
@@ -2991,7 +2991,7 @@ lpad29.loopexit:                                  ; preds = %for.body39
           cleanup
   br label %ehcleanup61
 
-lpad29.loopexit.split-lp:                         ; preds = %if.end.i90, %for.end53
+lpad29.loopexit.split-lp:                         ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i97, %for.end53
   %lpad.loopexit.split-lp367 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup61
@@ -3092,9 +3092,9 @@ if.end64:                                         ; preds = %if.then.i.i.i151, %
   %enum_type_count_.i = getelementptr inbounds nuw i8, ptr %descriptor, i64 132
   %45 = load i32, ptr %enum_type_count_.i, align 4
   %cmp66 = icmp sgt i32 %45, 0
-  br i1 %cmp66, label %if.end.i171, label %if.else97
+  br i1 %cmp66, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i178, label %if.else97
 
-if.end.i171:                                      ; preds = %if.end64
+_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i178: ; preds = %if.end64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %enums, i8 0, i64 24, i1 false)
   %conv71 = zext nneg i32 %45 to i64
   %_M_end_of_storage.i.i172 = getelementptr inbounds nuw i8, ptr %enums, i64 16
@@ -3103,7 +3103,7 @@ if.end.i171:                                      ; preds = %if.end64
   %call5.i.i.i.i201 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i182) #24
           to label %for.body78.lr.ph unwind label %lpad68.loopexit.split-lp
 
-for.body78.lr.ph:                                 ; preds = %if.end.i171
+for.body78.lr.ph:                                 ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i178
   store ptr %call5.i.i.i.i201, ptr %enums, align 8
   store ptr %call5.i.i.i.i201, ptr %_M_finish.i.i179, align 8
   %add.ptr21.i197 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i201, i64 %conv71
@@ -3148,7 +3148,7 @@ lpad68.loopexit:                                  ; preds = %for.body78
           cleanup
   br label %ehcleanup96
 
-lpad68.loopexit.split-lp:                         ; preds = %if.end.i171, %for.end88
+lpad68.loopexit.split-lp:                         ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i178, %for.end88
   %lpad.loopexit.split-lp364 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup96

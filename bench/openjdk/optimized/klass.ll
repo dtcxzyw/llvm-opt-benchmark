@@ -2755,9 +2755,9 @@ _ZN5StackIP5KlassL8MEMFLAGS5EE4pushES1_.exit:     ; preds = %2
   store ptr %12, ptr %13, align 8
   store ptr %6, ptr %12, align 8
   store i64 1, ptr %10, align 8
-  %15 = load ptr, ptr %13, align 8
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %_ZN5StackIP5KlassL8MEMFLAGS5EE13free_segmentsEPS1_.exit.i.i, label %.lr.ph53
+  %16 = load ptr, ptr %13, align 8
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %_ZN5StackIP5KlassL8MEMFLAGS5EE13free_segmentsEPS1_.exit.i.i, label %.lr.ph53
 
 .lr.ph53:                                         ; preds = %_ZN5StackIP5KlassL8MEMFLAGS5EE4pushES1_.exit
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -2765,7 +2765,7 @@ _ZN5StackIP5KlassL8MEMFLAGS5EE4pushES1_.exit:     ; preds = %2
   br label %19
 
 19:                                               ; preds = %.lr.ph53, %.loopexit
-  %20 = phi ptr [ %15, %.lr.ph53 ], [ %130, %.loopexit ]
+  %20 = phi ptr [ %16, %.lr.ph53 ], [ %130, %.loopexit ]
   %21 = load i64, ptr %10, align 8
   %22 = add i64 %21, -1
   store i64 %22, ptr %10, align 8

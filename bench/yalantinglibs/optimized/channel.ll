@@ -40044,9 +40044,9 @@ invoke.cont44thread-pre-split:                    ; preds = %_ZN9__gnu_cxx27__ex
 invoke.cont44:                                    ; preds = %invoke.cont44thread-pre-split, %invoke.cont42
   %35 = phi ptr [ %.pr, %invoke.cont44thread-pre-split ], [ null, %invoke.cont42 ]
   %index_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp31, i64 16
-  %36 = load i64, ptr %index_.i.i, align 8
+  %35 = load i64, ptr %index_.i.i, align 8
   %index_3.i.i = getelementptr inbounds nuw i8, ptr %handler, i64 48
-  store i64 %36, ptr %index_3.i.i, align 8
+  store i64 %35, ptr %index_3.i.i, align 8
   store i64 0, ptr %index_.i.i, align 8
   %cmp.not.i.i.i.i.i51 = icmp eq ptr %35, null
   br i1 %cmp.not.i.i.i.i.i51, label %_ZN4asio2ip22basic_resolver_resultsINS0_3tcpEED2Ev.exit81, label %if.then.i.i.i.i.i52

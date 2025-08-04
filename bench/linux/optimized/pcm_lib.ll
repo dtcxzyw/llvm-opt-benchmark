@@ -3154,7 +3154,7 @@ define dso_local void @_snd_pcm_hw_params_any(ptr noundef captures(none) initial
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 516
   br label %7
 
-4:                                                ; preds = %7
+5:                                                ; preds = %7
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 512
   store i32 7, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 260
@@ -3173,13 +3173,13 @@ define dso_local void @_snd_pcm_hw_params_any(ptr noundef captures(none) initial
   %15 = icmp eq i64 %14, 3
   br i1 %15, label %4, label %7, !llvm.loop !28
 
-16:                                               ; preds = %16, %4
+16:; preds = %16, %5
   %17 = phi i64 [ 8, %4 ], [ %30, %16 ]
   %18 = add nsw i64 %17, -8
   %19 = getelementptr [12 x %struct.snd_interval], ptr %6, i64 0, i64 %18
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load i8, ptr %20, align 4
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = load i8, ptr %21, align 4
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 -1, ptr %22, align 4
   %23 = and i8 %21, -16
@@ -3196,7 +3196,7 @@ define dso_local void @_snd_pcm_hw_params_any(ptr noundef captures(none) initial
   %31 = icmp eq i64 %30, 20
   br i1 %31, label %32, label %16, !llvm.loop !29
 
-32:                                               ; preds = %16
+32:  ; preds = %16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 520
   store i32 -1, ptr %33, align 8
   ret void

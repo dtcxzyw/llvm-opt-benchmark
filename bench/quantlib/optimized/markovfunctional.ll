@@ -18897,7 +18897,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont73
   %use_count_.i.i.i.i = getelementptr inbounds nuw i8, ptr %52, i64 8
   %53 = atomicrmw sub ptr %use_count_.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i = icmp eq i32 %53, 1
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i121, label %_ZN5boost10shared_ptrIN8QuantLib12SmileSectionEEaSEOS3_.exitthread-pre-split
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i121, label %_ZN5boost10shared_ptrIN8QuantLib12SmileSectionEEaSEOS3_.exit
 
 if.then.i.i.i.i121:                               ; preds = %if.then.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %52, align 8, !tbaa !14
@@ -18910,7 +18910,7 @@ if.then.i.i.i.i121:                               ; preds = %if.then.i.i.i
   %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %52, i64 12
   %55 = atomicrmw sub ptr %weak_count_.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i122 = icmp eq i32 %55, 1
-  br i1 %cmp.i.i.i.i.i122, label %if.then.i.i.i.i.i123, label %_ZN5boost10shared_ptrIN8QuantLib12SmileSectionEEaSEOS3_.exitthread-pre-split
+  br i1 %cmp.i.i.i.i.i122, label %if.then.i.i.i.i.i123, label %_ZN5boost10shared_ptrIN8QuantLib12SmileSectionEEaSEOS3_.exit
 
 if.then.i.i.i.i.i123:                             ; preds = %.noexc.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %52, align 8, !tbaa !14
@@ -18926,8 +18926,8 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i12
   call void @__clang_call_terminate(ptr %58) #33
   unreachable
 
-_ZN5boost10shared_ptrIN8QuantLib12SmileSectionEEaSEOS3_.exitthread-pre-split: ; preds = %if.then.i.i.i.i.i123, %.noexc.i.i.i, %if.then.i.i.i
-  %.pr = load ptr, ptr %pn3.i.i, align 8, !tbaa !16
+_ZN5boost10shared_ptrIN8QuantLib12SmileSectionEEaSEOS3_.exit: ; preds = %if.then.i.i.i.i.i123, %.noexc.i.i.i, %if.then.i.i.i
+  %59 = load ptr, ptr %pn3.i.i, align 8, !tbaa !16
   br label %_ZN5boost10shared_ptrIN8QuantLib12SmileSectionEEaSEOS3_.exit
 
 _ZN5boost10shared_ptrIN8QuantLib12SmileSectionEEaSEOS3_.exit: ; preds = %_ZN5boost10shared_ptrIN8QuantLib12SmileSectionEEaSEOS3_.exitthread-pre-split, %invoke.cont73
@@ -19253,7 +19253,7 @@ if.then.i.i.i195:                                 ; preds = %invoke.cont154
   %use_count_.i.i.i.i196 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %100 = atomicrmw sub ptr %use_count_.i.i.i.i196, i32 1 acq_rel, align 4
   %cmp.i.i.i.i197 = icmp eq i32 %100, 1
-  br i1 %cmp.i.i.i.i197, label %if.then.i.i.i.i198, label %_ZN5boost10shared_ptrIN8QuantLib12SmileSectionEEaSEOS3_.exit208thread-pre-split
+  br i1 %cmp.i.i.i.i197, label %if.then.i.i.i.i198, label %_ZN5boost10shared_ptrIN8QuantLib12SmileSectionEEaSEOS3_.exit208
 
 if.then.i.i.i.i198:                               ; preds = %if.then.i.i.i195
   %vtable.i.i.i.i199 = load ptr, ptr %99, align 8, !tbaa !14
@@ -19266,7 +19266,7 @@ if.then.i.i.i.i198:                               ; preds = %if.then.i.i.i195
   %weak_count_.i.i.i.i.i203 = getelementptr inbounds nuw i8, ptr %99, i64 12
   %102 = atomicrmw sub ptr %weak_count_.i.i.i.i.i203, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i204 = icmp eq i32 %102, 1
-  br i1 %cmp.i.i.i.i.i204, label %if.then.i.i.i.i.i205, label %_ZN5boost10shared_ptrIN8QuantLib12SmileSectionEEaSEOS3_.exit208thread-pre-split
+  br i1 %cmp.i.i.i.i.i204, label %if.then.i.i.i.i.i205, label %_ZN5boost10shared_ptrIN8QuantLib12SmileSectionEEaSEOS3_.exit208
 
 if.then.i.i.i.i.i205:                             ; preds = %.noexc.i.i.i202
   %vtable.i.i.i.i.i206 = load ptr, ptr %99, align 8, !tbaa !14
@@ -19282,8 +19282,8 @@ terminate.lpad.i.i.i201:                          ; preds = %if.then.i.i.i.i.i20
   call void @__clang_call_terminate(ptr %105) #33
   unreachable
 
-_ZN5boost10shared_ptrIN8QuantLib12SmileSectionEEaSEOS3_.exit208thread-pre-split: ; preds = %if.then.i.i.i.i.i205, %.noexc.i.i.i202, %if.then.i.i.i195
-  %.pr1328 = load ptr, ptr %pn3.i.i192, align 8, !tbaa !16
+_ZN5boost10shared_ptrIN8QuantLib12SmileSectionEEaSEOS3_.exit208: ; preds = %if.then.i.i.i.i.i205, %.noexc.i.i.i202, %if.then.i.i.i195
+  %106 = load ptr, ptr %pn3.i.i192, align 8, !tbaa !16
   br label %_ZN5boost10shared_ptrIN8QuantLib12SmileSectionEEaSEOS3_.exit208
 
 _ZN5boost10shared_ptrIN8QuantLib12SmileSectionEEaSEOS3_.exit208: ; preds = %_ZN5boost10shared_ptrIN8QuantLib12SmileSectionEEaSEOS3_.exit208thread-pre-split, %invoke.cont154
@@ -19669,10 +19669,10 @@ cond.false.i319:                                  ; preds = %dynamic_cast.end3.i
           to label %invoke.cont244 unwind label %lpad241.loopexit
 
 invoke.cont244:                                   ; preds = %cond.true.i, %if.then.i.i.i315, %cond.false.i319
-  %.pre.i3201331 = phi ptr [ null, %cond.false.i319 ], [ %165, %if.then.i.i.i315 ], [ %165, %cond.true.i ]
+  %.pre.i3201330 = phi ptr [ null, %cond.false.i319 ], [ %165, %if.then.i.i.i315 ], [ %165, %cond.true.i ]
   %168 = phi ptr [ null, %cond.false.i319 ], [ %166, %if.then.i.i.i315 ], [ null, %cond.true.i ]
-  %leftIndex_.i = getelementptr inbounds nuw i8, ptr %.pre.i3201331, i64 176
-  %rightIndex_.i = getelementptr inbounds nuw i8, ptr %.pre.i3201331, i64 184
+  %leftIndex_.i = getelementptr inbounds nuw i8, ptr %.pre.i3201330, i64 176
+  %rightIndex_.i = getelementptr inbounds nuw i8, ptr %.pre.i3201330, i64 184
   %169 = load i64, ptr %leftIndex_.i, align 8, !tbaa !8
   %170 = load i64, ptr %rightIndex_.i, align 8, !tbaa !8
   %171 = load ptr, ptr %_M_finish.i.i65, align 8, !tbaa !393
@@ -20838,10 +20838,10 @@ cond.false.i633:                                  ; preds = %dynamic_cast.end3.i
           to label %invoke.cont507 unwind label %lpad504.loopexit
 
 invoke.cont507:                                   ; preds = %cond.true.i624, %if.then.i.i.i628, %cond.false.i633
-  %.pre.i6341334 = phi ptr [ null, %cond.false.i633 ], [ %307, %if.then.i.i.i628 ], [ %307, %cond.true.i624 ]
+  %.pre.i6341333 = phi ptr [ null, %cond.false.i633 ], [ %307, %if.then.i.i.i628 ], [ %307, %cond.true.i624 ]
   %310 = phi ptr [ null, %cond.false.i633 ], [ %308, %if.then.i.i.i628 ], [ null, %cond.true.i624 ]
-  %leftIndex_.i637 = getelementptr inbounds nuw i8, ptr %.pre.i6341334, i64 176
-  %rightIndex_.i638 = getelementptr inbounds nuw i8, ptr %.pre.i6341334, i64 184
+  %leftIndex_.i637 = getelementptr inbounds nuw i8, ptr %.pre.i6341333, i64 176
+  %rightIndex_.i638 = getelementptr inbounds nuw i8, ptr %.pre.i6341333, i64 184
   %311 = load i64, ptr %leftIndex_.i637, align 8, !tbaa !8
   %312 = load i64, ptr %rightIndex_.i638, align 8, !tbaa !8
   %313 = load ptr, ptr %_M_finish.i.i65, align 8, !tbaa !393

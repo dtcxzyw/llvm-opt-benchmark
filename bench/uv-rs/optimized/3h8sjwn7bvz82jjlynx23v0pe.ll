@@ -10867,10 +10867,10 @@ common.resume.i.i.i:                              ; preds = %30, %29, %24
   %32 = icmp eq i64 %.sroa.53.0.copyload.i.i.i.i, 0
   br i1 %32, label %common.resume.i.i.i, label %29
 
-33:                                               ; preds = %1, %34
+33:                                               ; preds = %1, %35
   ret ptr %0
 
-34:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h2b10ad25c24b8a98E.exit.i.i.i"
+35:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h2b10ad25c24b8a98E.exit.i.i.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(288) %.sroa.0.i.i, ptr noundef nonnull align 32 dereferenceable(288) %3, i64 288, i1 false)
   %.sroa.0.i.i.288.i.i.288.i.i.288.i.288.i.288..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 288
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %.sroa.0.i.i.288.i.i.288.i.i.288.i.288.i.288..sroa_idx, i8 0, i64 16, i1 false)

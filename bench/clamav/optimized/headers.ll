@@ -128,9 +128,9 @@ _ZN5ArrayIhE5ResetEv.exit:                        ; preds = %2, %4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not5 = icmp eq i64 %7, 0
+  %.not6 = icmp eq i64 %7, 0
   store i64 %7, ptr %5, align 8, !tbaa !10
-  br i1 %.not5, label %_ZN5ArrayIhE5AllocEm.exit.thread, label %9
+  br i1 %.not6, label %_ZN5ArrayIhE5AllocEm.exit.thread, label %9
 
 9:                                                ; preds = %_ZN5ArrayIhE5ResetEv.exit
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -167,13 +167,13 @@ _ZN5ArrayIhE5ResetEv.exit:                        ; preds = %2, %4
 _ZN5ArrayIhE5AllocEm.exit:                        ; preds = %14, %23
   store ptr %21, ptr %0, align 8, !tbaa !12
   store i64 %..i.i, ptr %8, align 8, !tbaa !3
-  %.pre6 = load i64, ptr %6, align 8, !tbaa !10
-  %.not = icmp eq i64 %.pre6, 0
+  %.pre5 = load i64, ptr %6, align 8, !tbaa !10
+  %.not = icmp eq i64 %.pre5, 0
   br i1 %.not, label %_ZN5ArrayIhE5AllocEm.exit.thread, label %24
 
 24:                                               ; preds = %_ZN5ArrayIhE5AllocEm.exit
   %25 = load ptr, ptr %1, align 8, !tbaa !12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr align 1 %25, i64 %.pre6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr align 1 %25, i64 %.pre5, i1 false)
   br label %_ZN5ArrayIhE5AllocEm.exit.thread
 
 _ZN5ArrayIhE5AllocEm.exit.thread:                 ; preds = %_ZN5ArrayIhE5ResetEv.exit, %24, %_ZN5ArrayIhE5AllocEm.exit

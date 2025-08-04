@@ -6790,7 +6790,7 @@ if.then.i.i.i268:                                 ; preds = %invoke.cont294
   %use_count_.i.i.i.i269 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %149 = atomicrmw sub ptr %use_count_.i.i.i.i269, i32 1 acq_rel, align 4
   %cmp.i.i.i.i = icmp eq i32 %149, 1
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN5boost10shared_ptrIN8QuantLib18PlainVanillaPayoffEEaSEOS3_.exitthread-pre-split
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN5boost10shared_ptrIN8QuantLib18PlainVanillaPayoffEEaSEOS3_.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i268
   %vtable.i.i.i.i = load ptr, ptr %75, align 8, !tbaa !35
@@ -6803,7 +6803,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i268
   %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %75, i64 12
   %151 = atomicrmw sub ptr %weak_count_.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i = icmp eq i32 %151, 1
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN5boost10shared_ptrIN8QuantLib18PlainVanillaPayoffEEaSEOS3_.exitthread-pre-split
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN5boost10shared_ptrIN8QuantLib18PlainVanillaPayoffEEaSEOS3_.exit
 
 if.then.i.i.i.i.i:                                ; preds = %.noexc.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %75, align 8, !tbaa !35
@@ -6819,8 +6819,8 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
   call void @__clang_call_terminate(ptr %154) #29
   unreachable
 
-_ZN5boost10shared_ptrIN8QuantLib18PlainVanillaPayoffEEaSEOS3_.exitthread-pre-split: ; preds = %if.then.i.i.i.i.i, %.noexc.i.i.i, %if.then.i.i.i268
-  %.pr = load ptr, ptr %pn3.i.i, align 8, !tbaa !37
+_ZN5boost10shared_ptrIN8QuantLib18PlainVanillaPayoffEEaSEOS3_.exit: ; preds = %if.then.i.i.i.i.i, %.noexc.i.i.i, %if.then.i.i.i268
+  %155 = load ptr, ptr %pn3.i.i, align 8, !tbaa !37
   br label %_ZN5boost10shared_ptrIN8QuantLib18PlainVanillaPayoffEEaSEOS3_.exit
 
 _ZN5boost10shared_ptrIN8QuantLib18PlainVanillaPayoffEEaSEOS3_.exit: ; preds = %_ZN5boost10shared_ptrIN8QuantLib18PlainVanillaPayoffEEaSEOS3_.exitthread-pre-split, %invoke.cont294

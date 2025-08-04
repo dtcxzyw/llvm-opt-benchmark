@@ -3001,8 +3001,8 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit:           ; preds = %_ZNSt6vectorIlSaIlE
   %76 = mul i32 %75, %75
   %77 = zext nneg i32 %76 to i64
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not = icmp eq i32 %75, 0
-  br i1 %.not, label %.loopexit, label %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i23
+  %.not56 = icmp eq i32 %75, 0
+  br i1 %.not56, label %.loopexit, label %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i23
 
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i23: ; preds = %73
   %79 = shl nuw nsw i64 %77, 3
@@ -3193,8 +3193,8 @@ define void @_ZNK10open_spiel10trade_comm14TradeCommState14ChanceOutcomesEv(ptr 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %17 = zext nneg i32 %16 to i64
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %._crit_edge, label %_ZNSt12_Vector_baseISt4pairIldESaIS1_EE11_M_allocateEm.exit.i
+  %.not36 = icmp eq i32 %15, 0
+  br i1 %.not36, label %._crit_edge, label %_ZNSt12_Vector_baseISt4pairIldESaIS1_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseISt4pairIldESaIS1_EE11_M_allocateEm.exit.i: ; preds = %13
   %19 = shl nuw nsw i64 %17, 4

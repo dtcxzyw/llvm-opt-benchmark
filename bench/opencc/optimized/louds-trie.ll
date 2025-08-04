@@ -4814,7 +4814,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEE5clearEv.exit: ; preds = %62, %
 
 .invoke:                                          ; preds = %83, %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit
   %.str.sink = phi ptr [ @.str, %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit ], [ @.str.43, %83 ]
-  %.sink71 = phi i32 [ 453, %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit ], [ 19, %83 ]
+  %.sink70 = phi i32 [ 453, %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit ], [ 19, %83 ]
   %.sink = phi i32 [ 8, %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit ], [ 6, %83 ]
   %.str.2.sink = phi ptr [ @.str.2, %_ZN6marisa10scoped_ptrINS_8grimoire4trie9LoudsTrieEE5resetEPS3_.exit ], [ @.str.44, %83 ]
   %85 = tail call ptr @__cxa_allocate_exception(i64 32) #24
@@ -4822,7 +4822,7 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEE5clearEv.exit: ; preds = %62, %
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store ptr %.str.sink, ptr %86, align 8, !tbaa !77
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  store i32 %.sink71, ptr %87, align 8, !tbaa !81
+  store i32 %.sink70, ptr %87, align 8, !tbaa !81
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 20
   store i32 %.sink, ptr %88, align 4, !tbaa !82
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 24
