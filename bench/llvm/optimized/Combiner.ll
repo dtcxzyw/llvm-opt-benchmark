@@ -242,7 +242,7 @@ switch.lookup:
   store i32 0, ptr %9, align 8, !tbaa !13, !noalias !3
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i8 1, ptr %10, align 4, !tbaa !14, !noalias !3
-  %11 = zext i32 %1 to i64
+  %11 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm8CombinerC2ERNS_15MachineFunctionERNS_12CombinerInfoEPKNS_16TargetPassConfigEPNS_14GISelKnownBitsEPNS_12GISelCSEInfoE, i64 0, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 412
@@ -349,7 +349,7 @@ _ZNSt10unique_ptrIN4llvm13CSEMIRBuilderESt14default_deleteIS1_EED2Ev.exit: ; pre
   store i32 0, ptr %33, align 8, !tbaa !13, !noalias !165
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 28
   store i8 1, ptr %34, align 4, !tbaa !14, !noalias !165
-  %35 = zext i32 %25 to i64
+  %35 = zext nneg i32 %25 to i64
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm8CombinerC2ERNS_15MachineFunctionERNS_12CombinerInfoEPKNS_16TargetPassConfigEPNS_14GISelKnownBitsEPNS_12GISelCSEInfoE, i64 0, i64 %35
   %switch.load = load ptr, ptr %switch.gep, align 8
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 412

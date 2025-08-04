@@ -87236,10 +87236,10 @@ define internal fastcc { ptr, i64 } @_ZL16GetInputKindNameN5clang9InputKindE(i32
 switch.lookup:
   %.sroa.0.0.extract.trunc = trunc i32 %0 to i8
   %switch.tableidx = add nsw i8 %.sroa.0.0.extract.trunc, -1
-  %1 = zext i8 %switch.tableidx to i64
+  %1 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table._ZN5clang18CompilerInvocation18CreateFromArgsImplERS0_N4llvm8ArrayRefIPKcEERNS_17DiagnosticsEngineES5_.968, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %2 = zext i8 %switch.tableidx to i64
+  %2 = zext nneg i8 %switch.tableidx to i64
   %switch.gep2 = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZN5clang18CompilerInvocation18CreateFromArgsImplERS0_N4llvm8ArrayRefIPKcEERNS_17DiagnosticsEngineES5_.969, i64 0, i64 %2
   %switch.load3 = load i64, ptr %switch.gep2, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
@@ -100305,10 +100305,10 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   store i64 ptrtoint (ptr @.str.702 to i64), ptr %5141, align 8, !tbaa !379
   %.sroa.0.0.extract.trunc.i.i = trunc i32 %.sroa.011.0.copyload to i8
   %switch.tableidx = add nsw i8 %.sroa.0.0.extract.trunc.i.i, -1
-  %5142 = zext i8 %switch.tableidx to i64
+  %5142 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table._ZN5clang18CompilerInvocation18CreateFromArgsImplERS0_N4llvm8ArrayRefIPKcEERNS_17DiagnosticsEngineES5_.968, i64 0, i64 %5142
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %5143 = zext i8 %switch.tableidx to i64
+  %5143 = zext nneg i8 %switch.tableidx to i64
   %switch.gep852 = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZN5clang18CompilerInvocation18CreateFromArgsImplERS0_N4llvm8ArrayRefIPKcEERNS_17DiagnosticsEngineES5_.969, i64 0, i64 %5143
   %switch.load853 = load i64, ptr %switch.gep852, align 8
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %16, ptr nonnull %switch.load, i64 %switch.load853)
@@ -100504,10 +100504,10 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   store i64 ptrtoint (ptr @.str.703 to i64), ptr %5229, align 8, !tbaa !379
   %.sroa.0.0.extract.trunc.i158.i = trunc i32 %.sroa.011.0.copyload to i8
   %switch.tableidx854 = add nsw i8 %.sroa.0.0.extract.trunc.i158.i, -1
-  %5230 = zext i8 %switch.tableidx854 to i64
+  %5230 = zext nneg i8 %switch.tableidx854 to i64
   %switch.gep855 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table._ZN5clang18CompilerInvocation18CreateFromArgsImplERS0_N4llvm8ArrayRefIPKcEERNS_17DiagnosticsEngineES5_.968, i64 0, i64 %5230
   %switch.load856 = load ptr, ptr %switch.gep855, align 8
-  %5231 = zext i8 %switch.tableidx854 to i64
+  %5231 = zext nneg i8 %switch.tableidx854 to i64
   %switch.gep857 = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZN5clang18CompilerInvocation18CreateFromArgsImplERS0_N4llvm8ArrayRefIPKcEERNS_17DiagnosticsEngineES5_.969, i64 0, i64 %5231
   %switch.load858 = load i64, ptr %switch.gep857, align 8
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %17, ptr nonnull %switch.load856, i64 %switch.load858)

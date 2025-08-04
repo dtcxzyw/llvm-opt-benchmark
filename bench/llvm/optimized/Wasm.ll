@@ -62,10 +62,10 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm4wasm8toStringENS0_14WasmSymbolTypeE(i32 noundef %0) local_unnamed_addr #0 {
 switch.lookup:
-  %1 = zext i32 %0 to i64
+  %1 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN4llvm4wasm8toStringENS0_14WasmSymbolTypeE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = zext i32 %0 to i64
+  %2 = zext nneg i32 %0 to i64
   %switch.gep1 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN4llvm4wasm8toStringENS0_14WasmSymbolTypeE.1, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
@@ -76,10 +76,10 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm4wasm17relocTypetoStringEj(i32 noundef %0) local_unnamed_addr #0 {
 switch.lookup:
-  %1 = zext i32 %0 to i64
+  %1 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [27 x i64], ptr @switch.table._ZN4llvm4wasm17relocTypetoStringEj, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = zext i32 %0 to i64
+  %2 = zext nneg i32 %0 to i64
   %switch.gep1 = getelementptr inbounds nuw [27 x ptr], ptr @switch.table._ZN4llvm4wasm17relocTypetoStringEj.2, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
@@ -90,10 +90,10 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm4wasm19sectionTypeToStringEj(i32 noundef %0) local_unnamed_addr #0 {
 switch.lookup:
-  %1 = zext i32 %0 to i64
+  %1 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [14 x i64], ptr @switch.table._ZN4llvm4wasm19sectionTypeToStringEj, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = zext i32 %0 to i64
+  %2 = zext nneg i32 %0 to i64
   %switch.gep1 = getelementptr inbounds nuw [14 x ptr], ptr @switch.table._ZN4llvm4wasm19sectionTypeToStringEj.3, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0

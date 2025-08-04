@@ -15089,7 +15089,7 @@ define dso_local void @_PyDict_SendEvent(i32 noundef %0, i32 noundef %1, ptr nou
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !9
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 79672
-  %11 = zext i32 %1 to i64
+  %11 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._PyDict_SendEvent, i64 0, i64 %11
   br label %13
 

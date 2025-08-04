@@ -10313,10 +10313,10 @@ switch.lookup:
   %3 = alloca { { i64, ptr }, i64 }, align 8
   %4 = alloca { { { i64, ptr }, i64 }, i8, [7 x i8] }, align 8
   %5 = alloca { { i64, ptr }, i64 }, align 8
-  %6 = zext i8 %.0.val to i64
+  %6 = zext nneg i8 %.0.val to i64
   %switch.gep = getelementptr inbounds nuw [14 x ptr], ptr @switch.table._ZN12regex_syntax3hir9translate21hir_ascii_class_bytes17h86d269f4d1c44dbfE, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %7 = zext i8 %.0.val to i64
+  %7 = zext nneg i8 %.0.val to i64
   %switch.gep1 = getelementptr inbounds nuw [14 x i64], ptr @switch.table._ZN12regex_syntax3hir9translate21hir_ascii_class_bytes17h86d269f4d1c44dbfE.54, i64 0, i64 %7
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %8 = getelementptr inbounds nuw { i8, i8 }, ptr %switch.load, i64 %switch.load2

@@ -19181,7 +19181,7 @@ switch.lookup:
   store i32 %4, ptr %43, align 4
   store i32 %5, ptr %42, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41)
-  %44 = zext i8 %6 to i64
+  %44 = zext nneg i8 %6 to i64
   %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN94_$LT$image..codecs..openexr..OpenExrEncoder$LT$W$GT$$u20$as$u20$image..image..ImageEncoder$GT$11write_image17h580a8782ec6b83e7E.179", i64 0, i64 %44
   %switch.load = load i64, ptr %switch.gep, align 8
   %45 = zext i32 %4 to i64
@@ -19243,7 +19243,7 @@ switch.lookup10:                                  ; preds = %switch.lookup
   store i64 %45, ptr %35, align 8, !noalias !4866
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34), !noalias !4866
   store i64 %46, ptr %34, align 8, !noalias !4866
-  %60 = zext i8 %6 to i64
+  %60 = zext nneg i8 %6 to i64
   %switch.gep11 = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN94_$LT$image..codecs..openexr..OpenExrEncoder$LT$W$GT$$u20$as$u20$image..image..ImageEncoder$GT$11write_image17h580a8782ec6b83e7E.179", i64 0, i64 %60
   %switch.load12 = load i64, ptr %switch.gep11, align 8
   %61 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %47, i64 %switch.load12)

@@ -44858,7 +44858,7 @@ _ZN5clang7CodeGen15CodeGenFunction12LexicalScopeC2ERS1_NS_11SourceRangeE.exit: ;
 
 switch.lookup:                                    ; preds = %323
   %switch.tableidx = add nsw i32 %.1, -2
-  %326 = zext i32 %switch.tableidx to i64
+  %326 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction22EmitOMPAtomicDirectiveERKNS_18OMPAtomicDirectiveE, i64 0, i64 %326
   %switch.load = load i32, ptr %switch.gep, align 4
   %327 = and i64 %.sroa.488.0.copyload.i, 4
@@ -45672,7 +45672,7 @@ switch.lookup275:                                 ; preds = %_ZN5clang7CodeGen15
   %638 = lshr i32 %.val.i, 19
   %639 = and i32 %638, 63
   %switch.tableidx276 = add nsw i32 %639, -10
-  %640 = zext i32 %switch.tableidx276 to i64
+  %640 = zext nneg i32 %switch.tableidx276 to i64
   %switch.gep277 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction22EmitOMPAtomicDirectiveERKNS_18OMPAtomicDirectiveE.539, i64 0, i64 %640
   %switch.load278 = load i32, ptr %switch.gep277, align 4
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5) #22

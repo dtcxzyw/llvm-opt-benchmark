@@ -1351,19 +1351,19 @@ _ZSt8_DestroyIPSt6vectorItSaItEES2_EvT_S4_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_
 _ZN4llvm14MCRegisterInfo18InitMCRegisterInfoEPKNS_14MCRegisterDescEjjjPKNS_15MCRegisterClassEjPA2_KtjPKsPKNS_11LaneBitmaskEPKcSG_PS7_jSH_.exit: ; preds = %32, %34, %35, %_ZSt8_DestroyIPSt6vectorItSaItEES2_EvT_S4_RSaIT0_E.exit.i.i.i
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %47 = zext i32 %2 to i64
+  %47 = zext nneg i32 %2 to i64
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm18X86GenRegisterInfoC2Ejjjjj, i64 0, i64 %47
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %48 = zext i32 %2 to i64
+  %48 = zext nneg i32 %2 to i64
   %switch.gep12 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm18X86GenRegisterInfoC2Ejjjjj.34, i64 0, i64 %48
   %switch.load13 = load ptr, ptr %switch.gep12, align 8
   %49 = load i32, ptr %switch.load, align 4, !tbaa !285
   store ptr %switch.load13, ptr %45, align 8, !tbaa !303
   store i32 %49, ptr %46, align 8, !tbaa !304
-  %50 = zext i32 %3 to i64
+  %50 = zext nneg i32 %3 to i64
   %switch.gep19 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm18X86GenRegisterInfoC2Ejjjjj.37, i64 0, i64 %50
   %switch.load20 = load ptr, ptr %switch.gep19, align 8
-  %51 = zext i32 %3 to i64
+  %51 = zext nneg i32 %3 to i64
   %switch.gep21 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm18X86GenRegisterInfoC2Ejjjjj.38, i64 0, i64 %51
   %switch.load22 = load ptr, ptr %switch.gep21, align 8
   %52 = load i32, ptr %switch.load20, align 4, !tbaa !285
@@ -1371,20 +1371,20 @@ _ZN4llvm14MCRegisterInfo18InitMCRegisterInfoEPKNS_14MCRegisterDescEjjjPKNS_15MCR
   store ptr %switch.load22, ptr %53, align 8, !tbaa !305
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 124
   store i32 %52, ptr %54, align 4, !tbaa !306
-  %55 = zext i32 %2 to i64
+  %55 = zext nneg i32 %2 to i64
   %switch.gep14 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm18X86GenRegisterInfoC2Ejjjjj.35, i64 0, i64 %55
   %switch.load15 = load ptr, ptr %switch.gep14, align 8
-  %56 = zext i32 %2 to i64
+  %56 = zext nneg i32 %2 to i64
   %switch.gep16 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm18X86GenRegisterInfoC2Ejjjjj.36, i64 0, i64 %56
   %switch.load17 = load ptr, ptr %switch.gep16, align 8
   %57 = load i32, ptr %switch.load15, align 4, !tbaa !285
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %switch.load17, ptr %58, align 8, !tbaa !307
   store i32 %57, ptr %22, align 8, !tbaa !308
-  %59 = zext i32 %3 to i64
+  %59 = zext nneg i32 %3 to i64
   %switch.gep23 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm18X86GenRegisterInfoC2Ejjjjj.39, i64 0, i64 %59
   %switch.load24 = load ptr, ptr %switch.gep23, align 8
-  %60 = zext i32 %3 to i64
+  %60 = zext nneg i32 %3 to i64
   %switch.gep25 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm18X86GenRegisterInfoC2Ejjjjj.40, i64 0, i64 %60
   %switch.load26 = load ptr, ptr %switch.gep25, align 8
   %61 = load i32, ptr %switch.load24, align 4, !tbaa !285

@@ -1991,7 +1991,7 @@ switch.lookup:
   %67 = zext i32 %4 to i64
   %68 = zext i32 %5 to i64
   %69 = mul nuw i64 %68, %67
-  %70 = zext i8 %6 to i64
+  %70 = zext nneg i8 %6 to i64
   %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$6encode17hddceb78693eeffcdE.llvm.16944932373321799105", i64 0, i64 %70
   %switch.load = load i64, ptr %switch.gep, align 8
   %71 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %69, i64 %switch.load)

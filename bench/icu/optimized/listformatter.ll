@@ -1835,7 +1835,7 @@ define noundef ptr @_ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18ULi
 
 switch.lookup:                                    ; preds = %9, %7, %5
   %switch.table._ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18UListFormatterType19UListFormatterWidthR10UErrorCode.6.sink = phi ptr [ @switch.table._ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18UListFormatterType19UListFormatterWidthR10UErrorCode, %5 ], [ @switch.table._ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18UListFormatterType19UListFormatterWidthR10UErrorCode.5, %7 ], [ @switch.table._ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18UListFormatterType19UListFormatterWidthR10UErrorCode.6, %9 ]
-  %11 = zext i32 %2 to i64
+  %11 = zext nneg i32 %2 to i64
   %switch.gep15 = getelementptr inbounds nuw [3 x ptr], ptr %switch.table._ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18UListFormatterType19UListFormatterWidthR10UErrorCode.6.sink, i64 0, i64 %11
   %switch.load16 = load ptr, ptr %switch.gep15, align 8
   %12 = tail call noundef ptr @_ZN6icu_7713ListFormatter21getListFormatInternalERKNS_6LocaleEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %0, ptr noundef nonnull %switch.load16, ptr noundef nonnull align 4 dereferenceable(4) %3)

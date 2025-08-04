@@ -29,7 +29,7 @@ $_ZN4llvm12PatternMatch14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EE
 define dso_local noundef range(i32 1, 7) i32 @_ZN4llvm11getICmpCodeENS_7CmpInst9PredicateE(i32 noundef %0) local_unnamed_addr #0 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -32
-  %1 = zext i32 %switch.tableidx to i64
+  %1 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN4llvm11getICmpCodeENS_7CmpInst9PredicateE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load

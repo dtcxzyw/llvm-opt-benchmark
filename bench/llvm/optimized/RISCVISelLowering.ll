@@ -7851,7 +7851,7 @@ switch.lookup1:                                   ; preds = %44
   %49 = trunc i64 %.sroa.0.0.copyload.i.i.i to i32
   %50 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %49, i1 true)
   %switch.tableidx2 = add nsw i32 %50, -3
-  %51 = zext i32 %switch.tableidx2 to i64
+  %51 = zext nneg i32 %switch.tableidx2 to i64
   %switch.gep3 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZZN4llvm19RISCVTargetLoweringC1ERKNS_13TargetMachineERKNS_14RISCVSubtargetEENK3$_1clENS_3MVTE.203", i64 0, i64 %51
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %_ZN4llvm19RISCVTargetLowering21getRegClassIDForVecVTENS_3MVTE.exit
@@ -11818,7 +11818,7 @@ switch.lookup:                                    ; preds = %1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i32 47, 88) i32 @_ZN4llvm19RISCVTargetLowering20getRegClassIDForLMULENS_7RISCVII5VLMULE(i8 noundef zeroext %0) local_unnamed_addr #9 align 2 {
 switch.lookup:
-  %1 = zext i8 %0 to i64
+  %1 = zext nneg i8 %0 to i64
   %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN4llvm19RISCVTargetLowering20getRegClassIDForLMULENS_7RISCVII5VLMULE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
@@ -11853,7 +11853,7 @@ switch.lookup:                                    ; preds = %2
   %spec.select.i = select i1 %13, i32 %14, i32 %10
   %15 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %spec.select.i, i1 true)
   %switch.tableidx = add nsw i32 %15, -3
-  %16 = zext i32 %switch.tableidx to i64
+  %16 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN4llvm19RISCVTargetLowering40decomposeSubvectorInsertExtractToSubRegsENS_3MVTES1_jPKNS_17RISCVRegisterInfoE.208, i64 0, i64 %16
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN4llvm19RISCVTargetLowering7getLMULENS_3MVTE.exit
@@ -11927,7 +11927,7 @@ switch.lookup32:                                  ; preds = %22
   %27 = trunc i64 %.sroa.0.0.copyload.i.i to i32
   %28 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %27, i1 true)
   %switch.tableidx33 = add nsw i32 %28, -3
-  %29 = zext i32 %switch.tableidx33 to i64
+  %29 = zext nneg i32 %switch.tableidx33 to i64
   %switch.gep34 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN4llvm19RISCVTargetLowering40decomposeSubvectorInsertExtractToSubRegsENS_3MVTES1_jPKNS_17RISCVRegisterInfoE.207, i64 0, i64 %29
   %switch.load35 = load i32, ptr %switch.gep34, align 4
   br label %_ZN4llvm19RISCVTargetLowering20getRegClassIDForLMULENS_7RISCVII5VLMULE.exit
@@ -12007,7 +12007,7 @@ switch.lookup80:                                  ; preds = %26
   %31 = trunc i64 %.sroa.0.0.copyload.i.i.i to i32
   %32 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %31, i1 true)
   %switch.tableidx81 = add nsw i32 %32, -3
-  %33 = zext i32 %switch.tableidx81 to i64
+  %33 = zext nneg i32 %switch.tableidx81 to i64
   %switch.gep82 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN4llvm19RISCVTargetLowering40decomposeSubvectorInsertExtractToSubRegsENS_3MVTES1_jPKNS_17RISCVRegisterInfoE.207, i64 0, i64 %33
   %switch.load83 = load i32, ptr %switch.gep82, align 4
   br label %_ZN4llvm19RISCVTargetLowering21getRegClassIDForVecVTENS_3MVTE.exit
@@ -12081,7 +12081,7 @@ switch.lookup88:                                  ; preds = %55
   %60 = trunc i64 %.sroa.0.0.copyload.i.i.i26 to i32
   %61 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %60, i1 true)
   %switch.tableidx89 = add nsw i32 %61, -3
-  %62 = zext i32 %switch.tableidx89 to i64
+  %62 = zext nneg i32 %switch.tableidx89 to i64
   %switch.gep90 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN4llvm19RISCVTargetLowering40decomposeSubvectorInsertExtractToSubRegsENS_3MVTES1_jPKNS_17RISCVRegisterInfoE.207, i64 0, i64 %62
   %switch.load91 = load i32, ptr %switch.gep90, align 4
   br label %_ZN4llvm19RISCVTargetLowering21getRegClassIDForVecVTENS_3MVTE.exit32
@@ -12191,7 +12191,7 @@ switch.lookup92:                                  ; preds = %_ZNK4llvm3MVT26getH
   %spec.select.i.i40 = select i1 %104, i32 %105, i32 %101
   %106 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %spec.select.i.i40, i1 true)
   %switch.tableidx93 = add nsw i32 %106, -3
-  %107 = zext i32 %switch.tableidx93 to i64
+  %107 = zext nneg i32 %switch.tableidx93 to i64
   %switch.gep94 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN4llvm19RISCVTargetLowering40decomposeSubvectorInsertExtractToSubRegsENS_3MVTES1_jPKNS_17RISCVRegisterInfoE.208, i64 0, i64 %107
   %switch.load95 = load i32, ptr %switch.gep94, align 4
   br label %_ZN4llvm19RISCVTargetLowering19getSubregIndexByMVTENS_3MVTEj.exit45
@@ -107528,22 +107528,22 @@ switch.lookup:                                    ; preds = %3, %3, %3, %3, %3, 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35)
   %switch.tableidx = add nsw i16 %107, -381
-  %1051 = zext i16 %switch.tableidx to i64
+  %1051 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZNK4llvm19RISCVTargetLowering27EmitInstrWithCustomInserterERNS_12MachineInstrEPNS_17MachineBasicBlockE, i64 0, i64 %1051
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %1052 = zext i16 %switch.tableidx to i64
+  %1052 = zext nneg i16 %switch.tableidx to i64
   %switch.gep253 = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZNK4llvm19RISCVTargetLowering27EmitInstrWithCustomInserterERNS_12MachineInstrEPNS_17MachineBasicBlockE.210, i64 0, i64 %1052
   %switch.load254 = load i64, ptr %switch.gep253, align 8
-  %1053 = zext i16 %switch.tableidx to i64
+  %1053 = zext nneg i16 %switch.tableidx to i64
   %switch.gep255 = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZNK4llvm19RISCVTargetLowering27EmitInstrWithCustomInserterERNS_12MachineInstrEPNS_17MachineBasicBlockE.211, i64 0, i64 %1053
   %switch.load256 = load i64, ptr %switch.gep255, align 8
-  %1054 = zext i16 %switch.tableidx to i64
+  %1054 = zext nneg i16 %switch.tableidx to i64
   %switch.gep257 = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZNK4llvm19RISCVTargetLowering27EmitInstrWithCustomInserterERNS_12MachineInstrEPNS_17MachineBasicBlockE.212, i64 0, i64 %1054
   %switch.load258 = load i64, ptr %switch.gep257, align 8
-  %1055 = zext i16 %switch.tableidx to i64
+  %1055 = zext nneg i16 %switch.tableidx to i64
   %switch.gep259 = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZNK4llvm19RISCVTargetLowering27EmitInstrWithCustomInserterERNS_12MachineInstrEPNS_17MachineBasicBlockE.213, i64 0, i64 %1055
   %switch.load260 = load i64, ptr %switch.gep259, align 8
-  %1056 = zext i16 %switch.tableidx to i64
+  %1056 = zext nneg i16 %switch.tableidx to i64
   %switch.gep261 = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZNK4llvm19RISCVTargetLowering27EmitInstrWithCustomInserterERNS_12MachineInstrEPNS_17MachineBasicBlockE.214, i64 0, i64 %1056
   %switch.load262 = load i64, ptr %switch.gep261, align 8
   %1057 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -131281,7 +131281,7 @@ _ZNK4llvm3MVT15isFloatingPointEv.exit.thread:     ; preds = %58
   %62 = shl nuw nsw i32 %27, 1
   %63 = add nsw i32 %62, -16
   %64 = call i32 @llvm.fshl.i32(i32 %63, i32 %63, i32 28)
-  %65 = zext i32 %64 to i64
+  %65 = zext nneg i32 %64 to i64
   %switch.gep = getelementptr inbounds nuw [5 x i16], ptr @switch.table._ZNK12_GLOBAL__N_119NodeExtensionHelper21getOrCreateExtendedOpEPN4llvm6SDNodeERNS1_12SelectionDAGERKNS1_14RISCVSubtargetESt8optionalINS_7ExtKindEE, i64 0, i64 %65
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %_ZN4llvm3MVT18getFloatingPointVTEj.exit
@@ -135770,7 +135770,7 @@ _ZNK4llvm3EVT20getVectorElementTypeEv.exit:       ; preds = %71, %76
 
 switch.lookup123:                                 ; preds = %_ZNK4llvm3EVT20getVectorElementTypeEv.exit
   %switch.tableidx = add nsw i8 %.sroa.0116.0.extract.trunc, -1
-  %79 = zext i8 %switch.tableidx to i64
+  %79 = zext nneg i8 %switch.tableidx to i64
   %switch.gep124 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK12_GLOBAL__N_119NodeExtensionHelper21getOrCreateExtendedOpEPN4llvm6SDNodeERNS1_12SelectionDAGERKNS1_14RISCVSubtargetESt8optionalINS_7ExtKindEE.217, i64 0, i64 %79
   %switch.load125 = load i32, ptr %switch.gep124, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #35

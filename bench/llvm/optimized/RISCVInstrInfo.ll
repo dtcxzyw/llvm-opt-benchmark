@@ -5755,7 +5755,7 @@ _ZN4llvm7RISCVCC9getBrCondENS0_8CondCodeEb.exit:  ; preds = %3, %5, %6, %7, %8, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i32 0, 6) i32 @_ZN4llvm7RISCVCC26getOppositeBranchConditionENS0_8CondCodeE(i32 noundef %0) local_unnamed_addr #6 {
 switch.lookup:
-  %1 = zext i32 %0 to i64
+  %1 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN4llvm7RISCVCC26getOppositeBranchConditionENS0_8CondCodeE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
@@ -16575,7 +16575,7 @@ switch.lookup:
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = load ptr, ptr %26, align 8, !tbaa !241
   %switch.tableidx = add nsw i32 %2, -4
-  %28 = zext i32 %switch.tableidx to i64
+  %28 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZL22combineFPFusedMultiplyRN4llvm12MachineInstrES1_jRNS_15SmallVectorImplIPS0_EES5_, i64 0, i64 %28
   %switch.load = load i64, ptr %switch.gep, align 8
   %29 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %27, i64 %switch.load
@@ -16961,7 +16961,7 @@ _ZL20getSHXADDShiftAmountj.exit:                  ; preds = %switch.lookup, %5
   %45 = load i64, ptr %44, align 8, !tbaa !30
   %46 = trunc i64 %45 to i32
   %47 = add i32 %.0.i.neg, %46
-  %48 = zext i32 %47 to i64
+  %48 = zext nneg i32 %47 to i64
   %switch.gep108 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZL17genShXAddAddShiftRN4llvm12MachineInstrEjRNS_15SmallVectorImplIPS0_EES5_RNS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEE.75, i64 0, i64 %48
   %switch.load109 = load i64, ptr %switch.gep108, align 8
   %49 = xor i32 %1, 3

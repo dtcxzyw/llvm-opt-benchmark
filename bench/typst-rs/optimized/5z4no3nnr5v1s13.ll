@@ -114846,10 +114846,10 @@ define internal noundef zeroext i1 @"_ZN76_$LT$typst..math..underover..Overbrack
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, i64 } @_ZN5typst5model4list1_6Fields6to_str17h7460e10d0796ced8E(i8 noundef %0) unnamed_addr #7 {
 switch.lookup:
-  %1 = zext i8 %0 to i64
+  %1 = zext nneg i8 %0 to i64
   %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN68_$LT$typst..model..list.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h09ed61ddebc441e3E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %2 = zext i8 %0 to i64
+  %2 = zext nneg i8 %0 to i64
   %switch.gep1 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN68_$LT$typst..model..list.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h09ed61ddebc441e3E.980", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
@@ -120145,10 +120145,10 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.llvm.12850028421071809815.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, i64 } @_ZN5typst5model3par1_6Fields6to_str17ha2fb804fa0d3c5adE(i8 noundef %0) unnamed_addr #7 {
 switch.lookup:
-  %1 = zext i8 %0 to i64
+  %1 = zext nneg i8 %0 to i64
   %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN67_$LT$typst..model..par.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h26d0872967295ae9E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %2 = zext i8 %0 to i64
+  %2 = zext nneg i8 %0 to i64
   %switch.gep1 = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN67_$LT$typst..model..par.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h26d0872967295ae9E.982", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0

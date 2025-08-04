@@ -3720,7 +3720,7 @@ invoke.cont15:                                    ; preds = %invoke.cont10
   store i8 1, ptr %RHSKind.i, align 1
   store ptr %marker, ptr %ref.tmp, align 8
   %switch.tableidx = add nsw i32 %3, -1
-  %4 = zext i32 %switch.tableidx to i64
+  %4 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.main, i64 0, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call.i335 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #26

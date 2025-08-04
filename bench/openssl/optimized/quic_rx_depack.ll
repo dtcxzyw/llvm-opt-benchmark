@@ -194,7 +194,7 @@ switch.lookup:                                    ; preds = %60
   %68 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %64, ptr %68, align 8, !tbaa !58
   %69 = load i64, ptr %47, align 8
-  %70 = zext i32 %.0.i.ph3136 to i64
+  %70 = zext nneg i32 %.0.i.ph3136 to i64
   %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.ossl_quic_handle_frames, i64 0, i64 %70
   %switch.load = load i32, ptr %switch.gep, align 4
   %71 = icmp eq i64 %64, 0

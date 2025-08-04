@@ -57305,7 +57305,7 @@ switch.lookup:                                    ; preds = %7
   store i8 0, ptr %24, align 1, !tbaa !810
   store i8 0, ptr %25, align 4, !tbaa !811
   %30 = load i32, ptr %6, align 8, !tbaa !788
-  %31 = zext i32 %30 to i64
+  %31 = zext nneg i32 %30 to i64
   %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN5clang4Sema28CheckMicrosoftIfExistsSymbolEPNS_5ScopeERNS_12CXXScopeSpecERKNS_19DeclarationNameInfoE, i64 0, i64 %31
   %switch.load = load i32, ptr %switch.gep, align 4
   %32 = load ptr, ptr %14, align 8, !tbaa !816
@@ -130291,7 +130291,7 @@ switch.lookup:                                    ; preds = %15, %12, %10
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %.sroa.0.0.copyload.i26 = load i32, ptr %29, align 4, !tbaa !739
   %switch.tableidx = add nsw i16 %25, -83
-  %30 = zext i16 %switch.tableidx to i64
+  %30 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i16], ptr @switch.table._ZN5clang13TreeTransformIZNS_4Sema25CorrectDelayedTyposInExprEPNS_4ExprEPNS_7VarDeclEbN4llvm12function_refIFNS_12ActionResultIS3_Lb1EEES3_EEEE12TyposReplaceE25TransformCXXNamedCastExprEPNS_16CXXNamedCastExprE, i64 0, i64 %30
   %switch.load = load i16, ptr %switch.gep, align 2
   %.sroa.2.0.insert.ext.i.i = zext i32 %.sroa.0.0.copyload.i26 to i64
@@ -194108,7 +194108,7 @@ switch.lookup:                                    ; preds = %15, %12, %10
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %.sroa.0.0.copyload.i26 = load i32, ptr %29, align 4, !tbaa !739
   %switch.tableidx = add nsw i16 %25, -83
-  %30 = zext i16 %switch.tableidx to i64
+  %30 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i16], ptr @switch.table._ZN5clang13TreeTransformIZNS_4Sema25CorrectDelayedTyposInExprEPNS_4ExprEPNS_7VarDeclEbN4llvm12function_refIFNS_12ActionResultIS3_Lb1EEES3_EEEE12TyposReplaceE25TransformCXXNamedCastExprEPNS_16CXXNamedCastExprE, i64 0, i64 %30
   %switch.load = load i16, ptr %switch.gep, align 2
   %.sroa.2.0.insert.ext.i.i = zext i32 %.sroa.0.0.copyload.i26 to i64

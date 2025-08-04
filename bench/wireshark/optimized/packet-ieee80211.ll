@@ -23226,7 +23226,7 @@ default.unreachable:                              ; preds = %2
 
 .sink.split.sink.split:                           ; preds = %8, %6, %4
   %switch.table.s1g_raw_type_options_custom.236.sink = phi ptr [ @switch.table.s1g_raw_type_options_custom, %4 ], [ @switch.table.s1g_raw_type_options_custom.235, %6 ], [ @switch.table.s1g_raw_type_options_custom.236, %8 ]
-  %10 = zext i8 %1 to i64
+  %10 = zext nneg i8 %1 to i64
   %switch.gep32 = getelementptr inbounds nuw [4 x ptr], ptr %switch.table.s1g_raw_type_options_custom.236.sink, i64 0, i64 %10
   %switch.load33 = load ptr, ptr %switch.gep32, align 8
   br label %.sink.split

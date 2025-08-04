@@ -885,7 +885,7 @@ ItemPointerIsValid.exit:                          ; preds = %3
 
 switch.lookup:                                    ; preds = %8
   %switch.tableidx = add i32 %2, -1
-  %12 = zext i32 %switch.tableidx to i64
+  %12 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.XactLockTableWaitErrorCb, i64 0, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   %13 = tail call i32 @set_errcontext_domain(ptr noundef null) #8

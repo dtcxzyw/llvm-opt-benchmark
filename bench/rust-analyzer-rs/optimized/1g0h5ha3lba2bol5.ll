@@ -14237,7 +14237,7 @@ select.unfold142:                                 ; preds = %241, %234
 
 "_ZN4core3ptr202drop_in_place$LT$triomphe..arc..Arc$LT$la_arena..map..ArenaMap$LT$la_arena..Idx$LT$hir_def..data..adt..FieldData$GT$$C$chalk_ir..Binders$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$$GT$$GT$$GT$17h96421b0aeacbe70bE.exit124": ; preds = %264, %268
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  %273 = zext i32 %204 to i64
+  %273 = zext nneg i32 %204 to i64
   %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN3hir15source_analyzer14SourceAnalyzer24resolve_record_pat_field17h13f5a5029867f8c8E, i64 0, i64 %273
   %switch.load = load i32, ptr %switch.gep, align 4
   %274 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
@@ -14782,7 +14782,7 @@ select.unfold121:                                 ; preds = %169, %162
 
 "_ZN4core3ptr202drop_in_place$LT$triomphe..arc..Arc$LT$la_arena..map..ArenaMap$LT$la_arena..Idx$LT$hir_def..data..adt..FieldData$GT$$C$chalk_ir..Binders$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$$GT$$GT$$GT$17h96421b0aeacbe70bE.exit108": ; preds = %192, %196
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %201 = zext i32 %116 to i64
+  %201 = zext nneg i32 %116 to i64
   %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN3hir15source_analyzer14SourceAnalyzer24resolve_record_pat_field17h13f5a5029867f8c8E, i64 0, i64 %201
   %switch.load = load i32, ptr %switch.gep, align 4
   %202 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4

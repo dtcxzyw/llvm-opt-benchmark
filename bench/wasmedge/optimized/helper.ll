@@ -3206,7 +3206,7 @@ define noundef zeroext range(i8 101, 99) i8 @_ZNK8WasmEdge8Executor8Executor12to
 
 switch.lookup:                                    ; preds = %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6
   %switch.tableidx = add nsw i8 %8, -105
-  %9 = zext i8 %switch.tableidx to i64
+  %9 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [11 x i8], ptr @switch.table._ZNK8WasmEdge8Executor8Executor12toBottomTypeERNS_7Runtime12StackManagerERKNS_7ValTypeE, i64 0, i64 %9
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %42

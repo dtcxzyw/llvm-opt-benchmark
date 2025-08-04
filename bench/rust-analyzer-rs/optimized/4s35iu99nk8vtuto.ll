@@ -7077,10 +7077,10 @@ _ZN6syntax10validation22validate_path_keywords17h68f31563ac94b49dE.exit: ; preds
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN6syntax10validation30rustc_unescape_error_to_string17hea01f20f53453d14E(ptr noalias noundef writeonly sret({ { ptr, i64 }, i8, [7 x i8] }) align 8 captures(none) dereferenceable(24) %0, i8 noundef %1) unnamed_addr #8 {
 switch.lookup:
-  %2 = zext i8 %1 to i64
+  %2 = zext nneg i8 %1 to i64
   %switch.gep = getelementptr inbounds nuw [23 x i64], ptr @switch.table._ZN6syntax10validation30rustc_unescape_error_to_string17hea01f20f53453d14E, i64 0, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
-  %3 = zext i8 %1 to i64
+  %3 = zext nneg i8 %1 to i64
   %switch.gep3 = getelementptr inbounds nuw [23 x ptr], ptr @switch.table._ZN6syntax10validation30rustc_unescape_error_to_string17hea01f20f53453d14E.53, i64 0, i64 %3
   %switch.load4 = load ptr, ptr %switch.gep3, align 8
   %switch = icmp ult i8 %1, 21

@@ -90474,7 +90474,7 @@ _ZN6hir_ty3mir5lower11MirLowerCtx8set_goto17hf1d1537fc878dc13E.exit: ; preds = %
   br label %733
 
 switch.lookup:                                    ; preds = %2009
-  %2012 = zext i8 %.sroa.0887.0.copyload to i64
+  %2012 = zext nneg i8 %.sroa.0887.0.copyload to i64
   %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZN6hir_ty3mir5lower11MirLowerCtx34lower_expr_to_place_without_adjust17hbb9127372fc2352cE.366, i64 0, i64 %2012
   %switch.load = load i8, ptr %switch.gep, align 1
   %.sroa.94113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 36
@@ -90789,7 +90789,7 @@ switch.lookup:                                    ; preds = %2009
   br label %2087
 
 switch.lookup4653:                                ; preds = %2078
-  %2086 = zext i8 %.sroa.0887.0.copyload to i64
+  %2086 = zext nneg i8 %.sroa.0887.0.copyload to i64
   %switch.gep4654 = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZN6hir_ty3mir5lower11MirLowerCtx34lower_expr_to_place_without_adjust17hbb9127372fc2352cE.366, i64 0, i64 %2086
   %switch.load4655 = load i8, ptr %switch.gep4654, align 1
   br label %2087

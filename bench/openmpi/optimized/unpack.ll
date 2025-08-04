@@ -4876,7 +4876,7 @@ switch.hole_check:                                ; preds = %39
   br i1 %switch.lobit, label %switch.lookup, label %pmix20_bfrop_unpack_datatype.exit.thread
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %42 = zext i16 %switch.tableidx to i64
+  %42 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [42 x i64], ptr @switch.table.pmix20_bfrop_unpack_darray, i64 0, i64 %42
   %switch.load = load i64, ptr %switch.gep, align 8
   %sext = shl i64 %34, 32

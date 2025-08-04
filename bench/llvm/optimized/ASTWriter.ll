@@ -59330,7 +59330,7 @@ switch.lookup:                                    ; preds = %18
   call void @_ZN5clang13serialization18AbstractTypeWriterINS_15ASTRecordWriterEE5writeEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %75)
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load i8, ptr %76, align 16
-  %78 = zext i8 %77 to i64
+  %78 = zext nneg i8 %77 to i64
   %switch.gep = getelementptr inbounds nuw [58 x i32], ptr @switch.table._ZN5clang9ASTWriter9WriteTypeERNS_10ASTContextENS_8QualTypeE, i64 0, i64 %78
   %switch.load = load i32, ptr %switch.gep, align 4
   %79 = call noundef i64 @_ZN5clang15ASTRecordWriter4EmitEjj(ptr noundef nonnull align 8 dereferenceable(216) %24, i32 noundef %switch.load, i32 noundef 0)

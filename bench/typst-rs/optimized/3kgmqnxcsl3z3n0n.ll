@@ -95459,7 +95459,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h20d664ae3a94a75aE(ptr noal
           to label %switch.lookup unwind label %53
 
 switch.lookup:                                    ; preds = %2
-  %14 = zext i8 %13 to i64
+  %14 = zext nneg i8 %13 to i64
   %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hea8b4b4094791da4E, i64 0, i64 %14
   %switch.load = load i64, ptr %switch.gep, align 8
   %15 = zext i16 %8 to i64
@@ -95847,7 +95847,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h79872ea7771c9afdE(ptr noal
           to label %switch.lookup unwind label %53
 
 switch.lookup:                                    ; preds = %2
-  %14 = zext i8 %13 to i64
+  %14 = zext nneg i8 %13 to i64
   %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hea8b4b4094791da4E, i64 0, i64 %14
   %switch.load = load i64, ptr %switch.gep, align 8
   %15 = zext i16 %8 to i64
@@ -96593,7 +96593,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hea8b4b4094791da4E(ptr noal
           to label %switch.lookup unwind label %51
 
 switch.lookup:                                    ; preds = %2
-  %14 = zext i8 %13 to i64
+  %14 = zext nneg i8 %13 to i64
   %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hea8b4b4094791da4E, i64 0, i64 %14
   %switch.load = load i64, ptr %switch.gep, align 8
   %15 = zext i16 %8 to i64

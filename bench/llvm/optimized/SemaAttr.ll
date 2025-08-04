@@ -3307,10 +3307,10 @@ switch.lookup:
   %11 = alloca %"class.llvm::Error", align 8
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %switch.tableidx = add nsw i32 %3, -1
-  %13 = zext i32 %switch.tableidx to i64
+  %13 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN5clang4Sema23ActOnPragmaClangSectionENS_14SourceLocationENS0_24PragmaClangSectionActionENS0_22PragmaClangSectionKindEN4llvm9StringRefE, i64 0, i64 %13
   %switch.load = load i64, ptr %switch.gep, align 8
-  %14 = zext i32 %switch.tableidx to i64
+  %14 = zext nneg i32 %switch.tableidx to i64
   %switch.gep28 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5clang4Sema23ActOnPragmaClangSectionENS_14SourceLocationENS0_24PragmaClangSectionActionENS0_22PragmaClangSectionKindEN4llvm9StringRefE.20, i64 0, i64 %14
   %switch.load29 = load i32, ptr %switch.gep28, align 4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load

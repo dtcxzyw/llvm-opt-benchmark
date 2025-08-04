@@ -784,10 +784,10 @@ define dso_local { ptr, i64 } @_ZNK5clang4ento4SVal10getKindStrEv(ptr noundef no
 switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i8, ptr %1, align 8, !tbaa !143
-  %3 = zext i8 %2 to i64
+  %3 = zext nneg i8 %2 to i64
   %switch.gep = getelementptr inbounds nuw [11 x i64], ptr @switch.table._ZNK5clang4ento4SVal10getKindStrEv, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
-  %4 = zext i8 %2 to i64
+  %4 = zext nneg i8 %2 to i64
   %switch.gep1 = getelementptr inbounds nuw [11 x ptr], ptr @switch.table._ZNK5clang4ento4SVal10getKindStrEv.69, i64 0, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0

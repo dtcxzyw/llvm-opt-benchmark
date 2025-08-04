@@ -4947,10 +4947,10 @@ define noundef nonnull align 2 dereferenceable(98) ptr @"_ZN85_$LT$$RF$clap_buil
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, i64 } @_ZN12clap_builder5error7context11ContextKind6as_str17hc987bec30e305289E(i8 noundef %0) unnamed_addr #16 {
 switch.lookup:
-  %1 = zext i8 %0 to i64
+  %1 = zext nneg i8 %0 to i64
   %switch.gep = getelementptr inbounds nuw [17 x ptr], ptr @switch.table._ZN12clap_builder5error7context11ContextKind6as_str17hc987bec30e305289E, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %2 = zext i8 %0 to i64
+  %2 = zext nneg i8 %0 to i64
   %switch.gep1 = getelementptr inbounds nuw [17 x i64], ptr @switch.table._ZN12clap_builder5error7context11ContextKind6as_str17hc987bec30e305289E.22, i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0

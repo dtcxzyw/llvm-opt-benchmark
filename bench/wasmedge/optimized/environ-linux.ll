@@ -48,7 +48,7 @@ declare i32 @raise(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %0) local_unnamed_addr #0 comdat {
 switch.lookup:
-  %1 = zext i32 %0 to i64
+  %1 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [132 x i16], ptr @switch.table._ZN8WasmEdge4Host4WASI6detail9fromErrNoEi, i64 0, i64 %1
   %switch.load = load i16, ptr %switch.gep, align 2
   ret i16 %switch.load

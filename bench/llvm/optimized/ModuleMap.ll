@@ -1170,7 +1170,7 @@ _ZNK5clang9ModuleMap10findModuleEN4llvm9StringRefE.exit.thread: ; preds = %2, %_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i32 0, 5) i32 @_ZN5clang9ModuleMap16headerRoleToKindENS0_16ModuleHeaderRoleE(i32 noundef %0) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %1 = zext i32 %0 to i64
+  %1 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5clang15ModuleMapParser15parseHeaderDeclENS_7MMToken9TokenKindENS_14SourceLocationE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
@@ -1179,7 +1179,7 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i32 0, 5) i32 @_ZN5clang9ModuleMap16headerKindToRoleENS_6Module10HeaderKindE(i32 noundef %0) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %1 = zext i32 %0 to i64
+  %1 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5clang15ModuleMapParser15parseHeaderDeclENS_7MMToken9TokenKindENS_14SourceLocationE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
@@ -2875,7 +2875,7 @@ _ZN5clang6Module6HeaderC2ERKS1_.exit:             ; preds = %._crit_edge.i.i4.i,
   %152 = load i64, ptr %118, align 8, !tbaa !396
   store i64 %152, ptr %151, align 8, !tbaa !396
   %153 = load i32, ptr %2, align 8, !tbaa !397
-  %154 = zext i32 %153 to i64
+  %154 = zext nneg i32 %153 to i64
   %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5clang15ModuleMapParser15parseHeaderDeclENS_7MMToken9TokenKindENS_14SourceLocationE, i64 0, i64 %154
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @_ZN5clang9ModuleMap9addHeaderEPNS_6ModuleENS1_6HeaderENS0_16ModuleHeaderRoleEb(ptr noundef nonnull align 8 dereferenceable(1448) %0, ptr noundef %1, ptr noundef nonnull %16, i32 noundef %switch.load, i1 noundef zeroext false)
@@ -3576,7 +3576,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang9ModuleMap11KnownHeaderELb1EE9push_back
   %57 = load i32, ptr %17, align 8, !tbaa !140
   %58 = add i32 %57, 1
   store i32 %58, ptr %17, align 8, !tbaa !140
-  %59 = zext i32 %3 to i64
+  %59 = zext nneg i32 %3 to i64
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN5clang9ModuleMap9addHeaderEPNS_6ModuleENS1_6HeaderENS0_16ModuleHeaderRoleEb, i64 0, i64 %59
   %switch.load = load i64, ptr %switch.gep, align 8
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -4141,7 +4141,7 @@ switch.lookup:                                    ; preds = %51
   %73 = ptrtoint ptr %69 to i64
   store i64 %73, ptr %72, align 8, !tbaa !396
   %74 = load i32, ptr %2, align 8, !tbaa !397
-  %75 = zext i32 %74 to i64
+  %75 = zext nneg i32 %74 to i64
   %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5clang15ModuleMapParser15parseHeaderDeclENS_7MMToken9TokenKindENS_14SourceLocationE, i64 0, i64 %75
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @_ZN5clang6Module6HeaderC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %11, ptr noundef nonnull align 8 dereferenceable(72) %10)
@@ -25673,7 +25673,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %302 = icmp eq i32 %.0, 17
   %303 = zext i1 %302 to i8
   store i8 %303, ptr %244, align 8, !tbaa !382
-  %304 = zext i32 %54 to i64
+  %304 = zext nneg i32 %54 to i64
   %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5clang15ModuleMapParser15parseHeaderDeclENS_7MMToken9TokenKindENS_14SourceLocationE, i64 0, i64 %304
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %7, align 8, !tbaa !397

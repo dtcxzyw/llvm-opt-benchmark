@@ -1389,7 +1389,7 @@ define dso_local range(i32 451, 516) i32 @_ZN5clang11ASTNodeKind11getFromNodeERK
 switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load i8, ptr %1, align 16
-  %3 = zext i8 %2 to i64
+  %3 = zext nneg i8 %2 to i64
   %switch.gep = getelementptr inbounds nuw [58 x i32], ptr @switch.table._ZN5clang11ASTNodeKind11getFromNodeERKNS_4TypeE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
@@ -1407,7 +1407,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %1
   %5 = load ptr, ptr %2, align 8, !tbaa !22
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 16
-  %8 = zext i8 %7 to i64
+  %8 = zext nneg i8 %7 to i64
   %switch.gep = getelementptr inbounds nuw [59 x i32], ptr @switch.table._ZN5clang11ASTNodeKind11getFromNodeERKNS_7TypeLocE, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
@@ -1422,7 +1422,7 @@ define dso_local range(i32 517, 614) i32 @_ZN5clang11ASTNodeKind11getFromNodeERK
 switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i32, ptr %1, align 4, !tbaa !28
-  %3 = zext i32 %2 to i64
+  %3 = zext nneg i32 %2 to i64
   %switch.gep = getelementptr inbounds nuw [113 x i32], ptr @switch.table._ZN5clang11ASTNodeKind11getFromNodeERKNS_9OMPClauseE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load

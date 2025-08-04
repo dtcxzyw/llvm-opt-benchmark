@@ -361,7 +361,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %0) local_unnamed_addr #0 comdat {
 switch.lookup:
-  %1 = zext i32 %0 to i64
+  %1 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [132 x i16], ptr @switch.table._ZN8WasmEdge4Host4WASI6detail9fromErrNoEi, i64 0, i64 %1
   %switch.load = load i16, ptr %switch.gep, align 2
   ret i16 %switch.load
@@ -374,7 +374,7 @@ declare ptr @__errno_location() local_unnamed_addr #9
 define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode8fdAdviseEmm15__wasi_advice_t(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, i64 noundef %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 switch.lookup:
   %4 = load i32, ptr %0, align 8
-  %5 = zext i8 %3 to i64
+  %5 = zext nneg i8 %3 to i64
   %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZNK8WasmEdge4Host4WASI5INode8fdAdviseEmm15__wasi_advice_t, i64 0, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   %6 = tail call i32 @posix_fadvise(i32 noundef %4, i64 noundef %1, i64 noundef %2, i32 noundef %switch.load) #25
@@ -2142,21 +2142,21 @@ _ZN8WasmEdge4Host4WASI12_GLOBAL__N_126createNullTerminatedStringESt17basic_strin
   store i32 %.6.i, ptr %12, align 8
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %44 = load i8, ptr %43, align 2
-  %45 = zext i8 %44 to i64
+  %45 = zext nneg i8 %44 to i64
   %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN8WasmEdge4Host4WASI5INode11getAddrinfoESt17basic_string_viewIcSt11char_traitsIcEES6_RK17__wasi_addrinfo_tjN5cxx204spanIPS7_Lm18446744073709551615EEENSB_IP17__wasi_sockaddr_tLm18446744073709551615EEENSB_IPcLm18446744073709551615EEESI_Rj, i64 0, i64 %45
   %switch.load = load i32, ptr %switch.gep, align 4
   %46 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %switch.load, ptr %46, align 4
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 3
   %48 = load i8, ptr %47, align 1
-  %49 = zext i8 %48 to i64
+  %49 = zext nneg i8 %48 to i64
   %switch.gep101 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK8WasmEdge4Host4WASI5INode10sockGetOptE23__wasi_sock_opt_level_t20__wasi_sock_opt_so_tRN5cxx204spanIhLm18446744073709551615EEE.6, i64 0, i64 %49
   %switch.load102 = load i32, ptr %switch.gep101, align 4
   %50 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %switch.load102, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %52 = load i8, ptr %51, align 4
-  %53 = zext i8 %52 to i64
+  %53 = zext nneg i8 %52 to i64
   %switch.gep95 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN8WasmEdge4Host4WASI5INode11getAddrinfoESt17basic_string_viewIcSt11char_traitsIcEES6_RK17__wasi_addrinfo_tjN5cxx204spanIPS7_Lm18446744073709551615EEENSB_IP17__wasi_sockaddr_tLm18446744073709551615EEENSB_IPcLm18446744073709551615EEESI_Rj.3, i64 0, i64 %53
   %switch.load96 = load i32, ptr %switch.gep95, align 4
   %54 = getelementptr inbounds nuw i8, ptr %12, i64 12
@@ -2177,7 +2177,7 @@ _ZN8WasmEdge4Host4WASI12_GLOBAL__N_126createNullTerminatedStringESt17basic_strin
 
 switch.lookup:                                    ; preds = %60
   %switch.tableidx = add nsw i32 %59, 11
-  %62 = zext i32 %switch.tableidx to i64
+  %62 = zext nneg i32 %switch.tableidx to i64
   %switch.gep97 = getelementptr inbounds nuw [11 x i32], ptr @switch.table._ZN8WasmEdge4Host4WASI5INode11getAddrinfoESt17basic_string_viewIcSt11char_traitsIcEES6_RK17__wasi_addrinfo_tjN5cxx204spanIPS7_Lm18446744073709551615EEENSB_IP17__wasi_sockaddr_tLm18446744073709551615EEENSB_IPcLm18446744073709551615EEESI_Rj.4, i64 0, i64 %62
   %switch.load98 = load i32, ptr %switch.gep97, align 4
   br label %_ZN8WasmEdge4Host4WASI6detail12fromEAIErrNoEi.exit
@@ -3202,7 +3202,7 @@ declare i32 @shutdown(i32 noundef, i32 noundef) local_unnamed_addr #4
 define range(i32 0, -65534) i32 @_ZNK8WasmEdge4Host4WASI5INode10sockGetOptE23__wasi_sock_opt_level_t20__wasi_sock_opt_so_tRN5cxx204spanIhLm18446744073709551615EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 switch.lookup:
   %4 = alloca i32, align 4
-  %5 = zext i32 %2 to i64
+  %5 = zext nneg i32 %2 to i64
   %switch.gep = getelementptr inbounds nuw [15 x i32], ptr @switch.table._ZNK8WasmEdge4Host4WASI5INode10sockSetOptE23__wasi_sock_opt_level_t20__wasi_sock_opt_so_tN5cxx204spanIKhLm18446744073709551615EEE, i64 0, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3247,7 +3247,7 @@ switch.lookup32:                                  ; preds = %18
   %27 = load ptr, ptr %3, align 8
   store i64 4, ptr %6, align 8
   %28 = load i32, ptr %27, align 4
-  %29 = zext i32 %28 to i64
+  %29 = zext nneg i32 %28 to i64
   %switch.gep33 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK8WasmEdge4Host4WASI5INode10sockGetOptE23__wasi_sock_opt_level_t20__wasi_sock_opt_so_tRN5cxx204spanIhLm18446744073709551615EEE.6, i64 0, i64 %29
   %switch.load34 = load i32, ptr %switch.gep33, align 4
   store i32 %switch.load34, ptr %27, align 4
@@ -3275,7 +3275,7 @@ declare i32 @getsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr 
 ; Function Attrs: mustprogress nounwind uwtable
 define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode10sockSetOptE23__wasi_sock_opt_level_t20__wasi_sock_opt_so_tN5cxx204spanIKhLm18446744073709551615EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, ptr %3, i64 %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 switch.lookup:
-  %5 = zext i32 %2 to i64
+  %5 = zext nneg i32 %2 to i64
   %switch.gep = getelementptr inbounds nuw [15 x i32], ptr @switch.table._ZNK8WasmEdge4Host4WASI5INode10sockSetOptE23__wasi_sock_opt_level_t20__wasi_sock_opt_so_tN5cxx204spanIKhLm18446744073709551615EEE, i64 0, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   %6 = load i32, ptr %0, align 8

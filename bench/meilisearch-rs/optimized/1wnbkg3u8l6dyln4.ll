@@ -25865,7 +25865,7 @@ _ZN4core10intrinsics10typed_swap17h8070dcc8690dc40eE.exit.i: ; preds = %.prehead
 switch.lookup:                                    ; preds = %65, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h9ed347b6e22d0f96E.exit.i.i.i.i.i"
   %.sroa.01.0.i.i.i.i.i = phi i8 [ %70, %65 ], [ %.sroa.0.0.i.i.i.i.i.i, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h9ed347b6e22d0f96E.exit.i.i.i.i.i" ]
   %switch.tableidx = add nsw i8 %.sroa.01.0.i.i.i.i.i, 1
-  %71 = zext i8 %switch.tableidx to i64
+  %71 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17hb19776bdb7b5d54cE", i64 0, i64 %71
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %.thread.i.i.i.i.i

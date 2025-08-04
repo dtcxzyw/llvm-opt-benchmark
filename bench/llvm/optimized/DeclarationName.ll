@@ -2205,7 +2205,7 @@ define dso_local noundef ptr @_ZNK5clang15DeclarationName18getFETokenInfoSlowEv(
 _ZNK5clang15DeclarationName11getNameKindEv.exit:  ; preds = %1, %5
   %.0.i = phi i32 [ %9, %5 ], [ %4, %1 ]
   %switch.tableidx = add nsw i32 %.0.i, -3
-  %10 = zext i32 %switch.tableidx to i64
+  %10 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN5clang15DeclarationName18setFETokenInfoSlowEPv, i64 0, i64 %10
   %switch.load = load i64, ptr %switch.gep, align 8
   %11 = and i64 %2, -8
@@ -2234,7 +2234,7 @@ define dso_local void @_ZN5clang15DeclarationName18setFETokenInfoSlowEPv(ptr nou
 _ZNK5clang15DeclarationName11getNameKindEv.exit:  ; preds = %2, %6
   %.0.i = phi i32 [ %10, %6 ], [ %5, %2 ]
   %switch.tableidx = add nsw i32 %.0.i, -3
-  %11 = zext i32 %switch.tableidx to i64
+  %11 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN5clang15DeclarationName18setFETokenInfoSlowEPv, i64 0, i64 %11
   %switch.load = load i64, ptr %switch.gep, align 8
   %12 = and i64 %3, -8

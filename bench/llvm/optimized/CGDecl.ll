@@ -10506,7 +10506,7 @@ declare void @_ZN5clang7CodeGen15CodeGenFunction24destroyNonTrivialCStructERS1_N
 define dso_local noundef nonnull ptr @_ZN5clang7CodeGen15CodeGenFunction12getDestroyerENS_8QualType15DestructionKindE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(6496) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %1, -1
-  %2 = zext i32 %switch.tableidx to i64
+  %2 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction13pushEHDestroyENS_8QualType15DestructionKindENS0_7AddressES2_, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
@@ -10532,7 +10532,7 @@ switch.lookup:
   %4 = alloca %"class.clang::CodeGen::RawAddress", align 8
   %.sroa.4.i.i = alloca %"struct.clang::CodeGen::DominatingValue<clang::CodeGen::Address>::saved_type", align 8
   %switch.tableidx = add nsw i32 %1, -1
-  %5 = zext i32 %switch.tableidx to i64
+  %5 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction13pushEHDestroyENS_8QualType15DestructionKindENS0_7AddressES2_, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.4.i.i)

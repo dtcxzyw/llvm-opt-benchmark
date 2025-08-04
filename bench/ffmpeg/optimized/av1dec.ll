@@ -752,7 +752,7 @@ av_cmp_q.exit.thread.i.i.i.i:                     ; preds = %309, %292
 
 switch.lookup:                                    ; preds = %326
   %switch.tableidx = add nsw i8 %321, -1
-  %329 = zext i8 %switch.tableidx to i64
+  %329 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.av1_receive_frame, i64 0, i64 %329
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.sink.split.i61.i.i

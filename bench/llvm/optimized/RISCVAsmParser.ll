@@ -16766,7 +16766,7 @@ _ZN4llvm7RISCVZCL8getSpimmEjRjlb.exit:            ; preds = %23
   %.not = icmp eq i64 %34, 0
   %switch.table._ZN12_GLOBAL__N_114RISCVAsmParser17parseZcmpStackAdjERN4llvm15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS4_EEEEb.switch.table._ZN12_GLOBAL__N_114RISCVAsmParser17parseZcmpStackAdjERN4llvm15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS4_EEEEb.165 = select i1 %.not, ptr @switch.table._ZN12_GLOBAL__N_114RISCVAsmParser17parseZcmpStackAdjERN4llvm15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS4_EEEEb, ptr @switch.table._ZN12_GLOBAL__N_114RISCVAsmParser17parseZcmpStackAdjERN4llvm15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS4_EEEEb.165
   %switch.tableidx14 = add nsw i32 %28, -4
-  %35 = zext i32 %switch.tableidx14 to i64
+  %35 = zext nneg i32 %switch.tableidx14 to i64
   %switch.gep15 = getelementptr inbounds nuw [12 x i64], ptr %switch.table._ZN12_GLOBAL__N_114RISCVAsmParser17parseZcmpStackAdjERN4llvm15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS4_EEEEb.switch.table._ZN12_GLOBAL__N_114RISCVAsmParser17parseZcmpStackAdjERN4llvm15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS4_EEEEb.165, i64 0, i64 %35
   %switch.load16 = load i64, ptr %switch.gep15, align 8
   %36 = add i64 %switch.load16, %.0.i.i
@@ -19296,7 +19296,7 @@ declare void @_ZdaPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
 define linkonce_odr hidden noundef i32 @_ZN4llvm7RISCVZC11encodeRlistENS_10MCRegisterEb(i32 %0, i1 noundef zeroext %1) local_unnamed_addr #2 comdat {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -44
-  %2 = zext i32 %switch.tableidx to i64
+  %2 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [27 x i32], ptr @switch.table._ZN4llvm7RISCVZC11encodeRlistENS_10MCRegisterEb, i64 0, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load

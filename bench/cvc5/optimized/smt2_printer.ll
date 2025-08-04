@@ -8858,10 +8858,10 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit894: ; preds = %2021
 
 switch.lookup:                                    ; preds = %2031
   %switch.tableidx = add nsw i32 %1963, -373
-  %2033 = zext i32 %switch.tableidx to i64
+  %2033 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK4cvc58internal7printer4smt211Smt2Printer12toStreamBaseERSoNS0_12NodeTemplateILb0EEEPKNS0_10LetBindingEi, i64 0, i64 %2033
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %2034 = zext i32 %switch.tableidx to i64
+  %2034 = zext nneg i32 %switch.tableidx to i64
   %switch.gep1159 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZNK4cvc58internal7printer4smt211Smt2Printer12toStreamBaseERSoNS0_12NodeTemplateILb0EEEPKNS0_10LetBindingEi.1, i64 0, i64 %2034
   %switch.load1160 = load i64, ptr %switch.gep1159, align 8
   %2035 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1924, ptr noundef nonnull %switch.load, i64 noundef %switch.load1160)

@@ -103030,7 +103030,7 @@ define dso_local range(i64 0, -15) i64 @_ZNK5clang10ASTContext17getAttributedTyp
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local range(i64 0, -15) i64 @_ZN5clang10ASTContext17getAttributedTypeENS_15NullabilityKindENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(23216) %0, i8 noundef zeroext %1, i64 %2, i64 %3) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %4 = zext i8 %1 to i64
+  %4 = zext nneg i8 %1 to i64
   %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK5clang10ASTContext14GetBuiltinTypeEjRNS0_19GetBuiltinTypeErrorEPj, i64 0, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = tail call i64 @_ZNK5clang10ASTContext17getAttributedTypeENS_4attr4KindENS_8QualTypeES3_PKNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(23216) %0, i32 noundef %switch.load, i64 %2, i64 %3, ptr noundef null)
@@ -111227,7 +111227,7 @@ switch.lookup:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %4 = load i32, ptr %3, align 8, !tbaa !1512
   %switch.tableidx = add nsw i32 %4, -4
-  %5 = zext i32 %switch.tableidx to i64
+  %5 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZNK5clang10ASTContext17getSignedSizeTypeEv, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
@@ -111321,7 +111321,7 @@ switch.lookup:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 140
   %4 = load i32, ptr %3, align 4, !tbaa !1513
   %switch.tableidx = add nsw i32 %4, -1
-  %5 = zext i32 %switch.tableidx to i64
+  %5 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZNK5clang10ASTContext23getCFConstantStringDeclEv, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
@@ -111784,7 +111784,7 @@ switch.lookup:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i32, ptr %3, align 8, !tbaa !1237
   %switch.tableidx = add nsw i32 %4, -1
-  %5 = zext i32 %switch.tableidx to i64
+  %5 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZNK5clang10ASTContext23getCFConstantStringDeclEv, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
@@ -115849,7 +115849,7 @@ _ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread13.i: ; preds = %9, %_
   %21 = lshr i32 %20, 19
   %22 = and i32 %21, 511
   %switch.tableidx = add nsw i32 %22, -479
-  %23 = zext i32 %switch.tableidx to i64
+  %23 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZNK5clang10ASTContext20getFloatingTypeOrderENS_8QualTypeES1_.67, i64 0, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %tailrecurse.i10
@@ -115902,7 +115902,7 @@ _ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread13.i14: ; preds = %29,
   %41 = lshr i32 %40, 19
   %42 = and i32 %41, 511
   %switch.tableidx55 = add nsw i32 %42, -479
-  %43 = zext i32 %switch.tableidx55 to i64
+  %43 = zext nneg i32 %switch.tableidx55 to i64
   %switch.gep56 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZNK5clang10ASTContext20getFloatingTypeOrderENS_8QualTypeES1_.67, i64 0, i64 %43
   %switch.load57 = load i32, ptr %switch.gep56, align 4
   %.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %switch.load, i32 %switch.load57)
@@ -117613,7 +117613,7 @@ _ZNK5clang10ASTContext14getUIntPtrTypeEv.exit53:  ; preds = %_ZNK5clang10ASTCont
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 168
   %103 = load i32, ptr %102, align 8, !tbaa !1594
   %switch.tableidx = add nsw i32 %103, -1
-  %104 = zext i32 %switch.tableidx to i64
+  %104 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZNK5clang10ASTContext23getCFConstantStringDeclEv, i64 0, i64 %104
   %switch.load = load i64, ptr %switch.gep, align 8
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
@@ -126329,7 +126329,7 @@ switch.lookup:                                    ; preds = %25
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 136
   %340 = load i32, ptr %339, align 8, !tbaa !1512
   %switch.tableidx = add nsw i32 %340, -1
-  %341 = zext i32 %switch.tableidx to i64
+  %341 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZNK5clang10ASTContext20getBuiltinVaListDeclEv.68, i64 0, i64 %341
   %switch.load = load i64, ptr %switch.gep, align 8
   %342 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
@@ -126786,7 +126786,7 @@ switch.lookup17:                                  ; preds = %_ZN4llvm9StringRefC
   %574 = getelementptr inbounds nuw i8, ptr %573, i64 136
   %575 = load i32, ptr %574, align 8, !tbaa !1512
   %switch.tableidx18 = add nsw i32 %575, -1
-  %576 = zext i32 %switch.tableidx18 to i64
+  %576 = zext nneg i32 %switch.tableidx18 to i64
   %switch.gep19 = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZNK5clang10ASTContext20getBuiltinVaListDeclEv.68, i64 0, i64 %576
   %switch.load20 = load i64, ptr %switch.gep19, align 8
   %577 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load20
@@ -147697,7 +147697,7 @@ switch.lookup:
   %11 = lshr i32 %10, 19
   %12 = and i32 %11, 511
   %switch.tableidx = add nsw i32 %12, -458
-  %13 = zext i32 %switch.tableidx to i64
+  %13 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [21 x i64], ptr @switch.table._ZNK5clang10ASTContext36getCorrespondingSignedFixedPointTypeENS_8QualTypeE, i64 0, i64 %13
   %switch.load = load i64, ptr %switch.gep, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load

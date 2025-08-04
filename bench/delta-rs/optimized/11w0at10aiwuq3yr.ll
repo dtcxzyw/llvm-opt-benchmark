@@ -2651,10 +2651,10 @@ default.unreachable:                              ; preds = %17
 switch.lookup:                                    ; preds = %17
   %29 = getelementptr i8, ptr %21, i64 2
   %.0.val25 = load i8, ptr %29, align 2
-  %30 = zext i8 %.0.val25 to i64
+  %30 = zext nneg i8 %.0.val25 to i64
   %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN10arrow_json6reader4tape11TapeDecoder9serialize17he38a54a344c6a917E, i64 0, i64 %30
   %switch.load = load i64, ptr %switch.gep, align 8
-  %31 = zext i8 %.0.val25 to i64
+  %31 = zext nneg i8 %.0.val25 to i64
   %switch.gep39 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN10arrow_json6reader4tape11TapeDecoder9serialize17he38a54a344c6a917E.486, i64 0, i64 %31
   %switch.load40 = load ptr, ptr %switch.gep39, align 8
   br label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5991570310944373761.exit

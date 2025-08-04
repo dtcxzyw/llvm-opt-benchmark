@@ -69701,7 +69701,7 @@ jit_CONST_ADDR.exit659:                           ; preds = %527, %519, %jit_ADD
   %591 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %592 = load i8, ptr %591, align 4, !tbaa !90
   %switch.tableidx = add nsw i8 %592, 124
-  %593 = zext i8 %switch.tableidx to i64
+  %593 = zext nneg i8 %switch.tableidx to i64
   %594 = getelementptr inbounds nuw i8, ptr %0, i64 816
   br i1 %590, label %switch.lookup, label %switch.lookup828
 
@@ -69923,7 +69923,7 @@ jit_if_TYPED_REF.exit:                            ; preds = %695, %703
   %710 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %711 = load i8, ptr %710, align 4, !tbaa !90
   %switch.tableidx833 = add nsw i8 %711, 124
-  %712 = zext i8 %switch.tableidx833 to i64
+  %712 = zext nneg i8 %switch.tableidx833 to i64
   %switch.gep834 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.zend_jit_incdec_obj.42, i64 0, i64 %712
   %switch.load835 = load ptr, ptr %switch.gep834, align 8
   tail call fastcc void @jit_SET_EX_OPLINE(ptr noundef nonnull %0, ptr noundef nonnull %1)
@@ -70613,7 +70613,7 @@ switch.lookup836:                                 ; preds = %.critedge600.thread
   %1084 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %1085 = load i8, ptr %1084, align 4, !tbaa !90
   %switch.tableidx837 = add nsw i8 %1085, 124
-  %1086 = zext i8 %switch.tableidx837 to i64
+  %1086 = zext nneg i8 %switch.tableidx837 to i64
   %switch.gep838 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.zend_jit_incdec_obj.43, i64 0, i64 %1086
   %switch.load839 = load ptr, ptr %switch.gep838, align 8
   tail call fastcc void @jit_SET_EX_OPLINE(ptr noundef nonnull %0, ptr noundef nonnull %1)

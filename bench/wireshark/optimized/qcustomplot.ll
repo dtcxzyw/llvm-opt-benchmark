@@ -36861,7 +36861,7 @@ define noundef range(i32 1, 7) i32 @_ZN13QCPAxisTicker15getSubTickCountEd(ptr re
 .sink.split:                                      ; preds = %17, %14
   %switch.tableidx17.sink = phi i32 [ %switch.tableidx, %14 ], [ %switch.tableidx17, %17 ]
   %switch.table._ZN13QCPAxisTicker15getSubTickCountEd.2.sink = phi ptr [ @switch.table._ZN15QCPAxisTickerPi15getSubTickCountEd, %14 ], [ @switch.table._ZN15QCPAxisTickerPi15getSubTickCountEd.5, %17 ]
-  %22 = zext i32 %switch.tableidx17.sink to i64
+  %22 = zext nneg i32 %switch.tableidx17.sink to i64
   %switch.gep18 = getelementptr inbounds nuw [9 x i32], ptr %switch.table._ZN13QCPAxisTicker15getSubTickCountEd.2.sink, i64 0, i64 %22
   %switch.load19 = load i32, ptr %switch.gep18, align 4
   br label %23
@@ -38236,7 +38236,7 @@ define noundef range(i32 1, 7) i32 @_ZN21QCPAxisTickerDateTime15getSubTickCountE
 _ZN13QCPAxisTicker15getSubTickCountEd.exit.sink.split: ; preds = %17, %14
   %switch.tableidx4.sink = phi i32 [ %switch.tableidx, %14 ], [ %switch.tableidx4, %17 ]
   %switch.table._ZN21QCPAxisTickerDateTime15getSubTickCountEd.3.sink = phi ptr [ @switch.table._ZN15QCPAxisTickerPi15getSubTickCountEd, %14 ], [ @switch.table._ZN15QCPAxisTickerPi15getSubTickCountEd.5, %17 ]
-  %22 = zext i32 %switch.tableidx4.sink to i64
+  %22 = zext nneg i32 %switch.tableidx4.sink to i64
   %switch.gep5 = getelementptr inbounds nuw [9 x i32], ptr %switch.table._ZN21QCPAxisTickerDateTime15getSubTickCountEd.3.sink, i64 0, i64 %22
   %switch.load6 = load i32, ptr %switch.gep5, align 4
   br label %_ZN13QCPAxisTicker15getSubTickCountEd.exit
@@ -40381,7 +40381,7 @@ define noundef range(i32 1, 7) i32 @_ZN17QCPAxisTickerTime15getSubTickCountEd(pt
 _ZN13QCPAxisTicker15getSubTickCountEd.exit.sink.split: ; preds = %17, %14
   %switch.tableidx4.sink = phi i32 [ %switch.tableidx, %14 ], [ %switch.tableidx4, %17 ]
   %switch.table._ZN17QCPAxisTickerTime15getSubTickCountEd.4.sink = phi ptr [ @switch.table._ZN15QCPAxisTickerPi15getSubTickCountEd, %14 ], [ @switch.table._ZN15QCPAxisTickerPi15getSubTickCountEd.5, %17 ]
-  %22 = zext i32 %switch.tableidx4.sink to i64
+  %22 = zext nneg i32 %switch.tableidx4.sink to i64
   %switch.gep5 = getelementptr inbounds nuw [9 x i32], ptr %switch.table._ZN17QCPAxisTickerTime15getSubTickCountEd.4.sink, i64 0, i64 %22
   %switch.load6 = load i32, ptr %switch.gep5, align 4
   br label %_ZN13QCPAxisTicker15getSubTickCountEd.exit
@@ -42324,7 +42324,7 @@ define noundef range(i32 1, 7) i32 @_ZN15QCPAxisTickerPi15getSubTickCountEd(ptr 
 _ZN13QCPAxisTicker15getSubTickCountEd.exit.sink.split: ; preds = %20, %17
   %switch.tableidx3.sink = phi i32 [ %switch.tableidx, %17 ], [ %switch.tableidx3, %20 ]
   %switch.table._ZN15QCPAxisTickerPi15getSubTickCountEd.5.sink = phi ptr [ @switch.table._ZN15QCPAxisTickerPi15getSubTickCountEd, %17 ], [ @switch.table._ZN15QCPAxisTickerPi15getSubTickCountEd.5, %20 ]
-  %25 = zext i32 %switch.tableidx3.sink to i64
+  %25 = zext nneg i32 %switch.tableidx3.sink to i64
   %switch.gep4 = getelementptr inbounds nuw [9 x i32], ptr %switch.table._ZN15QCPAxisTickerPi15getSubTickCountEd.5.sink, i64 0, i64 %25
   %switch.load5 = load i32, ptr %switch.gep4, align 4
   br label %_ZN13QCPAxisTicker15getSubTickCountEd.exit

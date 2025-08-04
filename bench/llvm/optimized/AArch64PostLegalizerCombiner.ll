@@ -3935,7 +3935,7 @@ switch.lookup:
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !479
   %switch.tableidx = add nsw i32 %1, -1
-  %9 = zext i32 %switch.tableidx to i64
+  %9 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [3 x double], ptr @switch.table._ZNK12_GLOBAL__N_132AArch64PostLegalizerCombinerImpl18testMIPredicate_MIEjRKN4llvm12MachineInstrERKNS1_20GIMatchTableExecutor12MatcherStateE, i64 0, i64 %9
   %switch.load = load double, ptr %switch.gep, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 64

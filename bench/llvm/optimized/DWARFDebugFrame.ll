@@ -6512,7 +6512,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNKSt7__cxx1112bas
 
 switch.lookup:                                    ; preds = %44, %44, %44
   %57 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #27
-  %58 = zext i32 %52 to i64
+  %58 = zext nneg i32 %52 to i64
   %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZNK4llvm5dwarf10CFIProgram11Instruction18getOperandAsSignedERKS1_j, i64 0, i64 %58
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #24, !noalias !372
@@ -6984,7 +6984,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNKSt7__cxx1112bas
 
 switch.lookup:                                    ; preds = %48, %48, %48
   %61 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #27
-  %62 = zext i32 %56 to i64
+  %62 = zext nneg i32 %56 to i64
   %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZNK4llvm5dwarf10CFIProgram11Instruction18getOperandAsSignedERKS1_j, i64 0, i64 %62
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #24, !noalias !429
@@ -7055,7 +7055,7 @@ _ZN4llvm5ErrorD2Ev.exit17:                        ; preds = %_ZNKSt7__cxx1112bas
 switch.lookup57:                                  ; preds = %48, %48, %48
   %86 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #27
   %switch.tableidx = add nsw i32 %56, -2
-  %87 = zext i32 %switch.tableidx to i64
+  %87 = zext nneg i32 %switch.tableidx to i64
   %switch.gep58 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZNK4llvm5dwarf10CFIProgram11Instruction18getOperandAsSignedERKS1_j.4, i64 0, i64 %87
   %switch.load59 = load ptr, ptr %switch.gep58, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #24, !noalias !443

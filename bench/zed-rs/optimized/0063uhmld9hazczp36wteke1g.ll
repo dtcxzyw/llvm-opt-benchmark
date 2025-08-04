@@ -26167,7 +26167,7 @@ switch.lookup:
   %.val6 = load i8, ptr %4, align 1
   %5 = trunc nuw i8 %.val5 to i1
   %..i = or i8 %.val6, 2
-  %6 = zext i8 %..i to i64
+  %6 = zext nneg i8 %..i to i64
   %7 = select i1 %5, i64 0, i64 %6
   %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN95_$LT$image..codecs..bmp..decoder..BmpDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$16read_image_boxed17h8b5f4a5d2d176e93E", i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -40373,7 +40373,7 @@ switch.lookup:
   %.val6.i.i = load i8, ptr %12, align 1, !alias.scope !13417, !noalias !13420
   %13 = trunc nuw i8 %.val5.i.i to i1
   %..i.i.i = or i8 %.val6.i.i, 2
-  %14 = zext i8 %..i.i.i to i64
+  %14 = zext nneg i8 %..i.i.i to i64
   %15 = select i1 %13, i64 0, i64 %14
   %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN95_$LT$image..codecs..bmp..decoder..BmpDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$16read_image_boxed17h8b5f4a5d2d176e93E", i64 0, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8

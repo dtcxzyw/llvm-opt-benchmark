@@ -7316,10 +7316,10 @@ entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i8, ptr %add.ptr, align 8
   %switch.tableidx = add nsw i8 %0, -4
-  %1 = zext i8 %switch.tableidx to i64
+  %1 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [104 x i64], ptr @switch.table._ZN6hermes11Instruction7getNameEv, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = zext i8 %switch.tableidx to i64
+  %2 = zext nneg i8 %switch.tableidx to i64
   %switch.gep173 = getelementptr inbounds nuw [104 x ptr], ptr @switch.table._ZN6hermes11Instruction7getNameEv.5, i64 0, i64 %2
   %switch.load174 = load ptr, ptr %switch.gep173, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load174, 0
@@ -7476,7 +7476,7 @@ entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i8, ptr %add.ptr, align 8
   %switch.tableidx = add nsw i8 %0, -4
-  %1 = zext i8 %switch.tableidx to i64
+  %1 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [104 x i32], ptr @switch.table._ZN6hermes11Instruction18getChangedOperandsEv, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load

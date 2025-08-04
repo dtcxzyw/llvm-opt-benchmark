@@ -30327,7 +30327,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h72061bd2896f76b2E(ptr noal
 switch.lookup:                                    ; preds = %16, %27
   %35 = phi i64 [ %32, %27 ], [ %21, %16 ]
   %.0.i.i = phi i8 [ %34, %27 ], [ %..i.i.i, %16 ]
-  %36 = zext i8 %.0.i.i to i64
+  %36 = zext nneg i8 %.0.i.i to i64
   %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 0, i64 %36
   %switch.load = load i64, ptr %switch.gep, align 8
   %37 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %35, i64 %switch.load)
@@ -31733,7 +31733,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h8a238c77828ef4fbE(ptr noal
 switch.lookup:                                    ; preds = %16, %27
   %35 = phi i64 [ %32, %27 ], [ %21, %16 ]
   %.0.i.i = phi i8 [ %34, %27 ], [ %..i.i.i, %16 ]
-  %36 = zext i8 %.0.i.i to i64
+  %36 = zext nneg i8 %.0.i.i to i64
   %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 0, i64 %36
   %switch.load = load i64, ptr %switch.gep, align 8
   %37 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %35, i64 %switch.load)
@@ -34894,7 +34894,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hd11d71bcf3edc3eeE(ptr noal
 switch.lookup:                                    ; preds = %16, %27
   %35 = phi i64 [ %32, %27 ], [ %21, %16 ]
   %.0.i.i = phi i8 [ %34, %27 ], [ %..i.i.i, %16 ]
-  %36 = zext i8 %.0.i.i to i64
+  %36 = zext nneg i8 %.0.i.i to i64
   %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 0, i64 %36
   %switch.load = load i64, ptr %switch.gep, align 8
   %37 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %35, i64 %switch.load)

@@ -243,10 +243,10 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden { ptr, i64 } @_ZN4llvh6Triple15getArchTypeNameENS0_8ArchTypeE(i32 noundef %Kind) local_unnamed_addr #0 align 2 {
 entry:
-  %0 = zext i32 %Kind to i64
+  %0 = zext nneg i32 %Kind to i64
   %switch.gep = getelementptr inbounds nuw [51 x i64], ptr @switch.table._ZN4llvh6Triple7setArchENS0_8ArchTypeE, i64 0, i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8
-  %1 = zext i32 %Kind to i64
+  %1 = zext nneg i32 %Kind to i64
   %switch.gep103 = getelementptr inbounds nuw [51 x ptr], ptr @switch.table._ZN4llvh6Triple7setArchENS0_8ArchTypeE.11, i64 0, i64 %1
   %switch.load104 = load ptr, ptr %switch.gep103, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load104, 0
@@ -284,10 +284,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden { ptr, i64 } @_ZN4llvh6Triple17getVendorTypeNameENS0_10VendorTypeE(i32 noundef %Kind) local_unnamed_addr #0 align 2 {
 entry:
-  %0 = zext i32 %Kind to i64
+  %0 = zext nneg i32 %Kind to i64
   %switch.gep = getelementptr inbounds nuw [17 x i64], ptr @switch.table._ZN4llvh6Triple9setVendorENS0_10VendorTypeE, i64 0, i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8
-  %1 = zext i32 %Kind to i64
+  %1 = zext nneg i32 %Kind to i64
   %switch.gep35 = getelementptr inbounds nuw [17 x ptr], ptr @switch.table._ZN4llvh6Triple9setVendorENS0_10VendorTypeE.12, i64 0, i64 %1
   %switch.load36 = load ptr, ptr %switch.gep35, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load36, 0
@@ -298,10 +298,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden { ptr, i64 } @_ZN4llvh6Triple13getOSTypeNameENS0_6OSTypeE(i32 noundef %Kind) local_unnamed_addr #0 align 2 {
 entry:
-  %0 = zext i32 %Kind to i64
+  %0 = zext nneg i32 %Kind to i64
   %switch.gep = getelementptr inbounds nuw [33 x i64], ptr @switch.table._ZN4llvh6Triple5setOSENS0_6OSTypeE, i64 0, i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8
-  %1 = zext i32 %Kind to i64
+  %1 = zext nneg i32 %Kind to i64
   %switch.gep67 = getelementptr inbounds nuw [33 x ptr], ptr @switch.table._ZN4llvh6Triple5setOSENS0_6OSTypeE.13, i64 0, i64 %1
   %switch.load68 = load ptr, ptr %switch.gep67, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load68, 0
@@ -312,10 +312,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden { ptr, i64 } @_ZN4llvh6Triple22getEnvironmentTypeNameENS0_15EnvironmentTypeE(i32 noundef %Kind) local_unnamed_addr #0 align 2 {
 entry:
-  %0 = zext i32 %Kind to i64
+  %0 = zext nneg i32 %Kind to i64
   %switch.gep = getelementptr inbounds nuw [19 x i64], ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.15, i64 0, i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8
-  %1 = zext i32 %Kind to i64
+  %1 = zext nneg i32 %Kind to i64
   %switch.gep39 = getelementptr inbounds nuw [19 x ptr], ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.16, i64 0, i64 %1
   %switch.load40 = load ptr, ptr %switch.gep39, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load40, 0
@@ -3470,10 +3470,10 @@ if.end15.sink.split.i214:                         ; preds = %for.body.preheader.
 
 _ZN4llvh15SmallVectorImplINS_9StringRefEE6resizeEm.exit219: ; preds = %if.else.i198, %if.end15.sink.split.i214
   %switch.tableidx = add nsw i32 %ObjectFormat.2, -2
-  %72 = zext i32 %switch.tableidx to i64
+  %72 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4llvh6Triple9normalizeB5cxx11ENS_9StringRefE, i64 0, i64 %72
   %switch.load = load i64, ptr %switch.gep, align 8
-  %73 = zext i32 %switch.tableidx to i64
+  %73 = zext nneg i32 %switch.tableidx to i64
   %switch.gep444 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvh6Triple9normalizeB5cxx11ENS_9StringRefE.8, i64 0, i64 %73
   %switch.load445 = load ptr, ptr %switch.gep444, align 8
   %74 = load ptr, ptr %Components, align 8
@@ -3824,14 +3824,14 @@ entry:
   %1 = extractvalue { ptr, i64 } %call, 1
   %Environment.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %2 = load i32, ptr %Environment.i, align 8
-  %3 = zext i32 %2 to i64
+  %3 = zext nneg i32 %2 to i64
   %switch.gep = getelementptr inbounds nuw [19 x i64], ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.15, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %cmp.i.not = icmp ult i64 %1, %switch.load
   br i1 %cmp.i.not, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %4 = zext i32 %2 to i64
+  %4 = zext nneg i32 %2 to i64
   %switch.gep18 = getelementptr inbounds nuw [19 x ptr], ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.16, i64 0, i64 %4
   %switch.load19 = load ptr, ptr %switch.gep18, align 8
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %switch.load19, i64 %switch.load)
@@ -3923,14 +3923,14 @@ entry:
   %1 = extractvalue { ptr, i64 } %call, 1
   %OS.i = getelementptr inbounds nuw i8, ptr %this, i64 44
   %2 = load i32, ptr %OS.i, align 4
-  %3 = zext i32 %2 to i64
+  %3 = zext nneg i32 %2 to i64
   %switch.gep = getelementptr inbounds nuw [33 x i64], ptr @switch.table._ZN4llvh6Triple5setOSENS0_6OSTypeE, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %cmp.i.not = icmp ult i64 %1, %switch.load
   br i1 %cmp.i.not, label %if.else, label %if.end.i40
 
 if.end.i40:                                       ; preds = %entry
-  %4 = zext i32 %2 to i64
+  %4 = zext nneg i32 %2 to i64
   %switch.gep59 = getelementptr inbounds nuw [33 x ptr], ptr @switch.table._ZN4llvh6Triple5setOSENS0_6OSTypeE.13, i64 0, i64 %4
   %switch.load60 = load ptr, ptr %switch.gep59, align 8
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %switch.load60, i64 %switch.load)
@@ -4182,10 +4182,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh6Triple7setArchENS0_8ArchTypeE(ptr noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %Kind) local_unnamed_addr #4 align 2 {
 entry:
-  %0 = zext i32 %Kind to i64
+  %0 = zext nneg i32 %Kind to i64
   %switch.gep = getelementptr inbounds nuw [51 x i64], ptr @switch.table._ZN4llvh6Triple7setArchENS0_8ArchTypeE, i64 0, i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8
-  %1 = zext i32 %Kind to i64
+  %1 = zext nneg i32 %Kind to i64
   %switch.gep1 = getelementptr inbounds nuw [51 x ptr], ptr @switch.table._ZN4llvh6Triple7setArchENS0_8ArchTypeE.11, i64 0, i64 %1
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   tail call void @_ZN4llvh6Triple11setArchNameENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nonnull %switch.load2, i64 %switch.load)
@@ -4371,10 +4371,10 @@ _ZN4llvh11SmallStringILj64EED2Ev.exit:            ; preds = %_ZN4llvh11SmallStri
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh6Triple9setVendorENS0_10VendorTypeE(ptr noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %Kind) local_unnamed_addr #4 align 2 {
 entry:
-  %0 = zext i32 %Kind to i64
+  %0 = zext nneg i32 %Kind to i64
   %switch.gep = getelementptr inbounds nuw [17 x i64], ptr @switch.table._ZN4llvh6Triple9setVendorENS0_10VendorTypeE, i64 0, i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8
-  %1 = zext i32 %Kind to i64
+  %1 = zext nneg i32 %Kind to i64
   %switch.gep1 = getelementptr inbounds nuw [17 x ptr], ptr @switch.table._ZN4llvh6Triple9setVendorENS0_10VendorTypeE.12, i64 0, i64 %1
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   tail call void @_ZN4llvh6Triple13setVendorNameENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nonnull %switch.load2, i64 %switch.load)
@@ -4464,10 +4464,10 @@ _ZN4llvhplERKNS_5TwineES2_.exit63:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh6Triple5setOSENS0_6OSTypeE(ptr noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %Kind) local_unnamed_addr #4 align 2 {
 entry:
-  %0 = zext i32 %Kind to i64
+  %0 = zext nneg i32 %Kind to i64
   %switch.gep = getelementptr inbounds nuw [33 x i64], ptr @switch.table._ZN4llvh6Triple5setOSENS0_6OSTypeE, i64 0, i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8
-  %1 = zext i32 %Kind to i64
+  %1 = zext nneg i32 %Kind to i64
   %switch.gep1 = getelementptr inbounds nuw [33 x ptr], ptr @switch.table._ZN4llvh6Triple5setOSENS0_6OSTypeE.13, i64 0, i64 %1
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   tail call void @_ZN4llvh6Triple9setOSNameENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nonnull %switch.load2, i64 %switch.load)
@@ -4675,8 +4675,8 @@ entry:
   %this.val3 = load i32, ptr %2, align 4
   %call = tail call fastcc noundef i32 @_ZL16getDefaultFormatRKN4llvh6TripleE(i32 %this.val, i32 %this.val3)
   %cmp = icmp eq i32 %0, %call
-  %3 = zext i32 %Kind to i64
-  %4 = zext i32 %Kind to i64
+  %3 = zext nneg i32 %Kind to i64
+  %4 = zext nneg i32 %Kind to i64
   br i1 %cmp, label %switch.lookup, label %switch.lookup68
 
 switch.lookup:                                    ; preds = %entry
@@ -4702,10 +4702,10 @@ switch.lookup68:                                  ; preds = %entry
   store i8 5, ptr %LHSKind5.i.i.i, align 8, !alias.scope !235
   %RHSKind6.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 17
   store i8 3, ptr %RHSKind6.i.i.i, align 1, !alias.scope !235
-  %6 = zext i32 %0 to i64
+  %6 = zext nneg i32 %0 to i64
   %switch.gep74 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.20, i64 0, i64 %6
   %switch.load75 = load i64, ptr %switch.gep74, align 8
-  %7 = zext i32 %0 to i64
+  %7 = zext nneg i32 %0 to i64
   %switch.gep76 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.21, i64 0, i64 %7
   %switch.load77 = load ptr, ptr %switch.gep76, align 8
   store ptr %switch.load77, ptr %ref.tmp11, align 8
@@ -4865,10 +4865,10 @@ entry:
   ]
 
 switch.lookup:                                    ; preds = %entry
-  %1 = zext i32 %Kind to i64
+  %1 = zext nneg i32 %Kind to i64
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.20, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = zext i32 %Kind to i64
+  %2 = zext nneg i32 %Kind to i64
   %switch.gep51 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.21, i64 0, i64 %2
   %switch.load52 = load ptr, ptr %switch.gep51, align 8
   tail call void @_ZN4llvh6Triple18setEnvironmentNameENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nonnull %switch.load52, i64 %switch.load)
@@ -4941,10 +4941,10 @@ _ZN4llvhplERKNS_5TwineES2_.exit:                  ; preds = %entry, %_ZN4llvh9St
   store i8 5, ptr %LHSKind5.i.i.i, align 8, !alias.scope !279
   %RHSKind6.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 17
   store i8 3, ptr %RHSKind6.i.i.i, align 1, !alias.scope !279
-  %4 = zext i32 %Kind to i64
+  %4 = zext nneg i32 %Kind to i64
   %switch.gep54 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.20, i64 0, i64 %4
   %switch.load55 = load i64, ptr %switch.gep54, align 8
-  %5 = zext i32 %Kind to i64
+  %5 = zext nneg i32 %Kind to i64
   %switch.gep56 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.21, i64 0, i64 %5
   %switch.load57 = load ptr, ptr %switch.gep56, align 8
   store ptr %switch.load57, ptr %ref.tmp11, align 8

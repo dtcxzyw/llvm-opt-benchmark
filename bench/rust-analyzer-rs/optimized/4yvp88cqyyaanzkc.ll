@@ -2425,7 +2425,7 @@ switch.lookup:
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 4
-  %3 = zext i8 %.sroa.5.0.copyload to i64
+  %3 = zext nneg i8 %.sroa.5.0.copyload to i64
   %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @"switch.table._ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf2ee3f21ff862a14E.llvm.6093752533286553222", i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %.sroa.0.0.copyload, ptr %0, align 4, !alias.scope !791, !noalias !794
@@ -2450,7 +2450,7 @@ switch.lookup:
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 4
-  %3 = zext i8 %.sroa.4.0.copyload to i64
+  %3 = zext nneg i8 %.sroa.4.0.copyload to i64
   %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @"switch.table._ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf2ee3f21ff862a14E.llvm.6093752533286553222", i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %.sroa.0.0.copyload, ptr %0, align 4, !alias.scope !796, !noalias !799
@@ -4838,7 +4838,7 @@ switch.lookup:
   %.sroa.64.0.copyload = load i32, ptr %.sroa.64.0..sroa_idx, align 4
   %.sroa.75.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.75.0.copyload = load i8, ptr %.sroa.75.0..sroa_idx, align 4
-  %2 = zext i8 %.sroa.75.0.copyload to i64
+  %2 = zext nneg i8 %.sroa.75.0.copyload to i64
   %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @"switch.table._ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf2ee3f21ff862a14E.llvm.6093752533286553222", i64 0, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1771)
@@ -4869,7 +4869,7 @@ switch.lookup:
   %2 = load <4 x i32>, ptr %1, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.6.0.copyload = load i8, ptr %.sroa.6.0..sroa_idx, align 4
-  %3 = zext i8 %.sroa.6.0.copyload to i64
+  %3 = zext nneg i8 %.sroa.6.0.copyload to i64
   %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @"switch.table._ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf2ee3f21ff862a14E.llvm.6093752533286553222", i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %.sroa.01.4.vec.insert = insertelement <4 x i32> %2, i32 %switch.load, i64 1

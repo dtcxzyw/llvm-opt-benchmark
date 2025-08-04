@@ -1520,10 +1520,10 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm3omp22getOpenMPDirectiveNameENS0_9DirectiveE(i32 noundef %0) local_unnamed_addr #3 {
 switch.lookup:
-  %1 = zext i32 %0 to i64
+  %1 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [114 x i64], ptr @switch.table._ZN4llvm3omp22getOpenMPDirectiveNameENS0_9DirectiveE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = zext i32 %0 to i64
+  %2 = zext nneg i32 %0 to i64
   %switch.gep1 = getelementptr inbounds nuw [114 x ptr], ptr @switch.table._ZN4llvm3omp22getOpenMPDirectiveNameENS0_9DirectiveE.9, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
@@ -2622,10 +2622,10 @@ _ZN4llvm12StringSwitchINS_3omp6ClauseES2_E4CaseENS_13StringLiteralES2_.exit898: 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm3omp19getOpenMPClauseNameENS0_6ClauseE(i32 noundef %0) local_unnamed_addr #3 {
 switch.lookup:
-  %1 = zext i32 %0 to i64
+  %1 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [113 x i64], ptr @switch.table._ZN4llvm3omp19getOpenMPClauseNameENS0_6ClauseE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = zext i32 %0 to i64
+  %2 = zext nneg i32 %0 to i64
   %switch.gep1 = getelementptr inbounds nuw [113 x ptr], ptr @switch.table._ZN4llvm3omp19getOpenMPClauseNameENS0_6ClauseE.10, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
@@ -2674,10 +2674,10 @@ _ZN4llvm12StringSwitchINS_3omp8BindKindES2_E4CaseENS_13StringLiteralES2_.exit18:
 define dso_local { ptr, i64 } @_ZN4llvm3omp21getOpenMPBindKindNameENS0_8BindKindE(i32 noundef %0) local_unnamed_addr #3 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
-  %1 = zext i32 %switch.tableidx to i64
+  %1 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4llvm3omp21getOpenMPBindKindNameENS0_8BindKindE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = zext i32 %switch.tableidx to i64
+  %2 = zext nneg i32 %switch.tableidx to i64
   %switch.gep1 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm3omp21getOpenMPBindKindNameENS0_8BindKindE.11, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
@@ -2731,10 +2731,10 @@ _ZN4llvm12StringSwitchINS_3omp25CancellationConstructTypeES2_E4CaseENS_13StringL
 define dso_local { ptr, i64 } @_ZN4llvm3omp38getOpenMPCancellationConstructTypeNameENS0_25CancellationConstructTypeE(i32 noundef %0) local_unnamed_addr #3 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
-  %1 = zext i32 %switch.tableidx to i64
+  %1 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN4llvm3omp38getOpenMPCancellationConstructTypeNameENS0_25CancellationConstructTypeE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = zext i32 %switch.tableidx to i64
+  %2 = zext nneg i32 %switch.tableidx to i64
   %switch.gep1 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4llvm3omp38getOpenMPCancellationConstructTypeNameENS0_25CancellationConstructTypeE.12, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
@@ -2818,7 +2818,7 @@ _ZN4llvm12StringSwitchINS_3omp15MemoryOrderKindES2_E4CaseENS_13StringLiteralES2_
 define dso_local { ptr, i64 } @_ZN4llvm3omp28getOpenMPMemoryOrderKindNameENS0_15MemoryOrderKindE(i32 noundef %0) local_unnamed_addr #3 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
-  %1 = zext i32 %switch.tableidx to i64
+  %1 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN4llvm3omp28getOpenMPMemoryOrderKindNameENS0_15MemoryOrderKindE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
@@ -2949,10 +2949,10 @@ _ZN4llvm12StringSwitchINS_3omp12ProcBindKindES2_E4CaseENS_13StringLiteralES2_.ex
 define dso_local { ptr, i64 } @_ZN4llvm3omp25getOpenMPProcBindKindNameENS0_12ProcBindKindE(i32 noundef %0) local_unnamed_addr #3 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -2
-  %1 = zext i32 %switch.tableidx to i64
+  %1 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN4llvm3omp25getOpenMPProcBindKindNameENS0_12ProcBindKindE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = zext i32 %switch.tableidx to i64
+  %2 = zext nneg i32 %switch.tableidx to i64
   %switch.gep1 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN4llvm3omp25getOpenMPProcBindKindNameENS0_12ProcBindKindE.13, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
@@ -3011,10 +3011,10 @@ _ZN4llvm12StringSwitchINS_3omp12ScheduleKindES2_E4CaseENS_13StringLiteralES2_.ex
 define dso_local { ptr, i64 } @_ZN4llvm3omp25getOpenMPScheduleKindNameENS0_12ScheduleKindE(i32 noundef %0) local_unnamed_addr #3 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -2
-  %1 = zext i32 %switch.tableidx to i64
+  %1 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN4llvm3omp25getOpenMPScheduleKindNameENS0_12ScheduleKindE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = zext i32 %switch.tableidx to i64
+  %2 = zext nneg i32 %switch.tableidx to i64
   %switch.gep1 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN4llvm3omp25getOpenMPScheduleKindNameENS0_12ScheduleKindE.14, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
@@ -9671,7 +9671,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3omp27isAllowedClauseForDirectiveEN
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i32 0, 6) i32 @_ZN4llvm3omp23getDirectiveAssociationENS0_9DirectiveE(i32 noundef %0) local_unnamed_addr #3 {
 switch.lookup:
-  %1 = zext i32 %0 to i64
+  %1 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [114 x i32], ptr @switch.table._ZN4llvm3omp23getDirectiveAssociationENS0_9DirectiveE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
@@ -9680,7 +9680,7 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i32 0, 6) i32 @_ZN4llvm3omp20getDirectiveCategoryENS0_9DirectiveE(i32 noundef %0) local_unnamed_addr #3 {
 switch.lookup:
-  %1 = zext i32 %0 to i64
+  %1 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [114 x i32], ptr @switch.table._ZN4llvm3omp20getDirectiveCategoryENS0_9DirectiveE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load

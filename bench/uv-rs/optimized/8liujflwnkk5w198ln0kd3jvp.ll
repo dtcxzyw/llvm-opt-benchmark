@@ -33018,10 +33018,10 @@ switch.lookup:
   %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
-  %12 = zext i8 %.0.val to i64
+  %12 = zext nneg i8 %.0.val to i64
   %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN9uv_python9discovery20DiscoveryPreferences7sources17h959004be554c4062E, i64 0, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %13 = zext i8 %.0.val to i64
+  %13 = zext nneg i8 %.0.val to i64
   %switch.gep7 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN9uv_python9discovery20DiscoveryPreferences7sources17h959004be554c4062E.122, i64 0, i64 %13
   %switch.load8 = load i64, ptr %switch.gep7, align 8
   %14 = getelementptr inbounds nuw i8, ptr %switch.load, i64 %switch.load8

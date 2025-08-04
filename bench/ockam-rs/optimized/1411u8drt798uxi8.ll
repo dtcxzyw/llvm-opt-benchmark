@@ -102379,10 +102379,10 @@ define void @"_ZN112_$LT$ockam_api..nodes..models..transport..response..Transpor
           to label %.body unwind label %28, !noalias !14861
 
 switch.lookup:                                    ; preds = %2
-  %24 = zext i8 %.val to i64
+  %24 = zext nneg i8 %.val to i64
   %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN112_$LT$ockam_api..nodes..models..transport..response..TransportStatus$u20$as$u20$ockam_api..ui..output..Output$GT$6single17hc8048c1164bd42c6E", i64 0, i64 %24
   %switch.load = load i64, ptr %switch.gep, align 8
-  %25 = zext i8 %.val to i64
+  %25 = zext nneg i8 %.val to i64
   %switch.gep46 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN112_$LT$ockam_api..nodes..models..transport..response..TransportStatus$u20$as$u20$ockam_api..ui..output..Output$GT$6single17hc8048c1164bd42c6E.279", i64 0, i64 %25
   %switch.load47 = load ptr, ptr %switch.gep46, align 8
   %26 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hf5c6803265aa79e0E(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 1 %switch.load47, i64 noundef %switch.load)

@@ -10205,7 +10205,7 @@ _ZNK4llvm3EVT6bitsLEES0_.exit301.thread358:       ; preds = %_ZNK4llvm3EVT13getS
   store i16 %.sroa.0.0.copyload.i.i302, ptr %12, align 8, !tbaa !52
   store ptr %.sroa.21.0.copyload.i.i304, ptr %52, align 8, !tbaa !54
   %switch.tableidx = add nsw i16 %.sroa.0.0.copyload.i.i302, -7
-  %149 = zext i16 %switch.tableidx to i64
+  %149 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm16DAGTypeLegalizer25ExpandFloatRes_XINT_TO_FPEPNS_6SDNodeERNS_7SDValueES4_, i64 0, i64 %149
   %switch.load = load ptr, ptr %switch.gep, align 8
   %150 = load ptr, ptr %29, align 8, !tbaa !46

@@ -236,10 +236,10 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN5clang23getCompletionKindStringENS_21CodeCompletionContext4KindE(i32 noundef %0) local_unnamed_addr #1 {
 switch.lookup:
-  %1 = zext i32 %0 to i64
+  %1 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [39 x i64], ptr @switch.table._ZN5clang23getCompletionKindStringENS_21CodeCompletionContext4KindE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = zext i32 %0 to i64
+  %2 = zext nneg i32 %0 to i64
   %switch.gep1 = getelementptr inbounds nuw [39 x ptr], ptr @switch.table._ZN5clang23getCompletionKindStringENS_21CodeCompletionContext4KindE.1, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0

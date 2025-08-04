@@ -4377,7 +4377,7 @@ _ZN5clang7CodeGen28ConstantAggregateBuilderBase6addIntEPN4llvm11IntegerTypeEmb.e
   %148 = load ptr, ptr %147, align 8, !tbaa !3, !noalias !973
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 360
   %150 = load i32, ptr %149, align 4, !tbaa !345, !noalias !973
-  %151 = zext i32 %150 to i64
+  %151 = zext nneg i32 %150 to i64
   %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN12_GLOBAL__N_115CGObjCCommonMac22GenerateConstantStringEPKN5clang13StringLiteralE, i64 0, i64 %151
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @_ZN4llvm12GlobalObject10setSectionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %145, ptr nonnull %switch.load, i64 45) #27, !noalias !973

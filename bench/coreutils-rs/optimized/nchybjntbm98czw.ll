@@ -2123,7 +2123,7 @@ default.unreachable.i.i:                          ; preds = %525
   br label %_ZN5uu_dd9parseargs10get_ctable17hecf9b0a7df56bc7dE.exit.i
 
 switch.lookup:                                    ; preds = %523
-  %529 = zext i8 %.0.i to i64
+  %529 = zext nneg i8 %.0.i to i64
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5uu_dd9parseargs6Parser5parse17he48aabd7178d284dE, i64 0, i64 %529
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN5uu_dd9parseargs10get_ctable17hecf9b0a7df56bc7dE.exit.i

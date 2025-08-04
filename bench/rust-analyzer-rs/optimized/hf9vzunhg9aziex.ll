@@ -4376,7 +4376,7 @@ _ZN23pulldown_cmark_to_cmark25cmark_resume_with_options7padding17hf3ff195cc03226
 switch.lookup1135:                                ; preds = %.loopexit991
   %360 = load i8, ptr %182, align 1, !range !517, !noundef !11
   %switch.tableidx1136 = add nsw i8 %360, -1
-  %361 = zext i8 %switch.tableidx1136 to i64
+  %361 = zext nneg i8 %switch.tableidx1136 to i64
   %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN23pulldown_cmark_to_cmark25cmark_resume_with_options17hde9e6efbcfbb00a8E, i64 0, i64 %361
   %switch.load = load ptr, ptr %switch.gep, align 8
   %switch.offset = zext nneg i8 %360 to i64
@@ -7990,7 +7990,7 @@ _ZN23pulldown_cmark_to_cmark25cmark_resume_with_options7padding17hf3ff195cc03226
 switch.lookup1126:                                ; preds = %.loopexit996
   %374 = load i8, ptr %182, align 1, !range !517, !noundef !11
   %switch.tableidx1127 = add nsw i8 %374, -1
-  %375 = zext i8 %switch.tableidx1127 to i64
+  %375 = zext nneg i8 %switch.tableidx1127 to i64
   %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN23pulldown_cmark_to_cmark25cmark_resume_with_options17hde9e6efbcfbb00a8E, i64 0, i64 %375
   %switch.load = load ptr, ptr %switch.gep, align 8
   %switch.offset = zext nneg i8 %374 to i64

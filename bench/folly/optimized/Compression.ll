@@ -3576,7 +3576,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %2
 
 switch.lookup:                                    ; preds = %3
   %switch.tableidx = add i32 %1, 3
-  %36 = zext i32 %switch.tableidx to i64
+  %36 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN5folly11compression12_GLOBAL__N_116Bzip2StreamCodec12createStreamEiNS0_9CodecTypeE, i64 0, i64 %36
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNSt10unique_ptrIN5folly11compression12_GLOBAL__N_116Bzip2StreamCodecESt14default_deleteIS3_EED2Ev.exit
@@ -6273,7 +6273,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %23
 
 switch.lookup:                                    ; preds = %1
   %switch.tableidx = add i32 %.0.val, 3
-  %35 = zext i32 %switch.tableidx to i64
+  %35 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZSt11make_uniqueIN5folly11compression12_GLOBAL__N_116LZMA2StreamCodecEJRiRNS1_9CodecTypeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_, i64 0, i64 %35
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %36
@@ -8449,7 +8449,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %15
 
 switch.lookup:                                    ; preds = %1
   %switch.tableidx = add i32 %0, 3
-  %26 = zext i32 %switch.tableidx to i64
+  %26 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN5folly11compression12_GLOBAL__N_116zstdConvertLevelEi, i64 0, i64 %26
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %27
@@ -10746,7 +10746,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %12
 
 switch.lookup:                                    ; preds = %1
   %switch.tableidx = add i32 %0, 3
-  %25 = zext i32 %switch.tableidx to i64
+  %25 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN5folly11compression12_GLOBAL__N_120zstdFastConvertLevelEi, i64 0, i64 %25
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %26

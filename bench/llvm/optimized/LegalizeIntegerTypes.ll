@@ -36546,7 +36546,7 @@ switch.lookup:                                    ; preds = %_ZNK4llvm5APInt16co
   %251 = extractvalue { i16, ptr } %249, 1
   %252 = load i32, ptr %123, align 8, !tbaa !27
   %switch.tableidx = add nsw i32 %252, -180
-  %253 = zext i32 %switch.tableidx to i64
+  %253 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4llvm16DAGTypeLegalizer19ExpandIntRes_MINMAXEPNS_6SDNodeERNS_7SDValueES4_, i64 0, i64 %253
   %switch.load = load i64, ptr %switch.gep, align 8
   %.sroa.0446.0.extract.trunc = trunc i64 %switch.load to i32
@@ -49991,7 +49991,7 @@ _ZNK4llvm14ConstantSDNode9isAllOnesEv.exit:       ; preds = %109
 
 _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.thread: ; preds = %86
   %switch.tableidx = add nsw i32 %33, -10
-  %119 = zext i32 %switch.tableidx to i64
+  %119 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN4llvm16DAGTypeLegalizer26IntegerExpandSetCCOperandsERNS_7SDValueES2_RNS_3ISD8CondCodeERKNS_5SDLocE, i64 0, i64 %119
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.thread425

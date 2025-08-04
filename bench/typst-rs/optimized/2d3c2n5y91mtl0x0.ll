@@ -25276,7 +25276,7 @@ default.unreachable:                              ; preds = %138, %136, %132, %1
 switch.lookup:                                    ; preds = %"_ZN3png7decoder15Reader$LT$R$GT$4info17h2d34a6addb3c96d7E.llvm.3683678558897460461.exit115.i"
   %90 = extractvalue { i8, i8 } %89, 0
   %91 = extractvalue { i8, i8 } %89, 1
-  %92 = zext i8 %90 to i64
+  %92 = zext nneg i8 %90 to i64
   %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN5image6codecs3png19PngDecoder$LT$R$GT$11with_limits17hbaacc2063c8bbd62E", i64 0, i64 %92
   %switch.load = load i64, ptr %switch.gep, align 8
   %93 = zext i32 %86 to i64
@@ -155915,10 +155915,10 @@ define internal noundef zeroext i1 @"_ZN67_$LT$typst..model..quote..QuoteElem$u2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, i64 } @_ZN5typst5model9reference1_6Fields6to_str17hf57d425cf69f8f83E(i8 noundef %0) unnamed_addr #6 {
 switch.lookup:
-  %1 = zext i8 %0 to i64
+  %1 = zext nneg i8 %0 to i64
   %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN73_$LT$typst..model..reference.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h90b9832748ee94b5E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %2 = zext i8 %0 to i64
+  %2 = zext nneg i8 %0 to i64
   %switch.gep1 = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN73_$LT$typst..model..reference.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h90b9832748ee94b5E.666", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0

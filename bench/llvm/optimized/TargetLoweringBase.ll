@@ -1940,7 +1940,7 @@ _ZN4llvm5RTLIB22getOutlineAtomicHelperERA5_A4_KNS0_7LibcallENS_14AtomicOrderingE
   %switch.tableidx96.sink = phi i32 [ %switch.tableidx, %14 ], [ %switch.tableidx60, %21 ], [ %switch.tableidx69, %28 ], [ %switch.tableidx78, %35 ], [ %switch.tableidx87, %42 ], [ %switch.tableidx96, %49 ]
   %switch.table._ZN4llvm5RTLIB17getOUTLINE_ATOMICEjNS_14AtomicOrderingENS_3MVTE.12.sink = phi ptr [ @switch.table._ZN4llvm5RTLIB17getOUTLINE_ATOMICEjNS_14AtomicOrderingENS_3MVTE.12, %14 ], [ @switch.table._ZN4llvm5RTLIB17getOUTLINE_ATOMICEjNS_14AtomicOrderingENS_3MVTE.12, %21 ], [ @switch.table._ZN4llvm5RTLIB17getOUTLINE_ATOMICEjNS_14AtomicOrderingENS_3MVTE.12, %28 ], [ @switch.table._ZN4llvm5RTLIB17getOUTLINE_ATOMICEjNS_14AtomicOrderingENS_3MVTE.12, %35 ], [ @switch.table._ZN4llvm5RTLIB17getOUTLINE_ATOMICEjNS_14AtomicOrderingENS_3MVTE.12, %42 ], [ @switch.table._ZN4llvm5RTLIB17getOUTLINE_ATOMICEjNS_14AtomicOrderingENS_3MVTE.12, %49 ]
   %.05.i30.sroa.phi.sink = phi ptr [ %.05.i.sroa.phi, %14 ], [ %.05.i14.sroa.phi, %21 ], [ %.05.i18.sroa.phi, %28 ], [ %.05.i22.sroa.phi, %35 ], [ %.05.i26.sroa.phi, %42 ], [ %.05.i30.sroa.phi, %49 ]
-  %51 = zext i32 %switch.tableidx96.sink to i64
+  %51 = zext nneg i32 %switch.tableidx96.sink to i64
   %switch.gep101 = getelementptr inbounds nuw [6 x i64], ptr %switch.table._ZN4llvm5RTLIB17getOUTLINE_ATOMICEjNS_14AtomicOrderingENS_3MVTE.12.sink, i64 0, i64 %51
   %switch.load102 = load i64, ptr %switch.gep101, align 8
   %52 = getelementptr inbounds nuw [4 x i32], ptr %.05.i30.sroa.phi.sink, i64 0, i64 %switch.load102
@@ -7132,7 +7132,7 @@ declare { i16, ptr } @_ZN4llvm23getApproximateEVTForLLTENS_3LLTERNS_11LLVMContex
 define dso_local noundef range(i32 0, 298) i32 @_ZNK4llvm18TargetLoweringBase22InstructionOpcodeToISDEj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(412423) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %1, -1
-  %2 = zext i32 %switch.tableidx to i64
+  %2 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [67 x i32], ptr @switch.table._ZNK4llvm18TargetLoweringBase22InstructionOpcodeToISDEj, i64 0, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load

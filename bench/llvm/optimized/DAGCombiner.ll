@@ -25954,7 +25954,7 @@ _ZNK4llvm18TargetLoweringBase16isOperationLegalEjNS_3EVTE.exit: ; preds = %58, %
 
 switch.lookup:                                    ; preds = %92, %88
   %switch.tableidx = add nsw i32 %23, -180
-  %95 = zext i32 %switch.tableidx to i64
+  %95 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN12_GLOBAL__N_111DAGCombiner12visitIMINMAXEPN4llvm6SDNodeE, i64 0, i64 %95
   %switch.load = load i32, ptr %switch.gep, align 4
   %or.cond3 = and i1 %79, %80
@@ -26030,7 +26030,7 @@ _ZNK4llvm18TargetLoweringBase16isOperationLegalEjNS_3EVTE.exit129.thread: ; pred
 
 .split:                                           ; preds = %117
   %switch.tableidx208 = add nsw i32 %23, -180
-  %118 = zext i32 %switch.tableidx208 to i64
+  %118 = zext nneg i32 %switch.tableidx208 to i64
   %switch.gep209 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN12_GLOBAL__N_111DAGCombiner12visitIMINMAXEPN4llvm6SDNodeE.550, i64 0, i64 %118
   %switch.load210 = load i32, ptr %switch.gep209, align 4
   br label %"_ZZN12_GLOBAL__N_111DAGCombiner12visitIMINMAXEPN4llvm6SDNodeEENK3$_0clEj.exit"
@@ -49674,7 +49674,7 @@ switch.lookup:                                    ; preds = %41
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %49 = load i32, ptr %48, align 8, !tbaa !79
   %switch.tableidx = add nsw i32 %49, -213
-  %50 = zext i32 %switch.tableidx to i64
+  %50 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZN12_GLOBAL__N_111DAGCombiner24visitEXTEND_VECTOR_INREGEPN4llvm6SDNodeE, i64 0, i64 %50
   %switch.load = load i32, ptr %switch.gep, align 4
   %51 = load ptr, ptr %8, align 8, !tbaa !218

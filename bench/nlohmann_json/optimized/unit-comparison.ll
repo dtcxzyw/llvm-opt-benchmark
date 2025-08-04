@@ -42401,7 +42401,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i70
 
 switch.lookup130:                                 ; preds = %226
   %switch.tableidx = add i32 %2, -1
-  %228 = zext i32 %switch.tableidx to i64
+  %228 = zext nneg i32 %switch.tableidx to i64
   %switch.gep131 = getelementptr inbounds nuw [16 x ptr], ptr @switch.table._ZN8nlohmann23json_abi_ldvcmp_v3_11_36detail6parserINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE17exception_messageENS1_10lexer_baseISF_E10token_typeERKSB_.55, i64 0, i64 %228
   %switch.load132 = load ptr, ptr %switch.gep131, align 8
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i117

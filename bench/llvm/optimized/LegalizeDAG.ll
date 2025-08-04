@@ -4927,7 +4927,7 @@ _ZN4llvm5SDLocD2Ev.exit3304:                      ; preds = %_ZN4llvm5SDLocC2EPK
 
 switch.lookup:                                    ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
   %switch.tableidx = add nsw i32 %225, -180
-  %1182 = zext i32 %switch.tableidx to i64
+  %1182 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN12_GLOBAL__N_120SelectionDAGLegalize10ExpandNodeEPN4llvm6SDNodeE, i64 0, i64 %1182
   %switch.load = load i32, ptr %switch.gep, align 4
   %1183 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -8145,7 +8145,7 @@ switch.lookup4508:                                ; preds = %2513, %2513, %2513,
 
 _ZNK4llvm18TargetLoweringBase26getStrictFPOperationActionEjNS_3EVTE.exit3788: ; preds = %switch.lookup4508
   %switch.tableidx4509 = add nsw i32 %2514, -135
-  %2562 = zext i32 %switch.tableidx4509 to i64
+  %2562 = zext nneg i32 %switch.tableidx4509 to i64
   %switch.gep4510 = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN12_GLOBAL__N_120SelectionDAGLegalize10ExpandNodeEPN4llvm6SDNodeE.18, i64 0, i64 %2562
   %switch.load4511 = load i64, ptr %switch.gep4510, align 8
   %2563 = load ptr, ptr %2504, align 8, !tbaa !153
@@ -18980,7 +18980,7 @@ switch.lookup:
 
 4:                                                ; preds = %switch.lookup
   %switch.tableidx = add nsw i32 %1, -101
-  %5 = zext i32 %switch.tableidx to i64
+  %5 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [48 x i64], ptr @switch.table._ZNK4llvm18TargetLoweringBase26getStrictFPOperationActionEjNS_3EVTE, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 5486

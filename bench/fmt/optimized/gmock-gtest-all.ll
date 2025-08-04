@@ -33689,7 +33689,7 @@ define internal void @_ZN7testing8internalL13ColoredPrintfENS0_12_GLOBAL__N_110G
 
 switch.lookup:                                    ; preds = %18
   %switch.tableidx = add nsw i32 %0, -1
-  %26 = zext i32 %switch.tableidx to i64
+  %26 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN7testing8internalL13ColoredPrintfENS0_12_GLOBAL__N_110GTestColorEPKcz, i64 0, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   %27 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.484, ptr noundef nonnull %switch.load)

@@ -1564,7 +1564,7 @@ switch.lookup:                                    ; preds = %"_ZN62_$LT$$RF$T$u2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   %switch.tableidx = add nsw i16 %2, -1
-  %26 = zext i16 %switch.tableidx to i64
+  %26 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [41 x i16], ptr @"switch.table._ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h1fa85eb9646c4ebaE", i64 0, i64 %26
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
@@ -1747,7 +1747,7 @@ switch.lookup:                                    ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %switch.tableidx = add nsw i16 %2, -5
-  %24 = zext i16 %switch.tableidx to i64
+  %24 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [24 x i16], ptr @"switch.table._ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E", i64 0, i64 %24
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
@@ -5721,7 +5721,7 @@ switch.lookup:
   store i32 %4, ptr %173, align 4
   store i32 %5, ptr %172, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %171)
-  %174 = zext i8 %6 to i64
+  %174 = zext nneg i8 %6 to i64
   %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5image5image12ImageDecoder11total_bytes17hfbe10cd0d9df2f0aE, i64 0, i64 %174
   %switch.load = load i64, ptr %switch.gep, align 8
   %175 = zext i32 %4 to i64

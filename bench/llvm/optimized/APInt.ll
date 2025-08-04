@@ -18161,7 +18161,7 @@ define dso_local void @_ZNK4llvm5APInt8toStringERNS_15SmallVectorImplIcEEjbbbb(p
 switch.lookup:                                    ; preds = %7
   %11 = add i32 %2, -2
   %12 = tail call i32 @llvm.fshl.i32(i32 %11, i32 %11, i32 31)
-  %13 = zext i32 %12 to i64
+  %13 = zext nneg i32 %12 to i64
   %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZNK4llvm5APInt8toStringERNS_15SmallVectorImplIcEEjbbbb, i64 0, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %14

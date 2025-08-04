@@ -6570,7 +6570,7 @@ _ZNSt22_Optional_payload_baseIN4llvm21TargetLibraryInfoImplEE10_M_destroyEv.exit
   call void @_ZN4llvm11PassBuilder20crossRegisterProxiesERNS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEERNS1_INS_8FunctionEJEEERNS1_INS_13LazyCallGraph3SCCEJRSA_EEERNS1_INS_6ModuleEJEEEPNS1_INS_15MachineFunctionEJEEE(ptr noundef nonnull align 8 dereferenceable(2288) %18, ptr noundef nonnull align 8 dereferenceable(72) %11, ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull align 8 dereferenceable(72) %13, ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef null) #28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22) #28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
-  %194 = zext i32 %2 to i64
+  %194 = zext nneg i32 %2 to i64
   %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZL14optimizeModuleRN4llvm6ModuleERNS_13TargetMachineEjbbPNS_18ModuleSummaryIndexE, i64 0, i64 %194
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.sroa.8.0.in.in = load i64, ptr %switch.load, align 4

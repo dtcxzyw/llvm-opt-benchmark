@@ -2830,10 +2830,10 @@ switch.lookup:
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %13 = load i32, ptr %12, align 4, !tbaa !72
   %switch.tableidx = add nsw i32 %13, -1
-  %14 = zext i32 %switch.tableidx to i64
+  %14 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZNK4llvm15RISCVAsmBackend23handleAddSubRelocationsERKNS_11MCAssemblerERKNS_10MCFragmentERKNS_7MCFixupERKNS_7MCValueERm, i64 0, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
-  %15 = zext i32 %switch.tableidx to i64
+  %15 = zext nneg i32 %switch.tableidx to i64
   %switch.gep23 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZNK4llvm15RISCVAsmBackend23handleAddSubRelocationsERKNS_11MCAssemblerERKNS_10MCFragmentERKNS_7MCFixupERKNS_7MCValueERm.3, i64 0, i64 %15
   %switch.load24 = load i32, ptr %switch.gep23, align 4
   %16 = load ptr, ptr %4, align 8, !tbaa !77

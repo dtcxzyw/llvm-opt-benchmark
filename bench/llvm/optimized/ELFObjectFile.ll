@@ -4202,10 +4202,10 @@ switch.lookup:
   %4 = tail call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(48) %0) #20
   %trunc = trunc i32 %4 to i8
   %switch.tableidx = add nsw i8 %trunc, -1
-  %5 = zext i8 %switch.tableidx to i64
+  %5 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [95 x i64], ptr @switch.table._ZNK4llvm6object17ELFObjectFileBase16getAMDGPUCPUNameEv, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
-  %6 = zext i8 %switch.tableidx to i64
+  %6 = zext nneg i8 %switch.tableidx to i64
   %switch.gep1 = getelementptr inbounds nuw [95 x ptr], ptr @switch.table._ZNK4llvm6object17ELFObjectFileBase16getAMDGPUCPUNameEv.19, i64 0, i64 %6
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0

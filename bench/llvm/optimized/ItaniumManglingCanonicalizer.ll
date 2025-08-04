@@ -50014,10 +50014,10 @@ define linkonce_odr hidden { i64, ptr } @_ZNK4llvm16itanium_demangle27ExpandedSp
 switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %2 = load i32, ptr %1, align 4, !tbaa !238
-  %3 = zext i32 %2 to i64
+  %3 = zext nneg i32 %2 to i64
   %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %4 = zext i32 %2 to i64
+  %4 = zext nneg i32 %2 to i64
   %switch.gep1 = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.556, i64 0, i64 %4
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %switch.load2, 0

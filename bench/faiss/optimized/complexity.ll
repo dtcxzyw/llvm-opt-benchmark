@@ -1307,7 +1307,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %_
   %264 = load ptr, ptr %1, align 8, !tbaa !50
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 424
   %266 = load i32, ptr %265, align 8, !tbaa !95
-  %267 = zext i32 %266 to i64
+  %267 = zext nneg i32 %266 to i64
   %switch.gep = getelementptr inbounds nuw [4 x double], ptr @switch.table._ZN9benchmark11ComputeBigOERKSt6vectorINS_17BenchmarkReporter3RunESaIS2_EE, i64 0, i64 %267
   %switch.load = load double, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 560, ptr nonnull %11) #24

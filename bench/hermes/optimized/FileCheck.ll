@@ -2872,7 +2872,7 @@ _ZL23FindFirstMatchingPrefixRN4llvh5RegexERNS_9StringRefERjRNS_5Check13FileCheck
   br i1 %cmp.i, label %while.end, label %switch.lookup
 
 switch.lookup:                                    ; preds = %_ZL23FindFirstMatchingPrefixRN4llvh5RegexERNS_9StringRefERjRNS_5Check13FileCheckTypeE.exit
-  %60 = zext i32 %CheckTy.2 to i64
+  %60 = zext nneg i32 %CheckTy.2 to i64
   %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN4llvh9FileCheck13ReadCheckFileERNS_9SourceMgrENS_9StringRefERNS_5RegexERSt6vectorINS_15FileCheckStringESaIS7_EE, i64 0, i64 %60
   %switch.load = load i64, ptr %switch.gep, align 8
   %add = add i64 %switch.load, %retval.sroa.7.1.i

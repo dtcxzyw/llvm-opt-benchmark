@@ -574,7 +574,7 @@ switch.lookup:
   %switch.tableidx = add nsw i32 %4, -2
   %switch.idx.cast = zext i32 %switch.tableidx to i64
   %switch.idx.mult = mul nuw nsw i64 %switch.idx.cast, 80
-  %8 = zext i32 %switch.tableidx to i64
+  %8 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.hfsplus_readheader, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 %switch.idx.mult

@@ -4670,7 +4670,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter10emitAssu
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter10emitBitAndENS0_8PrimTypeERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %3 = zext i32 %1 to i64
+  %3 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN5clang6interp15ByteCodeEmitter10emitBitAndENS0_8PrimTypeERKNS0_10SourceInfoE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %4 = tail call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -5334,7 +5334,7 @@ _ZL4emitIPKN4llvm12fltSemanticsEEvRN5clang6interp7ProgramERSt6vectorISt4byteSaIS
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter9emitBitOrENS0_8PrimTypeERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %3 = zext i32 %1 to i64
+  %3 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN5clang6interp15ByteCodeEmitter9emitBitOrENS0_8PrimTypeERKNS0_10SourceInfoE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %4 = tail call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -5410,7 +5410,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter19emitBitO
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter10emitBitXorENS0_8PrimTypeERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %3 = zext i32 %1 to i64
+  %3 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN5clang6interp15ByteCodeEmitter10emitBitXorENS0_8PrimTypeERKNS0_10SourceInfoE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %4 = tail call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -6432,10 +6432,10 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter12emitCall
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter8emitCastENS0_8PrimTypeES2_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #0 align 2 {
 switch.lookup155:
-  %4 = zext i32 %1 to i64
+  %4 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table._ZN5clang6interp15ByteCodeEmitter8emitCastENS0_8PrimTypeES2_RKNS0_10SourceInfoE.29, i64 0, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %5 = zext i32 %2 to i64
+  %5 = zext nneg i32 %2 to i64
   %switch.gep153 = getelementptr inbounds nuw [11 x i32], ptr %switch.load, i64 0, i64 %5
   %switch.load154 = load i32, ptr %switch.gep153, align 4
   %6 = tail call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %switch.load154, ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -7853,7 +7853,7 @@ _ZL4emitIPKN4llvm12fltSemanticsEEvRN5clang6interp7ProgramERSt6vectorISt4byteSaIS
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter26emitCastFixedPointIntegralENS0_8PrimTypeERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %3 = zext i32 %1 to i64
+  %3 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table._ZN5clang6interp15ByteCodeEmitter26emitCastFixedPointIntegralENS0_8PrimTypeERKNS0_10SourceInfoE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %4 = tail call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -8881,7 +8881,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter20emitCast
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter23emitCastPointerIntegralENS0_8PrimTypeERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %3 = zext i32 %1 to i64
+  %3 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table._ZN5clang6interp15ByteCodeEmitter23emitCastPointerIntegralENS0_8PrimTypeERKNS0_10SourceInfoE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %4 = tail call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -12432,7 +12432,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter14emitDiag
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter7emitDivENS0_8PrimTypeERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %3 = zext i32 %1 to i64
+  %3 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN5clang6interp15ByteCodeEmitter7emitDivENS0_8PrimTypeERKNS0_10SourceInfoE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %4 = tail call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -12508,7 +12508,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter17emitDivF
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter8emitDivcENS0_8PrimTypeERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %3 = zext i32 %1 to i64
+  %3 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZN5clang6interp15ByteCodeEmitter8emitDivcENS0_8PrimTypeERKNS0_10SourceInfoE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %4 = tail call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -12598,7 +12598,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter8emitDumpE
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter7emitDupENS0_8PrimTypeERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %3 = zext i32 %1 to i64
+  %3 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table._ZN5clang6interp15ByteCodeEmitter7emitDupENS0_8PrimTypeERKNS0_10SourceInfoE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %4 = tail call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -12704,7 +12704,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter12emitDupF
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitEQENS0_8PrimTypeERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %3 = zext i32 %1 to i64
+  %3 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table._ZN5clang6interp15ByteCodeEmitter6emitEQENS0_8PrimTypeERKNS0_10SourceInfoE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %4 = tail call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -12834,10 +12834,10 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter17emitFini
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter8emitFlipENS0_8PrimTypeES2_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #0 align 2 {
 switch.lookup319:
-  %4 = zext i32 %1 to i64
+  %4 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table._ZN5clang6interp15ByteCodeEmitter8emitFlipENS0_8PrimTypeES2_RKNS0_10SourceInfoE.45, i64 0, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %5 = zext i32 %2 to i64
+  %5 = zext nneg i32 %2 to i64
   %switch.gep317 = getelementptr inbounds nuw [16 x i32], ptr %switch.load, i64 0, i64 %5
   %switch.load318 = load i32, ptr %switch.gep317, align 4
   %6 = tail call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %switch.load318, ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -14548,7 +14548,7 @@ _ZL4emitIbEvRN5clang6interp7ProgramERSt6vectorISt4byteSaIS5_EERKT_Rb.exit5: ; pr
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitGEENS0_8PrimTypeERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %3 = zext i32 %1 to i64
+  %3 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [15 x i32], ptr @switch.table._ZN5clang6interp15ByteCodeEmitter6emitGEENS0_8PrimTypeERKNS0_10SourceInfoE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %4 = tail call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -14648,7 +14648,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter11emitGEFn
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitGTENS0_8PrimTypeERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %3 = zext i32 %1 to i64
+  %3 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [15 x i32], ptr @switch.table._ZN5clang6interp15ByteCodeEmitter6emitGTENS0_8PrimTypeERKNS0_10SourceInfoE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %4 = tail call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -17883,7 +17883,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter11emitIncf
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter8emitInitENS0_8PrimTypeERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %3 = zext i32 %1 to i64
+  %3 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table._ZN5clang6interp15ByteCodeEmitter8emitInitENS0_8PrimTypeERKNS0_10SourceInfoE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %4 = tail call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -20169,7 +20169,7 @@ _ZL4emitIPKN5clang29LifetimeExtendedTemporaryDeclEEvRNS0_6interp7ProgramERSt6vec
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter11emitInitPopENS0_8PrimTypeERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %3 = zext i32 %1 to i64
+  %3 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table._ZN5clang6interp15ByteCodeEmitter11emitInitPopENS0_8PrimTypeERKNS0_10SourceInfoE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %4 = tail call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -21409,7 +21409,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter22emitIsNo
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitLEENS0_8PrimTypeERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %3 = zext i32 %1 to i64
+  %3 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [15 x i32], ptr @switch.table._ZN5clang6interp15ByteCodeEmitter6emitLEENS0_8PrimTypeERKNS0_10SourceInfoE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %4 = tail call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -21509,7 +21509,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter11emitLEFn
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitLTENS0_8PrimTypeERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %3 = zext i32 %1 to i64
+  %3 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [15 x i32], ptr @switch.table._ZN5clang6interp15ByteCodeEmitter6emitLTENS0_8PrimTypeERKNS0_10SourceInfoE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %4 = tail call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -21609,7 +21609,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter11emitLTFn
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter8emitLoadENS0_8PrimTypeERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %3 = zext i32 %1 to i64
+  %3 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table._ZN5clang6interp15ByteCodeEmitter8emitLoadENS0_8PrimTypeERKNS0_10SourceInfoE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %4 = tail call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -21715,7 +21715,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter13emitLoad
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter11emitLoadPopENS0_8PrimTypeERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %3 = zext i32 %1 to i64
+  %3 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table._ZN5clang6interp15ByteCodeEmitter11emitLoadPopENS0_8PrimTypeERKNS0_10SourceInfoE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %4 = tail call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -21907,7 +21907,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter17emitMulF
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter8emitMulcENS0_8PrimTypeERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %3 = zext i32 %1 to i64
+  %3 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZN5clang6interp15ByteCodeEmitter8emitMulcENS0_8PrimTypeERKNS0_10SourceInfoE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %4 = tail call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -21991,7 +21991,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter8emitMulfE
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitNEENS0_8PrimTypeERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %3 = zext i32 %1 to i64
+  %3 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table._ZN5clang6interp15ByteCodeEmitter6emitNEENS0_8PrimTypeERKNS0_10SourceInfoE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %4 = tail call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -22103,7 +22103,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter13emitNarr
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter7emitNegENS0_8PrimTypeERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %3 = zext i32 %1 to i64
+  %3 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZN5clang6interp15ByteCodeEmitter7emitNegENS0_8PrimTypeERKNS0_10SourceInfoE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %4 = tail call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -22762,7 +22762,7 @@ _ZL4emitIPKN5clang12OffsetOfExprEEvRNS0_6interp7ProgramERSt6vectorISt4byteSaIS8_
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter7emitPopENS0_8PrimTypeERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %3 = zext i32 %1 to i64
+  %3 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table._ZN5clang6interp15ByteCodeEmitter7emitPopENS0_8PrimTypeERKNS0_10SourceInfoE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %4 = tail call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -22883,7 +22883,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter10emitRVOP
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter7emitRemENS0_8PrimTypeERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %3 = zext i32 %1 to i64
+  %3 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN5clang6interp15ByteCodeEmitter7emitRemENS0_8PrimTypeERKNS0_10SourceInfoE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %4 = tail call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -22959,7 +22959,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter17emitRemF
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter7emitRetENS0_8PrimTypeERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %3 = zext i32 %1 to i64
+  %3 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table._ZN5clang6interp15ByteCodeEmitter7emitRetENS0_8PrimTypeERKNS0_10SourceInfoE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %4 = tail call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -25743,7 +25743,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter29emitSize
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter9emitStoreENS0_8PrimTypeERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %3 = zext i32 %1 to i64
+  %3 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table._ZN5clang6interp15ByteCodeEmitter9emitStoreENS0_8PrimTypeERKNS0_10SourceInfoE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %4 = tail call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -26009,7 +26009,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter30emitStor
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter12emitStorePopENS0_8PrimTypeERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %3 = zext i32 %1 to i64
+  %3 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table._ZN5clang6interp15ByteCodeEmitter12emitStorePopENS0_8PrimTypeERKNS0_10SourceInfoE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %4 = tail call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -26369,7 +26369,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter15emitUnsu
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter8emitZeroENS0_8PrimTypeERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %3 = zext i32 %1 to i64
+  %3 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table._ZN5clang6interp15ByteCodeEmitter8emitZeroENS0_8PrimTypeERKNS0_10SourceInfoE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %4 = tail call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter6emitOpIJEEEbNS0_6OpcodeEDpRKT_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(8) %2)

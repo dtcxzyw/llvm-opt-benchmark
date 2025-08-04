@@ -4330,7 +4330,7 @@ default.unreachable:                              ; preds = %21
 switch.lookup:                                    ; preds = %21
   %25 = getelementptr i8, ptr %22, i64 17
   %.val3.i.i = load i8, ptr %25, align 1
-  %26 = zext i8 %.val3.i.i to i64
+  %26 = zext nneg i8 %.val3.i.i to i64
   %switch.gep = getelementptr inbounds nuw [13 x i8], ptr @"switch.table._ZN133_$LT$ruff_python_formatter..expression..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17h9cf89006d0723f48E", i64 0, i64 %26
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN4core4iter6traits8iterator8Iterator6reduce17h2f54da6b30bccffbE.exit
@@ -4493,7 +4493,7 @@ default.unreachable:                              ; preds = %78
 switch.lookup:                                    ; preds = %78
   %83 = getelementptr inbounds nuw i8, ptr %79, i64 17
   %84 = load i8, ptr %83, align 1, !alias.scope !625, !noundef !3
-  %85 = zext i8 %84 to i64
+  %85 = zext nneg i8 %84 to i64
   %switch.gep = getelementptr inbounds nuw [13 x i8], ptr @"switch.table._ZN133_$LT$ruff_python_formatter..expression..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17h9cf89006d0723f48E", i64 0, i64 %85
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN21ruff_python_formatter10expression11binary_like8Operator10precedence17hec4cd2105a55c6e7E.exit
@@ -5943,7 +5943,7 @@ default.unreachable:                              ; preds = %1
 switch.lookup:                                    ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %5 = load i8, ptr %4, align 1, !noundef !3
-  %6 = zext i8 %5 to i64
+  %6 = zext nneg i8 %5 to i64
   %switch.gep = getelementptr inbounds nuw [13 x i8], ptr @"switch.table._ZN133_$LT$ruff_python_formatter..expression..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17h9cf89006d0723f48E", i64 0, i64 %6
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN21ruff_python_formatter10expression11binary_like14OperatorSymbol10precedence17hcf4c3ea874b935d5E.exit

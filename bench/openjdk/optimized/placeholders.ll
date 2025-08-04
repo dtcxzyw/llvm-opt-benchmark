@@ -170,7 +170,7 @@ switch.lookup:                                    ; preds = %3
 
 switch.lookup18:                                  ; preds = %switch.lookup
   %switch.tableidx19 = add nsw i32 %2, -1
-  %12 = zext i32 %switch.tableidx19 to i64
+  %12 = zext nneg i32 %switch.tableidx19 to i64
   %switch.gep20 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 0, i64 %12
   %switch.load21 = load i64, ptr %switch.gep20, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load21
@@ -611,7 +611,7 @@ _ZN16PlaceholderEntry13actionToQueueEN16PlaceholderTable15classloadActionE.exit.
 
 switch.lookup:                                    ; preds = %_ZN16PlaceholderEntry13actionToQueueEN16PlaceholderTable15classloadActionE.exit.i
   %switch.tableidx = add nsw i32 %2, -1
-  %79 = zext i32 %switch.tableidx to i64
+  %79 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 0, i64 %79
   %switch.load = load i64, ptr %switch.gep, align 8
   %80 = getelementptr inbounds nuw i8, ptr %.023, i64 %switch.load

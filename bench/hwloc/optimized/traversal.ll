@@ -1606,7 +1606,7 @@ define i32 @hwloc_obj_type_snprintf(ptr noalias noundef writeonly captures(none)
   ]
 
 switch.lookup:                                    ; preds = %4, %4, %4, %4, %4, %4, %4, %4
-  %8 = zext i32 %7 to i64
+  %8 = zext nneg i32 %7 to i64
   %switch.gep = getelementptr inbounds nuw [20 x ptr], ptr @switch.table.hwloc_obj_type_snprintf, i64 0, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.52, ptr noundef nonnull %switch.load) #22

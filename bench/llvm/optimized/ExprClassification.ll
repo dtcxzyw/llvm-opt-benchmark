@@ -1011,7 +1011,7 @@ define dso_local noundef range(i32 0, 17) i32 @_ZNK5clang4Expr18isModifiableLval
 
 switch.lookup:                                    ; preds = %3
   %switch.tableidx = add nsw i32 %.sroa.4.0.extract.shift, -1
-  %18 = zext i32 %switch.tableidx to i64
+  %18 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZNK5clang4Expr18isModifiableLvalueERNS_10ASTContextEPNS_14SourceLocationE, i64 0, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %19

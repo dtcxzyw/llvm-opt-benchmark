@@ -50329,7 +50329,7 @@ _ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.i: ; p
 
 switch.lookup69:                                  ; preds = %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.thread120.i, %317
   %switch.tableidx70 = add nsw i32 %21, -1
-  %325 = zext i32 %switch.tableidx70 to i64
+  %325 = zext nneg i32 %switch.tableidx70 to i64
   %switch.gep71 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZNK5arrow7compute8internal14ParseTimestamp4CallIlSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.437, i64 0, i64 %325
   %switch.load72 = load i64, ptr %switch.gep71, align 8
   %326 = mul nsw i64 %switch.load72, %295

@@ -19609,7 +19609,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %12, %14
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5clanglsERKNS_19StreamingDiagnosticENS_15AccessSpecifierE(ptr noundef nonnull returned align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #1 {
 switch.lookup:
-  %2 = zext i32 %1 to i64
+  %2 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clanglsERKNS_19StreamingDiagnosticENS_15AccessSpecifierE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = ptrtoint ptr %switch.load to i64

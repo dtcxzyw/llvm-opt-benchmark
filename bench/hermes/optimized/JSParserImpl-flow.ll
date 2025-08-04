@@ -15308,10 +15308,10 @@ if.then29:                                        ; preds = %if.then24
   store i8 2, ptr %LHSKind5.i.i.i64, align 8, !alias.scope !32
   %RHSKind6.i.i.i65 = getelementptr inbounds nuw i8, ptr %ref.tmp34, i64 17
   store i8 3, ptr %RHSKind6.i.i.i65, align 1, !alias.scope !32
-  %13 = zext i32 %optKind.sroa.0.0 to i64
+  %13 = zext nneg i32 %optKind.sroa.0.0 to i64
   %switch.gep405 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN6hermes6parser6detail12JSParserImpl17parseEnumBodyFlowENS_8OptValueINS2_8EnumKindEEEN4llvh8OptionalINS6_5SMLocEEE.2, i64 0, i64 %13
   %switch.load406 = load i64, ptr %switch.gep405, align 8
-  %14 = zext i32 %optKind.sroa.0.0 to i64
+  %14 = zext nneg i32 %optKind.sroa.0.0 to i64
   %switch.gep407 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN6hermes6parser6detail12JSParserImpl17parseEnumBodyFlowENS_8OptValueINS2_8EnumKindEEEN4llvh8OptionalINS6_5SMLocEEE.3, i64 0, i64 %14
   %switch.load408 = load ptr, ptr %switch.gep407, align 8
   store ptr %switch.load408, ptr %ref.tmp43, align 8

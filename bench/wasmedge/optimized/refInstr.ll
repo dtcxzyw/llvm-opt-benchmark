@@ -3095,7 +3095,7 @@ switch.lookup:                                    ; preds = %5
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 2
   %26 = load i8, ptr %25, align 2
   %switch.tableidx = add nsw i8 %26, -119
-  %27 = zext i8 %switch.tableidx to i64
+  %27 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZNK8WasmEdge8Executor8Executor18runArrayInitDataOpEjjjRKNS_10RefVariantERKNS_3AST13CompositeTypeERKNS_7Runtime8Instance12DataInstanceERKNS5_11InstructionE, i64 0, i64 %27
   %switch.load = load i32, ptr %switch.gep, align 4
   %28 = zext i32 %20 to i64
@@ -5283,7 +5283,7 @@ switch.lookup:
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 2
   %29 = load i8, ptr %28, align 2
   %switch.tableidx = add nsw i8 %29, -119
-  %30 = zext i8 %switch.tableidx to i64
+  %30 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZNK8WasmEdge8Executor8Executor18runArrayInitDataOpEjjjRKNS_10RefVariantERKNS_3AST13CompositeTypeERKNS_7Runtime8Instance12DataInstanceERKNS5_11InstructionE, i64 0, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8

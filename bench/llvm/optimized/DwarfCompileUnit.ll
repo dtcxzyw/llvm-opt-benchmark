@@ -9265,7 +9265,7 @@ _ZNK4llvm16DwarfCompileUnit28useGNUAnalogForDwarf5FeatureEv.exit: ; preds = %2
 
 switch.lookup:                                    ; preds = %_ZNK4llvm16DwarfCompileUnit28useGNUAnalogForDwarf5FeatureEv.exit
   %switch.tableidx = add nsw i16 %1, -122
-  %10 = zext i16 %switch.tableidx to i64
+  %10 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [10 x i16], ptr @switch.table._ZNK4llvm16DwarfCompileUnit18getDwarf5OrGNUAttrENS_5dwarf9AttributeE, i64 0, i64 %10
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %_ZNK4llvm16DwarfCompileUnit28useGNUAnalogForDwarf5FeatureEv.exit.thread

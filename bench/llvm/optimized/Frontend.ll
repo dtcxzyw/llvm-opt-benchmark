@@ -1866,10 +1866,10 @@ switch.lookup:                                    ; preds = %._crit_edge
   %148 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 204
   %150 = load i32, ptr %149, align 4, !tbaa !386
-  %151 = zext i32 %150 to i64
+  %151 = zext nneg i32 %150 to i64
   %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN5clang10installapi17createInputBufferERNS0_17InstallAPIContextE, i64 0, i64 %151
   %switch.load = load i64, ptr %switch.gep, align 8
-  %152 = zext i32 %150 to i64
+  %152 = zext nneg i32 %150 to i64
   %switch.gep62 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5clang10installapi17createInputBufferERNS0_17InstallAPIContextE.2, i64 0, i64 %152
   %switch.load63 = load ptr, ptr %switch.gep62, align 8
   store ptr %switch.load63, ptr %148, align 8
@@ -1879,10 +1879,10 @@ switch.lookup:                                    ; preds = %._crit_edge
   %155 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %156 = load i8, ptr %155, align 8, !tbaa !387
   %switch.tableidx = add nsw i8 %156, -4
-  %157 = zext i8 %switch.tableidx to i64
+  %157 = zext nneg i8 %switch.tableidx to i64
   %switch.gep65 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN5clang10installapi17createInputBufferERNS0_17InstallAPIContextE.3, i64 0, i64 %157
   %switch.load66 = load i64, ptr %switch.gep65, align 8
-  %158 = zext i8 %switch.tableidx to i64
+  %158 = zext nneg i8 %switch.tableidx to i64
   %switch.gep67 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5clang10installapi17createInputBufferERNS0_17InstallAPIContextE.4, i64 0, i64 %158
   %switch.load68 = load ptr, ptr %switch.gep67, align 8
   store ptr %switch.load68, ptr %154, align 8

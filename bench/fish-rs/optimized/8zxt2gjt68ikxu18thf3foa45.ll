@@ -12384,10 +12384,10 @@ switch.lookup:                                    ; preds = %"_ZN103_$LT$alloc..
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %88), !noalias !1033
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %87), !noalias !1033
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %86), !noalias !1033
-  %545 = zext i8 %.sroa.543.0.copyload45.i to i64
+  %545 = zext nneg i8 %.sroa.543.0.copyload45.i to i64
   %switch.gep = getelementptr inbounds nuw [28 x i64], ptr @switch.table._ZN4fish8builtins11fish_indent9do_indent17h1ff14e0b80510248E, i64 0, i64 %545
   %switch.load = load i64, ptr %switch.gep, align 8
-  %546 = zext i8 %.sroa.543.0.copyload45.i to i64
+  %546 = zext nneg i8 %.sroa.543.0.copyload45.i to i64
   %switch.gep2659 = getelementptr inbounds nuw [28 x ptr], ptr @switch.table._ZN4fish8builtins11fish_indent9do_indent17h1ff14e0b80510248E.217, i64 0, i64 %546
   %switch.load2660 = load ptr, ptr %switch.gep2659, align 8
   store ptr %switch.load2660, ptr %86, align 8, !noalias !1033

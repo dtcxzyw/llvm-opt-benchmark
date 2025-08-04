@@ -16740,7 +16740,7 @@ switch.lookup:
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %3, ptr %6, align 8
-  %7 = zext i8 %1 to i64
+  %7 = zext nneg i8 %1 to i64
   %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN6search14project_search17ProjectSearchView17set_search_editor17hba4c37110b153ae5E, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load

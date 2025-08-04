@@ -3734,7 +3734,7 @@ switch.lookup:
   %4 = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #19
   %switch.tableidx = add nsw i32 %3, -1
-  %5 = zext i32 %switch.tableidx to i64
+  %5 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table.parse_digest, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = or disjoint i64 %switch.load, 1

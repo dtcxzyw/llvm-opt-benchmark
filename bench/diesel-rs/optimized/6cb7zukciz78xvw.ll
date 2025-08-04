@@ -6310,10 +6310,10 @@ default.unreachable:                              ; preds = %3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { i32, i32 } @"_ZN6diesel5mysql10connection4bind173_$LT$impl$u20$core..convert..From$LT$diesel..mysql..backend..MysqlType$GT$$u20$for$u20$$LP$mysqlclient_sys..enum_field_types$C$diesel..mysql..connection..bind..Flags$RP$$GT$4from17hab7b7a138b2d863dE"(i8 noundef %0) unnamed_addr #13 {
 switch.lookup:
-  %1 = zext i8 %0 to i64
+  %1 = zext nneg i8 %0 to i64
   %switch.gep = getelementptr inbounds nuw [20 x i32], ptr @"switch.table._ZN6diesel5mysql10connection4bind173_$LT$impl$u20$core..convert..From$LT$diesel..mysql..backend..MysqlType$GT$$u20$for$u20$$LP$mysqlclient_sys..enum_field_types$C$diesel..mysql..connection..bind..Flags$RP$$GT$4from17hab7b7a138b2d863dE", i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
-  %2 = zext i8 %0 to i64
+  %2 = zext nneg i8 %0 to i64
   %switch.gep4 = getelementptr inbounds nuw [20 x i32], ptr @"switch.table._ZN6diesel5mysql10connection4bind173_$LT$impl$u20$core..convert..From$LT$diesel..mysql..backend..MysqlType$GT$$u20$for$u20$$LP$mysqlclient_sys..enum_field_types$C$diesel..mysql..connection..bind..Flags$RP$$GT$4from17hab7b7a138b2d863dE.82", i64 0, i64 %2
   %switch.load5 = load i32, ptr %switch.gep4, align 4
   %3 = insertvalue { i32, i32 } poison, i32 %switch.load, 0

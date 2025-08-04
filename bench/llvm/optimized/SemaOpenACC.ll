@@ -359,7 +359,7 @@ _ZN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEC2ERKS4_.exit: ; pre
   %38 = phi i8 [ %2, %7 ], [ %.pre444, %.sink.split.i.i ]
   %39 = phi ptr [ %1, %7 ], [ %.pre443, %.sink.split.i.i ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %41 = zext i8 %38 to i64
+  %41 = zext nneg i8 %38 to i64
   %switch.gep = getelementptr inbounds nuw [13 x i8], ptr @switch.table._ZN5clang11SemaOpenACC18AssociatedStmtRAIIC2ERS0_NS_20OpenACCDirectiveKindENS_14SourceLocationEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS6_IPS7_EE, i64 0, i64 %41
   %switch.load = load i8, ptr %switch.gep, align 1
   store ptr %39, ptr %40, align 8, !tbaa !45
@@ -17125,7 +17125,7 @@ declare void @_ZN5clang16StmtIteratorBase8NextDeclEb(ptr noundef nonnull align 8
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clanglsERN4llvm11raw_ostreamENS_17OpenACCClauseKindE(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 noundef zeroext %1) local_unnamed_addr #8 comdat {
 switch.lookup:
-  %2 = zext i8 %1 to i64
+  %2 = zext nneg i8 %1 to i64
   %switch.gep = getelementptr inbounds nuw [51 x ptr], ptr @switch.table._ZN5clanglsERN4llvm11raw_ostreamENS_17OpenACCClauseKindE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #21

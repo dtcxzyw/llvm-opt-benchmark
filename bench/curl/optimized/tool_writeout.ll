@@ -771,7 +771,7 @@ define internal noundef i32 @writeString(ptr noundef %0, ptr noundef readonly ca
 
 switch.lookup:                                    ; preds = %98, %.thread.i
   %switch.tableidx = add nsw i32 %36, -19
-  %102 = zext i32 %switch.tableidx to i64
+  %102 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [20 x i32], ptr @switch.table.writeString, i64 0, i64 %102
   %switch.load = load i32, ptr %switch.gep, align 4
   %103 = load ptr, ptr %7, align 8, !tbaa !46

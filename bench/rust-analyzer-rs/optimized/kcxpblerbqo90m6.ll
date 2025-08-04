@@ -3000,7 +3000,7 @@ switch.lookup:
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !9, !align !466, !noundef !9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !574)
-  %8 = zext i8 %3 to i64
+  %8 = zext nneg i8 %3 to i64
   %switch.gep = getelementptr inbounds nuw [15 x i64], ptr @"switch.table._ZN3ide19syntax_highlighting6format23highlight_format_string28_$u7b$$u7b$closure$u7d$$u7d$17h51390ad98927aad9E.llvm.1684962189325099908", i64 0, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !577
@@ -29455,7 +29455,7 @@ define hidden void @_ZN3ide19syntax_highlighting6format23highlight_format_string
 define hidden void @"_ZN3ide19syntax_highlighting6format23highlight_format_string28_$u7b$$u7b$closure$u7d$$u7d$17h51390ad98927aad9E.llvm.1684962189325099908"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, i32 noundef %2, i8 noundef %3) unnamed_addr #5 {
 switch.lookup:
   %4 = alloca { { i64, [1 x i64] }, { i32, { i8, [1 x i8] }, [2 x i8] }, { i32, i32 } }, align 8
-  %5 = zext i8 %3 to i64
+  %5 = zext nneg i8 %3 to i64
   %switch.gep = getelementptr inbounds nuw [15 x i64], ptr @"switch.table._ZN3ide19syntax_highlighting6format23highlight_format_string28_$u7b$$u7b$closure$u7d$$u7d$17h51390ad98927aad9E.llvm.1684962189325099908", i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = load ptr, ptr %0, align 8, !nonnull !9, !align !290, !noundef !9
@@ -30801,7 +30801,7 @@ define hidden void @_ZN3ide19syntax_highlighting6inject11doc_comment17h62ac5942d
   %.sroa.7.sroa.4.0.copyload.i.i = load i32, ptr %.sroa.7.sroa.4.0..sroa.9.12..sroa_idx.i.i.i.sroa_idx.i.i, align 4, !noalias !5513
   %.sroa.0.1.i.i = select i1 %.not.i.i.i.i.i, i64 undef, i64 %116
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %33), !noalias !5503
-  %119 = zext i32 %.sroa.7.sroa.4.0.copyload.i.i to i64
+  %119 = zext nneg i32 %.sroa.7.sroa.4.0.copyload.i.i to i64
   %120 = select i1 %.not.i.i.i.i.i, i64 0, i64 %119
   br label %121
 

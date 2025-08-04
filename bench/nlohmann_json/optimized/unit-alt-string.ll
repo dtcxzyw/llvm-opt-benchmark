@@ -30268,7 +30268,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57: ; preds = %_ZN
 
 switch.lookup79:                                  ; preds = %151
   %switch.tableidx = add i32 %2, -1
-  %153 = zext i32 %switch.tableidx to i64
+  %153 = zext nneg i32 %switch.tableidx to i64
   %switch.gep80 = getelementptr inbounds nuw [16 x ptr], ptr @switch.table._ZN8nlohmann16json_abi_v3_11_36detail6parserINS0_10basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE17exception_messageENS1_10lexer_baseISA_E10token_typeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.2, i64 0, i64 %153
   %switch.load81 = load ptr, ptr %switch.gep80, align 8
   br label %_ZN8nlohmann16json_abi_v3_11_36detail10lexer_baseINS0_10basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEE15token_type_nameENSB_10token_typeE.exit59

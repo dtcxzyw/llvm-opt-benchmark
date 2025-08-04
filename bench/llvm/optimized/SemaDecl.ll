@@ -134113,7 +134113,7 @@ switch.lookup:                                    ; preds = %72
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %15, ptr noundef nonnull align 8 dereferenceable(8) %73, i32 %4, i32 noundef 7045, i1 noundef zeroext false) #30
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #30
-  %74 = zext i32 %2 to i64
+  %74 = zext nneg i32 %2 to i64
   %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang4Sema28isAcceptableTagRedeclarationEPKNS_7TagDeclENS_11TagTypeKindEbNS_14SourceLocationEPKNS_14IdentifierInfoE.178, i64 0, i64 %74
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %16, align 4, !tbaa !694
@@ -134156,9 +134156,9 @@ switch.lookup:                                    ; preds = %72
   %95 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %96 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %97 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %98 = zext i32 %2 to i64
+  %98 = zext nneg i32 %2 to i64
   %switch.gep159 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN5clang4Sema28isAcceptableTagRedeclarationEPKNS_7TagDeclENS_11TagTypeKindEbNS_14SourceLocationEPKNS_14IdentifierInfoE.174, i64 0, i64 %98
-  %99 = zext i32 %2 to i64
+  %99 = zext nneg i32 %2 to i64
   %switch.gep165 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN5clang4Sema28isAcceptableTagRedeclarationEPKNS_7TagDeclENS_11TagTypeKindEbNS_14SourceLocationEPKNS_14IdentifierInfoE.174, i64 0, i64 %99
   br label %100
 
@@ -134649,7 +134649,7 @@ switch.lookup167:                                 ; preds = %320
   %326 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %21, ptr noundef nonnull align 8 dereferenceable(8) %326, i32 %4, i32 noundef 7045, i1 noundef zeroext false) #30
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #30
-  %327 = zext i32 %2 to i64
+  %327 = zext nneg i32 %2 to i64
   %switch.gep168 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang4Sema28isAcceptableTagRedeclarationEPKNS_7TagDeclENS_11TagTypeKindEbNS_14SourceLocationEPKNS_14IdentifierInfoE.178, i64 0, i64 %327
   %switch.load169 = load i32, ptr %switch.gep168, align 4
   store i32 %switch.load169, ptr %22, align 4, !tbaa !694

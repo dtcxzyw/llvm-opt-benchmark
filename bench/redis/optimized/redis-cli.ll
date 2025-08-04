@@ -18754,7 +18754,7 @@ define internal void @clusterManagerLog(i32 noundef range(i32 1, 5) %0, ptr noun
 switch.lookup:                                    ; preds = %2
   %6 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.202)
   %switch.tableidx = add nsw i32 %0, -1
-  %7 = zext i32 %switch.tableidx to i64
+  %7 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.clusterManagerLog, i64 0, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %switch.load)

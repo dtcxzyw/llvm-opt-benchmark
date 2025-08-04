@@ -3481,7 +3481,7 @@ switch.lookup:                                    ; preds = %31
   %36 = tail call noundef nonnull align 8 dereferenceable(152) ptr @_ZN4llvm5MachO12RecordsSlice14getBinaryAttrsEv(ptr noundef nonnull align 8 dereferenceable(304) %2) #19, !noalias !203
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 136
   %switch.tableidx = add nsw i32 %.sroa.383.0.copyload.i, -6
-  %38 = zext i32 %switch.tableidx to i64
+  %38 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZL4loadPN4llvm6object15MachOObjectFileERNS_5MachO12RecordsSliceERKNS3_11DylibReader11ParseOptionENS3_12ArchitectureE, i64 0, i64 %38
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %37, align 8, !tbaa !206, !noalias !203

@@ -7731,7 +7731,7 @@ define dso_local noundef range(i32 1, 69) i32 @LLVMGetConstOpcode(ptr noundef re
 define internal fastcc noundef range(i32 1, 69) i32 @_ZL17map_to_llvmopcodei(i32 noundef %0) unnamed_addr #11 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
-  %1 = zext i32 %switch.tableidx to i64
+  %1 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [67 x i32], ptr @switch.table._ZL17map_to_llvmopcodei, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
@@ -16249,7 +16249,7 @@ _ZN4llvm5TwineC2EPKc.exit:                        ; preds = %5, %9
 define internal fastcc noundef range(i32 1, 68) i32 @_ZL19map_from_llvmopcode10LLVMOpcode(i32 noundef %0) unnamed_addr #11 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
-  %1 = zext i32 %switch.tableidx to i64
+  %1 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [68 x i32], ptr @switch.table._ZL19map_from_llvmopcode10LLVMOpcode, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load

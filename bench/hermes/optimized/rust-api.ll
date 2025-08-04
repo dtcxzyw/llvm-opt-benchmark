@@ -5132,10 +5132,10 @@ define linkonce_odr hidden { ptr, i64 } @_ZN6hermes6ESTree4Node11getNodeNameEv(p
 entry:
   %kind_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i, align 8
-  %1 = zext i32 %0 to i64
+  %1 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [251 x i64], ptr @switch.table._ZN6hermes6ESTree4Node11getNodeNameEv, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = zext i32 %0 to i64
+  %2 = zext nneg i32 %0 to i64
   %switch.gep465 = getelementptr inbounds nuw [251 x ptr], ptr @switch.table._ZN6hermes6ESTree4Node11getNodeNameEv.55, i64 0, i64 %2
   %switch.load466 = load ptr, ptr %switch.gep465, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load466, 0

@@ -23372,7 +23372,7 @@ _ZN4lean8optionalINS_4exprEED2Ev.exit185:         ; preds = %_ZN4lean10object_re
 
 switch.lookup:                                    ; preds = %472
   %switch.tableidx = add nsw i32 %473, 1
-  %474 = zext i32 %switch.tableidx to i64
+  %474 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN4lean12type_checker25lazy_delta_reduction_stepERNS_4exprES2_, i64 0, i64 %474
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge96

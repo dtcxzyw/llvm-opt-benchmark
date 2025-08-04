@@ -1252,7 +1252,7 @@ _preset_retrieve_old_search_pref.exit:            ; preds = %2
 
 switch.lookup:                                    ; preds = %11
   %switch.tableidx = add nsw i32 %.06181, -1
-  %14 = zext i32 %switch.tableidx to i64
+  %14 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._preset_retrieve_old_layout, i64 0, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %15

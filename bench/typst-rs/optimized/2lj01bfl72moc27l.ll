@@ -4629,10 +4629,10 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15), !noalias !877
   %215 = call noundef i8 @_ZN5typst9visualize5image5Image6format17h4181f1eaeecaa109E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1)
   %216 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %217 = zext i8 %215 to i64
+  %217 = zext nneg i8 %215 to i64
   %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN6comemo5cache8memoized17h21e4cd50562d540bE, i64 0, i64 %217
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %218 = zext i8 %215 to i64
+  %218 = zext nneg i8 %215 to i64
   %switch.gep101 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN6comemo5cache8memoized17h21e4cd50562d540bE.123, i64 0, i64 %218
   %switch.load102 = load i64, ptr %switch.gep101, align 8
   store ptr %switch.load, ptr %15, align 8, !noalias !877

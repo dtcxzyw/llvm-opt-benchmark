@@ -1939,7 +1939,7 @@ define internal fastcc i32 @dissect_thrift_b_linear(ptr noundef %0, ptr noundef 
 
 switch.lookup:                                    ; preds = %82
   %switch.tableidx = add nsw i32 %11, -13
-  %86 = zext i32 %switch.tableidx to i64
+  %86 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_thrift_b_linear, i64 0, i64 %86
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.096 = load i32, ptr %switch.load, align 4

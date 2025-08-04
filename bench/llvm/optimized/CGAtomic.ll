@@ -5125,10 +5125,10 @@ switch.lookup:                                    ; preds = %.lr.ph, %switch.loo
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %134 = load ptr, ptr %133, align 8
   %135 = call noundef i32 %134(ptr noundef nonnull align 8 dereferenceable(8) %48, i32 noundef %131) #15
-  %136 = zext i32 %135 to i64
+  %136 = zext nneg i32 %135 to i64
   %switch.gep = getelementptr inbounds nuw [14 x i64], ptr @switch.table._ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_, i64 0, i64 %136
   %switch.load = load i64, ptr %switch.gep, align 8
-  %137 = zext i32 %135 to i64
+  %137 = zext nneg i32 %135 to i64
   %switch.gep1 = getelementptr inbounds nuw [14 x ptr], ptr @switch.table._ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_.18, i64 0, i64 %137
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   store i8 5, ptr %81, align 8, !tbaa !724
@@ -6105,7 +6105,7 @@ _ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE
   %.val.i60 = load i8, ptr %259, align 4, !tbaa !829, !range !705, !noundef !706
   %260 = trunc nuw i8 %.val.i60 to i1
   %switch.tableidx = add nsw i32 %3, -2
-  %261 = zext i32 %switch.tableidx to i64
+  %261 = zext nneg i32 %switch.tableidx to i64
   br i1 %260, label %switch.lookup, label %switch.lookup170
 
 switch.lookup:                                    ; preds = %258
@@ -7439,7 +7439,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_
   %.val.i = load i8, ptr %25, align 4, !tbaa !829, !range !705, !noundef !706
   %26 = trunc nuw i8 %.val.i to i1
   %switch.tableidx = add nsw i32 %2, -2
-  %27 = zext i32 %switch.tableidx to i64
+  %27 = zext nneg i32 %switch.tableidx to i64
   br i1 %26, label %switch.lookup, label %switch.lookup3
 
 switch.lookup:                                    ; preds = %5

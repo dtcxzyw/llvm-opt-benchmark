@@ -298,7 +298,7 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @_ZN4Luau7CodeGen16getBlockKindNameENS0_11IrBlockKindE(i8 noundef zeroext %0) local_unnamed_addr #0 {
 switch.lookup:
-  %1 = zext i8 %0 to i64
+  %1 = zext nneg i8 %0 to i64
   %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4Luau7CodeGen12toDotDjGraphB5cxx11ERKNS0_10IrFunctionE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
@@ -634,7 +634,7 @@ define dso_local void @_ZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_
 switch.lookup:
   %3 = load ptr, ptr %0, align 8, !tbaa !4
   %4 = load i8, ptr %1, align 4, !tbaa !32
-  %5 = zext i8 %4 to i64
+  %5 = zext nneg i8 %4 to i64
   %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4Luau7CodeGen12toDotDjGraphB5cxx11ERKNS0_10IrFunctionE, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.156, ptr noundef nonnull %switch.load, i32 noundef %2)
@@ -711,7 +711,7 @@ switch.lookup:                                    ; preds = %2
   %35 = load ptr, ptr %32, align 8, !tbaa !44
   %36 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %35, i64 %34
   %37 = load i8, ptr %36, align 4, !tbaa !32
-  %38 = zext i8 %37 to i64
+  %38 = zext nneg i8 %37 to i64
   %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4Luau7CodeGen12toDotDjGraphB5cxx11ERKNS0_10IrFunctionE, i64 0, i64 %38
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull @.str.156, ptr noundef nonnull %switch.load, i32 noundef %33)
@@ -1486,7 +1486,7 @@ thread-pre-split:                                 ; preds = %20, %_ZNKSt6bitsetI
   %26 = load ptr, ptr %0, align 8, !tbaa !4
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i64, ptr %27, align 8, !tbaa !26
-  %29 = zext i8 %25 to i64
+  %29 = zext nneg i8 %25 to i64
   %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4Luau7CodeGen12toDotDjGraphB5cxx11ERKNS0_10IrFunctionE, i64 0, i64 %29
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull @.str.156, ptr noundef nonnull %switch.load, i32 noundef %2)
@@ -1580,7 +1580,7 @@ switch.lookup:                                    ; preds = %72, %70
   %77 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %76, i64 %75
   %78 = load ptr, ptr %0, align 8, !tbaa !4
   %79 = load i8, ptr %77, align 4, !tbaa !32
-  %80 = zext i8 %79 to i64
+  %80 = zext nneg i8 %79 to i64
   %switch.gep89 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4Luau7CodeGen12toDotDjGraphB5cxx11ERKNS0_10IrFunctionE, i64 0, i64 %80
   %switch.load90 = load ptr, ptr %switch.gep89, align 8
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef nonnull @.str.156, ptr noundef nonnull %switch.load90, i32 noundef %71)
@@ -1637,7 +1637,7 @@ switch.lookup91:                                  ; preds = %103, %101
   %108 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %107, i64 %106
   %109 = load ptr, ptr %0, align 8, !tbaa !4
   %110 = load i8, ptr %108, align 4, !tbaa !32
-  %111 = zext i8 %110 to i64
+  %111 = zext nneg i8 %110 to i64
   %switch.gep92 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4Luau7CodeGen12toDotDjGraphB5cxx11ERKNS0_10IrFunctionE, i64 0, i64 %111
   %switch.load93 = load ptr, ptr %switch.gep92, align 8
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef nonnull @.str.156, ptr noundef nonnull %switch.load93, i32 noundef %102)
@@ -2224,7 +2224,7 @@ switch.lookup:                                    ; preds = %.sink.split, %11
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.247)
   %20 = load ptr, ptr %0, align 8, !tbaa !4
   %21 = load i8, ptr %13, align 4, !tbaa !32
-  %22 = zext i8 %21 to i64
+  %22 = zext nneg i8 %21 to i64
   %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4Luau7CodeGen12toDotDjGraphB5cxx11ERKNS0_10IrFunctionE, i64 0, i64 %22
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull @.str.156, ptr noundef nonnull %switch.load, i32 noundef %15)
@@ -2622,7 +2622,7 @@ define dso_local void @_ZN4Luau7CodeGen12toDotDjGraphB5cxx11ERKNS0_10IrFunctionE
 
 switch.lookup:                                    ; preds = %22
   %23 = load i8, ptr %14, align 4, !tbaa !32
-  %24 = zext i8 %23 to i64
+  %24 = zext nneg i8 %23 to i64
   %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4Luau7CodeGen12toDotDjGraphB5cxx11ERKNS0_10IrFunctionE, i64 0, i64 %24
   %switch.load = load ptr, ptr %switch.gep, align 8
   invoke void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.156, ptr noundef nonnull %switch.load, i32 noundef %15)

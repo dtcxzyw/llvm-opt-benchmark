@@ -187,7 +187,7 @@ $_ZZN4llvm13hexDigitValueEcE3LUT = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull align 4 dereferenceable(26) ptr @_ZN4llvm11APFloatBase15EnumToSemanticsENS0_9SemanticsE(i32 noundef %0) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %1 = zext i32 %0 to i64
+  %1 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [20 x ptr], ptr @switch.table._ZN4llvm11APFloatBase15EnumToSemanticsENS0_9SemanticsE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load

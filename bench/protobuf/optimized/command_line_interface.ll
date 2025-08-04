@@ -24676,9 +24676,9 @@ for.body.lr.ph:                                   ; preds = %invoke.cont1
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 72
   %9 = getelementptr inbounds nuw i8, ptr %agg.tmp10, i64 8
   %switch.tableidx = add nsw i32 %target_type, -1
-  %10 = zext i32 %switch.tableidx to i64
+  %10 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN6google8protobuf8compiler12_GLOBAL__N_134ValidateTargetConstraintsRecursiveERKNS0_7MessageERNS0_14DescriptorPool14ErrorCollectorESt17basic_string_viewIcSt11char_traitsIcEENS0_29FieldOptions_OptionTargetTypeE, i64 0, i64 %10
-  %11 = zext i32 %switch.tableidx to i64
+  %11 = zext nneg i32 %switch.tableidx to i64
   %switch.gep82 = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN6google8protobuf8compiler12_GLOBAL__N_134ValidateTargetConstraintsRecursiveERKNS0_7MessageERNS0_14DescriptorPool14ErrorCollectorESt17basic_string_viewIcSt11char_traitsIcEENS0_29FieldOptions_OptionTargetTypeE.54, i64 0, i64 %11
   br label %for.body
 

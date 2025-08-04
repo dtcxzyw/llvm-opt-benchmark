@@ -183,7 +183,7 @@ define internal noundef i32 @av1_parser_parse(ptr noundef captures(none) initial
 
 switch.lookup:                                    ; preds = %73
   %switch.tableidx = add nsw i8 %69, -1
-  %75 = zext i8 %switch.tableidx to i64
+  %75 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.av1_parser_parse, i64 0, i64 %75
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.sink.split

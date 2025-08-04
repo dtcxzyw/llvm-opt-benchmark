@@ -1273,7 +1273,7 @@ define dso_local noundef nonnull ptr @_ZNK4llvm2gi7Pattern11getKindNameEv(ptr no
 switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i32, ptr %1, align 8, !tbaa !211
-  %3 = zext i32 %2 to i64
+  %3 = zext nneg i32 %2 to i64
   %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK4llvm2gi7Pattern9printImplERNS_11raw_ostreamEbNS_12function_refIFvvEEE, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
@@ -1303,7 +1303,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
   %.0.i.i = phi ptr [ %12, %11 ], [ %1, %13 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !211
-  %18 = zext i32 %17 to i64
+  %18 = zext nneg i32 %17 to i64
   %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK4llvm2gi7Pattern9printImplERNS_11raw_ostreamEbNS_12function_refIFvvEEE, i64 0, i64 %18
   %switch.load = load ptr, ptr %switch.gep, align 8
   %19 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #25
@@ -5193,10 +5193,10 @@ _ZN4llvm20filter_iterator_baseIPNS_2gi18InstructionOperandEZNS1_18InstructionPat
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm2gi7PatFrag15getParamKindStrENS1_9ParamKindE(i32 noundef %0) local_unnamed_addr #10 align 2 {
 switch.lookup:
-  %1 = zext i32 %0 to i64
+  %1 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4llvm2gi7PatFrag15printParamsListERNS_11raw_ostreamENS_14iterator_rangeIPKNS1_5ParamEEE.71, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = zext i32 %0 to i64
+  %2 = zext nneg i32 %0 to i64
   %switch.gep1 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm2gi7PatFrag15printParamsListERNS_11raw_ostreamENS_14iterator_rangeIPKNS1_5ParamEEE.72, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
@@ -7694,10 +7694,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i: ; 
   store ptr @.str.33, ptr %53, align 8, !tbaa !7, !alias.scope !751, !noalias !744
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %55 = load i32, ptr %54, align 8, !tbaa !574, !noalias !755
-  %56 = zext i32 %55 to i64
+  %56 = zext nneg i32 %55 to i64
   %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4llvm2gi7PatFrag15printParamsListERNS_11raw_ostreamENS_14iterator_rangeIPKNS1_5ParamEEE.71, i64 0, i64 %56
   %switch.load = load i64, ptr %switch.gep, align 8
-  %57 = zext i32 %55 to i64
+  %57 = zext nneg i32 %55 to i64
   %switch.gep8 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm2gi7PatFrag15printParamsListERNS_11raw_ostreamENS_14iterator_rangeIPKNS1_5ParamEEE.72, i64 0, i64 %57
   %switch.load9 = load ptr, ptr %switch.gep8, align 8
   store ptr %9, ptr %8, align 8, !alias.scope !756, !noalias !744
@@ -7779,10 +7779,10 @@ switch.lookup:                                    ; preds = %_ZNSt7__cxx1112basi
   store ptr @.str.33, ptr %35, align 8, !tbaa !7, !alias.scope !768, !noalias !761
   %89 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i.i.i, i64 16
   %90 = load i32, ptr %89, align 8, !tbaa !574, !noalias !772
-  %91 = zext i32 %90 to i64
+  %91 = zext nneg i32 %90 to i64
   %switch.gep10 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4llvm2gi7PatFrag15printParamsListERNS_11raw_ostreamENS_14iterator_rangeIPKNS1_5ParamEEE.71, i64 0, i64 %91
   %switch.load11 = load i64, ptr %switch.gep10, align 8
-  %92 = zext i32 %90 to i64
+  %92 = zext nneg i32 %90 to i64
   %switch.gep12 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm2gi7PatFrag15printParamsListERNS_11raw_ostreamENS_14iterator_rangeIPKNS1_5ParamEEE.72, i64 0, i64 %92
   %switch.load13 = load ptr, ptr %switch.gep12, align 8
   store ptr %7, ptr %6, align 8, !alias.scope !773, !noalias !761
@@ -7844,10 +7844,10 @@ _ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.e
   store ptr @.str.33, ptr %80, align 8, !tbaa !7, !alias.scope !786, !noalias !779
   %111 = getelementptr inbounds nuw i8, ptr %.sroa.04.010.i.i.i, i64 40
   %112 = load i32, ptr %111, align 8, !tbaa !574, !noalias !790
-  %113 = zext i32 %112 to i64
+  %113 = zext nneg i32 %112 to i64
   %switch.gep15 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4llvm2gi7PatFrag15printParamsListERNS_11raw_ostreamENS_14iterator_rangeIPKNS1_5ParamEEE.71, i64 0, i64 %113
   %switch.load16 = load i64, ptr %switch.gep15, align 8
-  %114 = zext i32 %112 to i64
+  %114 = zext nneg i32 %112 to i64
   %switch.gep17 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm2gi7PatFrag15printParamsListERNS_11raw_ostreamENS_14iterator_rangeIPKNS1_5ParamEEE.72, i64 0, i64 %114
   %switch.load18 = load ptr, ptr %switch.gep17, align 8
   store ptr %5, ptr %4, align 8, !alias.scope !791, !noalias !779

@@ -206,13 +206,13 @@ switch.lookup:
   store i8 1, ptr %33, align 1, !tbaa !30
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i8 0, ptr %34, align 4, !tbaa !31
-  %35 = zext i32 %2 to i64
+  %35 = zext nneg i32 %2 to i64
   %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table._ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbNS1_11UnknownSizeE, i64 0, i64 %35
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %36 = zext i32 %2 to i64
+  %36 = zext nneg i32 %2 to i64
   %switch.gep71 = getelementptr inbounds nuw [16 x ptr], ptr @switch.table._ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbNS1_11UnknownSizeE.3, i64 0, i64 %36
   %switch.load72 = load ptr, ptr %switch.gep71, align 8
-  %37 = zext i32 %2 to i64
+  %37 = zext nneg i32 %2 to i64
   %switch.gep73 = getelementptr inbounds nuw [16 x ptr], ptr @switch.table._ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbNS1_11UnknownSizeE.4, i64 0, i64 %37
   %switch.load74 = load ptr, ptr %switch.gep73, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -259,13 +259,13 @@ switch.lookup:
   store i8 1, ptr %20, align 1, !tbaa !30
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i8 0, ptr %21, align 4, !tbaa !31
-  %22 = zext i32 %2 to i64
+  %22 = zext nneg i32 %2 to i64
   %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table._ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbNS1_11UnknownSizeE, i64 0, i64 %22
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %23 = zext i32 %2 to i64
+  %23 = zext nneg i32 %2 to i64
   %switch.gep67 = getelementptr inbounds nuw [16 x ptr], ptr @switch.table._ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbNS1_11UnknownSizeE.3, i64 0, i64 %23
   %switch.load68 = load ptr, ptr %switch.gep67, align 8
-  %24 = zext i32 %2 to i64
+  %24 = zext nneg i32 %2 to i64
   %switch.gep69 = getelementptr inbounds nuw [16 x ptr], ptr @switch.table._ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbNS1_11UnknownSizeE.4, i64 0, i64 %24
   %switch.load70 = load ptr, ptr %switch.gep69, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 64

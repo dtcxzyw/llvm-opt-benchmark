@@ -7829,7 +7829,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit30.i: ; preds = %2345, 
   store i32 %2353, ptr %2256, align 8, !tbaa !26
   %2354 = call noundef i32 @_ZNK4llvm9Attribute13getKindAsEnumEv(ptr noundef nonnull align 8 dereferenceable(8) %27) #28
   %switch.tableidx = add nsw i32 %2354, -1
-  %2355 = zext i32 %switch.tableidx to i64
+  %2355 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [98 x i64], ptr @switch.table._ZL19getAttrKindEncodingN4llvm9Attribute8AttrKindE, i64 0, i64 %2355
   %switch.load = load i64, ptr %switch.gep, align 8
   %2356 = load i32, ptr %2256, align 8, !tbaa !26
@@ -7883,7 +7883,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit37.i: ; preds = %2372, 
   store i32 %2380, ptr %2256, align 8, !tbaa !26
   %2381 = call noundef i32 @_ZNK4llvm9Attribute13getKindAsEnumEv(ptr noundef nonnull align 8 dereferenceable(8) %27) #28
   %switch.tableidx243 = add nsw i32 %2381, -1
-  %2382 = zext i32 %switch.tableidx243 to i64
+  %2382 = zext nneg i32 %switch.tableidx243 to i64
   %switch.gep244 = getelementptr inbounds nuw [98 x i64], ptr @switch.table._ZL19getAttrKindEncodingN4llvm9Attribute8AttrKindE, i64 0, i64 %2382
   %switch.load245 = load i64, ptr %switch.gep244, align 8
   %2383 = load i32, ptr %2256, align 8, !tbaa !26
@@ -35479,7 +35479,7 @@ declare noundef zeroext i1 @_ZNK4llvm9Attribute15isEnumAttributeEv(ptr noundef n
 define internal fastcc noundef range(i64 1, 103) i64 @_ZL19getAttrKindEncodingN4llvm9Attribute8AttrKindE(i32 noundef %0) unnamed_addr #17 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
-  %1 = zext i32 %switch.tableidx to i64
+  %1 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [98 x i64], ptr @switch.table._ZL19getAttrKindEncodingN4llvm9Attribute8AttrKindE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   ret i64 %switch.load
@@ -39104,7 +39104,7 @@ switch.lookup:
 define internal fastcc noundef range(i32 0, 13) i32 @_ZL22getEncodedBinaryOpcodej(i32 noundef %0) unnamed_addr #17 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -13
-  %1 = zext i32 %switch.tableidx to i64
+  %1 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [18 x i32], ptr @switch.table._ZL22getEncodedBinaryOpcodej, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load

@@ -10967,10 +10967,10 @@ _ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_8Int8TypeEaNS_10Int8Scal
 
 switch.lookup218:                                 ; preds = %23
   %switch.tableidx219 = add nsw i32 %21, -2
-  %142 = zext i32 %switch.tableidx219 to i64
+  %142 = zext nneg i32 %switch.tableidx219 to i64
   %switch.gep = getelementptr inbounds nuw [8 x i16], ptr @switch.table._ZN5arrow8internal14IntegersCanFitERKNS_9ArraySpanERKNS_8DataTypeE, i64 0, i64 %142
   %switch.load = load i16, ptr %switch.gep, align 2
-  %143 = zext i32 %switch.tableidx219 to i64
+  %143 = zext nneg i32 %switch.tableidx219 to i64
   %switch.gep220 = getelementptr inbounds nuw [8 x i16], ptr @switch.table._ZN5arrow8internal14IntegersCanFitERKNS_9ArraySpanERKNS_8DataTypeE.180, i64 0, i64 %143
   %switch.load221 = load i16, ptr %switch.gep220, align 2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16) #21, !noalias !629
@@ -11242,10 +11242,10 @@ _ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int16TypeEsNS_11Int16Sc
 
 switch.lookup222:                                 ; preds = %23
   %switch.tableidx223 = add nsw i32 %21, -2
-  %258 = zext i32 %switch.tableidx223 to i64
+  %258 = zext nneg i32 %switch.tableidx223 to i64
   %switch.gep224 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN5arrow8internal14IntegersCanFitERKNS_9ArraySpanERKNS_8DataTypeE.181, i64 0, i64 %258
   %switch.load225 = load i32, ptr %switch.gep224, align 4
-  %259 = zext i32 %switch.tableidx223 to i64
+  %259 = zext nneg i32 %switch.tableidx223 to i64
   %switch.gep226 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN5arrow8internal14IntegersCanFitERKNS_9ArraySpanERKNS_8DataTypeE.182, i64 0, i64 %259
   %switch.load227 = load i32, ptr %switch.gep226, align 4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14) #21, !noalias !640
@@ -11517,10 +11517,10 @@ _ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9Int32TypeEiNS_11Int32Sc
 
 switch.lookup228:                                 ; preds = %23
   %switch.tableidx229 = add nsw i32 %21, -2
-  %374 = zext i32 %switch.tableidx229 to i64
+  %374 = zext nneg i32 %switch.tableidx229 to i64
   %switch.gep230 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN5arrow8internal14IntegersCanFitERKNS_9ArraySpanERKNS_8DataTypeE.183, i64 0, i64 %374
   %switch.load231 = load i64, ptr %switch.gep230, align 8
-  %375 = zext i32 %switch.tableidx229 to i64
+  %375 = zext nneg i32 %switch.tableidx229 to i64
   %switch.gep232 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN5arrow8internal14IntegersCanFitERKNS_9ArraySpanERKNS_8DataTypeE.184, i64 0, i64 %375
   %switch.load233 = load i64, ptr %switch.gep232, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %12) #21, !noalias !651
@@ -12062,7 +12062,7 @@ _ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_9UInt8TypeEhNS_11UInt8Sc
 
 switch.lookup234:                                 ; preds = %23
   %switch.tableidx235 = add nsw i32 %21, -2
-  %604 = zext i32 %switch.tableidx235 to i64
+  %604 = zext nneg i32 %switch.tableidx235 to i64
   %switch.gep236 = getelementptr inbounds nuw [8 x i16], ptr @switch.table._ZN5arrow8internal14IntegersCanFitERKNS_9ArraySpanERKNS_8DataTypeE.185, i64 0, i64 %604
   %switch.load237 = load i16, ptr %switch.gep236, align 2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #21, !noalias !673
@@ -12334,7 +12334,7 @@ _ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt16TypeEtNS_12UInt1
 
 switch.lookup238:                                 ; preds = %23
   %switch.tableidx239 = add nsw i32 %21, -2
-  %719 = zext i32 %switch.tableidx239 to i64
+  %719 = zext nneg i32 %switch.tableidx239 to i64
   %switch.gep240 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN5arrow8internal14IntegersCanFitERKNS_9ArraySpanERKNS_8DataTypeE.186, i64 0, i64 %719
   %switch.load241 = load i32, ptr %switch.gep240, align 4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #21, !noalias !684
@@ -12606,7 +12606,7 @@ _ZN5arrow8internal12_GLOBAL__N_118IntegersCanFitImplINS_10UInt32TypeEjNS_12UInt3
 
 switch.lookup242:                                 ; preds = %23
   %switch.tableidx243 = add nsw i32 %21, -2
-  %834 = zext i32 %switch.tableidx243 to i64
+  %834 = zext nneg i32 %switch.tableidx243 to i64
   %switch.gep244 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN5arrow8internal14IntegersCanFitERKNS_9ArraySpanERKNS_8DataTypeE.187, i64 0, i64 %834
   %switch.load245 = load i64, ptr %switch.gep244, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #21, !noalias !695

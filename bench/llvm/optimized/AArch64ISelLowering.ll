@@ -15593,7 +15593,7 @@ define dso_local { ptr, i32 } @_ZNK4llvm21AArch64TargetLowering17LowerToScalable
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i:     ; preds = %23, %18
   %.fca.1.insert.merged.i.i = phi i16 [ %22, %18 ], [ %25, %23 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i.i, -5
-  %26 = zext i16 %switch.tableidx to i64
+  %26 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %26
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -17508,7 +17508,7 @@ _ZNK4llvm3EVT19isFixedLengthVectorEv.exit:        ; preds = %_ZL21getPredicateFo
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i:     ; preds = %50, %45
   %.fca.1.insert.merged.i.i = phi i16 [ %49, %45 ], [ %53, %50 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i.i, -5
-  %54 = zext i16 %switch.tableidx to i64
+  %54 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %54
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
@@ -18049,7 +18049,7 @@ _ZL21getPredicateForVectorRN4llvm12SelectionDAGERNS_5SDLocENS_3EVTE.exit: ; pred
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i:     ; preds = %53, %48
   %.fca.1.insert.merged.i.i = phi i16 [ %52, %48 ], [ %55, %53 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i.i, -5
-  %56 = zext i16 %switch.tableidx to i64
+  %56 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %56
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
@@ -19614,7 +19614,7 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit:               ; preds = %6, %29
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit:       ; preds = %43, %48
   %.fca.1.insert.merged.i = phi i16 [ %47, %43 ], [ %50, %48 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i, -5
-  %51 = zext i16 %switch.tableidx to i64
+  %51 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %51
   %switch.load = load i16, ptr %switch.gep, align 2
   store i16 %switch.load, ptr %14, align 8
@@ -19640,7 +19640,7 @@ _ZNK4llvm3EVT20getVectorElementTypeEv.exit:       ; preds = %43, %48
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit109:    ; preds = %54, %59
   %.fca.1.insert.merged.i108 = phi i16 [ %58, %54 ], [ %61, %59 ]
   %switch.tableidx201 = add nsw i16 %.fca.1.insert.merged.i108, -5
-  %62 = zext i16 %switch.tableidx201 to i64
+  %62 = zext nneg i16 %switch.tableidx201 to i64
   %switch.gep202 = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %62
   %switch.load203 = load i16, ptr %switch.gep202, align 2
   store i16 %switch.load203, ptr %15, align 8
@@ -20314,7 +20314,7 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit:               ; preds = %4, %28
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i:     ; preds = %46, %41
   %.fca.1.insert.merged.i.i = phi i16 [ %45, %41 ], [ %48, %46 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i.i, -5
-  %49 = zext i16 %switch.tableidx to i64
+  %49 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %49
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
@@ -21342,7 +21342,7 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit:               ; preds = %4, %40
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i:     ; preds = %58, %53
   %.fca.1.insert.merged.i.i = phi i16 [ %57, %53 ], [ %60, %58 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i.i, -5
-  %61 = zext i16 %switch.tableidx to i64
+  %61 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %61
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
@@ -21371,7 +21371,7 @@ _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i:     ; preds = %58, %53
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i182:  ; preds = %68, %63
   %.fca.1.insert.merged.i.i183 = phi i16 [ %67, %63 ], [ %70, %68 ]
   %switch.tableidx234 = add nsw i16 %.fca.1.insert.merged.i.i183, -5
-  %71 = zext i16 %switch.tableidx234 to i64
+  %71 = zext nneg i16 %switch.tableidx234 to i64
   %switch.gep235 = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %71
   %switch.load236 = load i16, ptr %switch.gep235, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
@@ -25434,7 +25434,7 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit:               ; preds = %4, %39
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i:     ; preds = %56, %51
   %.fca.1.insert.merged.i.i = phi i16 [ %55, %51 ], [ %58, %56 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i.i, -5
-  %59 = zext i16 %switch.tableidx to i64
+  %59 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %59
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
@@ -25463,7 +25463,7 @@ _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i:     ; preds = %56, %51
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i184:  ; preds = %67, %62
   %.fca.1.insert.merged.i.i185 = phi i16 [ %66, %62 ], [ %69, %67 ]
   %switch.tableidx239 = add nsw i16 %.fca.1.insert.merged.i.i185, -5
-  %70 = zext i16 %switch.tableidx239 to i64
+  %70 = zext nneg i16 %switch.tableidx239 to i64
   %switch.gep240 = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %70
   %switch.load241 = load i16, ptr %switch.gep240, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
@@ -27314,7 +27314,7 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit:               ; preds = %4, %14
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i:     ; preds = %31, %26
   %.fca.1.insert.merged.i.i = phi i16 [ %30, %26 ], [ %33, %31 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i.i, -5
-  %34 = zext i16 %switch.tableidx to i64
+  %34 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %34
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
@@ -27347,7 +27347,7 @@ _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i:     ; preds = %31, %26
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i56:   ; preds = %45, %40
   %.fca.1.insert.merged.i.i57 = phi i16 [ %44, %40 ], [ %47, %45 ]
   %switch.tableidx70 = add nsw i16 %.fca.1.insert.merged.i.i57, -5
-  %48 = zext i16 %switch.tableidx70 to i64
+  %48 = zext nneg i16 %switch.tableidx70 to i64
   %switch.gep71 = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %48
   %switch.load72 = load i16, ptr %switch.gep71, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -29553,7 +29553,7 @@ _ZNK4llvm3EVT16isScalableVectorEv.exit:           ; preds = %_ZN4llvm5SDLocC2ENS
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i:     ; preds = %65, %60
   %.fca.1.insert.merged.i.i = phi i16 [ %64, %60 ], [ %68, %65 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i.i, -5
-  %69 = zext i16 %switch.tableidx to i64
+  %69 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %69
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
@@ -29891,7 +29891,7 @@ define internal fastcc { i16, ptr } @_ZL32getContainerForFixedLengthVectorRN4llv
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit:       ; preds = %5, %10
   %.fca.1.insert.merged.i = phi i16 [ %9, %5 ], [ %12, %10 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i, -5
-  %13 = zext i16 %switch.tableidx to i64
+  %13 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %13
   %switch.load = load i16, ptr %switch.gep, align 2
   %.fca.0.insert = insertvalue { i16, ptr } poison, i16 %switch.load, 0
@@ -30042,7 +30042,7 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit:               ; preds = %3, %10
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i:     ; preds = %25, %20
   %.fca.1.insert.merged.i.i = phi i16 [ %24, %20 ], [ %27, %25 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i.i, -5
-  %28 = zext i16 %switch.tableidx to i64
+  %28 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %28
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -35651,7 +35651,7 @@ _ZNK4llvm3EVTneES0_.exit:                         ; preds = %296, %_ZNK4llvm3EVT
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i:     ; preds = %306, %301
   %.fca.1.insert.merged.i.i322 = phi i16 [ %305, %301 ], [ %308, %306 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i.i322, -5
-  %309 = zext i16 %switch.tableidx to i64
+  %309 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %309
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
@@ -36477,7 +36477,7 @@ _ZNK4llvm3EVTneES0_.exit:                         ; preds = %226, %_ZNK4llvm3EVT
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i:     ; preds = %236, %231
   %.fca.1.insert.merged.i.i232 = phi i16 [ %235, %231 ], [ %238, %236 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i.i232, -5
-  %239 = zext i16 %switch.tableidx to i64
+  %239 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %239
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -36873,7 +36873,7 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit:               ; preds = %4, %26
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i:     ; preds = %42, %37
   %.fca.1.insert.merged.i.i = phi i16 [ %41, %37 ], [ %44, %42 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i.i, -5
-  %45 = zext i16 %switch.tableidx to i64
+  %45 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %45
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
@@ -37951,7 +37951,7 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit:               ; preds = %4, %19
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i:     ; preds = %41, %36
   %.fca.1.insert.merged.i.i = phi i16 [ %40, %36 ], [ %43, %41 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i.i, -5
-  %44 = zext i16 %switch.tableidx to i64
+  %44 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %44
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -42587,7 +42587,7 @@ switch.lookup:                                    ; preds = %211, %211, %211, %2
   %.sroa.21.0.copyload.i.i243 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i242, align 8, !tbaa !344
   %221 = call noundef i32 @_ZN4llvm3ISD15getSetCCInverseENS0_8CondCodeENS_3EVTE(i32 noundef %212, i16 %.sroa.0.0.copyload.i.i241, ptr %.sroa.21.0.copyload.i.i243) #35
   %switch.tableidx = add nsw i32 %221, -1
-  %222 = zext i32 %switch.tableidx to i64
+  %222 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [22 x i64], ptr @switch.table._ZNK4llvm21AArch64TargetLowering10LowerSETCCENS_7SDValueERNS_12SelectionDAGE, i64 0, i64 %222
   %switch.load = load i64, ptr %switch.gep, align 8
   %223 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(952) %3, i64 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(12) %21, i16 7, ptr null, i1 noundef zeroext false, i1 noundef zeroext false) #35
@@ -42787,7 +42787,7 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit:               ; preds = %_ZNK4llvm3EVTneES0_
   %44 = load i32, ptr %43, align 8, !tbaa !829
   %45 = call noundef i32 @_ZN4llvm3ISD15getSetCCInverseENS0_8CondCodeENS_3EVTE(i32 noundef %44, i16 %.sroa.0.0.copyload.i.i, ptr %.sroa.21.0.copyload.i.i) #35
   %switch.tableidx = add nsw i32 %45, -10
-  %46 = zext i32 %switch.tableidx to i64
+  %46 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [13 x i64], ptr @switch.table._ZNK4llvm21AArch64TargetLowering15LowerSETCCCARRYENS_7SDValueERNS_12SelectionDAGE, i64 0, i64 %46
   %switch.load = load i64, ptr %switch.gep, align 8
   %47 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(952) %3, i64 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(12) %6, i16 7, ptr null, i1 noundef zeroext false, i1 noundef zeroext false) #35
@@ -48468,7 +48468,7 @@ _ZNK4llvm3EVTneES0_.exit737.thread893:            ; preds = %471
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit740:    ; preds = %485, %490
   %.fca.1.insert.merged.i739 = phi i16 [ %489, %485 ], [ %492, %490 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i739, -5
-  %493 = zext i16 %switch.tableidx to i64
+  %493 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZNK4llvm21AArch64TargetLowering17PerformDAGCombineEPNS_6SDNodeERNS_14TargetLowering15DAGCombinerInfoE, i64 0, i64 %493
   %switch.load = load i32, ptr %switch.gep, align 4
   %.sroa.0321.0.copyload = load i16, ptr %21, align 8, !tbaa !238
@@ -50086,7 +50086,7 @@ _ZL31tryToConvertShuffleOfTbl2ToTbl4N4llvm7SDValueENS_8ArrayRefIiEERNS_12Selecti
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit:       ; preds = %256, %261
   %.fca.1.insert.merged.i = phi i16 [ %260, %256 ], [ %263, %261 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i, -5
-  %264 = zext i16 %switch.tableidx to i64
+  %264 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZNK4llvm21AArch64TargetLowering17PerformDAGCombineEPNS_6SDNodeERNS_14TargetLowering15DAGCombinerInfoE, i64 0, i64 %264
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #35
@@ -52068,7 +52068,7 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit:               ; preds = %102, %105
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit:       ; preds = %113, %118
   %.fca.1.insert.merged.i = phi i16 [ %117, %113 ], [ %120, %118 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i, -5
-  %121 = zext i16 %switch.tableidx to i64
+  %121 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %121
   %switch.load = load i16, ptr %switch.gep, align 2
   %.sroa.044.0.copyload = load i16, ptr %10, align 8, !tbaa !238
@@ -53106,7 +53106,7 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit:               ; preds = %4, %21
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load i32, ptr %26, align 8, !tbaa !347
   %switch.tableidx = add nsw i32 %27, -180
-  %28 = zext i32 %switch.tableidx to i64
+  %28 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK4llvm21AArch64TargetLowering11LowerMinMaxENS_7SDValueERNS_12SelectionDAGE, i64 0, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   %.not.i = icmp eq i16 %.sroa.0.0.copyload.i.i, 0
@@ -54779,7 +54779,7 @@ _ZNK4llvm3EVT20getVectorElementTypeEv.exit:       ; preds = %124, %131
   %136 = call { i16, ptr } @_ZNK4llvm3EVT19changeTypeToIntegerEv(ptr noundef nonnull align 8 dereferenceable(16) %18)
   %137 = extractvalue { i16, ptr } %136, 0
   %switch.tableidx = add nsw i16 %137, -5
-  %138 = zext i16 %switch.tableidx to i64
+  %138 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %138
   %switch.load = load i16, ptr %switch.gep, align 2
   %.fca.0.insert.i = insertvalue { i16, ptr } poison, i16 %switch.load, 0
@@ -54866,7 +54866,7 @@ _ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit210: ; preds = %144, %150, %1
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i:     ; preds = %171, %166
   %.fca.1.insert.merged.i.i = phi i16 [ %170, %166 ], [ %173, %171 ]
   %switch.tableidx335 = add nsw i16 %.fca.1.insert.merged.i.i, -5
-  %174 = zext i16 %switch.tableidx335 to i64
+  %174 = zext nneg i16 %switch.tableidx335 to i64
   %switch.gep336 = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %174
   %switch.load337 = load i16, ptr %switch.gep336, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
@@ -54987,7 +54987,7 @@ switch.lookup:                                    ; preds = %202
   %switch.shiftamt = shl nuw nsw i64 %switch.cast, 4
   %switch.downshift = lshr i64 21955305884745778, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i16
-  %205 = zext i16 %switch.tableidx338 to i64
+  %205 = zext nneg i16 %switch.tableidx338 to i64
   %switch.gep339 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK4llvm21AArch64TargetLowering14LowerFCOPYSIGNENS_7SDValueERNS_12SelectionDAGE.199, i64 0, i64 %205
   %switch.load340 = load i32, ptr %switch.gep339, align 4
   br label %_ZNK4llvm3EVTeqES0_.exit
@@ -56373,7 +56373,7 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit:               ; preds = %4, %11
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i:     ; preds = %32, %27
   %.fca.1.insert.merged.i.i = phi i16 [ %31, %27 ], [ %34, %32 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i.i, -5
-  %35 = zext i16 %switch.tableidx to i64
+  %35 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %35
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -56548,7 +56548,7 @@ _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i:     ; preds = %51, %46
   %.fca.1.insert.merged.i150 = phi { i16, ptr } [ %.fca.1.insert.merged.i151, %46 ], [ %39, %51 ]
   %.fca.1.insert.merged.i.i = phi i16 [ %50, %46 ], [ %54, %51 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i.i, -5
-  %55 = zext i16 %switch.tableidx to i64
+  %55 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %55
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -58271,7 +58271,7 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit:               ; preds = %4, %27
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i:     ; preds = %43, %38
   %.fca.1.insert.merged.i.i = phi i16 [ %42, %38 ], [ %45, %43 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i.i, -5
-  %46 = zext i16 %switch.tableidx to i64
+  %46 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %46
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
@@ -58651,7 +58651,7 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit:               ; preds = %4, %21
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i:     ; preds = %42, %37
   %.fca.1.insert.merged.i.i = phi i16 [ %41, %37 ], [ %44, %42 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i.i, -5
-  %45 = zext i16 %switch.tableidx to i64
+  %45 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %45
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
@@ -58704,7 +58704,7 @@ _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i:     ; preds = %42, %37
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i107:  ; preds = %66, %61
   %.fca.1.insert.merged.i.i108 = phi i16 [ %65, %61 ], [ %68, %66 ]
   %switch.tableidx121 = add nsw i16 %.fca.1.insert.merged.i.i108, -5
-  %69 = zext i16 %switch.tableidx121 to i64
+  %69 = zext nneg i16 %switch.tableidx121 to i64
   %switch.gep122 = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %69
   %switch.load123 = load i16, ptr %switch.gep122, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -76467,7 +76467,7 @@ _ZNK4llvm3EVT9isIntegerEv.exit:                   ; preds = %104
 
 switch.lookup:                                    ; preds = %107, %_ZNK4llvm3EVT9isIntegerEv.exit.thread, %_ZNK4llvm3EVT9isIntegerEv.exit
   %switch.tableidx = add nsw i32 %67, -10
-  %110 = zext i32 %switch.tableidx to i64
+  %110 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZL18emitConjunctionRecRN4llvm12SelectionDAGENS_7SDValueERNS_9AArch64CC8CondCodeEbS2_S4_, i64 0, i64 %110
   %switch.load = load i32, ptr %switch.gep, align 4
   %111 = call fastcc { ptr, i32 } @_ZL20EmitVectorComparisonN4llvm7SDValueES0_NS_9AArch64CC8CondCodeEbNS_3EVTERKNS_5SDLocERNS_12SelectionDAGE(ptr nonnull %.sroa.0297.0.copyload, i32 %.sroa.18304.0.copyload, ptr %.sroa.0277.0.copyload, i32 %.sroa.13.0.copyload, i32 noundef %switch.load, i1 noundef zeroext false, i16 %80, ptr %81, ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(952) %3)
@@ -77010,7 +77010,7 @@ declare { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_8SDVTListEN
 define internal fastcc noundef range(i32 0, 14) i32 @_ZL22changeIntCCToAArch64CCN4llvm3ISD8CondCodeE(i32 noundef %0) unnamed_addr #4 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -10
-  %1 = zext i32 %switch.tableidx to i64
+  %1 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZL18emitConjunctionRecRN4llvm12SelectionDAGENS_7SDValueERNS_9AArch64CC8CondCodeEbS2_S4_, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
@@ -88299,7 +88299,7 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit:               ; preds = %_ZNK4llvm19ShuffleV
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i:     ; preds = %106, %101
   %.fca.1.insert.merged.i.i = phi i16 [ %105, %101 ], [ %108, %106 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i.i, -5
-  %109 = zext i16 %switch.tableidx to i64
+  %109 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %109
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
@@ -88825,7 +88825,7 @@ _ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %.loopexit872
   %297 = call { i16, ptr } @_ZN4llvm3EVT20getExtendedIntegerVTERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %296, i32 noundef %251) #35
   %298 = extractvalue { i16, ptr } %297, 0
   %switch.tableidx935 = add nsw i16 %298, -5
-  %299 = zext i16 %switch.tableidx935 to i64
+  %299 = zext nneg i16 %switch.tableidx935 to i64
   %switch.gep936 = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %299
   br label %_ZL20getPackedSVEVectorVTN4llvm3EVTE.exit
 
@@ -92497,7 +92497,7 @@ _ZNK4llvm3EVT15isFloatingPointEv.exit.thread:     ; preds = %77, %81
   %83 = shl nuw nsw i32 %42, 1
   %84 = add nsw i32 %83, -16
   %85 = call i32 @llvm.fshl.i32(i32 %84, i32 %84, i32 28)
-  %86 = zext i32 %85 to i64
+  %86 = zext nneg i32 %85 to i64
   %switch.gep = getelementptr inbounds nuw [5 x i16], ptr @switch.table._ZNK4llvm21AArch64TargetLowering14shouldLocalizeERKNS_12MachineInstrEPKNS_19TargetTransformInfoE, i64 0, i64 %86
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %_ZN4llvm3MVT18getFloatingPointVTEj.exit
@@ -93175,7 +93175,7 @@ _ZNK4llvm3EVTeqES0_.exit382:                      ; preds = %_ZNK4llvm3EVT20getV
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit385:    ; preds = %215, %220
   %.fca.1.insert.merged.i384 = phi i16 [ %219, %215 ], [ %222, %220 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i384, -5
-  %223 = zext i16 %switch.tableidx to i64
+  %223 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZNK4llvm21AArch64TargetLowering17PerformDAGCombineEPNS_6SDNodeERNS_14TargetLowering15DAGCombinerInfoE, i64 0, i64 %223
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26) #35
@@ -94959,7 +94959,7 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit:               ; preds = %4, %33
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i:     ; preds = %44, %39
   %.fca.1.insert.merged.i.i = phi i16 [ %43, %39 ], [ %46, %44 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i.i, -5
-  %47 = zext i16 %switch.tableidx to i64
+  %47 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %47
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
@@ -96862,7 +96862,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i:     ; preds = %81, %76
   %.fca.1.insert.merged.i.i = phi i16 [ %80, %76 ], [ %83, %81 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i.i, -5
-  %84 = zext i16 %switch.tableidx to i64
+  %84 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %84
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -97014,7 +97014,7 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit:               ; preds = %4, %17
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i:     ; preds = %37, %32
   %.fca.1.insert.merged.i.i = phi i16 [ %36, %32 ], [ %39, %37 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i.i, -5
-  %40 = zext i16 %switch.tableidx to i64
+  %40 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %40
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -97149,7 +97149,7 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit:               ; preds = %4, %23
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i:     ; preds = %34, %29
   %.fca.1.insert.merged.i.i = phi i16 [ %33, %29 ], [ %36, %34 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i.i, -5
-  %37 = zext i16 %switch.tableidx to i64
+  %37 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %37
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -97294,7 +97294,7 @@ _ZNK4llvm3EVT20getVectorElementTypeEv.exit:       ; preds = %43, %48
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i:     ; preds = %67, %62
   %.fca.1.insert.merged.i.i = phi i16 [ %66, %62 ], [ %69, %67 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i.i, -5
-  %70 = zext i16 %switch.tableidx to i64
+  %70 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %70
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -99298,7 +99298,7 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit:               ; preds = %4, %16
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i:     ; preds = %36, %31
   %.fca.1.insert.merged.i.i = phi i16 [ %35, %31 ], [ %38, %36 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i.i, -5
-  %39 = zext i16 %switch.tableidx to i64
+  %39 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %39
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -100504,7 +100504,7 @@ _ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit: ; preds = %_ZNK
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i:     ; preds = %70, %65
   %.fca.1.insert.merged.i.i = phi i16 [ %69, %65 ], [ %72, %70 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i.i, -5
-  %73 = zext i16 %switch.tableidx to i64
+  %73 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %73
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -100652,7 +100652,7 @@ _ZNK4llvm3EVT19isFixedLengthVectorEv.exit:        ; preds = %121, %123
 
 switch.lookup:                                    ; preds = %_ZNK4llvm3EVT19isFixedLengthVectorEv.exit
   %switch.tableidx192 = add nsw i16 %.sroa.0138.0, -5
-  %126 = zext i16 %switch.tableidx192 to i64
+  %126 = zext nneg i16 %switch.tableidx192 to i64
   %switch.gep193 = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %126
   %switch.load194 = load i16, ptr %switch.gep193, align 2
   br label %_ZL20getPackedSVEVectorVTN4llvm3EVTE.exit
@@ -119961,7 +119961,7 @@ _ZNK4llvm3EVT13is64BitVectorEv.exit.thread.i942:  ; preds = %_ZN4llvm11SmallVect
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i954:  ; preds = %2454, %2449
   %.fca.1.insert.merged.i.i955 = phi i16 [ %2453, %2449 ], [ %2456, %2454 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i.i955, -5
-  %2457 = zext i16 %switch.tableidx to i64
+  %2457 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZNK4llvm21AArch64TargetLowering17PerformDAGCombineEPNS_6SDNodeERNS_14TargetLowering15DAGCombinerInfoE, i64 0, i64 %2457
   %switch.load = load i32, ptr %switch.gep, align 4
   %2458 = load ptr, ptr %232, align 8, !tbaa !1782
@@ -141802,7 +141802,7 @@ _ZNK4llvm3EVT14is128BitVectorEv.exit:             ; preds = %56
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit:       ; preds = %64, %69
   %.fca.1.insert.merged.i = phi i16 [ %68, %64 ], [ %72, %69 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i, -5
-  %73 = zext i16 %switch.tableidx to i64
+  %73 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %73
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #35
@@ -151400,7 +151400,7 @@ _ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit.i: ; preds = %524
   %532 = trunc nuw i8 %531 to i1
   %.v.i.i = select i1 %532, i16 %520, i16 %521
   %switch.tableidx = add nsw i16 %.v.i.i, -2
-  %533 = zext i16 %switch.tableidx to i64
+  %533 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZNK4llvm21AArch64TargetLowering18ReplaceNodeResultsEPNS_6SDNodeERNS_15SmallVectorImplINS_7SDValueEEERNS_12SelectionDAGE, i64 0, i64 %533
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit.thread.i
@@ -151624,7 +151624,7 @@ _ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit112.i: ; preds = %613
   %621 = trunc nuw i8 %620 to i1
   %.v.i110.i = select i1 %621, i16 %609, i16 %610
   %switch.tableidx688 = add nsw i16 %.v.i110.i, -2
-  %622 = zext i16 %switch.tableidx688 to i64
+  %622 = zext nneg i16 %switch.tableidx688 to i64
   %switch.gep689 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZNK4llvm21AArch64TargetLowering18ReplaceNodeResultsEPNS_6SDNodeERNS_15SmallVectorImplINS_7SDValueEEERNS_12SelectionDAGE.205, i64 0, i64 %622
   %switch.load690 = load i32, ptr %switch.gep689, align 4
   br label %_ZNK4llvm17MachineMemOperand17getMergedOrderingEv.exit112.thread.i
@@ -156388,7 +156388,7 @@ _ZNK4llvm8Function10hasOptSizeEv.exit.thread:     ; preds = %_ZN4llvm7APFloatC2E
   %66 = phi i1 [ true, %_ZNK4llvm8Function10hasOptSizeEv.exit ], [ %65, %63 ], [ true, %_ZN4llvm7APFloatC2ERKS0_.exit ]
   %67 = add nsw i32 %.0.i, -16
   %68 = call i32 @llvm.fshl.i32(i32 %67, i32 %67, i32 28)
-  %69 = zext i32 %68 to i64
+  %69 = zext nneg i32 %68 to i64
   %switch.gep = getelementptr inbounds nuw [5 x i16], ptr @switch.table._ZNK4llvm21AArch64TargetLowering14shouldLocalizeERKNS_12MachineInstrEPKNS_19TargetTransformInfoE, i64 0, i64 %69
   %switch.load = load i16, ptr %switch.gep, align 2
   %70 = load ptr, ptr %0, align 8, !tbaa !11
@@ -156880,7 +156880,7 @@ _ZNSt8optionalIjEaSIN4llvm21AArch64SVEPredPattern16SVEPREDPATValuesEEENSt9enable
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit:       ; preds = %54, %59
   %.fca.1.insert.merged.i = phi i16 [ %58, %54 ], [ %61, %59 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i, -5
-  %62 = zext i16 %switch.tableidx to i64
+  %62 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL32getPredicateForFixedLengthVectorRN4llvm12SelectionDAGERNS_5SDLocENS_3EVTE, i64 0, i64 %62
   %switch.load = load i16, ptr %switch.gep, align 2
   %63 = load ptr, ptr %1, align 8, !tbaa !355
@@ -157764,7 +157764,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit314: ; pre
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i:     ; preds = %240, %235
   %.fca.1.insert.merged.i.i = phi i16 [ %239, %235 ], [ %242, %240 ]
   %switch.tableidx = add nsw i16 %.fca.1.insert.merged.i.i, -5
-  %243 = zext i16 %switch.tableidx to i64
+  %243 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %243
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
@@ -157971,7 +157971,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APIntD2Ev.
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i334:  ; preds = %311, %306
   %.fca.1.insert.merged.i.i335 = phi i16 [ %310, %306 ], [ %313, %311 ]
   %switch.tableidx75 = add nsw i16 %.fca.1.insert.merged.i.i335, -5
-  %314 = zext i16 %switch.tableidx75 to i64
+  %314 = zext nneg i16 %switch.tableidx75 to i64
   %switch.gep76 = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %314
   %switch.load77 = load i16, ptr %switch.gep76, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
@@ -163610,7 +163610,7 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit:               ; preds = %41, %44
 
 switch.lookup:                                    ; preds = %_ZN4llvm5SDLocC2ENS_7SDValueE.exit
   %switch.tableidx = add nsw i32 %.0106, -10
-  %49 = zext i32 %switch.tableidx to i64
+  %49 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZL18emitConjunctionRecRN4llvm12SelectionDAGENS_7SDValueERNS_9AArch64CC8CondCodeEbS2_S4_, i64 0, i64 %49
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %thread-pre-split
@@ -164123,7 +164123,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm5APInt12ge
   %125 = zext i32 %6 to i64
   %126 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(952) %9, i64 noundef %125, ptr noundef nonnull align 8 dereferenceable(12) %8, i16 7, ptr null, i1 noundef zeroext false, i1 noundef zeroext false) #35
   %127 = xor i32 %7, 1
-  %128 = zext i32 %127 to i64
+  %128 = zext nneg i32 %127 to i64
   %switch.gep = getelementptr inbounds nuw [14 x i64], ptr @switch.table._ZL25emitConditionalComparisonN4llvm7SDValueES0_NS_3ISD8CondCodeES0_NS_9AArch64CC8CondCodeES4_RKNS_5SDLocERNS_12SelectionDAGE, i64 0, i64 %128
   %switch.load = load i64, ptr %switch.gep, align 8
   %.fca.1.extract10 = extractvalue { ptr, i32 } %126, 1
@@ -164210,7 +164210,7 @@ _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %25, %32
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal fastcc noundef range(i32 0, 9) i32 @_ZN4llvm9AArch64CCL24getNZCVToSatisfyCondCodeENS0_8CondCodeE(i32 noundef %0) unnamed_addr #15 {
 switch.lookup:
-  %1 = zext i32 %0 to i64
+  %1 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [14 x i32], ptr @switch.table._ZN4llvm9AArch64CCL24getNZCVToSatisfyCondCodeENS0_8CondCodeE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
@@ -174417,7 +174417,7 @@ _ZNK4llvm3EVT6bitsGTES0_.exit:                    ; preds = %_ZNK4llvm3EVT13getS
 
 switch.lookup:                                    ; preds = %_ZNK4llvm3EVT6bitsGTES0_.exit
   %switch.tableidx = add nsw i16 %.sroa.0.0.copyload.i.fr, -5
-  %76 = zext i16 %switch.tableidx to i64
+  %76 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %76
   %switch.load = load i16, ptr %switch.gep, align 2
   store i16 %switch.load, ptr %10, align 8, !tbaa !238
@@ -174432,7 +174432,7 @@ switch.lookup:                                    ; preds = %_ZNK4llvm3EVT6bitsG
 
 _ZNK4llvm3EVT6bitsGTES0_.exit.thread:             ; preds = %57, %_ZNK4llvm3EVT6bitsGTES0_.exit.thread133, %_ZNK4llvm3EVT6bitsGTES0_.exit
   %switch.tableidx143 = add nsw i16 %.sroa.0.0.copyload.i.i.fr, -5
-  %80 = zext i16 %switch.tableidx143 to i64
+  %80 = zext nneg i16 %switch.tableidx143 to i64
   %switch.gep144 = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %80
   %switch.load145 = load i16, ptr %switch.gep144, align 2
   store i16 %switch.load145, ptr %9, align 8, !tbaa !238
@@ -175523,7 +175523,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %3, %9
   %19 = load ptr, ptr %18, align 8, !tbaa !329
   %.sroa.0.0.copyload.i = load i16, ptr %19, align 8, !tbaa !238
   %switch.tableidx = add nsw i16 %.sroa.0.0.copyload.i, -5
-  %20 = zext i16 %switch.tableidx to i64
+  %20 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i16], ptr @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE, i64 0, i64 %20
   %switch.load = load i16, ptr %switch.gep, align 2
   %21 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueES5_(ptr noundef nonnull align 8 dereferenceable(952) %2, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(12) %4, i16 %switch.load, ptr null, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %16, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %17) #35

@@ -9189,7 +9189,7 @@ switch.lookup:
 
 4:                                                ; preds = %switch.lookup
   %switch.tableidx = add nsw i32 %1, -101
-  %5 = zext i32 %switch.tableidx to i64
+  %5 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [48 x i64], ptr @switch.table._ZNK4llvm18TargetLoweringBase26getStrictFPOperationActionEjNS_3EVTE, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 5486

@@ -692,7 +692,7 @@ switch.lookup:                                    ; preds = %_ZN3gmxL15sc_jClust
   %117 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store i8 1, ptr %117, align 8, !tbaa !49
   %switch.tableidx = add nsw i32 %.sroa.09.01930.i, -1
-  %118 = zext i32 %switch.tableidx to i64
+  %118 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN3gmx14init_nb_verletERKNS_8MDLoggerERK10t_inputrecRK10t_forcerecPK9t_commrecRK13gmx_hw_info_tbPKNS_19DeviceStreamManagerERK10gmx_mtop_tbPNS_25ObservablesReducerBuilderENS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fP13gmx_wallcycle.26, i64 0, i64 %118
   %switch.load = load ptr, ptr %switch.gep, align 8
   %119 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull @.str.14, ptr noundef nonnull %switch.load, i32 noundef %110, i32 noundef %111)
@@ -846,7 +846,7 @@ switch.lookup174:                                 ; preds = %165
   %170 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store i8 1, ptr %170, align 8, !tbaa !49
   %switch.tableidx175 = add nsw i32 %.sroa.09.01930.i, -1
-  %171 = zext i32 %switch.tableidx175 to i64
+  %171 = zext nneg i32 %switch.tableidx175 to i64
   %switch.gep176 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN3gmx14init_nb_verletERKNS_8MDLoggerERK10t_inputrecRK10t_forcerecPK9t_commrecRK13gmx_hw_info_tbPKNS_19DeviceStreamManagerERK10gmx_mtop_tbPNS_25ObservablesReducerBuilderENS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fP13gmx_wallcycle.26, i64 0, i64 %171
   %switch.load177 = load ptr, ptr %switch.gep176, align 8
   %172 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull @.str.16, ptr noundef nonnull %switch.load177)

@@ -346,7 +346,7 @@ switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %2 = load i16, ptr %1, align 2, !tbaa !19
   %3 = tail call i16 @llvm.fshl.i16(i16 %2, i16 %2, i16 5)
-  %4 = zext i16 %3 to i64
+  %4 = zext nneg i16 %3 to i64
   %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZNK8rawspeed9CiffEntry14getElementSizeEv, i64 0, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load

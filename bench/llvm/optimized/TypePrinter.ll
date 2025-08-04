@@ -853,10 +853,10 @@ declare void @_ZNK5clang4Stmt11printPrettyERN4llvm11raw_ostreamEPNS_13PrinterHel
 define dso_local { ptr, i64 } @_ZN5clang23getParameterABISpellingENS_12ParameterABIE(i32 noundef %0) local_unnamed_addr #3 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
-  %1 = zext i32 %switch.tableidx to i64
+  %1 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE.48, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = zext i32 %switch.tableidx to i64
+  %2 = zext nneg i32 %switch.tableidx to i64
   %switch.gep1 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE.49, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
@@ -7742,10 +7742,10 @@ _ZL22splitAccordingToPolicyN5clang8QualTypeERKNS_14PrintingPolicyE.exit.i289: ; 
 _ZN4llvm11raw_ostreamlsEPKc.exit141.i:            ; preds = %915, %913
   %.0.i.i140.i = phi ptr [ %914, %913 ], [ %2, %915 ]
   %switch.tableidx = add nsw i8 %814, -1
-  %918 = zext i8 %switch.tableidx to i64
+  %918 = zext nneg i8 %switch.tableidx to i64
   %switch.gep49 = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE.48, i64 0, i64 %918
   %switch.load50 = load i64, ptr %switch.gep49, align 8
-  %919 = zext i8 %switch.tableidx to i64
+  %919 = zext nneg i8 %switch.tableidx to i64
   %switch.gep51 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE.49, i64 0, i64 %919
   %switch.load52 = load ptr, ptr %switch.gep51, align 8
   %920 = getelementptr inbounds nuw i8, ptr %.0.i.i140.i, i64 24

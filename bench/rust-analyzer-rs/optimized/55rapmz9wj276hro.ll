@@ -42215,10 +42215,10 @@ switch.lookup:                                    ; preds = %3
 switch.lookup178:                                 ; preds = %3
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.sroa.026.0.copyload = load i32, ptr %56, align 4
-  %57 = zext i32 %.sroa.026.0.copyload to i64
+  %57 = zext nneg i32 %.sroa.026.0.copyload to i64
   %switch.gep179 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN3ide19syntax_highlighting9highlight13highlight_def17hb3df72e100768562E.155, i64 0, i64 %57
   %switch.load180 = load i64, ptr %switch.gep179, align 8
-  %58 = zext i32 %.sroa.026.0.copyload to i64
+  %58 = zext nneg i32 %.sroa.026.0.copyload to i64
   %switch.gep181 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN3ide19syntax_highlighting9highlight13highlight_def17hb3df72e100768562E.156, i64 0, i64 %58
   %switch.load182 = load i32, ptr %switch.gep181, align 4
   br label %70

@@ -89353,10 +89353,10 @@ _ZN9pep440_rs7version7Version3new17hb8f7b46926d1dfc2E.exit: ; preds = %57
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define internal fastcc { ptr, i64 } @"_ZN76_$LT$ruff_linter..codes..Rule$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2ef283377083eb43E"(i16 %.0.val) unnamed_addr #25 {
 switch.lookup:
-  %0 = zext i16 %.0.val to i64
+  %0 = zext nneg i16 %.0.val to i64
   %switch.gep = getelementptr inbounds nuw [921 x i64], ptr @"switch.table._ZN76_$LT$ruff_linter..codes..Rule$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2ef283377083eb43E", i64 0, i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8
-  %1 = zext i16 %.0.val to i64
+  %1 = zext nneg i16 %.0.val to i64
   %switch.gep1 = getelementptr inbounds nuw [921 x ptr], ptr @"switch.table._ZN76_$LT$ruff_linter..codes..Rule$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h2ef283377083eb43E.460", i64 0, i64 %1
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %2 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0

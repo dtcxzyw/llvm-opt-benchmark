@@ -38191,7 +38191,7 @@ switch.lookup:
   store i32 %4, ptr %28, align 4
   store i32 %5, ptr %27, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
-  %29 = zext i8 %6 to i64
+  %29 = zext nneg i8 %6 to i64
   %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN95_$LT$image..codecs..ico..encoder..IcoEncoder$LT$W$GT$$u20$as$u20$image..image..ImageEncoder$GT$11write_image17h8576fdf317956781E", i64 0, i64 %29
   %switch.load = load i64, ptr %switch.gep, align 8
   %30 = zext i32 %4 to i64

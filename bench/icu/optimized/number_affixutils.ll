@@ -295,7 +295,7 @@ define range(i8 39, 46) i8 @_ZN6icu_776number4impl10AffixUtils15getFieldForTypeE
   unreachable
 
 switch.lookup:                                    ; preds = %1
-  %4 = zext i32 %switch.tableidx to i64
+  %4 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [15 x i8], ptr @switch.table._ZN6icu_776number4impl10AffixUtils8unescapeERKNS_13UnicodeStringERNS_22FormattedStringBuilderEiRKNS1_14SymbolProviderENS6_5FieldER10UErrorCode, i64 0, i64 %4
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
@@ -411,7 +411,7 @@ _ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE
   unreachable
 
 switch.lookup:                                    ; preds = %59
-  %65 = zext i32 %switch.tableidx to i64
+  %65 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [15 x i8], ptr @switch.table._ZN6icu_776number4impl10AffixUtils8unescapeERKNS_13UnicodeStringERNS_22FormattedStringBuilderEiRKNS1_14SymbolProviderENS6_5FieldER10UErrorCode, i64 0, i64 %65
   %switch.load = load i8, ptr %switch.gep, align 1
   %66 = add nsw i32 %.02846, %2

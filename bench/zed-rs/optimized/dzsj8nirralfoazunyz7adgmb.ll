@@ -52119,7 +52119,7 @@ default.unreachable:                              ; preds = %109, %.critedge
 switch.lookup:                                    ; preds = %105
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
-  %110 = zext i8 %76 to i64
+  %110 = zext nneg i8 %76 to i64
   %switch.gep = getelementptr inbounds nuw [13 x i64], ptr @"switch.table._ZN9zune_jpeg8mcu_prog58_$LT$impl$u20$zune_jpeg..decoder..JpegDecoder$LT$T$GT$$GT$28decode_mcu_ycbcr_progressive17h60adf1ea9dbd012bE.llvm.16247273651722951349", i64 0, i64 %110
   %switch.load = load i64, ptr %switch.gep, align 8
   store i64 %switch.load, ptr %24, align 8

@@ -15315,7 +15315,7 @@ define internal fastcc range(i64 1851981824, 1885536257) i64 @"_ZZN8WasmEdge9Val
 
 switch.lookup:                                    ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
   %switch.tableidx = add nsw i8 %5, -106
-  %6 = zext i8 %switch.tableidx to i64
+  %6 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_6clERKNS_7ValTypeE", i64 0, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %17

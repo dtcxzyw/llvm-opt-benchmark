@@ -43288,7 +43288,7 @@ _ZN7hir_def9item_tree8ItemTree4data17h7e30fd18c89f4472E.llvm.2681043041644741927
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { i32, i32 } @"_ZN104_$LT$hir_def..item_tree..ModItem$u20$as$u20$core..convert..From$LT$hir_def..item_tree..AssocItem$GT$$GT$4from17he767d80ec9b45dbfE"(i32 noundef %0, i32 noundef %1) unnamed_addr #5 {
 switch.lookup:
-  %2 = zext i32 %0 to i64
+  %2 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @"switch.table._ZN104_$LT$hir_def..item_tree..ModItem$u20$as$u20$core..convert..From$LT$hir_def..item_tree..AssocItem$GT$$GT$4from17he767d80ec9b45dbfE", i64 0, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   %3 = insertvalue { i32, i32 } poison, i32 %switch.load, 0

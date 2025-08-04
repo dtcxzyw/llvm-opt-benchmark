@@ -29454,7 +29454,7 @@ define void @_ZN5image6codecs7openexr12to_image_err17h550a5ecfa9b66ee9E(ptr noal
 define internal fastcc void @"_ZN5image6codecs3pnm7encoder19PnmEncoder$LT$W$GT$20write_dynamic_header17h46265211c427748dE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4, i8 noundef %5, i8 %6) unnamed_addr #2 personality ptr @rust_eh_personality {
 switch.lookup:
   %7 = alloca { { i64, [2 x i64] }, { i64, [4 x i64] } }, align 8
-  %8 = zext i8 %5 to i64
+  %8 = zext nneg i8 %5 to i64
   %switch.gep = getelementptr inbounds nuw [27 x i32], ptr @"switch.table._ZN5image6codecs3pnm7encoder19PnmEncoder$LT$W$GT$20write_dynamic_header17h46265211c427748dE", i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   %switch.tableidx = add i8 %5, -1
@@ -29667,7 +29667,7 @@ switch.lookup:
   store i32 %4, ptr %16, align 4
   store i32 %5, ptr %15, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
-  %17 = zext i8 %6 to i64
+  %17 = zext nneg i8 %6 to i64
   %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN95_$LT$image..codecs..pnm..encoder..PnmEncoder$LT$W$GT$$u20$as$u20$image..image..ImageEncoder$GT$11write_image17hcb66636797b554ddE", i64 0, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
   %18 = zext i32 %4 to i64
@@ -29722,7 +29722,7 @@ default.unreachable:                              ; preds = %"_ZN102_$LT$image..
   unreachable
 
 switch.lookup17:                                  ; preds = %30
-  %36 = zext i8 %6 to i64
+  %36 = zext nneg i8 %6 to i64
   %switch.gep18 = getelementptr inbounds nuw [10 x i8], ptr @"switch.table._ZN95_$LT$image..codecs..pnm..encoder..PnmEncoder$LT$W$GT$$u20$as$u20$image..image..ImageEncoder$GT$11write_image17hcb66636797b554ddE.118", i64 0, i64 %36
   %switch.load19 = load i8, ptr %switch.gep18, align 1
   invoke fastcc void @"_ZN5image6codecs3pnm7encoder19PnmEncoder$LT$W$GT$20write_dynamic_header17h46265211c427748dE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %9, i32 noundef %4, i32 noundef %5, i8 noundef %switch.load19, i8 undef)
@@ -29891,7 +29891,7 @@ switch.lookup17:                                  ; preds = %30
 
 switch.lookup20:                                  ; preds = %30
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %80 = zext i8 %6 to i64
+  %80 = zext nneg i8 %6 to i64
   %switch.gep21 = getelementptr inbounds nuw [10 x i8], ptr @"switch.table._ZN95_$LT$image..codecs..pnm..encoder..PnmEncoder$LT$W$GT$$u20$as$u20$image..image..ImageEncoder$GT$11write_image17hcb66636797b554ddE.118", i64 0, i64 %80
   %switch.load22 = load i8, ptr %switch.gep21, align 1
   invoke fastcc void @"_ZN5image6codecs3pnm7encoder19PnmEncoder$LT$W$GT$17write_with_header17had1e2108dd291e1eE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %79, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %9, i32 noundef %4, i32 noundef %5, i8 noundef %switch.load22, i8 undef)

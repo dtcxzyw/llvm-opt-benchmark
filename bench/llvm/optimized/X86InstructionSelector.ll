@@ -1698,7 +1698,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_122X86InstructionSelector22
 define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_122X86InstructionSelector24testImmPredicate_APFloatEjRKN4llvm7APFloatE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #0 align 2 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %1, -1
-  %3 = zext i32 %switch.tableidx to i64
+  %3 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [4 x double], ptr @switch.table._ZNK12_GLOBAL__N_122X86InstructionSelector24testImmPredicate_APFloatEjRKN4llvm7APFloatE, i64 0, i64 %3
   %switch.load = load double, ptr %switch.gep, align 8
   %4 = tail call noundef zeroext i1 @_ZNK4llvm7APFloat14isExactlyValueEd(ptr noundef nonnull align 8 dereferenceable(24) %2, double noundef %switch.load)

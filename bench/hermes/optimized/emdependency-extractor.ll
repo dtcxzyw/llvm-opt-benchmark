@@ -221,7 +221,7 @@ for.body:                                         ; preds = %if.end19, %for.body
   call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr %call.i.i, i64 %call2.i.i) #12
   %kind = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.035, i64 32
   %10 = load i32, ptr %kind, align 8
-  %11 = zext i32 %10 to i64
+  %11 = zext nneg i32 %10 to i64
   %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.hermesExtractDependencies, i64 0, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.4, i64 4) #12

@@ -22746,7 +22746,7 @@ switch.lookup:                                    ; preds = %_ZN4llvm18Intrusive
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
   %213 = load i32, ptr %14, align 4, !tbaa !943
   %switch.tableidx = add nsw i32 %213, -10
-  %214 = zext i32 %switch.tableidx to i64
+  %214 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN12_GLOBAL__N_121SymbolicRangeInferrer5inferEPKN5clang4ento7SymExprE, i64 0, i64 %214
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %16, align 4, !tbaa !943
@@ -22819,7 +22819,7 @@ _ZNK4llvm6APSInteqEl.exit.i.i:                    ; preds = %238, %235, %231
 switch.lookup44:                                  ; preds = %_ZNK4llvm6APSInteqEl.exit.i.i
   %240 = load i32, ptr %14, align 4, !tbaa !943
   %switch.tableidx45 = add nsw i32 %240, -10
-  %241 = zext i32 %switch.tableidx45 to i64
+  %241 = zext nneg i32 %switch.tableidx45 to i64
   %switch.gep46 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN12_GLOBAL__N_121SymbolicRangeInferrer5inferEPKN5clang4ento7SymExprE.820, i64 0, i64 %241
   %switch.load47 = load i32, ptr %switch.gep46, align 4
   store i32 %switch.load47, ptr %14, align 4, !tbaa !943

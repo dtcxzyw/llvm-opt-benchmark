@@ -54966,7 +54966,7 @@ define noundef zeroext i1 @_ZN7hir_def7MacroId12is_attribute17h7fa51e056d9e8245E
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define range(i64 3, -4294967280) i64 @"_ZN90_$LT$hir_def..TypeOwnerId$u20$as$u20$core..convert..From$LT$hir_def..DefWithBodyId$GT$$GT$4from17h05b682627926b02fE"(i32 noundef %0, i32 noundef %1) unnamed_addr #7 {
 switch.lookup:
-  %2 = zext i32 %0 to i64
+  %2 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN90_$LT$hir_def..TypeOwnerId$u20$as$u20$core..convert..From$LT$hir_def..DefWithBodyId$GT$$GT$4from17h05b682627926b02fE", i64 0, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %.sroa.2.0.insert.ext.i = zext i32 %1 to i64
@@ -55897,7 +55897,7 @@ define noundef i32 @_ZN7hir_def12GenericDefId21assoc_trait_container17h27a4d8ea5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define range(i64 3, -4294967280) i64 @"_ZN89_$LT$hir_def..GenericDefId$u20$as$u20$core..convert..From$LT$hir_def..AssocItemId$GT$$GT$4from17hfb413f1ea58f44faE"(i32 noundef %0, i32 noundef %1) unnamed_addr #7 {
 switch.lookup:
-  %2 = zext i32 %0 to i64
+  %2 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN89_$LT$hir_def..GenericDefId$u20$as$u20$core..convert..From$LT$hir_def..AssocItemId$GT$$GT$4from17hfb413f1ea58f44faE", i64 0, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %.sroa.2.0.insert.ext.i = zext i32 %1 to i64

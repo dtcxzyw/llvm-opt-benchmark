@@ -806,7 +806,7 @@ if.end.i.i.i.i.i.i52:                             ; preds = %_ZN6hermes2vm13Muta
 
 switch.lookup:                                    ; preds = %if.end.i.i.i.i.i.i52, %if.then.i.i.i.i.i.i55
   %retval.0.i.i.i.i.i.i54 = phi ptr [ %6, %if.then.i.i.i.i.i.i55 ], [ %call7.i.i.i.i.i.i53, %if.end.i.i.i.i.i.i52 ]
-  %8 = zext i32 %kind to i64
+  %8 = zext nneg i32 %kind to i64
   %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN6hermes2vm21createDynamicFunctionERNS0_7RuntimeENS0_10NativeArgsENS0_19DynamicFunctionKindE, i64 0, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   %asyncFunctionPrototype = getelementptr inbounds nuw i8, ptr %runtime, i64 %switch.load

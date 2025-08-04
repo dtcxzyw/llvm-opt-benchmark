@@ -5433,7 +5433,7 @@ define void @"_ZN75_$LT$ui..components..icon..AnyIcon$u20$as$u20$gpui..element..
 ; Function Attrs: nonlazybind uwtable
 define noundef float @_ZN2ui10components4icon8IconSize4rems17h635537f4a661e5e7E(i8 noundef %0) unnamed_addr #4 {
 switch.lookup:
-  %1 = zext i8 %0 to i64
+  %1 = zext nneg i8 %0 to i64
   %switch.gep = getelementptr inbounds nuw [4 x float], ptr @switch.table._ZN2ui10components4icon4Icon4size17h6acfc3a54898275cE, i64 0, i64 %1
   %switch.load = load float, ptr %switch.gep, align 4
   %2 = tail call noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef %switch.load)
@@ -5568,7 +5568,7 @@ define void @_ZN2ui10components4icon4Icon5color17h8b0ca1bb4c2ec638E(ptr dead_on_
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components4icon4Icon4size17h6acfc3a54898275cE(ptr dead_on_unwind noalias noundef writable writeonly sret([72 x i8]) align 8 captures(none) dereferenceable(72) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1, i8 noundef %2) unnamed_addr #4 personality ptr @rust_eh_personality {
 switch.lookup:
-  %3 = zext i8 %2 to i64
+  %3 = zext nneg i8 %2 to i64
   %switch.gep = getelementptr inbounds nuw [4 x float], ptr @switch.table._ZN2ui10components4icon4Icon4size17h6acfc3a54898275cE, i64 0, i64 %3
   %switch.load = load float, ptr %switch.gep, align 4
   %4 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef %switch.load)

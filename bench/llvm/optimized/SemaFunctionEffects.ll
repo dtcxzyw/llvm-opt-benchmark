@@ -3511,7 +3511,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZNK5clang4Sema18FunctionEffectDif
 switch.lookup:                                    ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !904
-  %9 = zext i32 %8 to i64
+  %9 = zext nneg i32 %8 to i64
   %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK5clang4Sema18FunctionEffectDiff28shouldDiagnoseMethodOverrideERKNS_13CXXMethodDeclERKNS_18FunctionEffectsRefES4_S7_, i64 0, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %10

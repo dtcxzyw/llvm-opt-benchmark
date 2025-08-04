@@ -93,7 +93,7 @@ declare void @_ZN5folly2io8getCodecENS0_9CodecTypeEi(ptr sret(%"class.std::uniqu
 define noundef range(i64 0, 7) i64 @_ZN8facebook5velox6common26codecTypeToCompressionKindEN5folly2io9CodecTypeE(i32 noundef %type) local_unnamed_addr #2 {
 entry:
   %switch.tableidx = add nsw i32 %type, -1
-  %0 = zext i32 %switch.tableidx to i64
+  %0 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN8facebook5velox6common26codecTypeToCompressionKindEN5folly2io9CodecTypeE, i64 0, i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8
   ret i64 %switch.load

@@ -1430,10 +1430,10 @@ define void @_ZN7base_db5input16CrateDisplayName19from_canonical_name17h236b4e6a
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, i64 } @_ZN7base_db5input14ReleaseChannel6as_str17h19464138454b4dfcE(i8 noundef %0) unnamed_addr #6 {
 switch.lookup:
-  %1 = zext i8 %0 to i64
+  %1 = zext nneg i8 %0 to i64
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN7base_db5input14ReleaseChannel6as_str17h19464138454b4dfcE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %2 = zext i8 %0 to i64
+  %2 = zext nneg i8 %0 to i64
   %switch.gep1 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN7base_db5input14ReleaseChannel6as_str17h19464138454b4dfcE.38, i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0

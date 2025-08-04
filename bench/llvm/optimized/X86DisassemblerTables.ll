@@ -2065,7 +2065,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit48:               ; preds = %120, %122
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal fastcc noundef nonnull ptr @_ZL16stringForContextN4llvm15X86Disassembler18InstructionContextE(i32 noundef %0) unnamed_addr #3 {
 switch.lookup:
-  %1 = zext i32 %0 to i64
+  %1 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [219 x ptr], ptr @switch.table._ZL16stringForContextN4llvm15X86Disassembler18InstructionContextE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
@@ -2429,12 +2429,12 @@ _ZN4llvm11raw_ostreamlsEPKc.exit89:               ; preds = %172, %174
   %190 = load ptr, ptr %5, align 8, !tbaa !89
   %191 = getelementptr inbounds nuw %"struct.std::pair", ptr %190, i64 %indvars.iv
   %192 = load i32, ptr %191, align 4, !tbaa !94
-  %193 = zext i32 %192 to i64
+  %193 = zext nneg i32 %192 to i64
   %switch.gep = getelementptr inbounds nuw [37 x ptr], ptr @switch.table._ZNK4llvm15X86Disassembler18DisassemblerTables19emitInstructionInfoERNS_11raw_ostreamERj, i64 0, i64 %193
   %switch.load = load ptr, ptr %switch.gep, align 8
   %194 = getelementptr inbounds nuw i8, ptr %191, i64 4
   %195 = load i32, ptr %194, align 4, !tbaa !98
-  %196 = zext i32 %195 to i64
+  %196 = zext nneg i32 %195 to i64
   %switch.gep186 = getelementptr inbounds nuw [36 x ptr], ptr @switch.table._ZNK4llvm15X86Disassembler18DisassemblerTables19emitInstructionInfoERNS_11raw_ostreamERj.2, i64 0, i64 %196
   %switch.load187 = load ptr, ptr %switch.gep186, align 8
   %197 = load ptr, ptr %15, align 8, !tbaa !50

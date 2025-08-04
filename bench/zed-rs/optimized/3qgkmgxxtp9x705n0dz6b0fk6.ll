@@ -99653,7 +99653,7 @@ _ZN4gpui8platform5linux7wayland6serial13SerialTracker3get17hd5e5117f3e322c47E.ll
   br i1 %59, label %17, label %61
 
 switch.lookup:                                    ; preds = %_ZN4gpui8platform5linux7wayland6serial13SerialTracker3get17hd5e5117f3e322c47E.llvm.5405220595630156345.exit
-  %60 = zext i8 %1 to i64
+  %60 = zext nneg i8 %1 to i64
   %switch.gep = getelementptr inbounds nuw [21 x i32], ptr @"switch.table._ZN118_$LT$gpui..platform..linux..wayland..client..WaylandClient$u20$as$u20$gpui..platform..linux..platform..LinuxClient$GT$16set_cursor_style17hef69eb17ea4870eaE", i64 0, i64 %60
   %switch.load = load i32, ptr %switch.gep, align 4
   invoke void @_ZN17wayland_protocols2wp12cursor_shape2v19generated6client25wp_cursor_shape_device_v121WpCursorShapeDeviceV19set_shape17hc6d9121c1ed4a4efE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %53, i32 noundef %.sroa.0.0.i, i32 noundef %switch.load)
@@ -99746,10 +99746,10 @@ switch.lookup:                                    ; preds = %_ZN4gpui8platform5l
   store ptr %.sroa.512.0.i, ptr %.sroa.1036.0..sroa_idx, align 8
   %.sroa.1137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 %79, ptr %.sroa.1137.0..sroa_idx, align 8
-  %100 = zext i8 %1 to i64
+  %100 = zext nneg i8 %1 to i64
   %switch.gep43 = getelementptr inbounds nuw [21 x i64], ptr @"switch.table._ZN110_$LT$gpui..platform..linux..x11..client..X11Client$u20$as$u20$gpui..platform..linux..platform..LinuxClient$GT$16set_cursor_style17h6ab0500258f49399E", i64 0, i64 %100
   %switch.load44 = load i64, ptr %switch.gep43, align 8
-  %101 = zext i8 %1 to i64
+  %101 = zext nneg i8 %1 to i64
   %switch.gep45 = getelementptr inbounds nuw [21 x ptr], ptr @"switch.table._ZN110_$LT$gpui..platform..linux..x11..client..X11Client$u20$as$u20$gpui..platform..linux..platform..LinuxClient$GT$16set_cursor_style17h6ab0500258f49399E.387", i64 0, i64 %101
   %switch.load46 = load ptr, ptr %switch.gep45, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !27143
@@ -133382,10 +133382,10 @@ define void @"_ZN110_$LT$gpui..platform..linux..x11..client..X11Client$u20$as$u2
 
 select.unfold:                                    ; preds = %._crit_edge.i.i29, %66
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11)
-  %101 = zext i8 %1 to i64
+  %101 = zext nneg i8 %1 to i64
   %switch.gep = getelementptr inbounds nuw [21 x i64], ptr @"switch.table._ZN110_$LT$gpui..platform..linux..x11..client..X11Client$u20$as$u20$gpui..platform..linux..platform..LinuxClient$GT$16set_cursor_style17h6ab0500258f49399E", i64 0, i64 %101
   %switch.load = load i64, ptr %switch.gep, align 8
-  %102 = zext i8 %1 to i64
+  %102 = zext nneg i8 %1 to i64
   %switch.gep139 = getelementptr inbounds nuw [21 x ptr], ptr @"switch.table._ZN110_$LT$gpui..platform..linux..x11..client..X11Client$u20$as$u20$gpui..platform..linux..platform..LinuxClient$GT$16set_cursor_style17h6ab0500258f49399E.387", i64 0, i64 %102
   %switch.load140 = load ptr, ptr %switch.gep139, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !35751

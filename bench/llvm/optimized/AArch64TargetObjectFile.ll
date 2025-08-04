@@ -295,7 +295,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit34.i:              ; preds = %27, %_ZN4llvm17Mach
   store i8 2, ptr %36, align 8, !tbaa !239, !alias.scope !243
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 33
   store i8 3, ptr %37, align 1, !tbaa !242, !alias.scope !243
-  %38 = zext i8 %4 to i64
+  %38 = zext nneg i8 %4 to i64
   %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK4llvm29AArch64_MachoTargetObjectFile20getAuthPtrSlotSymbolERKNS_13TargetMachineEPNS_17MachineModuleInfoEPKNS_8MCSymbolENS_13AArch64PACKey2IDEt, i64 0, i64 %38
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %11, ptr %10, align 8, !alias.scope !248
@@ -430,7 +430,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit34.i:              ; preds = %30, %_ZN4llvm17Mach
   store i8 2, ptr %39, align 8, !tbaa !239, !alias.scope !272
   %40 = getelementptr inbounds nuw i8, ptr %11, i64 33
   store i8 3, ptr %40, align 1, !tbaa !242, !alias.scope !272
-  %41 = zext i8 %4 to i64
+  %41 = zext nneg i8 %4 to i64
   %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK4llvm29AArch64_MachoTargetObjectFile20getAuthPtrSlotSymbolERKNS_13TargetMachineEPNS_17MachineModuleInfoEPKNS_8MCSymbolENS_13AArch64PACKey2IDEt, i64 0, i64 %41
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %11, ptr %10, align 8, !alias.scope !277

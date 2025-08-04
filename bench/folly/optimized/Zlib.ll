@@ -485,7 +485,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %12
 
 switch.lookup:                                    ; preds = %1
   %switch.tableidx = add i32 %0, 3
-  %23 = zext i32 %switch.tableidx to i64
+  %23 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN5folly11compression4zlib12_GLOBAL__N_116zlibConvertLevelEi, i64 0, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %24

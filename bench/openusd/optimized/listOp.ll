@@ -9659,7 +9659,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpIiE8SetItemsERKSt6vectorIiSaIiEEN
 
 switch.lookup:                                    ; preds = %52
   %switch.tableidx = add nsw i32 %2, -1
-  %59 = zext i32 %switch.tableidx to i64
+  %59 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_10SdfPayloadEE17ComposeOperationsERKS2_NS_13SdfListOpTypeE, i64 0, i64 %59
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9SdfListOpIiE8GetItemsENS_13SdfListOpTypeE.exit
@@ -18436,7 +18436,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpIjE8SetItemsERKSt6vectorIjSaIjEEN
 
 switch.lookup:                                    ; preds = %52
   %switch.tableidx = add nsw i32 %2, -1
-  %59 = zext i32 %switch.tableidx to i64
+  %59 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_10SdfPayloadEE17ComposeOperationsERKS2_NS_13SdfListOpTypeE, i64 0, i64 %59
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9SdfListOpIjE8GetItemsENS_13SdfListOpTypeE.exit
@@ -27220,7 +27220,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpIlE8SetItemsERKSt6vectorIlSaIlEEN
 
 switch.lookup:                                    ; preds = %52
   %switch.tableidx = add nsw i32 %2, -1
-  %59 = zext i32 %switch.tableidx to i64
+  %59 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_10SdfPayloadEE17ComposeOperationsERKS2_NS_13SdfListOpTypeE, i64 0, i64 %59
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9SdfListOpIlE8GetItemsENS_13SdfListOpTypeE.exit
@@ -36004,7 +36004,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpImE8SetItemsERKSt6vectorImSaImEEN
 
 switch.lookup:                                    ; preds = %52
   %switch.tableidx = add nsw i32 %2, -1
-  %59 = zext i32 %switch.tableidx to i64
+  %59 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_10SdfPayloadEE17ComposeOperationsERKS2_NS_13SdfListOpTypeE, i64 0, i64 %59
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9SdfListOpImE8GetItemsENS_13SdfListOpTypeE.exit
@@ -41244,7 +41244,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINSt7__cxx1
 
 switch.lookup:                                    ; preds = %19
   %switch.tableidx = add nsw i32 %2, -1
-  %26 = zext i32 %switch.tableidx to i64
+  %26 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_10SdfPayloadEE17ComposeOperationsERKS2_NS_13SdfListOpTypeE, i64 0, i64 %26
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9SdfListOpINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8GetItemsENS_13SdfListOpTypeE.exit
@@ -48875,7 +48875,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_7TfToke
 
 switch.lookup:                                    ; preds = %27
   %switch.tableidx = add nsw i32 %2, -1
-  %34 = zext i32 %switch.tableidx to i64
+  %34 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_10SdfPayloadEE17ComposeOperationsERKS2_NS_13SdfListOpTypeE, i64 0, i64 %34
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_7TfTokenEE8GetItemsENS_13SdfListOpTypeE.exit
@@ -56618,7 +56618,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_20SdfUn
 
 switch.lookup:                                    ; preds = %22
   %switch.tableidx = add nsw i32 %2, -1
-  %29 = zext i32 %switch.tableidx to i64
+  %29 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_10SdfPayloadEE17ComposeOperationsERKS2_NS_13SdfListOpTypeE, i64 0, i64 %29
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_20SdfUnregisteredValueEE8GetItemsENS_13SdfListOpTypeE.exit
@@ -64442,7 +64442,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_7SdfPat
 
 switch.lookup:                                    ; preds = %21
   %switch.tableidx = add nsw i32 %2, -1
-  %28 = zext i32 %switch.tableidx to i64
+  %28 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_10SdfPayloadEE17ComposeOperationsERKS2_NS_13SdfListOpTypeE, i64 0, i64 %28
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_7SdfPathEE8GetItemsENS_13SdfListOpTypeE.exit
@@ -70765,7 +70765,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_12SdfRe
 
 switch.lookup:                                    ; preds = %21
   %switch.tableidx = add nsw i32 %2, -1
-  %28 = zext i32 %switch.tableidx to i64
+  %28 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_10SdfPayloadEE17ComposeOperationsERKS2_NS_13SdfListOpTypeE, i64 0, i64 %28
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_12SdfReferenceEE8GetItemsENS_13SdfListOpTypeE.exit
@@ -77424,7 +77424,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_10SdfPa
 
 switch.lookup:                                    ; preds = %22
   %switch.tableidx = add nsw i32 %2, -1
-  %29 = zext i32 %switch.tableidx to i64
+  %29 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_10SdfPayloadEE17ComposeOperationsERKS2_NS_13SdfListOpTypeE, i64 0, i64 %29
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_10SdfPayloadEE8GetItemsENS_13SdfListOpTypeE.exit

@@ -5811,10 +5811,10 @@ define dso_local noundef ptr @_ZNK4llvm15MachineFunction12getJTISymbolEjRNS_9MCC
   br label %_ZNK4llvm10DataLayout22getPrivateGlobalPrefixEv.exit
 
 switch.lookup:                                    ; preds = %4
-  %14 = zext i32 %11 to i64
+  %14 = zext nneg i32 %11 to i64
   %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZNK4llvm15MachineFunction16getPICBaseSymbolEv.16, i64 0, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %15 = zext i32 %11 to i64
+  %15 = zext nneg i32 %11 to i64
   %switch.gep9 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZNK4llvm15MachineFunction16getPICBaseSymbolEv, i64 0, i64 %15
   %switch.load10 = load i64, ptr %switch.gep9, align 8
   br label %_ZNK4llvm10DataLayout22getPrivateGlobalPrefixEv.exit
@@ -5956,10 +5956,10 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #28
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = load i32, ptr %7, align 8, !tbaa !662
-  %9 = zext i32 %8 to i64
+  %9 = zext nneg i32 %8 to i64
   %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZNK4llvm15MachineFunction16getPICBaseSymbolEv, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
-  %10 = zext i32 %8 to i64
+  %10 = zext nneg i32 %8 to i64
   %switch.gep23 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZNK4llvm15MachineFunction16getPICBaseSymbolEv.16, i64 0, i64 %10
   %switch.load24 = load ptr, ptr %switch.gep23, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 336

@@ -86926,10 +86926,10 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit32: ; preds = %2
 
 switch.lookup:                                    ; preds = %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit32
   %switch.tableidx = add nsw i8 %10, -1
-  %18 = zext i8 %switch.tableidx to i64
+  %18 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN77_$LT$byte_unit..adjusted_byte..AdjustedByte$u20$as$u20$core..fmt..Display$GT$3fmt17hbebe8c00963bba10E", i64 0, i64 %18
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %19 = zext i8 %switch.tableidx to i64
+  %19 = zext nneg i8 %switch.tableidx to i64
   %switch.gep43 = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN77_$LT$byte_unit..adjusted_byte..AdjustedByte$u20$as$u20$core..fmt..Display$GT$3fmt17hbebe8c00963bba10E.364", i64 0, i64 %19
   %switch.load44 = load i64, ptr %switch.gep43, align 8
   %20 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load44)
@@ -88028,10 +88028,10 @@ switch.lookup:
   store ptr %4, ptr %10, align 8, !noalias !15276
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr @anon.3fd1218b2f406ad1341fef897d5dd3d9.37.llvm.8666068179502612882, ptr %11, align 8, !noalias !15276
-  %12 = zext i8 %1 to i64
+  %12 = zext nneg i8 %1 to i64
   %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN88_$LT$meilisearch_types..error..ResponseError$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h382b2d3c86b6ba85E", i64 0, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %13 = zext i8 %1 to i64
+  %13 = zext nneg i8 %1 to i64
   %switch.gep4 = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN88_$LT$meilisearch_types..error..ResponseError$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h382b2d3c86b6ba85E.365", i64 0, i64 %13
   %switch.load5 = load i64, ptr %switch.gep4, align 8
   %14 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load5)

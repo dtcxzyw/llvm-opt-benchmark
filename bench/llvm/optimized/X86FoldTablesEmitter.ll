@@ -4366,7 +4366,7 @@ define internal fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIN12_G
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 11
   %35 = load i8, ptr %34, align 1, !tbaa !261
   %switch.tableidx = add nsw i8 %32, -40
-  %36 = zext i8 %switch.tableidx to i64
+  %36 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [16 x i8], ptr @switch.table._ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_17IsMatchEEclINS_17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorISA_SaISA_EEEEEEbT_, i64 0, i64 %36
   %switch.load = load i8, ptr %switch.gep, align 1
   %37 = icmp eq i8 %35, %switch.load

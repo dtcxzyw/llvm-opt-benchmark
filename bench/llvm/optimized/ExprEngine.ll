@@ -27612,10 +27612,10 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5w
 ; Function Attrs: mustprogress noinline nounwind uwtable
 define linkonce_odr hidden { ptr, i64 } @_ZN5clang23ConstructionContextItem15getKindAsStringENS0_8ItemKindE(i32 noundef %0) local_unnamed_addr #16 comdat align 2 {
 switch.lookup:
-  %1 = zext i32 %0 to i64
+  %1 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5clang23ConstructionContextItem15getKindAsStringENS0_8ItemKindE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = zext i32 %0 to i64
+  %2 = zext nneg i32 %0 to i64
   %switch.gep1 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZN5clang23ConstructionContextItem15getKindAsStringENS0_8ItemKindE.159, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0

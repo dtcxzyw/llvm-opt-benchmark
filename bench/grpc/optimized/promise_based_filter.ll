@@ -3153,7 +3153,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
 switch.lookup36:                                  ; preds = %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #41
   %switch.tableidx = add nsw i8 %31, -2
-  %48 = zext i8 %switch.tableidx to i64
+  %48 = zext nneg i8 %switch.tableidx to i64
   %switch.gep37 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail12BaseCallData11SendMessage7StartOpENS1_13CapturedBatchE.73, i64 0, i64 %48
   %switch.load38 = load ptr, ptr %switch.gep37, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #41, !noalias !230
@@ -3448,7 +3448,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36: ; preds = %_ZN
 
 switch.lookup50:                                  ; preds = %.critedge33, %.critedge33, %.critedge33, %.critedge33, %.critedge33, %.critedge33
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #41
-  %57 = zext i8 %36 to i64
+  %57 = zext nneg i8 %36 to i64
   %switch.gep51 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail12BaseCallData11SendMessage10OnCompleteEN4absl12lts_202407226StatusE.74, i64 0, i64 %57
   %switch.load52 = load ptr, ptr %switch.gep51, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #41, !noalias !238
@@ -10702,7 +10702,7 @@ _ZN9grpc_core21promise_filter_detail12BaseCallData13CapturedBatch12CompleteWithE
 switch.lookup:                                    ; preds = %182, %182, %182, %182, %182, %182, %182
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #41
   %switch.tableidx = add nsw i32 %183, -3
-  %185 = zext i32 %switch.tableidx to i64
+  %185 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail14ClientCallData10StartBatchEP30grpc_transport_stream_op_batch, i64 0, i64 %185
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #41, !noalias !567
@@ -13407,7 +13407,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit360:        ; preds = %701, %704
 switch.lookup561:                                 ; preds = %712, %712
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30) #41
   %switch.tableidx = add nsw i32 %713, -2
-  %717 = zext i32 %switch.tableidx to i64
+  %717 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail14ClientCallData11PollContext3RunEv.77, i64 0, i64 %717
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #41, !noalias !688
@@ -13587,7 +13587,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit369:        ; preds = %748, %_ZN4absl12lts
 switch.lookup562:                                 ; preds = %774, %774
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34) #41
   %switch.tableidx563 = add nsw i32 %775, -2
-  %777 = zext i32 %switch.tableidx563 to i64
+  %777 = zext nneg i32 %switch.tableidx563 to i64
   %switch.gep564 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail14ClientCallData11PollContext3RunEv.77, i64 0, i64 %777
   %switch.load565 = load ptr, ptr %switch.gep564, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #41, !noalias !694
@@ -14882,7 +14882,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit103: ; preds = %_Z
 
 switch.lookup:                                    ; preds = %84, %84, %84, %84, %84, %84, %84, %84
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #41
-  %144 = zext i32 %87 to i64
+  %144 = zext nneg i32 %87 to i64
   %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail14ClientCallData24RecvInitialMetadataReadyEN4absl12lts_202407226StatusE.78, i64 0, i64 %144
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #41, !noalias !734
@@ -15057,7 +15057,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit110:    ; preds = %194, %188
 
 switch.lookup138:                                 ; preds = %207, %207, %207, %207, %207, %207, %207, %207
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #41
-  %210 = zext i32 %208 to i64
+  %210 = zext nneg i32 %208 to i64
   %switch.gep139 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail14ClientCallData24RecvInitialMetadataReadyEN4absl12lts_202407226StatusE.78, i64 0, i64 %210
   %switch.load140 = load ptr, ptr %switch.gep139, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #41, !noalias !737
@@ -15395,7 +15395,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit81: ; preds = %_ZN
 switch.lookup:                                    ; preds = %87, %87, %87, %87, %87, %87, %87
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #41
   %switch.tableidx = add nsw i32 %89, -1
-  %102 = zext i32 %switch.tableidx to i64
+  %102 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail14ClientCallData15MakeNextPromiseENS_8CallArgsE, i64 0, i64 %102
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #41, !noalias !741
@@ -15677,7 +15677,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32: ; preds = %_ZN
 switch.lookup59:                                  ; preds = %30, %30, %30, %30, %30, %30
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #41
   %switch.tableidx = add nsw i8 %32, -1
-  %55 = zext i8 %switch.tableidx to i64
+  %55 = zext nneg i8 %switch.tableidx to i64
   %switch.gep60 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail12BaseCallData11SendMessage7GotPipeINS_10PipeSenderISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEEEEvPT_.84, i64 0, i64 %55
   %switch.load61 = load ptr, ptr %switch.gep60, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #41, !noalias !746
@@ -18914,7 +18914,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit145:    ; preds = %211, %209, %208
 switch.lookup:                                    ; preds = %201, %201, %201, %201
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #41
   %switch.tableidx = add nsw i32 %202, -2
-  %224 = zext i32 %switch.tableidx to i64
+  %224 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail14ServerCallData10StartBatchEP30grpc_transport_stream_op_batch, i64 0, i64 %224
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #41, !noalias !821
@@ -19154,7 +19154,7 @@ _ZNK9grpc_core21promise_filter_detail12BaseCallData11SendMessage6IsIdleEv.exit: 
 switch.lookup255:                                 ; preds = %272, %272, %272, %272
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #41
   %switch.tableidx256 = add nsw i32 %274, -1
-  %298 = zext i32 %switch.tableidx256 to i64
+  %298 = zext nneg i32 %switch.tableidx256 to i64
   %switch.gep257 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail14ServerCallData10StartBatchEP30grpc_transport_stream_op_batch.82, i64 0, i64 %298
   %switch.load258 = load ptr, ptr %switch.gep257, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #41, !noalias !825
@@ -20216,7 +20216,7 @@ define void @_ZN9grpc_core21promise_filter_detail14ServerCallData15MakeNextPromi
 switch.lookup:                                    ; preds = %30, %30, %30, %30
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #41
   %switch.tableidx = add nsw i32 %31, -1
-  %37 = zext i32 %switch.tableidx to i64
+  %37 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail14ServerCallData15MakeNextPromiseENS_8CallArgsE, i64 0, i64 %37
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #41, !noalias !847
@@ -20505,7 +20505,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32: ; preds = %_ZN
 switch.lookup59:                                  ; preds = %30, %30, %30, %30, %30, %30
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #41
   %switch.tableidx = add nsw i8 %32, -1
-  %55 = zext i8 %switch.tableidx to i64
+  %55 = zext nneg i8 %switch.tableidx to i64
   %switch.gep60 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail12BaseCallData11SendMessage7GotPipeINS_10PipeSenderISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEEEEvPT_.84, i64 0, i64 %55
   %switch.load61 = load ptr, ptr %switch.gep60, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #41, !noalias !851

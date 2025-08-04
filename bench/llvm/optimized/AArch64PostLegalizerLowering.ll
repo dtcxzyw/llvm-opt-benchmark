@@ -7133,10 +7133,10 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i289: ; preds = %196
   %.sroa.626.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1970, i64 16
   store i64 %.sroa.04.0.i.i.i290, ptr %.sroa.626.0..sroa_idx.i.i, align 16, !tbaa !16, !noalias !620
   store ptr %1970, ptr %51, align 8, !tbaa !66, !alias.scope !620
-  %1971 = zext i32 %1958 to i64
+  %1971 = zext nneg i32 %1958 to i64
   %switch.gep = getelementptr inbounds nuw [13 x ptr], ptr @switch.table._ZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEE.139, i64 0, i64 %1971
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %1972 = zext i32 %1958 to i64
+  %1972 = zext nneg i32 %1958 to i64
   %switch.gep671 = getelementptr inbounds nuw [13 x ptr], ptr @switch.table._ZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEE.140, i64 0, i64 %1972
   %switch.load672 = load ptr, ptr %switch.gep671, align 8
   %1973 = getelementptr inbounds nuw i8, ptr %51, i64 24
@@ -7180,10 +7180,10 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i62.i: ; preds = %1982
   %.sroa.626.0..sroa_idx.i66.i = getelementptr inbounds nuw i8, ptr %1987, i64 16
   store i64 %.sroa.04.0.i.i63.i, ptr %.sroa.626.0..sroa_idx.i66.i, align 16, !tbaa !16, !noalias !625
   store ptr %1987, ptr %52, align 8, !tbaa !66, !alias.scope !625
-  %1988 = zext i32 %1975 to i64
+  %1988 = zext nneg i32 %1975 to i64
   %switch.gep673 = getelementptr inbounds nuw [13 x ptr], ptr @switch.table._ZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEE.139, i64 0, i64 %1988
   %switch.load674 = load ptr, ptr %switch.gep673, align 8
-  %1989 = zext i32 %1975 to i64
+  %1989 = zext nneg i32 %1975 to i64
   %switch.gep675 = getelementptr inbounds nuw [13 x ptr], ptr @switch.table._ZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEE.140, i64 0, i64 %1989
   %switch.load676 = load ptr, ptr %switch.gep675, align 8
   %1990 = getelementptr inbounds nuw i8, ptr %52, i64 24

@@ -7011,7 +7011,7 @@ switch.lookup:
   %20 = alloca %"class.llvm::StringRef", align 8
   %21 = alloca %"class.llvm::StringRef", align 8
   %22 = alloca %"class.llvm::StringRef", align 8
-  %23 = zext i32 %1 to i64
+  %23 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [63 x i32], ptr @switch.table.LLVMDIBuilderCreateCompileUnit, i64 0, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = icmp ne i32 %5, 0

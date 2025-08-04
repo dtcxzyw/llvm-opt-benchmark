@@ -35519,7 +35519,7 @@ _ZN15ra_ap_rustc_abi7Integer9from_attr17ha96d989b657756c7E.exit.thread793.i: ; p
   br label %_ZN15ra_ap_rustc_abi7Integer9from_attr17ha96d989b657756c7E.exit.thread.i
 
 switch.lookup623:                                 ; preds = %"_ZN15ra_ap_rustc_abi6layout14layout_of_enum28_$u7b$$u7b$closure$u7d$$u7d$17h6f0d9972c8aaeeccE.exit.i"
-  %789 = zext i8 %spec.select.i to i64
+  %789 = zext nneg i8 %spec.select.i to i64
   %switch.gep624 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout16LayoutCalculator24layout_of_struct_or_enum17h92c4e073a74132d2E.1102, i64 0, i64 %789
   %switch.load625 = load i64, ptr %switch.gep624, align 8
   br label %_ZN15ra_ap_rustc_abi7Integer9from_attr17ha96d989b657756c7E.exit.thread.i
@@ -36012,7 +36012,7 @@ switch.lookup627:                                 ; preds = %923
   %switch.load629 = load i64, ptr %switch.gep628, align 8
   store i64 %switch.load629, ptr %58, align 8, !noalias !13749
   %switch.tableidx = add nsw i8 %.1410.i, -1
-  %928 = zext i8 %switch.tableidx to i64
+  %928 = zext nneg i8 %switch.tableidx to i64
   %switch.gep659 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout16LayoutCalculator24layout_of_struct_or_enum17h92c4e073a74132d2E.1104, i64 0, i64 %928
   %switch.load660 = load i64, ptr %switch.gep659, align 8
   %.val491.i = load ptr, ptr %.sroa.433.0..sroa_idx.i, align 8, !noalias !13749, !nonnull !4, !noundef !4
@@ -36091,7 +36091,7 @@ switch.lookup627:                                 ; preds = %923
 
 switch.lookup630:                                 ; preds = %910, %923, %._crit_edge1014.i
   %.2411.i = phi i8 [ %.1410.i, %._crit_edge1014.i ], [ %925, %923 ], [ %908, %910 ]
-  %953 = zext i8 %.2411.i to i64
+  %953 = zext nneg i8 %.2411.i to i64
   %switch.gep631 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout16LayoutCalculator24layout_of_struct_or_enum17h92c4e073a74132d2E.1102, i64 0, i64 %953
   %switch.load632 = load i64, ptr %switch.gep631, align 8
   %954 = zext nneg i64 %switch.load632 to i128
@@ -36121,7 +36121,7 @@ switch.lookup630:                                 ; preds = %910, %923, %._crit_
   br i1 %968, label %962, label %switch.lookup633
 
 switch.lookup633:                                 ; preds = %965
-  %969 = zext i8 %.2411.i to i64
+  %969 = zext nneg i8 %.2411.i to i64
   %switch.gep634 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN4core4iter6traits8iterator8Iterator8try_fold17hbe7bd0decc2e6fa8E.llvm.13094975786070861856, i64 0, i64 %969
   %switch.load635 = load i64, ptr %switch.gep634, align 8
   %970 = load i64, ptr %69, align 8, !noalias !13749, !noundef !4
@@ -36671,7 +36671,7 @@ switch.lookup649:                                 ; preds = %962, %1026, %1036, 
   %.sroa.8216.0859.i = phi i32 [ %.sroa.8216.1.i, %.thread829.i ], [ undef, %978 ], [ %.sroa.8216.0876.i, %.thread829.thread864.i ], [ %.sroa.8216.0876.i, %"_ZN15ra_ap_rustc_abi27FieldsShape$LT$FieldIdx$GT$5count17h4912f727bc7e5f50E.exit.thread.i" ], [ undef, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8222ab05b9f1b412E.exit.i.i561.i" ], [ undef, %1019 ], [ undef, %1013 ], [ undef, %1013 ], [ undef, %1013 ], [ undef, %switch.lookup642 ], [ undef, %switch.lookup639 ], [ undef, %1048 ], [ undef, %.thread845.i ], [ undef, %.thread846.i ], [ undef, %1046 ], [ undef, %1057 ], [ undef, %switch.lookup636 ], [ undef, %1036 ], [ undef, %1026 ], [ undef, %962 ]
   %.sroa.7210.0858.i = phi i8 [ %.sroa.7210.1.i, %.thread829.i ], [ 1, %978 ], [ %.sroa.7210.0875.i, %.thread829.thread864.i ], [ %.sroa.7210.0875.i, %"_ZN15ra_ap_rustc_abi27FieldsShape$LT$FieldIdx$GT$5count17h4912f727bc7e5f50E.exit.thread.i" ], [ 1, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8222ab05b9f1b412E.exit.i.i561.i" ], [ 1, %1019 ], [ 1, %1013 ], [ 1, %1013 ], [ 1, %1013 ], [ 1, %switch.lookup642 ], [ 1, %switch.lookup639 ], [ 1, %1048 ], [ 1, %.thread845.i ], [ 1, %.thread846.i ], [ 1, %1046 ], [ 1, %1057 ], [ 1, %switch.lookup636 ], [ 1, %1036 ], [ 1, %1026 ], [ 1, %962 ]
   %.sroa.0207.0857.i = phi i8 [ %.sroa.0207.1.i, %.thread829.i ], [ 4, %978 ], [ %.sroa.0207.0874.i, %.thread829.thread864.i ], [ %.sroa.0207.0874.i, %"_ZN15ra_ap_rustc_abi27FieldsShape$LT$FieldIdx$GT$5count17h4912f727bc7e5f50E.exit.thread.i" ], [ 4, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8222ab05b9f1b412E.exit.i.i561.i" ], [ 4, %1019 ], [ 4, %1013 ], [ 4, %1013 ], [ 4, %1013 ], [ 4, %switch.lookup642 ], [ 4, %switch.lookup639 ], [ 4, %1048 ], [ 4, %.thread845.i ], [ 4, %.thread846.i ], [ 4, %1046 ], [ 4, %1057 ], [ 4, %switch.lookup636 ], [ 4, %1036 ], [ 4, %1026 ], [ 0, %962 ]
-  %1145 = zext i8 %.2411.i to i64
+  %1145 = zext nneg i8 %.2411.i to i64
   %switch.gep650 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout16LayoutCalculator24layout_of_struct_or_enum17h92c4e073a74132d2E.1102, i64 0, i64 %1145
   %switch.load651 = load i64, ptr %switch.gep650, align 8
   %1146 = zext nneg i64 %switch.load651 to i128
@@ -89417,7 +89417,7 @@ switch.lookup:
   %23 = alloca { { { { i64, ptr, {} }, i64 } }, { { i8, [23 x i8] } }, i8, [7 x i8] }, align 8
   %24 = alloca i32, align 4
   store i32 %1, ptr %24, align 4
-  %25 = zext i8 %3 to i64
+  %25 = zext nneg i8 %3 to i64
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN6hir_ty11diagnostics10decl_check13DeclValidator46create_incorrect_case_diagnostic_for_item_name17he03add99997fada1E, i64 0, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %23)
@@ -90144,7 +90144,7 @@ switch.lookup:
   %23 = alloca { { { { i64, ptr, {} }, i64 } }, { { i8, [23 x i8] } }, i8, [7 x i8] }, align 8
   %24 = alloca i32, align 4
   store i32 %1, ptr %24, align 4
-  %25 = zext i8 %3 to i64
+  %25 = zext nneg i8 %3 to i64
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN6hir_ty11diagnostics10decl_check13DeclValidator46create_incorrect_case_diagnostic_for_item_name17he03add99997fada1E, i64 0, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %23)
@@ -90871,7 +90871,7 @@ switch.lookup:
   %23 = alloca { { { { i64, ptr, {} }, i64 } }, { { i8, [23 x i8] } }, i8, [7 x i8] }, align 8
   %24 = alloca i32, align 4
   store i32 %1, ptr %24, align 4
-  %25 = zext i8 %3 to i64
+  %25 = zext nneg i8 %3 to i64
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN6hir_ty11diagnostics10decl_check13DeclValidator46create_incorrect_case_diagnostic_for_item_name17he03add99997fada1E, i64 0, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %23)
@@ -91598,7 +91598,7 @@ switch.lookup:
   %23 = alloca { { { { i64, ptr, {} }, i64 } }, { { i8, [23 x i8] } }, i8, [7 x i8] }, align 8
   %24 = alloca i32, align 4
   store i32 %1, ptr %24, align 4
-  %25 = zext i8 %3 to i64
+  %25 = zext nneg i8 %3 to i64
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN6hir_ty11diagnostics10decl_check13DeclValidator46create_incorrect_case_diagnostic_for_item_name17he03add99997fada1E, i64 0, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %23)
@@ -92325,7 +92325,7 @@ switch.lookup:
   %23 = alloca { { { { i64, ptr, {} }, i64 } }, { { i8, [23 x i8] } }, i8, [7 x i8] }, align 8
   %24 = alloca i32, align 4
   store i32 %1, ptr %24, align 4
-  %25 = zext i8 %3 to i64
+  %25 = zext nneg i8 %3 to i64
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN6hir_ty11diagnostics10decl_check13DeclValidator46create_incorrect_case_diagnostic_for_item_name17he03add99997fada1E, i64 0, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %23)
@@ -93052,7 +93052,7 @@ switch.lookup:
   %23 = alloca { { { { i64, ptr, {} }, i64 } }, { { i8, [23 x i8] } }, i8, [7 x i8] }, align 8
   %24 = alloca i32, align 4
   store i32 %1, ptr %24, align 4
-  %25 = zext i8 %3 to i64
+  %25 = zext nneg i8 %3 to i64
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN6hir_ty11diagnostics10decl_check13DeclValidator46create_incorrect_case_diagnostic_for_item_name17he03add99997fada1E, i64 0, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %23)
@@ -93779,7 +93779,7 @@ switch.lookup:
   %23 = alloca { { { { i64, ptr, {} }, i64 } }, { { i8, [23 x i8] } }, i8, [7 x i8] }, align 8
   %24 = alloca i32, align 4
   store i32 %1, ptr %24, align 4
-  %25 = zext i8 %3 to i64
+  %25 = zext nneg i8 %3 to i64
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN6hir_ty11diagnostics10decl_check13DeclValidator46create_incorrect_case_diagnostic_for_item_name17he03add99997fada1E, i64 0, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %23)

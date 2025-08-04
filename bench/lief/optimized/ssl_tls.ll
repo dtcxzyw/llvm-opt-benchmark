@@ -3107,7 +3107,7 @@ switch.lookup24:                                  ; preds = %9
 
 switch.lookup28:                                  ; preds = %switch.lookup24
   %switch.tableidx29 = add nsw i8 %10, -1
-  %14 = zext i8 %switch.tableidx29 to i64
+  %14 = zext nneg i8 %switch.tableidx29 to i64
   %switch.gep30 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.mbedtls_ssl_get_max_in_record_payload, i64 0, i64 %14
   %switch.load31 = load i32, ptr %switch.gep30, align 4
   br label %ssl_mfl_code_to_length.exit16
@@ -3134,7 +3134,7 @@ switch.lookup32:                                  ; preds = %17
 
 switch.lookup36:                                  ; preds = %switch.lookup32
   %switch.tableidx37 = add nsw i8 %18, -1
-  %22 = zext i8 %switch.tableidx37 to i64
+  %22 = zext nneg i8 %switch.tableidx37 to i64
   %switch.gep38 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.mbedtls_ssl_get_max_in_record_payload, i64 0, i64 %22
   %switch.load39 = load i32, ptr %switch.gep38, align 4
   br label %ssl_mfl_code_to_length.exit20
@@ -3230,7 +3230,7 @@ switch.lookup47:                                  ; preds = %9
 
 switch.lookup51:                                  ; preds = %switch.lookup47
   %switch.tableidx52 = add nsw i8 %10, -1
-  %14 = zext i8 %switch.tableidx52 to i64
+  %14 = zext nneg i8 %switch.tableidx52 to i64
   %switch.gep53 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.mbedtls_ssl_get_max_in_record_payload, i64 0, i64 %14
   %switch.load54 = load i32, ptr %switch.gep53, align 4
   br label %ssl_mfl_code_to_length.exit16.i
@@ -3257,7 +3257,7 @@ switch.lookup55:                                  ; preds = %17
 
 switch.lookup59:                                  ; preds = %switch.lookup55
   %switch.tableidx60 = add nsw i8 %18, -1
-  %22 = zext i8 %switch.tableidx60 to i64
+  %22 = zext nneg i8 %switch.tableidx60 to i64
   %switch.gep61 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.mbedtls_ssl_get_max_in_record_payload, i64 0, i64 %22
   %switch.load62 = load i32, ptr %switch.gep61, align 4
   br label %mbedtls_ssl_get_output_max_frag_len.exit

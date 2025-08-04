@@ -376,10 +376,10 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 define dso_local { ptr, i64 } @_Z26mangledNameForMallocFamilyRK12MallocFamily(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #4 {
 switch.lookup:
   %1 = load i32, ptr %0, align 4, !tbaa !54
-  %2 = zext i32 %1 to i64
+  %2 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.44, i64 0, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
-  %3 = zext i32 %1 to i64
+  %3 = zext nneg i32 %1 to i64
   %switch.gep1 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.43, i64 0, i64 %3
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
@@ -1673,10 +1673,10 @@ _Z26mangledNameForMallocFamilyRK12MallocFamily.exit: ; preds = %switch.lookup69,
   %.sroa.034.4.extract.trunc.sink74 = phi i32 [ %.sroa.034.4.extract.trunc, %switch.lookup69 ], [ %40, %.critedge ]
   %switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.43.sink = phi ptr [ @switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.43, %switch.lookup69 ], [ @switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.43, %.critedge ]
   %switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.44.sink = phi ptr [ @switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.44, %switch.lookup69 ], [ @switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.44, %.critedge ]
-  %57 = zext i32 %.sroa.034.4.extract.trunc.sink74 to i64
+  %57 = zext nneg i32 %.sroa.034.4.extract.trunc.sink74 to i64
   %switch.gep70 = getelementptr inbounds nuw [9 x ptr], ptr %switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.43.sink, i64 0, i64 %57
   %switch.load71 = load ptr, ptr %switch.gep70, align 8
-  %58 = zext i32 %.sroa.034.4.extract.trunc.sink74 to i64
+  %58 = zext nneg i32 %.sroa.034.4.extract.trunc.sink74 to i64
   %switch.gep72 = getelementptr inbounds nuw [9 x i64], ptr %switch.table._ZN4llvm19getAllocationFamilyEPKNS_5ValueEPKNS_17TargetLibraryInfoE.44.sink, i64 0, i64 %58
   %switch.load73 = load i64, ptr %switch.gep72, align 8
   store ptr %switch.load71, ptr %0, align 8, !tbaa !44

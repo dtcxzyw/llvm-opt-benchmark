@@ -3450,10 +3450,10 @@ define noundef zeroext i1 @"_ZN99_$LT$jiff..fmt..strtime..Meridiem$u20$as$u20$co
 define { ptr, i64 } @_ZN4jiff3fmt7strtime17weekday_name_full17h7a47fe69d23cd7acE(i8 noundef range(i8 1, 8) %0) unnamed_addr #2 {
 switch.lookup:
   %switch.tableidx = add nsw i8 %0, -1
-  %1 = zext i8 %switch.tableidx to i64
+  %1 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN4jiff3fmt7strtime17weekday_name_full17h7a47fe69d23cd7acE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = zext i8 %switch.tableidx to i64
+  %2 = zext nneg i8 %switch.tableidx to i64
   %switch.gep2 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN4jiff3fmt7strtime17weekday_name_full17h7a47fe69d23cd7acE.36, i64 0, i64 %2
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
@@ -3465,7 +3465,7 @@ switch.lookup:
 define { ptr, i64 } @_ZN4jiff3fmt7strtime19weekday_name_abbrev17he25644ef04f832d3E(i8 noundef range(i8 1, 8) %0) unnamed_addr #2 {
 switch.lookup:
   %switch.tableidx = add nsw i8 %0, -1
-  %1 = zext i8 %switch.tableidx to i64
+  %1 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN4jiff3fmt7strtime19weekday_name_abbrev17he25644ef04f832d3E, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0

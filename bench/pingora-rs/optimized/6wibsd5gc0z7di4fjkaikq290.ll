@@ -8899,10 +8899,10 @@ default.unreachable141:                           ; preds = %244, %210
 
 switch.lookup:                                    ; preds = %244
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7), !noalias !775
-  %246 = zext i8 %.val47 to i64
+  %246 = zext nneg i8 %.val47 to i64
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN12pingora_core9protocols4http11compression9Algorithm6as_str17h593879390733f89aE, i64 0, i64 %246
   %switch.load = load i64, ptr %switch.gep, align 8
-  %247 = zext i8 %.val47 to i64
+  %247 = zext nneg i8 %.val47 to i64
   %switch.gep166 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN12pingora_core9protocols4http11compression9Algorithm6as_str17h593879390733f89aE.120, i64 0, i64 %247
   %switch.load167 = load ptr, ptr %switch.gep166, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !778)

@@ -607,7 +607,7 @@ zend_get_type_by_const.exit:                      ; preds = %8, %8, %zend_get_ty
 define dso_local noundef nonnull ptr @zend_get_type_by_const(i32 noundef %0) local_unnamed_addr #5 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
-  %1 = zext i32 %switch.tableidx to i64
+  %1 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [19 x ptr], ptr @switch.table.zend_get_type_by_const, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
@@ -17385,7 +17385,7 @@ zend_arena_alloc.exit:                            ; preds = %31, %33
 switch.lookup:                                    ; preds = %74
   %83 = and i32 %spec.select, 7
   %switch.tableidx = add nsw i32 %83, -1
-  %84 = zext i32 %switch.tableidx to i64
+  %84 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.zend_declare_typed_property, i64 0, i64 %84
   %switch.load = load i32, ptr %switch.gep, align 4
   %85 = icmp samesign ugt i32 %switch.load, %73

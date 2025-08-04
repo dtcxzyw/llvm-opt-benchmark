@@ -589,7 +589,7 @@ switch.lookup:
   store i64 6, ptr %50, align 8, !tbaa !48, !alias.scope !44, !noalias !38
   %51 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr @.str.6, ptr %51, align 8, !tbaa !48, !alias.scope !44, !noalias !38
-  %52 = zext i32 %2 to i64
+  %52 = zext nneg i32 %2 to i64
   %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN5clang12ast_matchersL23gtestComparisonInternalENS0_12_GLOBAL__N_19MacroTypeENS0_8GtestCmpENS0_8internal7MatcherINS_4StmtEEES7_, i64 0, i64 %52
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %39, ptr %38, align 8, !alias.scope !49, !noalias !38

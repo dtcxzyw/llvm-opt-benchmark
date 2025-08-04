@@ -5155,7 +5155,7 @@ print_str.exit21:                                 ; preds = %47, %print_str.exit
 
 switch.lookup:                                    ; preds = %print_str.exit21
   %switch.tableidx = add nsw i8 %1, -97
-  %76 = zext i8 %switch.tableidx to i64
+  %76 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [26 x ptr], ptr @switch.table.demangle_const_uint, i64 0, i64 %76
   %switch.load = load ptr, ptr %switch.gep, align 8
   %77 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #12

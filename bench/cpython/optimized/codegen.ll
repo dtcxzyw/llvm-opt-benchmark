@@ -19411,7 +19411,7 @@ Py_DECREF.exit275:                                ; preds = %149, %151, %154
 
 switch.lookup:                                    ; preds = %Py_DECREF.exit275
   %switch.tableidx = add nsw i32 %2, -1
-  %163 = zext i32 %switch.tableidx to i64
+  %163 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.codegen_comprehension, i64 0, i64 %163
   %switch.load = load i32, ptr %switch.gep, align 4
   %164 = call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10

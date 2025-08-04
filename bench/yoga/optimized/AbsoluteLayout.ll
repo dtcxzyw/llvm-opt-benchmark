@@ -1658,7 +1658,7 @@ _ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4
 
 switch.lookup:                                    ; preds = %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit
   %89 = phi float [ %88, %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit ], [ %75, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit ]
-  %90 = zext i8 %4 to i64
+  %90 = zext nneg i8 %4 to i64
   %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.19, i64 0, i64 %90
   %switch.load = load i32, ptr %switch.gep, align 4
   tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_12PhysicalEdgeE(ptr noundef nonnull align 8 dereferenceable(584) %2, float noundef %89, i32 noundef %switch.load)

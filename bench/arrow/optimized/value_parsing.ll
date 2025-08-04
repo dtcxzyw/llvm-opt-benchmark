@@ -5494,7 +5494,7 @@ _ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.i: ; p
 
 switch.lookup4:                                   ; preds = %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.thread123.i, %318
   %switch.tableidx5 = add nsw i32 %3, -1
-  %326 = zext i32 %switch.tableidx5 to i64
+  %326 = zext nneg i32 %switch.tableidx5 to i64
   %switch.gep6 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZNK5arrow8internal12_GLOBAL__N_113ISO8601ParserclEPKcmNS_8TimeUnit4typeEPlPb.39, i64 0, i64 %326
   %switch.load7 = load i64, ptr %switch.gep6, align 8
   %327 = mul nsw i64 %switch.load7, %296

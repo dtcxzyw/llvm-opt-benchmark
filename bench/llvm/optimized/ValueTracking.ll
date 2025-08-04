@@ -41869,7 +41869,7 @@ define dso_local noundef range(i32 2, 41) i32 @_ZN4llvm13getMinMaxPredENS_19Sele
 define dso_local noundef range(i32 327, 365) i32 @_ZN4llvm18getMinMaxIntrinsicENS_19SelectPatternFlavorE(i32 noundef %0) local_unnamed_addr #12 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
-  %1 = zext i32 %switch.tableidx to i64
+  %1 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN4llvm18getMinMaxIntrinsicENS_19SelectPatternFlavorE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load

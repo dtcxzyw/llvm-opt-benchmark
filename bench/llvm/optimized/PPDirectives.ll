@@ -17620,7 +17620,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit.i:     ; preds = %_ZN4llvm11SmallStri
   %549 = load ptr, ptr %548, align 8, !tbaa !278
   %550 = call noundef i32 @_ZNK5clang14IdentifierInfo14getPPKeywordIDEv(ptr noundef nonnull align 8 dereferenceable(24) %549) #18
   %switch.tableidx = add nsw i32 %550, -10
-  %551 = zext i32 %switch.tableidx to i64
+  %551 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5clang12Preprocessor27HandleHeaderIncludeOrImportENS_14SourceLocationERNS_5TokenES3_S1_NS_6detail21SearchDirIteratorImplILb1EEEPKNS_9FileEntryE, i64 0, i64 %551
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10) #18
@@ -26640,7 +26640,7 @@ switch.lookup:                                    ; preds = %49, %.critedge2, %.
   %50 = getelementptr inbounds i8, ptr %.sroa.7.067, i64 -8
   %51 = load i16, ptr %50, align 4, !tbaa !1279
   %switch.tableidx = add nsw i16 %51, -20
-  %52 = zext i16 %switch.tableidx to i64
+  %52 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i16], ptr @"switch.table._ZZN5clang12Preprocessor18LexEmbedParametersERNS_5TokenEbENK3$_6clERN4llvm15SmallVectorImplIS1_EE", i64 0, i64 %52
   %switch.load = load i16, ptr %switch.gep, align 2
   %53 = icmp ne ptr %.sroa.037.168, %.sroa.7.067

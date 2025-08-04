@@ -345,10 +345,10 @@ _ZN6icu_7717double_conversion5DiyFp9NormalizeEv.exit.i: ; preds = %.lr.ph15.i.i,
 
 switch.lookup:                                    ; preds = %116
   %switch.tableidx = add nsw i32 %117, -1
-  %120 = zext i32 %switch.tableidx to i64
+  %120 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN6icu_7717double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd, i64 0, i64 %120
   %switch.load = load i32, ptr %switch.gep, align 4
-  %121 = zext i32 %switch.tableidx to i64
+  %121 = zext nneg i32 %switch.tableidx to i64
   %switch.gep86 = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN6icu_7717double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd.1, i64 0, i64 %121
   %switch.load87 = load i64, ptr %switch.gep86, align 8
   %122 = lshr i64 %.1.lcssa.i.i, 32

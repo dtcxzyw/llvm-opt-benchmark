@@ -775,7 +775,7 @@ $_ZTVN4llvm9sandboxir13GenericSetterIXadL_ZNKS0_18PossiblyNonNegInst9hasNonNegEv
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @_ZN4llvm9sandboxir11Instruction13getOpcodeNameENS1_6OpcodeE(i32 noundef %0) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %1 = zext i32 %0 to i64
+  %1 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [65 x ptr], ptr @switch.table._ZN4llvm9sandboxir11Instruction13getOpcodeNameENS1_6OpcodeE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
@@ -13075,7 +13075,7 @@ define dso_local noundef ptr @_ZN4llvm9sandboxir8CastInst6createEPNS0_4TypeENS0_
 switch.lookup:
   %6 = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZN4llvm9sandboxir11Instruction12setInsertPosENS0_14InsertPositionE(ptr noundef nonnull byval(%"class.llvm::sandboxir::InsertPosition") align 8 %3)
   %switch.tableidx = add nsw i32 %1, -48
-  %7 = zext i32 %switch.tableidx to i64
+  %7 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZN4llvm9sandboxir8CastInst6createEPNS0_4TypeENS0_11Instruction6OpcodeEPNS0_5ValueENS0_14InsertPositionERNS0_7ContextERKNS_5TwineE, i64 0, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16

@@ -30036,28 +30036,28 @@ default.unreachable:                              ; preds = %2
   br label %_ZN3ide19syntax_highlighting4tags5HlTag6as_str17he1fb88e91100e558E.exit
 
 switch.lookup:                                    ; preds = %2
-  %19 = zext i8 %5 to i64
+  %19 = zext nneg i8 %5 to i64
   %switch.gep = getelementptr inbounds nuw [29 x ptr], ptr @"switch.table._ZN76_$LT$ide..syntax_highlighting..tags..HlTag$u20$as$u20$core..fmt..Display$GT$3fmt17h4b129919d292191dE", i64 0, i64 %19
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %20 = zext i8 %5 to i64
+  %20 = zext nneg i8 %5 to i64
   %switch.gep1 = getelementptr inbounds nuw [29 x i64], ptr @"switch.table._ZN76_$LT$ide..syntax_highlighting..tags..HlTag$u20$as$u20$core..fmt..Display$GT$3fmt17h4b129919d292191dE.221", i64 0, i64 %20
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   br label %_ZN3ide19syntax_highlighting4tags5HlTag6as_str17he1fb88e91100e558E.exit
 
 switch.lookup3:                                   ; preds = %2
-  %21 = zext i8 %5 to i64
+  %21 = zext nneg i8 %5 to i64
   %switch.gep4 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN76_$LT$ide..syntax_highlighting..tags..HlTag$u20$as$u20$core..fmt..Display$GT$3fmt17h4b129919d292191dE.222", i64 0, i64 %21
   %switch.load5 = load ptr, ptr %switch.gep4, align 8
-  %22 = zext i8 %5 to i64
+  %22 = zext nneg i8 %5 to i64
   %switch.gep6 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN76_$LT$ide..syntax_highlighting..tags..HlTag$u20$as$u20$core..fmt..Display$GT$3fmt17h4b129919d292191dE.223", i64 0, i64 %22
   %switch.load7 = load i64, ptr %switch.gep6, align 8
   br label %_ZN3ide19syntax_highlighting4tags5HlTag6as_str17he1fb88e91100e558E.exit
 
 switch.lookup8:                                   ; preds = %2
-  %23 = zext i8 %5 to i64
+  %23 = zext nneg i8 %5 to i64
   %switch.gep9 = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN76_$LT$ide..syntax_highlighting..tags..HlTag$u20$as$u20$core..fmt..Display$GT$3fmt17h4b129919d292191dE.224", i64 0, i64 %23
   %switch.load10 = load ptr, ptr %switch.gep9, align 8
-  %24 = zext i8 %5 to i64
+  %24 = zext nneg i8 %5 to i64
   %switch.gep11 = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN76_$LT$ide..syntax_highlighting..tags..HlTag$u20$as$u20$core..fmt..Display$GT$3fmt17h4b129919d292191dE.225", i64 0, i64 %24
   %switch.load12 = load i64, ptr %switch.gep11, align 8
   br label %_ZN3ide19syntax_highlighting4tags5HlTag6as_str17he1fb88e91100e558E.exit

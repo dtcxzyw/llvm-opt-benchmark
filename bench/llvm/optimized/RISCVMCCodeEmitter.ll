@@ -763,7 +763,7 @@ _ZN4llvm6MCInstD2Ev.exit.i:                       ; preds = %280, %_ZN4llvm7supp
 
 switch.lookup:                                    ; preds = %252, %245
   %switch.tableidx = add nsw i32 %25, -408
-  %281 = zext i32 %switch.tableidx to i64
+  %281 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17encodeInstructionERKN4llvm6MCInstERNS1_15SmallVectorImplIcEERNS5_INS1_7MCFixupEEERKNS1_15MCSubtargetInfoE, i64 0, i64 %281
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN4llvm13MCInstBuilderD2Ev.exit64.i

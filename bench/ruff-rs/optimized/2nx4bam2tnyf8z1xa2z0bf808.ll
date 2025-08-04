@@ -35473,7 +35473,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i104: ; preds =
   br label %378
 
 switch.lookup:                                    ; preds = %126
-  %385 = zext i8 %.sroa.5.0.i.ph214 to i64
+  %385 = zext nneg i8 %.sroa.5.0.i.ph214 to i64
   %switch.gep = getelementptr inbounds nuw [13 x i8], ptr @"switch.table._ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$43parse_binary_expression_or_higher_recursive17h70d2e8fe02e6995aE", i64 0, i64 %385
   %switch.load = load i8, ptr %switch.gep, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5702)

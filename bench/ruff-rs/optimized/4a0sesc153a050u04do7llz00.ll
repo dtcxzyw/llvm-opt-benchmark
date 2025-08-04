@@ -38696,7 +38696,7 @@ _ZN9pep508_rs6marker5parse25parse_marker_key_op_value17h7f8940036f8386bfE.exit.t
           to label %381 unwind label %395, !noalias !4915
 
 switch.lookup:                                    ; preds = %365
-  %442 = zext i8 %348 to i64
+  %442 = zext nneg i8 %348 to i64
   %switch.gep = getelementptr inbounds nuw [11 x i8], ptr @switch.table._ZN9pep508_rs6marker5parse27parse_inverted_version_expr17hecefa20bb1c4a0f9E, i64 0, i64 %442
   %switch.load = load i8, ptr %switch.gep, align 1
   %.sroa.447.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 8

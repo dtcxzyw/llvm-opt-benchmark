@@ -5450,7 +5450,7 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, ptr noundef nonnull align 8 dereferenceable(120) @__const.schtasks_remove_task.child, i64 120, i1 false)
   %switch.tableidx = add nsw i32 %1, -1
-  %5 = zext i32 %switch.tableidx to i64
+  %5 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.schtasks_schedule_task, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %6 = icmp ne i32 %0, 0
@@ -5463,7 +5463,7 @@ switch.lookup:
 
 switch.lookup14:                                  ; preds = %switch.lookup
   %switch.tableidx15 = add nsw i32 %1, -1
-  %9 = zext i32 %switch.tableidx15 to i64
+  %9 = zext nneg i32 %switch.tableidx15 to i64
   %switch.gep16 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.schtasks_schedule_task, i64 0, i64 %9
   %switch.load17 = load ptr, ptr %switch.gep16, align 8
   %10 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.209, ptr noundef nonnull %switch.load17, ptr noundef nonnull @.str.219) #21
@@ -5493,7 +5493,7 @@ _.exit.i:                                         ; preds = %15, %13
 
 switch.lookup18:                                  ; preds = %18
   %switch.tableidx19 = add nsw i32 %1, -1
-  %20 = zext i32 %switch.tableidx19 to i64
+  %20 = zext nneg i32 %switch.tableidx19 to i64
   %switch.gep20 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.systemd_timer_enable_unit.12, i64 0, i64 %20
   %switch.load21 = load ptr, ptr %switch.gep20, align 8
   %21 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull %switch.load21, i32 noundef range(i32 0, 60) %2) #21
@@ -5650,7 +5650,7 @@ declare ptr @xdg_config_home_for(ptr noundef, ptr noundef) local_unnamed_addr #4
 define internal fastcc range(i32 -1, 1) i32 @systemd_timer_delete_timer_file(i32 noundef range(i32 1, 4) %0) unnamed_addr #0 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
-  %1 = zext i32 %switch.tableidx to i64
+  %1 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.schtasks_schedule_task, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.209, ptr noundef nonnull %switch.load, ptr noundef nonnull @.str.219) #21
@@ -5701,7 +5701,7 @@ switch.lookup:
   %9 = alloca %struct.stat, align 8
   %10 = alloca ptr, align 8
   %switch.tableidx = add nsw i32 %1, -1
-  %11 = zext i32 %switch.tableidx to i64
+  %11 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.schtasks_schedule_task, i64 0, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #21
@@ -5988,7 +5988,7 @@ switch.lookup:
   %1 = alloca %struct.strbuf, align 8
   %2 = alloca %struct.strbuf, align 8
   %switch.tableidx = add nsw i32 %0, -1
-  %3 = zext i32 %switch.tableidx to i64
+  %3 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.schtasks_schedule_task, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #21
@@ -6035,7 +6035,7 @@ switch.lookup:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %5, ptr noundef nonnull align 8 dereferenceable(120) @__const.schtasks_remove_task.child, i64 120, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #21
   %switch.tableidx = add nsw i32 %1, -1
-  %8 = zext i32 %switch.tableidx to i64
+  %8 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.schtasks_schedule_task, i64 0, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #21
@@ -6079,7 +6079,7 @@ switch.lookup18:                                  ; preds = %get_random_minute.e
   %24 = load volatile ptr, ptr %23, align 8, !tbaa !179
   %25 = call i64 @fwrite(ptr nonnull @.str.249, i64 135, i64 1, ptr %24)
   %switch.tableidx19 = add nsw i32 %1, -1
-  %26 = zext i32 %switch.tableidx19 to i64
+  %26 = zext nneg i32 %switch.tableidx19 to i64
   %switch.gep20 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.schtasks_schedule_task.13, i64 0, i64 %26
   %switch.load21 = load ptr, ptr %switch.gep20, align 8
   %27 = load volatile ptr, ptr %23, align 8, !tbaa !179

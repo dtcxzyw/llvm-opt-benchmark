@@ -6448,7 +6448,7 @@ define dso_local void @_ZN4llvm16MemoryDepChecker9addAccessEPNS_8LoadInstE(ptr n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i32 0, 3) i32 @_ZN4llvm16MemoryDepChecker10Dependence22isSafeForVectorizationENS1_7DepTypeE(i32 noundef %0) local_unnamed_addr #10 align 2 {
 switch.lookup:
-  %1 = zext i32 %0 to i64
+  %1 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN4llvm16MemoryDepChecker11areDepsSafeERKNS_18EquivalenceClassesINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEESt4lessIS9_EEERKNS_11SmallVectorIS9_Lj8EEE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
@@ -8294,7 +8294,7 @@ switch.lookup:                                    ; preds = %398, %.lr.ph
   %.sroa.7.0 = phi i32 [ %395, %398 ], [ %396, %.lr.ph ]
   %.sroa.0.0 = phi ptr [ %64, %398 ], [ %238, %.lr.ph ]
   %399 = call noundef i32 @_ZN4llvm16MemoryDepChecker11isDependentERKNS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj1ES5_EEEEjSA_j(ptr noundef nonnull align 8 dereferenceable(424) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0194.0, i32 noundef %.sroa.7196.0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.0, i32 noundef %.sroa.7.0)
-  %400 = zext i32 %399 to i64
+  %400 = zext nneg i32 %399 to i64
   %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN4llvm16MemoryDepChecker11areDepsSafeERKNS_18EquivalenceClassesINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEESt4lessIS9_EEERKNS_11SmallVectorIS9_Lj8EEE, i64 0, i64 %400
   %switch.load = load i32, ptr %switch.gep, align 4
   %401 = load i32, ptr %22, align 4, !tbaa !368

@@ -2959,7 +2959,7 @@ switch.lookup:
   %5 = getelementptr inbounds i8, ptr %0, i64 %1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %6, align 8
-  %7 = zext i8 %2 to i64
+  %7 = zext nneg i8 %2 to i64
   %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN17ra_ap_rustc_lexer8unescape23unescape_non_raw_common17hecb632ccb7a3f465E.llvm.11162169574061779932, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = icmp eq i64 %1, 0
@@ -4054,7 +4054,7 @@ switch.lookup:
   %5 = getelementptr inbounds i8, ptr %0, i64 %1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %6, align 8
-  %7 = zext i8 %2 to i64
+  %7 = zext nneg i8 %2 to i64
   %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN17ra_ap_rustc_lexer8unescape23unescape_non_raw_common17hecb632ccb7a3f465E.llvm.11162169574061779932, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = icmp eq i64 %1, 0
@@ -5435,7 +5435,7 @@ switch.lookup:
   %5 = getelementptr inbounds i8, ptr %0, i64 %1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %6, align 8
-  %7 = zext i8 %2 to i64
+  %7 = zext nneg i8 %2 to i64
   %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN17ra_ap_rustc_lexer8unescape23unescape_non_raw_common17hecb632ccb7a3f465E.llvm.11162169574061779932, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = icmp eq i64 %1, 0
@@ -6464,7 +6464,7 @@ switch.lookup:
   %5 = getelementptr inbounds i8, ptr %0, i64 %1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %6, align 8
-  %7 = zext i8 %2 to i64
+  %7 = zext nneg i8 %2 to i64
   %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN17ra_ap_rustc_lexer8unescape23unescape_non_raw_common17hecb632ccb7a3f465E.llvm.11162169574061779932, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = icmp eq i64 %1, 0

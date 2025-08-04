@@ -784,7 +784,7 @@ mbedtls_ssl_get_groups.exit.i.i:                  ; preds = %92
 ssl_tls13_get_default_group_id.exit.i.sink.split: ; preds = %106, %84
   %switch.tableidx77.sink = phi i16 [ %switch.tableidx, %84 ], [ %switch.tableidx77, %106 ]
   %switch.table.mbedtls_ssl_tls13_write_client_hello_exts.18.sink = phi ptr [ @switch.table.mbedtls_ssl_tls13_write_client_hello_exts.18, %84 ], [ @switch.table.mbedtls_ssl_tls13_write_client_hello_exts.18, %106 ]
-  %111 = zext i16 %switch.tableidx77.sink to i64
+  %111 = zext nneg i16 %switch.tableidx77.sink to i64
   %switch.gep83 = getelementptr inbounds nuw [8 x i16], ptr %switch.table.mbedtls_ssl_tls13_write_client_hello_exts.18.sink, i64 0, i64 %111
   %switch.load84 = load i16, ptr %switch.gep83, align 2
   br label %ssl_tls13_get_default_group_id.exit.i
@@ -2601,14 +2601,14 @@ define internal fastcc i32 @ssl_tls13_postprocess_server_hello(ptr noundef %0) u
   br i1 %.not38, label %switch.lookup, label %switch.lookup40
 
 switch.lookup:                                    ; preds = %10
-  %15 = zext i8 %switch.tableidx to i64
+  %15 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.ssl_tls13_postprocess_server_hello.19, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 1909, ptr noundef nonnull @.str.67, ptr noundef nonnull %switch.load) #12
   br label %28
 
 switch.lookup40:                                  ; preds = %10
-  %16 = zext i8 %switch.tableidx to i64
+  %16 = zext nneg i8 %switch.tableidx to i64
   %switch.gep42 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.ssl_tls13_postprocess_server_hello.19, i64 0, i64 %16
   %switch.load43 = load ptr, ptr %switch.gep42, align 8
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1915, ptr noundef nonnull @.str.68, ptr noundef nonnull %switch.load43) #12

@@ -2735,7 +2735,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang24BalancedDelimiterTrack
 
 switch.lookup:                                    ; preds = %1
   %switch.tableidx = add nsw i16 %5, -20
-  %9 = zext i16 %switch.tableidx to i64
+  %9 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN5clang6Parser43ParseOpenMPDeclarativeOrExecutableDirectiveENS0_17ParsedStmtContextEb, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 %switch.load
@@ -19851,7 +19851,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit452:         ; preds = %_ZNSt7__cxx1112basi
 
 switch.lookup:                                    ; preds = %1249
   %switch.tableidx = add nsw i16 %1254, -20
-  %1258 = zext i16 %switch.tableidx to i64
+  %1258 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN5clang6Parser43ParseOpenMPDeclarativeOrExecutableDirectiveENS0_17ParsedStmtContextEb, i64 0, i64 %1258
   %switch.load = load i64, ptr %switch.gep, align 8
   %1259 = getelementptr inbounds nuw i8, ptr %1253, i64 %switch.load
@@ -31747,7 +31747,7 @@ _ZN4llvm3omp16VariantMatchInfoC2Ev.exit:          ; preds = %.lr.ph.i.i.i.i
 
 switch.lookup:                                    ; preds = %.lr.ph397
   %switch.tableidx = add nsw i16 %458, -20
-  %462 = zext i16 %switch.tableidx to i64
+  %462 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN5clang6Parser43ParseOpenMPDeclarativeOrExecutableDirectiveENS0_17ParsedStmtContextEb, i64 0, i64 %462
   %switch.load = load i64, ptr %switch.gep, align 8
   %463 = getelementptr inbounds nuw i8, ptr %457, i64 %switch.load

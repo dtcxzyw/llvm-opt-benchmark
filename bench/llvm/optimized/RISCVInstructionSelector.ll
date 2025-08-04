@@ -11807,7 +11807,7 @@ thread-pre-split:                                 ; preds = %11
 thread-pre-split30:                               ; preds = %24, %24, %24, %24, %24, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %.thread29
   %36 = phi i32 [ %34, %.thread29 ], [ %15, %thread-pre-split ], [ %15, %thread-pre-split ], [ %15, %thread-pre-split ], [ %15, %thread-pre-split ], [ %15, %thread-pre-split ], [ %15, %thread-pre-split ], [ %15, %24 ], [ %15, %24 ], [ %15, %24 ], [ %15, %24 ], [ %15, %24 ]
   %switch.tableidx = add nsw i32 %36, -32
-  %37 = zext i32 %switch.tableidx to i64
+  %37 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZL20getOperandsForBranchN4llvm8RegisterERNS_7RISCVCC8CondCodeERS0_S4_RNS_19MachineRegisterInfoE, i64 0, i64 %37
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL18getRISCVCCFromICmpN4llvm7CmpInst9PredicateE.exit
