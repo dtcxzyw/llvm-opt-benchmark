@@ -1312,7 +1312,7 @@ _ZN4llvm4json5Value6createINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJ
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm4json5ValueC2ESt16initializer_listIS1_E(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 2), (8, 32)) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
-_ZN4llvm4json5ArrayD2Ev.exit:
+_ZSt8_DestroyIPN4llvm4json5ValueEEvT_S4_.exit.i.i:
   %3 = alloca %"class.llvm::json::Array", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #27
   call void @_ZN4llvm4json5ArrayC1ESt16initializer_listINS0_5ValueEE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %1, i64 %2) #27

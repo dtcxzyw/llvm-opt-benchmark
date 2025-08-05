@@ -130,8 +130,8 @@ _ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i: ; preds = %34, %.lr.ph.i
 
 _ZN12V3ScoreboardI18ScoreboardTestElem3KeyE7rescoreEv.exit: ; preds = %_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i
   %.pr = load ptr, ptr %4, align 8, !tbaa !20
-  %.not57 = icmp eq ptr %.pr, null
-  br i1 %.not57, label %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE7rescoreEv.exit.thread, label %36, !prof !25
+  %.not = icmp eq ptr %.pr, null
+  br i1 %.not, label %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE7rescoreEv.exit.thread, label %36, !prof !25
 
 36:                                               ; preds = %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE7rescoreEv.exit
   %37 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKci(i8 4, ptr noundef nonnull @.str, i32 noundef 75)
@@ -244,8 +244,8 @@ _ZN12V3ScoreboardI18ScoreboardTestElem3KeyE10addUnknownEPS0_.exit.i: ; preds = %
 71:                                               ; preds = %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE10addUnknownEPS0_.exit.i, %53
   store i32 21, ptr %11, align 8, !tbaa !4
   %72 = load ptr, ptr %21, align 8, !tbaa !22
-  %.not58 = icmp eq ptr %72, null
-  br i1 %.not58, label %73, label %77, !prof !26
+  %.not57 = icmp eq ptr %72, null
+  br i1 %.not57, label %73, label %77, !prof !26
 
 73:                                               ; preds = %71
   %74 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKci(i8 4, ptr noundef nonnull @.str, i32 noundef 86)
@@ -298,17 +298,17 @@ _ZN12V3ScoreboardI18ScoreboardTestElem3KeyE10addUnknownEPS0_.exit.i: ; preds = %
   br label %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE6removeEPS0_.exit.sink.split
 
 _ZN12V3ScoreboardI18ScoreboardTestElem3KeyE6removeEPS0_.exit.sink.split: ; preds = %83, %81, %85, %86
-  %.sink61 = phi ptr [ %87, %86 ], [ %80, %85 ], [ %80, %81 ], [ %78, %83 ]
+  %.sink60 = phi ptr [ %87, %86 ], [ %80, %85 ], [ %80, %81 ], [ %78, %83 ]
   %.sink = phi ptr [ %90, %86 ], [ %72, %85 ], [ %72, %81 ], [ %72, %83 ]
-  %91 = getelementptr inbounds nuw i8, ptr %.sink61, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %.sink60, i64 16
   store ptr %.sink, ptr %91, align 8, !tbaa !22
   br label %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE6removeEPS0_.exit
 
 _ZN12V3ScoreboardI18ScoreboardTestElem3KeyE6removeEPS0_.exit: ; preds = %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE6removeEPS0_.exit.sink.split, %83, %81
   store ptr null, ptr %21, align 8, !tbaa !22
   %92 = load ptr, ptr %23, align 8, !tbaa !22
-  %.not59 = icmp eq ptr %92, null
-  br i1 %.not59, label %93, label %97, !prof !26
+  %.not58 = icmp eq ptr %92, null
+  br i1 %.not58, label %93, label %97, !prof !26
 
 93:                                               ; preds = %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE6removeEPS0_.exit
   %94 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKci(i8 4, ptr noundef nonnull @.str, i32 noundef 89)

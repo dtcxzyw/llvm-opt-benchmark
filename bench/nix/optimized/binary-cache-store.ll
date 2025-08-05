@@ -16274,12 +16274,12 @@ _ZNSt10shared_ptrIN3nix8CallbackIS_IKNS0_11RealisationEEEEEC2ERKS6_.exit.i.i.i.i
           catch ptr null
   call void @_ZNSt10shared_ptrIN3nix8CallbackIS_IKNS0_11RealisationEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %84) #35
   call void @_ZdlPv(ptr noundef nonnull %84) #38
-  %.pre = load ptr, ptr %82, align 8
-  %.not.i.i.i9 = icmp eq ptr %.pre, null
+  %.pr = load ptr, ptr %82, align 8
+  %.not.i.i.i9 = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i9, label %.body, label %99
 
 99:                                               ; preds = %.body23
-  %100 = invoke noundef zeroext i1 %.pre(ptr noundef nonnull align 8 dereferenceable(33) %8, ptr noundef nonnull align 8 dereferenceable(33) %8, i32 noundef 3)
+  %100 = invoke noundef zeroext i1 %.pr(ptr noundef nonnull align 8 dereferenceable(33) %8, ptr noundef nonnull align 8 dereferenceable(33) %8, i32 noundef 3)
           to label %.body unwind label %101
 
 101:                                              ; preds = %99

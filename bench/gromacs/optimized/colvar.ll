@@ -70639,19 +70639,19 @@ define linkonce_odr void @_ZmlRKN12colvarmodule8vector1dIdEERKNS_8matrix2dIdEE(p
 
 18:                                               ; preds = %3
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %16)
-          to label %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge4.i unwind label %24
+          to label %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge.i unwind label %24
 
-._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge4.i: ; preds = %18
+._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge.i:  ; preds = %18
   %.pre.i = load ptr, ptr %17, align 8, !tbaa !236
-  %.pre5.i = load ptr, ptr %0, align 8, !tbaa !222
+  %.pre4.i = load ptr, ptr %0, align 8, !tbaa !222
   %19 = ptrtoint ptr %.pre.i to i64
-  %20 = ptrtoint ptr %.pre5.i to i64
+  %20 = ptrtoint ptr %.pre4.i to i64
   %21 = sub i64 %19, %20
   %22 = ashr exact i64 %21, 3
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i
 
-_ZNSt6vectorIdSaIdEE6resizeEm.exit.i:             ; preds = %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge4.i, %3
-  %23 = phi i64 [ %22, %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge4.i ], [ 0, %3 ]
+_ZNSt6vectorIdSaIdEE6resizeEm.exit.i:             ; preds = %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge.i, %3
+  %23 = phi i64 [ %22, %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge.i ], [ 0, %3 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
   store double 0.000000e+00, ptr %4, align 8, !tbaa !291
   invoke void @_ZNSt6vectorIdSaIdEE14_M_fill_assignEmRKd(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %23, ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -71615,9 +71615,9 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i:  ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #30
-          to label %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge4.i unwind label %9
+          to label %.noexc9 unwind label %9
 
-._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge4.i: ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i
+.noexc9:                                          ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double 0.000000e+00, ptr %6, align 8, !tbaa !291
   store ptr %6, ptr %0, align 8, !tbaa !222
@@ -71629,7 +71629,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i:  ; preds = %2
   invoke void @_ZNSt6vectorIdSaIdEE14_M_fill_assignEmRKd(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %_ZN12colvarmodule8vector1dIdEC2Em.exit unwind label %9
 
-9:                                                ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i, %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge4.i
+9:                                                ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i, %.noexc9
   %10 = landingpad { ptr, i32 }
           cleanup
   %11 = load ptr, ptr %0, align 8, !tbaa !222
@@ -71647,7 +71647,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i:  ; preds = %2
 common.resume:                                    ; preds = %9, %12
   resume { ptr, i32 } %10
 
-_ZN12colvarmodule8vector1dIdEC2Em.exit:           ; preds = %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge4.i
+_ZN12colvarmodule8vector1dIdEC2Em.exit:           ; preds = %.noexc9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load double, ptr %17, align 8, !tbaa !364

@@ -42881,8 +42881,8 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %2
 _ZN5arrow6StatusD2Ev.exit._crit_edge.i:           ; preds = %.noexc
   %.pre.i = load i64, ptr %13, align 8, !tbaa !2612, !noalias !2670
   %.pre9.i = add nsw i64 %.pre.i, %14
-  %.pre = load ptr, ptr %10, align 8, !tbaa !2607, !noalias !2670
   %16 = lshr i64 %.pre.i, 2
+  %.pre = load ptr, ptr %10, align 8, !tbaa !2607, !noalias !2670
   br label %17
 
 17:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit._crit_edge.i, %_ZN5arrow6StatusD2Ev.exit7.thread.i
@@ -43538,8 +43538,8 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %2
 _ZN5arrow6StatusD2Ev.exit._crit_edge.i:           ; preds = %.noexc
   %.pre.i = load i64, ptr %13, align 8, !tbaa !2612, !noalias !2683
   %.pre9.i = add nsw i64 %.pre.i, %14
-  %.pre = load ptr, ptr %10, align 8, !tbaa !2607, !noalias !2683
   %16 = lshr i64 %.pre.i, 3
+  %.pre = load ptr, ptr %10, align 8, !tbaa !2607, !noalias !2683
   br label %17
 
 17:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit._crit_edge.i, %_ZN5arrow6StatusD2Ev.exit7.thread.i

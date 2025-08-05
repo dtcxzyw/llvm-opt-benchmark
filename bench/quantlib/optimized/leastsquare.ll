@@ -2125,9 +2125,9 @@ invoke.cont:
   store i64 %maxiter, ptr %maxIterations_, align 8, !tbaa !59
   %om_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %call = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
-          to label %_ZN5boost10shared_ptrIN8QuantLib10LineSearchEEC2ERKS3_.exit.i unwind label %lpad2
+          to label %invoke.cont3 unwind label %lpad2
 
-_ZN5boost10shared_ptrIN8QuantLib10LineSearchEEC2ERKS3_.exit.i: ; preds = %invoke.cont
+invoke.cont3:                                     ; preds = %invoke.cont
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
@@ -2136,7 +2136,7 @@ _ZN5boost10shared_ptrIN8QuantLib10LineSearchEEC2ERKS3_.exit.i: ; preds = %invoke
   invoke void @_ZN8QuantLib21LineSearchBasedMethodC2EN5boost10shared_ptrINS_10LineSearchEEE(ptr noundef nonnull align 8 dereferenceable(24) %call, ptr noundef nonnull %agg.tmp.i)
           to label %invoke.cont.i unwind label %cleanup.action
 
-invoke.cont.i:                                    ; preds = %_ZN5boost10shared_ptrIN8QuantLib10LineSearchEEC2ERKS3_.exit.i
+invoke.cont.i:                                    ; preds = %invoke.cont3
   %pn.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 8
   %0 = load ptr, ptr %pn.i.i, align 8, !tbaa !60
   %cmp.not.i.i2.i = icmp eq ptr %0, null
@@ -2275,7 +2275,7 @@ lpad2:                                            ; preds = %invoke.cont
           cleanup
   br label %ehcleanup
 
-cleanup.action:                                   ; preds = %_ZN5boost10shared_ptrIN8QuantLib10LineSearchEEC2ERKS3_.exit.i
+cleanup.action:                                   ; preds = %invoke.cont3
   %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost10shared_ptrIN8QuantLib10LineSearchEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i) #21

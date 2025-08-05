@@ -278,72 +278,72 @@ define void @If_Dec7Verify(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
 16:                                               ; preds = %5
   %17 = trunc i64 %1 to i32
   %18 = and i32 %17, 65535
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %20
+  br label %19
 
-20:                                               ; preds = %47, %16
-  %21 = phi i64 [ 0, %16 ], [ %48, %47 ]
-  %22 = phi i64 [ 0, %16 ], [ %49, %47 ]
-  %23 = phi i64 [ 0, %16 ], [ %50, %47 ]
-  %24 = phi i64 [ 0, %16 ], [ %51, %47 ]
-  %.02328.i = phi i32 [ 0, %16 ], [ %52, %47 ]
-  %25 = shl nuw nsw i32 1, %.02328.i
-  %26 = and i32 %18, %25
-  %.not.i = icmp eq i32 %26, 0
-  br i1 %.not.i, label %47, label %.preheader.i
+19:                                               ; preds = %46, %16
+  %20 = phi i64 [ 0, %16 ], [ %47, %46 ]
+  %21 = phi i64 [ 0, %16 ], [ %48, %46 ]
+  %22 = phi i64 [ 0, %16 ], [ %49, %46 ]
+  %23 = phi i64 [ 0, %16 ], [ %50, %46 ]
+  %.02328.i = phi i32 [ 0, %16 ], [ %51, %46 ]
+  %24 = shl nuw nsw i32 1, %.02328.i
+  %25 = and i32 %18, %24
+  %.not.i = icmp eq i32 %25, 0
+  br i1 %.not.i, label %46, label %.preheader.i
 
-.preheader.i:                                     ; preds = %20, %40
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %40 ], [ 0, %20 ]
-  %.sroa.0.027.i = phi i64 [ %42, %40 ], [ -1, %20 ]
-  %.sroa.6.026.i = phi i64 [ %43, %40 ], [ -1, %20 ]
-  %27 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %28 = shl nuw nsw i32 1, %27
-  %29 = and i32 %28, %.02328.i
-  %.not24.i = icmp eq i32 %29, 0
-  %30 = getelementptr inbounds nuw [2 x i64], ptr %3, i64 %indvars.iv.i
-  %31 = load i64, ptr %30, align 16, !tbaa !10
-  br i1 %.not24.i, label %35, label %32
+.preheader.i:                                     ; preds = %19, %39
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %39 ], [ 0, %19 ]
+  %.sroa.0.027.i = phi i64 [ %41, %39 ], [ -1, %19 ]
+  %.sroa.6.026.i = phi i64 [ %42, %39 ], [ -1, %19 ]
+  %26 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %27 = shl nuw nsw i32 1, %26
+  %28 = and i32 %27, %.02328.i
+  %.not24.i = icmp eq i32 %28, 0
+  %29 = getelementptr inbounds nuw [2 x i64], ptr %3, i64 %indvars.iv.i
+  %30 = load i64, ptr %29, align 16, !tbaa !10
+  br i1 %.not24.i, label %34, label %31
 
-32:                                               ; preds = %.preheader.i
-  %33 = getelementptr inbounds nuw [2 x i64], ptr %3, i64 %indvars.iv.i, i64 1
-  %34 = load i64, ptr %33, align 8, !tbaa !10
-  br label %40
+31:                                               ; preds = %.preheader.i
+  %32 = getelementptr inbounds nuw [2 x i64], ptr %3, i64 %indvars.iv.i, i64 1
+  %33 = load i64, ptr %32, align 8, !tbaa !10
+  br label %39
 
-35:                                               ; preds = %.preheader.i
-  %36 = xor i64 %31, -1
-  %37 = getelementptr inbounds nuw [2 x i64], ptr %3, i64 %indvars.iv.i, i64 1
-  %38 = load i64, ptr %37, align 8, !tbaa !10
-  %39 = xor i64 %38, -1
-  br label %40
+34:                                               ; preds = %.preheader.i
+  %35 = xor i64 %30, -1
+  %36 = getelementptr inbounds nuw [2 x i64], ptr %3, i64 %indvars.iv.i, i64 1
+  %37 = load i64, ptr %36, align 8, !tbaa !10
+  %38 = xor i64 %37, -1
+  br label %39
 
-40:                                               ; preds = %35, %32
-  %.pn.i = phi i64 [ %31, %32 ], [ %36, %35 ]
-  %41 = phi i64 [ %34, %32 ], [ %39, %35 ]
-  %42 = and i64 %.pn.i, %.sroa.0.027.i
-  %43 = and i64 %41, %.sroa.6.026.i
+39:                                               ; preds = %34, %31
+  %.pn.i = phi i64 [ %30, %31 ], [ %35, %34 ]
+  %40 = phi i64 [ %33, %31 ], [ %38, %34 ]
+  %41 = and i64 %.pn.i, %.sroa.0.027.i
+  %42 = and i64 %40, %.sroa.6.026.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %44, label %.preheader.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %43, label %.preheader.i, !llvm.loop !18
 
-44:                                               ; preds = %40
-  %45 = or i64 %42, %24
-  %46 = or i64 %43, %23
-  br label %47
+43:                                               ; preds = %39
+  %44 = or i64 %41, %23
+  %45 = or i64 %42, %22
+  br label %46
 
-47:                                               ; preds = %44, %20
-  %48 = phi i64 [ %21, %20 ], [ %46, %44 ]
-  %49 = phi i64 [ %22, %20 ], [ %45, %44 ]
-  %50 = phi i64 [ %23, %20 ], [ %46, %44 ]
-  %51 = phi i64 [ %24, %20 ], [ %45, %44 ]
-  %52 = add nuw nsw i32 %.02328.i, 1
-  %exitcond31.not.i = icmp eq i32 %52, 16
-  br i1 %exitcond31.not.i, label %If_Dec7ComposeLut4.exit, label %20, !llvm.loop !19
+46:                                               ; preds = %43, %19
+  %47 = phi i64 [ %20, %19 ], [ %45, %43 ]
+  %48 = phi i64 [ %21, %19 ], [ %44, %43 ]
+  %49 = phi i64 [ %22, %19 ], [ %45, %43 ]
+  %50 = phi i64 [ %23, %19 ], [ %44, %43 ]
+  %51 = add nuw nsw i32 %.02328.i, 1
+  %exitcond31.not.i = icmp eq i32 %51, 16
+  br i1 %exitcond31.not.i, label %If_Dec7ComposeLut4.exit, label %19, !llvm.loop !19
 
-If_Dec7ComposeLut4.exit:                          ; preds = %47
+If_Dec7ComposeLut4.exit:                          ; preds = %46
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store i64 %49, ptr %53, align 16, !tbaa !10
+  store i64 %48, ptr %53, align 16, !tbaa !10
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i64 %48, ptr %54, align 8, !tbaa !10
+  store i64 %47, ptr %54, align 8, !tbaa !10
   br label %55
 
 55:                                               ; preds = %If_Dec7ComposeLut4.exit, %55
@@ -430,7 +430,7 @@ If_Dec7ComposeLut4.exit:                          ; preds = %47
 
 If_Dec7ComposeLut4.exit34:                        ; preds = %97
   store i64 %99, ptr %4, align 16
-  store i64 %98, ptr %19, align 8
+  store i64 %98, ptr %52, align 8
   %103 = load i64, ptr %0, align 8, !tbaa !10
   %.not = icmp eq i64 %99, %103
   br i1 %.not, label %104, label %107

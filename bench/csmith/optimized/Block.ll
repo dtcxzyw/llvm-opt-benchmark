@@ -5523,9 +5523,9 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i116: ; preds = %_ZNKSt6vector
   store ptr %10, ptr %7, align 8, !tbaa !263
   store ptr %10, ptr %8, align 8, !tbaa !264
   %11 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
-          to label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit124 unwind label %.thread
+          to label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i126 unwind label %.thread
 
-_ZNSt6vectorIiSaIiEE9push_backEOi.exit124:        ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i116
+_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i126: ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i116
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 7, ptr %12, align 4, !tbaa !126
   %13 = load i32, ptr %9, align 4
@@ -5537,9 +5537,9 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit124:        ; preds = %_ZNKSt6vectorIiSaIi
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %15, ptr %8, align 8, !tbaa !264
   %16 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-          to label %.noexc133 unwind label %32
+          to label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit134 unwind label %32
 
-.noexc133:                                        ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit124
+_ZNSt6vectorIiSaIiEE9push_backEOi.exit134:        ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i126
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 8, ptr %17, align 4, !tbaa !126
   %18 = load i64, ptr %11, align 4
@@ -5553,7 +5553,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit124:        ; preds = %_ZNKSt6vectorIiSaIi
   %21 = invoke noundef i32 @_ZNK9Statement16find_typed_stmtsERSt6vectorIPKS_SaIS2_EERKS0_IiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %22 unwind label %34
 
-22:                                               ; preds = %.noexc133
+22:                                               ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit134
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %.loopexit174, label %.preheader175
 
@@ -5580,12 +5580,12 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit124:        ; preds = %_ZNKSt6vectorIiSaIi
           cleanup
   br label %282
 
-32:                                               ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit124
+32:                                               ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i126
   %33 = landingpad { ptr, i32 }
           cleanup
   br label %thread-pre-split
 
-34:                                               ; preds = %_ZNKSt6vectorIP9StatementSaIS1_EE12_M_check_lenEmPKc.exit.i.i, %241, %.noexc133
+34:                                               ; preds = %_ZNKSt6vectorIP9StatementSaIS1_EE12_M_check_lenEmPKc.exit.i.i, %241, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit134
   %35 = landingpad { ptr, i32 }
           cleanup
   br label %thread-pre-split

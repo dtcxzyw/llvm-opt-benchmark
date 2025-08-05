@@ -5271,7 +5271,7 @@ entry:
   %cmp = fcmp olt double %r, 0.000000e+00
   %cmp2 = fcmp olt double %q, %r
   %or.cond = and i1 %cmp, %cmp2
-  br i1 %or.cond, label %do.body, label %_ZN5boost10shared_ptrIN8QuantLib22ChebyshevInterpolationEED2Ev.exit
+  br i1 %or.cond, label %do.body, label %if.end
 
 do.body:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream) #33
@@ -5429,7 +5429,7 @@ ehcleanup24:                                      ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %_ql_msg_stream) #33
   br label %eh.resume
 
-_ZN5boost10shared_ptrIN8QuantLib22ChebyshevInterpolationEED2Ev.exit: ; preds = %entry
+if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %q_z) #33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp26) #33
   call void @_ZNK8QuantLib20QdPlusAmericanEngine22getPutExerciseBoundaryEdddddd(ptr dead_on_unwind nonnull writable sret(%"class.boost::shared_ptr.60") align 8 %ref.tmp26, ptr noundef nonnull align 8 dereferenceable(384) %this, double noundef %S, double noundef %K, double noundef %r, double noundef %q, double noundef %vol, double noundef %T)
@@ -5443,7 +5443,7 @@ _ZN5boost10shared_ptrIN8QuantLib22ChebyshevInterpolationEED2Ev.exit: ; preds = %
   %call29 = invoke noundef double @_ZN8QuantLib20QdPlusAmericanEngine4xMaxEddd(double noundef %K, double noundef %r, double noundef %q)
           to label %invoke.cont28 unwind label %lpad27
 
-invoke.cont28:                                    ; preds = %_ZN5boost10shared_ptrIN8QuantLib22ChebyshevInterpolationEED2Ev.exit
+invoke.cont28:                                    ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %aov) #33
   store ptr %21, ptr %agg.tmp30, align 8, !tbaa !52
   %pn.i60 = getelementptr inbounds nuw i8, ptr %agg.tmp30, i64 8
@@ -5674,7 +5674,7 @@ invoke.cont75:                                    ; preds = %invoke.cont73
   invoke void @__cxa_throw(ptr nonnull %exception62, ptr nonnull @_ZTIN8QuantLib5ErrorE, ptr nonnull @_ZN8QuantLib5ErrorD2Ev) #35
           to label %unreachable unwind label %lpad74
 
-lpad27:                                           ; preds = %_ZN5boost10shared_ptrIN8QuantLib22ChebyshevInterpolationEED2Ev.exit
+lpad27:                                           ; preds = %if.end
   %46 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup125

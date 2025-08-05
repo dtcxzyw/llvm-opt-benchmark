@@ -5909,63 +5909,63 @@ define internal void @_GLOBAL__sub_I_lattice_Zn.cpp() #21 section ".text.startup
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #15
   store i64 0, ptr %1, align 8, !tbaa !44
   invoke void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPmS1_EEmRKm(ptr noundef nonnull align 8 dereferenceable(24) @_ZN5faiss12_GLOBAL__N_14combE, ptr null, i64 noundef 10000, ptr noundef nonnull align 8 dereferenceable(8) %1)
-          to label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit.i.i unwind label %2
+          to label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit.i.i unwind label %3
 
 _ZNSt6vectorImSaImEE6resizeEmRKm.exit.i.i:        ; preds = %0
-  %.pre.i.i = load ptr, ptr @_ZN5faiss12_GLOBAL__N_14combE, align 8, !tbaa !69
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #15
-  store i64 1, ptr %.pre.i.i, align 8, !tbaa !44
-  br label %10
+  %2 = load ptr, ptr @_ZN5faiss12_GLOBAL__N_14combE, align 8, !tbaa !69
+  store i64 1, ptr %2, align 8, !tbaa !44
+  br label %11
 
-2:                                                ; preds = %0
-  %3 = landingpad { ptr, i32 }
+3:                                                ; preds = %0
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #15
-  %4 = load ptr, ptr @_ZN5faiss12_GLOBAL__N_14combE, align 8, !tbaa !69
-  %.not.i.i.i.i.i = icmp eq ptr %4, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit.i.i, label %5
+  %5 = load ptr, ptr @_ZN5faiss12_GLOBAL__N_14combE, align 8, !tbaa !69
+  %.not.i.i.i.i.i = icmp eq ptr %5, null
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit.i.i, label %6
 
-5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_14combE, i64 16), align 8, !tbaa !70
-  %7 = ptrtoint ptr %6 to i64
-  %8 = ptrtoint ptr %4 to i64
-  %9 = sub i64 %7, %8
-  call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %9) #25
+6:                                                ; preds = %3
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_14combE, i64 16), align 8, !tbaa !70
+  %8 = ptrtoint ptr %7 to i64
+  %9 = ptrtoint ptr %5 to i64
+  %10 = sub i64 %8, %9
+  call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %10) #25
   br label %_ZNSt6vectorImSaImEED2Ev.exit.i.i
 
-_ZNSt6vectorImSaImEED2Ev.exit.i.i:                ; preds = %5, %2
-  resume { ptr, i32 } %3
+_ZNSt6vectorImSaImEED2Ev.exit.i.i:                ; preds = %6, %3
+  resume { ptr, i32 } %4
 
-10:                                               ; preds = %13, %_ZNSt6vectorImSaImEE6resizeEmRKm.exit.i.i
-  %indvars.iv9.i.i = phi i64 [ 1, %_ZNSt6vectorImSaImEE6resizeEmRKm.exit.i.i ], [ %indvars.iv.next10.i.i, %13 ]
-  %indvars.iv7.i.i = phi i64 [ 2, %_ZNSt6vectorImSaImEE6resizeEmRKm.exit.i.i ], [ %indvars.iv.next8.i.i, %13 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv9.i.i, 800
-  %11 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 %.idx.i
-  store i64 1, ptr %11, align 8, !tbaa !44
-  %12 = getelementptr i8, ptr %11, i64 -808
-  br label %14
+11:                                               ; preds = %14, %_ZNSt6vectorImSaImEE6resizeEmRKm.exit.i.i
+  %indvars.iv8.i.i = phi i64 [ 1, %_ZNSt6vectorImSaImEE6resizeEmRKm.exit.i.i ], [ %indvars.iv.next9.i.i, %14 ]
+  %indvars.iv6.i.i = phi i64 [ 2, %_ZNSt6vectorImSaImEE6resizeEmRKm.exit.i.i ], [ %indvars.iv.next7.i.i, %14 ]
+  %.idx.i = mul nuw nsw i64 %indvars.iv8.i.i, 800
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
+  store i64 1, ptr %12, align 8, !tbaa !44
+  %13 = getelementptr i8, ptr %12, i64 -808
+  br label %15
 
-13:                                               ; preds = %14
-  %indvars.iv.next10.i.i = add nuw nsw i64 %indvars.iv9.i.i, 1
-  %indvars.iv.next8.i.i = add nuw nsw i64 %indvars.iv7.i.i, 1
-  %exitcond15.not.i.i = icmp eq i64 %indvars.iv.next10.i.i, 100
-  br i1 %exitcond15.not.i.i, label %__cxx_global_var_init.exit, label %10, !llvm.loop !172
+14:                                               ; preds = %15
+  %indvars.iv.next9.i.i = add nuw nsw i64 %indvars.iv8.i.i, 1
+  %indvars.iv.next7.i.i = add nuw nsw i64 %indvars.iv6.i.i, 1
+  %exitcond14.not.i.i = icmp eq i64 %indvars.iv.next9.i.i, 100
+  br i1 %exitcond14.not.i.i, label %__cxx_global_var_init.exit, label %11, !llvm.loop !172
 
-14:                                               ; preds = %14, %10
-  %indvars.iv.i.i = phi i64 [ 1, %10 ], [ %indvars.iv.next.i.i, %14 ]
-  %gep.i.i = getelementptr i64, ptr %11, i64 %indvars.iv.i.i
-  %15 = getelementptr i8, ptr %gep.i.i, i64 -800
-  %16 = load i64, ptr %15, align 8, !tbaa !44
-  %17 = getelementptr i64, ptr %12, i64 %indvars.iv.i.i
-  %18 = load i64, ptr %17, align 8, !tbaa !44
-  %19 = add i64 %18, %16
-  store i64 %19, ptr %gep.i.i, align 8, !tbaa !44
+15:                                               ; preds = %15, %11
+  %indvars.iv.i.i = phi i64 [ 1, %11 ], [ %indvars.iv.next.i.i, %15 ]
+  %gep.i.i = getelementptr i64, ptr %12, i64 %indvars.iv.i.i
+  %16 = getelementptr i8, ptr %gep.i.i, i64 -800
+  %17 = load i64, ptr %16, align 8, !tbaa !44
+  %18 = getelementptr i64, ptr %13, i64 %indvars.iv.i.i
+  %19 = load i64, ptr %18, align 8, !tbaa !44
+  %20 = add i64 %19, %17
+  store i64 %20, ptr %gep.i.i, align 8, !tbaa !44
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %indvars.iv7.i.i
-  br i1 %exitcond.not.i.i, label %13, label %14, !llvm.loop !173
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %indvars.iv6.i.i
+  br i1 %exitcond.not.i.i, label %14, label %15, !llvm.loop !173
 
-__cxx_global_var_init.exit:                       ; preds = %13
-  %20 = call i32 @__cxa_atexit(ptr nonnull @_ZN5faiss12_GLOBAL__N_14CombD2Ev, ptr nonnull @_ZN5faiss12_GLOBAL__N_14combE, ptr nonnull @__dso_handle) #15
+__cxx_global_var_init.exit:                       ; preds = %14
+  %21 = call i32 @__cxa_atexit(ptr nonnull @_ZN5faiss12_GLOBAL__N_14CombD2Ev, ptr nonnull @_ZN5faiss12_GLOBAL__N_14combE, ptr nonnull @__dso_handle) #15
   ret void
 }
 

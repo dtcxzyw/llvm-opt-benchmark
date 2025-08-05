@@ -109,20 +109,20 @@ define void @_ZN5folly12json_pointer9try_parseENS_5RangeIPKcEE(ptr dead_on_unwin
   %9 = invoke noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_ET0_T_SG_SF_(ptr null, ptr null, ptr noundef null)
           to label %_ZN5folly12json_pointerD2Ev.exit unwind label %.body
 
-_ZN5folly12json_pointerD2Ev.exit:                 ; preds = %.noexc21
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %9, ptr %10, align 8, !tbaa !7
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 1, ptr %11, align 8, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #23
-  br label %131
-
 .body:                                            ; preds = %.noexc21
-  %12 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5folly12json_pointerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #23
   br label %132
+
+_ZN5folly12json_pointerD2Ev.exit:                 ; preds = %.noexc21
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %9, ptr %11, align 8, !tbaa !7
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 1, ptr %12, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #23
+  br label %131
 
 _ZNK5folly5RangeIPKcE2atEm.exit:                  ; preds = %3
   %13 = load i8, ptr %1, align 1, !tbaa !16
@@ -477,7 +477,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   ret void
 
 132:                                              ; preds = %130, %.body
-  %.pn17 = phi { ptr, i32 } [ %12, %.body ], [ %.pn15, %130 ]
+  %.pn17 = phi { ptr, i32 } [ %10, %.body ], [ %.pn15, %130 ]
   resume { ptr, i32 } %.pn17
 }
 

@@ -16001,14 +16001,14 @@ _ZNSt14_Function_baseD2Ev.exit3.i:                ; preds = %60, %57
 
 82:                                               ; preds = %74
   call void @_ZdlPv(ptr noundef nonnull %77) #31
-  %.pre37.pre = load i64, ptr %6, align 8, !tbaa !132
+  %.pre38.pre = load i64, ptr %6, align 8, !tbaa !132
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %74, %82
-  %.pre37 = phi i64 [ %81, %74 ], [ %.pre37.pre, %82 ]
+  %.pre38 = phi i64 [ %81, %74 ], [ %.pre38.pre, %82 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #23
   %.pre = load i64, ptr %5, align 8, !tbaa !132
-  %83 = mul i64 %.pre37, %.pre
+  %83 = mul i64 %.pre38, %.pre
   br label %88
 
 84:                                               ; preds = %18
@@ -16027,8 +16027,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %74, %82
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %90 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.not40 = icmp eq i64 %89, 0
-  br i1 %.not40, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %91
+  %.not37 = icmp eq i64 %89, 0
+  br i1 %.not37, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %91
 
 91:                                               ; preds = %88
   %92 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -16050,22 +16050,22 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i:  ; preds = %91
 .noexc36:                                         ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
   store i32 0, ptr %96, align 4, !tbaa !88
   %97 = icmp eq i64 %89, 1
-  br i1 %97, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit33.i, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
+  br i1 %97, label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc36
   %98 = getelementptr i8, ptr %96, i64 4
   %99 = add nsw i64 %95, -4
   call void @llvm.memset.p0.i64(ptr align 4 %98, i8 0, i64 %99, i1 false), !tbaa !88
-  br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit33.i
+  br label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i
 
-_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit33.i: ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc36
+_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i: ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc36
   store ptr %96, ptr %8, align 8, !tbaa !184
   %100 = getelementptr inbounds nuw i32, ptr %96, i64 %89
   store ptr %100, ptr %90, align 8, !tbaa !515
   store ptr %100, ptr %92, align 8, !tbaa !516
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
-_ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %88, %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit33.i
+_ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %88, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i
   %101 = invoke i32 @OMP_NUM_THREADS()
           to label %102 unwind label %176
 
@@ -16164,11 +16164,11 @@ _ZNKSt14default_deleteIN8LightGBM17ObjectiveFunctionEEclEPS1_.exit.i.i: ; preds 
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %135 = load ptr, ptr %134, align 8
   call void %135(ptr noundef nonnull align 8 dereferenceable(8) %132) #23
-  %.pre38 = load ptr, ptr %128, align 8, !tbaa !84
+  %.pre39 = load ptr, ptr %128, align 8, !tbaa !84
   br label %_ZNSt10unique_ptrIN8LightGBM17ObjectiveFunctionESt14default_deleteIS1_EE5resetEPS1_.exit
 
 _ZNSt10unique_ptrIN8LightGBM17ObjectiveFunctionESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %131, %_ZNKSt14default_deleteIN8LightGBM17ObjectiveFunctionEEclEPS1_.exit.i.i
-  %136 = phi ptr [ %130, %131 ], [ %.pre38, %_ZNKSt14default_deleteIN8LightGBM17ObjectiveFunctionEEclEPS1_.exit.i.i ]
+  %136 = phi ptr [ %130, %131 ], [ %.pre39, %_ZNKSt14default_deleteIN8LightGBM17ObjectiveFunctionEEclEPS1_.exit.i.i ]
   %137 = load ptr, ptr %114, align 8, !tbaa !235
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 96
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 88

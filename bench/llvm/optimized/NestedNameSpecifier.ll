@@ -294,13 +294,13 @@ define dso_local noundef ptr @_ZN5clang19NestedNameSpecifier6CreateERKNS_10ASTCo
   store i64 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = ptrtoint ptr %1 to i64
-  %.masked = and i64 %6, -7
-  store i64 %.masked, ptr %5, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %2, ptr %7, align 8, !tbaa !28
-  %8 = call noundef ptr @_ZN5clang19NestedNameSpecifier12FindOrInsertERKNS_10ASTContextERKS0_(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  %7 = and i64 %6, -7
+  store i64 %7, ptr %5, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %2, ptr %8, align 8, !tbaa !28
+  %9 = call noundef ptr @_ZN5clang19NestedNameSpecifier12FindOrInsertERKNS_10ASTContextERKS0_(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #17
-  ret ptr %8
+  ret ptr %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -310,14 +310,14 @@ define dso_local noundef ptr @_ZN5clang19NestedNameSpecifier6CreateERKNS_10ASTCo
   store i64 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = ptrtoint ptr %1 to i64
-  %.masked = and i64 %6, -7
-  %7 = or disjoint i64 %.masked, 2
-  store i64 %7, ptr %5, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %2, ptr %8, align 8, !tbaa !28
-  %9 = call noundef ptr @_ZN5clang19NestedNameSpecifier12FindOrInsertERKNS_10ASTContextERKS0_(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  %7 = and i64 %6, -7
+  %8 = or disjoint i64 %7, 2
+  store i64 %8, ptr %5, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %2, ptr %9, align 8, !tbaa !28
+  %10 = call noundef ptr @_ZN5clang19NestedNameSpecifier12FindOrInsertERKNS_10ASTContextERKS0_(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #17
-  ret ptr %9
+  ret ptr %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -327,14 +327,14 @@ define dso_local noundef ptr @_ZN5clang19NestedNameSpecifier6CreateERKNS_10ASTCo
   store i64 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = ptrtoint ptr %1 to i64
-  %.masked = and i64 %6, -7
-  %7 = or disjoint i64 %.masked, 2
-  store i64 %7, ptr %5, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %2, ptr %8, align 8, !tbaa !28
-  %9 = call noundef ptr @_ZN5clang19NestedNameSpecifier12FindOrInsertERKNS_10ASTContextERKS0_(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  %7 = and i64 %6, -7
+  %8 = or disjoint i64 %7, 2
+  store i64 %8, ptr %5, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %2, ptr %9, align 8, !tbaa !28
+  %10 = call noundef ptr @_ZN5clang19NestedNameSpecifier12FindOrInsertERKNS_10ASTContextERKS0_(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #17
-  ret ptr %9
+  ret ptr %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -345,14 +345,14 @@ define dso_local noundef ptr @_ZN5clang19NestedNameSpecifier6CreateERKNS_10ASTCo
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = ptrtoint ptr %1 to i64
   %8 = select i1 %2, i64 6, i64 4
-  %.masked = and i64 %7, -7
-  %9 = or disjoint i64 %8, %.masked
-  store i64 %9, ptr %6, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %3, ptr %10, align 8, !tbaa !28
-  %11 = call noundef ptr @_ZN5clang19NestedNameSpecifier12FindOrInsertERKNS_10ASTContextERKS0_(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  %9 = and i64 %7, -7
+  %10 = or disjoint i64 %9, %8
+  store i64 %10, ptr %6, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %3, ptr %11, align 8, !tbaa !28
+  %12 = call noundef ptr @_ZN5clang19NestedNameSpecifier12FindOrInsertERKNS_10ASTContextERKS0_(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #17
-  ret ptr %11
+  ret ptr %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2512,26 +2512,26 @@ define dso_local void @_ZN5clang29NestedNameSpecifierLocBuilder6ExtendERNS_10AST
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %16 = ptrtoint ptr %10 to i64
   %17 = select i1 %.not, i64 4, i64 6
-  %.masked.i = and i64 %16, -7
-  %18 = or disjoint i64 %.masked.i, %17
-  store i64 %18, ptr %15, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %14, ptr %19, align 8, !tbaa !28
-  %20 = call noundef ptr @_ZN5clang19NestedNameSpecifier12FindOrInsertERKNS_10ASTContextERKS0_(ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  %18 = and i64 %16, -7
+  %19 = or disjoint i64 %18, %17
+  store i64 %19, ptr %15, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr %14, ptr %20, align 8, !tbaa !28
+  %21 = call noundef ptr @_ZN5clang19NestedNameSpecifier12FindOrInsertERKNS_10ASTContextERKS0_(ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef nonnull align 8 dereferenceable(24) %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #17
-  store ptr %20, ptr %0, align 8, !tbaa !510
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store ptr %21, ptr %0, align 8, !tbaa !510
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr %4, ptr %8, align 8, !tbaa !11
-  %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call fastcc void @_ZL6AppendPcS_RS_RjS1_(ptr noundef nonnull %8, ptr noundef nonnull %24, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 4 dereferenceable(4) %22, ptr noundef nonnull align 4 dereferenceable(4) %23)
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  call fastcc void @_ZL6AppendPcS_RS_RjS1_(ptr noundef nonnull %8, ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull align 4 dereferenceable(4) %24)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #17
   store i32 %5, ptr %7, align 4, !tbaa !515
-  %25 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  call fastcc void @_ZL6AppendPcS_RS_RjS1_(ptr noundef nonnull %7, ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 4 dereferenceable(4) %22, ptr noundef nonnull align 4 dereferenceable(4) %23)
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  call fastcc void @_ZL6AppendPcS_RS_RjS1_(ptr noundef nonnull %7, ptr noundef nonnull %26, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull align 4 dereferenceable(4) %24)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #17
   ret void
 }
@@ -2546,25 +2546,25 @@ define dso_local void @_ZN5clang29NestedNameSpecifierLocBuilder6ExtendERNS_10AST
   store i64 0, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = ptrtoint ptr %9 to i64
-  %.masked.i = and i64 %11, -7
-  store i64 %.masked.i, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %2, ptr %12, align 8, !tbaa !28
-  %13 = call noundef ptr @_ZN5clang19NestedNameSpecifier12FindOrInsertERKNS_10ASTContextERKS0_(ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  %12 = and i64 %11, -7
+  store i64 %12, ptr %10, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %2, ptr %13, align 8, !tbaa !28
+  %14 = call noundef ptr @_ZN5clang19NestedNameSpecifier12FindOrInsertERKNS_10ASTContextERKS0_(ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef nonnull align 8 dereferenceable(24) %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #17
-  store ptr %13, ptr %0, align 8, !tbaa !510
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store ptr %14, ptr %0, align 8, !tbaa !510
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #17
   store i32 %3, ptr %7, align 4, !tbaa !515
-  %17 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  call fastcc void @_ZL6AppendPcS_RS_RjS1_(ptr noundef nonnull %7, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  call fastcc void @_ZL6AppendPcS_RS_RjS1_(ptr noundef nonnull %7, ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #17
   store i32 %4, ptr %6, align 4, !tbaa !515
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  call fastcc void @_ZL6AppendPcS_RS_RjS1_(ptr noundef nonnull %6, ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  call fastcc void @_ZL6AppendPcS_RS_RjS1_(ptr noundef nonnull %6, ptr noundef nonnull %19, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
   ret void
 }
@@ -2579,26 +2579,26 @@ define dso_local void @_ZN5clang29NestedNameSpecifierLocBuilder6ExtendERNS_10AST
   store i64 0, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = ptrtoint ptr %9 to i64
-  %.masked.i = and i64 %11, -7
-  %12 = or disjoint i64 %.masked.i, 2
-  store i64 %12, ptr %10, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %2, ptr %13, align 8, !tbaa !28
-  %14 = call noundef ptr @_ZN5clang19NestedNameSpecifier12FindOrInsertERKNS_10ASTContextERKS0_(ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  %12 = and i64 %11, -7
+  %13 = or disjoint i64 %12, 2
+  store i64 %13, ptr %10, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %2, ptr %14, align 8, !tbaa !28
+  %15 = call noundef ptr @_ZN5clang19NestedNameSpecifier12FindOrInsertERKNS_10ASTContextERKS0_(ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef nonnull align 8 dereferenceable(24) %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #17
-  store ptr %14, ptr %0, align 8, !tbaa !510
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store ptr %15, ptr %0, align 8, !tbaa !510
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #17
   store i32 %3, ptr %7, align 4, !tbaa !515
-  %18 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  call fastcc void @_ZL6AppendPcS_RS_RjS1_(ptr noundef nonnull %7, ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %17)
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  call fastcc void @_ZL6AppendPcS_RS_RjS1_(ptr noundef nonnull %7, ptr noundef nonnull %19, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #17
   store i32 %4, ptr %6, align 4, !tbaa !515
-  %19 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  call fastcc void @_ZL6AppendPcS_RS_RjS1_(ptr noundef nonnull %6, ptr noundef nonnull %19, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %17)
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  call fastcc void @_ZL6AppendPcS_RS_RjS1_(ptr noundef nonnull %6, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
   ret void
 }
@@ -2613,26 +2613,26 @@ define dso_local void @_ZN5clang29NestedNameSpecifierLocBuilder6ExtendERNS_10AST
   store i64 0, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = ptrtoint ptr %9 to i64
-  %.masked.i = and i64 %11, -7
-  %12 = or disjoint i64 %.masked.i, 2
-  store i64 %12, ptr %10, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %2, ptr %13, align 8, !tbaa !28
-  %14 = call noundef ptr @_ZN5clang19NestedNameSpecifier12FindOrInsertERKNS_10ASTContextERKS0_(ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  %12 = and i64 %11, -7
+  %13 = or disjoint i64 %12, 2
+  store i64 %13, ptr %10, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %2, ptr %14, align 8, !tbaa !28
+  %15 = call noundef ptr @_ZN5clang19NestedNameSpecifier12FindOrInsertERKNS_10ASTContextERKS0_(ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef nonnull align 8 dereferenceable(24) %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #17
-  store ptr %14, ptr %0, align 8, !tbaa !510
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store ptr %15, ptr %0, align 8, !tbaa !510
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #17
   store i32 %3, ptr %7, align 4, !tbaa !515
-  %18 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  call fastcc void @_ZL6AppendPcS_RS_RjS1_(ptr noundef nonnull %7, ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %17)
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  call fastcc void @_ZL6AppendPcS_RS_RjS1_(ptr noundef nonnull %7, ptr noundef nonnull %19, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #17
   store i32 %4, ptr %6, align 4, !tbaa !515
-  %19 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  call fastcc void @_ZL6AppendPcS_RS_RjS1_(ptr noundef nonnull %6, ptr noundef nonnull %19, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %17)
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  call fastcc void @_ZL6AppendPcS_RS_RjS1_(ptr noundef nonnull %6, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
   ret void
 }

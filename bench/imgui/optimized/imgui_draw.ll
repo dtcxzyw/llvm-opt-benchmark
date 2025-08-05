@@ -22677,111 +22677,111 @@ _ZNK8ImVectorI10stbrp_rectE14_grow_capacityEi.exit.i:
   %9 = zext nneg i32 %8 to i64
   %10 = mul nuw nsw i64 %9, 24
   %11 = invoke noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %10)
-          to label %12 unwind label %23
+          to label %.noexc32 unwind label %22
 
-12:                                               ; preds = %_ZNK8ImVectorI10stbrp_rectE14_grow_capacityEi.exit.i
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %11, ptr %14, align 8, !tbaa !380
-  store i32 %8, ptr %13, align 4, !tbaa !381
+.noexc32:                                         ; preds = %_ZNK8ImVectorI10stbrp_rectE14_grow_capacityEi.exit.i
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %11, ptr %13, align 8, !tbaa !380
+  store i32 %8, ptr %12, align 4, !tbaa !381
   store i32 %4, ptr %2, align 8, !tbaa !378
-  %15 = mul nuw nsw i32 %4, 24
-  %16 = zext nneg i32 %15 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 4 %11, i8 0, i64 %16, i1 false)
-  %17 = load i32, ptr %3, align 8, !tbaa !272
-  %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %.lr.ph, label %._crit_edge
+  %14 = mul nuw nsw i32 %4, 24
+  %15 = zext nneg i32 %14 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 4 %11, i8 0, i64 %15, i1 false)
+  %16 = load i32, ptr %3, align 8, !tbaa !272
+  %17 = icmp sgt i32 %16, 0
+  br i1 %17, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %12
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %20 = load ptr, ptr %19, align 8, !tbaa !256
-  %wide.trip.count = zext nneg i32 %17 to i64
-  br label %25
+.lr.ph:                                           ; preds = %.noexc32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %19 = load ptr, ptr %18, align 8, !tbaa !256
+  %wide.trip.count = zext nneg i32 %16 to i64
+  br label %24
 
-._crit_edge:                                      ; preds = %25, %12
+._crit_edge:                                      ; preds = %24, %.noexc32
   invoke fastcc void @_ZL16stbrp_pack_rectsP13stbrp_contextP10stbrp_recti(ptr noundef %1, ptr noundef nonnull %11, i32 noundef %4)
-          to label %.lr.ph35 unwind label %23
+          to label %.lr.ph35 unwind label %22
 
 .lr.ph35:                                         ; preds = %._crit_edge
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %wide.trip.count41 = zext nneg i32 %4 to i64
-  br label %41
+  br label %40
 
-23:                                               ; preds = %._crit_edge, %_ZNK8ImVectorI10stbrp_rectE14_grow_capacityEi.exit.i
-  %24 = landingpad { ptr, i32 }
+22:                                               ; preds = %._crit_edge, %_ZNK8ImVectorI10stbrp_rectE14_grow_capacityEi.exit.i
+  %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8ImVectorI10stbrp_rectED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #42
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #42
-  resume { ptr, i32 } %24
+  resume { ptr, i32 } %23
 
-25:                                               ; preds = %.lr.ph, %25
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw %struct.ImFontAtlasCustomRect, ptr %20, i64 %indvars.iv
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  %28 = load i16, ptr %27, align 4, !tbaa !307
-  %29 = zext i16 %28 to i32
-  %30 = add nsw i32 %7, %29
-  %31 = getelementptr inbounds nuw %struct.stbrp_rect, ptr %11, i64 %indvars.iv
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  store i32 %30, ptr %32, align 4, !tbaa !398
-  %33 = getelementptr inbounds nuw i8, ptr %26, i64 6
-  %34 = load i16, ptr %33, align 2, !tbaa !308
-  %35 = zext i16 %34 to i32
-  %36 = add nsw i32 %7, %35
-  %37 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i32 %36, ptr %37, align 4, !tbaa !400
+24:                                               ; preds = %.lr.ph, %24
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
+  %25 = getelementptr inbounds nuw %struct.ImFontAtlasCustomRect, ptr %19, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  %27 = load i16, ptr %26, align 4, !tbaa !307
+  %28 = zext i16 %27 to i32
+  %29 = add nsw i32 %7, %28
+  %30 = getelementptr inbounds nuw %struct.stbrp_rect, ptr %11, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  store i32 %29, ptr %31, align 4, !tbaa !398
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 6
+  %33 = load i16, ptr %32, align 2, !tbaa !308
+  %34 = zext i16 %33 to i32
+  %35 = add nsw i32 %7, %34
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store i32 %35, ptr %36, align 4, !tbaa !400
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !527
+  br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !527
 
-._crit_edge36:                                    ; preds = %60
+._crit_edge36:                                    ; preds = %59
   invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %11)
-          to label %_ZN8ImVectorI10stbrp_rectED2Ev.exit unwind label %38
+          to label %_ZN8ImVectorI10stbrp_rectED2Ev.exit unwind label %37
 
-38:                                               ; preds = %._crit_edge36
-  %39 = landingpad { ptr, i32 }
+37:                                               ; preds = %._crit_edge36
+  %38 = landingpad { ptr, i32 }
           catch ptr null
-  %40 = extractvalue { ptr, i32 } %39, 0
-  tail call void @__clang_call_terminate(ptr %40) #43
+  %39 = extractvalue { ptr, i32 } %38, 0
+  tail call void @__clang_call_terminate(ptr %39) #43
   unreachable
 
 _ZN8ImVectorI10stbrp_rectED2Ev.exit:              ; preds = %._crit_edge36
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #42
   ret void
 
-41:                                               ; preds = %.lr.ph35, %60
-  %indvars.iv38 = phi i64 [ 0, %.lr.ph35 ], [ %indvars.iv.next39, %60 ]
-  %42 = getelementptr inbounds nuw %struct.stbrp_rect, ptr %11, i64 %indvars.iv38
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 20
-  %44 = load i32, ptr %43, align 4, !tbaa !420
-  %.not = icmp eq i32 %44, 0
-  br i1 %.not, label %60, label %45
+40:                                               ; preds = %.lr.ph35, %59
+  %indvars.iv38 = phi i64 [ 0, %.lr.ph35 ], [ %indvars.iv.next39, %59 ]
+  %41 = getelementptr inbounds nuw %struct.stbrp_rect, ptr %11, i64 %indvars.iv38
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 20
+  %43 = load i32, ptr %42, align 4, !tbaa !420
+  %.not = icmp eq i32 %43, 0
+  br i1 %.not, label %59, label %44
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds nuw i8, ptr %42, i64 12
-  %47 = load i32, ptr %46, align 4, !tbaa !431
-  %48 = trunc i32 %47 to i16
-  %49 = load ptr, ptr %21, align 8, !tbaa !256
-  %50 = getelementptr inbounds nuw %struct.ImFontAtlasCustomRect, ptr %49, i64 %indvars.iv38
-  store i16 %48, ptr %50, align 8, !tbaa !302
-  %51 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %52 = load i32, ptr %51, align 4, !tbaa !421
-  %53 = trunc i32 %52 to i16
-  %54 = getelementptr inbounds nuw i8, ptr %50, i64 2
-  store i16 %53, ptr %54, align 2, !tbaa !305
-  %55 = load i32, ptr %22, align 4, !tbaa !287
-  %56 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %57 = load i32, ptr %56, align 4, !tbaa !400
-  %58 = add nsw i32 %57, %52
-  %59 = tail call noundef i32 @llvm.smax.i32(i32 %55, i32 %58)
-  store i32 %59, ptr %22, align 4, !tbaa !287
-  br label %60
+44:                                               ; preds = %40
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 12
+  %46 = load i32, ptr %45, align 4, !tbaa !431
+  %47 = trunc i32 %46 to i16
+  %48 = load ptr, ptr %20, align 8, !tbaa !256
+  %49 = getelementptr inbounds nuw %struct.ImFontAtlasCustomRect, ptr %48, i64 %indvars.iv38
+  store i16 %47, ptr %49, align 8, !tbaa !302
+  %50 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %51 = load i32, ptr %50, align 4, !tbaa !421
+  %52 = trunc i32 %51 to i16
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 2
+  store i16 %52, ptr %53, align 2, !tbaa !305
+  %54 = load i32, ptr %21, align 4, !tbaa !287
+  %55 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %56 = load i32, ptr %55, align 4, !tbaa !400
+  %57 = add nsw i32 %56, %51
+  %58 = tail call noundef i32 @llvm.smax.i32(i32 %54, i32 %57)
+  store i32 %58, ptr %21, align 4, !tbaa !287
+  br label %59
 
-60:                                               ; preds = %41, %45
+59:                                               ; preds = %40, %44
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count41
-  br i1 %exitcond42.not, label %._crit_edge36, label %41, !llvm.loop !528
+  br i1 %exitcond42.not, label %._crit_edge36, label %40, !llvm.loop !528
 }
 
 ; Function Attrs: mustprogress nofree uwtable

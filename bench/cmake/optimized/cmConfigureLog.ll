@@ -1190,7 +1190,7 @@ _ZN17cmListFileContextD2Ev.exit:                  ; preds = %_ZNKSt7__cxx1112bas
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 24
   %241 = load ptr, ptr %240, align 8
   call void %241(ptr noundef nonnull align 8 dereferenceable(16) %228) #27
-  br label %_ZN19cmListFileBacktraceaSEOS_.exit
+  br label %_ZN19cmListFileBacktraceaSEOS_.exitthread-pre-split
 
 242:                                              ; preds = %229
   %243 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14
@@ -1209,14 +1209,18 @@ _ZN17cmListFileContextD2Ev.exit:                  ; preds = %_ZNKSt7__cxx1112bas
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %246, %244
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %233, %244 ], [ %247, %246 ]
   %248 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %248, label %249, label %_ZN19cmListFileBacktraceaSEOS_.exit, !prof !64
+  br i1 %248, label %249, label %_ZN19cmListFileBacktraceaSEOS_.exitthread-pre-split, !prof !64
 
 249:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %228) #27
+  br label %_ZN19cmListFileBacktraceaSEOS_.exitthread-pre-split
+
+_ZN19cmListFileBacktraceaSEOS_.exitthread-pre-split: ; preds = %249, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %234
+  %.pr = load ptr, ptr %60, align 8, !tbaa !57
   br label %_ZN19cmListFileBacktraceaSEOS_.exit
 
-_ZN19cmListFileBacktraceaSEOS_.exit:              ; preds = %225, %234, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %249
-  %250 = load ptr, ptr %60, align 8, !tbaa !57
+_ZN19cmListFileBacktraceaSEOS_.exit:              ; preds = %_ZN19cmListFileBacktraceaSEOS_.exitthread-pre-split, %225
+  %250 = phi ptr [ %.pr, %_ZN19cmListFileBacktraceaSEOS_.exitthread-pre-split ], [ null, %225 ]
   %.not.i.i.i37 = icmp eq ptr %250, null
   br i1 %.not.i.i.i37, label %_ZN12cmConstStackI17cmListFileContext19cmListFileBacktraceED2Ev.exit41, label %251
 

@@ -512,7 +512,7 @@ define void @_ZN6duckdb20BindEnumCodeFunctionERNS_13ClientContextERNS_14ScalarFu
   unreachable
 
 common.resume:                                    ; preds = %41, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %112, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i53, %22
-  %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %.pn1957, %41 ], [ %34, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn60, %112 ], [ %105, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54 ], [ %34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %105, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i53 ]
+  %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %.pn1957, %41 ], [ %34, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn63, %112 ], [ %105, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54 ], [ %34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %105, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i53 ]
   resume { ptr, i32 } %common.resume.op
 
 22:                                               ; preds = %19
@@ -586,13 +586,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 56
   %46 = tail call noundef zeroext i8 @_ZN6duckdb8EnumType15GetPhysicalTypeERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %45)
   switch i8 %46, label %99 [
-    i8 2, label %_ZN6duckdb11LogicalTypeaSEOS0_.exit
-    i8 4, label %_ZN6duckdb11LogicalTypeaSEOS0_.exit31
-    i8 6, label %_ZN6duckdb11LogicalTypeaSEOS0_.exit41
-    i8 8, label %_ZN6duckdb11LogicalTypeaSEOS0_.exit51
+    i8 2, label %_ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i
+    i8 4, label %_ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i26
+    i8 6, label %_ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i36
+    i8 8, label %_ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i46
   ]
 
-_ZN6duckdb11LogicalTypeaSEOS0_.exit:              ; preds = %42
+_ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i: ; preds = %42
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #16
   call void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 noundef zeroext 28)
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 144
@@ -618,7 +618,7 @@ _ZN6duckdb11LogicalTypeaSEOS0_.exit:              ; preds = %42
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #16
   br label %113
 
-_ZN6duckdb11LogicalTypeaSEOS0_.exit31:            ; preds = %42
+_ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i26: ; preds = %42
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #16
   call void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 noundef zeroext 29)
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 144
@@ -644,7 +644,7 @@ _ZN6duckdb11LogicalTypeaSEOS0_.exit31:            ; preds = %42
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #16
   br label %113
 
-_ZN6duckdb11LogicalTypeaSEOS0_.exit41:            ; preds = %42
+_ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i36: ; preds = %42
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #16
   call void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 noundef zeroext 30)
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 144
@@ -670,7 +670,7 @@ _ZN6duckdb11LogicalTypeaSEOS0_.exit41:            ; preds = %42
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #16
   br label %113
 
-_ZN6duckdb11LogicalTypeaSEOS0_.exit51:            ; preds = %42
+_ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i46: ; preds = %42
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #16
   call void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 noundef zeroext 31)
   %86 = getelementptr inbounds nuw i8, ptr %2, i64 144
@@ -743,11 +743,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %104
   br i1 %.0, label %112, label %common.resume
 
 112:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54
-  %.pn60 = phi { ptr, i32 } [ %103, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54.thread ], [ %105, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54 ], [ %105, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i53 ]
+  %.pn63 = phi { ptr, i32 } [ %103, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54.thread ], [ %105, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54 ], [ %105, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i53 ]
   call void @__cxa_free_exception(ptr %100) #16
   br label %common.resume
 
-113:                                              ; preds = %_ZN6duckdb11LogicalTypeaSEOS0_.exit51, %_ZN6duckdb11LogicalTypeaSEOS0_.exit41, %_ZN6duckdb11LogicalTypeaSEOS0_.exit31, %_ZN6duckdb11LogicalTypeaSEOS0_.exit
+113:                                              ; preds = %_ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i46, %_ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i36, %_ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i26, %_ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i
   store ptr null, ptr %0, align 8, !tbaa !24
   ret void
 

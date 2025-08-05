@@ -5360,7 +5360,7 @@ _ZNSt8functionIFvmEEC2ERKS1_.exit.thread:         ; preds = %.thread134
   store ptr %46, ptr %6, align 8, !tbaa !176
   store i64 %spec.select.i, ptr %49, align 8, !tbaa !177
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, i8 0, i64 32, i1 false)
-  br label %_ZNSt14_Function_baseD2Ev.exit.thread211
+  br label %_ZNSt14_Function_baseD2Ev.exit.thread210
 
 91:                                               ; preds = %.thread134
   %92 = invoke noundef zeroext i1 %90(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 2)
@@ -5394,7 +5394,7 @@ _ZNSt8functionIFvmEEC2ERKS1_.exit:                ; preds = %91
   store i64 %spec.select.i, ptr %49, align 8, !tbaa !177
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, i8 0, i64 32, i1 false)
   %.not.i.i.not.i.i = icmp eq ptr %102, null
-  br i1 %.not.i.i.not.i.i, label %_ZNSt14_Function_baseD2Ev.exit.thread211, label %103
+  br i1 %.not.i.i.not.i.i, label %_ZNSt14_Function_baseD2Ev.exit.thread210, label %103
 
 103:                                              ; preds = %_ZNSt8functionIFvmEEC2ERKS1_.exit
   %104 = invoke noundef zeroext i1 %102(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 2)
@@ -5443,20 +5443,20 @@ _ZNSt14_Function_baseD2Ev.exit.thread:            ; preds = %_ZN9command_tC2ER7m
   call void @__clang_call_terminate(ptr %119) #42
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit.thread211:         ; preds = %_ZNSt8functionIFvmEEC2ERKS1_.exit, %_ZNSt8functionIFvmEEC2ERKS1_.exit.thread
+_ZNSt14_Function_baseD2Ev.exit.thread210:         ; preds = %_ZNSt8functionIFvmEEC2ERKS1_.exit, %_ZNSt8functionIFvmEEC2ERKS1_.exit.thread
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, i8 0, i64 32, i1 false)
   br label %_ZN9command_tC2ERKS_.exit
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %115
-  %.pr.pre = load ptr, ptr %51, align 8, !tbaa !174
+  %.pr = load ptr, ptr %51, align 8, !tbaa !174
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, i8 0, i64 32, i1 false)
-  %.not.i.i.not.i.i67 = icmp eq ptr %.pr.pre, null
+  %.not.i.i.not.i.i67 = icmp eq ptr %.pr, null
   br i1 %.not.i.i.not.i.i67, label %_ZN9command_tC2ERKS_.exit, label %120
 
 120:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit
-  %121 = invoke noundef zeroext i1 %.pr.pre(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 2)
+  %121 = invoke noundef zeroext i1 %.pr(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 2)
           to label %122 unwind label %125
 
 122:                                              ; preds = %120
@@ -5485,7 +5485,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %115
   call void @__clang_call_terminate(ptr %132) #42
   unreachable
 
-_ZN9command_tC2ERKS_.exit:                        ; preds = %_ZNSt14_Function_baseD2Ev.exit.thread211, %122, %_ZNSt14_Function_baseD2Ev.exit, %_ZNSt14_Function_baseD2Ev.exit.thread
+_ZN9command_tC2ERKS_.exit:                        ; preds = %_ZNSt14_Function_baseD2Ev.exit.thread210, %122, %_ZNSt14_Function_baseD2Ev.exit, %_ZNSt14_Function_baseD2Ev.exit.thread
   invoke void @_ZN13device_list_t14handle_commandE9command_t(ptr noundef nonnull align 8 dereferenceable(88) %56, ptr noundef nonnull %8)
           to label %133 unwind label %164
 

@@ -82,7 +82,7 @@ $_ZTIN5boost6detail17sp_counted_impl_pIN8QuantLib13UnitOfMeasure4DataEEE = comda
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8QuantLib17CommoditySettingsC2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 16)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-_ZN8QuantLib8CurrencyD2Ev.exit:
+entry:
   %ref.tmp = alloca %"class.QuantLib::USDCurrency", align 8
   %ref.tmp2 = alloca %"class.QuantLib::BarrelUnitOfMeasure", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #17
@@ -96,9 +96,9 @@ _ZN8QuantLib8CurrencyD2Ev.exit:
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2) #17
   invoke void @_ZN8QuantLib19BarrelUnitOfMeasureC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
-          to label %_ZN8QuantLib13UnitOfMeasureD2Ev.exit unwind label %lpad
+          to label %invoke.cont unwind label %lpad
 
-_ZN8QuantLib13UnitOfMeasureD2Ev.exit:             ; preds = %_ZN8QuantLib8CurrencyD2Ev.exit
+invoke.cont:                                      ; preds = %entry
   %unitOfMeasure_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %ref.tmp2, align 8, !tbaa !10
   store ptr %2, ptr %unitOfMeasure_, align 8, !tbaa !10
@@ -109,7 +109,7 @@ _ZN8QuantLib13UnitOfMeasureD2Ev.exit:             ; preds = %_ZN8QuantLib8Curren
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2) #17
   ret void
 
-lpad:                                             ; preds = %_ZN8QuantLib8CurrencyD2Ev.exit
+lpad:                                             ; preds = %entry
   %4 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2) #17

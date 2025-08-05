@@ -7639,11 +7639,11 @@ _ZN7rocksdb6StatusD2Ev.exit.i.i:                  ; preds = %_ZNKSt14default_del
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit.i.i: ; preds = %248, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i
   %.sroa.0188.0.i = phi i8 [ %228, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %248 ]
-  %.sroa.7.0.i = phi i8 [ %230, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %248 ]
-  %.sroa.10189.0.i = phi i8 [ %232, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %248 ]
-  %.sroa.13.0.i = phi i8 [ %234, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %248 ]
+  %.sroa.7189.0.i = phi i8 [ %230, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %248 ]
+  %.sroa.10.0.i = phi i8 [ %232, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %248 ]
+  %.sroa.13190.0.i = phi i8 [ %234, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %248 ]
   %.sroa.16.0.i = phi i8 [ %236, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %248 ]
-  %.sroa.22190.0.i = phi ptr [ %storemerge.i.i, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ null, %248 ]
+  %.sroa.22191.0.i = phi ptr [ %storemerge.i.i, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ null, %248 ]
   %.sroa.19.0.i = phi i8 [ %238, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %248 ]
   %254 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %255 = load ptr, ptr %254, align 8, !tbaa !118, !noalias !351
@@ -7660,18 +7660,18 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25, !noalias !351
   store i8 %.sroa.0188.0.i, ptr %5, align 8, !tbaa !119
   %257 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %.sroa.7.0.i, ptr %257, align 1, !tbaa !173
+  store i8 %.sroa.7189.0.i, ptr %257, align 1, !tbaa !173
   %258 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i8 %.sroa.10189.0.i, ptr %258, align 2, !tbaa !175
+  store i8 %.sroa.10.0.i, ptr %258, align 2, !tbaa !175
   %259 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  store i8 %.sroa.13.0.i, ptr %259, align 1, !tbaa !177
+  store i8 %.sroa.13190.0.i, ptr %259, align 1, !tbaa !177
   %260 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 %.sroa.16.0.i, ptr %260, align 4, !tbaa !178
   %261 = getelementptr inbounds nuw i8, ptr %5, i64 5
   store i8 %.sroa.19.0.i, ptr %261, align 1, !tbaa !179
   %262 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %263 = load ptr, ptr %262, align 8, !tbaa !118
-  store ptr %.sroa.22190.0.i, ptr %262, align 8, !tbaa !118
+  store ptr %.sroa.22191.0.i, ptr %262, align 8, !tbaa !118
   %.not.i.i.i.i.i112.i = icmp eq ptr %263, null
   br i1 %.not.i.i.i.i.i112.i, label %_ZN7rocksdb6StatusD2Ev.exit117.i, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i113.i
 
@@ -8643,11 +8643,11 @@ _ZN7rocksdb6StatusD2Ev.exit.i.i:                  ; preds = %_ZNKSt14default_del
 
 324:                                              ; preds = %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i, %.noexc125.i
   %.sroa.0262.0.i = phi i8 [ %306, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %.noexc125.i ]
-  %.sroa.7.0.i = phi i8 [ %308, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %.noexc125.i ]
-  %.sroa.10263.0.i = phi i8 [ %310, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %.noexc125.i ]
-  %.sroa.13.0.i = phi i8 [ %312, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %.noexc125.i ]
+  %.sroa.7263.0.i = phi i8 [ %308, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %.noexc125.i ]
+  %.sroa.10.0.i = phi i8 [ %310, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %.noexc125.i ]
+  %.sroa.13264.0.i = phi i8 [ %312, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %.noexc125.i ]
   %.sroa.16.0.i = phi i8 [ %314, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %.noexc125.i ]
-  %.sroa.22264.0.i = phi ptr [ %storemerge.i.i, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ null, %.noexc125.i ]
+  %.sroa.22265.0.i = phi ptr [ %storemerge.i.i, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ null, %.noexc125.i ]
   %.sroa.19.0.i = phi i8 [ %316, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.i ], [ 0, %.noexc125.i ]
   %325 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %326 = load ptr, ptr %325, align 8, !tbaa !118, !noalias !372
@@ -8662,18 +8662,18 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25, !noalias !372
   store i8 %.sroa.0262.0.i, ptr %5, align 8, !tbaa !119
   %328 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %.sroa.7.0.i, ptr %328, align 1, !tbaa !173
+  store i8 %.sroa.7263.0.i, ptr %328, align 1, !tbaa !173
   %329 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i8 %.sroa.10263.0.i, ptr %329, align 2, !tbaa !175
+  store i8 %.sroa.10.0.i, ptr %329, align 2, !tbaa !175
   %330 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  store i8 %.sroa.13.0.i, ptr %330, align 1, !tbaa !177
+  store i8 %.sroa.13264.0.i, ptr %330, align 1, !tbaa !177
   %331 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 %.sroa.16.0.i, ptr %331, align 4, !tbaa !178
   %332 = getelementptr inbounds nuw i8, ptr %5, i64 5
   store i8 %.sroa.19.0.i, ptr %332, align 1, !tbaa !179
   %333 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %334 = load ptr, ptr %333, align 8, !tbaa !118
-  store ptr %.sroa.22264.0.i, ptr %333, align 8, !tbaa !118
+  store ptr %.sroa.22265.0.i, ptr %333, align 8, !tbaa !118
   %.not.i.i.i.i.i127.i = icmp eq ptr %334, null
   br i1 %.not.i.i.i.i.i127.i, label %_ZN7rocksdb6StatusD2Ev.exit132.i, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i128.i
 

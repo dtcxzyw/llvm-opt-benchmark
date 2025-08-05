@@ -92704,7 +92704,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_18EVTArrayC2Ev() unnamed_addr #2 align 2 {
-_ZNSt6vectorIN4llvm3EVTESaIS1_EE7reserveEm.exit:
+_ZNSt12_Vector_baseIN4llvm3EVTESaIS1_EE13_M_deallocateEPS1_m.exit.i:
   %0 = tail call noalias noundef nonnull dereferenceable(3744) ptr @_Znwm(i64 noundef 3744) #39
   store ptr %0, ptr @_ZZN4llvm6SDNode16getValueTypeListENS_3MVTEE13SimpleVTArray, align 8, !tbaa !181
   store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm6SDNode16getValueTypeListENS_3MVTEE13SimpleVTArray, i64 8), align 8, !tbaa !1379
@@ -92715,11 +92715,11 @@ _ZNSt6vectorIN4llvm3EVTESaIS1_EE7reserveEm.exit:
 2:                                                ; preds = %_ZNSt6vectorIN4llvm3EVTESaIS1_EE9push_backEOS1_.exit
   ret void
 
-3:                                                ; preds = %_ZNSt6vectorIN4llvm3EVTESaIS1_EE7reserveEm.exit, %_ZNSt6vectorIN4llvm3EVTESaIS1_EE9push_backEOS1_.exit
-  %4 = phi ptr [ %0, %_ZNSt6vectorIN4llvm3EVTESaIS1_EE7reserveEm.exit ], [ %28, %_ZNSt6vectorIN4llvm3EVTESaIS1_EE9push_backEOS1_.exit ]
-  %5 = phi ptr [ %1, %_ZNSt6vectorIN4llvm3EVTESaIS1_EE7reserveEm.exit ], [ %29, %_ZNSt6vectorIN4llvm3EVTESaIS1_EE9push_backEOS1_.exit ]
-  %6 = phi ptr [ %0, %_ZNSt6vectorIN4llvm3EVTESaIS1_EE7reserveEm.exit ], [ %30, %_ZNSt6vectorIN4llvm3EVTESaIS1_EE9push_backEOS1_.exit ]
-  %.07 = phi i32 [ 0, %_ZNSt6vectorIN4llvm3EVTESaIS1_EE7reserveEm.exit ], [ %31, %_ZNSt6vectorIN4llvm3EVTESaIS1_EE9push_backEOS1_.exit ]
+3:                                                ; preds = %_ZNSt12_Vector_baseIN4llvm3EVTESaIS1_EE13_M_deallocateEPS1_m.exit.i, %_ZNSt6vectorIN4llvm3EVTESaIS1_EE9push_backEOS1_.exit
+  %4 = phi ptr [ %0, %_ZNSt12_Vector_baseIN4llvm3EVTESaIS1_EE13_M_deallocateEPS1_m.exit.i ], [ %28, %_ZNSt6vectorIN4llvm3EVTESaIS1_EE9push_backEOS1_.exit ]
+  %5 = phi ptr [ %1, %_ZNSt12_Vector_baseIN4llvm3EVTESaIS1_EE13_M_deallocateEPS1_m.exit.i ], [ %29, %_ZNSt6vectorIN4llvm3EVTESaIS1_EE9push_backEOS1_.exit ]
+  %6 = phi ptr [ %0, %_ZNSt12_Vector_baseIN4llvm3EVTESaIS1_EE13_M_deallocateEPS1_m.exit.i ], [ %30, %_ZNSt6vectorIN4llvm3EVTESaIS1_EE9push_backEOS1_.exit ]
+  %.07 = phi i32 [ 0, %_ZNSt12_Vector_baseIN4llvm3EVTESaIS1_EE13_M_deallocateEPS1_m.exit.i ], [ %31, %_ZNSt6vectorIN4llvm3EVTESaIS1_EE9push_backEOS1_.exit ]
   %7 = trunc nuw nsw i32 %.07 to i16
   %.not.i.i = icmp eq ptr %6, %5
   br i1 %.not.i.i, label %10, label %8

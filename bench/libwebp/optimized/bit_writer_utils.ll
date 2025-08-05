@@ -664,12 +664,12 @@ define hidden range(i32 0, 2) i32 @VP8LBitWriterInit(ptr noundef captures(none) 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.pre = load ptr, ptr %11, align 8, !tbaa !24
-  tail call void @WebPSafeFree(ptr noundef %.pre) #7
+  %13 = load ptr, ptr %11, align 8, !tbaa !24
+  tail call void @WebPSafeFree(ptr noundef %13) #7
   store ptr %5, ptr %11, align 8, !tbaa !24
   store ptr %5, ptr %10, align 8, !tbaa !25
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 %4
-  store ptr %13, ptr %12, align 8, !tbaa !26
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 %4
+  store ptr %14, ptr %12, align 8, !tbaa !26
   br label %VP8LBitWriterResize.exit
 
 VP8LBitWriterResize.exit:                         ; preds = %7, %9

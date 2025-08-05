@@ -6644,26 +6644,23 @@ _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit16: ; preds =
 declare void @_ZNK6google8protobuf14DescriptorPool17FindAllExtensionsEPKNS0_10DescriptorEPSt6vectorIPKNS0_15FieldDescriptorESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf24MergedDescriptorDatabaseC2EPNS0_18DescriptorDatabaseES3_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf24MergedDescriptorDatabaseC2EPNS0_18DescriptorDatabaseES3_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 _ZNKSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EE12_M_check_lenEmPKc.exit.i.i:
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6google8protobuf24MergedDescriptorDatabaseE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
-          to label %_ZNKSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EE12_M_check_lenEmPKc.exit.i.i4 unwind label %13
-
-_ZNKSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EE12_M_check_lenEmPKc.exit.i.i4: ; preds = %_ZNKSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  %6 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
   store ptr %1, ptr %6, align 8, !tbaa !259
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %6, ptr %3, align 8, !tbaa !261
   store ptr %7, ptr %4, align 8, !tbaa !264
   store ptr %7, ptr %5, align 8, !tbaa !265
   %8 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28
-          to label %_ZNSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EE9push_backERKS3_.exit12 unwind label %13
+          to label %_ZNSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EE9push_backERKS3_.exit12 unwind label %_ZNSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EED2Ev.exit
 
-_ZNSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EE9push_backERKS3_.exit12: ; preds = %_ZNKSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EE12_M_check_lenEmPKc.exit.i.i4
+_ZNSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EE9push_backERKS3_.exit12: ; preds = %_ZNKSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %9, align 8, !tbaa !259
   %10 = load i64, ptr %6, align 8
@@ -6676,19 +6673,11 @@ _ZNSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EE9push_backERKS3_.exi
   store ptr %12, ptr %5, align 8, !tbaa !265
   ret void
 
-13:                                               ; preds = %_ZNKSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EE12_M_check_lenEmPKc.exit.i.i4, %_ZNKSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-  %14 = landingpad { ptr, i32 }
+_ZNSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EED2Ev.exit: ; preds = %_ZNKSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %15 = load ptr, ptr %3, align 8, !tbaa !261
-  %.not.i.i.i13 = icmp eq ptr %15, null
-  br i1 %.not.i.i.i13, label %_ZNSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EED2Ev.exit, label %16
-
-16:                                               ; preds = %13
-  tail call void @_ZdlPv(ptr noundef nonnull %15) #27
-  br label %_ZNSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EED2Ev.exit
-
-_ZNSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EED2Ev.exit: ; preds = %13, %16
-  resume { ptr, i32 } %14
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #27
+  resume { ptr, i32 } %13
 }
 
 ; Function Attrs: mustprogress uwtable

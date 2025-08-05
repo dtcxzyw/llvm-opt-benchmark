@@ -5615,7 +5615,6 @@ define void @_ZN17LteRlcGraphDialog10mouseMovedEP11QMouseEvent(ptr noundef align
 60:                                               ; preds = %2, %57
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %9, i8 0, i64 24, i1 false)
-  %61 = getelementptr inbounds nuw i8, ptr %9, i64 16
   invoke void @_ZN7QString11reallocDataExN10QArrayData16AllocationOptionE(ptr noundef nonnull align 8 dereferenceable_or_null(24) %9, i64 noundef 128, i32 noundef 1)
           to label %.noexc unwind label %129
 
@@ -5625,44 +5624,45 @@ define void @_ZN17LteRlcGraphDialog10mouseMovedEP11QMouseEvent(ptr noundef align
   br i1 %.not.i2.i, label %_ZN7QString7reserveEx.exit, label %_ZNK17QArrayDataPointerIDsE22constAllocatedCapacityEv.exit.i
 
 _ZNK17QArrayDataPointerIDsE22constAllocatedCapacityEv.exit.i: ; preds = %.noexc
-  %62 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
-  %63 = load i64, ptr %62, align 8
-  %.not1.i = icmp eq i64 %63, 0
-  br i1 %.not1.i, label %_ZN7QString7reserveEx.exit, label %64
+  %61 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
+  %62 = load i64, ptr %61, align 8
+  %.not1.i = icmp eq i64 %62, 0
+  br i1 %.not1.i, label %_ZN7QString7reserveEx.exit, label %63
 
-64:                                               ; preds = %_ZNK17QArrayDataPointerIDsE22constAllocatedCapacityEv.exit.i
-  %65 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 4
-  %66 = load i32, ptr %65, align 4
-  %67 = or i32 %66, 1
-  store i32 %67, ptr %65, align 4
+63:                                               ; preds = %_ZNK17QArrayDataPointerIDsE22constAllocatedCapacityEv.exit.i
+  %64 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 4
+  %65 = load i32, ptr %64, align 4
+  %66 = or i32 %65, 1
+  store i32 %66, ptr %64, align 4
   br label %_ZN7QString7reserveEx.exit
 
-_ZN7QString7reserveEx.exit:                       ; preds = %64, %_ZNK17QArrayDataPointerIDsE22constAllocatedCapacityEv.exit.i, %.noexc
+_ZN7QString7reserveEx.exit:                       ; preds = %63, %_ZNK17QArrayDataPointerIDsE22constAllocatedCapacityEv.exit.i, %.noexc
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #21
   invoke void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %5, i64 10, ptr nonnull @.str.20)
           to label %.noexc81 unwind label %129
 
 .noexc81:                                         ; preds = %_ZN7QString7reserveEx.exit
-  %68 = load ptr, ptr %9, align 8
-  %69 = load ptr, ptr %5, align 8
-  store ptr %69, ptr %9, align 8
-  store ptr %68, ptr %5, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %71 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %67 = load ptr, ptr %9, align 8
+  %68 = load ptr, ptr %5, align 8
+  store ptr %68, ptr %9, align 8
+  store ptr %67, ptr %5, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %71 = load ptr, ptr %69, align 8
   %72 = load ptr, ptr %70, align 8
-  %73 = load ptr, ptr %71, align 8
-  store ptr %73, ptr %70, align 8
-  store ptr %72, ptr %71, align 8
+  store ptr %72, ptr %69, align 8
+  store ptr %71, ptr %70, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %75 = load i64, ptr %61, align 8
+  %75 = load i64, ptr %73, align 8
   %76 = load i64, ptr %74, align 8
-  store i64 %76, ptr %61, align 8
+  store i64 %76, ptr %73, align 8
   store i64 %75, ptr %74, align 8
-  %.not.i.i.i.i = icmp eq ptr %68, null
+  %.not.i.i.i.i = icmp eq ptr %67, null
   br i1 %.not.i.i.i.i, label %80, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i
 
 _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %.noexc81
-  %77 = atomicrmw sub ptr %68, i32 1 seq_cst, align 4
+  %77 = atomicrmw sub ptr %67, i32 1 seq_cst, align 4
   %.not.i.i.i = icmp eq i32 %77, 1
   br i1 %.not.i.i.i, label %78, label %80
 

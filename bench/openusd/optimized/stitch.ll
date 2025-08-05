@@ -3152,7 +3152,7 @@ _ZNSt8_Rb_treeIdSt4pairIKdN32pxrInternal_v0_24__pxrReserved__7VtValueEESt10_Sele
   store i64 %434, ptr %423, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   store ptr %427, ptr %420, align 8
-  %.pre312 = load ptr, ptr %413, align 8
+  %.pre = load ptr, ptr %413, align 8
   %.pre313 = load ptr, ptr %414, align 8
   br label %442
 
@@ -3165,12 +3165,12 @@ _ZNSt8_Rb_treeIdSt4pairIKdN32pxrInternal_v0_24__pxrReserved__7VtValueEESt10_Sele
   %436 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %418, i64 noundef 48) #22
-  %.pre = load ptr, ptr %416, align 8
-  %.not.i.i.i225 = icmp eq ptr %.pre, null
+  %.pr311 = load ptr, ptr %416, align 8
+  %.not.i.i.i225 = icmp eq ptr %.pr311, null
   br i1 %.not.i.i.i225, label %.body, label %437
 
 437:                                              ; preds = %.body310
-  %438 = invoke noundef zeroext i1 %.pre(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %48, i32 noundef 3)
+  %438 = invoke noundef zeroext i1 %.pr311(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %48, i32 noundef 3)
           to label %.body unwind label %439
 
 439:                                              ; preds = %437
@@ -3182,7 +3182,7 @@ _ZNSt8_Rb_treeIdSt4pairIKdN32pxrInternal_v0_24__pxrReserved__7VtValueEESt10_Sele
 
 442:                                              ; preds = %433, %.noexc
   %443 = phi ptr [ %.pre313, %433 ], [ @"_ZNSt17_Function_handlerIFvRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEERKNS0_7SdfPathEEZNS0_12_GLOBAL__N_113_MergeValueFnENS0_11SdfSpecTypeERKNS0_7TfTokenES5_S8_bS5_S8_bPSt8optionalINS0_7VtValueEERKSt8functionIFNS0_25UsdUtilsStitchValueStatusESE_S8_S5_bS5_bPSG_EEE3$_0E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation", %.noexc ]
-  %444 = phi ptr [ %.pre312, %433 ], [ @"_ZNSt17_Function_handlerIFvRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEERKNS0_7SdfPathEEZNS0_12_GLOBAL__N_113_MergeValueFnENS0_11SdfSpecTypeERKNS0_7TfTokenES5_S8_bS5_S8_bPSt8optionalINS0_7VtValueEERKSt8functionIFNS0_25UsdUtilsStitchValueStatusESE_S8_S5_bS5_bPSG_EEE3$_0E9_M_invokeERKSt9_Any_dataS5_S8_", %.noexc ]
+  %444 = phi ptr [ %.pre, %433 ], [ @"_ZNSt17_Function_handlerIFvRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEERKNS0_7SdfPathEEZNS0_12_GLOBAL__N_113_MergeValueFnENS0_11SdfSpecTypeERKNS0_7TfTokenES5_S8_bS5_S8_bPSt8optionalINS0_7VtValueEERKSt8functionIFNS0_25UsdUtilsStitchValueStatusESE_S8_S5_bS5_bPSG_EEE3$_0E9_M_invokeERKSt9_Any_dataS5_S8_", %.noexc ]
   store ptr %418, ptr %48, align 8
   store ptr %444, ptr %417, align 8
   store ptr %443, ptr %416, align 8

@@ -2035,15 +2035,15 @@ _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i:  ; preds = %171
   %176 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %175) #28
   store i64 0, ptr %176, align 8, !tbaa !69
   %177 = icmp ult i32 %172, 2
-  br i1 %177, label %_ZNSt6vectorImSaImEE17_M_default_appendEm.exit, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i25.i
+  br i1 %177, label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i25.i
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i25.i: ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i
   %178 = getelementptr i8, ptr %176, i64 8
   %179 = add nsw i64 %175, -8
   call void @llvm.memset.p0.i64(ptr align 8 %178, i8 0, i64 %179, i1 false), !tbaa !69
-  br label %_ZNSt6vectorImSaImEE17_M_default_appendEm.exit
+  br label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i
 
-_ZNSt6vectorImSaImEE17_M_default_appendEm.exit:   ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i25.i
+_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i: ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i25.i, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i
   store ptr %176, ptr %77, align 8, !tbaa !73
   %180 = getelementptr inbounds nuw i64, ptr %176, i64 %.sink.i.i
   store ptr %180, ptr %79, align 8, !tbaa !75
@@ -2051,7 +2051,7 @@ _ZNSt6vectorImSaImEE17_M_default_appendEm.exit:   ; preds = %_ZNKSt6vectorImSaIm
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN5Ttopt18TruthTableLevelTSME, i64 16), ptr %8, align 8, !tbaa !36
   br i1 %81, label %.lr.ph117, label %._crit_edge
 
-.lr.ph117:                                        ; preds = %_ZNSt6vectorImSaImEE17_M_default_appendEm.exit
+.lr.ph117:                                        ; preds = %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i
   %181 = icmp sgt i32 %.val85, 5
   %182 = sext i32 %.val85 to i64
   %183 = getelementptr inbounds [7 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %182
@@ -2136,7 +2136,7 @@ _ZNSt6vectorImSaImEE17_M_default_appendEm.exit:   ; preds = %_ZNKSt6vectorImSaIm
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count138
   br i1 %exitcond139.not, label %._crit_edge, label %184, !llvm.loop !114
 
-._crit_edge:                                      ; preds = %224, %_ZNSt6vectorImSaImEE17_M_default_appendEm.exit
+._crit_edge:                                      ; preds = %224, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i
   %.val84 = load i32, ptr %92, align 4, !tbaa !31
   %225 = shl nuw i32 1, %.val84
   store i32 %225, ptr %7, align 4, !tbaa !67

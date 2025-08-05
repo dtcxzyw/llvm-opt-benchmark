@@ -1779,128 +1779,128 @@ define ptr @parseHTML(ptr noundef %0, ptr noundef writeonly captures(none) %1, p
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 216
   %malloc = tail call dereferenceable_or_null(8) ptr @malloc(i64 8)
   %7 = icmp eq ptr %malloc, null
-  br i1 %7, label %8, label %sfont_push_back.exit
+  br i1 %7, label %20, label %sfont_push_back.exit
 
-8:                                                ; preds = %3
-  %9 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %10 = tail call ptr @strerror(i32 noundef 12) #16
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #19
+sfont_push_back.exit:                             ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 240
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 232
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 224
+  store ptr %malloc, ptr %6, align 8, !tbaa !30
+  store i64 1, ptr %8, align 8, !tbaa !32
+  store ptr null, ptr %malloc, align 8, !tbaa !33
+  store i64 1, ptr %9, align 8, !tbaa !29
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %12 = load ptr, ptr %11, align 8, !tbaa !118
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load ptr, ptr %13, align 8, !tbaa !120
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 168
+  %16 = load ptr, ptr %15, align 8, !tbaa !124
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 248
+  store ptr %16, ptr %17, align 8, !tbaa !136
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 208
+  store ptr %4, ptr %18, align 8, !tbaa !28
+  %19 = call i32 @initHTMLlexer(ptr noundef nonnull %5, ptr noundef %0, ptr noundef nonnull %4, ptr noundef %2) #16
+  %.not = icmp eq i32 %19, 0
+  br i1 %.not, label %24, label %29
+
+20:                                               ; preds = %3
+  %21 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %22 = tail call ptr @strerror(i32 noundef 12) #16
+  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.11, ptr noundef %22) #19
   tail call fastcc void @graphviz_exit() #20
   unreachable
 
-sfont_push_back.exit:                             ; preds = %3
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 240
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 232
-  store ptr %malloc, ptr %6, align 8, !tbaa !30
-  store i64 1, ptr %12, align 8, !tbaa !32
-  store ptr null, ptr %malloc, align 8, !tbaa !33
-  store i64 1, ptr %13, align 8, !tbaa !29
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %15 = load ptr, ptr %14, align 8, !tbaa !118
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !120
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 168
-  %19 = load ptr, ptr %18, align 8, !tbaa !124
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  store ptr %19, ptr %20, align 8, !tbaa !136
-  %21 = getelementptr inbounds nuw i8, ptr %5, i64 208
-  store ptr %4, ptr %21, align 8, !tbaa !28
-  %22 = call i32 @initHTMLlexer(ptr noundef nonnull %5, ptr noundef %0, ptr noundef nonnull %4, ptr noundef %2) #16
-  %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %23, label %28
+24:                                               ; preds = %sfont_push_back.exit
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  %26 = call i32 @htmlparse(ptr noundef nonnull %5)
+  %27 = call i32 @clearHTMLlexer(ptr noundef nonnull %5) #16
+  %28 = load ptr, ptr %25, align 8, !tbaa !14
+  br label %29
 
-23:                                               ; preds = %sfont_push_back.exit
-  %24 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %25 = call i32 @htmlparse(ptr noundef nonnull %5)
-  %26 = call i32 @clearHTMLlexer(ptr noundef nonnull %5) #16
-  %27 = load ptr, ptr %24, align 8, !tbaa !14
-  br label %28
-
-28:                                               ; preds = %sfont_push_back.exit, %23
-  %.sink = phi i32 [ %26, %23 ], [ 2, %sfont_push_back.exit ]
-  %.0 = phi ptr [ %27, %23 ], [ null, %sfont_push_back.exit ]
+29:                                               ; preds = %sfont_push_back.exit, %24
+  %.sink = phi i32 [ %27, %24 ], [ 2, %sfont_push_back.exit ]
+  %.0 = phi ptr [ %28, %24 ], [ null, %sfont_push_back.exit ]
   store i32 %.sink, ptr %1, align 4, !tbaa !137
-  %29 = getelementptr inbounds nuw i8, ptr %5, i64 144
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 160
-  %31 = load i64, ptr %30, align 8, !tbaa !29
-  %.not.i.i = icmp eq i64 %31, 0
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 144
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 160
+  %32 = load i64, ptr %31, align 8, !tbaa !29
+  %.not.i.i = icmp eq i64 %32, 0
   br i1 %.not.i.i, label %textspans_free.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %28
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 152
-  %33 = getelementptr inbounds nuw i8, ptr %5, i64 168
-  br label %34
+.lr.ph.i.i:                                       ; preds = %29
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 152
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 168
+  br label %35
 
-34:                                               ; preds = %34, %.lr.ph.i.i
-  %.06.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %41, %34 ]
-  %35 = load ptr, ptr %29, align 8, !tbaa !30, !noalias !138
-  %36 = load i64, ptr %32, align 8, !tbaa !31, !noalias !138
-  %37 = add i64 %36, %.06.i.i
-  %38 = load i64, ptr %33, align 8, !tbaa !32, !noalias !138
-  %39 = urem i64 %37, %38
-  %40 = getelementptr inbounds nuw %struct.textspan_t, ptr %35, i64 %39
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %40, align 8, !tbaa !55
+35:                                               ; preds = %35, %.lr.ph.i.i
+  %.06.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %42, %35 ]
+  %36 = load ptr, ptr %30, align 8, !tbaa !30, !noalias !138
+  %37 = load i64, ptr %33, align 8, !tbaa !31, !noalias !138
+  %38 = add i64 %37, %.06.i.i
+  %39 = load i64, ptr %34, align 8, !tbaa !32, !noalias !138
+  %40 = urem i64 %38, %39
+  %41 = getelementptr inbounds nuw %struct.textspan_t, ptr %36, i64 %40
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %41, align 8, !tbaa !55
   call void @free(ptr noundef %.sroa.0.0.copyload.i.i) #16
-  %41 = add nuw i64 %.06.i.i, 1
-  %42 = load i64, ptr %30, align 8, !tbaa !29
-  %43 = icmp ult i64 %41, %42
-  br i1 %43, label %34, label %textspans_free.exit, !llvm.loop !56
+  %42 = add nuw i64 %.06.i.i, 1
+  %43 = load i64, ptr %31, align 8, !tbaa !29
+  %44 = icmp ult i64 %42, %43
+  br i1 %44, label %35, label %textspans_free.exit, !llvm.loop !56
 
-textspans_free.exit:                              ; preds = %34, %28
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 152
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
-  %45 = load ptr, ptr %29, align 8, !tbaa !30
-  call void @free(ptr noundef %45) #16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, i8 0, i64 32, i1 false)
-  %46 = getelementptr inbounds nuw i8, ptr %5, i64 176
-  %47 = getelementptr inbounds nuw i8, ptr %5, i64 192
-  %48 = load i64, ptr %47, align 8, !tbaa !29
-  %.not.i.i7 = icmp eq i64 %48, 0
+textspans_free.exit:                              ; preds = %35, %29
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 152
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
+  %46 = load ptr, ptr %30, align 8, !tbaa !30
+  call void @free(ptr noundef %46) #16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 0, i64 32, i1 false)
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 176
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 192
+  %49 = load i64, ptr %48, align 8, !tbaa !29
+  %.not.i.i7 = icmp eq i64 %49, 0
   br i1 %.not.i.i7, label %htextspans_free.exit, label %.lr.ph.i.i8
 
 .lr.ph.i.i8:                                      ; preds = %textspans_free.exit
-  %49 = getelementptr inbounds nuw i8, ptr %5, i64 184
-  %50 = getelementptr inbounds nuw i8, ptr %5, i64 200
-  br label %51
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 184
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 200
+  br label %52
 
-51:                                               ; preds = %free_hi.exit.i.i, %.lr.ph.i.i8
-  %.07.i.i = phi i64 [ 0, %.lr.ph.i.i8 ], [ %61, %free_hi.exit.i.i ]
-  %52 = load ptr, ptr %46, align 8, !tbaa !30, !noalias !141
-  %53 = load i64, ptr %49, align 8, !tbaa !31, !noalias !141
-  %54 = add i64 %53, %.07.i.i
-  %55 = load i64, ptr %50, align 8, !tbaa !32, !noalias !141
-  %56 = urem i64 %54, %55
-  %57 = getelementptr inbounds nuw %struct.htextspan_t, ptr %52, i64 %56
-  %.sroa.0.0.copyload.i.i9 = load ptr, ptr %57, align 8, !tbaa !33
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %57, i64 8
+52:                                               ; preds = %free_hi.exit.i.i, %.lr.ph.i.i8
+  %.07.i.i = phi i64 [ 0, %.lr.ph.i.i8 ], [ %62, %free_hi.exit.i.i ]
+  %53 = load ptr, ptr %47, align 8, !tbaa !30, !noalias !141
+  %54 = load i64, ptr %50, align 8, !tbaa !31, !noalias !141
+  %55 = add i64 %54, %.07.i.i
+  %56 = load i64, ptr %51, align 8, !tbaa !32, !noalias !141
+  %57 = urem i64 %55, %56
+  %58 = getelementptr inbounds nuw %struct.htextspan_t, ptr %53, i64 %57
+  %.sroa.0.0.copyload.i.i9 = load ptr, ptr %58, align 8, !tbaa !33
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %58, i64 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !60
   %.not.i.i.i = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
   br i1 %.not.i.i.i, label %free_hi.exit.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %51, %.lr.ph.i.i.i
-  %.01.i.i.i = phi i64 [ %60, %.lr.ph.i.i.i ], [ 0, %51 ]
-  %58 = getelementptr inbounds nuw %struct.textspan_t, ptr %.sroa.0.0.copyload.i.i9, i64 %.01.i.i.i
-  %59 = load ptr, ptr %58, align 8, !tbaa !61
-  call void @free(ptr noundef %59) #16
-  %60 = add nuw i64 %.01.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %60, %.sroa.2.0.copyload.i.i
+.lr.ph.i.i.i:                                     ; preds = %52, %.lr.ph.i.i.i
+  %.01.i.i.i = phi i64 [ %61, %.lr.ph.i.i.i ], [ 0, %52 ]
+  %59 = getelementptr inbounds nuw %struct.textspan_t, ptr %.sroa.0.0.copyload.i.i9, i64 %.01.i.i.i
+  %60 = load ptr, ptr %59, align 8, !tbaa !61
+  call void @free(ptr noundef %60) #16
+  %61 = add nuw i64 %.01.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %61, %.sroa.2.0.copyload.i.i
   br i1 %exitcond.not.i.i.i, label %free_hi.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !63
 
-free_hi.exit.i.i:                                 ; preds = %.lr.ph.i.i.i, %51
+free_hi.exit.i.i:                                 ; preds = %.lr.ph.i.i.i, %52
   call void @free(ptr noundef %.sroa.0.0.copyload.i.i9) #16
-  %61 = add nuw i64 %.07.i.i, 1
-  %62 = load i64, ptr %47, align 8, !tbaa !29
-  %63 = icmp ult i64 %61, %62
-  br i1 %63, label %51, label %htextspans_free.exit, !llvm.loop !64
+  %62 = add nuw i64 %.07.i.i, 1
+  %63 = load i64, ptr %48, align 8, !tbaa !29
+  %64 = icmp ult i64 %62, %63
+  br i1 %64, label %52, label %htextspans_free.exit, !llvm.loop !64
 
 htextspans_free.exit:                             ; preds = %free_hi.exit.i.i, %textspans_free.exit
-  %64 = getelementptr inbounds nuw i8, ptr %5, i64 184
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, i8 0, i64 16, i1 false)
-  %65 = load ptr, ptr %46, align 8, !tbaa !30
-  call void @free(ptr noundef %65) #16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 0, i64 32, i1 false)
-  %66 = getelementptr inbounds nuw i8, ptr %5, i64 224
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, i8 0, i64 16, i1 false)
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 184
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false)
+  %66 = load ptr, ptr %47, align 8, !tbaa !30
+  call void @free(ptr noundef %66) #16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %67 = load ptr, ptr %6, align 8, !tbaa !30
   call void @free(ptr noundef %67) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)

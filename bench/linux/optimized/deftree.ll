@@ -95,49 +95,49 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
 
 46:                                               ; preds = %43
   %47 = ashr i32 %38, 7
-  br label %50
+  br label %49
 
 48:                                               ; preds = %.loopexit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false)
-  %49 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %76
 
-50:                                               ; preds = %.loopexit, %46
-  %51 = phi i64 [ 16, %46 ], [ %72, %.loopexit ]
-  %52 = phi i32 [ %47, %46 ], [ %71, %.loopexit ]
-  %53 = shl i32 %52, 7
-  %54 = getelementptr [30 x i32], ptr @base_dist, i64 0, i64 %51
-  store i32 %53, ptr %54, align 4
-  %55 = getelementptr [30 x i32], ptr @extra_dbits, i64 0, i64 %51
-  %56 = load i32, ptr %55, align 4
-  %57 = add i32 %56, -7
-  %58 = icmp eq i32 %57, 31
-  br i1 %58, label %.loopexit, label %59
+49:                                               ; preds = %.loopexit, %46
+  %50 = phi i64 [ 16, %46 ], [ %71, %.loopexit ]
+  %51 = phi i32 [ %47, %46 ], [ %70, %.loopexit ]
+  %52 = shl i32 %51, 7
+  %53 = getelementptr [30 x i32], ptr @base_dist, i64 0, i64 %50
+  store i32 %52, ptr %53, align 4
+  %54 = getelementptr [30 x i32], ptr @extra_dbits, i64 0, i64 %50
+  %55 = load i32, ptr %54, align 4
+  %56 = add i32 %55, -7
+  %57 = icmp eq i32 %56, 31
+  br i1 %57, label %.loopexit, label %58
 
-59:                                               ; preds = %50
-  %60 = shl nuw nsw i32 1, %57
-  %61 = trunc i64 %51 to i8
-  br label %62
+58:                                               ; preds = %49
+  %59 = shl nuw nsw i32 1, %56
+  %60 = trunc i64 %50 to i8
+  br label %61
 
-62:                                               ; preds = %62, %59
-  %63 = phi i32 [ 0, %59 ], [ %69, %62 ]
-  %64 = phi i32 [ %52, %59 ], [ %65, %62 ]
-  %65 = add i32 %64, 1
-  %66 = add i32 %64, 256
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr [512 x i8], ptr @dist_code, i64 0, i64 %67
-  store i8 %61, ptr %68, align 1
-  %69 = add nuw nsw i32 %63, 1
-  %70 = icmp eq i32 %69, %60
-  br i1 %70, label %.loopexit, label %62, !llvm.loop !11
+61:                                               ; preds = %61, %58
+  %62 = phi i32 [ 0, %58 ], [ %68, %61 ]
+  %63 = phi i32 [ %51, %58 ], [ %64, %61 ]
+  %64 = add i32 %63, 1
+  %65 = add i32 %63, 256
+  %66 = sext i32 %65 to i64
+  %67 = getelementptr [512 x i8], ptr @dist_code, i64 0, i64 %66
+  store i8 %60, ptr %67, align 1
+  %68 = add nuw nsw i32 %62, 1
+  %69 = icmp eq i32 %68, %59
+  br i1 %69, label %.loopexit, label %61, !llvm.loop !11
 
-.loopexit:                                        ; preds = %62, %50
-  %71 = phi i32 [ %52, %50 ], [ %65, %62 ]
-  %72 = add nuw nsw i64 %51, 1
-  %73 = icmp eq i64 %72, 30
-  br i1 %73, label %48, label %50, !llvm.loop !12
+.loopexit:                                        ; preds = %61, %49
+  %70 = phi i32 [ %51, %49 ], [ %64, %61 ]
+  %71 = add nuw nsw i64 %50, 1
+  %72 = icmp eq i64 %71, 30
+  br i1 %72, label %48, label %49, !llvm.loop !12
 
-74:                                               ; preds = %76
+73:                                               ; preds = %76
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 18
   br label %83
 
@@ -147,15 +147,15 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
   %79 = getelementptr [288 x %struct.ct_data_s], ptr @static_ltree, i64 0, i64 %77, i32 1
   store i16 8, ptr %79, align 2
   %80 = icmp eq i64 %78, 144
-  br i1 %80, label %74, label %76, !llvm.loop !13
+  br i1 %80, label %73, label %76, !llvm.loop !13
 
 81:                                               ; preds = %83
   store i16 112, ptr %75, align 2
   %82 = getelementptr inbounds nuw i8, ptr %3, i64 14
   br label %89
 
-83:                                               ; preds = %83, %74
-  %84 = phi i64 [ 144, %74 ], [ %85, %83 ]
+83:                                               ; preds = %83, %73
+  %84 = phi i64 [ 144, %73 ], [ %85, %83 ]
   %85 = add nuw nsw i64 %84, 1
   %86 = getelementptr [288 x %struct.ct_data_s], ptr @static_ltree, i64 0, i64 %84, i32 1
   store i16 9, ptr %86, align 2
@@ -183,7 +183,7 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
   br i1 %98, label %99, label %94, !llvm.loop !16
 
 99:                                               ; preds = %94
-  store i16 152, ptr %49, align 16
+  store i16 152, ptr %74, align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !17
   %100 = getelementptr i8, ptr %3, i64 -2

@@ -1061,35 +1061,35 @@ define dso_local void @_ZN19BM_stdvector_Resize4BodyEv() local_unnamed_addr #3 a
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   store i32 2, ptr %2, align 4
   invoke void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr null, i64 noundef 100000, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit unwind label %6
+          to label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit unwind label %7
 
 _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %0
-  %.pre = load ptr, ptr %1, align 8
-  %3 = call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %.pre) #16, !srcloc !7
-  %4 = load ptr, ptr %1, align 8
-  %.not.i.i.i = icmp eq ptr %4, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %5
+  %3 = load ptr, ptr %1, align 8
+  %4 = call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %3) #16, !srcloc !7
+  %5 = load ptr, ptr %1, align 8
+  %.not.i.i.i = icmp eq ptr %5, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %6
 
-5:                                                ; preds = %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
-  call void @_ZdlPv(ptr noundef nonnull %4) #20
+6:                                                ; preds = %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
+  call void @_ZdlPv(ptr noundef nonnull %5) #20
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit, %5
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit, %6
   ret void
 
-6:                                                ; preds = %0
-  %7 = landingpad { ptr, i32 }
+7:                                                ; preds = %0
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = load ptr, ptr %1, align 8
-  %.not.i.i.i1 = icmp eq ptr %8, null
-  br i1 %.not.i.i.i1, label %_ZNSt6vectorIiSaIiEED2Ev.exit2, label %9
+  %9 = load ptr, ptr %1, align 8
+  %.not.i.i.i1 = icmp eq ptr %9, null
+  br i1 %.not.i.i.i1, label %_ZNSt6vectorIiSaIiEED2Ev.exit2, label %10
 
-9:                                                ; preds = %6
-  call void @_ZdlPv(ptr noundef nonnull %8) #20
+10:                                               ; preds = %7
+  call void @_ZdlPv(ptr noundef nonnull %9) #20
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit2
 
-_ZNSt6vectorIiSaIiEED2Ev.exit2:                   ; preds = %6, %9
-  resume { ptr, i32 } %7
+_ZNSt6vectorIiSaIiEED2Ev.exit2:                   ; preds = %7, %10
+  resume { ptr, i32 } %8
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1537,60 +1537,60 @@ define linkonce_odr dso_local void @_ZN19BM_stdvector_Resize3RunEv() local_unnam
   br label %9
 
 9:                                                ; preds = %0, %_ZN19BM_stdvector_Resize4BodyEv.exit
-  %.07 = phi i32 [ 0, %0 ], [ %17, %_ZN19BM_stdvector_Resize4BodyEv.exit ]
+  %.07 = phi i32 [ 0, %0 ], [ %18, %_ZN19BM_stdvector_Resize4BodyEv.exit ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   store i32 2, ptr %3, align 4
   invoke void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr null, i64 noundef 100000, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i unwind label %13
+          to label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i unwind label %14
 
 _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i:          ; preds = %9
-  %.pre.i = load ptr, ptr %2, align 8
-  %10 = call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %.pre.i) #16, !srcloc !7
-  %11 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i = icmp eq ptr %11, null
-  br i1 %.not.i.i.i.i, label %_ZN19BM_stdvector_Resize4BodyEv.exit, label %12
+  %10 = load ptr, ptr %2, align 8
+  %11 = call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %10) #16, !srcloc !7
+  %12 = load ptr, ptr %2, align 8
+  %.not.i.i.i.i = icmp eq ptr %12, null
+  br i1 %.not.i.i.i.i, label %_ZN19BM_stdvector_Resize4BodyEv.exit, label %13
 
-12:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %11) #20
+13:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i
+  call void @_ZdlPv(ptr noundef nonnull %12) #20
   br label %_ZN19BM_stdvector_Resize4BodyEv.exit
 
-13:                                               ; preds = %9
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %9
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = load ptr, ptr %2, align 8
-  %.not.i.i.i1.i = icmp eq ptr %15, null
-  br i1 %.not.i.i.i1.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit2.i, label %16
+  %16 = load ptr, ptr %2, align 8
+  %.not.i.i.i1.i = icmp eq ptr %16, null
+  br i1 %.not.i.i.i1.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit2.i, label %17
 
-16:                                               ; preds = %13
-  call void @_ZdlPv(ptr noundef nonnull %15) #20
+17:                                               ; preds = %14
+  call void @_ZdlPv(ptr noundef nonnull %16) #20
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit2.i
 
-_ZNSt6vectorIiSaIiEED2Ev.exit2.i:                 ; preds = %16, %13
-  resume { ptr, i32 } %14
+_ZNSt6vectorIiSaIiEED2Ev.exit2.i:                 ; preds = %17, %14
+  resume { ptr, i32 } %15
 
-_ZN19BM_stdvector_Resize4BodyEv.exit:             ; preds = %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i, %12
+_ZN19BM_stdvector_Resize4BodyEv.exit:             ; preds = %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i, %13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %17 = add nuw nsw i32 %.07, 1
-  %exitcond.not = icmp eq i32 %17, 100
-  br i1 %exitcond.not, label %18, label %9, !llvm.loop !29
+  %18 = add nuw nsw i32 %.07, 1
+  %exitcond.not = icmp eq i32 %18, 100
+  br i1 %exitcond.not, label %19, label %9, !llvm.loop !29
 
-18:                                               ; preds = %_ZN19BM_stdvector_Resize4BodyEv.exit
+19:                                               ; preds = %_ZN19BM_stdvector_Resize4BodyEv.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
-  %19 = call i32 @clock_gettime(i32 noundef 2, ptr noundef nonnull %1) #16
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %21 = load i64, ptr %20, align 8
-  %22 = load i64, ptr %1, align 8
+  %20 = call i32 @clock_gettime(i32 noundef 2, ptr noundef nonnull %1) #16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %22 = load i64, ptr %21, align 8
+  %23 = load i64, ptr %1, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
-  %reass.add = sub i64 %22, %8
+  %reass.add = sub i64 %23, %8
   %reass.mul = mul i64 %reass.add, 1000000000
-  %23 = sub i64 %21, %7
-  %24 = add i64 %23, %reass.mul
-  %25 = sitofp i64 %24 to double
-  %26 = fdiv double %25, 1.000000e+02
-  %27 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, ptr noundef nonnull @.str.40, i64 noundef 100, i64 noundef %24, double noundef %26)
+  %24 = sub i64 %22, %7
+  %25 = add i64 %24, %reass.mul
+  %26 = sitofp i64 %25 to double
+  %27 = fdiv double %26, 1.000000e+02
+  %28 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, ptr noundef nonnull @.str.40, i64 noundef 100, i64 noundef %25, double noundef %27)
   ret void
 }
 

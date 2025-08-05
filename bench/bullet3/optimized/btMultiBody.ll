@@ -6456,15 +6456,15 @@ _ZNK11btMultiBody30isLinkAndAllAncestorsKinematicEi.exit634.thread: ; preds = %9
   %indvars.iv1607 = phi i64 [ 0, %.lr.ph1466.preheader ], [ %indvars.iv.next1608, %._crit_edge1452 ]
   %1270 = getelementptr inbounds nuw [6 x %struct.btSpatialForceVector], ptr %13, i64 0, i64 %indvars.iv1607
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %1270, i8 0, i64 32, i1 false)
+  %invariant.gep1743 = getelementptr inbounds nuw float, ptr %1196, i64 %indvars.iv1607
+  br label %1276
+
+._crit_edge1452:                                  ; preds = %1276
   %1271 = getelementptr inbounds nuw i8, ptr %1270, i64 4
   %1272 = getelementptr inbounds nuw i8, ptr %1270, i64 8
   %1273 = getelementptr inbounds nuw i8, ptr %1270, i64 16
   %1274 = getelementptr inbounds nuw i8, ptr %1270, i64 20
   %1275 = getelementptr inbounds nuw i8, ptr %1270, i64 24
-  %invariant.gep1743 = getelementptr inbounds nuw float, ptr %1196, i64 %indvars.iv1607
-  br label %1276
-
-._crit_edge1452:                                  ; preds = %1276
   store float %1302, ptr %1270, align 16, !tbaa !4
   store float %1303, ptr %1271, align 4, !tbaa !4
   store float %1304, ptr %1272, align 8, !tbaa !4

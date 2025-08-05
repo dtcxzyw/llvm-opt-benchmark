@@ -12213,7 +12213,7 @@ invoke.cont3:                                     ; preds = %.noexc44
   %m_sendThread = getelementptr inbounds nuw i8, ptr %this, i64 440
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %_M_node_count.i.i.i.i.i, i8 0, i64 72, i1 false)
   %call = invoke noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #33
-          to label %invoke.cont5 unwind label %lpad4
+          to label %invoke.cont5 unwind label %ehcleanup30.thread
 
 invoke.cont5:                                     ; preds = %invoke.cont3
   invoke void @_ZN3con20ConnectionSendThreadC1Ejf(ptr noundef nonnull align 8 dereferenceable(284) %call, i32 noundef %max_packet_size, float noundef %timeout)
@@ -12271,10 +12271,10 @@ lpad2:                                            ; preds = %invoke.cont
           cleanup
   br label %ehcleanup33
 
-lpad4:                                            ; preds = %invoke.cont3
+ehcleanup30.thread:                               ; preds = %invoke.cont3
   %9 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup30
+  br label %_ZNSt6vectorItSaItEED2Ev.exit
 
 lpad6:                                            ; preds = %invoke.cont5
   %10 = landingpad { ptr, i32 }
@@ -12331,24 +12331,25 @@ _ZNSt10unique_ptrIN3con20ConnectionSendThreadESt14default_deleteIS1_EED2Ev.exit:
   store ptr null, ptr %m_sendThread, align 8, !tbaa !44
   br label %ehcleanup30
 
-ehcleanup30:                                      ; preds = %_ZNSt10unique_ptrIN3con20ConnectionSendThreadESt14default_deleteIS1_EED2Ev.exit, %lpad6, %lpad4
-  %.pn.pn = phi { ptr, i32 } [ %.pn55, %_ZNSt10unique_ptrIN3con20ConnectionSendThreadESt14default_deleteIS1_EED2Ev.exit ], [ %10, %lpad6 ], [ %9, %lpad4 ]
-  %18 = load ptr, ptr %m_peer_ids, align 8, !tbaa !394
-  %tobool.not.i.i.i = icmp eq ptr %18, null
+ehcleanup30:                                      ; preds = %_ZNSt10unique_ptrIN3con20ConnectionSendThreadESt14default_deleteIS1_EED2Ev.exit, %lpad6
+  %.pn.pn.ph = phi { ptr, i32 } [ %10, %lpad6 ], [ %.pn55, %_ZNSt10unique_ptrIN3con20ConnectionSendThreadESt14default_deleteIS1_EED2Ev.exit ]
+  %.pr2 = load ptr, ptr %m_peer_ids, align 8, !tbaa !394
+  %tobool.not.i.i.i = icmp eq ptr %.pr2, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %ehcleanup30
-  tail call void @_ZdlPv(ptr noundef nonnull %18) #32
+  tail call void @_ZdlPv(ptr noundef nonnull %.pr2) #32
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
-_ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %if.then.i.i.i, %ehcleanup30
+_ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %ehcleanup30.thread, %if.then.i.i.i, %ehcleanup30
+  %.pn.pn5 = phi { ptr, i32 } [ %9, %ehcleanup30.thread ], [ %.pn.pn.ph, %if.then.i.i.i ], [ %.pn.pn.ph, %ehcleanup30 ]
   tail call void @_ZNSt3mapItPN3con4PeerESt4lessItESaISt4pairIKtS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %m_peers) #31
   tail call void @_ZN9SemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_signal.i42) #31
   tail call void @_ZNSt5dequeISt10shared_ptrIN3con15ConnectionEventEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %m_event_queue) #31
   br label %ehcleanup33
 
 ehcleanup33:                                      ; preds = %_ZNSt6vectorItSaItEED2Ev.exit, %lpad2, %lpad.i43
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt6vectorItSaItEED2Ev.exit ], [ %8, %lpad2 ], [ %1, %lpad.i43 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn5, %_ZNSt6vectorItSaItEED2Ev.exit ], [ %8, %lpad2 ], [ %1, %lpad.i43 ]
   tail call void @_ZN9SemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_signal.i) #31
   tail call void @_ZNSt5dequeISt10shared_ptrIN3con17ConnectionCommandEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %m_command_queue) #31
   br label %ehcleanup34

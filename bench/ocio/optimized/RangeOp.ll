@@ -293,13 +293,13 @@ define hidden void @_ZN19OpenColorIO_v2_5dev13CreateRangeOpERNS_10OpRcPtrVecERSt
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataEEC2ERKS2_.exit: ; preds = %3, %15, %18
   %20 = icmp eq i32 %2, 1
-  br i1 %20, label %21, label %80
+  br i1 %20, label %21, label %79
 
 21:                                               ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataEEC2ERKS2_.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #21
   %22 = load ptr, ptr %1, align 8, !tbaa !23
   invoke void @_ZNK19OpenColorIO_v2_5dev11RangeOpData5cloneEv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %5, ptr noundef nonnull align 8 dereferenceable(228) %22)
-          to label %23 unwind label %76
+          to label %23 unwind label %75
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %5, align 8, !tbaa !23
@@ -310,7 +310,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataEEC2ERKS2_.exit: ; preds = 
   %27 = load ptr, ptr %9, align 8, !tbaa !14
   store ptr %26, ptr %9, align 8, !tbaa !14
   %.not.i.i.i.i13 = icmp eq ptr %27, null
-  br i1 %.not.i.i.i.i13, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataEEaSEOS2_.exit, label %28
+  br i1 %.not.i.i.i.i13, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %28
 
 28:                                               ; preds = %23
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -356,269 +356,269 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %45, %4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #21
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataEEaSEOS2_.exit
 
-_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataEEaSEOS2_.exit: ; preds = %23, %33, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %48
-  %49 = load ptr, ptr %25, align 8, !tbaa !14
-  %.not.i.i = icmp eq ptr %49, null
-  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %50
+_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataEEaSEOS2_.exit: ; preds = %33, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %48
+  %.pr = load ptr, ptr %25, align 8, !tbaa !14
+  %.not.i.i = icmp eq ptr %.pr, null
+  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %49
 
-50:                                               ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataEEaSEOS2_.exit
-  %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %52 = load atomic i64, ptr %51 acquire, align 8
-  %53 = icmp eq i64 %52, 4294967297
-  %54 = trunc i64 %52 to i32
-  br i1 %53, label %55, label %63
+49:                                               ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataEEaSEOS2_.exit
+  %50 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
+  %51 = load atomic i64, ptr %50 acquire, align 8
+  %52 = icmp eq i64 %51, 4294967297
+  %53 = trunc i64 %51 to i32
+  br i1 %52, label %54, label %62
 
-55:                                               ; preds = %50
-  store i32 0, ptr %51, align 8, !tbaa !6
-  %56 = getelementptr inbounds nuw i8, ptr %49, i64 12
-  store i32 0, ptr %56, align 4, !tbaa !11
-  %57 = load ptr, ptr %49, align 8, !tbaa !12
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %59 = load ptr, ptr %58, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(16) %49) #21
-  %60 = load ptr, ptr %49, align 8, !tbaa !12
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  %62 = load ptr, ptr %61, align 8
-  call void %62(ptr noundef nonnull align 8 dereferenceable(16) %49) #21
+54:                                               ; preds = %49
+  store i32 0, ptr %50, align 8, !tbaa !6
+  %55 = getelementptr inbounds nuw i8, ptr %.pr, i64 12
+  store i32 0, ptr %55, align 4, !tbaa !11
+  %56 = load ptr, ptr %.pr, align 8, !tbaa !12
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %58 = load ptr, ptr %57, align 8
+  call void %58(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #21
+  %59 = load ptr, ptr %.pr, align 8, !tbaa !12
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
+  %61 = load ptr, ptr %60, align 8
+  call void %61(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #21
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-63:                                               ; preds = %50
-  %64 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20
-  %.not.i.i.i14 = icmp eq i8 %64, 0
-  br i1 %.not.i.i.i14, label %67, label %65
+62:                                               ; preds = %49
+  %63 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20
+  %.not.i.i.i14 = icmp eq i8 %63, 0
+  br i1 %.not.i.i.i14, label %66, label %64
 
-65:                                               ; preds = %63
-  %66 = add nsw i32 %54, -1
-  store i32 %66, ptr %51, align 4, !tbaa !21
+64:                                               ; preds = %62
+  %65 = add nsw i32 %53, -1
+  store i32 %65, ptr %50, align 4, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
-67:                                               ; preds = %63
-  %68 = atomicrmw volatile add ptr %51, i32 -1 acq_rel, align 4
+66:                                               ; preds = %62
+  %67 = atomicrmw volatile add ptr %50, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %67, %65
-  %.0.i.i.i.i = phi i32 [ %54, %65 ], [ %68, %67 ]
-  %69 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %69, label %70, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !22
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %66, %64
+  %.0.i.i.i.i = phi i32 [ %53, %64 ], [ %67, %66 ]
+  %68 = icmp eq i32 %.0.i.i.i.i, 1
+  br i1 %68, label %69, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !22
 
-70:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %49) #21
+69:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #21
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataEEaSEOS2_.exit, %55, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %70
+_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %23, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataEEaSEOS2_.exit, %54, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %69
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #21
-  %71 = load ptr, ptr %4, align 8, !tbaa !23
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 224
-  %73 = load i32, ptr %72, align 8, !tbaa !25
-  %74 = invoke noundef i32 @_ZN19OpenColorIO_v2_5dev26CombineTransformDirectionsENS_18TransformDirectionES0_(i32 noundef %73, i32 noundef 1)
-          to label %75 unwind label %78
+  %70 = load ptr, ptr %4, align 8, !tbaa !23
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 224
+  %72 = load i32, ptr %71, align 8, !tbaa !25
+  %73 = invoke noundef i32 @_ZN19OpenColorIO_v2_5dev26CombineTransformDirectionsENS_18TransformDirectionES0_(i32 noundef %72, i32 noundef 1)
+          to label %74 unwind label %77
 
-75:                                               ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  call void @_ZN19OpenColorIO_v2_5dev11RangeOpData12setDirectionENS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(228) %71, i32 noundef %74) #21
-  br label %80
+74:                                               ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  call void @_ZN19OpenColorIO_v2_5dev11RangeOpData12setDirectionENS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(228) %70, i32 noundef %73) #21
+  br label %79
 
-76:                                               ; preds = %21
-  %77 = landingpad { ptr, i32 }
+75:                                               ; preds = %21
+  %76 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #21
-  br label %157
+  br label %156
 
-78:                                               ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %79 = landingpad { ptr, i32 }
+77:                                               ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  %78 = landingpad { ptr, i32 }
           cleanup
-  br label %157
+  br label %156
 
-80:                                               ; preds = %75, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataEEC2ERKS2_.exit
+79:                                               ; preds = %74, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataEEC2ERKS2_.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #21
   invoke fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_5dev12_GLOBAL__N_17RangeOpEJRSt10shared_ptrINS0_11RangeOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %4)
-          to label %81 unwind label %152
+          to label %80 unwind label %151
 
-81:                                               ; preds = %80
-  %82 = load ptr, ptr %7, align 8, !tbaa !49
-  store ptr %82, ptr %6, align 8, !tbaa !52
-  %83 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %84 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %85 = load ptr, ptr %84, align 8, !tbaa !14
-  store ptr null, ptr %84, align 8, !tbaa !14
-  store ptr %85, ptr %83, align 8, !tbaa !14
+80:                                               ; preds = %79
+  %81 = load ptr, ptr %7, align 8, !tbaa !49
+  store ptr %81, ptr %6, align 8, !tbaa !52
+  %82 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %84 = load ptr, ptr %83, align 8, !tbaa !14
+  store ptr null, ptr %83, align 8, !tbaa !14
+  store ptr %84, ptr %82, align 8, !tbaa !14
   store ptr null, ptr %7, align 8, !tbaa !49
   invoke void @_ZN19OpenColorIO_v2_5dev10OpRcPtrVec9push_backERKSt10shared_ptrINS_2OpEE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(16) %6)
-          to label %86 unwind label %154
+          to label %85 unwind label %153
 
-86:                                               ; preds = %81
-  %87 = load ptr, ptr %83, align 8, !tbaa !14
-  %.not.i.i15 = icmp eq ptr %87, null
-  br i1 %.not.i.i15, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %88
+85:                                               ; preds = %80
+  %86 = load ptr, ptr %82, align 8, !tbaa !14
+  %.not.i.i15 = icmp eq ptr %86, null
+  br i1 %.not.i.i15, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %87
 
-88:                                               ; preds = %86
-  %89 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %90 = load atomic i64, ptr %89 acquire, align 8
-  %91 = icmp eq i64 %90, 4294967297
-  %92 = trunc i64 %90 to i32
-  br i1 %91, label %93, label %101
+87:                                               ; preds = %85
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %89 = load atomic i64, ptr %88 acquire, align 8
+  %90 = icmp eq i64 %89, 4294967297
+  %91 = trunc i64 %89 to i32
+  br i1 %90, label %92, label %100
 
-93:                                               ; preds = %88
-  store i32 0, ptr %89, align 8, !tbaa !6
-  %94 = getelementptr inbounds nuw i8, ptr %87, i64 12
-  store i32 0, ptr %94, align 4, !tbaa !11
-  %95 = load ptr, ptr %87, align 8, !tbaa !12
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  %97 = load ptr, ptr %96, align 8
-  call void %97(ptr noundef nonnull align 8 dereferenceable(16) %87) #21
-  %98 = load ptr, ptr %87, align 8, !tbaa !12
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
-  %100 = load ptr, ptr %99, align 8
-  call void %100(ptr noundef nonnull align 8 dereferenceable(16) %87) #21
+92:                                               ; preds = %87
+  store i32 0, ptr %88, align 8, !tbaa !6
+  %93 = getelementptr inbounds nuw i8, ptr %86, i64 12
+  store i32 0, ptr %93, align 4, !tbaa !11
+  %94 = load ptr, ptr %86, align 8, !tbaa !12
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
+  %96 = load ptr, ptr %95, align 8
+  call void %96(ptr noundef nonnull align 8 dereferenceable(16) %86) #21
+  %97 = load ptr, ptr %86, align 8, !tbaa !12
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 24
+  %99 = load ptr, ptr %98, align 8
+  call void %99(ptr noundef nonnull align 8 dereferenceable(16) %86) #21
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-101:                                              ; preds = %88
-  %102 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20
-  %.not.i.i.i16 = icmp eq i8 %102, 0
-  br i1 %.not.i.i.i16, label %105, label %103
+100:                                              ; preds = %87
+  %101 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20
+  %.not.i.i.i16 = icmp eq i8 %101, 0
+  br i1 %.not.i.i.i16, label %104, label %102
 
-103:                                              ; preds = %101
-  %104 = add nsw i32 %92, -1
-  store i32 %104, ptr %89, align 4, !tbaa !21
+102:                                              ; preds = %100
+  %103 = add nsw i32 %91, -1
+  store i32 %103, ptr %88, align 4, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i17
 
-105:                                              ; preds = %101
-  %106 = atomicrmw volatile add ptr %89, i32 -1 acq_rel, align 4
+104:                                              ; preds = %100
+  %105 = atomicrmw volatile add ptr %88, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i17
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i17: ; preds = %105, %103
-  %.0.i.i.i.i18 = phi i32 [ %92, %103 ], [ %106, %105 ]
-  %107 = icmp eq i32 %.0.i.i.i.i18, 1
-  br i1 %107, label %108, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !22
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i17: ; preds = %104, %102
+  %.0.i.i.i.i18 = phi i32 [ %91, %102 ], [ %105, %104 ]
+  %106 = icmp eq i32 %.0.i.i.i.i18, 1
+  br i1 %106, label %107, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !22
 
-108:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i17
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %87) #21
+107:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i17
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %86) #21
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %86, %93, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i17, %108
-  %.val = load ptr, ptr %84, align 8, !tbaa !14
+_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %85, %92, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i17, %107
+  %.val = load ptr, ptr %83, align 8, !tbaa !14
   %.not.i.i19 = icmp eq ptr %.val, null
-  br i1 %.not.i.i19, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_17RangeOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %109
+  br i1 %.not.i.i19, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_17RangeOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %108
 
-109:                                              ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %110 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %111 = load atomic i64, ptr %110 acquire, align 8
-  %112 = icmp eq i64 %111, 4294967297
-  %113 = trunc i64 %111 to i32
-  br i1 %112, label %114, label %122
+108:                                              ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  %109 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %110 = load atomic i64, ptr %109 acquire, align 8
+  %111 = icmp eq i64 %110, 4294967297
+  %112 = trunc i64 %110 to i32
+  br i1 %111, label %113, label %121
 
-114:                                              ; preds = %109
-  store i32 0, ptr %110, align 8, !tbaa !6
-  %115 = getelementptr inbounds nuw i8, ptr %.val, i64 12
-  store i32 0, ptr %115, align 4, !tbaa !11
-  %116 = load ptr, ptr %.val, align 8, !tbaa !12
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  %118 = load ptr, ptr %117, align 8
-  call void %118(ptr noundef nonnull align 8 dereferenceable(16) %.val) #21
-  %119 = load ptr, ptr %.val, align 8, !tbaa !12
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 24
-  %121 = load ptr, ptr %120, align 8
-  call void %121(ptr noundef nonnull align 8 dereferenceable(16) %.val) #21
+113:                                              ; preds = %108
+  store i32 0, ptr %109, align 8, !tbaa !6
+  %114 = getelementptr inbounds nuw i8, ptr %.val, i64 12
+  store i32 0, ptr %114, align 4, !tbaa !11
+  %115 = load ptr, ptr %.val, align 8, !tbaa !12
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
+  %117 = load ptr, ptr %116, align 8
+  call void %117(ptr noundef nonnull align 8 dereferenceable(16) %.val) #21
+  %118 = load ptr, ptr %.val, align 8, !tbaa !12
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 24
+  %120 = load ptr, ptr %119, align 8
+  call void %120(ptr noundef nonnull align 8 dereferenceable(16) %.val) #21
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_17RangeOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-122:                                              ; preds = %109
-  %123 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20
-  %.not.i.i.i20 = icmp eq i8 %123, 0
-  br i1 %.not.i.i.i20, label %126, label %124
+121:                                              ; preds = %108
+  %122 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20
+  %.not.i.i.i20 = icmp eq i8 %122, 0
+  br i1 %.not.i.i.i20, label %125, label %123
 
-124:                                              ; preds = %122
-  %125 = add nsw i32 %113, -1
-  store i32 %125, ptr %110, align 4, !tbaa !21
+123:                                              ; preds = %121
+  %124 = add nsw i32 %112, -1
+  store i32 %124, ptr %109, align 4, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i21
 
-126:                                              ; preds = %122
-  %127 = atomicrmw volatile add ptr %110, i32 -1 acq_rel, align 4
+125:                                              ; preds = %121
+  %126 = atomicrmw volatile add ptr %109, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i21
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i21: ; preds = %126, %124
-  %.0.i.i.i.i22 = phi i32 [ %113, %124 ], [ %127, %126 ]
-  %128 = icmp eq i32 %.0.i.i.i.i22, 1
-  br i1 %128, label %129, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_17RangeOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !22
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i21: ; preds = %125, %123
+  %.0.i.i.i.i22 = phi i32 [ %112, %123 ], [ %126, %125 ]
+  %127 = icmp eq i32 %.0.i.i.i.i22, 1
+  br i1 %127, label %128, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_17RangeOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !22
 
-129:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i21
+128:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i21
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.val) #21
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_17RangeOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_17RangeOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %114, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i21, %129
+_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_17RangeOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %113, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i21, %128
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #21
-  %130 = load ptr, ptr %9, align 8, !tbaa !14
-  %.not.i.i23 = icmp eq ptr %130, null
-  br i1 %.not.i.i23, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit27, label %131
+  %129 = load ptr, ptr %9, align 8, !tbaa !14
+  %.not.i.i23 = icmp eq ptr %129, null
+  br i1 %.not.i.i23, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit27, label %130
 
-131:                                              ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_17RangeOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %132 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  %133 = load atomic i64, ptr %132 acquire, align 8
-  %134 = icmp eq i64 %133, 4294967297
-  %135 = trunc i64 %133 to i32
-  br i1 %134, label %136, label %144
+130:                                              ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_17RangeOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  %131 = getelementptr inbounds nuw i8, ptr %129, i64 8
+  %132 = load atomic i64, ptr %131 acquire, align 8
+  %133 = icmp eq i64 %132, 4294967297
+  %134 = trunc i64 %132 to i32
+  br i1 %133, label %135, label %143
 
-136:                                              ; preds = %131
-  store i32 0, ptr %132, align 8, !tbaa !6
-  %137 = getelementptr inbounds nuw i8, ptr %130, i64 12
-  store i32 0, ptr %137, align 4, !tbaa !11
-  %138 = load ptr, ptr %130, align 8, !tbaa !12
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
-  %140 = load ptr, ptr %139, align 8
-  call void %140(ptr noundef nonnull align 8 dereferenceable(16) %130) #21
-  %141 = load ptr, ptr %130, align 8, !tbaa !12
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 24
-  %143 = load ptr, ptr %142, align 8
-  call void %143(ptr noundef nonnull align 8 dereferenceable(16) %130) #21
+135:                                              ; preds = %130
+  store i32 0, ptr %131, align 8, !tbaa !6
+  %136 = getelementptr inbounds nuw i8, ptr %129, i64 12
+  store i32 0, ptr %136, align 4, !tbaa !11
+  %137 = load ptr, ptr %129, align 8, !tbaa !12
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
+  %139 = load ptr, ptr %138, align 8
+  call void %139(ptr noundef nonnull align 8 dereferenceable(16) %129) #21
+  %140 = load ptr, ptr %129, align 8, !tbaa !12
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 24
+  %142 = load ptr, ptr %141, align 8
+  call void %142(ptr noundef nonnull align 8 dereferenceable(16) %129) #21
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit27
 
-144:                                              ; preds = %131
-  %145 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20
-  %.not.i.i.i24 = icmp eq i8 %145, 0
-  br i1 %.not.i.i.i24, label %148, label %146
+143:                                              ; preds = %130
+  %144 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20
+  %.not.i.i.i24 = icmp eq i8 %144, 0
+  br i1 %.not.i.i.i24, label %147, label %145
 
-146:                                              ; preds = %144
-  %147 = add nsw i32 %135, -1
-  store i32 %147, ptr %132, align 4, !tbaa !21
+145:                                              ; preds = %143
+  %146 = add nsw i32 %134, -1
+  store i32 %146, ptr %131, align 4, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i25
 
-148:                                              ; preds = %144
-  %149 = atomicrmw volatile add ptr %132, i32 -1 acq_rel, align 4
+147:                                              ; preds = %143
+  %148 = atomicrmw volatile add ptr %131, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i25
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i25: ; preds = %148, %146
-  %.0.i.i.i.i26 = phi i32 [ %135, %146 ], [ %149, %148 ]
-  %150 = icmp eq i32 %.0.i.i.i.i26, 1
-  br i1 %150, label %151, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit27, !prof !22
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i25: ; preds = %147, %145
+  %.0.i.i.i.i26 = phi i32 [ %134, %145 ], [ %148, %147 ]
+  %149 = icmp eq i32 %.0.i.i.i.i26, 1
+  br i1 %149, label %150, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit27, !prof !22
 
-151:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i25
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %130) #21
+150:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i25
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %129) #21
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit27
 
-_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit27: ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_17RangeOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %136, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i25, %151
+_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit27: ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_17RangeOpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %135, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i25, %150
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #21
   ret void
 
-152:                                              ; preds = %80
-  %153 = landingpad { ptr, i32 }
+151:                                              ; preds = %79
+  %152 = landingpad { ptr, i32 }
           cleanup
-  br label %156
+  br label %155
 
-154:                                              ; preds = %81
-  %155 = landingpad { ptr, i32 }
+153:                                              ; preds = %80
+  %154 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #21
   call fastcc void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_17RangeOpELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr null) #21
-  br label %156
+  br label %155
 
-156:                                              ; preds = %154, %152
-  %.pn = phi { ptr, i32 } [ %155, %154 ], [ %153, %152 ]
+155:                                              ; preds = %153, %151
+  %.pn = phi { ptr, i32 } [ %154, %153 ], [ %152, %151 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #21
-  br label %157
+  br label %156
 
-157:                                              ; preds = %156, %78, %76
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %156 ], [ %79, %78 ], [ %77, %76 ]
+156:                                              ; preds = %155, %77, %75
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %155 ], [ %78, %77 ], [ %76, %75 ]
   call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #21
   resume { ptr, i32 } %.pn.pn
@@ -3425,7 +3425,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_poli
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(16) %24) #21
-  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev6OpDataEEaSINS0_11RangeOpDataEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS2_E4typeEOSC_.exit
+  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev6OpDataEEaSINS0_11RangeOpDataEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS2_E4typeEOSC_.exitthread-pre-split
 
 38:                                               ; preds = %25
   %39 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20
@@ -3444,14 +3444,18 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_poli
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %42, %40
   %.0.i.i.i.i.i.i = phi i32 [ %29, %40 ], [ %43, %42 ]
   %44 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %44, label %45, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev6OpDataEEaSINS0_11RangeOpDataEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS2_E4typeEOSC_.exit, !prof !22
+  br i1 %44, label %45, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev6OpDataEEaSINS0_11RangeOpDataEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS2_E4typeEOSC_.exitthread-pre-split, !prof !22
 
 45:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %24) #21
+  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev6OpDataEEaSINS0_11RangeOpDataEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS2_E4typeEOSC_.exitthread-pre-split
+
+_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev6OpDataEEaSINS0_11RangeOpDataEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS2_E4typeEOSC_.exitthread-pre-split: ; preds = %45, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %30
+  %.pr13 = load ptr, ptr %22, align 8, !tbaa !14
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev6OpDataEEaSINS0_11RangeOpDataEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS2_E4typeEOSC_.exit
 
-_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev6OpDataEEaSINS0_11RangeOpDataEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS2_E4typeEOSC_.exit: ; preds = %20, %30, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %45
-  %46 = load ptr, ptr %22, align 8, !tbaa !14
+_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev6OpDataEEaSINS0_11RangeOpDataEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS2_E4typeEOSC_.exit: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev6OpDataEEaSINS0_11RangeOpDataEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS2_E4typeEOSC_.exitthread-pre-split, %20
+  %46 = phi ptr [ %.pr13, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev6OpDataEEaSINS0_11RangeOpDataEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS2_E4typeEOSC_.exitthread-pre-split ], [ null, %20 ]
   %.not.i.i3 = icmp eq ptr %46, null
   br i1 %.not.i.i3, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit7, label %47
 

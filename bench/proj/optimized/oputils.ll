@@ -5546,7 +5546,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata6ExtentEEEC2ENS0_30i_p
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %87 = load ptr, ptr %86, align 8
   call void %87(ptr noundef nonnull align 8 dereferenceable(16) %74) #25
-  br label %_ZNSt10shared_ptrIN5osgeo4proj8metadata6ExtentEEaSEOS4_.exit
+  br label %_ZNSt10shared_ptrIN5osgeo4proj8metadata6ExtentEEaSEOS4_.exitthread-pre-split
 
 88:                                               ; preds = %75
   %89 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !29
@@ -5565,14 +5565,18 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata6ExtentEEEC2ENS0_30i_p
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %92, %90
   %.0.i.i.i.i.i.i = phi i32 [ %79, %90 ], [ %93, %92 ]
   %94 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %94, label %95, label %_ZNSt10shared_ptrIN5osgeo4proj8metadata6ExtentEEaSEOS4_.exit, !prof !36
+  br i1 %94, label %95, label %_ZNSt10shared_ptrIN5osgeo4proj8metadata6ExtentEEaSEOS4_.exitthread-pre-split, !prof !36
 
 95:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %74) #25
+  br label %_ZNSt10shared_ptrIN5osgeo4proj8metadata6ExtentEEaSEOS4_.exitthread-pre-split
+
+_ZNSt10shared_ptrIN5osgeo4proj8metadata6ExtentEEaSEOS4_.exitthread-pre-split: ; preds = %95, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %80
+  %.pr = load ptr, ptr %14, align 8, !tbaa !28
   br label %_ZNSt10shared_ptrIN5osgeo4proj8metadata6ExtentEEaSEOS4_.exit
 
-_ZNSt10shared_ptrIN5osgeo4proj8metadata6ExtentEEaSEOS4_.exit: ; preds = %71, %80, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %95
-  %96 = load ptr, ptr %14, align 8, !tbaa !28
+_ZNSt10shared_ptrIN5osgeo4proj8metadata6ExtentEEaSEOS4_.exit: ; preds = %_ZNSt10shared_ptrIN5osgeo4proj8metadata6ExtentEEaSEOS4_.exitthread-pre-split, %71
+  %96 = phi ptr [ %.pr, %_ZNSt10shared_ptrIN5osgeo4proj8metadata6ExtentEEaSEOS4_.exitthread-pre-split ], [ null, %71 ]
   %.not.i.i = icmp eq ptr %96, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN5osgeo4proj8metadata6ExtentELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %97
 
@@ -5693,11 +5697,11 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata6ExtentEEED2Ev.exit: ;
 
 _ZNSt10shared_ptrIN5osgeo4proj8metadata6ExtentEEaSERKS4_.exitthread-pre-split: ; preds = %22, %141, %19, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata6ExtentEEED2Ev.exit, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i
   %.1.ph = phi i32 [ 0, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i ], [ 0, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata6ExtentEEED2Ev.exit ], [ 3, %19 ], [ 1, %22 ], [ 1, %141 ]
-  %.pr = load ptr, ptr %13, align 8, !tbaa !28
+  %.pr48 = load ptr, ptr %13, align 8, !tbaa !28
   br label %_ZNSt10shared_ptrIN5osgeo4proj8metadata6ExtentEEaSERKS4_.exit
 
 _ZNSt10shared_ptrIN5osgeo4proj8metadata6ExtentEEaSERKS4_.exit: ; preds = %_ZNSt10shared_ptrIN5osgeo4proj8metadata6ExtentEEaSERKS4_.exitthread-pre-split, %27
-  %144 = phi ptr [ %.pr, %_ZNSt10shared_ptrIN5osgeo4proj8metadata6ExtentEEaSERKS4_.exitthread-pre-split ], [ %28, %27 ]
+  %144 = phi ptr [ %.pr48, %_ZNSt10shared_ptrIN5osgeo4proj8metadata6ExtentEEaSERKS4_.exitthread-pre-split ], [ %28, %27 ]
   %.1 = phi i32 [ %.1.ph, %_ZNSt10shared_ptrIN5osgeo4proj8metadata6ExtentEEaSERKS4_.exitthread-pre-split ], [ 0, %27 ]
   %.not.i.i28 = icmp eq ptr %144, null
   br i1 %.not.i.i28, label %_ZNSt12__shared_ptrIN5osgeo4proj8metadata6ExtentELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit32, label %145
@@ -6063,7 +6067,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata6ExtentEEEC2ENS0_30i_p
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %96 = load ptr, ptr %95, align 8
   call void %96(ptr noundef nonnull align 8 dereferenceable(16) %83) #25
-  br label %_ZNSt10shared_ptrIN5osgeo4proj8metadata6ExtentEEaSEOS4_.exit
+  br label %_ZNSt10shared_ptrIN5osgeo4proj8metadata6ExtentEEaSEOS4_.exitthread-pre-split
 
 97:                                               ; preds = %84
   %98 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !29
@@ -6082,14 +6086,18 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata6ExtentEEEC2ENS0_30i_p
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %101, %99
   %.0.i.i.i.i.i.i = phi i32 [ %88, %99 ], [ %102, %101 ]
   %103 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %103, label %104, label %_ZNSt10shared_ptrIN5osgeo4proj8metadata6ExtentEEaSEOS4_.exit, !prof !36
+  br i1 %103, label %104, label %_ZNSt10shared_ptrIN5osgeo4proj8metadata6ExtentEEaSEOS4_.exitthread-pre-split, !prof !36
 
 104:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %83) #25
+  br label %_ZNSt10shared_ptrIN5osgeo4proj8metadata6ExtentEEaSEOS4_.exitthread-pre-split
+
+_ZNSt10shared_ptrIN5osgeo4proj8metadata6ExtentEEaSEOS4_.exitthread-pre-split: ; preds = %104, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %89
+  %.pr55 = load ptr, ptr %46, align 8, !tbaa !28
   br label %_ZNSt10shared_ptrIN5osgeo4proj8metadata6ExtentEEaSEOS4_.exit
 
-_ZNSt10shared_ptrIN5osgeo4proj8metadata6ExtentEEaSEOS4_.exit: ; preds = %80, %89, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %104
-  %105 = load ptr, ptr %46, align 8, !tbaa !28
+_ZNSt10shared_ptrIN5osgeo4proj8metadata6ExtentEEaSEOS4_.exit: ; preds = %_ZNSt10shared_ptrIN5osgeo4proj8metadata6ExtentEEaSEOS4_.exitthread-pre-split, %80
+  %105 = phi ptr [ %.pr55, %_ZNSt10shared_ptrIN5osgeo4proj8metadata6ExtentEEaSEOS4_.exitthread-pre-split ], [ null, %80 ]
   %.not.i.i = icmp eq ptr %105, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN5osgeo4proj8metadata6ExtentELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %106
 

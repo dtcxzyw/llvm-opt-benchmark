@@ -807,7 +807,7 @@ _ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.thread: ; preds = %3
   store ptr %6, ptr %5, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %10, align 8
-  br label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i
+  br label %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.i
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -831,7 +831,7 @@ _ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit: ; preds = %11
   store ptr %.pre, ptr %5, align 8
   store ptr %.pr.pre, ptr %14, align 8
   %.not.i.i.i.i39 = icmp eq ptr %.pr.pre, null
-  br i1 %.not.i.i.i.i39, label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i, label %18
+  br i1 %.not.i.i.i.i39, label %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.i, label %18
 
 18:                                               ; preds = %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.thread105, %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit
   %.pr108 = phi ptr [ %9, %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.thread105 ], [ %.pr.pre, %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit ]
@@ -844,13 +844,13 @@ _ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit: ; preds = %11
   %22 = load i32, ptr %19, align 4
   %23 = add nsw i32 %22, 1
   store i32 %23, ptr %19, align 4
-  br label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i
+  br label %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.i
 
 24:                                               ; preds = %18
   %25 = atomicrmw volatile add ptr %19, i32 1 acq_rel, align 4
-  br label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i
+  br label %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.i
 
-_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.thread, %24, %21, %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit
+_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.i: ; preds = %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.thread, %24, %21, %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -858,20 +858,20 @@ _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt10shared_pt
   %28 = invoke noalias noundef nonnull dereferenceable(1024) ptr @_Znwm(i64 noundef 1024) #24
           to label %30 unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit.i
 
-_ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i
+_ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.i
   %29 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt12__shared_ptrIN6Assimp8IOStreamELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #23
   call void @_ZNSt12__shared_ptrIN6Assimp8IOStreamELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #23
   br label %274
 
-30:                                               ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
+30:                                               ; preds = %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.i
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %28, ptr %27, align 8
-  store ptr %28, ptr %32, align 8
+  store ptr %28, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 1024
-  store ptr %33, ptr %31, align 8
+  store ptr %33, ptr %32, align 8
   %34 = load ptr, ptr %7, align 8
   %.not.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN6Assimp8IOStreamELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %35
@@ -957,7 +957,7 @@ _ZNSt12__shared_ptrIN6Assimp8IOStreamELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %74 = load i64, ptr %73, align 8
   %75 = add i64 %74, 2
-  %76 = load ptr, ptr %32, align 8
+  %76 = load ptr, ptr %31, align 8
   %77 = load ptr, ptr %27, align 8
   %78 = ptrtoint ptr %76 to i64
   %79 = ptrtoint ptr %77 to i64
@@ -983,7 +983,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutU2Et.exit.i: ; preds = %.noexc, %72
   %86 = add i64 %85, 2
   store i64 %86, ptr %73, align 8
   %87 = add i64 %85, 6
-  %88 = load ptr, ptr %32, align 8
+  %88 = load ptr, ptr %31, align 8
   %89 = load ptr, ptr %27, align 8
   %90 = ptrtoint ptr %88 to i64
   %91 = ptrtoint ptr %89 to i64
@@ -1009,7 +1009,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutU2Et.exit.i: ; preds = %.noexc, %72
   %99 = add i64 %98, 4
   store i64 %99, ptr %73, align 8
   %100 = add i64 %98, 6
-  %101 = load ptr, ptr %32, align 8
+  %101 = load ptr, ptr %31, align 8
   %102 = load ptr, ptr %27, align 8
   %103 = ptrtoint ptr %101 to i64
   %104 = ptrtoint ptr %102 to i64
@@ -1035,7 +1035,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutU2Et.exit.i46: ; preds = %.noexc50, %94
   %111 = add i64 %110, 2
   store i64 %111, ptr %73, align 8
   %112 = add i64 %110, 6
-  %113 = load ptr, ptr %32, align 8
+  %113 = load ptr, ptr %31, align 8
   %114 = load ptr, ptr %27, align 8
   %115 = ptrtoint ptr %113 to i64
   %116 = ptrtoint ptr %114 to i64
@@ -1070,7 +1070,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutU2Et.exit.i46: ; preds = %.noexc50, %94
 126:                                              ; preds = %125
   %127 = load i64, ptr %73, align 8
   %128 = add i64 %127, 2
-  %129 = load ptr, ptr %32, align 8
+  %129 = load ptr, ptr %31, align 8
   %130 = load ptr, ptr %27, align 8
   %131 = ptrtoint ptr %129 to i64
   %132 = ptrtoint ptr %130 to i64
@@ -1096,7 +1096,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutU2Et.exit.i56: ; preds = %.noexc60, %126
   %139 = add i64 %138, 2
   store i64 %139, ptr %73, align 8
   %140 = add i64 %138, 6
-  %141 = load ptr, ptr %32, align 8
+  %141 = load ptr, ptr %31, align 8
   %142 = load ptr, ptr %27, align 8
   %143 = ptrtoint ptr %141 to i64
   %144 = ptrtoint ptr %142 to i64
@@ -1122,7 +1122,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutU2Et.exit.i56: ; preds = %.noexc60, %126
   %152 = add i64 %151, 4
   store i64 %152, ptr %73, align 8
   %153 = add i64 %151, 8
-  %154 = load ptr, ptr %32, align 8
+  %154 = load ptr, ptr %31, align 8
   %155 = load ptr, ptr %27, align 8
   %156 = ptrtoint ptr %154 to i64
   %157 = ptrtoint ptr %155 to i64
@@ -1148,7 +1148,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutU2Et.exit.i56: ; preds = %.noexc60, %126
   %165 = add i64 %164, 4
   store i64 %128, ptr %73, align 8
   %166 = add i64 %127, 6
-  %167 = load ptr, ptr %32, align 8
+  %167 = load ptr, ptr %31, align 8
   %168 = load ptr, ptr %27, align 8
   %169 = ptrtoint ptr %167 to i64
   %170 = ptrtoint ptr %168 to i64
@@ -1181,7 +1181,7 @@ _ZN6Assimp12_GLOBAL__N_111ChunkWriterD2Ev.exit:   ; preds = %160, %.noexc.i
   store i32 %179, ptr %180, align 1
   store i64 %100, ptr %73, align 8
   %181 = add i64 %98, 10
-  %182 = load ptr, ptr %32, align 8
+  %182 = load ptr, ptr %31, align 8
   %183 = load ptr, ptr %27, align 8
   %184 = ptrtoint ptr %182 to i64
   %185 = ptrtoint ptr %183 to i64
@@ -1214,7 +1214,7 @@ _ZN6Assimp12_GLOBAL__N_111ChunkWriterD2Ev.exit72: ; preds = %_ZN6Assimp12_GLOBAL
   store i32 %194, ptr %195, align 1
   store i64 %165, ptr %73, align 8
   %196 = add i64 %164, 6
-  %197 = load ptr, ptr %32, align 8
+  %197 = load ptr, ptr %31, align 8
   %198 = load ptr, ptr %27, align 8
   %199 = ptrtoint ptr %197 to i64
   %200 = ptrtoint ptr %198 to i64
@@ -1240,7 +1240,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutU2Et.exit.i76: ; preds = %.noexc80, %_ZN6A
   %207 = add i64 %206, 2
   store i64 %207, ptr %73, align 8
   %208 = add i64 %206, 6
-  %209 = load ptr, ptr %32, align 8
+  %209 = load ptr, ptr %31, align 8
   %210 = load ptr, ptr %27, align 8
   %211 = ptrtoint ptr %209 to i64
   %212 = ptrtoint ptr %210 to i64
@@ -1273,7 +1273,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutU2Et.exit.i76: ; preds = %.noexc80, %_ZN6A
   %224 = load i64, ptr %73, align 8
   store i64 %196, ptr %73, align 8
   %225 = add i64 %164, 10
-  %226 = load ptr, ptr %32, align 8
+  %226 = load ptr, ptr %31, align 8
   %227 = load ptr, ptr %27, align 8
   %228 = ptrtoint ptr %226 to i64
   %229 = ptrtoint ptr %227 to i64
@@ -1306,7 +1306,7 @@ _ZN6Assimp12_GLOBAL__N_111ChunkWriterD2Ev.exit87: ; preds = %223, %.noexc.i84
   store i32 %238, ptr %239, align 1
   store i64 %75, ptr %73, align 8
   %240 = add i64 %74, 6
-  %241 = load ptr, ptr %32, align 8
+  %241 = load ptr, ptr %31, align 8
   %242 = load ptr, ptr %27, align 8
   %243 = ptrtoint ptr %241 to i64
   %244 = ptrtoint ptr %242 to i64

@@ -177,9 +177,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %tobool.not = icmp eq ptr %errorMessage, null
-  br i1 %tobool.not, label %return, label %_ZN4llvh11raw_ostreamlsEPKc.exit
+  br i1 %tobool.not, label %return, label %if.then1
 
-_ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then
+if.then1:                                         ; preds = %if.then
   %BufferMode.i.i = getelementptr inbounds nuw i8, ptr %errs, i64 32
   store i32 1, ptr %BufferMode.i.i, align 8
   %OutBufStart.i.i = getelementptr inbounds nuw i8, ptr %errs, i64 8
@@ -199,11 +199,11 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then
   %cmp.i.i23 = icmp ult i64 %sub.ptr.sub.i9.i22, 15
   br i1 %cmp.i.i23, label %if.then.i.i29, label %if.then4.i.i26
 
-if.then.i.i29:                                    ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
+if.then.i.i29:                                    ; preds = %if.then1
   %call3.i.i30 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %call3, ptr noundef nonnull @.str.1, i64 noundef 15) #19
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit31
 
-if.then4.i.i26:                                   ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
+if.then4.i.i26:                                   ; preds = %if.then1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %1, ptr noundef nonnull align 1 dereferenceable(15) @.str.1, i64 15, i1 false)
   %2 = load ptr, ptr %OutBufCur.i6.i19, align 8
   %add.ptr.i.i27 = getelementptr inbounds nuw i8, ptr %2, i64 15
@@ -276,9 +276,9 @@ if.end28:                                         ; preds = %if.end18
 
 if.then30:                                        ; preds = %if.end28
   %tobool31.not = icmp eq ptr %errorMessage, null
-  br i1 %tobool31.not, label %return, label %_ZN4llvh11raw_ostreamlsEPKc.exit65
+  br i1 %tobool31.not, label %return, label %if.then32
 
-_ZN4llvh11raw_ostreamlsEPKc.exit65:               ; preds = %if.then30
+if.then32:                                        ; preds = %if.then30
   %BufferMode.i.i48 = getelementptr inbounds nuw i8, ptr %errs33, i64 32
   store i32 1, ptr %BufferMode.i.i48, align 8
   %OutBufStart.i.i49 = getelementptr inbounds nuw i8, ptr %errs33, i64 8
@@ -298,11 +298,11 @@ _ZN4llvh11raw_ostreamlsEPKc.exit65:               ; preds = %if.then30
   %cmp.i.i72 = icmp ult i64 %sub.ptr.sub.i9.i71, 9
   br i1 %cmp.i.i72, label %if.then.i.i78, label %if.then4.i.i75
 
-if.then.i.i78:                                    ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit65
+if.then.i.i78:                                    ; preds = %if.then32
   %call3.i.i79 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %call.i, ptr noundef nonnull @.str.6, i64 noundef 9) #19
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit80
 
-if.then4.i.i75:                                   ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit65
+if.then4.i.i75:                                   ; preds = %if.then32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %10, ptr noundef nonnull align 1 dereferenceable(9) @.str.6, i64 9, i1 false)
   %11 = load ptr, ptr %OutBufCur.i6.i68, align 8
   %add.ptr.i.i76 = getelementptr inbounds nuw i8, ptr %11, i64 9

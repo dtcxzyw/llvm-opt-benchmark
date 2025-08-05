@@ -1457,10 +1457,10 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit: ; preds = %4, %_ZNSt12_Vector
   %.val21 = load ptr, ptr %31, align 8, !tbaa !92
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false), !alias.scope !93
   %32 = sext i32 %.val20 to i64
-  %.idx78 = shl nsw i64 %32, 2
+  %.idx79 = shl nsw i64 %32, 2
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.not79 = icmp ne i32 %.val20, 0
-  tail call void @llvm.assume(i1 %.not79)
+  %.not78 = icmp ne i32 %.val20, 0
+  tail call void @llvm.assume(i1 %.not78)
   %34 = icmp slt i32 %.val20, 0
   br i1 %34, label %35, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i56
 
@@ -1472,14 +1472,14 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit: ; preds = %4, %_ZNSt12_Vector
   unreachable
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i56: ; preds = %_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit
-  %36 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx78) #21
-          to label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i60 unwind label %.body
+  %36 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx79) #21
+          to label %.noexc62 unwind label %.body
 
-_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i60: ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %36, ptr align 4 %.val21, i64 %.idx78, i1 false)
+.noexc62:                                         ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %36, ptr align 4 %.val21, i64 %.idx79, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %36, ptr %8, align 8, !tbaa !73
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx78
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx79
   store ptr %38, ptr %37, align 8, !tbaa !71
   store ptr %38, ptr %33, align 8, !tbaa !98
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #23
@@ -1511,7 +1511,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i60: ; preds = %_ZNSt12_Vect
   %56 = icmp sgt i32 %spec.select.i, -1
   br i1 %56, label %57, label %.invoke
 
-57:                                               ; preds = %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i60
+57:                                               ; preds = %.noexc62
   %.not.i = icmp sgt i32 %spec.select.i, %.val20
   br i1 %.not.i, label %.invoke, label %.preheader.i
 
@@ -1523,10 +1523,10 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i60: ; preds = %_ZNSt12_Vect
   %wide.trip.count.i = zext nneg i32 %spec.select.i to i64
   br label %.lr.ph.i
 
-.invoke:                                          ; preds = %57, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i60
-  %58 = phi i32 [ 0, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i60 ], [ %spec.select.i, %57 ]
-  %59 = phi i32 [ %spec.select.i, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i60 ], [ %.val20, %57 ]
-  %60 = phi ptr [ @_ZZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__172, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i60 ], [ @_ZZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__173, %57 ]
+.invoke:                                          ; preds = %57, %.noexc62
+  %58 = phi i32 [ 0, %.noexc62 ], [ %spec.select.i, %57 ]
+  %59 = phi i32 [ %spec.select.i, %.noexc62 ], [ %.val20, %57 ]
+  %60 = phi ptr [ @_ZZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__172, %.noexc62 ], [ @_ZZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__173, %57 ]
   invoke void @_ZN2cv6detail17check_failed_autoEiiRKNS0_12CheckContextE(i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(48) %60) #25
           to label %.cont unwind label %83
 
@@ -1755,10 +1755,10 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit: ; preds = %4, %_ZNSt12_Vector
   %.val21 = load ptr, ptr %31, align 8, !tbaa !92
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false), !alias.scope !123
   %32 = sext i32 %.val20 to i64
-  %.idx78 = shl nsw i64 %32, 2
+  %.idx79 = shl nsw i64 %32, 2
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.not79 = icmp ne i32 %.val20, 0
-  tail call void @llvm.assume(i1 %.not79)
+  %.not78 = icmp ne i32 %.val20, 0
+  tail call void @llvm.assume(i1 %.not78)
   %34 = icmp slt i32 %.val20, 0
   br i1 %34, label %35, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i56
 
@@ -1770,14 +1770,14 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit: ; preds = %4, %_ZNSt12_Vector
   unreachable
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i56: ; preds = %_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit
-  %36 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx78) #21
-          to label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i60 unwind label %.body
+  %36 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx79) #21
+          to label %.noexc62 unwind label %.body
 
-_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i60: ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %36, ptr align 4 %.val21, i64 %.idx78, i1 false)
+.noexc62:                                         ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %36, ptr align 4 %.val21, i64 %.idx79, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %36, ptr %8, align 8, !tbaa !73
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx78
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx79
   store ptr %38, ptr %37, align 8, !tbaa !71
   store ptr %38, ptr %33, align 8, !tbaa !98
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #23
@@ -1810,7 +1810,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i60: ; preds = %_ZNSt12_Vect
   %57 = icmp sgt i32 %spec.select.i, -1
   br i1 %57, label %58, label %.invoke
 
-58:                                               ; preds = %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i60
+58:                                               ; preds = %.noexc62
   %.not.i = icmp sgt i32 %spec.select.i, %.val20
   br i1 %.not.i, label %.invoke, label %.preheader.i
 
@@ -1822,10 +1822,10 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i60: ; preds = %_ZNSt12_Vect
   %wide.trip.count.i = zext nneg i32 %spec.select.i to i64
   br label %.lr.ph.i
 
-.invoke:                                          ; preds = %58, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i60
-  %59 = phi i32 [ 0, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i60 ], [ %spec.select.i, %58 ]
-  %60 = phi i32 [ %spec.select.i, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i60 ], [ %.val20, %58 ]
-  %61 = phi ptr [ @_ZZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__172, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i60 ], [ @_ZZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__173, %58 ]
+.invoke:                                          ; preds = %58, %.noexc62
+  %59 = phi i32 [ 0, %.noexc62 ], [ %spec.select.i, %58 ]
+  %60 = phi i32 [ %spec.select.i, %.noexc62 ], [ %.val20, %58 ]
+  %61 = phi ptr [ @_ZZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__172, %.noexc62 ], [ @_ZZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__173, %58 ]
   invoke void @_ZN2cv6detail17check_failed_autoEiiRKNS0_12CheckContextE(i32 noundef %59, i32 noundef %60, ptr noundef nonnull align 8 dereferenceable(48) %61) #25
           to label %.cont unwind label %84
 
@@ -2054,10 +2054,10 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit: ; preds = %4, %_ZNSt12_Vector
   %.val21 = load ptr, ptr %31, align 8, !tbaa !92
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false), !alias.scope !132
   %32 = sext i32 %.val20 to i64
-  %.idx78 = shl nsw i64 %32, 2
+  %.idx79 = shl nsw i64 %32, 2
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.not79 = icmp ne i32 %.val20, 0
-  tail call void @llvm.assume(i1 %.not79)
+  %.not78 = icmp ne i32 %.val20, 0
+  tail call void @llvm.assume(i1 %.not78)
   %34 = icmp slt i32 %.val20, 0
   br i1 %34, label %35, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i56
 
@@ -2069,14 +2069,14 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit: ; preds = %4, %_ZNSt12_Vector
   unreachable
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i56: ; preds = %_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit
-  %36 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx78) #21
-          to label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i60 unwind label %.body
+  %36 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx79) #21
+          to label %.noexc62 unwind label %.body
 
-_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i60: ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %36, ptr align 4 %.val21, i64 %.idx78, i1 false)
+.noexc62:                                         ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %36, ptr align 4 %.val21, i64 %.idx79, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %36, ptr %8, align 8, !tbaa !73
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx78
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx79
   store ptr %38, ptr %37, align 8, !tbaa !71
   store ptr %38, ptr %33, align 8, !tbaa !98
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #23
@@ -2109,7 +2109,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i60: ; preds = %_ZNSt12_Vect
   %57 = icmp sgt i32 %spec.select.i, -1
   br i1 %57, label %58, label %.invoke
 
-58:                                               ; preds = %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i60
+58:                                               ; preds = %.noexc62
   %.not.i = icmp sgt i32 %spec.select.i, %.val20
   br i1 %.not.i, label %.invoke, label %.preheader.i
 
@@ -2121,10 +2121,10 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i60: ; preds = %_ZNSt12_Vect
   %wide.trip.count.i = zext nneg i32 %spec.select.i to i64
   br label %.lr.ph.i
 
-.invoke:                                          ; preds = %58, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i60
-  %59 = phi i32 [ 0, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i60 ], [ %spec.select.i, %58 ]
-  %60 = phi i32 [ %spec.select.i, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i60 ], [ %.val20, %58 ]
-  %61 = phi ptr [ @_ZZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__172, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i60 ], [ @_ZZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__173, %58 ]
+.invoke:                                          ; preds = %58, %.noexc62
+  %59 = phi i32 [ 0, %.noexc62 ], [ %spec.select.i, %58 ]
+  %60 = phi i32 [ %spec.select.i, %.noexc62 ], [ %.val20, %58 ]
+  %61 = phi ptr [ @_ZZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__172, %.noexc62 ], [ @_ZZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__173, %58 ]
   invoke void @_ZN2cv6detail17check_failed_autoEiiRKNS0_12CheckContextE(i32 noundef %59, i32 noundef %60, ptr noundef nonnull align 8 dereferenceable(48) %61) #25
           to label %.cont unwind label %84
 

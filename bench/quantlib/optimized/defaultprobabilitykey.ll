@@ -1264,34 +1264,34 @@ if.else.i.i:                                      ; preds = %invoke.cont7
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %if.else.i.i
-  %.pre = load ptr, ptr %pn.i, align 8, !tbaa !32
-  %cmp.not.i.i20 = icmp eq ptr %.pre, null
+  %.pr = load ptr, ptr %pn.i, align 8, !tbaa !32
+  %cmp.not.i.i20 = icmp eq ptr %.pr, null
   br i1 %cmp.not.i.i20, label %_ZN5boost10shared_ptrIN8QuantLib11DefaultTypeEED2Ev.exit, label %if.then.i.i21
 
 if.then.i.i21:                                    ; preds = %invoke.cont9
-  %use_count_.i.i.i = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %use_count_.i.i.i = getelementptr inbounds nuw i8, ptr %.pr, i64 8
   %29 = atomicrmw sub ptr %use_count_.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i = icmp eq i32 %29, 1
   br i1 %cmp.i.i.i, label %if.then.i.i.i22, label %_ZN5boost10shared_ptrIN8QuantLib11DefaultTypeEED2Ev.exit
 
 if.then.i.i.i22:                                  ; preds = %if.then.i.i21
-  %vtable.i.i.i = load ptr, ptr %.pre, align 8, !tbaa !51
+  %vtable.i.i.i = load ptr, ptr %.pr, align 8, !tbaa !51
   %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %30 = load ptr, ptr %vfn.i.i.i, align 8
-  invoke void %30(ptr noundef nonnull align 8 dereferenceable(16) %.pre)
+  invoke void %30(ptr noundef nonnull align 8 dereferenceable(16) %.pr)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
 
 .noexc.i.i:                                       ; preds = %if.then.i.i.i22
-  %weak_count_.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pre, i64 12
+  %weak_count_.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pr, i64 12
   %31 = atomicrmw sub ptr %weak_count_.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i23 = icmp eq i32 %31, 1
   br i1 %cmp.i.i.i.i23, label %if.then.i.i.i.i24, label %_ZN5boost10shared_ptrIN8QuantLib11DefaultTypeEED2Ev.exit
 
 if.then.i.i.i.i24:                                ; preds = %.noexc.i.i
-  %vtable.i.i.i.i25 = load ptr, ptr %.pre, align 8, !tbaa !51
+  %vtable.i.i.i.i25 = load ptr, ptr %.pr, align 8, !tbaa !51
   %vfn.i.i.i.i26 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i25, i64 24
   %32 = load ptr, ptr %vfn.i.i.i.i26, align 8
-  invoke void %32(ptr noundef nonnull align 8 dereferenceable(16) %.pre)
+  invoke void %32(ptr noundef nonnull align 8 dereferenceable(16) %.pr)
           to label %_ZN5boost10shared_ptrIN8QuantLib11DefaultTypeEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i24, %if.then.i.i.i22
@@ -1334,34 +1334,34 @@ if.else.i.i34:                                    ; preds = %invoke.cont15
 
 invoke.cont17:                                    ; preds = %if.else.i.i34
   %pn.i37.phi.trans.insert = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 8
-  %.pre79 = load ptr, ptr %pn.i37.phi.trans.insert, align 8, !tbaa !32
-  %cmp.not.i.i38 = icmp eq ptr %.pre79, null
+  %.pre = load ptr, ptr %pn.i37.phi.trans.insert, align 8, !tbaa !32
+  %cmp.not.i.i38 = icmp eq ptr %.pre, null
   br i1 %cmp.not.i.i38, label %_ZN5boost10shared_ptrIN8QuantLib11DefaultTypeEED2Ev.exit52, label %if.then.i.i39
 
 if.then.i.i39:                                    ; preds = %invoke.cont17
-  %use_count_.i.i.i40 = getelementptr inbounds nuw i8, ptr %.pre79, i64 8
+  %use_count_.i.i.i40 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %39 = atomicrmw sub ptr %use_count_.i.i.i40, i32 1 acq_rel, align 4
   %cmp.i.i.i41 = icmp eq i32 %39, 1
   br i1 %cmp.i.i.i41, label %if.then.i.i.i42, label %_ZN5boost10shared_ptrIN8QuantLib11DefaultTypeEED2Ev.exit52
 
 if.then.i.i.i42:                                  ; preds = %if.then.i.i39
-  %vtable.i.i.i43 = load ptr, ptr %.pre79, align 8, !tbaa !51
+  %vtable.i.i.i43 = load ptr, ptr %.pre, align 8, !tbaa !51
   %vfn.i.i.i44 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i43, i64 16
   %40 = load ptr, ptr %vfn.i.i.i44, align 8
-  invoke void %40(ptr noundef nonnull align 8 dereferenceable(16) %.pre79)
+  invoke void %40(ptr noundef nonnull align 8 dereferenceable(16) %.pre)
           to label %.noexc.i.i46 unwind label %terminate.lpad.i.i45
 
 .noexc.i.i46:                                     ; preds = %if.then.i.i.i42
-  %weak_count_.i.i.i.i47 = getelementptr inbounds nuw i8, ptr %.pre79, i64 12
+  %weak_count_.i.i.i.i47 = getelementptr inbounds nuw i8, ptr %.pre, i64 12
   %41 = atomicrmw sub ptr %weak_count_.i.i.i.i47, i32 1 acq_rel, align 4
   %cmp.i.i.i.i48 = icmp eq i32 %41, 1
   br i1 %cmp.i.i.i.i48, label %if.then.i.i.i.i49, label %_ZN5boost10shared_ptrIN8QuantLib11DefaultTypeEED2Ev.exit52
 
 if.then.i.i.i.i49:                                ; preds = %.noexc.i.i46
-  %vtable.i.i.i.i50 = load ptr, ptr %.pre79, align 8, !tbaa !51
+  %vtable.i.i.i.i50 = load ptr, ptr %.pre, align 8, !tbaa !51
   %vfn.i.i.i.i51 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i50, i64 24
   %42 = load ptr, ptr %vfn.i.i.i.i51, align 8
-  invoke void %42(ptr noundef nonnull align 8 dereferenceable(16) %.pre79)
+  invoke void %42(ptr noundef nonnull align 8 dereferenceable(16) %.pre)
           to label %_ZN5boost10shared_ptrIN8QuantLib11DefaultTypeEED2Ev.exit52 unwind label %terminate.lpad.i.i45
 
 terminate.lpad.i.i45:                             ; preds = %if.then.i.i.i.i49, %if.then.i.i.i42
@@ -1409,34 +1409,34 @@ if.else.i.i60:                                    ; preds = %invoke.cont26
 
 invoke.cont28:                                    ; preds = %if.else.i.i60
   %pn.i63.phi.trans.insert = getelementptr inbounds nuw i8, ptr %ref.tmp23, i64 8
-  %.pre80 = load ptr, ptr %pn.i63.phi.trans.insert, align 8, !tbaa !32
-  %cmp.not.i.i64 = icmp eq ptr %.pre80, null
+  %.pre79 = load ptr, ptr %pn.i63.phi.trans.insert, align 8, !tbaa !32
+  %cmp.not.i.i64 = icmp eq ptr %.pre79, null
   br i1 %cmp.not.i.i64, label %_ZN5boost10shared_ptrIN8QuantLib11DefaultTypeEED2Ev.exit78, label %if.then.i.i65
 
 if.then.i.i65:                                    ; preds = %invoke.cont28
-  %use_count_.i.i.i66 = getelementptr inbounds nuw i8, ptr %.pre80, i64 8
+  %use_count_.i.i.i66 = getelementptr inbounds nuw i8, ptr %.pre79, i64 8
   %50 = atomicrmw sub ptr %use_count_.i.i.i66, i32 1 acq_rel, align 4
   %cmp.i.i.i67 = icmp eq i32 %50, 1
   br i1 %cmp.i.i.i67, label %if.then.i.i.i68, label %_ZN5boost10shared_ptrIN8QuantLib11DefaultTypeEED2Ev.exit78
 
 if.then.i.i.i68:                                  ; preds = %if.then.i.i65
-  %vtable.i.i.i69 = load ptr, ptr %.pre80, align 8, !tbaa !51
+  %vtable.i.i.i69 = load ptr, ptr %.pre79, align 8, !tbaa !51
   %vfn.i.i.i70 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i69, i64 16
   %51 = load ptr, ptr %vfn.i.i.i70, align 8
-  invoke void %51(ptr noundef nonnull align 8 dereferenceable(16) %.pre80)
+  invoke void %51(ptr noundef nonnull align 8 dereferenceable(16) %.pre79)
           to label %.noexc.i.i72 unwind label %terminate.lpad.i.i71
 
 .noexc.i.i72:                                     ; preds = %if.then.i.i.i68
-  %weak_count_.i.i.i.i73 = getelementptr inbounds nuw i8, ptr %.pre80, i64 12
+  %weak_count_.i.i.i.i73 = getelementptr inbounds nuw i8, ptr %.pre79, i64 12
   %52 = atomicrmw sub ptr %weak_count_.i.i.i.i73, i32 1 acq_rel, align 4
   %cmp.i.i.i.i74 = icmp eq i32 %52, 1
   br i1 %cmp.i.i.i.i74, label %if.then.i.i.i.i75, label %_ZN5boost10shared_ptrIN8QuantLib11DefaultTypeEED2Ev.exit78
 
 if.then.i.i.i.i75:                                ; preds = %.noexc.i.i72
-  %vtable.i.i.i.i76 = load ptr, ptr %.pre80, align 8, !tbaa !51
+  %vtable.i.i.i.i76 = load ptr, ptr %.pre79, align 8, !tbaa !51
   %vfn.i.i.i.i77 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i76, i64 24
   %53 = load ptr, ptr %vfn.i.i.i.i77, align 8
-  invoke void %53(ptr noundef nonnull align 8 dereferenceable(16) %.pre80)
+  invoke void %53(ptr noundef nonnull align 8 dereferenceable(16) %.pre79)
           to label %_ZN5boost10shared_ptrIN8QuantLib11DefaultTypeEED2Ev.exit78 unwind label %terminate.lpad.i.i71
 
 terminate.lpad.i.i71:                             ; preds = %if.then.i.i.i.i75, %if.then.i.i.i68

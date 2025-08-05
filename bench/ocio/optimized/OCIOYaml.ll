@@ -31098,7 +31098,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policy
   %2985 = getelementptr inbounds nuw i8, ptr %2984, i64 24
   %2986 = load ptr, ptr %2985, align 8
   call void %2986(ptr noundef nonnull align 8 dereferenceable(16) %2973) #29
-  br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev9TransformEEaSEOS3_.exit.i
+  br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev9TransformEEaSEOS3_.exit.ithread-pre-split
 
 2987:                                             ; preds = %2974
   %2988 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15
@@ -31117,14 +31117,18 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policy
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %2991, %2989
   %.0.i.i.i.i.i.i.i = phi i32 [ %2978, %2989 ], [ %2992, %2991 ]
   %2993 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %2993, label %2994, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev9TransformEEaSEOS3_.exit.i, !prof !17
+  br i1 %2993, label %2994, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev9TransformEEaSEOS3_.exit.ithread-pre-split, !prof !17
 
 2994:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %2973) #29
+  br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev9TransformEEaSEOS3_.exit.ithread-pre-split
+
+_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev9TransformEEaSEOS3_.exit.ithread-pre-split: ; preds = %2979, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %2994
+  %.pr = load ptr, ptr %2551, align 8, !tbaa !3
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev9TransformEEaSEOS3_.exit.i
 
-_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev9TransformEEaSEOS3_.exit.i: ; preds = %2994, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %2979, %2970
-  %2995 = load ptr, ptr %2551, align 8, !tbaa !3
+_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev9TransformEEaSEOS3_.exit.i: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev9TransformEEaSEOS3_.exit.ithread-pre-split, %2970
+  %2995 = phi ptr [ %.pr, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev9TransformEEaSEOS3_.exit.ithread-pre-split ], [ null, %2970 ]
   %.not.i.i154.i = icmp eq ptr %2995, null
   br i1 %.not.i.i154.i, label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit158.i, label %2996
 
@@ -92117,7 +92121,7 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit172: ; pred
   %696 = getelementptr inbounds nuw i8, ptr %695, i64 24
   %697 = load ptr, ptr %696, align 8
   call void %697(ptr noundef nonnull align 8 dereferenceable(16) %684) #29
-  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit
+  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exitthread-pre-split
 
 698:                                              ; preds = %685
   %699 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15
@@ -92136,14 +92140,18 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit172: ; pred
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i175: ; preds = %702, %700
   %.0.i.i.i.i.i.i176 = phi i32 [ %689, %700 ], [ %703, %702 ]
   %704 = icmp eq i32 %.0.i.i.i.i.i.i176, 1
-  br i1 %704, label %705, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit, !prof !17
+  br i1 %704, label %705, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exitthread-pre-split, !prof !17
 
 705:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i175
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %684) #29
+  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exitthread-pre-split
+
+_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exitthread-pre-split: ; preds = %705, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i175, %690
+  %.pr = load ptr, ptr %223, align 8, !tbaa !3
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit
 
-_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit: ; preds = %681, %690, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i175, %705
-  %706 = load ptr, ptr %223, align 8, !tbaa !3
+_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exitthread-pre-split, %681
+  %706 = phi ptr [ %.pr, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exitthread-pre-split ], [ null, %681 ]
   %.not.i.i177 = icmp eq ptr %706, null
   br i1 %.not.i.i177, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %707
 
@@ -92417,7 +92425,7 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit196: ; pred
   %816 = getelementptr inbounds nuw i8, ptr %815, i64 24
   %817 = load ptr, ptr %816, align 8
   call void %817(ptr noundef nonnull align 8 dereferenceable(16) %804) #29
-  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit201
+  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit201thread-pre-split
 
 818:                                              ; preds = %805
   %819 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15
@@ -92436,14 +92444,18 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit196: ; pred
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i199: ; preds = %822, %820
   %.0.i.i.i.i.i.i200 = phi i32 [ %809, %820 ], [ %823, %822 ]
   %824 = icmp eq i32 %.0.i.i.i.i.i.i200, 1
-  br i1 %824, label %825, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit201, !prof !17
+  br i1 %824, label %825, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit201thread-pre-split, !prof !17
 
 825:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i199
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %804) #29
+  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit201thread-pre-split
+
+_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit201thread-pre-split: ; preds = %825, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i199, %810
+  %.pr453 = load ptr, ptr %210, align 8, !tbaa !3
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit201
 
-_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit201: ; preds = %801, %810, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i199, %825
-  %826 = load ptr, ptr %210, align 8, !tbaa !3
+_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit201: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit201thread-pre-split, %801
+  %826 = phi ptr [ %.pr453, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit201thread-pre-split ], [ null, %801 ]
   %.not.i.i202 = icmp eq ptr %826, null
   br i1 %.not.i.i202, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit206, label %827
 
@@ -92717,7 +92729,7 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit222: ; pred
   %936 = getelementptr inbounds nuw i8, ptr %935, i64 24
   %937 = load ptr, ptr %936, align 8
   call void %937(ptr noundef nonnull align 8 dereferenceable(16) %924) #29
-  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit227
+  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit227thread-pre-split
 
 938:                                              ; preds = %925
   %939 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15
@@ -92736,14 +92748,18 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit222: ; pred
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i225: ; preds = %942, %940
   %.0.i.i.i.i.i.i226 = phi i32 [ %929, %940 ], [ %943, %942 ]
   %944 = icmp eq i32 %.0.i.i.i.i.i.i226, 1
-  br i1 %944, label %945, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit227, !prof !17
+  br i1 %944, label %945, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit227thread-pre-split, !prof !17
 
 945:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i225
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %924) #29
+  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit227thread-pre-split
+
+_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit227thread-pre-split: ; preds = %945, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i225, %930
+  %.pr454 = load ptr, ptr %197, align 8, !tbaa !3
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit227
 
-_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit227: ; preds = %921, %930, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i225, %945
-  %946 = load ptr, ptr %197, align 8, !tbaa !3
+_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit227: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit227thread-pre-split, %921
+  %946 = phi ptr [ %.pr454, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit227thread-pre-split ], [ null, %921 ]
   %.not.i.i228 = icmp eq ptr %946, null
   br i1 %.not.i.i228, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit232, label %947
 
@@ -93017,7 +93033,7 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit248: ; pred
   %1056 = getelementptr inbounds nuw i8, ptr %1055, i64 24
   %1057 = load ptr, ptr %1056, align 8
   call void %1057(ptr noundef nonnull align 8 dereferenceable(16) %1044) #29
-  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit253
+  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit253thread-pre-split
 
 1058:                                             ; preds = %1045
   %1059 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15
@@ -93036,14 +93052,18 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit248: ; pred
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i251: ; preds = %1062, %1060
   %.0.i.i.i.i.i.i252 = phi i32 [ %1049, %1060 ], [ %1063, %1062 ]
   %1064 = icmp eq i32 %.0.i.i.i.i.i.i252, 1
-  br i1 %1064, label %1065, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit253, !prof !17
+  br i1 %1064, label %1065, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit253thread-pre-split, !prof !17
 
 1065:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i251
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %1044) #29
+  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit253thread-pre-split
+
+_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit253thread-pre-split: ; preds = %1065, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i251, %1050
+  %.pr455 = load ptr, ptr %184, align 8, !tbaa !3
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit253
 
-_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit253: ; preds = %1041, %1050, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i251, %1065
-  %1066 = load ptr, ptr %184, align 8, !tbaa !3
+_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit253: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit253thread-pre-split, %1041
+  %1066 = phi ptr [ %.pr455, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit253thread-pre-split ], [ null, %1041 ]
   %.not.i.i254 = icmp eq ptr %1066, null
   br i1 %.not.i.i254, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit258, label %1067
 
@@ -93713,7 +93733,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit308: ; preds = %_Z
   %1324 = getelementptr inbounds nuw i8, ptr %1323, i64 24
   %1325 = load ptr, ptr %1324, align 8
   call void %1325(ptr noundef nonnull align 8 dereferenceable(16) %1312) #29
-  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit313
+  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit313thread-pre-split
 
 1326:                                             ; preds = %1313
   %1327 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15
@@ -93732,14 +93752,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit308: ; preds = %_Z
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i311: ; preds = %1330, %1328
   %.0.i.i.i.i.i.i312 = phi i32 [ %1317, %1328 ], [ %1331, %1330 ]
   %1332 = icmp eq i32 %.0.i.i.i.i.i.i312, 1
-  br i1 %1332, label %1333, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit313, !prof !17
+  br i1 %1332, label %1333, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit313thread-pre-split, !prof !17
 
 1333:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i311
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %1312) #29
+  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit313thread-pre-split
+
+_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit313thread-pre-split: ; preds = %1333, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i311, %1318
+  %.pr456 = load ptr, ptr %1310, align 8, !tbaa !3
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit313
 
-_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit313: ; preds = %1308, %1318, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i311, %1333
-  %1334 = load ptr, ptr %1310, align 8, !tbaa !3
+_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit313: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit313thread-pre-split, %1308
+  %1334 = phi ptr [ %.pr456, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit313thread-pre-split ], [ null, %1308 ]
   %.not.i.i314 = icmp eq ptr %1334, null
   br i1 %.not.i.i314, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit318, label %1335
 
@@ -93839,7 +93863,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_L
   %1379 = getelementptr inbounds nuw i8, ptr %1378, i64 24
   %1380 = load ptr, ptr %1379, align 8
   call void %1380(ptr noundef nonnull align 8 dereferenceable(16) %1367) #29
-  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit323
+  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit323thread-pre-split
 
 1381:                                             ; preds = %1368
   %1382 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15
@@ -93858,14 +93882,18 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_L
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i321: ; preds = %1385, %1383
   %.0.i.i.i.i.i.i322 = phi i32 [ %1372, %1383 ], [ %1386, %1385 ]
   %1387 = icmp eq i32 %.0.i.i.i.i.i.i322, 1
-  br i1 %1387, label %1388, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit323, !prof !17
+  br i1 %1387, label %1388, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit323thread-pre-split, !prof !17
 
 1388:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i321
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %1367) #29
+  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit323thread-pre-split
+
+_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit323thread-pre-split: ; preds = %1388, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i321, %1373
+  %.pr457 = load ptr, ptr %1365, align 8, !tbaa !3
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit323
 
-_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit323: ; preds = %1363, %1373, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i321, %1388
-  %1389 = load ptr, ptr %1365, align 8, !tbaa !3
+_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit323: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit323thread-pre-split, %1363
+  %1389 = phi ptr [ %.pr457, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit323thread-pre-split ], [ null, %1363 ]
   %.not.i.i324 = icmp eq ptr %1389, null
   br i1 %.not.i.i324, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit328, label %1390
 
@@ -93965,7 +93993,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_L
   %1434 = getelementptr inbounds nuw i8, ptr %1433, i64 24
   %1435 = load ptr, ptr %1434, align 8
   call void %1435(ptr noundef nonnull align 8 dereferenceable(16) %1422) #29
-  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit333
+  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit333thread-pre-split
 
 1436:                                             ; preds = %1423
   %1437 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15
@@ -93984,14 +94012,18 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_L
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i331: ; preds = %1440, %1438
   %.0.i.i.i.i.i.i332 = phi i32 [ %1427, %1438 ], [ %1441, %1440 ]
   %1442 = icmp eq i32 %.0.i.i.i.i.i.i332, 1
-  br i1 %1442, label %1443, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit333, !prof !17
+  br i1 %1442, label %1443, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit333thread-pre-split, !prof !17
 
 1443:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i331
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %1422) #29
+  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit333thread-pre-split
+
+_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit333thread-pre-split: ; preds = %1443, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i331, %1428
+  %.pr458 = load ptr, ptr %1420, align 8, !tbaa !3
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit333
 
-_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit333: ; preds = %1418, %1428, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i331, %1443
-  %1444 = load ptr, ptr %1420, align 8, !tbaa !3
+_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit333: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit333thread-pre-split, %1418
+  %1444 = phi ptr [ %.pr458, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit333thread-pre-split ], [ null, %1418 ]
   %.not.i.i334 = icmp eq ptr %1444, null
   br i1 %.not.i.i334, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit338, label %1445
 
@@ -94091,7 +94123,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_L
   %1489 = getelementptr inbounds nuw i8, ptr %1488, i64 24
   %1490 = load ptr, ptr %1489, align 8
   call void %1490(ptr noundef nonnull align 8 dereferenceable(16) %1477) #29
-  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit343
+  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit343thread-pre-split
 
 1491:                                             ; preds = %1478
   %1492 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15
@@ -94110,14 +94142,18 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_L
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i341: ; preds = %1495, %1493
   %.0.i.i.i.i.i.i342 = phi i32 [ %1482, %1493 ], [ %1496, %1495 ]
   %1497 = icmp eq i32 %.0.i.i.i.i.i.i342, 1
-  br i1 %1497, label %1498, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit343, !prof !17
+  br i1 %1497, label %1498, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit343thread-pre-split, !prof !17
 
 1498:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i341
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %1477) #29
+  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit343thread-pre-split
+
+_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit343thread-pre-split: ; preds = %1498, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i341, %1483
+  %.pr459 = load ptr, ptr %1475, align 8, !tbaa !3
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit343
 
-_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit343: ; preds = %1473, %1483, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i341, %1498
-  %1499 = load ptr, ptr %1475, align 8, !tbaa !3
+_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit343: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit343thread-pre-split, %1473
+  %1499 = phi ptr [ %.pr459, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveEEaSEOS2_.exit343thread-pre-split ], [ null, %1473 ]
   %.not.i.i344 = icmp eq ptr %1499, null
   br i1 %.not.i.i344, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit348, label %1500
 

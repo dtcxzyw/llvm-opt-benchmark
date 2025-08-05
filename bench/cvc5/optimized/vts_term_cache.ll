@@ -2996,7 +2996,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit230:           ; preds = %180, %184, %190
 224:                                              ; preds = %220, %216, %212
   %225 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8, !tbaa !26
   %226 = icmp eq ptr %213, %225
-  br i1 %226, label %227, label %266
+  br i1 %226, label %227, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit291
 
 227:                                              ; preds = %224
   %228 = load ptr, ptr %9, align 8, !tbaa !27
@@ -3078,31 +3078,31 @@ _ZN4cvc58internal4expr9NodeValue3decEv.exit.i:    ; preds = %239, %233, %230
           cleanup
   br label %.body232
 
-266:                                              ; preds = %224
+_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit291: ; preds = %224
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   invoke void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %267 unwind label %427
+          to label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit unwind label %427
 
-267:                                              ; preds = %266
+_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit291
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   invoke void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit299 unwind label %429
 
-_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit299: ; preds = %267
-  %.pre838 = load ptr, ptr %135, align 8, !tbaa !130
-  %.pre837 = load ptr, ptr %16, align 8, !tbaa !130
+_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit299: ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #22
-  %268 = load ptr, ptr %15, align 8, !tbaa !130
-  %269 = load ptr, ptr %133, align 8, !tbaa !130
+  %266 = load ptr, ptr %15, align 8, !tbaa !130
+  %267 = load ptr, ptr %133, align 8, !tbaa !130
+  %268 = load ptr, ptr %16, align 8, !tbaa !130
+  %269 = load ptr, ptr %135, align 8, !tbaa !130
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #22, !noalias !148
   store ptr %137, ptr %6, align 8, !tbaa !134, !noalias !148
   store i64 1, ptr %138, align 8, !tbaa !136, !noalias !148
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %139, i8 0, i64 16, i1 false), !noalias !148
   store float 1.000000e+00, ptr %140, align 8, !tbaa !137, !noalias !148
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %141, i8 0, i64 16, i1 false), !noalias !148
-  invoke void @_ZNK4cvc58internal12NodeTemplateILb1EE10substituteIN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESA_EES2_T_SB_T0_SC_RSt13unordered_mapINS1_ILb0EEESE_St4hashISE_ESt8equal_toISE_ESaISt4pairIKSE_SE_EEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %17, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %268, ptr %269, ptr %.pre837, ptr %.pre838, ptr noundef nonnull align 8 dereferenceable(56) %6)
+  invoke void @_ZNK4cvc58internal12NodeTemplateILb1EE10substituteIN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEESA_EES2_T_SB_T0_SC_RSt13unordered_mapINS1_ILb0EEESE_St4hashISE_ESt8equal_toISE_ESaISt4pairIKSE_SE_EEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %17, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %266, ptr %267, ptr %268, ptr %269, ptr noundef nonnull align 8 dereferenceable(56) %6)
           to label %270 unwind label %281
 
 270:                                              ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit299
@@ -3436,12 +3436,12 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit329: ; preds = %_ZN4cvc58internal1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #22
   br label %445
 
-427:                                              ; preds = %266
+427:                                              ; preds = %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit291
   %428 = landingpad { ptr, i32 }
           cleanup
   br label %491
 
-429:                                              ; preds = %267
+429:                                              ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit
   %430 = landingpad { ptr, i32 }
           cleanup
   br label %490

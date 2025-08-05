@@ -14664,14 +14664,14 @@ _ZN4llvm13IRBuilderBase17CreateUnreachableEv.exit: ; preds = %.lr.ph.i.i.i49, %1
   %125 = or disjoint i16 %124, 256
   %.sroa.02.0.insert.insert.i61 = select i1 %118, i16 %125, i16 511
   %126 = call noundef ptr @_ZN4llvm13IRBuilderBase18CreateAlignedStoreEPNS_5ValueES2_NS_10MaybeAlignEb(ptr noundef nonnull align 8 dereferenceable(160) %30, ptr noundef %41, ptr noundef %120, i16 %.sroa.02.0.insert.insert.i61, i1 noundef zeroext false)
-  %.pre109.pre = load ptr, ptr %44, align 8, !tbaa !731
+  %.pr.pre109.pre = load ptr, ptr %44, align 8, !tbaa !731
   br label %127
 
 127:                                              ; preds = %_ZN4llvm13IRBuilderBase17CreateUnreachableEv.exit, %29
-  %.pre109 = phi ptr [ %.pre109.pre, %_ZN4llvm13IRBuilderBase17CreateUnreachableEv.exit ], [ null, %29 ]
+  %.pr.pre109 = phi ptr [ %.pr.pre109.pre, %_ZN4llvm13IRBuilderBase17CreateUnreachableEv.exit ], [ null, %29 ]
   %128 = load ptr, ptr %19, align 8, !tbaa !906
   %.not108 = icmp eq ptr %128, null
-  br i1 %.not108, label %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit, label %129
+  br i1 %.not108, label %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exitthread-pre-split, label %129
 
 129:                                              ; preds = %127
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 336
@@ -14680,16 +14680,16 @@ _ZN4llvm13IRBuilderBase17CreateUnreachableEv.exit: ; preds = %.lr.ph.i.i.i49, %1
   %.sroa.2.0.copyload.i.i64 = load i64, ptr %.sroa.2.0..sroa_idx.i.i63, align 8, !noalias !1466
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %44, i8 0, i64 18, i1 false), !noalias !1466
   call void @_ZN5clang7CodeGen15CodeGenFunction15PopCleanupBlockEbb(ptr noundef nonnull align 8 dereferenceable(6496) %1, i1 noundef zeroext false, i1 noundef zeroext false) #18
-  %.not.i = icmp eq ptr %.pre109, null
-  br i1 %.not.i, label %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit.thread, label %131
+  %.not.i = icmp eq ptr %.pr.pre109, null
+  br i1 %.not.i, label %.critedge, label %131
 
 131:                                              ; preds = %129
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store ptr %.pre109, ptr %44, align 8, !tbaa !731
+  store ptr %.pr.pre109, ptr %44, align 8, !tbaa !731
   store ptr %.sroa.0.0.copyload.i.i62, ptr %130, align 8
   %.sroa.46.0.extract.trunc.i.i = trunc i64 %.sroa.2.0.copyload.i.i64 to i16
   store i16 %.sroa.46.0.extract.trunc.i.i, ptr %.sroa.2.0..sroa_idx.i.i63, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %.pre109, i64 48
+  %132 = getelementptr inbounds nuw i8, ptr %.pr.pre109, i64 48
   %.not.i.i = icmp eq ptr %.sroa.0.0.copyload.i.i62, %132
   br i1 %.not.i.i, label %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEE.exit.i, label %133
 
@@ -14719,19 +14719,19 @@ _ZN4llvm8DebugLocC2ERKS0_.exit.i.i:               ; preds = %137, %133
 
 _ZN4llvm13IRBuilderBase14SetInsertPointEPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEE.exit.i: ; preds = %141, %_ZN4llvm8DebugLocC2ERKS0_.exit.i.i, %131
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %.pre = load ptr, ptr %44, align 8, !tbaa !731
-  br label %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit
+  %.pr.pre = load ptr, ptr %44, align 8, !tbaa !731
+  br label %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exitthread-pre-split
 
-_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit.thread: ; preds = %129
+.critedge:                                        ; preds = %129
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %44, i8 0, i64 18, i1 false)
   br label %143
 
-_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit: ; preds = %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEE.exit.i, %127
-  %142 = phi ptr [ %.pre, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEE.exit.i ], [ %.pre109, %127 ]
-  %.not.i68 = icmp eq ptr %142, null
-  br i1 %.not.i68, label %143, label %_ZN5clang7CodeGen15CodeGenFunction17EnsureInsertPointEv.exit
+_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exitthread-pre-split: ; preds = %127, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEE.exit.i
+  %.pr = phi ptr [ %.pr.pre109, %127 ], [ %.pr.pre, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEE.exit.i ]
+  %142 = icmp eq ptr %.pr, null
+  br i1 %142, label %143, label %_ZN5clang7CodeGen15CodeGenFunction17EnsureInsertPointEv.exit
 
-143:                                              ; preds = %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit.thread, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit
+143:                                              ; preds = %.critedge, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exitthread-pre-split
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #18
   %144 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -14745,7 +14745,7 @@ _ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit: ; preds = %_ZN4llvm13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #18
   br label %_ZN5clang7CodeGen15CodeGenFunction17EnsureInsertPointEv.exit
 
-_ZN5clang7CodeGen15CodeGenFunction17EnsureInsertPointEv.exit: ; preds = %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit, %143
+_ZN5clang7CodeGen15CodeGenFunction17EnsureInsertPointEv.exit: ; preds = %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exitthread-pre-split, %143
   ret void
 }
 

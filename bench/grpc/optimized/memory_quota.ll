@@ -3657,12 +3657,12 @@ _ZNSt6vectorISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE9push_backEOS3_.
           to label %_ZNSt6vectorISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE9push_backEOS3_.exit.i unwind label %122
 
 _ZNSt6vectorISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE9push_backEOS3_.exit.i: ; preds = %103
-  %.pre.i = load ptr, ptr %85, align 8, !tbaa !122
-  %.not.i.i6.i = icmp eq ptr %.pre.i, null
+  %.pr.i = load ptr, ptr %85, align 8, !tbaa !122
+  %.not.i.i6.i = icmp eq ptr %.pr.i, null
   br i1 %.not.i.i6.i, label %_ZNSt10__weak_ptrIN9grpc_core16BasicMemoryQuotaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, label %104
 
 104:                                              ; preds = %_ZNSt6vectorISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE9push_backEOS3_.exit.i
-  %105 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 12
+  %105 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 12
   %106 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !30
   %.not.i.i.i7.i = icmp eq i8 %106, 0
   br i1 %.not.i.i.i7.i, label %110, label %107
@@ -3683,10 +3683,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %110, %10
   br i1 %112, label %113, label %_ZNSt10__weak_ptrIN9grpc_core16BasicMemoryQuotaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
 
 113:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  %114 = load ptr, ptr %.pre.i, align 8, !tbaa !23
+  %114 = load ptr, ptr %.pr.i, align 8, !tbaa !23
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 24
   %116 = load ptr, ptr %115, align 8
-  call void %116(ptr noundef nonnull align 8 dereferenceable(16) %.pre.i) #40
+  call void %116(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i) #40
   br label %_ZNSt10__weak_ptrIN9grpc_core16BasicMemoryQuotaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
 
 _ZNSt10__weak_ptrIN9grpc_core16BasicMemoryQuotaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; preds = %113, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZNSt6vectorISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE9push_backEOS3_.exit.i, %_ZNSt6vectorISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE9push_backEOS3_.exit.thread.i

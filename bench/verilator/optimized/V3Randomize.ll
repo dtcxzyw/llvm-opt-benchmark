@@ -17522,11 +17522,11 @@ define linkonce_odr dso_local void @_ZN7AstNode11foreachImplI8AstClassZN16Random
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   invoke void @_ZNSt6vectorIP7AstNodeSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef 32)
-          to label %_ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit unwind label %13
+          to label %.noexc unwind label %13
 
-_ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit: ; preds = %3
+.noexc:                                           ; preds = %3
   %.pre3.i = load ptr, ptr %9, align 8, !tbaa !114
-  %.ptr160 = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 16
+  %.ptr159 = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 16
   br label %15
 
 11:                                               ; preds = %15
@@ -17538,9 +17538,9 @@ _ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVar
           cleanup
   br label %.body
 
-15:                                               ; preds = %_ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit, %15
-  %indvars.iv = phi i64 [ -2, %_ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds ptr, ptr %.ptr160, i64 %indvars.iv
+15:                                               ; preds = %.noexc, %15
+  %indvars.iv = phi i64 [ -2, %.noexc ], [ %indvars.iv.next, %15 ]
+  %16 = getelementptr inbounds ptr, ptr %.ptr159, i64 %indvars.iv
   store ptr %0, ptr %16, align 8, !tbaa !149
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %17 = icmp eq i64 %indvars.iv.next, 0
@@ -17553,7 +17553,7 @@ _ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVar
   br i1 %.not17, label %22, label %21
 
 21:                                               ; preds = %18
-  store ptr %20, ptr %.ptr160, align 8, !tbaa !149
+  store ptr %20, ptr %.ptr159, align 8, !tbaa !149
   br label %22
 
 22:                                               ; preds = %21, %18, %11
@@ -17623,8 +17623,8 @@ _ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVar
   br i1 %40, label %.lr.ph, label %._crit_edge, !prof !432
 
 .lr.ph:                                           ; preds = %_ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit.thread, %_ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit
-  %.7.idx174 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit.thread ], [ %.6.idx, %_ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit ]
-  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx174
+  %.7.idx173 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit.thread ], [ %.6.idx, %_ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit ]
+  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx173
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -17633,18 +17633,18 @@ _ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVar
   br label %46
 
 46:                                               ; preds = %.lr.ph, %_ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit36
-  %.0156 = phi ptr [ %12, %.lr.ph ], [ %.1, %_ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit36 ]
-  %.0124155 = phi ptr [ %.ptr160, %.lr.ph ], [ %.1125, %_ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit36 ]
-  %.1127154 = phi ptr [ %.7.ptr, %.lr.ph ], [ %.11, %_ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit36 ]
-  %47 = getelementptr inbounds i8, ptr %.1127154, i64 -8
+  %.0155 = phi ptr [ %12, %.lr.ph ], [ %.1, %_ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit36 ]
+  %.0124154 = phi ptr [ %.ptr159, %.lr.ph ], [ %.1125, %_ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit36 ]
+  %.1127153 = phi ptr [ %.7.ptr, %.lr.ph ], [ %.11, %_ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit36 ]
+  %47 = getelementptr inbounds i8, ptr %.1127153, i64 -8
   %48 = load ptr, ptr %47, align 8, !tbaa !149
-  %49 = getelementptr inbounds i8, ptr %.1127154, i64 -24
+  %49 = getelementptr inbounds i8, ptr %.1127153, i64 -24
   %50 = load ptr, ptr %49, align 8, !tbaa !149
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   call void @llvm.prefetch.p0(ptr nonnull %51, i32 0, i32 3, i32 1)
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 64
   call void @llvm.prefetch.p0(ptr nonnull %52, i32 0, i32 3, i32 1)
-  %.not18 = icmp ult ptr %47, %.0156
+  %.not18 = icmp ult ptr %47, %.0155
   br i1 %.not18, label %79, label %53, !prof !118
 
 53:                                               ; preds = %46
@@ -17683,7 +17683,7 @@ _ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVar
 _ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit29: ; preds = %.noexc28, %64, %66, %68
   %69 = phi ptr [ %.pre3.i25, %.noexc28 ], [ %55, %64 ], [ %55, %66 ], [ %55, %68 ]
   %70 = ptrtoint ptr %47 to i64
-  %71 = ptrtoint ptr %.0124155 to i64
+  %71 = ptrtoint ptr %.0124154 to i64
   %72 = sub i64 %70, %71
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %74 = getelementptr inbounds i8, ptr %73, i64 %72
@@ -17702,29 +17702,29 @@ _ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVar
   br label %.body
 
 .loopexit.split-lp.loopexit:                      ; preds = %tailrecurse.i67
-  %lpad.loopexit129 = landingpad { ptr, i32 }
+  %lpad.loopexit128 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %tailrecurse.i79
-  %lpad.loopexit132 = landingpad { ptr, i32 }
+  %lpad.loopexit131 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %._crit_edge.i.i.i, %166, %202, %.noexc45, %.noexc43, %87, %62
-  %lpad.loopexit134 = landingpad { ptr, i32 }
+  %lpad.loopexit133 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.noexc74.invoke, %.noexc71, %.noexc73, %.noexc49, %.noexc51, %.noexc72, %.noexc70, %145, %.noexc50, %.noexc48, %183
-  %lpad.loopexit.split-lp135 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp134 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 79:                                               ; preds = %_ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit29, %46
   %.2 = phi ptr [ %47, %46 ], [ %74, %_ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit29 ]
-  %.1125 = phi ptr [ %.0124155, %46 ], [ %73, %_ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit29 ]
-  %.1 = phi ptr [ %.0156, %46 ], [ %76, %_ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit29 ]
+  %.1125 = phi ptr [ %.0124154, %46 ], [ %73, %_ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit29 ]
+  %.1 = phi ptr [ %.0155, %46 ], [ %76, %_ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit29 ]
   %80 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %81 = load ptr, ptr %80, align 8, !tbaa !270
   %.not19 = icmp eq ptr %81, null
@@ -18142,7 +18142,7 @@ _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit:          ; preds = %._crit_edge, %231
   ret void
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19.i, %13
-  %.pn.pn = phi { ptr, i32 } [ %14, %13 ], [ %78, %77 ], [ %128, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit129, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit132, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit134, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp135, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %14, %13 ], [ %78, %77 ], [ %128, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit128, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit131, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit133, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp134, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %237 = load ptr, ptr %9, align 8, !tbaa !114
   %.not.i.i.i38 = icmp eq ptr %237, null
   br i1 %.not.i.i.i38, label %_ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit39, label %238
@@ -20799,11 +20799,11 @@ define linkonce_odr dso_local void @_ZN7AstNode11foreachImplI13AstConstraintZN16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @_ZNSt6vectorIP7AstNodeSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 32)
-          to label %_ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit unwind label %8
+          to label %.noexc unwind label %8
 
-_ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit: ; preds = %3
+.noexc:                                           ; preds = %3
   %.pre3.i = load ptr, ptr %4, align 8, !tbaa !114
-  %.ptr87 = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 16
+  %.ptr86 = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 16
   br label %10
 
 6:                                                ; preds = %10
@@ -20815,9 +20815,9 @@ _ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUl
           cleanup
   br label %112
 
-10:                                               ; preds = %_ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit, %10
-  %indvars.iv = phi i64 [ -2, %_ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds ptr, ptr %.ptr87, i64 %indvars.iv
+10:                                               ; preds = %.noexc, %10
+  %indvars.iv = phi i64 [ -2, %.noexc ], [ %indvars.iv.next, %10 ]
+  %11 = getelementptr inbounds ptr, ptr %.ptr86, i64 %indvars.iv
   store ptr %0, ptr %11, align 8, !tbaa !149
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %12 = icmp eq i64 %indvars.iv.next, 0
@@ -20830,7 +20830,7 @@ _ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUl
   br i1 %.not17, label %17, label %16
 
 16:                                               ; preds = %13
-  store ptr %15, ptr %.ptr87, align 8, !tbaa !149
+  store ptr %15, ptr %.ptr86, align 8, !tbaa !149
   br label %17
 
 17:                                               ; preds = %16, %13, %6
@@ -20906,23 +20906,23 @@ _ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUl
   br i1 %38, label %.lr.ph.preheader, label %._crit_edge, !prof !432
 
 .lr.ph.preheader:                                 ; preds = %_ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit.thread, %_ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit
-  %.7.idx91 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit.thread ], [ %.6.idx, %_ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit ]
-  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx91
+  %.7.idx90 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit.thread ], [ %.6.idx, %_ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit ]
+  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx90
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit38
-  %.083 = phi ptr [ %.1, %_ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit38 ], [ %7, %.lr.ph.preheader ]
-  %.07582 = phi ptr [ %.176, %_ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit38 ], [ %.ptr87, %.lr.ph.preheader ]
-  %.17881 = phi ptr [ %.11, %_ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit38 ], [ %.7.ptr, %.lr.ph.preheader ]
-  %39 = getelementptr inbounds i8, ptr %.17881, i64 -8
+  %.082 = phi ptr [ %.1, %_ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit38 ], [ %7, %.lr.ph.preheader ]
+  %.07581 = phi ptr [ %.176, %_ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit38 ], [ %.ptr86, %.lr.ph.preheader ]
+  %.17880 = phi ptr [ %.11, %_ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit38 ], [ %.7.ptr, %.lr.ph.preheader ]
+  %39 = getelementptr inbounds i8, ptr %.17880, i64 -8
   %40 = load ptr, ptr %39, align 8, !tbaa !149
-  %41 = getelementptr inbounds i8, ptr %.17881, i64 -24
+  %41 = getelementptr inbounds i8, ptr %.17880, i64 -24
   %42 = load ptr, ptr %41, align 8, !tbaa !149
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   call void @llvm.prefetch.p0(ptr nonnull %43, i32 0, i32 3, i32 1)
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 64
   call void @llvm.prefetch.p0(ptr nonnull %44, i32 0, i32 3, i32 1)
-  %.not18 = icmp ult ptr %39, %.083
+  %.not18 = icmp ult ptr %39, %.082
   br i1 %.not18, label %73, label %45, !prof !118
 
 45:                                               ; preds = %.lr.ph
@@ -20961,7 +20961,7 @@ _ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUl
 _ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30: ; preds = %.noexc29, %56, %58, %60
   %61 = phi ptr [ %.pre3.i26, %.noexc29 ], [ %47, %56 ], [ %47, %58 ], [ %47, %60 ]
   %62 = ptrtoint ptr %39 to i64
-  %63 = ptrtoint ptr %.07582 to i64
+  %63 = ptrtoint ptr %.07581 to i64
   %64 = sub i64 %62, %63
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %66 = getelementptr inbounds i8, ptr %65, i64 %64
@@ -20981,8 +20981,8 @@ _ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUl
 
 73:                                               ; preds = %_ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30, %.lr.ph
   %.2 = phi ptr [ %39, %.lr.ph ], [ %66, %_ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30 ]
-  %.176 = phi ptr [ %.07582, %.lr.ph ], [ %65, %_ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30 ]
-  %.1 = phi ptr [ %.083, %.lr.ph ], [ %68, %_ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30 ]
+  %.176 = phi ptr [ %.07581, %.lr.ph ], [ %65, %_ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30 ]
+  %.1 = phi ptr [ %.082, %.lr.ph ], [ %68, %_ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30 ]
   %74 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !270
   %.not19 = icmp eq ptr %75, null
@@ -45414,11 +45414,11 @@ define linkonce_odr dso_local void @_ZN7AstNode11foreachImplI9AstVarRefZN16Rando
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @_ZNSt6vectorIP7AstNodeSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 32)
-          to label %_ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit unwind label %8
+          to label %.noexc unwind label %8
 
-_ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit: ; preds = %3
+.noexc:                                           ; preds = %3
   %.pre3.i = load ptr, ptr %4, align 8, !tbaa !114
-  %.ptr79 = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 16
+  %.ptr78 = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 16
   br label %10
 
 6:                                                ; preds = %10
@@ -45430,9 +45430,9 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8Fi
           cleanup
   br label %108
 
-10:                                               ; preds = %_ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit, %10
-  %indvars.iv = phi i64 [ -2, %_ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds ptr, ptr %.ptr79, i64 %indvars.iv
+10:                                               ; preds = %.noexc, %10
+  %indvars.iv = phi i64 [ -2, %.noexc ], [ %indvars.iv.next, %10 ]
+  %11 = getelementptr inbounds ptr, ptr %.ptr78, i64 %indvars.iv
   store ptr %0, ptr %11, align 8, !tbaa !149
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %12 = icmp eq i64 %indvars.iv.next, 0
@@ -45445,7 +45445,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8Fi
   br i1 %.not17, label %17, label %16
 
 16:                                               ; preds = %13
-  store ptr %15, ptr %.ptr79, align 8, !tbaa !149
+  store ptr %15, ptr %.ptr78, align 8, !tbaa !149
   br label %17
 
 17:                                               ; preds = %16, %13, %6
@@ -45517,24 +45517,24 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8Fi
   br i1 %37, label %.lr.ph.preheader, label %._crit_edge.thread, !prof !717
 
 .lr.ph.preheader:                                 ; preds = %_ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESM_.exit.thread, %_ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESM_.exit
-  %.7.idx86 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESM_.exit.thread ], [ %.7.idx, %_ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESM_.exit ]
-  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx86
+  %.7.idx85 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESM_.exit.thread ], [ %.7.idx, %_ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESM_.exit ]
+  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx85
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESM_.exit34
   %38 = phi ptr [ %71, %_ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESM_.exit34 ], [ %.pre3.i, %.lr.ph.preheader ]
-  %.078 = phi ptr [ %.1, %_ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESM_.exit34 ], [ %7, %.lr.ph.preheader ]
-  %.07077 = phi ptr [ %.171, %_ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESM_.exit34 ], [ %.ptr79, %.lr.ph.preheader ]
-  %.17376 = phi ptr [ %.11, %_ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESM_.exit34 ], [ %.7.ptr, %.lr.ph.preheader ]
-  %39 = getelementptr inbounds i8, ptr %.17376, i64 -8
+  %.077 = phi ptr [ %.1, %_ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESM_.exit34 ], [ %7, %.lr.ph.preheader ]
+  %.07076 = phi ptr [ %.171, %_ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESM_.exit34 ], [ %.ptr78, %.lr.ph.preheader ]
+  %.17375 = phi ptr [ %.11, %_ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESM_.exit34 ], [ %.7.ptr, %.lr.ph.preheader ]
+  %39 = getelementptr inbounds i8, ptr %.17375, i64 -8
   %40 = load ptr, ptr %39, align 8, !tbaa !149
-  %41 = getelementptr inbounds i8, ptr %.17376, i64 -24
+  %41 = getelementptr inbounds i8, ptr %.17375, i64 -24
   %42 = load ptr, ptr %41, align 8, !tbaa !149
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   call void @llvm.prefetch.p0(ptr nonnull %43, i32 0, i32 3, i32 1)
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 64
   call void @llvm.prefetch.p0(ptr nonnull %44, i32 0, i32 3, i32 1)
-  %.not18 = icmp ult ptr %39, %.078
+  %.not18 = icmp ult ptr %39, %.077
   br i1 %.not18, label %70, label %45, !prof !118
 
 45:                                               ; preds = %.lr.ph
@@ -45572,7 +45572,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8Fi
 _ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28: ; preds = %.noexc27, %55, %57, %59
   %60 = phi ptr [ %.pre3.i24, %.noexc27 ], [ %38, %55 ], [ %38, %57 ], [ %38, %59 ]
   %61 = ptrtoint ptr %39 to i64
-  %62 = ptrtoint ptr %.07077 to i64
+  %62 = ptrtoint ptr %.07076 to i64
   %63 = sub i64 %61, %62
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %65 = getelementptr inbounds i8, ptr %64, i64 %63
@@ -45588,8 +45588,8 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8Fi
 70:                                               ; preds = %_ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28, %.lr.ph
   %71 = phi ptr [ %38, %.lr.ph ], [ %60, %_ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
   %.2 = phi ptr [ %39, %.lr.ph ], [ %65, %_ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
-  %.171 = phi ptr [ %.07077, %.lr.ph ], [ %64, %_ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
-  %.1 = phi ptr [ %.078, %.lr.ph ], [ %67, %_ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
+  %.171 = phi ptr [ %.07076, %.lr.ph ], [ %64, %_ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
+  %.1 = phi ptr [ %.077, %.lr.ph ], [ %67, %_ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
   %72 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !270
   %.not19 = icmp eq ptr %73, null

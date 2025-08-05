@@ -8931,59 +8931,59 @@ _ZNK4node10contextify17ContextifyContext7contextEv.exit: ; preds = %if.end63, %_
   %68 = load ptr, ptr %isolate_.i.i44, align 8
   %69 = load ptr, ptr %context_.i, align 8
   %cmp.i.i.i.i46 = icmp eq ptr %69, null
-  br i1 %cmp.i.i.i.i46, label %_ZNSt10shared_ptrIN4node6worker12SiblingGroupEED2Ev.exit, label %if.end.i.i.i47
+  br i1 %cmp.i.i.i.i46, label %_ZNK4node10contextify17ContextifyContext7contextEv.exit53, label %if.end.i.i.i47
 
 if.end.i.i.i47:                                   ; preds = %_ZNK4node10contextify17ContextifyContext7contextEv.exit
   %add.ptr.i.i.i.i48 = getelementptr inbounds nuw i8, ptr %69, i64 11
   %70 = load i8, ptr %add.ptr.i.i.i.i48, align 1
   %71 = and i8 %70, 3
   %cmp.i.i.i49 = icmp eq i8 %71, 2
-  br i1 %cmp.i.i.i49, label %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i51, label %_ZNSt10shared_ptrIN4node6worker12SiblingGroupEED2Ev.exit
+  br i1 %cmp.i.i.i49, label %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i51, label %_ZNK4node10contextify17ContextifyContext7contextEv.exit53
 
 _ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i51: ; preds = %if.end.i.i.i47
   %72 = load i64, ptr %69, align 8
   %call.i.i.i.i52 = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %68, i64 noundef %72) #26
-  br label %_ZNSt10shared_ptrIN4node6worker12SiblingGroupEED2Ev.exit
+  br label %_ZNK4node10contextify17ContextifyContext7contextEv.exit53
 
-_ZNSt10shared_ptrIN4node6worker12SiblingGroupEED2Ev.exit: ; preds = %_ZNK4node10contextify17ContextifyContext7contextEv.exit, %if.end.i.i.i47, %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i51
+_ZNK4node10contextify17ContextifyContext7contextEv.exit53: ; preds = %_ZNK4node10contextify17ContextifyContext7contextEv.exit, %if.end.i.i.i47, %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i51
   %retval.sroa.0.0.i.i50 = phi ptr [ %call.i.i.i.i52, %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i51 ], [ null, %_ZNK4node10contextify17ContextifyContext7contextEv.exit ], [ %69, %if.end.i.i.i47 ]
   store i64 %data.sroa.0.0, ptr %agg.tmp77, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp78, i8 0, i64 16, i1 false)
   %call82 = call noundef ptr @_ZN4node6worker11MessagePort3NewEPNS_11EnvironmentEN2v85LocalINS4_7ContextEEESt10unique_ptrINS0_15MessagePortDataESt14default_deleteIS9_EESt10shared_ptrINS0_12SiblingGroupEE(ptr noundef nonnull %retval.0.i.i, ptr %retval.sroa.0.0.i.i50, ptr noundef nonnull %agg.tmp77, ptr noundef nonnull %agg.tmp78)
-  %.pre = load ptr, ptr %agg.tmp77, align 8
-  %cmp.not.i57 = icmp eq ptr %.pre, null
+  %73 = load ptr, ptr %agg.tmp77, align 8
+  %cmp.not.i57 = icmp eq ptr %73, null
   br i1 %cmp.not.i57, label %_ZNSt10unique_ptrIN4node6worker15MessagePortDataESt14default_deleteIS2_EED2Ev.exit62, label %_ZNKSt14default_deleteIN4node6worker15MessagePortDataEEclEPS2_.exit.i58
 
-_ZNKSt14default_deleteIN4node6worker15MessagePortDataEEclEPS2_.exit.i58: ; preds = %_ZNSt10shared_ptrIN4node6worker12SiblingGroupEED2Ev.exit
-  %vtable.i.i59 = load ptr, ptr %.pre, align 8
+_ZNKSt14default_deleteIN4node6worker15MessagePortDataEEclEPS2_.exit.i58: ; preds = %_ZNK4node10contextify17ContextifyContext7contextEv.exit53
+  %vtable.i.i59 = load ptr, ptr %73, align 8
   %vfn.i.i60 = getelementptr inbounds nuw i8, ptr %vtable.i.i59, i64 8
-  %73 = load ptr, ptr %vfn.i.i60, align 8
-  call void %73(ptr noundef nonnull align 8 dereferenceable(152) %.pre) #26
+  %74 = load ptr, ptr %vfn.i.i60, align 8
+  call void %74(ptr noundef nonnull align 8 dereferenceable(152) %73) #26
   br label %_ZNSt10unique_ptrIN4node6worker15MessagePortDataESt14default_deleteIS2_EED2Ev.exit62
 
-_ZNSt10unique_ptrIN4node6worker15MessagePortDataESt14default_deleteIS2_EED2Ev.exit62: ; preds = %_ZNSt10shared_ptrIN4node6worker12SiblingGroupEED2Ev.exit, %_ZNKSt14default_deleteIN4node6worker15MessagePortDataEEclEPS2_.exit.i58
+_ZNSt10unique_ptrIN4node6worker15MessagePortDataESt14default_deleteIS2_EED2Ev.exit62: ; preds = %_ZNK4node10contextify17ContextifyContext7contextEv.exit53, %_ZNKSt14default_deleteIN4node6worker15MessagePortDataEEclEPS2_.exit.i58
   %cmp83.not = icmp eq ptr %call82, null
   br i1 %cmp83.not, label %_ZNSt10unique_ptrIN4node6worker15MessagePortDataESt14default_deleteIS2_EED2Ev.exit68, label %if.then84
 
 if.then84:                                        ; preds = %_ZNSt10unique_ptrIN4node6worker15MessagePortDataESt14default_deleteIS2_EED2Ev.exit62
-  %74 = load ptr, ptr %args, align 8
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %74, i64 24
+  %75 = load ptr, ptr %args, align 8
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %75, i64 24
   %call89 = call ptr @_ZNK4node10BaseObject6objectEv(ptr noundef nonnull align 8 dereferenceable(32) %call82)
   %cmp.i.i = icmp eq ptr %call89, null
   br i1 %cmp.i.i, label %if.then.i205, label %_ZNSt10unique_ptrIN4node6worker15MessagePortDataESt14default_deleteIS2_EED2Ev.exit68.sink.split
 
 if.then.i205:                                     ; preds = %if.then84
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %75 = load ptr, ptr %arrayidx.i.i, align 8
-  %76 = ptrtoint ptr %75 to i64
-  %add1.i.i.i = add i64 %76, 616
-  %77 = inttoptr i64 %add1.i.i.i to ptr
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %76 = load ptr, ptr %arrayidx.i.i, align 8
+  %77 = ptrtoint ptr %76 to i64
+  %add1.i.i.i = add i64 %77, 616
+  %78 = inttoptr i64 %add1.i.i.i to ptr
   br label %_ZNSt10unique_ptrIN4node6worker15MessagePortDataESt14default_deleteIS2_EED2Ev.exit68.sink.split
 
 _ZNSt10unique_ptrIN4node6worker15MessagePortDataESt14default_deleteIS2_EED2Ev.exit68.sink.split: ; preds = %if.then84, %if.then.i205
-  %call89.sink = phi ptr [ %77, %if.then.i205 ], [ %call89, %if.then84 ]
-  %78 = load i64, ptr %call89.sink, align 8
-  store i64 %78, ptr %arrayidx.i, align 8
+  %call89.sink = phi ptr [ %78, %if.then.i205 ], [ %call89, %if.then84 ]
+  %79 = load i64, ptr %call89.sink, align 8
+  store i64 %79, ptr %arrayidx.i, align 8
   br label %_ZNSt10unique_ptrIN4node6worker15MessagePortDataESt14default_deleteIS2_EED2Ev.exit68
 
 _ZNSt10unique_ptrIN4node6worker15MessagePortDataESt14default_deleteIS2_EED2Ev.exit68: ; preds = %_ZNSt10unique_ptrIN4node6worker15MessagePortDataESt14default_deleteIS2_EED2Ev.exit68.sink.split, %_ZNSt10unique_ptrIN4node6worker15MessagePortDataESt14default_deleteIS2_EED2Ev.exit62
@@ -14746,96 +14746,96 @@ if.end:                                           ; preds = %_ZN4node11Environme
   %add.ptr.i167 = getelementptr inbounds i8, ptr %21, i64 -8
   %call7 = tail call ptr @_ZN2v86Object18GetCreationContextEv(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i167) #26
   %cmp.i.i290 = icmp eq ptr %call7, null
-  br i1 %cmp.i.i290, label %if.then.i146, label %_ZNSt10shared_ptrIN4node6worker12SiblingGroupEED2Ev.exit
+  br i1 %cmp.i.i290, label %if.then.i146, label %_ZN2v810MaybeLocalINS_7ContextEE14ToLocalCheckedEv.exit
 
 if.then.i146:                                     ; preds = %if.end
   tail call void @_ZN2v812api_internal12ToLocalEmptyEv() #26
-  br label %_ZNSt10shared_ptrIN4node6worker12SiblingGroupEED2Ev.exit
+  br label %_ZN2v810MaybeLocalINS_7ContextEE14ToLocalCheckedEv.exit
 
-_ZNSt10shared_ptrIN4node6worker12SiblingGroupEED2Ev.exit: ; preds = %if.then.i146, %if.end
+_ZN2v810MaybeLocalINS_7ContextEE14ToLocalCheckedEv.exit: ; preds = %if.then.i146, %if.end
   tail call void @_ZN2v87Context5EnterEv(ptr noundef nonnull align 1 dereferenceable(1) %call7) #26
   store ptr null, ptr %agg.tmp20, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp21, i8 0, i64 16, i1 false)
   %call25 = call noundef ptr @_ZN4node6worker11MessagePort3NewEPNS_11EnvironmentEN2v85LocalINS4_7ContextEEESt10unique_ptrINS0_15MessagePortDataESt14default_deleteIS9_EESt10shared_ptrINS0_12SiblingGroupEE(ptr noundef %retval.0.i.i, ptr nonnull %call7, ptr noundef nonnull %agg.tmp20, ptr noundef nonnull %agg.tmp21)
-  %.pre = load ptr, ptr %agg.tmp20, align 8
-  %cmp.not.i = icmp eq ptr %.pre, null
+  %22 = load ptr, ptr %agg.tmp20, align 8
+  %cmp.not.i = icmp eq ptr %22, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4node6worker15MessagePortDataESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN4node6worker15MessagePortDataEEclEPS2_.exit.i
 
-_ZNKSt14default_deleteIN4node6worker15MessagePortDataEEclEPS2_.exit.i: ; preds = %_ZNSt10shared_ptrIN4node6worker12SiblingGroupEED2Ev.exit
-  %vtable.i.i = load ptr, ptr %.pre, align 8
+_ZNKSt14default_deleteIN4node6worker15MessagePortDataEEclEPS2_.exit.i: ; preds = %_ZN2v810MaybeLocalINS_7ContextEE14ToLocalCheckedEv.exit
+  %vtable.i.i = load ptr, ptr %22, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
-  %22 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %22(ptr noundef nonnull align 8 dereferenceable(152) %.pre) #26
+  %23 = load ptr, ptr %vfn.i.i, align 8
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(152) %22) #26
   br label %_ZNSt10unique_ptrIN4node6worker15MessagePortDataESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4node6worker15MessagePortDataESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN4node6worker12SiblingGroupEED2Ev.exit, %_ZNKSt14default_deleteIN4node6worker15MessagePortDataEEclEPS2_.exit.i
+_ZNSt10unique_ptrIN4node6worker15MessagePortDataESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZN2v810MaybeLocalINS_7ContextEE14ToLocalCheckedEv.exit, %_ZNKSt14default_deleteIN4node6worker15MessagePortDataEEclEPS2_.exit.i
   %cmp = icmp eq ptr %call25, null
-  br i1 %cmp, label %cleanup, label %_ZNSt10shared_ptrIN4node6worker12SiblingGroupEED2Ev.exit51
+  br i1 %cmp, label %cleanup, label %if.end27
 
-_ZNSt10shared_ptrIN4node6worker12SiblingGroupEED2Ev.exit51: ; preds = %_ZNSt10unique_ptrIN4node6worker15MessagePortDataESt14default_deleteIS2_EED2Ev.exit
+if.end27:                                         ; preds = %_ZNSt10unique_ptrIN4node6worker15MessagePortDataESt14default_deleteIS2_EED2Ev.exit
   store ptr null, ptr %agg.tmp29, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp30, i8 0, i64 16, i1 false)
   %call34 = call noundef ptr @_ZN4node6worker11MessagePort3NewEPNS_11EnvironmentEN2v85LocalINS4_7ContextEEESt10unique_ptrINS0_15MessagePortDataESt14default_deleteIS9_EESt10shared_ptrINS0_12SiblingGroupEE(ptr noundef %retval.0.i.i, ptr nonnull %call7, ptr noundef nonnull %agg.tmp29, ptr noundef nonnull %agg.tmp30)
-  %.pre74 = load ptr, ptr %agg.tmp29, align 8
-  %cmp.not.i52 = icmp eq ptr %.pre74, null
+  %24 = load ptr, ptr %agg.tmp29, align 8
+  %cmp.not.i52 = icmp eq ptr %24, null
   br i1 %cmp.not.i52, label %_ZNSt10unique_ptrIN4node6worker15MessagePortDataESt14default_deleteIS2_EED2Ev.exit56, label %_ZNKSt14default_deleteIN4node6worker15MessagePortDataEEclEPS2_.exit.i53
 
-_ZNKSt14default_deleteIN4node6worker15MessagePortDataEEclEPS2_.exit.i53: ; preds = %_ZNSt10shared_ptrIN4node6worker12SiblingGroupEED2Ev.exit51
-  %vtable.i.i54 = load ptr, ptr %.pre74, align 8
+_ZNKSt14default_deleteIN4node6worker15MessagePortDataEEclEPS2_.exit.i53: ; preds = %if.end27
+  %vtable.i.i54 = load ptr, ptr %24, align 8
   %vfn.i.i55 = getelementptr inbounds nuw i8, ptr %vtable.i.i54, i64 8
-  %23 = load ptr, ptr %vfn.i.i55, align 8
-  tail call void %23(ptr noundef nonnull align 8 dereferenceable(152) %.pre74) #26
+  %25 = load ptr, ptr %vfn.i.i55, align 8
+  tail call void %25(ptr noundef nonnull align 8 dereferenceable(152) %24) #26
   br label %_ZNSt10unique_ptrIN4node6worker15MessagePortDataESt14default_deleteIS2_EED2Ev.exit56
 
-_ZNSt10unique_ptrIN4node6worker15MessagePortDataESt14default_deleteIS2_EED2Ev.exit56: ; preds = %_ZNSt10shared_ptrIN4node6worker12SiblingGroupEED2Ev.exit51, %_ZNKSt14default_deleteIN4node6worker15MessagePortDataEEclEPS2_.exit.i53
+_ZNSt10unique_ptrIN4node6worker15MessagePortDataESt14default_deleteIS2_EED2Ev.exit56: ; preds = %if.end27, %_ZNKSt14default_deleteIN4node6worker15MessagePortDataEEclEPS2_.exit.i53
   %cmp35 = icmp eq ptr %call34, null
   br i1 %cmp35, label %if.then36, label %if.end41
 
 if.then36:                                        ; preds = %_ZNSt10unique_ptrIN4node6worker15MessagePortDataESt14default_deleteIS2_EED2Ev.exit56
   %vtable = load ptr, ptr %call25, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 144
-  %24 = load ptr, ptr %vfn, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(240) %call25, ptr null) #26
+  %26 = load ptr, ptr %vfn, align 8
+  tail call void %26(ptr noundef nonnull align 8 dereferenceable(240) %call25, ptr null) #26
   br label %cleanup
 
 if.end41:                                         ; preds = %_ZNSt10unique_ptrIN4node6worker15MessagePortDataESt14default_deleteIS2_EED2Ev.exit56
   %data_.i = getelementptr inbounds nuw i8, ptr %call25, i64 88
-  %25 = load ptr, ptr %data_.i, align 8
+  %27 = load ptr, ptr %data_.i, align 8
   %data_1.i = getelementptr inbounds nuw i8, ptr %call34, i64 88
-  %26 = load ptr, ptr %data_1.i, align 8
-  tail call void @_ZN4node6worker15MessagePortData8EntangleEPS1_S2_(ptr noundef %25, ptr noundef %26)
-  %27 = load ptr, ptr %values_.i166, align 8
-  %add.ptr.i161 = getelementptr inbounds i8, ptr %27, i64 -8
+  %28 = load ptr, ptr %data_1.i, align 8
+  tail call void @_ZN4node6worker15MessagePortData8EntangleEPS1_S2_(ptr noundef %27, ptr noundef %28)
+  %29 = load ptr, ptr %values_.i166, align 8
+  %add.ptr.i161 = getelementptr inbounds i8, ptr %29, i64 -8
   %isolate_data_.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 96
-  %28 = load ptr, ptr %isolate_data_.i.i, align 8
-  %port1_string_.i.i = getelementptr inbounds nuw i8, ptr %28, i64 1864
-  %29 = load ptr, ptr %port1_string_.i.i, align 8
+  %30 = load ptr, ptr %isolate_data_.i.i, align 8
+  %port1_string_.i.i = getelementptr inbounds nuw i8, ptr %30, i64 1864
+  %31 = load ptr, ptr %port1_string_.i.i, align 8
   %realm_.i.i = getelementptr inbounds nuw i8, ptr %call25, i64 16
-  %30 = load ptr, ptr %realm_.i.i, align 8
-  %env_.i.i.i = getelementptr inbounds nuw i8, ptr %30, i64 176
-  %31 = load ptr, ptr %env_.i.i.i, align 8
-  %isolate_.i.i57 = getelementptr inbounds nuw i8, ptr %31, i64 88
-  %32 = load ptr, ptr %isolate_.i.i57, align 8
+  %32 = load ptr, ptr %realm_.i.i, align 8
+  %env_.i.i.i = getelementptr inbounds nuw i8, ptr %32, i64 176
+  %33 = load ptr, ptr %env_.i.i.i, align 8
+  %isolate_.i.i57 = getelementptr inbounds nuw i8, ptr %33, i64 88
+  %34 = load ptr, ptr %isolate_.i.i57, align 8
   %persistent_handle_.i = getelementptr inbounds nuw i8, ptr %call25, i64 8
-  %33 = load ptr, ptr %persistent_handle_.i, align 8
-  %cmp.i.i.i.i58 = icmp eq ptr %33, null
+  %35 = load ptr, ptr %persistent_handle_.i, align 8
+  %cmp.i.i.i.i58 = icmp eq ptr %35, null
   br i1 %cmp.i.i.i.i58, label %_ZNK4node10BaseObject6objectEv.exit, label %if.end.i.i.i59
 
 if.end.i.i.i59:                                   ; preds = %if.end41
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 11
-  %34 = load i8, ptr %add.ptr.i.i.i, align 1
-  %35 = and i8 %34, 3
-  %cmp.i.i.i60 = icmp eq i8 %35, 2
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %35, i64 11
+  %36 = load i8, ptr %add.ptr.i.i.i, align 1
+  %37 = and i8 %36, 3
+  %cmp.i.i.i60 = icmp eq i8 %37, 2
   br i1 %cmp.i.i.i60, label %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i, label %_ZNK4node10BaseObject6objectEv.exit
 
 _ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i: ; preds = %if.end.i.i.i59
-  %36 = load i64, ptr %33, align 8
-  %call.i.i.i.i = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %32, i64 noundef %36) #26
+  %38 = load i64, ptr %35, align 8
+  %call.i.i.i.i = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %34, i64 noundef %38) #26
   br label %_ZNK4node10BaseObject6objectEv.exit
 
 _ZNK4node10BaseObject6objectEv.exit:              ; preds = %if.end41, %if.end.i.i.i59, %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i
-  %retval.sroa.0.0.i.i = phi ptr [ %call.i.i.i.i, %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i ], [ null, %if.end41 ], [ %33, %if.end.i.i.i59 ]
-  %call77 = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i161, ptr nonnull %call7, ptr %29, ptr %retval.sroa.0.0.i.i) #26
+  %retval.sroa.0.0.i.i = phi ptr [ %call.i.i.i.i, %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i ], [ null, %if.end41 ], [ %35, %if.end.i.i.i59 ]
+  %call77 = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i161, ptr nonnull %call7, ptr %31, ptr %retval.sroa.0.0.i.i) #26
   %tobool.i = trunc i16 %call77 to i1
   br i1 %tobool.i, label %_ZNK2v85MaybeIbE5CheckEv.exit141, label %if.then.i140
 
@@ -14844,37 +14844,37 @@ if.then.i140:                                     ; preds = %_ZNK4node10BaseObje
   br label %_ZNK2v85MaybeIbE5CheckEv.exit141
 
 _ZNK2v85MaybeIbE5CheckEv.exit141:                 ; preds = %if.then.i140, %_ZNK4node10BaseObject6objectEv.exit
-  %37 = load ptr, ptr %values_.i166, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %37, i64 -8
-  %38 = load ptr, ptr %isolate_data_.i.i, align 8
-  %port2_string_.i.i = getelementptr inbounds nuw i8, ptr %38, i64 1872
-  %39 = load ptr, ptr %port2_string_.i.i, align 8
+  %39 = load ptr, ptr %values_.i166, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %39, i64 -8
+  %40 = load ptr, ptr %isolate_data_.i.i, align 8
+  %port2_string_.i.i = getelementptr inbounds nuw i8, ptr %40, i64 1872
+  %41 = load ptr, ptr %port2_string_.i.i, align 8
   %realm_.i.i62 = getelementptr inbounds nuw i8, ptr %call34, i64 16
-  %40 = load ptr, ptr %realm_.i.i62, align 8
-  %env_.i.i.i63 = getelementptr inbounds nuw i8, ptr %40, i64 176
-  %41 = load ptr, ptr %env_.i.i.i63, align 8
-  %isolate_.i.i64 = getelementptr inbounds nuw i8, ptr %41, i64 88
-  %42 = load ptr, ptr %isolate_.i.i64, align 8
+  %42 = load ptr, ptr %realm_.i.i62, align 8
+  %env_.i.i.i63 = getelementptr inbounds nuw i8, ptr %42, i64 176
+  %43 = load ptr, ptr %env_.i.i.i63, align 8
+  %isolate_.i.i64 = getelementptr inbounds nuw i8, ptr %43, i64 88
+  %44 = load ptr, ptr %isolate_.i.i64, align 8
   %persistent_handle_.i65 = getelementptr inbounds nuw i8, ptr %call34, i64 8
-  %43 = load ptr, ptr %persistent_handle_.i65, align 8
-  %cmp.i.i.i.i66 = icmp eq ptr %43, null
+  %45 = load ptr, ptr %persistent_handle_.i65, align 8
+  %cmp.i.i.i.i66 = icmp eq ptr %45, null
   br i1 %cmp.i.i.i.i66, label %_ZNK4node10BaseObject6objectEv.exit73, label %if.end.i.i.i67
 
 if.end.i.i.i67:                                   ; preds = %_ZNK2v85MaybeIbE5CheckEv.exit141
-  %add.ptr.i.i.i68 = getelementptr inbounds nuw i8, ptr %43, i64 11
-  %44 = load i8, ptr %add.ptr.i.i.i68, align 1
-  %45 = and i8 %44, 3
-  %cmp.i.i.i69 = icmp eq i8 %45, 2
+  %add.ptr.i.i.i68 = getelementptr inbounds nuw i8, ptr %45, i64 11
+  %46 = load i8, ptr %add.ptr.i.i.i68, align 1
+  %47 = and i8 %46, 3
+  %cmp.i.i.i69 = icmp eq i8 %47, 2
   br i1 %cmp.i.i.i69, label %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i71, label %_ZNK4node10BaseObject6objectEv.exit73
 
 _ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i71: ; preds = %if.end.i.i.i67
-  %46 = load i64, ptr %43, align 8
-  %call.i.i.i.i72 = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %42, i64 noundef %46) #26
+  %48 = load i64, ptr %45, align 8
+  %call.i.i.i.i72 = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %44, i64 noundef %48) #26
   br label %_ZNK4node10BaseObject6objectEv.exit73
 
 _ZNK4node10BaseObject6objectEv.exit73:            ; preds = %_ZNK2v85MaybeIbE5CheckEv.exit141, %if.end.i.i.i67, %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i71
-  %retval.sroa.0.0.i.i70 = phi ptr [ %call.i.i.i.i72, %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i71 ], [ null, %_ZNK2v85MaybeIbE5CheckEv.exit141 ], [ %43, %if.end.i.i.i67 ]
-  %call113 = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr nonnull %call7, ptr %39, ptr %retval.sroa.0.0.i.i70) #26
+  %retval.sroa.0.0.i.i70 = phi ptr [ %call.i.i.i.i72, %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i71 ], [ null, %_ZNK2v85MaybeIbE5CheckEv.exit141 ], [ %45, %if.end.i.i.i67 ]
+  %call113 = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr nonnull %call7, ptr %41, ptr %retval.sroa.0.0.i.i70) #26
   %tobool.i173 = trunc i16 %call113 to i1
   br i1 %tobool.i173, label %cleanup, label %if.then.i
 

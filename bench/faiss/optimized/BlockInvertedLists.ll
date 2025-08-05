@@ -2335,17 +2335,17 @@ define void @_ZN5faiss18BlockInvertedListsC2Emmm(ptr noundef nonnull align 8 der
 
 10:                                               ; preds = %4
   invoke void @_ZNSt6vectorIS_IlSaIlEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %1)
-          to label %._ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit_crit_edge12 unwind label %27
+          to label %._ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit_crit_edge unwind label %27
 
-._ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit_crit_edge12: ; preds = %10
+._ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit_crit_edge: ; preds = %10
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !57
-  %.pre13 = load ptr, ptr %8, align 8, !tbaa !14
+  %.pre12 = load ptr, ptr %8, align 8, !tbaa !14
   br label %_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit
 
-_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit:    ; preds = %4, %._ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit_crit_edge12
-  %11 = phi ptr [ %.pre13, %._ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit_crit_edge12 ], [ null, %4 ]
-  %12 = phi ptr [ %.pre, %._ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit_crit_edge12 ], [ null, %4 ]
+_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit:    ; preds = %._ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit_crit_edge, %4
+  %11 = phi ptr [ %.pre12, %._ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit_crit_edge ], [ null, %4 ]
+  %12 = phi ptr [ %.pre, %._ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit_crit_edge ], [ null, %4 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = ptrtoint ptr %12 to i64
   %15 = ptrtoint ptr %11 to i64
@@ -2899,17 +2899,17 @@ define void @_ZN5faiss18BlockInvertedListsC2EmPKNS_10CodePackerE(ptr noundef non
 
 13:                                               ; preds = %3
   invoke void @_ZNSt6vectorIS_IlSaIlEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %1)
-          to label %._ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit_crit_edge13 unwind label %30
+          to label %._ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit_crit_edge unwind label %30
 
-._ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit_crit_edge13: ; preds = %13
+._ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit_crit_edge: ; preds = %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !57
-  %.pre14 = load ptr, ptr %11, align 8, !tbaa !14
+  %.pre13 = load ptr, ptr %11, align 8, !tbaa !14
   br label %_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit
 
-_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit:    ; preds = %3, %._ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit_crit_edge13
-  %14 = phi ptr [ %.pre14, %._ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit_crit_edge13 ], [ null, %3 ]
-  %15 = phi ptr [ %.pre, %._ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit_crit_edge13 ], [ null, %3 ]
+_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit:    ; preds = %._ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit_crit_edge, %3
+  %14 = phi ptr [ %.pre13, %._ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit_crit_edge ], [ null, %3 ]
+  %15 = phi ptr [ %.pre, %._ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit_crit_edge ], [ null, %3 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = ptrtoint ptr %15 to i64
   %18 = ptrtoint ptr %14 to i64

@@ -18951,7 +18951,7 @@ _ZNKSt13unordered_mapISt4pairIjjEN4cvc58internal6theory2eq20DisequalityReasonRef
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 24
   %266 = load ptr, ptr %265, align 8
   call void %266(ptr noundef nonnull align 8 dereferenceable(16) %253) #33
-  br label %_ZNSt10shared_ptrIN4cvc58internal6theory2eq7EqProofEEaSEOS5_.exit
+  br label %_ZNSt10shared_ptrIN4cvc58internal6theory2eq7EqProofEEaSEOS5_.exitthread-pre-split
 
 267:                                              ; preds = %254
   %268 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !17
@@ -18970,14 +18970,18 @@ _ZNKSt13unordered_mapISt4pairIjjEN4cvc58internal6theory2eq20DisequalityReasonRef
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %271, %269
   %.0.i.i.i.i.i.i = phi i32 [ %258, %269 ], [ %272, %271 ]
   %273 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %273, label %274, label %_ZNSt10shared_ptrIN4cvc58internal6theory2eq7EqProofEEaSEOS5_.exit, !prof !32
+  br i1 %273, label %274, label %_ZNSt10shared_ptrIN4cvc58internal6theory2eq7EqProofEEaSEOS5_.exitthread-pre-split, !prof !32
 
 274:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %253) #33
+  br label %_ZNSt10shared_ptrIN4cvc58internal6theory2eq7EqProofEEaSEOS5_.exitthread-pre-split
+
+_ZNSt10shared_ptrIN4cvc58internal6theory2eq7EqProofEEaSEOS5_.exitthread-pre-split: ; preds = %274, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %259
+  %.pr = load ptr, ptr %237, align 8, !tbaa !748
   br label %_ZNSt10shared_ptrIN4cvc58internal6theory2eq7EqProofEEaSEOS5_.exit
 
-_ZNSt10shared_ptrIN4cvc58internal6theory2eq7EqProofEEaSEOS5_.exit: ; preds = %250, %259, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %274
-  %275 = load ptr, ptr %237, align 8, !tbaa !748
+_ZNSt10shared_ptrIN4cvc58internal6theory2eq7EqProofEEaSEOS5_.exit: ; preds = %_ZNSt10shared_ptrIN4cvc58internal6theory2eq7EqProofEEaSEOS5_.exitthread-pre-split, %250
+  %275 = phi ptr [ %.pr, %_ZNSt10shared_ptrIN4cvc58internal6theory2eq7EqProofEEaSEOS5_.exitthread-pre-split ], [ null, %250 ]
   %.not.i.i416 = icmp eq ptr %275, null
   br i1 %.not.i.i416, label %297, label %276
 

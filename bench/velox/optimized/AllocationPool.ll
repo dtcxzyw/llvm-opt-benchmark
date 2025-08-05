@@ -616,9 +616,9 @@ invoke.cont65:                                    ; preds = %invoke.cont48
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %38 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %37, %38
-  br i1 %cmp.not.i.i, label %if.else.i.i, label %_ZN8facebook5velox6memory10Allocation5clearEv.exit.i.i.i.i.i
+  br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
-_ZN8facebook5velox6memory10Allocation5clearEv.exit.i.i.i.i.i: ; preds = %invoke.cont65
+if.then.i.i:                                      ; preds = %invoke.cont65
   %runs_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %37, i64 8
   %numPages_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %37, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %37, i8 0, i64 36, i1 false)
@@ -647,11 +647,11 @@ _ZN8facebook5velox6memory10Allocation5clearEv.exit.i.i.i.i.i: ; preds = %invoke.
   %lnot.i.i.i.i.i.i = xor i1 %47, %cmp.i.i.i.i.i.i.i
   br i1 %lnot.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i:                              ; preds = %_ZN8facebook5velox6memory10Allocation5clearEv.exit.i.i.i.i.i
+if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i
   call void @llvm.trap()
   unreachable
 
-if.end.i.i.i.i.i.i:                               ; preds = %_ZN8facebook5velox6memory10Allocation5clearEv.exit.i.i.i.i.i
+if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i
   %48 = load ptr, ptr %37, align 8
   %cmp7.i.i.i.i.i.i = icmp ne ptr %48, null
   %lnot8.i.i.i.i.i.i = select i1 %47, i1 %cmp7.i.i.i.i.i.i, i1 false

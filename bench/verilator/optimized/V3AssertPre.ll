@@ -12117,9 +12117,9 @@ define linkonce_odr dso_local void @_ZN7AstNode11foreachImplI13AstNodeVarRefZN16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @_ZNSt6vectorIP7AstNodeSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 32)
-          to label %_ZZN7AstNode11foreachImplI13AstNodeVarRefZN16AssertPreVisitor5visitEP15AstClockingItemEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit unwind label %12
+          to label %.noexc unwind label %12
 
-_ZZN7AstNode11foreachImplI13AstNodeVarRefZN16AssertPreVisitor5visitEP15AstClockingItemEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit: ; preds = %3
+.noexc:                                           ; preds = %3
   %.pre3.i = load ptr, ptr %4, align 8, !tbaa !121
   %8 = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 16
   store ptr %8, ptr %5, align 8, !tbaa !290
@@ -12138,8 +12138,8 @@ _ZZN7AstNode11foreachImplI13AstNodeVarRefZN16AssertPreVisitor5visitEP15AstClocki
           cleanup
   br label %120
 
-14:                                               ; preds = %_ZZN7AstNode11foreachImplI13AstNodeVarRefZN16AssertPreVisitor5visitEP15AstClockingItemEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit, %14
-  %indvars.iv = phi i64 [ -2, %_ZZN7AstNode11foreachImplI13AstNodeVarRefZN16AssertPreVisitor5visitEP15AstClockingItemEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit ], [ %indvars.iv.next, %14 ]
+14:                                               ; preds = %.noexc, %14
+  %indvars.iv = phi i64 [ -2, %.noexc ], [ %indvars.iv.next, %14 ]
   %15 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
   store ptr %0, ptr %15, align 8, !tbaa !225
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -12174,8 +12174,8 @@ _ZZN7AstNode11foreachImplI13AstNodeVarRefZN16AssertPreVisitor5visitEP15AstClocki
 
 .lr.ph:                                           ; preds = %.preheader, %_ZZN7AstNode11foreachImplI13AstNodeVarRefZN16AssertPreVisitor5visitEP15AstClockingItemEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit
   %27 = phi ptr [ %111, %_ZZN7AstNode11foreachImplI13AstNodeVarRefZN16AssertPreVisitor5visitEP15AstClockingItemEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit ], [ %25, %.preheader ]
-  %.049 = phi ptr [ %.1, %_ZZN7AstNode11foreachImplI13AstNodeVarRefZN16AssertPreVisitor5visitEP15AstClockingItemEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit ], [ %10, %.preheader ]
-  %.04448 = phi ptr [ %.145, %_ZZN7AstNode11foreachImplI13AstNodeVarRefZN16AssertPreVisitor5visitEP15AstClockingItemEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit ], [ %8, %.preheader ]
+  %.048 = phi ptr [ %.1, %_ZZN7AstNode11foreachImplI13AstNodeVarRefZN16AssertPreVisitor5visitEP15AstClockingItemEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit ], [ %10, %.preheader ]
+  %.04447 = phi ptr [ %.145, %_ZZN7AstNode11foreachImplI13AstNodeVarRefZN16AssertPreVisitor5visitEP15AstClockingItemEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit ], [ %8, %.preheader ]
   %28 = getelementptr inbounds i8, ptr %27, i64 -8
   store ptr %28, ptr %5, align 8, !tbaa !290
   %29 = load ptr, ptr %28, align 8, !tbaa !225
@@ -12185,7 +12185,7 @@ _ZZN7AstNode11foreachImplI13AstNodeVarRefZN16AssertPreVisitor5visitEP15AstClocki
   call void @llvm.prefetch.p0(ptr nonnull %32, i32 0, i32 3, i32 1)
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
   call void @llvm.prefetch.p0(ptr nonnull %33, i32 0, i32 3, i32 1)
-  %.not18 = icmp ult ptr %28, %.049
+  %.not18 = icmp ult ptr %28, %.048
   br i1 %.not18, label %60, label %34, !prof !128
 
 34:                                               ; preds = %.lr.ph
@@ -12224,7 +12224,7 @@ _ZZN7AstNode11foreachImplI13AstNodeVarRefZN16AssertPreVisitor5visitEP15AstClocki
 _ZZN7AstNode11foreachImplI13AstNodeVarRefZN16AssertPreVisitor5visitEP15AstClockingItemEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28: ; preds = %.noexc27, %45, %47, %49
   %50 = phi ptr [ %.pre3.i24, %.noexc27 ], [ %36, %45 ], [ %36, %47 ], [ %36, %49 ]
   %51 = ptrtoint ptr %28 to i64
-  %52 = ptrtoint ptr %.04448 to i64
+  %52 = ptrtoint ptr %.04447 to i64
   %53 = sub i64 %51, %52
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %55 = getelementptr inbounds i8, ptr %54, i64 %53
@@ -12240,8 +12240,8 @@ _ZZN7AstNode11foreachImplI13AstNodeVarRefZN16AssertPreVisitor5visitEP15AstClocki
 
 60:                                               ; preds = %_ZZN7AstNode11foreachImplI13AstNodeVarRefZN16AssertPreVisitor5visitEP15AstClockingItemEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28, %.lr.ph
   %61 = phi ptr [ %28, %.lr.ph ], [ %55, %_ZZN7AstNode11foreachImplI13AstNodeVarRefZN16AssertPreVisitor5visitEP15AstClockingItemEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
-  %.145 = phi ptr [ %.04448, %.lr.ph ], [ %54, %_ZZN7AstNode11foreachImplI13AstNodeVarRefZN16AssertPreVisitor5visitEP15AstClockingItemEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
-  %.1 = phi ptr [ %.049, %.lr.ph ], [ %57, %_ZZN7AstNode11foreachImplI13AstNodeVarRefZN16AssertPreVisitor5visitEP15AstClockingItemEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
+  %.145 = phi ptr [ %.04447, %.lr.ph ], [ %54, %_ZZN7AstNode11foreachImplI13AstNodeVarRefZN16AssertPreVisitor5visitEP15AstClockingItemEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
+  %.1 = phi ptr [ %.048, %.lr.ph ], [ %57, %_ZZN7AstNode11foreachImplI13AstNodeVarRefZN16AssertPreVisitor5visitEP15AstClockingItemEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
   %62 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !230
   %.not19 = icmp eq ptr %63, null
@@ -16120,11 +16120,11 @@ define linkonce_odr dso_local void @_ZN7AstNode11foreachImplI11AstClockingZN16As
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @_ZNSt6vectorIP7AstNodeSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 32)
-          to label %_ZZN7AstNode11foreachImplI11AstClockingZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit unwind label %8
+          to label %.noexc unwind label %8
 
-_ZZN7AstNode11foreachImplI11AstClockingZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit: ; preds = %3
+.noexc:                                           ; preds = %3
   %.pre3.i = load ptr, ptr %4, align 8, !tbaa !121
-  %.ptr93 = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 16
+  %.ptr92 = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 16
   br label %10
 
 6:                                                ; preds = %10
@@ -16136,9 +16136,9 @@ _ZZN7AstNode11foreachImplI11AstClockingZN16AssertPreVisitor5visitEP13AstNodeModu
           cleanup
   br label %128
 
-10:                                               ; preds = %_ZZN7AstNode11foreachImplI11AstClockingZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit, %10
-  %indvars.iv = phi i64 [ -2, %_ZZN7AstNode11foreachImplI11AstClockingZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds ptr, ptr %.ptr93, i64 %indvars.iv
+10:                                               ; preds = %.noexc, %10
+  %indvars.iv = phi i64 [ -2, %.noexc ], [ %indvars.iv.next, %10 ]
+  %11 = getelementptr inbounds ptr, ptr %.ptr92, i64 %indvars.iv
   store ptr %0, ptr %11, align 8, !tbaa !225
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %12 = icmp eq i64 %indvars.iv.next, 0
@@ -16151,7 +16151,7 @@ _ZZN7AstNode11foreachImplI11AstClockingZN16AssertPreVisitor5visitEP13AstNodeModu
   br i1 %.not17, label %17, label %16
 
 16:                                               ; preds = %13
-  store ptr %15, ptr %.ptr93, align 8, !tbaa !225
+  store ptr %15, ptr %.ptr92, align 8, !tbaa !225
   br label %17
 
 17:                                               ; preds = %16, %13, %6
@@ -16250,23 +16250,23 @@ _ZZN7AstNode11foreachImplI11AstClockingZN16AssertPreVisitor5visitEP13AstNodeModu
   br i1 %46, label %.lr.ph.preheader, label %._crit_edge, !prof !410
 
 .lr.ph.preheader:                                 ; preds = %_ZZN7AstNode11foreachImplI11AstClockingZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit.thread, %_ZZN7AstNode11foreachImplI11AstClockingZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit
-  %.7.idx97 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplI11AstClockingZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit.thread ], [ %.6.idx, %_ZZN7AstNode11foreachImplI11AstClockingZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit ]
-  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx97
+  %.7.idx96 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplI11AstClockingZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit.thread ], [ %.6.idx, %_ZZN7AstNode11foreachImplI11AstClockingZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit ]
+  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx96
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZZN7AstNode11foreachImplI11AstClockingZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit44
-  %.089 = phi ptr [ %.1, %_ZZN7AstNode11foreachImplI11AstClockingZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit44 ], [ %7, %.lr.ph.preheader ]
-  %.08188 = phi ptr [ %.182, %_ZZN7AstNode11foreachImplI11AstClockingZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit44 ], [ %.ptr93, %.lr.ph.preheader ]
-  %.18487 = phi ptr [ %.11, %_ZZN7AstNode11foreachImplI11AstClockingZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit44 ], [ %.7.ptr, %.lr.ph.preheader ]
-  %47 = getelementptr inbounds i8, ptr %.18487, i64 -8
+  %.088 = phi ptr [ %.1, %_ZZN7AstNode11foreachImplI11AstClockingZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit44 ], [ %7, %.lr.ph.preheader ]
+  %.08187 = phi ptr [ %.182, %_ZZN7AstNode11foreachImplI11AstClockingZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit44 ], [ %.ptr92, %.lr.ph.preheader ]
+  %.18486 = phi ptr [ %.11, %_ZZN7AstNode11foreachImplI11AstClockingZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit44 ], [ %.7.ptr, %.lr.ph.preheader ]
+  %47 = getelementptr inbounds i8, ptr %.18486, i64 -8
   %48 = load ptr, ptr %47, align 8, !tbaa !225
-  %49 = getelementptr inbounds i8, ptr %.18487, i64 -24
+  %49 = getelementptr inbounds i8, ptr %.18486, i64 -24
   %50 = load ptr, ptr %49, align 8, !tbaa !225
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   call void @llvm.prefetch.p0(ptr nonnull %51, i32 0, i32 3, i32 1)
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 64
   call void @llvm.prefetch.p0(ptr nonnull %52, i32 0, i32 3, i32 1)
-  %.not18 = icmp ult ptr %47, %.089
+  %.not18 = icmp ult ptr %47, %.088
   br i1 %.not18, label %81, label %53, !prof !128
 
 53:                                               ; preds = %.lr.ph
@@ -16305,7 +16305,7 @@ _ZZN7AstNode11foreachImplI11AstClockingZN16AssertPreVisitor5visitEP13AstNodeModu
 _ZZN7AstNode11foreachImplI11AstClockingZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit32: ; preds = %.noexc31, %64, %66, %68
   %69 = phi ptr [ %.pre3.i28, %.noexc31 ], [ %55, %64 ], [ %55, %66 ], [ %55, %68 ]
   %70 = ptrtoint ptr %47 to i64
-  %71 = ptrtoint ptr %.08188 to i64
+  %71 = ptrtoint ptr %.08187 to i64
   %72 = sub i64 %70, %71
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %74 = getelementptr inbounds i8, ptr %73, i64 %72
@@ -16325,8 +16325,8 @@ _ZZN7AstNode11foreachImplI11AstClockingZN16AssertPreVisitor5visitEP13AstNodeModu
 
 81:                                               ; preds = %_ZZN7AstNode11foreachImplI11AstClockingZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit32, %.lr.ph
   %.2 = phi ptr [ %47, %.lr.ph ], [ %74, %_ZZN7AstNode11foreachImplI11AstClockingZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit32 ]
-  %.182 = phi ptr [ %.08188, %.lr.ph ], [ %73, %_ZZN7AstNode11foreachImplI11AstClockingZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit32 ]
-  %.1 = phi ptr [ %.089, %.lr.ph ], [ %76, %_ZZN7AstNode11foreachImplI11AstClockingZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit32 ]
+  %.182 = phi ptr [ %.08187, %.lr.ph ], [ %73, %_ZZN7AstNode11foreachImplI11AstClockingZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit32 ]
+  %.1 = phi ptr [ %.088, %.lr.ph ], [ %76, %_ZZN7AstNode11foreachImplI11AstClockingZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit32 ]
   %82 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %83 = load ptr, ptr %82, align 8, !tbaa !230
   %.not19 = icmp eq ptr %83, null
@@ -16474,11 +16474,11 @@ define linkonce_odr dso_local void @_ZN7AstNode11foreachImplI17AstDefaultDisable
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @_ZNSt6vectorIP7AstNodeSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 32)
-          to label %_ZZN7AstNode11foreachImplI17AstDefaultDisableZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit unwind label %8
+          to label %.noexc unwind label %8
 
-_ZZN7AstNode11foreachImplI17AstDefaultDisableZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit: ; preds = %3
+.noexc:                                           ; preds = %3
   %.pre3.i = load ptr, ptr %4, align 8, !tbaa !121
-  %.ptr93 = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 16
+  %.ptr92 = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 16
   br label %10
 
 6:                                                ; preds = %10
@@ -16490,9 +16490,9 @@ _ZZN7AstNode11foreachImplI17AstDefaultDisableZN16AssertPreVisitor5visitEP13AstNo
           cleanup
   br label %122
 
-10:                                               ; preds = %_ZZN7AstNode11foreachImplI17AstDefaultDisableZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit, %10
-  %indvars.iv = phi i64 [ -2, %_ZZN7AstNode11foreachImplI17AstDefaultDisableZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds ptr, ptr %.ptr93, i64 %indvars.iv
+10:                                               ; preds = %.noexc, %10
+  %indvars.iv = phi i64 [ -2, %.noexc ], [ %indvars.iv.next, %10 ]
+  %11 = getelementptr inbounds ptr, ptr %.ptr92, i64 %indvars.iv
   store ptr %0, ptr %11, align 8, !tbaa !225
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %12 = icmp eq i64 %indvars.iv.next, 0
@@ -16505,7 +16505,7 @@ _ZZN7AstNode11foreachImplI17AstDefaultDisableZN16AssertPreVisitor5visitEP13AstNo
   br i1 %.not17, label %17, label %16
 
 16:                                               ; preds = %13
-  store ptr %15, ptr %.ptr93, align 8, !tbaa !225
+  store ptr %15, ptr %.ptr92, align 8, !tbaa !225
   br label %17
 
 17:                                               ; preds = %16, %13, %6
@@ -16598,23 +16598,23 @@ _ZZN7AstNode11foreachImplI17AstDefaultDisableZN16AssertPreVisitor5visitEP13AstNo
   br i1 %43, label %.lr.ph.preheader, label %._crit_edge, !prof !410
 
 .lr.ph.preheader:                                 ; preds = %_ZZN7AstNode11foreachImplI17AstDefaultDisableZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit.thread, %_ZZN7AstNode11foreachImplI17AstDefaultDisableZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit
-  %.7.idx97 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplI17AstDefaultDisableZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit.thread ], [ %.6.idx, %_ZZN7AstNode11foreachImplI17AstDefaultDisableZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit ]
-  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx97
+  %.7.idx96 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplI17AstDefaultDisableZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit.thread ], [ %.6.idx, %_ZZN7AstNode11foreachImplI17AstDefaultDisableZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit ]
+  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx96
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZZN7AstNode11foreachImplI17AstDefaultDisableZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit44
-  %.089 = phi ptr [ %.1, %_ZZN7AstNode11foreachImplI17AstDefaultDisableZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit44 ], [ %7, %.lr.ph.preheader ]
-  %.08188 = phi ptr [ %.182, %_ZZN7AstNode11foreachImplI17AstDefaultDisableZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit44 ], [ %.ptr93, %.lr.ph.preheader ]
-  %.18487 = phi ptr [ %.11, %_ZZN7AstNode11foreachImplI17AstDefaultDisableZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit44 ], [ %.7.ptr, %.lr.ph.preheader ]
-  %44 = getelementptr inbounds i8, ptr %.18487, i64 -8
+  %.088 = phi ptr [ %.1, %_ZZN7AstNode11foreachImplI17AstDefaultDisableZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit44 ], [ %7, %.lr.ph.preheader ]
+  %.08187 = phi ptr [ %.182, %_ZZN7AstNode11foreachImplI17AstDefaultDisableZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit44 ], [ %.ptr92, %.lr.ph.preheader ]
+  %.18486 = phi ptr [ %.11, %_ZZN7AstNode11foreachImplI17AstDefaultDisableZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit44 ], [ %.7.ptr, %.lr.ph.preheader ]
+  %44 = getelementptr inbounds i8, ptr %.18486, i64 -8
   %45 = load ptr, ptr %44, align 8, !tbaa !225
-  %46 = getelementptr inbounds i8, ptr %.18487, i64 -24
+  %46 = getelementptr inbounds i8, ptr %.18486, i64 -24
   %47 = load ptr, ptr %46, align 8, !tbaa !225
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   call void @llvm.prefetch.p0(ptr nonnull %48, i32 0, i32 3, i32 1)
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 64
   call void @llvm.prefetch.p0(ptr nonnull %49, i32 0, i32 3, i32 1)
-  %.not18 = icmp ult ptr %44, %.089
+  %.not18 = icmp ult ptr %44, %.088
   br i1 %.not18, label %78, label %50, !prof !128
 
 50:                                               ; preds = %.lr.ph
@@ -16653,7 +16653,7 @@ _ZZN7AstNode11foreachImplI17AstDefaultDisableZN16AssertPreVisitor5visitEP13AstNo
 _ZZN7AstNode11foreachImplI17AstDefaultDisableZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit32: ; preds = %.noexc31, %61, %63, %65
   %66 = phi ptr [ %.pre3.i28, %.noexc31 ], [ %52, %61 ], [ %52, %63 ], [ %52, %65 ]
   %67 = ptrtoint ptr %44 to i64
-  %68 = ptrtoint ptr %.08188 to i64
+  %68 = ptrtoint ptr %.08187 to i64
   %69 = sub i64 %67, %68
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %71 = getelementptr inbounds i8, ptr %70, i64 %69
@@ -16673,8 +16673,8 @@ _ZZN7AstNode11foreachImplI17AstDefaultDisableZN16AssertPreVisitor5visitEP13AstNo
 
 78:                                               ; preds = %_ZZN7AstNode11foreachImplI17AstDefaultDisableZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit32, %.lr.ph
   %.2 = phi ptr [ %44, %.lr.ph ], [ %71, %_ZZN7AstNode11foreachImplI17AstDefaultDisableZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit32 ]
-  %.182 = phi ptr [ %.08188, %.lr.ph ], [ %70, %_ZZN7AstNode11foreachImplI17AstDefaultDisableZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit32 ]
-  %.1 = phi ptr [ %.089, %.lr.ph ], [ %73, %_ZZN7AstNode11foreachImplI17AstDefaultDisableZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit32 ]
+  %.182 = phi ptr [ %.08187, %.lr.ph ], [ %70, %_ZZN7AstNode11foreachImplI17AstDefaultDisableZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit32 ]
+  %.1 = phi ptr [ %.088, %.lr.ph ], [ %73, %_ZZN7AstNode11foreachImplI17AstDefaultDisableZN16AssertPreVisitor5visitEP13AstNodeModuleEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit32 ]
   %79 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !230
   %.not19 = icmp eq ptr %80, null

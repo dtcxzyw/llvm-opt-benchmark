@@ -2716,7 +2716,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7memprof13CallStackTrie25buildAndAt
 11:                                               ; preds = %2
   %12 = and i8 %7, 4
   %.not = icmp eq i8 %12, 0
-  br i1 %.not, label %_ZNSt6vectorImSaImEE9push_backERKm.exit, label %13
+  br i1 %.not, label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i, label %13
 
 13:                                               ; preds = %11
   tail call void @_ZN4llvm7memprof13CallStackTrie19convertHotToNotColdEPNS1_17CallStackTrieNodeE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %6)
@@ -2724,25 +2724,25 @@ define dso_local noundef zeroext i1 @_ZN4llvm7memprof13CallStackTrie25buildAndAt
   %15 = load i8, ptr %14, align 8, !tbaa !97
   %16 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %15)
   %17 = icmp eq i8 %16, 1
-  br i1 %17, label %18, label %_ZNSt6vectorImSaImEE9push_backERKm.exit
+  br i1 %17, label %18, label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i
 
 18:                                               ; preds = %13
   tail call void @_ZN4llvm7memprof13CallStackTrie27addSingleAllocTypeAttributeEPNS_8CallBaseENS_14AllocationTypeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i8 noundef zeroext %15, ptr nonnull @.str.25, i64 6)
   br label %52
 
-_ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %11, %13
+_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %11, %13
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #24
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #25
-  %24 = load i64, ptr %20, align 8, !tbaa !55
+  %24 = load i64, ptr %22, align 8, !tbaa !55
   store i64 %24, ptr %23, align 8, !tbaa !55
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %23, ptr %3, align 8, !tbaa !145
-  store ptr %25, ptr %21, align 8, !tbaa !148
-  store ptr %25, ptr %22, align 8, !tbaa !155
+  store ptr %25, ptr %20, align 8, !tbaa !148
+  store ptr %25, ptr %21, align 8, !tbaa !155
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #24
@@ -2751,7 +2751,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %11, %13
   %27 = call noundef zeroext i1 @_ZN4llvm7memprof13CallStackTrie13buildMIBNodesEPNS1_17CallStackTrieNodeERNS_11LLVMContextERSt6vectorImSaImEERS6_IPNS_8MetadataESaISB_EEbRb(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %26, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %5)
   br i1 %27, label %28, label %37
 
-28:                                               ; preds = %_ZNSt6vectorImSaImEE9push_backERKm.exit
+28:                                               ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i
   %29 = load ptr, ptr %4, align 8, !tbaa !154
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !149
@@ -2763,7 +2763,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %11, %13
   tail call void @_ZN4llvm11Instruction11setMetadataEjPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 34, ptr noundef %36) #24
   br label %38
 
-37:                                               ; preds = %_ZNSt6vectorImSaImEE9push_backERKm.exit
+37:                                               ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i
   tail call void @_ZN4llvm7memprof13CallStackTrie27addSingleAllocTypeAttributeEPNS_8CallBaseENS_14AllocationTypeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %1, i8 noundef zeroext 1, ptr nonnull @.str.26, i64 17)
   %.pre = load ptr, ptr %4, align 8, !tbaa !154
   br label %38
@@ -2790,7 +2790,7 @@ _ZNSt6vectorIPN4llvm8MetadataESaIS2_EED2Ev.exit:  ; preds = %38, %40
   br i1 %.not.i.i.i10, label %_ZNSt6vectorImSaImEED2Ev.exit, label %47
 
 47:                                               ; preds = %_ZNSt6vectorIPN4llvm8MetadataESaIS2_EED2Ev.exit
-  %48 = load ptr, ptr %22, align 8, !tbaa !155
+  %48 = load ptr, ptr %21, align 8, !tbaa !155
   %49 = ptrtoint ptr %48 to i64
   %50 = ptrtoint ptr %46 to i64
   %51 = sub i64 %49, %50

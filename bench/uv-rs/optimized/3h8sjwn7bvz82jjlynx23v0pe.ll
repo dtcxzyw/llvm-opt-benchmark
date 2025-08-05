@@ -10855,7 +10855,7 @@ common.resume.i.i.i:                              ; preds = %30, %29, %24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !2945
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %3), !noalias !2945
   invoke void @"_ZN93_$LT$zip..read..magic_finder..Forward$u20$as$u20$zip..read..magic_finder..FinderDirection$GT$3new17h16392a43f8c6158eE"(ptr noalias noundef nonnull sret([288 x i8]) align 32 captures(none) dereferenceable(288) %3, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 0)
-          to label %35 unwind label %30, !noalias !2945
+          to label %34 unwind label %30, !noalias !2945
 
 29:                                               ; preds = %30
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.42.0.copyload.i.i.i.i, i64 noundef range(i64 1, 0) %.sroa.53.0.copyload.i.i.i.i, i64 noundef 1) #39, !noalias !2945
@@ -10867,12 +10867,10 @@ common.resume.i.i.i:                              ; preds = %30, %29, %24
   %32 = icmp eq i64 %.sroa.53.0.copyload.i.i.i.i, 0
   br i1 %32, label %common.resume.i.i.i, label %29
 
-33:                                               ; preds = %1, %35
-  %34 = phi i1 [ true, %1 ], [ %36, %35 ]
-  call void @llvm.assume(i1 %34)
+33:                                               ; preds = %1, %34
   ret ptr %0
 
-35:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h2b10ad25c24b8a98E.exit.i.i.i"
+34:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h2b10ad25c24b8a98E.exit.i.i.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(288) %.sroa.0.i.i, ptr noundef nonnull align 32 dereferenceable(288) %3, i64 288, i1 false)
   %.sroa.0.i.i.288.i.i.288.i.i.288.i.288.i.288..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 288
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %.sroa.0.i.i.288.i.i.288.i.i.288.i.288.i.288..sroa_idx, i8 0, i64 16, i1 false)
@@ -10886,8 +10884,6 @@ common.resume.i.i.i:                              ; preds = %30, %29, %24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %.sroa.712.0..sroa_idx13, i8 0, i64 16, i1 false)
   %.sroa.9.0..sroa_idx16 = getelementptr inbounds nuw i8, ptr %0, i64 360
   store i8 2, ptr %.sroa.9.0..sroa_idx16, align 8
-  %.pre = load i64, ptr %5, align 8, !range !309
-  %36 = icmp ne i64 %.pre, 2
   br label %33
 }
 

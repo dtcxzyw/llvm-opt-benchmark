@@ -56238,7 +56238,7 @@ define internal fastcc void @"_ZNK7testing19exceptions_internal26ExceptionSafety
   unreachable
 
 common.resume.i.i:                                ; preds = %_ZNSt14_Function_baseD2Ev.exit14.i.i, %10, %.body.i.i.i
-  %common.resume.op.i.i = phi { ptr, i32 } [ %.pn21.i.i, %_ZNSt14_Function_baseD2Ev.exit14.i.i ], [ %9, %10 ], [ %9, %.body.i.i.i ]
+  %common.resume.op.i.i = phi { ptr, i32 } [ %.pn22.i.i, %_ZNSt14_Function_baseD2Ev.exit14.i.i ], [ %9, %10 ], [ %9, %.body.i.i.i ]
   resume { ptr, i32 } %common.resume.op.i.i
 
 15:                                               ; preds = %2
@@ -56270,12 +56270,12 @@ common.resume.i.i:                                ; preds = %_ZNSt14_Function_ba
   %22 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef 4) #30, !noalias !920
-  %.pre.i.i = load ptr, ptr %19, align 8, !tbaa !416, !noalias !920
-  %.not.i.i.i.i.i = icmp eq ptr %.pre.i.i, null
+  %.pr.i.i = load ptr, ptr %19, align 8, !tbaa !416, !noalias !920
+  %.not.i.i.i.i.i = icmp eq ptr %.pr.i.i, null
   br i1 %.not.i.i.i.i.i, label %.body.i.i, label %23
 
 23:                                               ; preds = %.body15.i.i
-  %24 = invoke noundef zeroext i1 %.pre.i.i(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(88) %4, i32 noundef 3)
+  %24 = invoke noundef zeroext i1 %.pr.i.i(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(88) %4, i32 noundef 3)
           to label %.body.i.i unwind label %25, !noalias !920
 
 25:                                               ; preds = %23
@@ -56558,13 +56558,13 @@ _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %122, %_ZN7testing19
 
 .body.i.i:                                        ; preds = %133, %86, %.body.i4.i.i, %23, %.body15.i.i
   %.pn.ph.i.i = phi { ptr, i32 } [ %.pn.i.i.i, %86 ], [ %.pn.i.i.i, %.body.i4.i.i ], [ %22, %.body15.i.i ], [ %22, %23 ], [ %134, %133 ]
-  %.pr.i.i = load ptr, ptr %17, align 8, !tbaa !416, !noalias !920
-  %.not.i11.i.i = icmp eq ptr %.pr.i.i, null
+  %.pr18.i.i = load ptr, ptr %17, align 8, !tbaa !416, !noalias !920
+  %.not.i11.i.i = icmp eq ptr %.pr18.i.i, null
   br i1 %.not.i11.i.i, label %_ZNSt14_Function_baseD2Ev.exit12.i.i, label %135
 
 135:                                              ; preds = %.body.i.i, %.body.thread.i.i
-  %.pn20.i.i = phi { ptr, i32 } [ %21, %.body.thread.i.i ], [ %.pn.ph.i.i, %.body.i.i ]
-  %136 = phi ptr [ @"_ZNSt17_Function_handlerIFvPN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEZNS0_12_GLOBAL__N_146ExceptionSafetyTesterTest_ResetsCountdown_Test8TestBodyEvE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", %.body.thread.i.i ], [ %.pr.i.i, %.body.i.i ]
+  %.pn21.i.i = phi { ptr, i32 } [ %21, %.body.thread.i.i ], [ %.pn.ph.i.i, %.body.i.i ]
+  %136 = phi ptr [ @"_ZNSt17_Function_handlerIFvPN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEZNS0_12_GLOBAL__N_146ExceptionSafetyTesterTest_ResetsCountdown_Test8TestBodyEvE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", %.body.thread.i.i ], [ %.pr18.i.i, %.body.i.i ]
   %137 = invoke noundef zeroext i1 %136(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit12.i.i unwind label %138
 
@@ -56576,7 +56576,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %122, %_ZN7testing19
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit12.i.i:             ; preds = %135, %.body.i.i
-  %.pn21.i.i = phi { ptr, i32 } [ %.pn.ph.i.i, %.body.i.i ], [ %.pn20.i.i, %135 ]
+  %.pn22.i.i = phi { ptr, i32 } [ %.pn.ph.i.i, %.body.i.i ], [ %.pn21.i.i, %135 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #29, !noalias !920
   %141 = load ptr, ptr %7, align 8, !tbaa !416, !noalias !920
   %.not.i13.i.i = icmp eq ptr %141, null

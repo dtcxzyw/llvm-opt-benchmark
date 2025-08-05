@@ -4470,14 +4470,14 @@ _ZNSt10unique_ptrIN5Catch10Generators10GeneratorsIN5vcpkg14DeploymentKindEEESt14
 
 _ZN5Catch10Generators10GeneratorsIbE8populateEONS0_16GeneratorWrapperIbEE.exit.i.i.i.i.i.i: ; preds = %.noexc40
   %128 = ptrtoint ptr %124 to i64
-  %129 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %129 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %127, ptr %126, align 8, !tbaa !167, !alias.scope !166
-  %130 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  store ptr %130, ptr %129, align 8, !tbaa !170, !alias.scope !166
-  %131 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %127, i64 16
+  store ptr %131, ptr %130, align 8, !tbaa !170, !alias.scope !166
   store i64 %128, ptr %127, align 8, !tbaa !171, !noalias !166
   %132 = getelementptr inbounds nuw i8, ptr %127, i64 8
-  store ptr %132, ptr %131, align 8, !tbaa !173, !alias.scope !166
+  store ptr %132, ptr %129, align 8, !tbaa !173, !alias.scope !166
   invoke void @_ZN5Catch10Generators10GeneratorsIbE8populateEOb(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 1 dereferenceable(1) %12)
           to label %"_ZZL19C_A_T_C_H_T_E_S_T_9vENK3$_1clEv.exit.i" unwind label %.body.i.i.i
 
@@ -4508,10 +4508,10 @@ _ZNKSt14default_deleteIN5Catch10Generators10IGeneratorIbEEEclEPS3_.exit.i.i4.i.i
   %140 = load ptr, ptr %126, align 8, !tbaa !167, !noalias !174
   store ptr %140, ptr %139, align 8, !tbaa !167, !noalias !174
   %141 = getelementptr inbounds nuw i8, ptr %137, i64 16
-  %142 = load ptr, ptr %131, align 8, !tbaa !173, !noalias !174
+  %142 = load ptr, ptr %129, align 8, !tbaa !173, !noalias !174
   store ptr %142, ptr %141, align 8, !tbaa !173, !noalias !174
   %143 = getelementptr inbounds nuw i8, ptr %137, i64 24
-  %144 = load ptr, ptr %129, align 8, !tbaa !170, !noalias !174
+  %144 = load ptr, ptr %130, align 8, !tbaa !170, !noalias !174
   store ptr %144, ptr %143, align 8, !tbaa !170, !noalias !174
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %126, i8 0, i64 24, i1 false), !noalias !174
   %145 = getelementptr inbounds nuw i8, ptr %137, i64 32
@@ -4541,7 +4541,7 @@ _ZNSt10unique_ptrIN5Catch10Generators10GeneratorsIbEESt14default_deleteIS3_EED2E
   store ptr null, ptr %13, align 8, !tbaa !117
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5Catch10Generators10GeneratorsIbEE, i64 16), ptr %14, align 8, !tbaa !41
   %156 = load ptr, ptr %126, align 8, !tbaa !167
-  %157 = load ptr, ptr %131, align 8, !tbaa !173
+  %157 = load ptr, ptr %129, align 8, !tbaa !173
   %.not4.i.i.i.i.i.i31 = icmp eq ptr %156, %157
   br i1 %.not4.i.i.i.i.i.i31, label %_ZSt8_DestroyIPN5Catch10Generators16GeneratorWrapperIbEES3_EvT_S5_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i32
 
@@ -4574,7 +4574,7 @@ _ZSt8_DestroyIPN5Catch10Generators16GeneratorWrapperIbEES3_EvT_S5_RSaIT0_E.exit.
   br i1 %.not.i.i.i.i.i37, label %_ZN5Catch10Generators10GeneratorsIbED2Ev.exit.i, label %164
 
 164:                                              ; preds = %_ZSt8_DestroyIPN5Catch10Generators16GeneratorWrapperIbEES3_EvT_S5_RSaIT0_E.exit.i.i.i
-  %165 = load ptr, ptr %129, align 8, !tbaa !170
+  %165 = load ptr, ptr %130, align 8, !tbaa !170
   %166 = ptrtoint ptr %165 to i64
   %167 = ptrtoint ptr %163 to i64
   %168 = sub i64 %166, %167
@@ -4762,14 +4762,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %.in
 
 _ZN5Catch10Generators10GeneratorsIbE8populateEONS0_16GeneratorWrapperIbEE.exit.i.i.i.i.i.i55: ; preds = %.noexc77
   %232 = ptrtoint ptr %228 to i64
-  %233 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %233 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %234 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %231, ptr %230, align 8, !tbaa !167, !alias.scope !197
-  %234 = getelementptr inbounds nuw i8, ptr %231, i64 16
-  store ptr %234, ptr %233, align 8, !tbaa !170, !alias.scope !197
-  %235 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %235 = getelementptr inbounds nuw i8, ptr %231, i64 16
+  store ptr %235, ptr %234, align 8, !tbaa !170, !alias.scope !197
   store i64 %232, ptr %231, align 8, !tbaa !171, !noalias !197
   %236 = getelementptr inbounds nuw i8, ptr %231, i64 8
-  store ptr %236, ptr %235, align 8, !tbaa !173, !alias.scope !197
+  store ptr %236, ptr %233, align 8, !tbaa !173, !alias.scope !197
   invoke void @_ZN5Catch10Generators10GeneratorsIbE8populateEOb(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %"_ZZL19C_A_T_C_H_T_E_S_T_9vENK3$_2clEv.exit.i" unwind label %.body.i.i.i49
 
@@ -4800,10 +4800,10 @@ _ZNKSt14default_deleteIN5Catch10Generators10IGeneratorIbEEEclEPS3_.exit.i.i4.i.i
   %244 = load ptr, ptr %230, align 8, !tbaa !167, !noalias !198
   store ptr %244, ptr %243, align 8, !tbaa !167, !noalias !198
   %245 = getelementptr inbounds nuw i8, ptr %241, i64 16
-  %246 = load ptr, ptr %235, align 8, !tbaa !173, !noalias !198
+  %246 = load ptr, ptr %233, align 8, !tbaa !173, !noalias !198
   store ptr %246, ptr %245, align 8, !tbaa !173, !noalias !198
   %247 = getelementptr inbounds nuw i8, ptr %241, i64 24
-  %248 = load ptr, ptr %233, align 8, !tbaa !170, !noalias !198
+  %248 = load ptr, ptr %234, align 8, !tbaa !170, !noalias !198
   store ptr %248, ptr %247, align 8, !tbaa !170, !noalias !198
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %230, i8 0, i64 24, i1 false), !noalias !198
   %249 = getelementptr inbounds nuw i8, ptr %241, i64 32
@@ -4833,7 +4833,7 @@ _ZNSt10unique_ptrIN5Catch10Generators10GeneratorsIbEESt14default_deleteIS3_EED2E
   store ptr null, ptr %9, align 8, !tbaa !117
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5Catch10Generators10GeneratorsIbEE, i64 16), ptr %10, align 8, !tbaa !41
   %260 = load ptr, ptr %230, align 8, !tbaa !167
-  %261 = load ptr, ptr %235, align 8, !tbaa !173
+  %261 = load ptr, ptr %233, align 8, !tbaa !173
   %.not4.i.i.i.i.i.i63 = icmp eq ptr %260, %261
   br i1 %.not4.i.i.i.i.i.i63, label %_ZSt8_DestroyIPN5Catch10Generators16GeneratorWrapperIbEES3_EvT_S5_RSaIT0_E.exit.i.i.i72, label %.lr.ph.i.i.i.i.i.i64
 
@@ -4866,7 +4866,7 @@ _ZSt8_DestroyIPN5Catch10Generators16GeneratorWrapperIbEES3_EvT_S5_RSaIT0_E.exit.
   br i1 %.not.i.i.i.i.i73, label %_ZN5Catch10Generators10GeneratorsIbED2Ev.exit.i74, label %268
 
 268:                                              ; preds = %_ZSt8_DestroyIPN5Catch10Generators16GeneratorWrapperIbEES3_EvT_S5_RSaIT0_E.exit.i.i.i72
-  %269 = load ptr, ptr %233, align 8, !tbaa !170
+  %269 = load ptr, ptr %234, align 8, !tbaa !170
   %270 = ptrtoint ptr %269 to i64
   %271 = ptrtoint ptr %267 to i64
   %272 = sub i64 %270, %271
@@ -4972,14 +4972,14 @@ _ZNSt10unique_ptrIN5Catch10Generators10GeneratorsIbEESt14default_deleteIS3_EED2E
 
 _ZN5Catch10Generators10GeneratorsIbE8populateEONS0_16GeneratorWrapperIbEE.exit.i.i.i.i.i.i88: ; preds = %.noexc110
   %307 = ptrtoint ptr %303 to i64
-  %308 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %308 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %309 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %306, ptr %305, align 8, !tbaa !167, !alias.scope !215
-  %309 = getelementptr inbounds nuw i8, ptr %306, i64 16
-  store ptr %309, ptr %308, align 8, !tbaa !170, !alias.scope !215
-  %310 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %310 = getelementptr inbounds nuw i8, ptr %306, i64 16
+  store ptr %310, ptr %309, align 8, !tbaa !170, !alias.scope !215
   store i64 %307, ptr %306, align 8, !tbaa !171, !noalias !215
   %311 = getelementptr inbounds nuw i8, ptr %306, i64 8
-  store ptr %311, ptr %310, align 8, !tbaa !173, !alias.scope !215
+  store ptr %311, ptr %308, align 8, !tbaa !173, !alias.scope !215
   invoke void @_ZN5Catch10Generators10GeneratorsIbE8populateEOb(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %"_ZZL19C_A_T_C_H_T_E_S_T_9vENK3$_3clEv.exit.i" unwind label %.body.i.i.i82
 
@@ -5010,10 +5010,10 @@ _ZNKSt14default_deleteIN5Catch10Generators10IGeneratorIbEEEclEPS3_.exit.i.i4.i.i
   %319 = load ptr, ptr %305, align 8, !tbaa !167, !noalias !216
   store ptr %319, ptr %318, align 8, !tbaa !167, !noalias !216
   %320 = getelementptr inbounds nuw i8, ptr %316, i64 16
-  %321 = load ptr, ptr %310, align 8, !tbaa !173, !noalias !216
+  %321 = load ptr, ptr %308, align 8, !tbaa !173, !noalias !216
   store ptr %321, ptr %320, align 8, !tbaa !173, !noalias !216
   %322 = getelementptr inbounds nuw i8, ptr %316, i64 24
-  %323 = load ptr, ptr %308, align 8, !tbaa !170, !noalias !216
+  %323 = load ptr, ptr %309, align 8, !tbaa !170, !noalias !216
   store ptr %323, ptr %322, align 8, !tbaa !170, !noalias !216
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %305, i8 0, i64 24, i1 false), !noalias !216
   %324 = getelementptr inbounds nuw i8, ptr %316, i64 32
@@ -5043,7 +5043,7 @@ _ZNSt10unique_ptrIN5Catch10Generators10GeneratorsIbEESt14default_deleteIS3_EED2E
   store ptr null, ptr %6, align 8, !tbaa !117
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5Catch10Generators10GeneratorsIbEE, i64 16), ptr %7, align 8, !tbaa !41
   %335 = load ptr, ptr %305, align 8, !tbaa !167
-  %336 = load ptr, ptr %310, align 8, !tbaa !173
+  %336 = load ptr, ptr %308, align 8, !tbaa !173
   %.not4.i.i.i.i.i.i96 = icmp eq ptr %335, %336
   br i1 %.not4.i.i.i.i.i.i96, label %_ZSt8_DestroyIPN5Catch10Generators16GeneratorWrapperIbEES3_EvT_S5_RSaIT0_E.exit.i.i.i105, label %.lr.ph.i.i.i.i.i.i97
 
@@ -5076,7 +5076,7 @@ _ZSt8_DestroyIPN5Catch10Generators16GeneratorWrapperIbEES3_EvT_S5_RSaIT0_E.exit.
   br i1 %.not.i.i.i.i.i106, label %_ZN5Catch10Generators10GeneratorsIbED2Ev.exit.i107, label %343
 
 343:                                              ; preds = %_ZSt8_DestroyIPN5Catch10Generators16GeneratorWrapperIbEES3_EvT_S5_RSaIT0_E.exit.i.i.i105
-  %344 = load ptr, ptr %308, align 8, !tbaa !170
+  %344 = load ptr, ptr %309, align 8, !tbaa !170
   %345 = ptrtoint ptr %344 to i64
   %346 = ptrtoint ptr %342 to i64
   %347 = sub i64 %345, %346
@@ -5188,14 +5188,14 @@ _ZNSt10unique_ptrIN5Catch10Generators10GeneratorsIbEESt14default_deleteIS3_EED2E
 
 _ZN5Catch10Generators10GeneratorsIbE8populateEONS0_16GeneratorWrapperIbEE.exit.i.i.i.i.i.i121: ; preds = %.noexc143
   %384 = ptrtoint ptr %380 to i64
-  %385 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %385 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %386 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %383, ptr %382, align 8, !tbaa !167, !alias.scope !233
-  %386 = getelementptr inbounds nuw i8, ptr %383, i64 16
-  store ptr %386, ptr %385, align 8, !tbaa !170, !alias.scope !233
-  %387 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %387 = getelementptr inbounds nuw i8, ptr %383, i64 16
+  store ptr %387, ptr %386, align 8, !tbaa !170, !alias.scope !233
   store i64 %384, ptr %383, align 8, !tbaa !171, !noalias !233
   %388 = getelementptr inbounds nuw i8, ptr %383, i64 8
-  store ptr %388, ptr %387, align 8, !tbaa !173, !alias.scope !233
+  store ptr %388, ptr %385, align 8, !tbaa !173, !alias.scope !233
   invoke void @_ZN5Catch10Generators10GeneratorsIbE8populateEOb(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %"_ZZL19C_A_T_C_H_T_E_S_T_9vENK3$_4clEv.exit.i" unwind label %.body.i.i.i115
 
@@ -5226,10 +5226,10 @@ _ZNKSt14default_deleteIN5Catch10Generators10IGeneratorIbEEEclEPS3_.exit.i.i4.i.i
   %396 = load ptr, ptr %382, align 8, !tbaa !167, !noalias !234
   store ptr %396, ptr %395, align 8, !tbaa !167, !noalias !234
   %397 = getelementptr inbounds nuw i8, ptr %393, i64 16
-  %398 = load ptr, ptr %387, align 8, !tbaa !173, !noalias !234
+  %398 = load ptr, ptr %385, align 8, !tbaa !173, !noalias !234
   store ptr %398, ptr %397, align 8, !tbaa !173, !noalias !234
   %399 = getelementptr inbounds nuw i8, ptr %393, i64 24
-  %400 = load ptr, ptr %385, align 8, !tbaa !170, !noalias !234
+  %400 = load ptr, ptr %386, align 8, !tbaa !170, !noalias !234
   store ptr %400, ptr %399, align 8, !tbaa !170, !noalias !234
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %382, i8 0, i64 24, i1 false), !noalias !234
   %401 = getelementptr inbounds nuw i8, ptr %393, i64 32
@@ -5259,7 +5259,7 @@ _ZNSt10unique_ptrIN5Catch10Generators10GeneratorsIbEESt14default_deleteIS3_EED2E
   store ptr null, ptr %3, align 8, !tbaa !117
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5Catch10Generators10GeneratorsIbEE, i64 16), ptr %4, align 8, !tbaa !41
   %412 = load ptr, ptr %382, align 8, !tbaa !167
-  %413 = load ptr, ptr %387, align 8, !tbaa !173
+  %413 = load ptr, ptr %385, align 8, !tbaa !173
   %.not4.i.i.i.i.i.i129 = icmp eq ptr %412, %413
   br i1 %.not4.i.i.i.i.i.i129, label %_ZSt8_DestroyIPN5Catch10Generators16GeneratorWrapperIbEES3_EvT_S5_RSaIT0_E.exit.i.i.i138, label %.lr.ph.i.i.i.i.i.i130
 
@@ -5292,7 +5292,7 @@ _ZSt8_DestroyIPN5Catch10Generators16GeneratorWrapperIbEES3_EvT_S5_RSaIT0_E.exit.
   br i1 %.not.i.i.i.i.i139, label %_ZN5Catch10Generators10GeneratorsIbED2Ev.exit.i140, label %420
 
 420:                                              ; preds = %_ZSt8_DestroyIPN5Catch10Generators16GeneratorWrapperIbEES3_EvT_S5_RSaIT0_E.exit.i.i.i138
-  %421 = load ptr, ptr %385, align 8, !tbaa !170
+  %421 = load ptr, ptr %386, align 8, !tbaa !170
   %422 = ptrtoint ptr %421 to i64
   %423 = ptrtoint ptr %419 to i64
   %424 = sub i64 %422, %423
@@ -10562,9 +10562,9 @@ define linkonce_odr dso_local void @_ZN5Catch10Generators14makeGeneratorsIRA1_Kc
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false), !alias.scope !405
   %15 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #26
-          to label %_ZNSt6vectorIN5Catch10Generators16GeneratorWrapperIRA1_KcEESaIS6_EE7reserveEm.exit.i.i unwind label %.body, !noalias !405
+          to label %_ZNSt12_Vector_baseIN5Catch10Generators16GeneratorWrapperIRA1_KcEESaIS6_EE13_M_deallocateEPS6_m.exit.i.i.i unwind label %.body, !noalias !405
 
-_ZNSt6vectorIN5Catch10Generators16GeneratorWrapperIRA1_KcEESaIS6_EE7reserveEm.exit.i.i: ; preds = %9
+_ZNSt12_Vector_baseIN5Catch10Generators16GeneratorWrapperIRA1_KcEESaIS6_EE13_M_deallocateEPS6_m.exit.i.i.i: ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %14, align 8, !tbaa !102, !alias.scope !405
@@ -10574,7 +10574,7 @@ _ZNSt6vectorIN5Catch10Generators16GeneratorWrapperIRA1_KcEESaIS6_EE7reserveEm.ex
   invoke void @_ZN5Catch10Generators10GeneratorsIRA1_KcE8populateINS0_16GeneratorWrapperIS4_EEJRA3_S2_RA17_S2_RA23_S2_RA20_S2_RA21_S2_RA24_S2_SG_EEEvOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 1 dereferenceable(3) %2, ptr noundef nonnull align 1 dereferenceable(17) %3, ptr noundef nonnull align 1 dereferenceable(23) %4, ptr noundef nonnull align 1 dereferenceable(20) %5, ptr noundef nonnull align 1 dereferenceable(21) %6, ptr noundef nonnull align 1 dereferenceable(24) %7, ptr noundef nonnull align 1 dereferenceable(20) %8)
           to label %_ZN5Catch10Generators14makeGeneratorsIRA1_KcJRA3_S2_RA17_S2_RA23_S2_RA20_S2_RA21_S2_RA24_S2_SC_EEENS0_10GeneratorsIT_EEONS0_16GeneratorWrapperISI_EEDpOT0_.exit unwind label %.body
 
-.body:                                            ; preds = %_ZNSt6vectorIN5Catch10Generators16GeneratorWrapperIRA1_KcEESaIS6_EE7reserveEm.exit.i.i, %9
+.body:                                            ; preds = %_ZNSt12_Vector_baseIN5Catch10Generators16GeneratorWrapperIRA1_KcEESaIS6_EE13_M_deallocateEPS6_m.exit.i.i.i, %9
   %19 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIN5Catch10Generators16GeneratorWrapperIRA1_KcEESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #22
@@ -10583,7 +10583,7 @@ _ZNSt6vectorIN5Catch10Generators16GeneratorWrapperIRA1_KcEESaIS6_EE7reserveEm.ex
   %.not.i.i9 = icmp eq ptr %20, null
   br i1 %.not.i.i9, label %_ZN5Catch10Generators16GeneratorWrapperIRA1_KcED2Ev.exit11, label %_ZNKSt14default_deleteIN5Catch10Generators10IGeneratorIRA1_KcEEEclEPS6_.exit.i.i10
 
-_ZN5Catch10Generators14makeGeneratorsIRA1_KcJRA3_S2_RA17_S2_RA23_S2_RA20_S2_RA21_S2_RA24_S2_SC_EEENS0_10GeneratorsIT_EEONS0_16GeneratorWrapperISI_EEDpOT0_.exit: ; preds = %_ZNSt6vectorIN5Catch10Generators16GeneratorWrapperIRA1_KcEESaIS6_EE7reserveEm.exit.i.i
+_ZN5Catch10Generators14makeGeneratorsIRA1_KcJRA3_S2_RA17_S2_RA23_S2_RA20_S2_RA21_S2_RA24_S2_SC_EEENS0_10GeneratorsIT_EEONS0_16GeneratorWrapperISI_EEDpOT0_.exit: ; preds = %_ZNSt12_Vector_baseIN5Catch10Generators16GeneratorWrapperIRA1_KcEESaIS6_EE13_M_deallocateEPS6_m.exit.i.i.i
   %21 = load ptr, ptr %10, align 8, !tbaa !118
   %.not.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i, label %_ZN5Catch10Generators16GeneratorWrapperIRA1_KcED2Ev.exit, label %_ZNKSt14default_deleteIN5Catch10Generators10IGeneratorIRA1_KcEEEclEPS6_.exit.i.i
@@ -11505,14 +11505,14 @@ define linkonce_odr dso_local void @_ZN5Catch10Generators14makeGeneratorsIN5vcpk
 
 _ZN5Catch10Generators10GeneratorsIN5vcpkg14DeploymentKindEE8populateEONS0_16GeneratorWrapperIS3_EE.exit.i.i.i: ; preds = %4
   %10 = ptrtoint ptr %5 to i64
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %9, ptr %8, align 8, !tbaa !134, !alias.scope !457
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr %12, ptr %11, align 8, !tbaa !138, !alias.scope !457
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store ptr %13, ptr %12, align 8, !tbaa !138, !alias.scope !457
   store i64 %10, ptr %9, align 8, !tbaa !145, !noalias !457
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %14, ptr %13, align 8, !tbaa !137, !alias.scope !457
+  store ptr %14, ptr %11, align 8, !tbaa !137, !alias.scope !457
   invoke void @_ZN5Catch10Generators10GeneratorsIN5vcpkg14DeploymentKindEE8populateEOS3_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %.noexc6.i.i unwind label %.body
 

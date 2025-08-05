@@ -7510,7 +7510,7 @@ _ZNSt14_Function_baseD2Ev.exit7.thread:           ; preds = %10
   br label %61
 
 .body:                                            ; preds = %.body.i.i.i, %34
-  %eh.lpad-body = phi { ptr, i32 } [ %35, %34 ], [ %27, %.body.i.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %.body.i.i.i ], [ %35, %34 ]
   %.pre = load ptr, ptr %14, align 8, !tbaa !55
   %.not.i6 = icmp eq ptr %.pre, null
   br i1 %.not.i6, label %_ZNSt14_Function_baseD2Ev.exit7, label %56
@@ -9471,7 +9471,7 @@ _ZNSt14_Function_baseD2Ev.exit7.thread:           ; preds = %10
   br label %61
 
 .body:                                            ; preds = %.body.i.i.i, %34
-  %eh.lpad-body = phi { ptr, i32 } [ %35, %34 ], [ %27, %.body.i.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %.body.i.i.i ], [ %35, %34 ]
   %.pre = load ptr, ptr %14, align 8, !tbaa !55
   %.not.i6 = icmp eq ptr %.pre, null
   br i1 %.not.i6, label %_ZNSt14_Function_baseD2Ev.exit7, label %56
@@ -12335,7 +12335,7 @@ _ZNSt14_Function_baseD2Ev.exit7.thread:           ; preds = %10
   br label %61
 
 .body:                                            ; preds = %.body.i.i.i, %34
-  %eh.lpad-body = phi { ptr, i32 } [ %35, %34 ], [ %27, %.body.i.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %.body.i.i.i ], [ %35, %34 ]
   %.pre = load ptr, ptr %14, align 8, !tbaa !55
   %.not.i6 = icmp eq ptr %.pre, null
   br i1 %.not.i6, label %_ZNSt14_Function_baseD2Ev.exit7, label %56

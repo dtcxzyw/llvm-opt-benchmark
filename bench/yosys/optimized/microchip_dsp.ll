@@ -1211,9 +1211,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %392 = getelementptr inbounds nuw i8, ptr %88, i64 824
   %.sroa.4530.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %88, i64 832
   %393 = getelementptr inbounds nuw i8, ptr %88, i64 856
-  %394 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %394 = getelementptr inbounds nuw i8, ptr %88, i64 864
   %395 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %396 = getelementptr inbounds nuw i8, ptr %88, i64 864
+  %396 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %397 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %398 = getelementptr inbounds nuw i8, ptr %88, i64 880
   %399 = getelementptr inbounds nuw i8, ptr %88, i64 888
@@ -3976,21 +3976,21 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit177.i.i:          ; preds = %1628, %_ZNSt6vector
   %1633 = load ptr, ptr %393, align 8, !tbaa !205
   %.not.i.i.i.i.i178.i.i = icmp eq ptr %1632, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %364, i8 0, i64 24, i1 false)
-  br i1 %.not.i.i.i.i.i178.i.i, label %_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEC2EOS6_.exit.i.i.i, label %1634
+  br i1 %.not.i.i.i.i.i178.i.i, label %_ZNSt6vectorISt5tupleIJPN5Yosys5RTLIL4CellEiEESaIS5_EED2Ev.exit181.i.i, label %1634
 
 1634:                                             ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit177.i.i
   %1635 = ptrtoint ptr %1633 to i64
   %1636 = ptrtoint ptr %1632 to i64
   %1637 = sub i64 %1635, %1636
   call void @_ZdlPvm(ptr noundef nonnull %1632, i64 noundef %1637) #29
-  br label %_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEC2EOS6_.exit.i.i.i
+  br label %_ZNSt6vectorISt5tupleIJPN5Yosys5RTLIL4CellEiEESaIS5_EED2Ev.exit181.i.i
 
-_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEC2EOS6_.exit.i.i.i: ; preds = %1634, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit177.i.i
+_ZNSt6vectorISt5tupleIJPN5Yosys5RTLIL4CellEiEESaIS5_EED2Ev.exit181.i.i: ; preds = %1634, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit177.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %36) #28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35) #28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %396, i64 16, i1 false), !tbaa.struct !128
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %396, i8 0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %394, i64 16, i1 false), !tbaa.struct !128
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %394, i8 0, i64 16, i1 false)
   %1638 = load ptr, ptr %398, align 8, !tbaa !119
   store ptr %1638, ptr %397, align 8, !tbaa !119
   store ptr null, ptr %398, align 8, !tbaa !119
@@ -4000,11 +4000,11 @@ _ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEC2EOS6_.exit.i.i.i: ; preds = %1634
   %.not.i.i.i.i135 = icmp eq ptr %1638, null
   br i1 %.not.i.i.i.i135, label %_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEaSEOS6_.exit.thread.i.i, label %1640
 
-_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEaSEOS6_.exit.thread.i.i: ; preds = %_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEC2EOS6_.exit.i.i.i
+_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEaSEOS6_.exit.thread.i.i: ; preds = %_ZNSt6vectorISt5tupleIJPN5Yosys5RTLIL4CellEiEESaIS5_EED2Ev.exit181.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35) #28
   br label %_ZNSt14_Function_baseD2Ev.exit.i.i
 
-1640:                                             ; preds = %_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEC2EOS6_.exit.i.i.i
+1640:                                             ; preds = %_ZNSt6vectorISt5tupleIJPN5Yosys5RTLIL4CellEiEESaIS5_EED2Ev.exit181.i.i
   %1641 = invoke noundef zeroext i1 %1638(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %35, i32 noundef 3)
           to label %_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEaSEOS6_.exit.i.i unwind label %1642
 
@@ -4016,7 +4016,7 @@ _ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEaSEOS6_.exit.thread.i.i: ; preds = 
   unreachable
 
 _ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEaSEOS6_.exit.i.i: ; preds = %1640
-  %.pre.i.i = load ptr, ptr %394, align 8, !tbaa !114
+  %.pre.i.i = load ptr, ptr %396, align 8, !tbaa !114
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35) #28
   %.not.i.i.i136 = icmp eq ptr %.pre.i.i, null
   br i1 %.not.i.i.i136, label %_ZNSt14_Function_baseD2Ev.exit.i.i, label %1645
@@ -7952,8 +7952,8 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit48.i.i:           ; preds = %3301, %_ZNSt6vector
   store i32 0, ptr %554, align 8, !tbaa !301
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %555, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32) #28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %396, i64 16, i1 false), !tbaa.struct !128
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %396, i8 0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %394, i64 16, i1 false), !tbaa.struct !128
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %394, i8 0, i64 16, i1 false)
   %3305 = load ptr, ptr %398, align 8, !tbaa !119
   store ptr %3305, ptr %556, align 8, !tbaa !119
   store ptr @_ZNSt17_Function_handlerIFN5Yosys5RTLIL7SigSpecERKS2_EZN12_GLOBAL__N_124microchip_dsp_cascade_pm7block_1EiEUlS4_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %398, align 8, !tbaa !119
@@ -58049,28 +58049,28 @@ _ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EEaSEOS4_.exit.i79: ; preds = %71, %_Z
   %78 = load ptr, ptr %77, align 8, !tbaa !138
   %.not.i.i.i.i.i4.i80 = icmp eq ptr %76, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %75, i8 0, i64 24, i1 false)
-  br i1 %.not.i.i.i.i.i4.i80, label %_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEC2EOS6_.exit.i, label %79
+  br i1 %.not.i.i.i.i.i4.i80, label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit94, label %79
 
 79:                                               ; preds = %_ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EEaSEOS4_.exit.i79
   %80 = ptrtoint ptr %78 to i64
   %81 = ptrtoint ptr %76 to i64
   %82 = sub i64 %80, %81
   tail call void @_ZdlPvm(ptr noundef nonnull %76, i64 noundef %82) #29
-  br label %_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEC2EOS6_.exit.i
+  br label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit94
 
-_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEC2EOS6_.exit.i: ; preds = %_ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EEaSEOS4_.exit.i79, %79
+_ZN5Yosys5RTLIL7SigSpecD2Ev.exit94:               ; preds = %79, %_ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EEaSEOS4_.exit.i79
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 872
   store ptr null, ptr %83, align 8, !tbaa !139
   %.sroa.4704.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 880
   store i8 0, ptr %.sroa.4704.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 888
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #28
-  %84 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %85 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false), !tbaa.struct !128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, i8 0, i64 16, i1 false)
+  %86 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %84, i64 16, i1 false), !tbaa.struct !128
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, i8 0, i64 16, i1 false)
   %87 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %89 = load ptr, ptr %88, align 8, !tbaa !119
@@ -58083,11 +58083,11 @@ _ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEC2EOS6_.exit.i: ; preds = %_ZNSt6ve
   %.not.i.i = icmp eq ptr %89, null
   br i1 %.not.i.i, label %_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEaSEOS6_.exit.thread, label %92
 
-_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEaSEOS6_.exit.thread: ; preds = %_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEC2EOS6_.exit.i
+_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEaSEOS6_.exit.thread: ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit94
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #28
   br label %_ZNSt14_Function_baseD2Ev.exit
 
-92:                                               ; preds = %_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEC2EOS6_.exit.i
+92:                                               ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit94
   %93 = invoke noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3)
           to label %_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEaSEOS6_.exit unwind label %94
 
@@ -58099,7 +58099,7 @@ _ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEaSEOS6_.exit.thread: ; preds = %_ZN
   unreachable
 
 _ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEaSEOS6_.exit: ; preds = %92
-  %.pre = load ptr, ptr %84, align 8, !tbaa !114
+  %.pre = load ptr, ptr %86, align 8, !tbaa !114
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #28
   %.not.i = icmp eq ptr %.pre, null
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %97

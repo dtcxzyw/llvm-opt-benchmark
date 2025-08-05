@@ -46362,8 +46362,8 @@ entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %t, i64 8
   %3 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !832
   %4 = load ptr, ptr %t, align 8, !noalias !832
-  %cmp.i10.i = icmp eq ptr %4, %3
-  br i1 %cmp.i10.i, label %if.then.i, label %for.body.i.preheader
+  %cmp.i8.i = icmp eq ptr %4, %3
+  br i1 %cmp.i8.i, label %if.then.i, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %entry
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %3 to i64
@@ -46373,16 +46373,16 @@ for.body.i.preheader:                             ; preds = %entry
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
-  %ret.sroa.0.014.i = phi i64 [ %add.i.i, %for.body.i ], [ 0, %for.body.i.preheader ]
-  %ret.sroa.4.013.i = phi i64 [ %add4.i.i, %for.body.i ], [ 1, %for.body.i.preheader ]
-  %ret.sroa.8.012.i = phi i64 [ %6, %for.body.i ], [ %sub.ptr.div.i.i, %for.body.i.preheader ]
-  %__begin0.sroa.0.011.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %4, %for.body.i.preheader ]
-  %_M_string_length.i.i.i6 = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.011.i, i64 8
+  %ret.sroa.0.012.i = phi i64 [ %add.i.i, %for.body.i ], [ 0, %for.body.i.preheader ]
+  %ret.sroa.4.011.i = phi i64 [ %add4.i.i, %for.body.i ], [ 1, %for.body.i.preheader ]
+  %ret.sroa.7.010.i = phi i64 [ %6, %for.body.i ], [ %sub.ptr.div.i.i, %for.body.i.preheader ]
+  %__begin0.sroa.0.09.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %4, %for.body.i.preheader ]
+  %_M_string_length.i.i.i6 = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.09.i, i64 8
   %5 = load i64, ptr %_M_string_length.i.i.i6, align 8, !noalias !835
-  %add.i.i = add i64 %5, %ret.sroa.0.014.i
-  %add4.i.i = add nuw nsw i64 %ret.sroa.4.013.i, 1
-  %6 = call i64 @llvm.umax.i64(i64 %ret.sroa.8.012.i, i64 %5)
-  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.011.i, i64 32
+  %add.i.i = add i64 %5, %ret.sroa.0.012.i
+  %add4.i.i = add nuw nsw i64 %ret.sroa.4.011.i, 1
+  %6 = call i64 @llvm.umax.i64(i64 %ret.sroa.7.010.i, i64 %5)
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin0.sroa.0.09.i, i64 32
   %cmp.i.i = icmp eq ptr %incdec.ptr.i.i, %3
   br i1 %cmp.i.i, label %.noexc6, label %for.body.i
 

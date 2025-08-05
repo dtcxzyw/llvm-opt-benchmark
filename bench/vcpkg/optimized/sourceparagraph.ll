@@ -20892,7 +20892,7 @@ define linkonce_odr dso_local void @_ZNK5vcpkg4Json13IDeserializerINS_21Manifest
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK5vcpkg33ManifestConfigurationDeserializer12visit_objectERNS_4Json6ReaderERKNS1_6ObjectE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Optional.168") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-_ZN5vcpkg7details15OptionalStorageINS_13ConfigurationELb1EE7emplaceIJEEERS2_DpOT_.exit:
+_ZN5vcpkg7details15OptionalStorageINS_21ManifestConfigurationELb1EE7emplaceIJEEERS2_DpOT_.exit:
   %4 = alloca %"struct.vcpkg::Optional.127", align 8
   %5 = alloca %"struct.vcpkg::Optional.39", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -20907,11 +20907,11 @@ _ZN5vcpkg7details15OptionalStorageINS_13ConfigurationELb1EE7emplaceIJEEERS2_DpOT
   %.not.i.not = icmp eq ptr %10, null
   br i1 %.not.i.not, label %_ZN5vcpkg4Json6Reader21optional_object_fieldINS_13ConfigurationEEEbRKNS0_6ObjectENS_10StringViewERT_RKNS0_13IDeserializerIS8_EE.exit, label %11
 
-11:                                               ; preds = %_ZN5vcpkg7details15OptionalStorageINS_13ConfigurationELb1EE7emplaceIJEEERS2_DpOT_.exit
+11:                                               ; preds = %_ZN5vcpkg7details15OptionalStorageINS_21ManifestConfigurationELb1EE7emplaceIJEEERS2_DpOT_.exit
   invoke void @_ZN5vcpkg4Json6Reader12visit_in_keyINS_13ConfigurationEEEvRKNS0_5ValueENS_10StringViewERT_RKNS0_13IDeserializerIS8_EE(ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr nonnull @.str.604, i64 19, ptr noundef nonnull align 8 dereferenceable(472) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %_ZN5vcpkg4Json6Reader21optional_object_fieldINS_13ConfigurationEEEbRKNS0_6ObjectENS_10StringViewERT_RKNS0_13IDeserializerIS8_EE.exit.thread unwind label %17
 
-_ZN5vcpkg4Json6Reader21optional_object_fieldINS_13ConfigurationEEEbRKNS0_6ObjectENS_10StringViewERT_RKNS0_13IDeserializerIS8_EE.exit: ; preds = %_ZN5vcpkg7details15OptionalStorageINS_13ConfigurationELb1EE7emplaceIJEEERS2_DpOT_.exit
+_ZN5vcpkg4Json6Reader21optional_object_fieldINS_13ConfigurationEEEbRKNS0_6ObjectENS_10StringViewERT_RKNS0_13IDeserializerIS8_EE.exit: ; preds = %_ZN5vcpkg7details15OptionalStorageINS_21ManifestConfigurationELb1EE7emplaceIJEEERS2_DpOT_.exit
   call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %4) #23
   store i8 0, ptr %4, align 8, !tbaa !283
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8

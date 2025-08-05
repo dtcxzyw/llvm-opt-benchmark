@@ -2917,7 +2917,7 @@ files_downcast.exit:                              ; preds = %17
   %26 = and i8 %25, 1
   %27 = shl i8 %24, 1
   %28 = and i8 %27, 2
-  %29 = or disjoint i8 %28, %26
+  %29 = or disjoint i8 %26, %28
   store i8 %29, ptr %23, align 4
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %6, ptr %30, align 8, !tbaa !114

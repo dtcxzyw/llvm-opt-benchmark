@@ -1484,7 +1484,7 @@ define hidden noundef ptr @_ZN19OpenColorIO_v2_5dev11ConfigUtils15getRefSpaceNam
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load ptr, ptr %37, align 8
   call void %38(ptr noundef nonnull align 8 dereferenceable(16) %25) #23
-  br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev9TransformEEaSEOS3_.exit
+  br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev9TransformEEaSEOS3_.exitthread-pre-split
 
 39:                                               ; preds = %26
   %40 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !21
@@ -1503,14 +1503,18 @@ define hidden noundef ptr @_ZN19OpenColorIO_v2_5dev11ConfigUtils15getRefSpaceNam
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %43, %41
   %.0.i.i.i.i.i.i = phi i32 [ %30, %41 ], [ %44, %43 ]
   %45 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %45, label %46, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev9TransformEEaSEOS3_.exit, !prof !32
+  br i1 %45, label %46, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev9TransformEEaSEOS3_.exitthread-pre-split, !prof !32
 
 46:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #23
+  br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev9TransformEEaSEOS3_.exitthread-pre-split
+
+_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev9TransformEEaSEOS3_.exitthread-pre-split: ; preds = %46, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %31
+  %.pr = load ptr, ptr %7, align 8, !tbaa !24
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev9TransformEEaSEOS3_.exit
 
-_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev9TransformEEaSEOS3_.exit: ; preds = %21, %31, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %46
-  %47 = load ptr, ptr %7, align 8, !tbaa !24
+_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev9TransformEEaSEOS3_.exit: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev9TransformEEaSEOS3_.exitthread-pre-split, %21
+  %47 = phi ptr [ %.pr, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev9TransformEEaSEOS3_.exitthread-pre-split ], [ null, %21 ]
   %.not.i.i = icmp eq ptr %47, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %48
 

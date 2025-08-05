@@ -968,114 +968,114 @@ _ZNK8ImVectorIcE14_grow_capacityEi.exit.i.i:      ; preds = %69
   %73 = call i32 @llvm.umax.i32(i32 %72, i32 8)
   %74 = zext nneg i32 %73 to i64
   %75 = invoke noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %74)
-          to label %76 unwind label %87
+          to label %.noexc6.i unwind label %85
 
-76:                                               ; preds = %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i.i
-  %77 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.pre.pre.i = load i32, ptr %2, align 4, !tbaa !32
-  store ptr %75, ptr %78, align 8, !tbaa !62
-  store i32 %73, ptr %77, align 4, !tbaa !64
+.noexc6.i:                                        ; preds = %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i.i
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.pre1.i = load i32, ptr %2, align 4, !tbaa !32
+  %.pre.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 280), align 8, !tbaa !10
+  store ptr %75, ptr %77, align 8, !tbaa !62
+  store i32 %73, ptr %76, align 4, !tbaa !64
   store i32 %72, ptr %3, align 8, !tbaa !65
-  %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 280), align 8, !tbaa !10
-  invoke void %79(i32 noundef %53, i32 noundef %.pre.pre.i, ptr noundef null, ptr noundef %75)
-          to label %80 unwind label %87
+  invoke void %.pre.i(i32 noundef %53, i32 noundef %.pre1.i, ptr noundef null, ptr noundef %75)
+          to label %78 unwind label %85
 
-80:                                               ; preds = %76
-  %81 = load ptr, ptr @stderr, align 8, !tbaa !17
-  %82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str.93, ptr noundef %75) #20
+78:                                               ; preds = %.noexc6.i
+  %79 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef nonnull @.str.93, ptr noundef %75) #20
   %.not.i7.i = icmp eq ptr %75, null
-  br i1 %.not.i7.i, label %_ZN8ImVectorIcED2Ev.exit.i, label %83
+  br i1 %.not.i7.i, label %_ZN8ImVectorIcED2Ev.exit.i, label %81
 
-83:                                               ; preds = %80
+81:                                               ; preds = %78
   invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %75)
-          to label %_ZN8ImVectorIcED2Ev.exit.i unwind label %84
+          to label %_ZN8ImVectorIcED2Ev.exit.i unwind label %82
 
-84:                                               ; preds = %83
-  %85 = landingpad { ptr, i32 }
+82:                                               ; preds = %81
+  %83 = landingpad { ptr, i32 }
           catch ptr null
-  %86 = extractvalue { ptr, i32 } %85, 0
-  call void @__clang_call_terminate(ptr %86) #21
+  %84 = extractvalue { ptr, i32 } %83, 0
+  call void @__clang_call_terminate(ptr %84) #21
   unreachable
 
-_ZN8ImVectorIcED2Ev.exit.i:                       ; preds = %83, %80
+_ZN8ImVectorIcED2Ev.exit.i:                       ; preds = %81, %78
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
   br label %_ZL12CheckProgramjPKc.exit
 
-87:                                               ; preds = %76, %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i.i
-  %88 = landingpad { ptr, i32 }
+85:                                               ; preds = %.noexc6.i, %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i.i
+  %86 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #17
-  resume { ptr, i32 } %88
+  resume { ptr, i32 } %86
 
 _ZL12CheckProgramjPKc.exit:                       ; preds = %69, %_ZN8ImVectorIcED2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #17
+  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 168), align 8, !tbaa !10
+  %88 = load i32, ptr %47, align 8, !tbaa !49
+  call void %87(i32 noundef %88, i32 noundef %37)
   %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 168), align 8, !tbaa !10
   %90 = load i32, ptr %47, align 8, !tbaa !49
-  call void %89(i32 noundef %90, i32 noundef %37)
-  %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 168), align 8, !tbaa !10
-  %92 = load i32, ptr %47, align 8, !tbaa !49
-  call void %91(i32 noundef %92, i32 noundef %42)
-  %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 144), align 8, !tbaa !10
-  call void %93(i32 noundef %37)
-  %94 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 144), align 8, !tbaa !10
-  call void %94(i32 noundef %42)
-  %95 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 328), align 8, !tbaa !10
-  %96 = load i32, ptr %47, align 8, !tbaa !49
-  %97 = call noundef i32 %95(i32 noundef %96, ptr noundef nonnull @.str.20)
-  %98 = getelementptr inbounds nuw i8, ptr %16, i64 52
-  store i32 %97, ptr %98, align 4, !tbaa !66
-  %99 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 328), align 8, !tbaa !10
-  %100 = load i32, ptr %47, align 8, !tbaa !49
-  %101 = call noundef i32 %99(i32 noundef %100, ptr noundef nonnull @.str.21)
-  %102 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  store i32 %101, ptr %102, align 8, !tbaa !67
-  %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 256), align 8, !tbaa !10
-  %104 = load i32, ptr %47, align 8, !tbaa !49
-  %105 = call noundef i32 %103(i32 noundef %104, ptr noundef nonnull @.str.22)
-  %106 = getelementptr inbounds nuw i8, ptr %16, i64 60
-  store i32 %105, ptr %106, align 4, !tbaa !68
-  %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 256), align 8, !tbaa !10
-  %108 = load i32, ptr %47, align 8, !tbaa !49
-  %109 = call noundef i32 %107(i32 noundef %108, ptr noundef nonnull @.str.23)
-  %110 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  store i32 %109, ptr %110, align 8, !tbaa !69
-  %111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 256), align 8, !tbaa !10
-  %112 = load i32, ptr %47, align 8, !tbaa !49
-  %113 = call noundef i32 %111(i32 noundef %112, ptr noundef nonnull @.str.24)
-  %114 = getelementptr inbounds nuw i8, ptr %16, i64 68
-  store i32 %113, ptr %114, align 4, !tbaa !70
+  call void %89(i32 noundef %90, i32 noundef %42)
+  %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 144), align 8, !tbaa !10
+  call void %91(i32 noundef %37)
+  %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 144), align 8, !tbaa !10
+  call void %92(i32 noundef %42)
+  %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 328), align 8, !tbaa !10
+  %94 = load i32, ptr %47, align 8, !tbaa !49
+  %95 = call noundef i32 %93(i32 noundef %94, ptr noundef nonnull @.str.20)
+  %96 = getelementptr inbounds nuw i8, ptr %16, i64 52
+  store i32 %95, ptr %96, align 4, !tbaa !66
+  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 328), align 8, !tbaa !10
+  %98 = load i32, ptr %47, align 8, !tbaa !49
+  %99 = call noundef i32 %97(i32 noundef %98, ptr noundef nonnull @.str.21)
+  %100 = getelementptr inbounds nuw i8, ptr %16, i64 56
+  store i32 %99, ptr %100, align 8, !tbaa !67
+  %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 256), align 8, !tbaa !10
+  %102 = load i32, ptr %47, align 8, !tbaa !49
+  %103 = call noundef i32 %101(i32 noundef %102, ptr noundef nonnull @.str.22)
+  %104 = getelementptr inbounds nuw i8, ptr %16, i64 60
+  store i32 %103, ptr %104, align 4, !tbaa !68
+  %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 256), align 8, !tbaa !10
+  %106 = load i32, ptr %47, align 8, !tbaa !49
+  %107 = call noundef i32 %105(i32 noundef %106, ptr noundef nonnull @.str.23)
+  %108 = getelementptr inbounds nuw i8, ptr %16, i64 64
+  store i32 %107, ptr %108, align 8, !tbaa !69
+  %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 256), align 8, !tbaa !10
+  %110 = load i32, ptr %47, align 8, !tbaa !49
+  %111 = call noundef i32 %109(i32 noundef %110, ptr noundef nonnull @.str.24)
+  %112 = getelementptr inbounds nuw i8, ptr %16, i64 68
+  store i32 %111, ptr %112, align 4, !tbaa !70
+  %113 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 232), align 8, !tbaa !10
+  %114 = getelementptr inbounds nuw i8, ptr %16, i64 72
+  call void %113(i32 noundef 1, ptr noundef nonnull %114)
   %115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 232), align 8, !tbaa !10
-  %116 = getelementptr inbounds nuw i8, ptr %16, i64 72
+  %116 = getelementptr inbounds nuw i8, ptr %16, i64 76
   call void %115(i32 noundef 1, ptr noundef nonnull %116)
-  %117 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 232), align 8, !tbaa !10
-  %118 = getelementptr inbounds nuw i8, ptr %16, i64 76
-  call void %117(i32 noundef 1, ptr noundef nonnull %118)
-  %119 = call noundef zeroext i1 @_Z36ImGui_ImplOpenGL3_CreateFontsTexturev()
-  %120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 32), align 8, !tbaa !10
-  %121 = load i32, ptr %4, align 4, !tbaa !32
-  call void %120(i32 noundef 3553, i32 noundef %121)
-  %122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 16), align 8, !tbaa !10
-  %123 = load i32, ptr %5, align 4, !tbaa !32
-  call void %122(i32 noundef 34962, i32 noundef %123)
-  %124 = load i32, ptr %16, align 8, !tbaa !33
-  %125 = icmp ugt i32 %124, 209
-  br i1 %125, label %126, label %129
+  %117 = call noundef zeroext i1 @_Z36ImGui_ImplOpenGL3_CreateFontsTexturev()
+  %118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 32), align 8, !tbaa !10
+  %119 = load i32, ptr %4, align 4, !tbaa !32
+  call void %118(i32 noundef 3553, i32 noundef %119)
+  %120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 16), align 8, !tbaa !10
+  %121 = load i32, ptr %5, align 4, !tbaa !32
+  call void %120(i32 noundef 34962, i32 noundef %121)
+  %122 = load i32, ptr %16, align 8, !tbaa !33
+  %123 = icmp ugt i32 %122, 209
+  br i1 %123, label %124, label %127
 
-126:                                              ; preds = %_ZL12CheckProgramjPKc.exit
-  %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 16), align 8, !tbaa !10
-  %128 = load i32, ptr %6, align 4, !tbaa !32
-  call void %127(i32 noundef 35052, i32 noundef %128)
-  br label %129
+124:                                              ; preds = %_ZL12CheckProgramjPKc.exit
+  %125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 16), align 8, !tbaa !10
+  %126 = load i32, ptr %6, align 4, !tbaa !32
+  call void %125(i32 noundef 35052, i32 noundef %126)
+  br label %127
 
-129:                                              ; preds = %126, %_ZL12CheckProgramjPKc.exit
-  %130 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 40), align 8, !tbaa !10
-  %131 = load i32, ptr %7, align 4, !tbaa !32
-  call void %130(i32 noundef %131)
+127:                                              ; preds = %124, %_ZL12CheckProgramjPKc.exit
+  %128 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 40), align 8, !tbaa !10
+  %129 = load i32, ptr %7, align 4, !tbaa !32
+  call void %128(i32 noundef %129)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
@@ -1899,7 +1899,7 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %2, %7
 21:                                               ; preds = %17, %_ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit
   %22 = load i32, ptr %4, align 4, !tbaa !32
   %23 = icmp sgt i32 %22, 1
-  br i1 %23, label %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i, label %41
+  br i1 %23, label %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i, label %39
 
 _ZNK8ImVectorIcE14_grow_capacityEi.exit.i:        ; preds = %21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #17
@@ -1908,50 +1908,50 @@ _ZNK8ImVectorIcE14_grow_capacityEi.exit.i:        ; preds = %21
   %25 = call i32 @llvm.umax.i32(i32 %24, i32 8)
   %26 = zext nneg i32 %25 to i64
   %27 = invoke noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %26)
-          to label %28 unwind label %39
+          to label %.noexc6 unwind label %37
 
-28:                                               ; preds = %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i
-  %29 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.pre.pre = load i32, ptr %4, align 4, !tbaa !32
-  store ptr %27, ptr %30, align 8, !tbaa !62
-  store i32 %25, ptr %29, align 4, !tbaa !64
+.noexc6:                                          ; preds = %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.pre8 = load i32, ptr %4, align 4, !tbaa !32
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 296), align 8, !tbaa !10
+  store ptr %27, ptr %29, align 8, !tbaa !62
+  store i32 %25, ptr %28, align 4, !tbaa !64
   store i32 %24, ptr %5, align 8, !tbaa !65
-  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 296), align 8, !tbaa !10
-  invoke void %31(i32 noundef %0, i32 noundef %.pre.pre, ptr noundef null, ptr noundef %27)
-          to label %32 unwind label %39
+  invoke void %.pre(i32 noundef %0, i32 noundef %.pre8, ptr noundef null, ptr noundef %27)
+          to label %30 unwind label %37
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr @stderr, align 8, !tbaa !17
-  %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.93, ptr noundef %27) #20
+30:                                               ; preds = %.noexc6
+  %31 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.93, ptr noundef %27) #20
   %.not.i7 = icmp eq ptr %27, null
-  br i1 %.not.i7, label %_ZN8ImVectorIcED2Ev.exit, label %35
+  br i1 %.not.i7, label %_ZN8ImVectorIcED2Ev.exit, label %33
 
-35:                                               ; preds = %32
+33:                                               ; preds = %30
   invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %27)
-          to label %_ZN8ImVectorIcED2Ev.exit unwind label %36
+          to label %_ZN8ImVectorIcED2Ev.exit unwind label %34
 
-36:                                               ; preds = %35
-  %37 = landingpad { ptr, i32 }
+34:                                               ; preds = %33
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #21
+  %36 = extractvalue { ptr, i32 } %35, 0
+  call void @__clang_call_terminate(ptr %36) #21
   unreachable
 
-_ZN8ImVectorIcED2Ev.exit:                         ; preds = %32, %35
+_ZN8ImVectorIcED2Ev.exit:                         ; preds = %30, %33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
-  br label %41
+  br label %39
 
-39:                                               ; preds = %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i, %28
-  %40 = landingpad { ptr, i32 }
+37:                                               ; preds = %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i, %.noexc6
+  %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17
-  resume { ptr, i32 } %40
+  resume { ptr, i32 } %38
 
-41:                                               ; preds = %_ZN8ImVectorIcED2Ev.exit, %21
+39:                                               ; preds = %_ZN8ImVectorIcED2Ev.exit, %21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17
   ret void

@@ -148179,15 +148179,15 @@ hb_blob_destroy.exit:                             ; preds = %_ZL17hb_object_dest
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN26hb_paint_extents_context_tC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
-_ZN11hb_vector_tI14hb_transform_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i:
+.preheader.i.i:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %malloc = tail call dereferenceable_or_null(192) ptr @malloc(i64 192)
   %.not21.i.i = icmp eq ptr %malloc, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
-  br i1 %.not21.i.i, label %_ZN11hb_vector_tI14hb_transform_tLb0EE4pushIJS0_EEEPS0_DpOT_.exit, label %.thread49, !prof !126
+  br i1 %.not21.i.i, label %_ZN11hb_vector_tI14hb_transform_tLb0EE4pushIJS0_EEEPS0_DpOT_.exit, label %.thread45, !prof !126
 
-.thread49:                                        ; preds = %_ZN11hb_vector_tI14hb_transform_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i
+.thread45:                                        ; preds = %.preheader.i.i
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %malloc, ptr %4, align 8, !tbaa !2796
@@ -148206,26 +148206,26 @@ _ZN11hb_vector_tI14hb_transform_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr
   store float 0.000000e+00, ptr %.sroa.8.0..sroa_idx, align 4, !tbaa !918
   br label %.preheader.i.i5.preheader
 
-_ZN11hb_vector_tI14hb_transform_tLb0EE4pushIJS0_EEEPS0_DpOT_.exit: ; preds = %_ZN11hb_vector_tI14hb_transform_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i
+_ZN11hb_vector_tI14hb_transform_tLb0EE4pushIJS0_EEEPS0_DpOT_.exit: ; preds = %.preheader.i.i
   store i32 -1, ptr %0, align 8, !tbaa !2792
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) @_hb_CrapPool, i8 0, i64 24, i1 false)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !2783
-  %.pre44 = load i32, ptr %1, align 8, !tbaa !2791
-  %.not.i1 = icmp sge i32 %.pre, %.pre44
+  %.pre40 = load i32, ptr %1, align 8, !tbaa !2791
+  %.not.i1 = icmp sge i32 %.pre, %.pre40
   tail call void @llvm.assume(i1 %.not.i1)
-  %5 = icmp slt i32 %.pre44, 0
+  %5 = icmp slt i32 %.pre40, 0
   br i1 %5, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread6.i, label %6, !prof !352
 
 6:                                                ; preds = %_ZN11hb_vector_tI14hb_transform_tLb0EE4pushIJS0_EEEPS0_DpOT_.exit
   %7 = add i32 %.pre, 1
-  %.not.i.i2 = icmp ugt i32 %7, %.pre44
+  %.not.i.i2 = icmp ugt i32 %7, %.pre40
   tail call void @llvm.assume(i1 %.not.i.i2)
   br label %.preheader.i.i5.preheader
 
-.preheader.i.i5.preheader:                        ; preds = %6, %.thread49
-  %8 = phi i32 [ 0, %.thread49 ], [ %.pre44, %6 ]
-  %9 = phi i32 [ 1, %.thread49 ], [ %7, %6 ]
+.preheader.i.i5.preheader:                        ; preds = %6, %.thread45
+  %8 = phi i32 [ 0, %.thread45 ], [ %.pre40, %6 ]
+  %9 = phi i32 [ 1, %.thread45 ], [ %7, %6 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %.preheader.i.i5
 
@@ -148244,8 +148244,8 @@ _ZN11hb_vector_tI14hb_transform_tLb0EE4pushIJS0_EEEPS0_DpOT_.exit: ; preds = %_Z
 _ZN11hb_vector_tI11hb_bounds_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i: ; preds = %.thread.i.i7
   %16 = zext nneg i32 %13 to i64
   %17 = mul nuw nsw i64 %16, 20
-  %malloc46 = tail call ptr @malloc(i64 %17)
-  %.not21.i.i8 = icmp eq ptr %malloc46, null
+  %malloc42 = tail call ptr @malloc(i64 %17)
+  %.not21.i.i8 = icmp eq ptr %malloc42, null
   br i1 %.not21.i.i8, label %18, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.i, !prof !126
 
 18:                                               ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i
@@ -148260,13 +148260,13 @@ _ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread9.i: ; preds = %18, %.th
 
 _ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.i: ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %malloc46, ptr %19, align 8, !tbaa !2786
+  store ptr %malloc42, ptr %19, align 8, !tbaa !2786
   store i32 %13, ptr %1, align 8, !tbaa !2791
   %20 = load i32, ptr %10, align 4, !tbaa !2783
   %21 = add i32 %20, 1
   store i32 %21, ptr %10, align 4, !tbaa !2783
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw %struct.hb_bounds_t, ptr %malloc46, i64 %22
+  %23 = getelementptr inbounds nuw %struct.hb_bounds_t, ptr %malloc42, i64 %22
   store i32 0, ptr %23, align 4, !tbaa !2800
   %.sroa.429.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 4
   store float 0.000000e+00, ptr %.sroa.429.0..sroa_idx, align 4, !tbaa !918
@@ -148283,8 +148283,8 @@ _ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread6.i: ; preds = %_ZN11hb_
   br label %_ZN11hb_vector_tI11hb_bounds_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i19
 
 _ZN11hb_vector_tI11hb_bounds_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i19: ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread6.i, %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.i
-  %malloc47 = tail call dereferenceable_or_null(160) ptr @malloc(i64 160)
-  %.not21.i.i20 = icmp eq ptr %malloc47, null
+  %malloc43 = tail call dereferenceable_or_null(160) ptr @malloc(i64 160)
+  %.not21.i.i20 = icmp eq ptr %malloc43, null
   br i1 %.not21.i.i20, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread6.i26, label %.critedge.i14, !prof !126
 
 _ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread6.i26: ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i19
@@ -148295,17 +148295,17 @@ _ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread6.i26: ; preds = %_ZN11h
 .critedge.i14:                                    ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i19
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %malloc47, ptr %25, align 8, !tbaa !2786
+  store ptr %malloc43, ptr %25, align 8, !tbaa !2786
   store i32 8, ptr %2, align 8, !tbaa !2791
   store i32 1, ptr %24, align 4, !tbaa !2783
-  store i32 2, ptr %malloc47, align 4, !tbaa !2800
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %malloc47, i64 4
+  store i32 2, ptr %malloc43, align 4, !tbaa !2800
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %malloc43, i64 4
   store float 0.000000e+00, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !918
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %malloc47, i64 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %malloc43, i64 8
   store float 0.000000e+00, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !918
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %malloc47, i64 12
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %malloc43, i64 12
   store float -1.000000e+00, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !918
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %malloc47, i64 16
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %malloc43, i64 16
   store float -1.000000e+00, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !918
   br label %_ZN11hb_vector_tI11hb_bounds_tLb0EE4pushIJS0_EEEPS0_DpOT_.exit27
 

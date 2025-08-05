@@ -3788,13 +3788,13 @@ define linkonce_odr dso_local void @_ZN7msgpack2v28unpackerC2EPFbNS_2v14type11ob
   store i32 0, ptr %8, align 8, !tbaa !176
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %11 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #38
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %11, ptr %9, align 8, !tbaa !177
-  store ptr %11, ptr %12, align 8, !tbaa !178
-  %13 = getelementptr inbounds nuw i8, ptr %11, i64 256
-  store ptr %13, ptr %10, align 8, !tbaa !179
+  %10 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #38
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %10, ptr %9, align 8, !tbaa !177
+  store ptr %10, ptr %11, align 8, !tbaa !178
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 256
+  store ptr %13, ptr %12, align 8, !tbaa !179
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %6, ptr %14, align 8, !tbaa !180
   %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %3, i64 4)
@@ -3816,7 +3816,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v28unpackerC2EPFbNS_2v14type11ob
   br i1 %.not.i.i.i.i.i.i, label %common.resume, label %21
 
 21:                                               ; preds = %18
-  %22 = load ptr, ptr %10, align 8, !tbaa !179
+  %22 = load ptr, ptr %12, align 8, !tbaa !179
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %20 to i64
   %25 = sub i64 %23, %24
@@ -3855,23 +3855,23 @@ _ZN7msgpack2v26parserINS0_8unpackerENS0_19zone_push_finalizerEEC2ERS3_m.exit: ; 
   store i32 0, ptr %37, align 8, !tbaa !206
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %40 = invoke noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #38
-          to label %41 unwind label %60
+  %39 = invoke noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #38
+          to label %40 unwind label %60
 
-41:                                               ; preds = %_ZN7msgpack2v26parserINS0_8unpackerENS0_19zone_push_finalizerEEC2ERS3_m.exit
-  store ptr %40, ptr %38, align 8, !tbaa !207
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 256
-  store ptr %42, ptr %39, align 8, !tbaa !208
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store ptr %37, ptr %40, align 8, !tbaa !209
-  %44 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store ptr %44, ptr %43, align 8, !tbaa !211
+40:                                               ; preds = %_ZN7msgpack2v26parserINS0_8unpackerENS0_19zone_push_finalizerEEC2ERS3_m.exit
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  store ptr %39, ptr %38, align 8, !tbaa !207
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 256
+  store ptr %43, ptr %41, align 8, !tbaa !208
+  store ptr %37, ptr %39, align 8, !tbaa !209
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  store ptr %44, ptr %42, align 8, !tbaa !211
   %45 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #42
   %.not.i10 = icmp eq ptr %45, null
   br i1 %.not.i10, label %46, label %_ZN7msgpack2v14zonenwEm.exit
 
-46:                                               ; preds = %41
+46:                                               ; preds = %40
   %47 = tail call ptr @__cxa_allocate_exception(i64 8) #36
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %47, align 8, !tbaa !4
   invoke void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #37
@@ -3880,7 +3880,7 @@ _ZN7msgpack2v26parserINS0_8unpackerENS0_19zone_push_finalizerEEC2ERS3_m.exit: ; 
 .noexc:                                           ; preds = %46
   unreachable
 
-_ZN7msgpack2v14zonenwEm.exit:                     ; preds = %41
+_ZN7msgpack2v14zonenwEm.exit:                     ; preds = %40
   store i64 8192, ptr %45, align 8, !tbaa !212
   %48 = tail call noalias dereferenceable_or_null(8200) ptr @malloc(i64 noundef 8200) #42
   %.not.i.i = icmp eq ptr %48, null
@@ -3938,7 +3938,7 @@ _ZN7msgpack2v14zonenwEm.exit:                     ; preds = %41
   br i1 %.not.i.i.i.i, label %_ZN7msgpack2v26detail21create_object_visitorD2Ev.exit, label %68
 
 68:                                               ; preds = %66
-  %69 = load ptr, ptr %39, align 8, !tbaa !208
+  %69 = load ptr, ptr %41, align 8, !tbaa !208
   %70 = ptrtoint ptr %69 to i64
   %71 = ptrtoint ptr %67 to i64
   %72 = sub i64 %70, %71

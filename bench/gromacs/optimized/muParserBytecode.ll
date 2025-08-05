@@ -158,7 +158,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2mu14ParserByteCodeC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 4), (8, 41)) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt6vectorIN2mu6STokenESaIS1_EE7reserveEm.exit:
+_ZNSt12_Vector_baseIN2mu6STokenESaIS1_EE11_M_allocateEm.exit.i:
   store i32 0, ptr %0, align 8, !tbaa !4
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16

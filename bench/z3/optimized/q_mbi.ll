@@ -7373,7 +7373,7 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit10
 ._crit_edge:                                      ; preds = %336
   %.pre199 = load ptr, ptr %188, align 8, !tbaa !150
   %236 = icmp eq ptr %.pre199, null
-  br i1 %236, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit.thread, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit
+  br i1 %236, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit.threadthread-pre-split, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit
 
 237:                                              ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit106
   %238 = landingpad { ptr, i32 }
@@ -7611,7 +7611,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit
   %340 = getelementptr inbounds i8, ptr %.pre199, i64 -4
   %341 = load i32, ptr %340, align 4, !tbaa !88
   %342 = icmp eq i32 %341, 0
-  br i1 %342, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit.thread, label %343
+  br i1 %342, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit.threadthread-pre-split, label %343
 
 343:                                              ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #21
@@ -7814,10 +7814,14 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit154:      ; preds = %397, %404, %409
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit156:      ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit154, %413, %418
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #21
+  br label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit.threadthread-pre-split
+
+_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit.threadthread-pre-split: ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit156, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit, %._crit_edge
+  %.pr213 = load ptr, ptr %192, align 8, !tbaa !686
   br label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit.thread
 
-_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit.thread: ; preds = %.thread211, %228, %._crit_edge, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit, %_ZN7obj_refI4expr11ast_managerED2Ev.exit156
-  %422 = load ptr, ptr %192, align 8, !tbaa !686
+_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit.thread: ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit.threadthread-pre-split, %.thread211, %228
+  %422 = phi ptr [ %.pr213, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit.threadthread-pre-split ], [ null, %.thread211 ], [ null, %228 ]
   %423 = icmp eq ptr %422, null
   br i1 %423, label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev.exit, label %424
 

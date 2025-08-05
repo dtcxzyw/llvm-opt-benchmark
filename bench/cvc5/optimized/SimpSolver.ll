@@ -333,13 +333,13 @@ define hidden void @_ZN4cvc58internal7Minisat10SimpSolverC2ERNS0_3EnvEPNS0_4prop
   %malloc = tail call dereferenceable_or_null(8) ptr @malloc(i64 8)
   store ptr %malloc, ptr %9, align 8, !tbaa !281
   %77 = icmp eq ptr %malloc, null
-  br i1 %77, label %78, label %_ZN4cvc58internal7Minisat3vecINS1_3LitEEC2EiRKS3_.exit
+  br i1 %77, label %78, label %._crit_edge.i
 
 78:                                               ; preds = %70
   %79 = tail call ptr @__errno_location() #28
   %80 = load i32, ptr %79, align 4, !tbaa !6
   %81 = icmp eq i32 %80, 12
-  br i1 %81, label %82, label %_ZN4cvc58internal7Minisat3vecINS1_3LitEEC2EiRKS3_.exit
+  br i1 %81, label %82, label %._crit_edge.i
 
 82:                                               ; preds = %78
   %83 = tail call ptr @__cxa_allocate_exception(i64 1) #27
@@ -349,7 +349,7 @@ define hidden void @_ZN4cvc58internal7Minisat10SimpSolverC2ERNS0_3EnvEPNS0_4prop
 .noexc59:                                         ; preds = %82
   unreachable
 
-_ZN4cvc58internal7Minisat3vecINS1_3LitEEC2EiRKS3_.exit: ; preds = %70, %78
+._crit_edge.i:                                    ; preds = %78, %70
   store i32 -2, ptr %malloc, align 4, !tbaa !6
   store i32 1, ptr %75, align 8, !tbaa !282
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 724
@@ -357,7 +357,7 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEEC2EiRKS3_.exit: ; preds = %70, %78
   %85 = invoke noundef i32 @_ZN4cvc58internal7Minisat15ClauseAllocator5allocINS1_3vecINS1_3LitEEEEEjiRKT_b(ptr noundef nonnull align 8 dereferenceable(21) %62, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %9, i1 noundef zeroext false)
           to label %86 unwind label %109
 
-86:                                               ; preds = %_ZN4cvc58internal7Minisat3vecINS1_3LitEEC2EiRKS3_.exit
+86:                                               ; preds = %._crit_edge.i
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   store i32 %85, ptr %87, align 8, !tbaa !284
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 696
@@ -409,7 +409,7 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit: ; preds = %._crit_edge, %.pre
           cleanup
   br label %_ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit45
 
-109:                                              ; preds = %_ZN4cvc58internal7Minisat3vecINS1_3LitEEC2EiRKS3_.exit
+109:                                              ; preds = %._crit_edge.i
   %110 = landingpad { ptr, i32 }
           cleanup
   br label %267

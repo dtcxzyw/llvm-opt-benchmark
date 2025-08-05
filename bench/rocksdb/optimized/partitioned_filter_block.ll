@@ -5628,19 +5628,19 @@ _ZN7rocksdb13CachableEntryINS_21ParsedFullFilterBlockEE15ReleaseResourceEb.exit.
   %528 = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 40
   store i8 %527, ptr %528, align 8, !tbaa !216
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %29, i8 0, i64 25, i1 false)
-  br label %_ZN7rocksdb6StatusC2EOS0_.exit107thread-pre-split
+  br label %_ZN7rocksdb6StatusC2EOS0_.exit107
 
 529:                                              ; preds = %.loopexit.i.i
   %530 = landingpad { ptr, i32 }
           cleanup
   br label %.body109
 
-_ZN7rocksdb6StatusC2EOS0_.exit107thread-pre-split: ; preds = %471, %460, %459, %.loopexit, %_ZN7rocksdb13CachableEntryINS_21ParsedFullFilterBlockEE15ReleaseResourceEb.exit.i
+_ZN7rocksdb6StatusC2EOS0_.exit107thread-pre-split: ; preds = %471, %460, %459, %.loopexit
   %.pr164 = load ptr, ptr %418, align 8, !tbaa !212
   br label %_ZN7rocksdb6StatusC2EOS0_.exit107
 
-_ZN7rocksdb6StatusC2EOS0_.exit107:                ; preds = %_ZN7rocksdb6StatusC2EOS0_.exit107thread-pre-split, %473
-  %531 = phi ptr [ %.pr164, %_ZN7rocksdb6StatusC2EOS0_.exit107thread-pre-split ], [ %474, %473 ]
+_ZN7rocksdb6StatusC2EOS0_.exit107:                ; preds = %_ZN7rocksdb6StatusC2EOS0_.exit107thread-pre-split, %_ZN7rocksdb13CachableEntryINS_21ParsedFullFilterBlockEE15ReleaseResourceEb.exit.i, %473
+  %531 = phi ptr [ %.pr164, %_ZN7rocksdb6StatusC2EOS0_.exit107thread-pre-split ], [ null, %_ZN7rocksdb13CachableEntryINS_21ParsedFullFilterBlockEE15ReleaseResourceEb.exit.i ], [ %474, %473 ]
   %.not.i.i112 = icmp eq ptr %531, null
   br i1 %.not.i.i112, label %538, label %532, !prof !155
 
@@ -6713,9 +6713,9 @@ _ZN7rocksdb11ReadOptionsD2Ev.exit.thread:         ; preds = %_ZN7rocksdb13Cachab
   unreachable
 
 _ZN7rocksdb11ReadOptionsD2Ev.exit:                ; preds = %243
-  %.pre = load ptr, ptr %221, align 8, !tbaa !172
+  %.pr = load ptr, ptr %221, align 8, !tbaa !172
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %7) #22
-  %.not.i.i48 = icmp eq ptr %.pre, null
+  %.not.i.i48 = icmp eq ptr %.pr, null
   br i1 %.not.i.i48, label %256, label %249, !prof !591
 
 249:                                              ; preds = %_ZN7rocksdb11ReadOptionsD2Ev.exit
@@ -6724,7 +6724,7 @@ _ZN7rocksdb11ReadOptionsD2Ev.exit:                ; preds = %243
   %252 = load ptr, ptr %251, align 8, !tbaa !11
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 184
   %254 = load ptr, ptr %253, align 8
-  %255 = invoke noundef zeroext i1 %254(ptr noundef nonnull align 8 dereferenceable(80) %251, ptr noundef nonnull %.pre, i1 noundef zeroext false)
+  %255 = invoke noundef zeroext i1 %254(ptr noundef nonnull align 8 dereferenceable(80) %251, ptr noundef nonnull %.pr, i1 noundef zeroext false)
           to label %_ZN7rocksdb13CachableEntryINS_27Block_kFilterPartitionIndexEED2Ev.exit unwind label %264
 
 256:                                              ; preds = %_ZN7rocksdb11ReadOptionsD2Ev.exit.thread, %_ZN7rocksdb11ReadOptionsD2Ev.exit

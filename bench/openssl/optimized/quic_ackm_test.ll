@@ -773,8 +773,8 @@ define internal range(i32 0, 2) i32 @test_rx_ack(i32 noundef %0) #0 {
   %37 = sext i32 %8 to i64
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %40 = and i32 %8, 3
-  %41 = or disjoint i8 %36, 4
+  %40 = or disjoint i8 %36, 4
+  %41 = and i32 %8, 3
   %invariant.op = or disjoint i8 %36, 12
   br label %42
 
@@ -818,9 +818,9 @@ define internal range(i32 0, 2) i32 @test_rx_ack(i32 noundef %0) #0 {
   store i64 %52, ptr %6, align 8, !tbaa !76
   %53 = load i64, ptr @fake_time.0, align 8, !tbaa !30
   store i64 %53, ptr %38, align 8, !tbaa !30
-  store i8 %41, ptr %39, align 8
+  store i8 %40, ptr %39, align 8
   %54 = load ptr, ptr %2, align 8, !tbaa !15
-  %55 = call i32 @ossl_ackm_is_rx_pn_processable(ptr noundef %54, i64 noundef %52, i32 noundef %40) #9
+  %55 = call i32 @ossl_ackm_is_rx_pn_processable(ptr noundef %54, i64 noundef %52, i32 noundef %41) #9
   %56 = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 962, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.6, i32 noundef %55, i32 noundef 1) #9
   %.not133.i = icmp eq i32 %56, 0
   br i1 %.not133.i, label %.thread.i, label %57

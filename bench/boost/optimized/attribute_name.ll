@@ -2556,7 +2556,7 @@ _ZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_14attribute_name10repositoryE
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_14attribute_name10repositoryENS_10shared_ptrIS5_EEE12get_instanceEvE8instance, i64 8), align 8, !tbaa !116
   store ptr %10, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_14attribute_name10repositoryENS_10shared_ptrIS5_EEE12get_instanceEvE8instance, i64 8), align 8, !tbaa !116
   %.not.i.i.i = icmp eq ptr %11, null
-  br i1 %.not.i.i.i, label %_ZN5boost10shared_ptrINS_3log11v2_mt_posix14attribute_name10repositoryEEaSEOS5_.exit, label %12
+  br i1 %.not.i.i.i, label %_ZN5boost10shared_ptrINS_3log11v2_mt_posix14attribute_name10repositoryEED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_14attribute_name10repositoryENS_10shared_ptrIS5_EEE12get_instanceEv.exit
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -2591,45 +2591,45 @@ _ZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_14attribute_name10repositoryE
   call void @__clang_call_terminate(ptr %29) #23
   unreachable
 
-_ZN5boost10shared_ptrINS_3log11v2_mt_posix14attribute_name10repositoryEEaSEOS5_.exit: ; preds = %_ZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_14attribute_name10repositoryENS_10shared_ptrIS5_EEE12get_instanceEv.exit, %12, %.noexc.i.i.i, %23
-  %30 = load ptr, ptr %9, align 8, !tbaa !116
-  %.not.i.i = icmp eq ptr %30, null
-  br i1 %.not.i.i, label %_ZN5boost10shared_ptrINS_3log11v2_mt_posix14attribute_name10repositoryEED2Ev.exit, label %31
+_ZN5boost10shared_ptrINS_3log11v2_mt_posix14attribute_name10repositoryEEaSEOS5_.exit: ; preds = %12, %.noexc.i.i.i, %23
+  %.pr = load ptr, ptr %9, align 8, !tbaa !116
+  %.not.i.i = icmp eq ptr %.pr, null
+  br i1 %.not.i.i, label %_ZN5boost10shared_ptrINS_3log11v2_mt_posix14attribute_name10repositoryEED2Ev.exit, label %30
 
-31:                                               ; preds = %_ZN5boost10shared_ptrINS_3log11v2_mt_posix14attribute_name10repositoryEEaSEOS5_.exit
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %33 = atomicrmw sub ptr %32, i32 1 acq_rel, align 4
-  %34 = icmp eq i32 %33, 1
-  br i1 %34, label %35, label %_ZN5boost10shared_ptrINS_3log11v2_mt_posix14attribute_name10repositoryEED2Ev.exit
+30:                                               ; preds = %_ZN5boost10shared_ptrINS_3log11v2_mt_posix14attribute_name10repositoryEEaSEOS5_.exit
+  %31 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
+  %32 = atomicrmw sub ptr %31, i32 1 acq_rel, align 4
+  %33 = icmp eq i32 %32, 1
+  br i1 %33, label %34, label %_ZN5boost10shared_ptrINS_3log11v2_mt_posix14attribute_name10repositoryEED2Ev.exit
 
-35:                                               ; preds = %31
-  %36 = load ptr, ptr %30, align 8, !tbaa !28
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %38 = load ptr, ptr %37, align 8
-  invoke void %38(ptr noundef nonnull align 8 dereferenceable(16) %30)
-          to label %.noexc.i.i unwind label %46
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %.pr, align 8, !tbaa !28
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %37 = load ptr, ptr %36, align 8
+  invoke void %37(ptr noundef nonnull align 8 dereferenceable(16) %.pr)
+          to label %.noexc.i.i unwind label %45
 
-.noexc.i.i:                                       ; preds = %35
-  %39 = getelementptr inbounds nuw i8, ptr %30, i64 12
-  %40 = atomicrmw sub ptr %39, i32 1 acq_rel, align 4
-  %41 = icmp eq i32 %40, 1
-  br i1 %41, label %42, label %_ZN5boost10shared_ptrINS_3log11v2_mt_posix14attribute_name10repositoryEED2Ev.exit
+.noexc.i.i:                                       ; preds = %34
+  %38 = getelementptr inbounds nuw i8, ptr %.pr, i64 12
+  %39 = atomicrmw sub ptr %38, i32 1 acq_rel, align 4
+  %40 = icmp eq i32 %39, 1
+  br i1 %40, label %41, label %_ZN5boost10shared_ptrINS_3log11v2_mt_posix14attribute_name10repositoryEED2Ev.exit
 
-42:                                               ; preds = %.noexc.i.i
-  %43 = load ptr, ptr %30, align 8, !tbaa !28
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %45 = load ptr, ptr %44, align 8
-  invoke void %45(ptr noundef nonnull align 8 dereferenceable(16) %30)
-          to label %_ZN5boost10shared_ptrINS_3log11v2_mt_posix14attribute_name10repositoryEED2Ev.exit unwind label %46
+41:                                               ; preds = %.noexc.i.i
+  %42 = load ptr, ptr %.pr, align 8, !tbaa !28
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %44 = load ptr, ptr %43, align 8
+  invoke void %44(ptr noundef nonnull align 8 dereferenceable(16) %.pr)
+          to label %_ZN5boost10shared_ptrINS_3log11v2_mt_posix14attribute_name10repositoryEED2Ev.exit unwind label %45
 
-46:                                               ; preds = %42, %35
-  %47 = landingpad { ptr, i32 }
+45:                                               ; preds = %41, %34
+  %46 = landingpad { ptr, i32 }
           catch ptr null
-  %48 = extractvalue { ptr, i32 } %47, 0
-  call void @__clang_call_terminate(ptr %48) #23
+  %47 = extractvalue { ptr, i32 } %46, 0
+  call void @__clang_call_terminate(ptr %47) #23
   unreachable
 
-_ZN5boost10shared_ptrINS_3log11v2_mt_posix14attribute_name10repositoryEED2Ev.exit: ; preds = %_ZN5boost10shared_ptrINS_3log11v2_mt_posix14attribute_name10repositoryEEaSEOS5_.exit, %31, %.noexc.i.i, %42
+_ZN5boost10shared_ptrINS_3log11v2_mt_posix14attribute_name10repositoryEED2Ev.exit: ; preds = %_ZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_14attribute_name10repositoryENS_10shared_ptrIS5_EEE12get_instanceEv.exit, %_ZN5boost10shared_ptrINS_3log11v2_mt_posix14attribute_name10repositoryEEaSEOS5_.exit, %30, %.noexc.i.i, %41
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #22
   ret void
 }

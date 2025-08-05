@@ -16688,18 +16688,17 @@ _ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EE5resetEv.exit: ; preds = %7, %_ZN11
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   %44 = load i32, ptr %43, align 4, !tbaa !368
-  %45 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %.not19.i.i.not.i.i.i.i = icmp eq i32 %44, 0
   br i1 %.not19.i.i.not.i.i.i.i, label %_ZN3CFF15parsed_cs_str_tC2ERKS0_.exit.i, label %.thread.i.i.i.i.i.i
 
 .thread.i.i.i.i.i.i:                              ; preds = %34
-  %46 = icmp ugt i32 %44, 268435455
-  br i1 %46, label %_ZN11hb_vector_tIN3CFF14parsed_cs_op_tELb0EE11alloc_exactEj.exit.thread3.i.i.i.i, label %_ZN11hb_vector_tIN3CFF14parsed_cs_op_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i.i.i.i, !prof !34
+  %45 = icmp ugt i32 %44, 268435455
+  br i1 %45, label %_ZN11hb_vector_tIN3CFF14parsed_cs_op_tELb0EE11alloc_exactEj.exit.thread3.i.i.i.i, label %_ZN11hb_vector_tIN3CFF14parsed_cs_op_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i.i.i.i, !prof !34
 
 _ZN11hb_vector_tIN3CFF14parsed_cs_op_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i.i.i.i: ; preds = %.thread.i.i.i.i.i.i
-  %47 = shl nuw i32 %44, 4
-  %48 = zext i32 %47 to i64
-  %malloc.i.i.i.i = tail call ptr @malloc(i64 %48)
+  %46 = shl nuw i32 %44, 4
+  %47 = zext i32 %46 to i64
+  %malloc.i.i.i.i = tail call ptr @malloc(i64 %47)
   %.not21.i.i.i.i.i.i = icmp eq ptr %malloc.i.i.i.i, null
   br i1 %.not21.i.i.i.i.i.i, label %_ZN11hb_vector_tIN3CFF14parsed_cs_op_tELb0EE11alloc_exactEj.exit.thread3.i.i.i.i, label %.lr.ph.i.i.i.i.i, !prof !70
 
@@ -16708,22 +16707,23 @@ _ZN11hb_vector_tIN3CFF14parsed_cs_op_tELb0EE11alloc_exactEj.exit.thread3.i.i.i.i
   br label %_ZN3CFF15parsed_cs_str_tC2ERKS0_.exit.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN11hb_vector_tIN3CFF14parsed_cs_op_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i.i.i.i
-  %49 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  store ptr %malloc.i.i.i.i, ptr %49, align 8, !tbaa !369
+  %48 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  store ptr %malloc.i.i.i.i, ptr %48, align 8, !tbaa !369
   store i32 %44, ptr %42, align 8, !tbaa !367
-  %50 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %51 = load ptr, ptr %50, align 8, !tbaa !369
-  store i32 %44, ptr %45, align 4, !tbaa !368
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %50 = load ptr, ptr %49, align 8, !tbaa !369
+  %51 = getelementptr inbounds nuw i8, ptr %39, i64 12
+  store i32 %44, ptr %51, align 4, !tbaa !368
   br label %52
 
 52:                                               ; preds = %52, %.lr.ph.i.i.i.i.i
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i, %52 ]
-  %53 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_op_t", ptr %51, i64 %indvars.iv.i.i.i.i.i
-  %54 = load ptr, ptr %49, align 8, !tbaa !369
+  %53 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_op_t", ptr %50, i64 %indvars.iv.i.i.i.i.i
+  %54 = load ptr, ptr %48, align 8, !tbaa !369
   %55 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_op_t", ptr %54, i64 %indvars.iv.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false)
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
-  %56 = load i32, ptr %45, align 4, !tbaa !368
+  %56 = load i32, ptr %51, align 4, !tbaa !368
   %57 = zext i32 %56 to i64
   %58 = icmp samesign ult i64 %indvars.iv.next.i.i.i.i.i, %57
   br i1 %58, label %52, label %_ZN3CFF15parsed_cs_str_tC2ERKS0_.exit.i, !llvm.loop !383
@@ -16777,18 +16777,17 @@ define linkonce_odr dso_local void @_ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0E
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   %24 = load i32, ptr %23, align 4, !tbaa !368
-  %25 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %.not19.i.i.not.i.i.i.i = icmp eq i32 %24, 0
   br i1 %.not19.i.i.not.i.i.i.i, label %_ZN3CFF15parsed_cs_str_tC2ERKS0_.exit.i, label %.thread.i.i.i.i.i.i
 
 .thread.i.i.i.i.i.i:                              ; preds = %14
-  %26 = icmp ugt i32 %24, 268435455
-  br i1 %26, label %_ZN11hb_vector_tIN3CFF14parsed_cs_op_tELb0EE11alloc_exactEj.exit.thread3.i.i.i.i, label %_ZN11hb_vector_tIN3CFF14parsed_cs_op_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i.i.i.i, !prof !34
+  %25 = icmp ugt i32 %24, 268435455
+  br i1 %25, label %_ZN11hb_vector_tIN3CFF14parsed_cs_op_tELb0EE11alloc_exactEj.exit.thread3.i.i.i.i, label %_ZN11hb_vector_tIN3CFF14parsed_cs_op_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i.i.i.i, !prof !34
 
 _ZN11hb_vector_tIN3CFF14parsed_cs_op_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i.i.i.i: ; preds = %.thread.i.i.i.i.i.i
-  %27 = shl nuw i32 %24, 4
-  %28 = zext i32 %27 to i64
-  %malloc.i.i.i.i = tail call ptr @malloc(i64 %28)
+  %26 = shl nuw i32 %24, 4
+  %27 = zext i32 %26 to i64
+  %malloc.i.i.i.i = tail call ptr @malloc(i64 %27)
   %.not21.i.i.i.i.i.i = icmp eq ptr %malloc.i.i.i.i, null
   br i1 %.not21.i.i.i.i.i.i, label %_ZN11hb_vector_tIN3CFF14parsed_cs_op_tELb0EE11alloc_exactEj.exit.thread3.i.i.i.i, label %.lr.ph.i.i.i.i.i, !prof !70
 
@@ -16797,22 +16796,23 @@ _ZN11hb_vector_tIN3CFF14parsed_cs_op_tELb0EE11alloc_exactEj.exit.thread3.i.i.i.i
   br label %_ZN3CFF15parsed_cs_str_tC2ERKS0_.exit.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN11hb_vector_tIN3CFF14parsed_cs_op_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i.i.i.i
-  %29 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store ptr %malloc.i.i.i.i, ptr %29, align 8, !tbaa !369
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  store ptr %malloc.i.i.i.i, ptr %28, align 8, !tbaa !369
   store i32 %24, ptr %22, align 8, !tbaa !367
-  %30 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !369
-  store i32 %24, ptr %25, align 4, !tbaa !368
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %30 = load ptr, ptr %29, align 8, !tbaa !369
+  %31 = getelementptr inbounds nuw i8, ptr %19, i64 12
+  store i32 %24, ptr %31, align 4, !tbaa !368
   br label %32
 
 32:                                               ; preds = %32, %.lr.ph.i.i.i.i.i
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i, %32 ]
-  %33 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_op_t", ptr %31, i64 %indvars.iv.i.i.i.i.i
-  %34 = load ptr, ptr %29, align 8, !tbaa !369
+  %33 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_op_t", ptr %30, i64 %indvars.iv.i.i.i.i.i
+  %34 = load ptr, ptr %28, align 8, !tbaa !369
   %35 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_op_t", ptr %34, i64 %indvars.iv.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
-  %36 = load i32, ptr %25, align 4, !tbaa !368
+  %36 = load i32, ptr %31, align 4, !tbaa !368
   %37 = zext i32 %36 to i64
   %38 = icmp samesign ult i64 %indvars.iv.next.i.i.i.i.i, %37
   br i1 %38, label %32, label %_ZN3CFF15parsed_cs_str_tC2ERKS0_.exit.i, !llvm.loop !383

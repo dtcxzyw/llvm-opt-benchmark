@@ -1990,13 +1990,13 @@ if.end65:                                         ; preds = %lor.rhs
   %24 = load i64, ptr %arrayidx2, align 8
   %shr.i.mask.i = and i64 %24, -281474976710656
   %cmp.i43 = icmp eq i64 %shr.i.mask.i, -844424930131968
-  br i1 %cmp.i43, label %_ZNSt6vectorIN6hermes14ScopeChainItemESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit, label %if.then67
+  br i1 %cmp.i43, label %if.end69, label %if.then67
 
 if.then67:                                        ; preds = %if.end65
   store i64 %24, ptr %arrayidx, align 8
   br label %cleanup85
 
-_ZNSt6vectorIN6hermes14ScopeChainItemESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit: ; preds = %if.end65
+if.end69:                                         ; preds = %if.end65
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %scopeChain, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scopeChain, i8 0, i64 24, i1 false)
   call void @_ZNSt6vectorIN6hermes14ScopeChainItemESaIS1_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %scopeChain, ptr null)
@@ -2005,13 +2005,13 @@ _ZNSt6vectorIN6hermes14ScopeChainItemESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit:
   %cmp.i45 = icmp eq i32 %25, 0
   br i1 %cmp.i45, label %cleanup, label %if.end82
 
-if.end82:                                         ; preds = %_ZNSt6vectorIN6hermes14ScopeChainItemESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit
+if.end82:                                         ; preds = %if.end69
   %26 = extractvalue { i32, i64 } %call79, 1
   store i64 %26, ptr %arrayidx, align 8
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNSt6vectorIN6hermes14ScopeChainItemESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit, %if.end82
-  %retval.1 = phi i32 [ 1, %if.end82 ], [ 0, %_ZNSt6vectorIN6hermes14ScopeChainItemESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit ]
+cleanup:                                          ; preds = %if.end69, %if.end82
+  %retval.1 = phi i32 [ 1, %if.end82 ], [ 0, %if.end69 ]
   %27 = load ptr, ptr %scopeChain, align 8
   %28 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i.i = icmp eq ptr %27, %28

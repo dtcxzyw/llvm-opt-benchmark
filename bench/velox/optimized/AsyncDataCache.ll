@@ -10318,48 +10318,48 @@ if.else:                                          ; preds = %monotonic_fail.i.th
 
 if.then.i:                                        ; preds = %if.else
   %call3.i = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(32) %fn_, ptr noundef nonnull align 8 dereferenceable(32) %fn, i32 noundef 2)
-          to label %_ZNSt8functionIFvRKN5folly17exception_wrapperEEEC2ERKS5_.exit unwind label %lpad.i
+          to label %invoke.cont.i unwind label %lpad.i
+
+invoke.cont.i:                                    ; preds = %if.then.i
+  %_M_invoker4.i = getelementptr inbounds nuw i8, ptr %fn, i64 24
+  %24 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %24, ptr %_M_invoker.i, align 8
+  %25 = load ptr, ptr %_M_manager.i.i.i35, align 8
+  store ptr %25, ptr %_M_manager.i.i, align 8
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %if.then.i40, label %if.end.i
 
 lpad.i:                                           ; preds = %if.then.i
-  %24 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %25 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %25, null
+  %28 = load ptr, ptr %_M_manager.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %28, null
   br i1 %tobool.not.i.i, label %common.resume, label %if.then.i.i36
 
 if.then.i.i36:                                    ; preds = %lpad.i
-  %call.i.i = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %fn_, ptr noundef nonnull align 8 dereferenceable(32) %fn_, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %fn_, ptr noundef nonnull align 8 dereferenceable(32) %fn_, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i36
-  %26 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #42
+  %30 = extractvalue { ptr, i32 } %29, 0
+  call void @__clang_call_terminate(ptr %30) #42
   unreachable
 
 common.resume:                                    ; preds = %lpad.body.i, %lpad23, %if.then.i.i50, %lpad.i, %if.then.i.i36
-  %common.resume.op = phi { ptr, i32 } [ %24, %if.then.i.i36 ], [ %24, %lpad.i ], [ %4, %lpad.body.i ], [ %34, %lpad23 ], [ %34, %if.then.i.i50 ]
+  %common.resume.op = phi { ptr, i32 } [ %27, %if.then.i.i36 ], [ %27, %lpad.i ], [ %4, %lpad.body.i ], [ %34, %lpad23 ], [ %34, %if.then.i.i50 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZNSt8functionIFvRKN5folly17exception_wrapperEEEC2ERKS5_.exit: ; preds = %if.then.i
-  %_M_invoker4.i = getelementptr inbounds nuw i8, ptr %fn, i64 24
-  %28 = load ptr, ptr %_M_invoker4.i, align 8
-  store ptr %28, ptr %_M_invoker.i, align 8
-  %29 = load ptr, ptr %_M_manager.i.i.i35, align 8
-  store ptr %29, ptr %_M_manager.i.i, align 8
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %if.then.i40, label %if.end.i
-
-if.then.i40:                                      ; preds = %if.else, %_ZNSt8functionIFvRKN5folly17exception_wrapperEEEC2ERKS5_.exit
+if.then.i40:                                      ; preds = %if.else, %invoke.cont.i
   invoke void @_ZSt25__throw_bad_function_callv() #43
           to label %.noexc unwind label %lpad23
 
 .noexc:                                           ; preds = %if.then.i40
   unreachable
 
-if.end.i:                                         ; preds = %_ZNSt8functionIFvRKN5folly17exception_wrapperEEEC2ERKS5_.exit
-  invoke void %28(ptr noundef nonnull align 8 dereferenceable(32) %fn_, ptr noundef nonnull align 8 dereferenceable(8) %22)
+if.end.i:                                         ; preds = %invoke.cont.i
+  invoke void %24(ptr noundef nonnull align 8 dereferenceable(32) %fn_, ptr noundef nonnull align 8 dereferenceable(8) %22)
           to label %invoke.cont24 unwind label %lpad23
 
 invoke.cont24:                                    ; preds = %if.end.i

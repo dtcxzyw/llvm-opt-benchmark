@@ -1800,7 +1800,7 @@ _ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.thread: ; preds = %9
   store ptr %10, ptr %5, align 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %14, align 8
-  br label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i
+  br label %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.i
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -1824,7 +1824,7 @@ _ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit: ; preds = %15
   store ptr %.pre, ptr %5, align 8
   store ptr %.pr.pre, ptr %18, align 8
   %.not.i.i.i.i15 = icmp eq ptr %.pr.pre, null
-  br i1 %.not.i.i.i.i15, label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i, label %22
+  br i1 %.not.i.i.i.i15, label %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.i, label %22
 
 22:                                               ; preds = %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.thread25, %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit
   %.pr28 = phi ptr [ %13, %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.thread25 ], [ %.pr.pre, %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit ]
@@ -1837,13 +1837,13 @@ _ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit: ; preds = %15
   %26 = load i32, ptr %23, align 4
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %23, align 4
-  br label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i
+  br label %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.i
 
 28:                                               ; preds = %22
   %29 = atomicrmw volatile add ptr %23, i32 1 acq_rel, align 4
-  br label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i
+  br label %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.i
 
-_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.thread, %28, %25, %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit
+_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.i: ; preds = %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.thread, %28, %25, %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 0, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -1851,20 +1851,20 @@ _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt10shared_pt
   %32 = invoke noalias noundef nonnull dereferenceable(1024) ptr @_Znwm(i64 noundef 1024) #25
           to label %34 unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit.i
 
-_ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i
+_ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.i
   %33 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12__shared_ptrIN6Assimp8IOStreamELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #23
   call void @_ZNSt12__shared_ptrIN6Assimp8IOStreamELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #23
   br label %63
 
-34:                                               ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i
-  %35 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 32
+34:                                               ; preds = %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.i
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %32, ptr %31, align 8
-  store ptr %32, ptr %36, align 8
+  store ptr %32, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 1024
-  store ptr %37, ptr %35, align 8
+  store ptr %37, ptr %36, align 8
   %38 = load ptr, ptr %11, align 8
   %.not.i.i = icmp eq ptr %38, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN6Assimp8IOStreamELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %39

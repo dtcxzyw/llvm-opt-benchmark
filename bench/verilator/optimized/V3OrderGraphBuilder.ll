@@ -5601,11 +5601,11 @@ define linkonce_odr dso_local void @_ZN7AstNode11foreachImplIK9AstVarRefZN17Orde
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @_ZNSt6vectorIPK7AstNodeSaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 32)
-          to label %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit unwind label %8
+          to label %.noexc unwind label %8
 
-_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit: ; preds = %3
+.noexc:                                           ; preds = %3
   %.pre3.i = load ptr, ptr %4, align 8, !tbaa !250
-  %.ptr79 = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 16
+  %.ptr78 = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 16
   br label %10
 
 6:                                                ; preds = %10
@@ -5617,9 +5617,9 @@ _ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlP
           cleanup
   br label %116
 
-10:                                               ; preds = %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit, %10
-  %indvars.iv = phi i64 [ -2, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds ptr, ptr %.ptr79, i64 %indvars.iv
+10:                                               ; preds = %.noexc, %10
+  %indvars.iv = phi i64 [ -2, %.noexc ], [ %indvars.iv.next, %10 ]
+  %11 = getelementptr inbounds ptr, ptr %.ptr78, i64 %indvars.iv
   store ptr %0, ptr %11, align 8, !tbaa !252
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %12 = icmp eq i64 %indvars.iv.next, 0
@@ -5632,7 +5632,7 @@ _ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlP
   br i1 %.not17, label %17, label %16
 
 16:                                               ; preds = %13
-  store ptr %15, ptr %.ptr79, align 8, !tbaa !252
+  store ptr %15, ptr %.ptr78, align 8, !tbaa !252
   br label %17
 
 17:                                               ; preds = %16, %13, %6
@@ -5709,24 +5709,24 @@ _ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlP
   br i1 %41, label %.lr.ph.preheader, label %._crit_edge.thread, !prof !260
 
 .lr.ph.preheader:                                 ; preds = %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit.thread, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit
-  %.7.idx86 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit.thread ], [ %.7.idx, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit ]
-  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx86
+  %.7.idx85 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit.thread ], [ %.7.idx, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit ]
+  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx85
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit34
   %42 = phi ptr [ %75, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit34 ], [ %.pre3.i, %.lr.ph.preheader ]
-  %.078 = phi ptr [ %.1, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit34 ], [ %7, %.lr.ph.preheader ]
-  %.07077 = phi ptr [ %.171, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit34 ], [ %.ptr79, %.lr.ph.preheader ]
-  %.17376 = phi ptr [ %.11, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit34 ], [ %.7.ptr, %.lr.ph.preheader ]
-  %43 = getelementptr inbounds i8, ptr %.17376, i64 -8
+  %.077 = phi ptr [ %.1, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit34 ], [ %7, %.lr.ph.preheader ]
+  %.07076 = phi ptr [ %.171, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit34 ], [ %.ptr78, %.lr.ph.preheader ]
+  %.17375 = phi ptr [ %.11, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit34 ], [ %.7.ptr, %.lr.ph.preheader ]
+  %43 = getelementptr inbounds i8, ptr %.17375, i64 -8
   %44 = load ptr, ptr %43, align 8, !tbaa !252
-  %45 = getelementptr inbounds i8, ptr %.17376, i64 -24
+  %45 = getelementptr inbounds i8, ptr %.17375, i64 -24
   %46 = load ptr, ptr %45, align 8, !tbaa !252
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   call void @llvm.prefetch.p0(ptr nonnull %47, i32 0, i32 3, i32 1)
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   call void @llvm.prefetch.p0(ptr nonnull %48, i32 0, i32 3, i32 1)
-  %.not18 = icmp ult ptr %43, %.078
+  %.not18 = icmp ult ptr %43, %.077
   br i1 %.not18, label %74, label %49, !prof !78
 
 49:                                               ; preds = %.lr.ph
@@ -5764,7 +5764,7 @@ _ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlP
 _ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28: ; preds = %.noexc27, %59, %61, %63
   %64 = phi ptr [ %.pre3.i24, %.noexc27 ], [ %42, %59 ], [ %42, %61 ], [ %42, %63 ]
   %65 = ptrtoint ptr %43 to i64
-  %66 = ptrtoint ptr %.07077 to i64
+  %66 = ptrtoint ptr %.07076 to i64
   %67 = sub i64 %65, %66
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %69 = getelementptr inbounds i8, ptr %68, i64 %67
@@ -5780,8 +5780,8 @@ _ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlP
 74:                                               ; preds = %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28, %.lr.ph
   %75 = phi ptr [ %42, %.lr.ph ], [ %64, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
   %.2 = phi ptr [ %43, %.lr.ph ], [ %69, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
-  %.171 = phi ptr [ %.07077, %.lr.ph ], [ %68, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
-  %.1 = phi ptr [ %.078, %.lr.ph ], [ %71, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
+  %.171 = phi ptr [ %.07076, %.lr.ph ], [ %68, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
+  %.1 = phi ptr [ %.077, %.lr.ph ], [ %71, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
   %76 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !254
   %.not19 = icmp eq ptr %77, null

@@ -4310,13 +4310,13 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L23_ReadNamesp
   br label %42
 
 ._crit_edge130.loopexit:                          ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit
-  %.pre153 = load ptr, ptr %4, align 8
-  %.pre154 = load ptr, ptr %14, align 8
+  %.pre152 = load ptr, ptr %4, align 8
+  %.pre153 = load ptr, ptr %14, align 8
   br label %._crit_edge130
 
 ._crit_edge130:                                   ; preds = %._crit_edge130.loopexit, %3
-  %30 = phi ptr [ %.pre154, %._crit_edge130.loopexit ], [ %15, %3 ]
-  %31 = phi ptr [ %.pre153, %._crit_edge130.loopexit ], [ %13, %3 ]
+  %30 = phi ptr [ %.pre153, %._crit_edge130.loopexit ], [ %15, %3 ]
+  %31 = phi ptr [ %.pre152, %._crit_edge130.loopexit ], [ %13, %3 ]
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN32pxrInternal_v0_24__pxrReserved__12UsdAttributeEEEvT_S5_(ptr noundef %31, ptr noundef %30)
           to label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12UsdAttributeES1_EvT_S3_RSaIT0_E.exit.i unwind label %39
 

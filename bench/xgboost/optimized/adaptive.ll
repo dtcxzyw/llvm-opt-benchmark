@@ -18060,14 +18060,14 @@ _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_T0_.exit.i
 
 217:                                              ; preds = %210
   %218 = icmp slt i64 %216, 2
-  br i1 %218, label %"_ZN7xgboost6common10StableSortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZNS0_8QuantileINS0_18IndexTransformIterIZZZNS_3obj6detail18UpdateTreeLeafHostEPKNS_7ContextERKS5_IiSaIiEEiRKNS_8MetaInfoEfRKNS_16HostDeviceVectorIfEEfPNS_7RegTreeEENK3$_1clEvENKUlmE_clEmEUlmE_EEfEET0_SF_dRKT_S10_EUlmmE_EEvSF_SY_SY_OSX_.exit.i", label %_ZNSt6vectorIN14__gnu_parallel6_PieceIlEESaIS2_EE17_M_default_appendEm.exit.i.i.i.i.i
+  br i1 %218, label %"_ZN7xgboost6common10StableSortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZNS0_8QuantileINS0_18IndexTransformIterIZZZNS_3obj6detail18UpdateTreeLeafHostEPKNS_7ContextERKS5_IiSaIiEEiRKNS_8MetaInfoEfRKNS_16HostDeviceVectorIfEEfPNS_7RegTreeEENK3$_1clEvENKUlmE_clEmEUlmE_EEfEET0_SF_dRKT_S10_EUlmmE_EEvSF_SY_SY_OSX_.exit.i", label %.lr.ph.i.i.i.i.i.i.preheader.i.i.i.i.i.i
 
-_ZNSt6vectorIN14__gnu_parallel6_PieceIlEESaIS2_EE17_M_default_appendEm.exit.i.i.i.i.i: ; preds = %217
+.lr.ph.i.i.i.i.i.i.preheader.i.i.i.i.i.i:         ; preds = %217
   %219 = add nuw i64 %215, 8
   %220 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %219) #38
           to label %.noexc67.i unwind label %278
 
-.noexc67.i:                                       ; preds = %_ZNSt6vectorIN14__gnu_parallel6_PieceIlEESaIS2_EE17_M_default_appendEm.exit.i.i.i.i.i
+.noexc67.i:                                       ; preds = %.lr.ph.i.i.i.i.i.i.preheader.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %220, ptr align 8 %.sroa.0.0131.i, i64 %215, i1 false)
   %221 = getelementptr inbounds i8, ptr %220, i64 %215
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
@@ -18248,7 +18248,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEC
   %277 = fsub float %264, %276
   br label %_ZNSt6vectorImSaImEED2Ev.exit.i
 
-278:                                              ; preds = %_ZNSt6vectorIN14__gnu_parallel6_PieceIlEESaIS2_EE17_M_default_appendEm.exit.i.i.i.i.i, %208, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_T0_.exit.i
+278:                                              ; preds = %.lr.ph.i.i.i.i.i.i.preheader.i.i.i.i.i.i, %208, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_T0_.exit.i
   %279 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -18620,14 +18620,14 @@ _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_T0_.exit.i
 
 444:                                              ; preds = %437
   %445 = icmp slt i64 %443, 2
-  br i1 %445, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.thread143.i, label %_ZNSt6vectorIN14__gnu_parallel6_PieceIlEESaIS2_EE17_M_default_appendEm.exit.i.i.i.i.i89
+  br i1 %445, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.thread143.i, label %.lr.ph.i.i.i.i.i.i.preheader.i.i.i.i.i.i89
 
-_ZNSt6vectorIN14__gnu_parallel6_PieceIlEESaIS2_EE17_M_default_appendEm.exit.i.i.i.i.i89: ; preds = %444
+.lr.ph.i.i.i.i.i.i.preheader.i.i.i.i.i.i89:       ; preds = %444
   %446 = add nuw i64 %442, 8
   %447 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %446) #38
           to label %.noexc38.i unwind label %508
 
-.noexc38.i:                                       ; preds = %_ZNSt6vectorIN14__gnu_parallel6_PieceIlEESaIS2_EE17_M_default_appendEm.exit.i.i.i.i.i89
+.noexc38.i:                                       ; preds = %.lr.ph.i.i.i.i.i.i.preheader.i.i.i.i.i.i89
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %447, ptr align 8 %.sroa.0.095.i, i64 %442, i1 false)
   %448 = getelementptr inbounds i8, ptr %447, i64 %442
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i90
@@ -18832,7 +18832,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEElEvRT_T0_.exit
   %507 = icmp sgt i64 %.1.i.i.i, 0
   br i1 %507, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEfET_S8_S8_RKT0_.exit.loopexit.i, !llvm.loop !614
 
-508:                                              ; preds = %_ZNSt6vectorIN14__gnu_parallel6_PieceIlEESaIS2_EE17_M_default_appendEm.exit.i.i.i.i.i89, %435, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_T0_.exit.i47
+508:                                              ; preds = %.lr.ph.i.i.i.i.i.i.preheader.i.i.i.i.i.i89, %435, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_T0_.exit.i47
   %509 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i48

@@ -22113,8 +22113,8 @@ _PyUnicode_DATA.exit.i.i:                         ; preds = %54, %52
 .critedge:                                        ; preds = %58
   %64 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %64, align 8, !tbaa !187
-  %.not58 = icmp eq ptr %.val, @PyUnicode_Type
-  br i1 %.not58, label %65, label %233
+  %.not = icmp eq ptr %.val, @PyUnicode_Type
+  br i1 %.not, label %65, label %233
 
 65:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
@@ -22256,11 +22256,11 @@ _PyUnicode_DATA.exit.i:                           ; preds = %71, %69
   br i1 %128, label %.lr.ph119.i.preheader, label %.thread.i
 
 .lr.ph119.i.preheader:                            ; preds = %125
-  %.promoted69 = load i64, ptr %81, align 8
+  %.promoted68 = load i64, ptr %81, align 8
   br label %.lr.ph119.i
 
 .lr.ph119.i:                                      ; preds = %.lr.ph119.i.preheader, %137
-  %129 = phi i64 [ %140, %137 ], [ %.promoted69, %.lr.ph119.i.preheader ]
+  %129 = phi i64 [ %140, %137 ], [ %.promoted68, %.lr.ph119.i.preheader ]
   %130 = phi ptr [ %141, %137 ], [ %122, %.lr.ph119.i.preheader ]
   %131 = load i8, ptr %130, align 1, !tbaa !195
   %132 = zext i8 %131 to i64
@@ -25582,9 +25582,9 @@ Py_INCREF.exit.i:                                 ; preds = %344, %340
   br label %unicode_translate_call_errorhandler.exit
 
 unicode_translate_call_errorhandler.exit.thread.sink.split: ; preds = %337, %323, %316, %301
-  %.lcssa306.sink = phi ptr [ %.1125230, %301 ], [ %307, %316 ], [ %307, %323 ], [ %307, %337 ]
+  %.lcssa305.sink = phi ptr [ %.1125230, %301 ], [ %307, %316 ], [ %307, %323 ], [ %307, %337 ]
   %.6.ph.ph = phi ptr [ null, %301 ], [ %306, %316 ], [ %306, %323 ], [ %306, %337 ]
-  call void @_Py_Dealloc(ptr noundef nonnull %.lcssa306.sink) #41
+  call void @_Py_Dealloc(ptr noundef nonnull %.lcssa305.sink) #41
   br label %unicode_translate_call_errorhandler.exit.thread
 
 unicode_translate_call_errorhandler.exit.thread:  ; preds = %288, %make_translate_exception.exit.i, %make_translate_exception.exit.i.thread152, %unicode_translate_call_errorhandler.exit.thread.sink.split, %313, %316, %321, %323, %333, %337, %299, %301
@@ -41542,68 +41542,68 @@ _PyFreeList_PopMem.exit:                          ; preds = %5
   %20 = tail call ptr @PyErr_NoMemory() #41
   br label %PyUnicodeWriter_Discard.exit
 
-21:                                               ; preds = %16, %_PyFreeList_PopMem.exit
+21:                                               ; preds = %_PyFreeList_PopMem.exit, %16
   %.017 = phi ptr [ %17, %16 ], [ %11, %_PyFreeList_PopMem.exit ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.017, i8 0, i64 56, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %.017, i64 48
   store i32 127, ptr %22, align 8, !tbaa !231
   %.old1 = icmp eq i64 %0, 0
-  br i1 %.old1, label %.critedge, label %23
+  br i1 %.old1, label %.critedge, label %.split
 
-23:                                               ; preds = %21
-  %24 = tail call i32 @_PyUnicodeWriter_PrepareInternal(ptr noundef nonnull %.017, i64 noundef %0, i32 noundef 127)
-  %25 = icmp slt i32 %24, 0
-  br i1 %25, label %26, label %.critedge
+.split:                                           ; preds = %21
+  %23 = tail call i32 @_PyUnicodeWriter_PrepareInternal(ptr noundef nonnull %.017, i64 noundef %0, i32 noundef 127)
+  %24 = icmp slt i32 %23, 0
+  br i1 %24, label %25, label %.critedge
 
-26:                                               ; preds = %23
-  %27 = load ptr, ptr %.017, align 8, !tbaa !183
-  %.not.i.i22 = icmp eq ptr %27, null
-  br i1 %.not.i.i22, label %_PyUnicodeWriter_Dealloc.exit.i, label %28
+25:                                               ; preds = %.split
+  %26 = load ptr, ptr %.017, align 8, !tbaa !183
+  %.not.i.i22 = icmp eq ptr %26, null
+  br i1 %.not.i.i22, label %_PyUnicodeWriter_Dealloc.exit.i, label %27
 
-28:                                               ; preds = %26
+27:                                               ; preds = %25
   store ptr null, ptr %.017, align 8, !tbaa !183
-  %29 = load i32, ptr %27, align 8, !tbaa !195
-  %.not.i.i.i = icmp sgt i32 %29, -1
-  br i1 %.not.i.i.i, label %30, label %_PyUnicodeWriter_Dealloc.exit.i
+  %28 = load i32, ptr %26, align 8, !tbaa !195
+  %.not.i.i.i = icmp sgt i32 %28, -1
+  br i1 %.not.i.i.i, label %29, label %_PyUnicodeWriter_Dealloc.exit.i
 
-30:                                               ; preds = %28
-  %31 = add nsw i32 %29, -1
-  store i32 %31, ptr %27, align 8, !tbaa !195
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %_PyUnicodeWriter_Dealloc.exit.i
+29:                                               ; preds = %27
+  %30 = add nsw i32 %28, -1
+  store i32 %30, ptr %26, align 8, !tbaa !195
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %32, label %_PyUnicodeWriter_Dealloc.exit.i
 
-33:                                               ; preds = %30
-  tail call void @_Py_Dealloc(ptr noundef nonnull %27) #41
+32:                                               ; preds = %29
+  tail call void @_Py_Dealloc(ptr noundef nonnull %26) #41
   br label %_PyUnicodeWriter_Dealloc.exit.i
 
-_PyUnicodeWriter_Dealloc.exit.i:                  ; preds = %33, %30, %28, %26
-  %34 = load ptr, ptr %6, align 8, !tbaa !4
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %36 = load ptr, ptr %35, align 8, !tbaa !9
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 11568
-  %38 = load i64, ptr %37, align 8, !tbaa !495
-  %or.cond.i.i.i = icmp eq i64 %38, 0
-  br i1 %or.cond.i.i.i, label %_PyFreeList_Push.exit.i.i, label %41
+_PyUnicodeWriter_Dealloc.exit.i:                  ; preds = %32, %29, %27, %25
+  %33 = load ptr, ptr %6, align 8, !tbaa !4
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %35 = load ptr, ptr %34, align 8, !tbaa !9
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 11568
+  %37 = load i64, ptr %36, align 8, !tbaa !495
+  %or.cond.i.i.i = icmp eq i64 %37, 0
+  br i1 %or.cond.i.i.i, label %_PyFreeList_Push.exit.i.i, label %40
 
 _PyFreeList_Push.exit.i.i:                        ; preds = %_PyUnicodeWriter_Dealloc.exit.i
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 11560
-  %40 = load ptr, ptr %39, align 8, !tbaa !494
-  store ptr %40, ptr %.017, align 8, !tbaa !266
-  store ptr %.017, ptr %39, align 8, !tbaa !494
-  store i64 1, ptr %37, align 8, !tbaa !495
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 11560
+  %39 = load ptr, ptr %38, align 8, !tbaa !494
+  store ptr %39, ptr %.017, align 8, !tbaa !266
+  store ptr %.017, ptr %38, align 8, !tbaa !494
+  store i64 1, ptr %36, align 8, !tbaa !495
   br label %PyUnicodeWriter_Discard.exit
 
-41:                                               ; preds = %_PyUnicodeWriter_Dealloc.exit.i
+40:                                               ; preds = %_PyUnicodeWriter_Dealloc.exit.i
   tail call void @PyMem_Free(ptr noundef nonnull %.017) #41
   br label %PyUnicodeWriter_Discard.exit
 
-.critedge:                                        ; preds = %21, %23
-  %42 = getelementptr inbounds nuw i8, ptr %.017, i64 52
-  store i8 1, ptr %42, align 4, !tbaa !233
+.critedge:                                        ; preds = %21, %.split
+  %41 = getelementptr inbounds nuw i8, ptr %.017, i64 52
+  store i8 1, ptr %41, align 4, !tbaa !233
   br label %PyUnicodeWriter_Discard.exit
 
-PyUnicodeWriter_Discard.exit:                     ; preds = %41, %_PyFreeList_Push.exit.i.i, %19, %.critedge, %3
-  %.0 = phi ptr [ null, %3 ], [ %20, %19 ], [ %.017, %.critedge ], [ null, %_PyFreeList_Push.exit.i.i ], [ null, %41 ]
+PyUnicodeWriter_Discard.exit:                     ; preds = %40, %_PyFreeList_Push.exit.i.i, %19, %.critedge, %3
+  %.0 = phi ptr [ null, %3 ], [ %20, %19 ], [ %.017, %.critedge ], [ null, %_PyFreeList_Push.exit.i.i ], [ null, %40 ]
   ret ptr %.0
 }
 

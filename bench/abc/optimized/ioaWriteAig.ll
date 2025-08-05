@@ -1867,7 +1867,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   store i8 0, ptr %93, align 1, !tbaa !3
   br label %Vec_StrFree.exit
 
-Vec_StrFree.exit:                                 ; preds = %2, %Vec_StrPush.exit
+Vec_StrFree.exit:                                 ; preds = %Vec_StrPush.exit, %2
   %94 = getelementptr i8, ptr %3, i64 4
   %.val = load i32, ptr %94, align 4, !tbaa !8
   store i32 %.val, ptr %1, align 4, !tbaa !16

@@ -4018,7 +4018,7 @@ if.then.i:                                        ; preds = %entry
   tail call void @_ZN4node7FPrintFIJEEEvP8_IO_FILEPKcDpOT_(ptr noundef %1, ptr noundef nonnull @.str.72) #24
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EED2Ev.exit45
 
-_ZNSt6vectorIN4node8PropInfoESaIS1_EED2Ev.exit45: ; preds = %if.then.i, %entry
+_ZNSt6vectorIN4node8PropInfoESaIS1_EED2Ev.exit45: ; preds = %entry, %if.then.i
   call void @_ZN4node16BlobDeserializerINS_20SnapshotDeserializerEE10ReadVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorIT_SaISB_EEv(ptr nonnull sret(%"class.std::vector.15") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %this)
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16

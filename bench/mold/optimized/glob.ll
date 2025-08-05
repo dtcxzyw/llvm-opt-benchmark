@@ -108,7 +108,7 @@ define dso_local void @_ZN4mold4Glob7compileESt17basic_string_viewIcSt11char_tra
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %11 = icmp eq i64 %1, 0
-  br i1 %11, label %_ZN4mold4GlobD2Ev.exit, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.lr.ph
+  br i1 %11, label %_ZSt8_DestroyIPN4mold4Glob7ElementES2_EvT_S4_RSaIT0_E.exit.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.lr.ph
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.lr.ph: ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -544,9 +544,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit78: ; preds = %_ZN
   %.sroa.082.6 = phi i64 [ %15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit78 ], [ %89, %88 ], [ %15, %_ZNSt6vectorIN4mold4Glob7ElementESaIS2_EE12emplace_backIJNS1_4KindEEEERS2_DpOT_.exit63 ], [ %15, %_ZNSt6vectorIN4mold4Glob7ElementESaIS2_EE12emplace_backIJNS1_4KindEEEERS2_DpOT_.exit66 ], [ %155, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ], [ %89, %.preheader ]
   %.sroa.24.6 = phi ptr [ %16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit78 ], [ %90, %88 ], [ %16, %_ZNSt6vectorIN4mold4Glob7ElementESaIS2_EE12emplace_backIJNS1_4KindEEEERS2_DpOT_.exit63 ], [ %16, %_ZNSt6vectorIN4mold4Glob7ElementESaIS2_EE12emplace_backIJNS1_4KindEEEERS2_DpOT_.exit66 ], [ %156, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ], [ %90, %.preheader ]
   %192 = icmp eq i64 %.sroa.082.6, 0
-  br i1 %192, label %_ZN4mold4GlobD2Ev.exit, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit, !llvm.loop !38
+  br i1 %192, label %_ZSt8_DestroyIPN4mold4Glob7ElementES2_EvT_S4_RSaIT0_E.exit.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit, !llvm.loop !38
 
-_ZN4mold4GlobD2Ev.exit:                           ; preds = %.critedge, %3
+_ZSt8_DestroyIPN4mold4Glob7ElementES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %.critedge, %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #17
   call void @_ZNSt6vectorIN4mold4Glob7ElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %193 = load ptr, ptr %10, align 8, !tbaa !39
@@ -564,7 +564,7 @@ _ZN4mold4GlobD2Ev.exit:                           ; preds = %.critedge, %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #17
   br label %.critedge42
 
-.critedge42:                                      ; preds = %117, %56, %63, %41, %.critedge40, %_ZN4mold4GlobD2Ev.exit
+.critedge42:                                      ; preds = %117, %56, %63, %41, %.critedge40, %_ZSt8_DestroyIPN4mold4Glob7ElementES2_EvT_S4_RSaIT0_E.exit.i.i
   %201 = load ptr, ptr %4, align 8, !tbaa !39
   %202 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %203 = load ptr, ptr %202, align 8, !tbaa !14

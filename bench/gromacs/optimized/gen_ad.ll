@@ -4270,7 +4270,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit76.i:                ; preds = %1697, %1695
 
 .loopexit30.i:                                    ; preds = %.critedge.i, %.preheader29.i, %1609
   %.not2249.i = icmp eq ptr %1619, %1621
-  br i1 %.not2249.i, label %_ZNSt6vectorI17InteractionOfTypeSaIS0_EED2Ev.exit, label %.lr.ph51.i
+  br i1 %.not2249.i, label %_ZNSt6vectorI17InteractionOfTypeSaIS0_EEaSEOS2_.exit, label %.lr.ph51.i
 
 .lr.ph51.i:                                       ; preds = %.loopexit30.i
   %1712 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -4504,7 +4504,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit98.i:                ; preds = %1784, %1782
 1789:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit96.i, %1716
   %1790 = getelementptr inbounds nuw i8, ptr %.sroa.07.050.i, i64 96
   %.not22.i = icmp eq ptr %1790, %1621
-  br i1 %.not22.i, label %_ZNSt6vectorI17InteractionOfTypeSaIS0_EED2Ev.exit, label %1716
+  br i1 %.not22.i, label %_ZNSt6vectorI17InteractionOfTypeSaIS0_EEaSEOS2_.exit, label %1716
 
 1791:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit98.i, %_ZNSt6vectorIiSaIiEED2Ev.exit76.i
   %.pn65.pn.pn.i = phi { ptr, i32 } [ %.pn65.pn.i, %_ZNSt6vectorIiSaIiEED2Ev.exit98.i ], [ %.pn.i, %_ZNSt6vectorIiSaIiEED2Ev.exit76.i ]
@@ -4572,7 +4572,7 @@ _ZSt8_DestroyIP17InteractionOfTypeS0_EvT_S2_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_
   call void @_ZdlPvm(ptr noundef nonnull %1812, i64 noundef %1818) #25
   br label %.body
 
-_ZNSt6vectorI17InteractionOfTypeSaIS0_EED2Ev.exit: ; preds = %1789, %.loopexit30.i
+_ZNSt6vectorI17InteractionOfTypeSaIS0_EEaSEOS2_.exit: ; preds = %1789, %.loopexit30.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   %1819 = load ptr, ptr %37, align 8, !tbaa !96
   %1820 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -4624,8 +4624,8 @@ _ZNSt6vectorI17InteractionOfTypeSaIS0_EED2Ev.exit: ; preds = %1789, %.loopexit30
   invoke void @_ZSt16__insertion_sortIN3gmx12ArrayRefIterI17InteractionOfTypeEEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS2_S8_EEEEvT_SC_T0_(ptr %1819, ptr nonnull %1827, ptr nonnull @_ZL6idcompRK17InteractionOfTypeS1_)
           to label %_ZL7sort_idN3gmx8ArrayRefI17InteractionOfTypeEE.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.lr.ph.i610:                                      ; preds = %_ZNSt6vectorI17InteractionOfTypeSaIS0_EED2Ev.exit, %.noexc619
-  %.sroa.0.014.i = phi ptr [ %1838, %.noexc619 ], [ %1819, %_ZNSt6vectorI17InteractionOfTypeSaIS0_EED2Ev.exit ]
+.lr.ph.i610:                                      ; preds = %_ZNSt6vectorI17InteractionOfTypeSaIS0_EEaSEOS2_.exit, %.noexc619
+  %.sroa.0.014.i = phi ptr [ %1838, %.noexc619 ], [ %1819, %_ZNSt6vectorI17InteractionOfTypeSaIS0_EEaSEOS2_.exit ]
   invoke void @_ZN17InteractionOfType11sortAtomIdsEv(ptr noundef nonnull align 8 dereferenceable(105) %.sroa.0.014.i)
           to label %.noexc619 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -4634,7 +4634,7 @@ _ZNSt6vectorI17InteractionOfTypeSaIS0_EED2Ev.exit: ; preds = %1789, %.loopexit30
   %.not.i611 = icmp eq ptr %1838, %1821
   br i1 %.not.i611, label %._crit_edge.i612, label %.lr.ph.i610
 
-_ZL7sort_idN3gmx8ArrayRefI17InteractionOfTypeEE.exit: ; preds = %.noexc617, %.noexc616, %_ZNSt6vectorI17InteractionOfTypeSaIS0_EED2Ev.exit, %1837
+_ZL7sort_idN3gmx8ArrayRefI17InteractionOfTypeEE.exit: ; preds = %.noexc617, %.noexc616, %_ZNSt6vectorI17InteractionOfTypeSaIS0_EEaSEOS2_.exit, %1837
   %1839 = load ptr, ptr %24, align 8, !tbaa !104
   %1840 = load ptr, ptr %1585, align 8, !tbaa !104
   %1841 = icmp eq ptr %1839, %1840

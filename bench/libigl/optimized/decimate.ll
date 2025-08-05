@@ -1590,26 +1590,26 @@ _ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i.i.i: ; preds = %.noe
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
   %126 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %127 = shl nuw nsw i64 %115, 3
-  %128 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %127) #25
-          to label %_ZNSt6vectorISt6threadSaIS0_EE7reserveEm.exit.i.i unwind label %211
+  %127 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %128 = shl nuw nsw i64 %115, 3
+  %129 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %128) #25
+          to label %_ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit.i.i.i unwind label %211
 
-_ZNSt6vectorISt6threadSaIS0_EE7reserveEm.exit.i.i: ; preds = %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i.i.i
-  %129 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr %128, ptr %20, align 8, !tbaa !104
-  store ptr %128, ptr %129, align 8, !tbaa !107
-  %130 = getelementptr inbounds nuw %"class.std::thread", ptr %128, i64 %115
+_ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit.i.i.i: ; preds = %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i.i.i
+  store ptr %129, ptr %20, align 8, !tbaa !104
+  store ptr %129, ptr %127, align 8, !tbaa !107
+  %130 = getelementptr inbounds nuw %"class.std::thread", ptr %129, i64 %115
   store ptr %130, ptr %126, align 8, !tbaa !108
   %131 = icmp sgt i64 %71, 0
   br i1 %131, label %.lr.ph67.i.i, label %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJRKZN3igl12parallel_forIlZNS4_12parallel_forIlZNS4_8decimateERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS8_IiLin1ELin1ELi0ELin1ELin1EEERKSt8functionIFviSB_SE_SE_RKNS8_IiLin1ELi1ELi0ELin1ELi1EEESE_SE_RdRNS8_IdLi1ELin1ELi1ELi1ELin1EEEEERKSF_IFbSB_SE_SE_SI_SE_SE_RKSt14priority_queueISt5tupleIJdiiEES_ISS_SaISS_EESt7greaterISS_EESI_SB_iiiiiEERKSF_IFbSB_SE_SE_SI_SE_SE_SZ_SI_SB_iEERKSF_IFvSB_SE_SE_SI_SE_SE_SZ_SI_SB_iiiiibEERS9_RSC_RSG_S1E_E3$_0EEbT_RKT0_mEUlmE_ZNS6_IlS1F_EEbS1G_S1J_mEUllmE_S1K_EEbS1G_S1J_RKT1_RKT2_mEUlllmE_RlRKlRmEEERS0_DpOT_.exitthread-pre-split.i.i"
 
-.lr.ph67.i.i:                                     ; preds = %_ZNSt6vectorISt6threadSaIS0_EE7reserveEm.exit.i.i
+.lr.ph67.i.i:                                     ; preds = %_ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit.i.i.i
   %132 = call i64 @llvm.umin.i64(i64 %71, i64 %.sroa.speculated22.i.i)
   %133 = ptrtoint ptr %21 to i64
   br label %134
 
 134:                                              ; preds = %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJRKZN3igl12parallel_forIlZNS4_12parallel_forIlZNS4_8decimateERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS8_IiLin1ELin1ELi0ELin1ELin1EEERKSt8functionIFviSB_SE_SE_RKNS8_IiLin1ELi1ELi0ELin1ELi1EEESE_SE_RdRNS8_IdLi1ELin1ELi1ELi1ELin1EEEEERKSF_IFbSB_SE_SE_SI_SE_SE_RKSt14priority_queueISt5tupleIJdiiEES_ISS_SaISS_EESt7greaterISS_EESI_SB_iiiiiEERKSF_IFbSB_SE_SE_SI_SE_SE_SZ_SI_SB_iEERKSF_IFvSB_SE_SE_SI_SE_SE_SZ_SI_SB_iiiiibEERS9_RSC_RSG_S1E_E3$_0EEbT_RKT0_mEUlmE_ZNS6_IlS1F_EEbS1G_S1J_mEUllmE_S1K_EEbS1G_S1J_RKT1_RKT2_mEUlllmE_RlS1V_RmEEERS0_DpOT_.exit.i.i", %.lr.ph67.i.i
-  %135 = phi ptr [ %128, %.lr.ph67.i.i ], [ %205, %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJRKZN3igl12parallel_forIlZNS4_12parallel_forIlZNS4_8decimateERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS8_IiLin1ELin1ELi0ELin1ELin1EEERKSt8functionIFviSB_SE_SE_RKNS8_IiLin1ELi1ELi0ELin1ELi1EEESE_SE_RdRNS8_IdLi1ELin1ELi1ELi1ELin1EEEEERKSF_IFbSB_SE_SE_SI_SE_SE_RKSt14priority_queueISt5tupleIJdiiEES_ISS_SaISS_EESt7greaterISS_EESI_SB_iiiiiEERKSF_IFbSB_SE_SE_SI_SE_SE_SZ_SI_SB_iEERKSF_IFvSB_SE_SE_SI_SE_SE_SZ_SI_SB_iiiiibEERS9_RSC_RSG_S1E_E3$_0EEbT_RKT0_mEUlmE_ZNS6_IlS1F_EEbS1G_S1J_mEUllmE_S1K_EEbS1G_S1J_RKT1_RKT2_mEUlllmE_RlS1V_RmEEERS0_DpOT_.exit.i.i" ]
+  %135 = phi ptr [ %129, %.lr.ph67.i.i ], [ %205, %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJRKZN3igl12parallel_forIlZNS4_12parallel_forIlZNS4_8decimateERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS8_IiLin1ELin1ELi0ELin1ELin1EEERKSt8functionIFviSB_SE_SE_RKNS8_IiLin1ELi1ELi0ELin1ELi1EEESE_SE_RdRNS8_IdLi1ELin1ELi1ELi1ELin1EEEEERKSF_IFbSB_SE_SE_SI_SE_SE_RKSt14priority_queueISt5tupleIJdiiEES_ISS_SaISS_EESt7greaterISS_EESI_SB_iiiiiEERKSF_IFbSB_SE_SE_SI_SE_SE_SZ_SI_SB_iEERKSF_IFvSB_SE_SE_SI_SE_SE_SZ_SI_SB_iiiiibEERS9_RSC_RSG_S1E_E3$_0EEbT_RKT0_mEUlmE_ZNS6_IlS1F_EEbS1G_S1J_mEUllmE_S1K_EEbS1G_S1J_RKT1_RKT2_mEUlllmE_RlS1V_RmEEERS0_DpOT_.exit.i.i" ]
   %136 = phi i64 [ 1, %.lr.ph67.i.i ], [ %207, %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJRKZN3igl12parallel_forIlZNS4_12parallel_forIlZNS4_8decimateERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS8_IiLin1ELin1ELi0ELin1ELin1EEERKSt8functionIFviSB_SE_SE_RKNS8_IiLin1ELi1ELi0ELin1ELi1EEESE_SE_RdRNS8_IdLi1ELin1ELi1ELi1ELin1EEEEERKSF_IFbSB_SE_SE_SI_SE_SE_RKSt14priority_queueISt5tupleIJdiiEES_ISS_SaISS_EESt7greaterISS_EESI_SB_iiiiiEERKSF_IFbSB_SE_SE_SI_SE_SE_SZ_SI_SB_iEERKSF_IFvSB_SE_SE_SI_SE_SE_SZ_SI_SB_iiiiibEERS9_RSC_RSG_S1E_E3$_0EEbT_RKT0_mEUlmE_ZNS6_IlS1F_EEbS1G_S1J_mEUllmE_S1K_EEbS1G_S1J_RKT1_RKT2_mEUlllmE_RlS1V_RmEEERS0_DpOT_.exit.i.i" ]
   %storemerge66.i.i = phi i64 [ 0, %.lr.ph67.i.i ], [ %136, %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJRKZN3igl12parallel_forIlZNS4_12parallel_forIlZNS4_8decimateERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS8_IiLin1ELin1ELi0ELin1ELin1EEERKSt8functionIFviSB_SE_SE_RKNS8_IiLin1ELi1ELi0ELin1ELi1EEESE_SE_RdRNS8_IdLi1ELin1ELi1ELi1ELin1EEEEERKSF_IFbSB_SE_SE_SI_SE_SE_RKSt14priority_queueISt5tupleIJdiiEES_ISS_SaISS_EESt7greaterISS_EESI_SB_iiiiiEERKSF_IFbSB_SE_SE_SI_SE_SE_SZ_SI_SB_iEERKSF_IFvSB_SE_SE_SI_SE_SE_SZ_SI_SB_iiiiibEERS9_RSC_RSG_S1E_E3$_0EEbT_RKT0_mEUlmE_ZNS6_IlS1F_EEbS1G_S1J_mEUllmE_S1K_EEbS1G_S1J_RKT1_RKT2_mEUlllmE_RlS1V_RmEEERS0_DpOT_.exit.i.i" ]
   %.03765.i.i = phi i64 [ 0, %.lr.ph67.i.i ], [ %.03864.i.i, %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJRKZN3igl12parallel_forIlZNS4_12parallel_forIlZNS4_8decimateERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS8_IiLin1ELin1ELi0ELin1ELin1EEERKSt8functionIFviSB_SE_SE_RKNS8_IiLin1ELi1ELi0ELin1ELi1EEESE_SE_RdRNS8_IdLi1ELin1ELi1ELi1ELin1EEEEERKSF_IFbSB_SE_SE_SI_SE_SE_RKSt14priority_queueISt5tupleIJdiiEES_ISS_SaISS_EESt7greaterISS_EESI_SB_iiiiiEERKSF_IFbSB_SE_SE_SI_SE_SE_SZ_SI_SB_iEERKSF_IFvSB_SE_SE_SI_SE_SE_SZ_SI_SB_iiiiibEERS9_RSC_RSG_S1E_E3$_0EEbT_RKT0_mEUlmE_ZNS6_IlS1F_EEbS1G_S1J_mEUllmE_S1K_EEbS1G_S1J_RKT1_RKT2_mEUlllmE_RlS1V_RmEEERS0_DpOT_.exit.i.i" ]
@@ -1666,9 +1666,9 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i10.i.i.i.i: ; preds = %1
 
 "_ZNSt6threadC2IRKZN3igl12parallel_forIlZNS1_12parallel_forIlZNS1_8decimateERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS5_IiLin1ELin1ELi0ELin1ELin1EEERKSt8functionIFviS8_SB_SB_RKNS5_IiLin1ELi1ELi0ELin1ELi1EEESB_SB_RdRNS5_IdLi1ELin1ELi1ELi1ELin1EEEEERKSC_IFbS8_SB_SB_SF_SB_SB_RKSt14priority_queueISt5tupleIJdiiEESt6vectorISP_SaISP_EESt7greaterISP_EESF_S8_iiiiiEERKSC_IFbS8_SB_SB_SF_SB_SB_SX_SF_S8_iEERKSC_IFvS8_SB_SB_SF_SB_SB_SX_SF_S8_iiiiibEERS6_RS9_RSD_S1C_E3$_0EEbT_RKT0_mEUlmE_ZNS3_IlS1D_EEbS1E_S1H_mEUllmE_S1I_EEbS1E_S1H_RKT1_RKT2_mEUlllmE_JRlS1T_RmEvEEOS1E_DpOT0_.exit.i.i.i": ; preds = %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i, %144
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
-  %155 = load ptr, ptr %129, align 8, !tbaa !107
+  %155 = load ptr, ptr %127, align 8, !tbaa !107
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
-  store ptr %156, ptr %129, align 8, !tbaa !107
+  store ptr %156, ptr %127, align 8, !tbaa !107
   br label %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJRKZN3igl12parallel_forIlZNS4_12parallel_forIlZNS4_8decimateERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS8_IiLin1ELin1ELi0ELin1ELin1EEERKSt8functionIFviSB_SE_SE_RKNS8_IiLin1ELi1ELi0ELin1ELi1EEESE_SE_RdRNS8_IdLi1ELin1ELi1ELi1ELin1EEEEERKSF_IFbSB_SE_SE_SI_SE_SE_RKSt14priority_queueISt5tupleIJdiiEES_ISS_SaISS_EESt7greaterISS_EESI_SB_iiiiiEERKSF_IFbSB_SE_SE_SI_SE_SE_SZ_SI_SB_iEERKSF_IFvSB_SE_SE_SI_SE_SE_SZ_SI_SB_iiiiibEERS9_RSC_RSG_S1E_E3$_0EEbT_RKT0_mEUlmE_ZNS6_IlS1F_EEbS1G_S1J_mEUllmE_S1K_EEbS1G_S1J_RKT1_RKT2_mEUlllmE_RlS1V_RmEEERS0_DpOT_.exit.i.i"
 
 157:                                              ; preds = %134
@@ -1805,7 +1805,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35.i.i.i.i: ; pre
 
 "_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJRKZN3igl12parallel_forIlZNS4_12parallel_forIlZNS4_8decimateERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS8_IiLin1ELin1ELi0ELin1ELin1EEERKSt8functionIFviSB_SE_SE_RKNS8_IiLin1ELi1ELi0ELin1ELi1EEESE_SE_RdRNS8_IdLi1ELin1ELi1ELi1ELin1EEEEERKSF_IFbSB_SE_SE_SI_SE_SE_RKSt14priority_queueISt5tupleIJdiiEES_ISS_SaISS_EESt7greaterISS_EESI_SB_iiiiiEERKSF_IFbSB_SE_SE_SI_SE_SE_SZ_SI_SB_iEERKSF_IFvSB_SE_SE_SI_SE_SE_SZ_SI_SB_iiiiibEERS9_RSC_RSG_S1E_E3$_0EEbT_RKT0_mEUlmE_ZNS6_IlS1F_EEbS1G_S1J_mEUllmE_S1K_EEbS1G_S1J_RKT1_RKT2_mEUlllmE_RlS1V_RmEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i": ; preds = %192, %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35.i.i.i.i
   store ptr %169, ptr %20, align 8, !tbaa !104
-  store ptr %191, ptr %129, align 8, !tbaa !107
+  store ptr %191, ptr %127, align 8, !tbaa !107
   %204 = getelementptr inbounds nuw %"class.std::thread", ptr %169, i64 %167
   store ptr %204, ptr %126, align 8, !tbaa !108
   br label %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJRKZN3igl12parallel_forIlZNS4_12parallel_forIlZNS4_8decimateERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS8_IiLin1ELin1ELi0ELin1ELin1EEERKSt8functionIFviSB_SE_SE_RKNS8_IiLin1ELi1ELi0ELin1ELi1EEESE_SE_RdRNS8_IdLi1ELin1ELi1ELi1ELin1EEEEERKSF_IFbSB_SE_SE_SI_SE_SE_RKSt14priority_queueISt5tupleIJdiiEES_ISS_SaISS_EESt7greaterISS_EESI_SB_iiiiiEERKSF_IFbSB_SE_SE_SI_SE_SE_SZ_SI_SB_iEERKSF_IFvSB_SE_SE_SI_SE_SE_SZ_SI_SB_iiiiibEERS9_RSC_RSG_S1E_E3$_0EEbT_RKT0_mEUlmE_ZNS6_IlS1F_EEbS1G_S1J_mEUllmE_S1K_EEbS1G_S1J_RKT1_RKT2_mEUlllmE_RlS1V_RmEEERS0_DpOT_.exit.i.i"
@@ -1891,9 +1891,9 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i10.i.i53.i.i: ; preds = 
 
 "_ZNSt6threadC2IRKZN3igl12parallel_forIlZNS1_12parallel_forIlZNS1_8decimateERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS5_IiLin1ELin1ELi0ELin1ELin1EEERKSt8functionIFviS8_SB_SB_RKNS5_IiLin1ELi1ELi0ELin1ELi1EEESB_SB_RdRNS5_IdLi1ELin1ELi1ELi1ELin1EEEEERKSC_IFbS8_SB_SB_SF_SB_SB_RKSt14priority_queueISt5tupleIJdiiEESt6vectorISP_SaISP_EESt7greaterISP_EESF_S8_iiiiiEERKSC_IFbS8_SB_SB_SF_SB_SB_SX_SF_S8_iEERKSC_IFvS8_SB_SB_SF_SB_SB_SX_SF_S8_iiiiibEERS6_RS9_RSD_S1C_E3$_0EEbT_RKT0_mEUlmE_ZNS3_IlS1D_EEbS1E_S1H_mEUllmE_S1I_EEbS1E_S1H_RKT1_RKT2_mEUlllmE_JRlRKlRmEvEEOS1E_DpOT0_.exit.i.i.i": ; preds = %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i57.i.i, %221
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
-  %232 = load ptr, ptr %129, align 8, !tbaa !107
+  %232 = load ptr, ptr %127, align 8, !tbaa !107
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 8
-  store ptr %233, ptr %129, align 8, !tbaa !107
+  store ptr %233, ptr %127, align 8, !tbaa !107
   br label %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJRKZN3igl12parallel_forIlZNS4_12parallel_forIlZNS4_8decimateERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS8_IiLin1ELin1ELi0ELin1ELin1EEERKSt8functionIFviSB_SE_SE_RKNS8_IiLin1ELi1ELi0ELin1ELi1EEESE_SE_RdRNS8_IdLi1ELin1ELi1ELi1ELin1EEEEERKSF_IFbSB_SE_SE_SI_SE_SE_RKSt14priority_queueISt5tupleIJdiiEES_ISS_SaISS_EESt7greaterISS_EESI_SB_iiiiiEERKSF_IFbSB_SE_SE_SI_SE_SE_SZ_SI_SB_iEERKSF_IFvSB_SE_SE_SI_SE_SE_SZ_SI_SB_iiiiibEERS9_RSC_RSG_S1E_E3$_0EEbT_RKT0_mEUlmE_ZNS6_IlS1F_EEbS1G_S1J_mEUllmE_S1K_EEbS1G_S1J_RKT1_RKT2_mEUlllmE_RlRKlRmEEERS0_DpOT_.exitthread-pre-split.i.i"
 
 234:                                              ; preds = %213
@@ -2023,13 +2023,13 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35.i.i72.i.i: ; p
 
 "_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJRKZN3igl12parallel_forIlZNS4_12parallel_forIlZNS4_8decimateERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS8_IiLin1ELin1ELi0ELin1ELin1EEERKSt8functionIFviSB_SE_SE_RKNS8_IiLin1ELi1ELi0ELin1ELi1EEESE_SE_RdRNS8_IdLi1ELin1ELi1ELi1ELin1EEEEERKSF_IFbSB_SE_SE_SI_SE_SE_RKSt14priority_queueISt5tupleIJdiiEES_ISS_SaISS_EESt7greaterISS_EESI_SB_iiiiiEERKSF_IFbSB_SE_SE_SI_SE_SE_SZ_SI_SB_iEERKSF_IFvSB_SE_SE_SI_SE_SE_SZ_SI_SB_iiiiibEERS9_RSC_RSG_S1E_E3$_0EEbT_RKT0_mEUlmE_ZNS6_IlS1F_EEbS1G_S1J_mEUllmE_S1K_EEbS1G_S1J_RKT1_RKT2_mEUlllmE_RlRKlRmEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i": ; preds = %269, %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35.i.i72.i.i
   store ptr %246, ptr %20, align 8, !tbaa !104
-  store ptr %268, ptr %129, align 8, !tbaa !107
+  store ptr %268, ptr %127, align 8, !tbaa !107
   %281 = getelementptr inbounds nuw %"class.std::thread", ptr %246, i64 %244
   store ptr %281, ptr %126, align 8, !tbaa !108
   br label %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJRKZN3igl12parallel_forIlZNS4_12parallel_forIlZNS4_8decimateERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS8_IiLin1ELin1ELi0ELin1ELin1EEERKSt8functionIFviSB_SE_SE_RKNS8_IiLin1ELi1ELi0ELin1ELi1EEESE_SE_RdRNS8_IdLi1ELin1ELi1ELi1ELin1EEEEERKSF_IFbSB_SE_SE_SI_SE_SE_RKSt14priority_queueISt5tupleIJdiiEES_ISS_SaISS_EESt7greaterISS_EESI_SB_iiiiiEERKSF_IFbSB_SE_SE_SI_SE_SE_SZ_SI_SB_iEERKSF_IFvSB_SE_SE_SI_SE_SE_SZ_SI_SB_iiiiibEERS9_RSC_RSG_S1E_E3$_0EEbT_RKT0_mEUlmE_ZNS6_IlS1F_EEbS1G_S1J_mEUllmE_S1K_EEbS1G_S1J_RKT1_RKT2_mEUlllmE_RlRKlRmEEERS0_DpOT_.exit.i.i"
 
-"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJRKZN3igl12parallel_forIlZNS4_12parallel_forIlZNS4_8decimateERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS8_IiLin1ELin1ELi0ELin1ELin1EEERKSt8functionIFviSB_SE_SE_RKNS8_IiLin1ELi1ELi0ELin1ELi1EEESE_SE_RdRNS8_IdLi1ELin1ELi1ELi1ELin1EEEEERKSF_IFbSB_SE_SE_SI_SE_SE_RKSt14priority_queueISt5tupleIJdiiEES_ISS_SaISS_EESt7greaterISS_EESI_SB_iiiiiEERKSF_IFbSB_SE_SE_SI_SE_SE_SZ_SI_SB_iEERKSF_IFvSB_SE_SE_SI_SE_SE_SZ_SI_SB_iiiiibEERS9_RSC_RSG_S1E_E3$_0EEbT_RKT0_mEUlmE_ZNS6_IlS1F_EEbS1G_S1J_mEUllmE_S1K_EEbS1G_S1J_RKT1_RKT2_mEUlllmE_RlRKlRmEEERS0_DpOT_.exitthread-pre-split.i.i": ; preds = %"_ZNSt6threadC2IRKZN3igl12parallel_forIlZNS1_12parallel_forIlZNS1_8decimateERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS5_IiLin1ELin1ELi0ELin1ELin1EEERKSt8functionIFviS8_SB_SB_RKNS5_IiLin1ELi1ELi0ELin1ELi1EEESB_SB_RdRNS5_IdLi1ELin1ELi1ELi1ELin1EEEEERKSC_IFbS8_SB_SB_SF_SB_SB_RKSt14priority_queueISt5tupleIJdiiEESt6vectorISP_SaISP_EESt7greaterISP_EESF_S8_iiiiiEERKSC_IFbS8_SB_SB_SF_SB_SB_SX_SF_S8_iEERKSC_IFvS8_SB_SB_SF_SB_SB_SX_SF_S8_iiiiibEERS6_RS9_RSD_S1C_E3$_0EEbT_RKT0_mEUlmE_ZNS3_IlS1D_EEbS1E_S1H_mEUllmE_S1I_EEbS1E_S1H_RKT1_RKT2_mEUlllmE_JRlRKlRmEvEEOS1E_DpOT0_.exit.i.i.i", %._crit_edge.i.i, %_ZNSt6vectorISt6threadSaIS0_EE7reserveEm.exit.i.i
-  %.ph.i.i = phi ptr [ %205, %._crit_edge.i.i ], [ %233, %"_ZNSt6threadC2IRKZN3igl12parallel_forIlZNS1_12parallel_forIlZNS1_8decimateERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS5_IiLin1ELin1ELi0ELin1ELin1EEERKSt8functionIFviS8_SB_SB_RKNS5_IiLin1ELi1ELi0ELin1ELi1EEESB_SB_RdRNS5_IdLi1ELin1ELi1ELi1ELin1EEEEERKSC_IFbS8_SB_SB_SF_SB_SB_RKSt14priority_queueISt5tupleIJdiiEESt6vectorISP_SaISP_EESt7greaterISP_EESF_S8_iiiiiEERKSC_IFbS8_SB_SB_SF_SB_SB_SX_SF_S8_iEERKSC_IFvS8_SB_SB_SF_SB_SB_SX_SF_S8_iiiiibEERS6_RS9_RSD_S1C_E3$_0EEbT_RKT0_mEUlmE_ZNS3_IlS1D_EEbS1E_S1H_mEUllmE_S1I_EEbS1E_S1H_RKT1_RKT2_mEUlllmE_JRlRKlRmEvEEOS1E_DpOT0_.exit.i.i.i" ], [ %128, %_ZNSt6vectorISt6threadSaIS0_EE7reserveEm.exit.i.i ]
+"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJRKZN3igl12parallel_forIlZNS4_12parallel_forIlZNS4_8decimateERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS8_IiLin1ELin1ELi0ELin1ELin1EEERKSt8functionIFviSB_SE_SE_RKNS8_IiLin1ELi1ELi0ELin1ELi1EEESE_SE_RdRNS8_IdLi1ELin1ELi1ELi1ELin1EEEEERKSF_IFbSB_SE_SE_SI_SE_SE_RKSt14priority_queueISt5tupleIJdiiEES_ISS_SaISS_EESt7greaterISS_EESI_SB_iiiiiEERKSF_IFbSB_SE_SE_SI_SE_SE_SZ_SI_SB_iEERKSF_IFvSB_SE_SE_SI_SE_SE_SZ_SI_SB_iiiiibEERS9_RSC_RSG_S1E_E3$_0EEbT_RKT0_mEUlmE_ZNS6_IlS1F_EEbS1G_S1J_mEUllmE_S1K_EEbS1G_S1J_RKT1_RKT2_mEUlllmE_RlRKlRmEEERS0_DpOT_.exitthread-pre-split.i.i": ; preds = %"_ZNSt6threadC2IRKZN3igl12parallel_forIlZNS1_12parallel_forIlZNS1_8decimateERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS5_IiLin1ELin1ELi0ELin1ELin1EEERKSt8functionIFviS8_SB_SB_RKNS5_IiLin1ELi1ELi0ELin1ELi1EEESB_SB_RdRNS5_IdLi1ELin1ELi1ELi1ELin1EEEEERKSC_IFbS8_SB_SB_SF_SB_SB_RKSt14priority_queueISt5tupleIJdiiEESt6vectorISP_SaISP_EESt7greaterISP_EESF_S8_iiiiiEERKSC_IFbS8_SB_SB_SF_SB_SB_SX_SF_S8_iEERKSC_IFvS8_SB_SB_SF_SB_SB_SX_SF_S8_iiiiibEERS6_RS9_RSD_S1C_E3$_0EEbT_RKT0_mEUlmE_ZNS3_IlS1D_EEbS1E_S1H_mEUllmE_S1I_EEbS1E_S1H_RKT1_RKT2_mEUlllmE_JRlRKlRmEvEEOS1E_DpOT0_.exit.i.i.i", %._crit_edge.i.i, %_ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit.i.i.i
+  %.ph.i.i = phi ptr [ %205, %._crit_edge.i.i ], [ %233, %"_ZNSt6threadC2IRKZN3igl12parallel_forIlZNS1_12parallel_forIlZNS1_8decimateERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS5_IiLin1ELin1ELi0ELin1ELin1EEERKSt8functionIFviS8_SB_SB_RKNS5_IiLin1ELi1ELi0ELin1ELi1EEESB_SB_RdRNS5_IdLi1ELin1ELi1ELi1ELin1EEEEERKSC_IFbS8_SB_SB_SF_SB_SB_RKSt14priority_queueISt5tupleIJdiiEESt6vectorISP_SaISP_EESt7greaterISP_EESF_S8_iiiiiEERKSC_IFbS8_SB_SB_SF_SB_SB_SX_SF_S8_iEERKSC_IFvS8_SB_SB_SF_SB_SB_SX_SF_S8_iiiiibEERS6_RS9_RSD_S1C_E3$_0EEbT_RKT0_mEUlmE_ZNS3_IlS1D_EEbS1E_S1H_mEUllmE_S1I_EEbS1E_S1H_RKT1_RKT2_mEUlllmE_JRlRKlRmEvEEOS1E_DpOT0_.exit.i.i.i" ], [ %129, %_ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit.i.i.i ]
   %.pr.i.i = load ptr, ptr %20, align 8, !tbaa !132
   br label %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJRKZN3igl12parallel_forIlZNS4_12parallel_forIlZNS4_8decimateERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS8_IiLin1ELin1ELi0ELin1ELin1EEERKSt8functionIFviSB_SE_SE_RKNS8_IiLin1ELi1ELi0ELin1ELi1EEESE_SE_RdRNS8_IdLi1ELin1ELi1ELi1ELin1EEEEERKSF_IFbSB_SE_SE_SI_SE_SE_RKSt14priority_queueISt5tupleIJdiiEES_ISS_SaISS_EESt7greaterISS_EESI_SB_iiiiiEERKSF_IFbSB_SE_SE_SI_SE_SE_SZ_SI_SB_iEERKSF_IFvSB_SE_SE_SI_SE_SE_SZ_SI_SB_iiiiibEERS9_RSC_RSG_S1E_E3$_0EEbT_RKT0_mEUlmE_ZNS6_IlS1F_EEbS1G_S1J_mEUllmE_S1K_EEbS1G_S1J_RKT1_RKT2_mEUlllmE_RlRKlRmEEERS0_DpOT_.exit.i.i"
 
@@ -3433,7 +3433,7 @@ define internal fastcc void @"_ZZN3igl12parallel_forIlZNS_8decimateERKN5Eigen6Ma
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #24
   %7 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #27
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.noexc, label %_ZN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEC2IiiEERKT_RKT0_.exit.i
+  br i1 %8, label %.noexc, label %.sink.split.i.i
 
 .noexc:                                           ; preds = %1
   %9 = tail call ptr @__cxa_allocate_exception(i64 8) #24
@@ -3441,7 +3441,7 @@ define internal fastcc void @"_ZZN3igl12parallel_forIlZNS_8decimateERKN5Eigen6Ma
   tail call void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #28
   unreachable
 
-_ZN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEC2IiiEERKT_RKT0_.exit.i: ; preds = %1
+.sink.split.i.i:                                  ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %7, ptr %4, align 8, !tbaa !166
   store i64 3, ptr %10, align 8, !tbaa !168
@@ -3465,14 +3465,14 @@ _ZN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEC2IiiEERKT_RKT0_.exit.i: ; preds = %1
   %.not.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i, label %26, label %27
 
-26:                                               ; preds = %_ZN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEC2IiiEERKT_RKT0_.exit.i
+26:                                               ; preds = %.sink.split.i.i
   invoke void @_ZSt25__throw_bad_function_callv() #28
           to label %.noexc.i unwind label %common.resume.i
 
 .noexc.i:                                         ; preds = %26
   unreachable
 
-27:                                               ; preds = %_ZN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEC2IiiEERKT_RKT0_.exit.i
+27:                                               ; preds = %.sink.split.i.i
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %29 = load ptr, ptr %28, align 8, !tbaa !32
   invoke void %29(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4)

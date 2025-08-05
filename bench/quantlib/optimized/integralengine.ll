@@ -1546,15 +1546,15 @@ invoke.cont150:                                   ; preds = %.noexc134, %invoke.
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %78 = load ptr, ptr %vfn, align 8
   %call153 = invoke noundef double %78(ptr noundef nonnull align 8 dereferenceable(8) %77)
-          to label %_ZN5boost10shared_ptrIN8QuantLib6PayoffEED2Ev.exit unwind label %lpad143
+          to label %invoke.cont152 unwind label %lpad143
 
-_ZN5boost10shared_ptrIN8QuantLib6PayoffEED2Ev.exit: ; preds = %invoke.cont150
+invoke.cont152:                                   ; preds = %invoke.cont150
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %integrator) #26
   invoke void @_ZN8QuantLib15SegmentIntegralC1Em(ptr noundef nonnull align 8 dereferenceable(48) %integrator, i64 noundef 5000)
           to label %invoke.cont157 unwind label %lpad156
 
-invoke.cont157:                                   ; preds = %_ZN5boost10shared_ptrIN8QuantLib6PayoffEED2Ev.exit
+invoke.cont157:                                   ; preds = %invoke.cont152
   %call158 = call double @sqrt(double noundef %call3.i88) #26, !tbaa !73
   %mul = fmul double %call158, 1.000000e+01
   %79 = load ptr, ptr %process_, align 8, !tbaa !39
@@ -1797,7 +1797,7 @@ lpad143:                                          ; preds = %cond.false.i132, %c
   call void @_ZN5boost10shared_ptrIN8QuantLib6PayoffEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #26
   br label %ehcleanup202
 
-lpad156:                                          ; preds = %_ZN5boost10shared_ptrIN8QuantLib6PayoffEED2Ev.exit
+lpad156:                                          ; preds = %invoke.cont152
   %110 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup195

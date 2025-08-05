@@ -895,7 +895,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZL19getPropertiesHelperB5cxx11v() unnamed_addr #0 {
-_ZN4llvh11raw_ostreamlsEPKc.exit:
+entry:
   %json = alloca %"class.std::__cxx11::basic_string", align 8
   %OS = alloca %"class.llvh::raw_string_ostream", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %json) #15
@@ -919,11 +919,11 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:
   %cmp.i.i7 = icmp ult i64 %sub.ptr.sub.i9.i6, 16
   br i1 %cmp.i.i7, label %if.then.i.i13, label %if.then4.i.i10
 
-if.then.i.i13:                                    ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
+if.then.i.i13:                                    ; preds = %entry
   %call3.i.i14 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %call1, ptr noundef nonnull @.str.12, i64 noundef 16) #15
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit15
 
-if.then4.i.i10:                                   ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
+if.then4.i.i10:                                   ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1, ptr noundef nonnull align 1 dereferenceable(16) @.str.12, i64 16, i1 false)
   %2 = load ptr, ptr %OutBufCur.i6.i3, align 8
   %add.ptr.i.i11 = getelementptr inbounds nuw i8, ptr %2, i64 16

@@ -8032,7 +8032,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i439.i: ; preds = %1
   %1919 = load ptr, ptr %45, align 8, !tbaa !101, !noalias !408
   %1920 = load ptr, ptr %128, align 8, !tbaa !104, !noalias !408
   %.not.i.i.i.i.i.i.i.i.i442.i = icmp eq ptr %1920, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i442.i, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit448.i, label %1921
+  br i1 %.not.i.i.i.i.i.i.i.i.i442.i, label %_ZSt10make_tupleIJN3ade6HandleINS0_4NodeEEERKS3_9DirectionEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSA_.exit.i, label %1921
 
 1921:                                             ; preds = %1918
   %1922 = getelementptr inbounds nuw i8, ptr %1920, i64 12
@@ -8044,13 +8044,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i439.i: ; preds = %1
   %1925 = load i32, ptr %1922, align 4, !tbaa !96, !noalias !408
   %1926 = add nsw i32 %1925, 1
   store i32 %1926, ptr %1922, align 4, !tbaa !96, !noalias !408
-  br label %_ZN3ade6HandleINS_4NodeEED2Ev.exit448.i
+  br label %_ZSt10make_tupleIJN3ade6HandleINS0_4NodeEEERKS3_9DirectionEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSA_.exit.i
 
 1927:                                             ; preds = %1921
   %1928 = atomicrmw volatile add ptr %1922, i32 1 acq_rel, align 4, !noalias !408
-  br label %_ZN3ade6HandleINS_4NodeEED2Ev.exit448.i
+  br label %_ZSt10make_tupleIJN3ade6HandleINS0_4NodeEEERKS3_9DirectionEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSA_.exit.i
 
-_ZN3ade6HandleINS_4NodeEED2Ev.exit448.i:          ; preds = %1927, %1924, %1918
+_ZSt10make_tupleIJN3ade6HandleINS0_4NodeEEERKS3_9DirectionEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSA_.exit.i: ; preds = %1927, %1924, %1918
   %1929 = load ptr, ptr %50, align 8, !tbaa !101, !noalias !408
   %1930 = load ptr, ptr %134, align 8, !tbaa !104, !noalias !408
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false), !noalias !408
@@ -8058,7 +8058,7 @@ _ZN3ade6HandleINS_4NodeEED2Ev.exit448.i:          ; preds = %1927, %1924, %1918
   %.not.i.i.i449.i = icmp eq ptr %1931, null
   br i1 %.not.i.i.i449.i, label %_ZN3ade6HandleINS_4EdgeEED2Ev.exit453.i, label %1932
 
-1932:                                             ; preds = %_ZN3ade6HandleINS_4NodeEED2Ev.exit448.i
+1932:                                             ; preds = %_ZSt10make_tupleIJN3ade6HandleINS0_4NodeEEERKS3_9DirectionEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSA_.exit.i
   %1933 = getelementptr inbounds nuw i8, ptr %1931, i64 12
   %1934 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !36, !noalias !225
   %.not.i.i.i.i450.i = icmp eq i8 %1934, 0
@@ -8086,7 +8086,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i451.i: ; preds = %193
   call void %1944(ptr noundef nonnull align 8 dereferenceable(16) %1931) #24, !noalias !225
   br label %_ZN3ade6HandleINS_4EdgeEED2Ev.exit453.i
 
-_ZN3ade6HandleINS_4EdgeEED2Ev.exit453.i:          ; preds = %1941, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i451.i, %_ZN3ade6HandleINS_4NodeEED2Ev.exit448.i
+_ZN3ade6HandleINS_4EdgeEED2Ev.exit453.i:          ; preds = %1941, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i451.i, %_ZSt10make_tupleIJN3ade6HandleINS0_4NodeEEERKS3_9DirectionEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSA_.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %51) #24, !noalias !225
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50) #24, !noalias !225
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %46) #24, !noalias !225
@@ -36430,11 +36430,11 @@ define linkonce_odr hidden void @_ZN7ChangeTIJN2cv5gimpl13DesyncIslEdgeEEE8DropL
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i32, ptr %10, align 8, !tbaa !933
   switch i32 %11, label %22 [
-    i32 1, label %_ZN3ade6HandleINS_4EdgeEED2Ev.exit
-    i32 2, label %_ZN3ade6HandleINS_4EdgeEED2Ev.exit21
+    i32 1, label %_ZN3ade6HandleINS_4EdgeEEaSEOS2_.exit
+    i32 2, label %_ZN3ade6HandleINS_4EdgeEEaSEOS2_.exit16
   ]
 
-_ZN3ade6HandleINS_4EdgeEED2Ev.exit:               ; preds = %2
+_ZN3ade6HandleINS_4EdgeEEaSEOS2_.exit:            ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #24
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -36445,7 +36445,7 @@ _ZN3ade6HandleINS_4EdgeEED2Ev.exit:               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #24
   br label %35
 
-_ZN3ade6HandleINS_4EdgeEED2Ev.exit21:             ; preds = %2
+_ZN3ade6HandleINS_4EdgeEEaSEOS2_.exit16:          ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #24
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -36499,9 +36499,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
   br label %_ZN3ade6HandleINS_4EdgeEED2Ev.exit48
 
-35:                                               ; preds = %_ZN3ade6HandleINS_4EdgeEED2Ev.exit, %_ZN3ade6HandleINS_4EdgeEED2Ev.exit21
-  %.sroa.0.0 = phi ptr [ %14, %_ZN3ade6HandleINS_4EdgeEED2Ev.exit ], [ %19, %_ZN3ade6HandleINS_4EdgeEED2Ev.exit21 ]
-  %.sroa.8.1 = phi ptr [ %16, %_ZN3ade6HandleINS_4EdgeEED2Ev.exit ], [ %21, %_ZN3ade6HandleINS_4EdgeEED2Ev.exit21 ]
+35:                                               ; preds = %_ZN3ade6HandleINS_4EdgeEEaSEOS2_.exit, %_ZN3ade6HandleINS_4EdgeEEaSEOS2_.exit16
+  %.sroa.0.0 = phi ptr [ %14, %_ZN3ade6HandleINS_4EdgeEEaSEOS2_.exit ], [ %19, %_ZN3ade6HandleINS_4EdgeEEaSEOS2_.exit16 ]
+  %.sroa.8.1 = phi ptr [ %16, %_ZN3ade6HandleINS_4EdgeEEaSEOS2_.exit ], [ %21, %_ZN3ade6HandleINS_4EdgeEEaSEOS2_.exit16 ]
   %.not.i.i.i.i.i.i22 = icmp eq ptr %.sroa.8.1, null
   br i1 %.not.i.i.i.i.i.i22, label %_ZN3adeneERKNS_6HandleINS_4EdgeEEEDn.exit.thread, label %36
 

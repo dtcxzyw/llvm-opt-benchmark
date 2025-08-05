@@ -9834,9 +9834,9 @@ entry:
   %quote_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #25
   invoke void @_ZN8QuantLib15makeQuoteHandleEd(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::RelinkableHandle.92") align 8 %ref.tmp, double noundef %quote)
-          to label %_ZN8QuantLib6HandleINS_5QuoteEED2Ev.exit unwind label %lpad
+          to label %invoke.cont unwind label %lpad
 
-_ZN8QuantLib6HandleINS_5QuoteEED2Ev.exit:         ; preds = %entry
+invoke.cont:                                      ; preds = %entry
   %3 = load ptr, ptr %ref.tmp, align 8, !tbaa !119
   store ptr %3, ptr %quote_, align 8, !tbaa !119
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -9850,7 +9850,7 @@ _ZN8QuantLib6HandleINS_5QuoteEED2Ev.exit:         ; preds = %entry
   invoke void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %earliestDate_)
           to label %invoke.cont3 unwind label %lpad2
 
-invoke.cont3:                                     ; preds = %_ZN8QuantLib6HandleINS_5QuoteEED2Ev.exit
+invoke.cont3:                                     ; preds = %invoke.cont
   %latestDate_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   invoke void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %latestDate_)
           to label %invoke.cont4 unwind label %lpad2
@@ -9879,7 +9879,7 @@ lpad:                                             ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #25
   br label %ehcleanup
 
-lpad2:                                            ; preds = %invoke.cont6, %invoke.cont5, %invoke.cont4, %invoke.cont3, %_ZN8QuantLib6HandleINS_5QuoteEED2Ev.exit
+lpad2:                                            ; preds = %invoke.cont6, %invoke.cont5, %invoke.cont4, %invoke.cont3, %invoke.cont
   %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8QuantLib6HandleINS_5QuoteEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %quote_) #25

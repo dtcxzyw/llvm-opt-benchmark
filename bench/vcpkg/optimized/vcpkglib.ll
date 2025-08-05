@@ -3229,7 +3229,7 @@ define dso_local void @_ZN5vcpkg19get_installed_filesERKNS_18ReadOnlyFilesystemE
   store ptr @.str, ptr %11, align 8, !tbaa !38, !noalias !166
   %68 = load i8, ptr %12, align 8, !tbaa !171, !range !42, !noalias !166, !noundef !43
   %69 = trunc nuw i8 %68 to i1
-  br i1 %69, label %70, label %_ZN5vcpkg9ExpectedTISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EENS_15LocalizedStringEED2Ev.exit.i
+  br i1 %69, label %70, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i
 
 70:                                               ; preds = %67
   %71 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKR5vcpkg9ExpectedTISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EENS_15LocalizedStringEE5errorEv(ptr noundef nonnull align 8 dereferenceable(33) %7) #21
@@ -3246,7 +3246,7 @@ define dso_local void @_ZN5vcpkg19get_installed_filesERKNS_18ReadOnlyFilesystemE
   call void @__clang_call_terminate(ptr %75) #25
   unreachable
 
-_ZN5vcpkg9ExpectedTISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EENS_15LocalizedStringEED2Ev.exit.i: ; preds = %67
+_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i: ; preds = %67
   %76 = load ptr, ptr %7, align 8, !tbaa !173, !noalias !166
   store ptr %76, ptr %6, align 8, !tbaa !173, !noalias !166
   %77 = load ptr, ptr %14, align 8, !tbaa !176, !noalias !166
@@ -3258,7 +3258,7 @@ _ZN5vcpkg9ExpectedTISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   invoke void @_ZN5vcpkg7Strings46inplace_trim_all_and_remove_whitespace_stringsERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %79 unwind label %193
 
-79:                                               ; preds = %_ZN5vcpkg9ExpectedTISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EENS_15LocalizedStringEED2Ev.exit.i
+79:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i
   %80 = invoke fastcc noundef zeroext i1 @_ZN5vcpkgL41upgrade_to_slash_terminated_sorted_formatERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %81 unwind label %193
 
@@ -3539,7 +3539,7 @@ _ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11ch
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #21, !noalias !166
   br label %333
 
-193:                                              ; preds = %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN5vcpkgL24get_installed_files_implILb0ENSD_18ReadOnlyFilesystemEEES9_INSD_33StatusParagraphAndAssociatedFilesESaISG_EERKT0_RKNSD_14InstalledPathsERKNSD_16StatusParagraphsEEUlRKS7_E_ET_SV_SV_SJ_.exit.i.i, %79, %_ZN5vcpkg9ExpectedTISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EENS_15LocalizedStringEED2Ev.exit.i
+193:                                              ; preds = %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN5vcpkgL24get_installed_files_implILb0ENSD_18ReadOnlyFilesystemEEES9_INSD_33StatusParagraphAndAssociatedFilesESaISG_EERKT0_RKNSD_14InstalledPathsERKNSD_16StatusParagraphsEEUlRKS7_E_ET_SV_SV_SJ_.exit.i.i, %79, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i
   %194 = landingpad { ptr, i32 }
           cleanup
   br label %332
@@ -4033,7 +4033,7 @@ define dso_local void @_ZN5vcpkg31get_installed_files_and_upgradeERKNS_10Filesys
   store ptr @.str, ptr %12, align 8, !tbaa !38, !noalias !204
   %71 = load i8, ptr %13, align 8, !tbaa !171, !range !42, !noalias !204, !noundef !43
   %72 = trunc nuw i8 %71 to i1
-  br i1 %72, label %73, label %_ZN5vcpkg9ExpectedTISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EENS_15LocalizedStringEED2Ev.exit.i
+  br i1 %72, label %73, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i
 
 73:                                               ; preds = %70
   %74 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKR5vcpkg9ExpectedTISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EENS_15LocalizedStringEE5errorEv(ptr noundef nonnull align 8 dereferenceable(33) %7) #21
@@ -4050,7 +4050,7 @@ define dso_local void @_ZN5vcpkg31get_installed_files_and_upgradeERKNS_10Filesys
   call void @__clang_call_terminate(ptr %78) #25
   unreachable
 
-_ZN5vcpkg9ExpectedTISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EENS_15LocalizedStringEED2Ev.exit.i: ; preds = %70
+_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i: ; preds = %70
   %79 = load ptr, ptr %7, align 8, !tbaa !173, !noalias !204
   store ptr %79, ptr %6, align 8, !tbaa !173, !noalias !204
   %80 = load ptr, ptr %15, align 8, !tbaa !176, !noalias !204
@@ -4062,7 +4062,7 @@ _ZN5vcpkg9ExpectedTISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   invoke void @_ZN5vcpkg7Strings46inplace_trim_all_and_remove_whitespace_stringsERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %82 unwind label %99
 
-82:                                               ; preds = %_ZN5vcpkg9ExpectedTISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EENS_15LocalizedStringEED2Ev.exit.i
+82:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i
   %83 = invoke fastcc noundef zeroext i1 @_ZN5vcpkgL41upgrade_to_slash_terminated_sorted_formatERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %84 unwind label %99
 
@@ -4114,7 +4114,7 @@ _ZN5vcpkg4PathD2Ev.exit.i:                        ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #21, !noalias !204
   br label %357
 
-99:                                               ; preds = %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN5vcpkgL24get_installed_files_implILb1ENSD_10FilesystemEEES9_INSD_33StatusParagraphAndAssociatedFilesESaISG_EERKT0_RKNSD_14InstalledPathsERKNSD_16StatusParagraphsEEUlRKS7_E_ET_SV_SV_SJ_.exit.i.i, %82, %_ZN5vcpkg9ExpectedTISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EENS_15LocalizedStringEED2Ev.exit.i
+99:                                               ; preds = %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN5vcpkgL24get_installed_files_implILb1ENSD_10FilesystemEEES9_INSD_33StatusParagraphAndAssociatedFilesESaISG_EERKT0_RKNSD_14InstalledPathsERKNSD_16StatusParagraphsEEUlRKS7_E_ET_SV_SV_SJ_.exit.i.i, %82, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i
   %100 = landingpad { ptr, i32 }
           cleanup
   br label %356

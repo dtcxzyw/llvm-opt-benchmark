@@ -31,9 +31,9 @@ _ZNKSt6vectorIN2cv13wechat_qrcode12BinarizerMgr9BINARIZERESaIS3_EE12_M_check_len
   store ptr %6, ptr %3, align 8, !tbaa !17
   store ptr %6, ptr %4, align 8, !tbaa !18
   %7 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #12
-          to label %_ZNSt6vectorIN2cv13wechat_qrcode12BinarizerMgr9BINARIZERESaIS3_EE9push_backEOS3_.exit14 unwind label %.thread
+          to label %_ZNKSt6vectorIN2cv13wechat_qrcode12BinarizerMgr9BINARIZERESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i16 unwind label %.thread
 
-_ZNSt6vectorIN2cv13wechat_qrcode12BinarizerMgr9BINARIZERESaIS3_EE9push_backEOS3_.exit14: ; preds = %_ZNKSt6vectorIN2cv13wechat_qrcode12BinarizerMgr9BINARIZERESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i6
+_ZNKSt6vectorIN2cv13wechat_qrcode12BinarizerMgr9BINARIZERESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i16: ; preds = %_ZNKSt6vectorIN2cv13wechat_qrcode12BinarizerMgr9BINARIZERESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 1, ptr %8, align 4, !tbaa !14
   %9 = load i32, ptr %5, align 4
@@ -45,9 +45,9 @@ _ZNSt6vectorIN2cv13wechat_qrcode12BinarizerMgr9BINARIZERESaIS3_EE9push_backEOS3_
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %11, ptr %4, align 8, !tbaa !18
   %12 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #12
-          to label %.noexc23 unwind label %thread-pre-split
+          to label %_ZNSt6vectorIN2cv13wechat_qrcode12BinarizerMgr9BINARIZERESaIS3_EE9push_backEOS3_.exit24 unwind label %thread-pre-split
 
-.noexc23:                                         ; preds = %_ZNSt6vectorIN2cv13wechat_qrcode12BinarizerMgr9BINARIZERESaIS3_EE9push_backEOS3_.exit14
+_ZNSt6vectorIN2cv13wechat_qrcode12BinarizerMgr9BINARIZERESaIS3_EE9push_backEOS3_.exit24: ; preds = %_ZNKSt6vectorIN2cv13wechat_qrcode12BinarizerMgr9BINARIZERESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i16
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 2, ptr %13, align 4, !tbaa !14
   %14 = load i64, ptr %7, align 4
@@ -73,7 +73,7 @@ _ZNSt6vectorIN2cv13wechat_qrcode12BinarizerMgr9BINARIZERESaIS3_EE9push_backEOS3_
           cleanup
   br label %24
 
-thread-pre-split:                                 ; preds = %_ZNSt6vectorIN2cv13wechat_qrcode12BinarizerMgr9BINARIZERESaIS3_EE9push_backEOS3_.exit14
+thread-pre-split:                                 ; preds = %_ZNKSt6vectorIN2cv13wechat_qrcode12BinarizerMgr9BINARIZERESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i16
   %21 = landingpad { ptr, i32 }
           cleanup
   %.pr = load ptr, ptr %2, align 8, !tbaa !16
@@ -86,14 +86,14 @@ thread-pre-split:                                 ; preds = %_ZNSt6vectorIN2cv13
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv13wechat_qrcode12BinarizerMgr9BINARIZERESaIS3_EED2Ev.exit, label %24
 
 24:                                               ; preds = %.thread, %22
-  %.pn45 = phi { ptr, i32 } [ %20, %.thread ], [ %.pn, %22 ]
+  %.pn44 = phi { ptr, i32 } [ %20, %.thread ], [ %.pn, %22 ]
   %25 = phi ptr [ %5, %.thread ], [ %23, %22 ]
   tail call void @_ZdlPv(ptr noundef nonnull %25) #13
   br label %_ZNSt6vectorIN2cv13wechat_qrcode12BinarizerMgr9BINARIZERESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIN2cv13wechat_qrcode12BinarizerMgr9BINARIZERESaIS3_EED2Ev.exit: ; preds = %22, %24
-  %.pn46 = phi { ptr, i32 } [ %.pn, %22 ], [ %.pn45, %24 ]
-  resume { ptr, i32 } %.pn46
+  %.pn45 = phi { ptr, i32 } [ %.pn, %22 ], [ %.pn44, %24 ]
+  resume { ptr, i32 } %.pn45
 }
 
 declare i32 @__gxx_personality_v0(...)

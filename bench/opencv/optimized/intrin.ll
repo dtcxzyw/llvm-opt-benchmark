@@ -9036,12 +9036,12 @@ _ZNSt6vectorIN3ade6HandleINS0_4NodeEEESaIS3_EE12emplace_backIJS3_EEEvDpOT_.exit.
           to label %_ZNSt6vectorIN3ade6HandleINS0_4NodeEEESaIS3_EE12emplace_backIJS3_EEEvDpOT_.exit unwind label %62
 
 _ZNSt6vectorIN3ade6HandleINS0_4NodeEEESaIS3_EE12emplace_backIJS3_EEEvDpOT_.exit: ; preds = %42
-  %.pre = load ptr, ptr %14, align 8, !tbaa !62
-  %.not.i.i.i = icmp eq ptr %.pre, null
+  %.pr = load ptr, ptr %14, align 8, !tbaa !62
+  %.not.i.i.i = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit, label %43
 
 43:                                               ; preds = %_ZNSt6vectorIN3ade6HandleINS0_4NodeEEESaIS3_EE12emplace_backIJS3_EEEvDpOT_.exit
-  %44 = getelementptr inbounds nuw i8, ptr %.pre, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %.pr, i64 12
   %45 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20
   %.not.i.i.i.i = icmp eq i8 %45, 0
   br i1 %.not.i.i.i.i, label %49, label %46
@@ -9062,10 +9062,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %49, %46
   br i1 %51, label %52, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit
 
 52:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  %53 = load ptr, ptr %.pre, align 8, !tbaa !65
+  %53 = load ptr, ptr %.pr, align 8, !tbaa !65
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(16) %.pre) #24
+  call void %55(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #24
   br label %_ZN3ade6HandleINS_4NodeEED2Ev.exit
 
 _ZN3ade6HandleINS_4NodeEED2Ev.exit:               ; preds = %_ZNSt6vectorIN3ade6HandleINS0_4NodeEEESaIS3_EE12emplace_backIJS3_EEEvDpOT_.exit.thread, %_ZNSt6vectorIN3ade6HandleINS0_4NodeEEESaIS3_EE12emplace_backIJS3_EEEvDpOT_.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %52

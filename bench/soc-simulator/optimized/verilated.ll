@@ -2681,12 +2681,12 @@ define dso_local void @_Z12VL_PRINTF_MTPKcz(ptr noundef readonly captures(none) 
   %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef 32) #57
-  %.pre = load ptr, ptr %22, align 8
-  %.not.i.i.i = icmp eq ptr %.pre, null
+  %.pr = load ptr, ptr %22, align 8
+  %.not.i.i.i = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i, label %.body8, label %26
 
 26:                                               ; preds = %.body19
-  %27 = invoke noundef zeroext i1 %.pre(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %21, i32 noundef 3)
+  %27 = invoke noundef zeroext i1 %.pr(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %21, i32 noundef 3)
           to label %.body8 unwind label %28
 
 28:                                               ; preds = %26

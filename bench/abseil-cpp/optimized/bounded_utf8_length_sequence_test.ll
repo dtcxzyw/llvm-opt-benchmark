@@ -6662,7 +6662,6 @@ define internal void @_ZN4absl18debugging_internal12_GLOBAL__N_175BoundedUtf8Len
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false), !tbaa !65
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %.lr.ph48.i
 
 .lr.ph48.i:                                       ; preds = %.lr.ph48.i, %1
@@ -6678,6 +6677,7 @@ define internal void @_ZN4absl18debugging_internal12_GLOBAL__N_175BoundedUtf8Len
   br i1 %.not, label %_ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj96EE32InsertAndReturnSumOfPredecessorsEjj.exit, label %.lr.ph48.i, !llvm.loop !66
 
 _ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj96EE32InsertAndReturnSumOfPredecessorsEjj.exit: ; preds = %.lr.ph48.i
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 -9223372036854775808, ptr %2, align 8, !tbaa !65
   call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %3)
   %37 = load i8, ptr %3, align 8, !tbaa !20, !range !30, !noundef !31

@@ -162,7 +162,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN2EA6Thread7BarrierC2Ei(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 105)) %this, i32 noundef %height) unnamed_addr #4 align 2 {
-if.then.i:
+entry:
   %mbValid.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %mnHeight.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %this, i8 0, i64 105, i1 false)
@@ -174,7 +174,7 @@ if.then.i:
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then10.i, label %_ZN2EA6Thread7Barrier4InitEPKNS0_17BarrierParametersE.exit
 
-if.then10.i:                                      ; preds = %if.then.i
+if.then10.i:                                      ; preds = %entry
   %call12.i = tail call i32 @pthread_cond_init(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef null) #10
   %cmp13.i = icmp eq i32 %call12.i, 0
   br i1 %cmp13.i, label %if.then14.i, label %if.else.i
@@ -187,7 +187,7 @@ if.else.i:                                        ; preds = %if.then10.i
   %call19.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mMutex.i) #10
   br label %_ZN2EA6Thread7Barrier4InitEPKNS0_17BarrierParametersE.exit
 
-_ZN2EA6Thread7Barrier4InitEPKNS0_17BarrierParametersE.exit: ; preds = %if.then.i, %if.then14.i, %if.else.i
+_ZN2EA6Thread7Barrier4InitEPKNS0_17BarrierParametersE.exit: ; preds = %entry, %if.then14.i, %if.else.i
   ret void
 }
 

@@ -183,97 +183,76 @@ define linkonce_odr void @_ZN5folly3ssl11OpenSSLHash4hashENS_5RangeIPhEEPK9evp_m
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = invoke ptr @EVP_MD_CTX_new()
-          to label %.noexc unwind label %33
+          to label %_ZNSt10unique_ptrI13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEE5resetEPS0_.exit.i unwind label %27
 
-.noexc:                                           ; preds = %5
-  %9 = load ptr, ptr %7, align 8, !tbaa !20
+_ZNSt10unique_ptrI13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEE5resetEPS0_.exit.i: ; preds = %5
   store ptr %8, ptr %7, align 8, !tbaa !20
-  %.not.i.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i.i, label %_ZNSt10unique_ptrI13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEE5resetEPS0_.exit.i, label %10
+  %.not.i3.i = icmp eq ptr %8, null
+  br i1 %.not.i3.i, label %.invoke, label %9
 
-10:                                               ; preds = %.noexc
-  invoke void @EVP_MD_CTX_free(ptr noundef nonnull %9)
-          to label %_ZNSt10unique_ptrI13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEE5resetEPS0_.exitthread-pre-split.i unwind label %11
+9:                                                ; preds = %_ZNSt10unique_ptrI13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEE5resetEPS0_.exit.i
+  %10 = invoke i32 @EVP_DigestInit_ex(ptr noundef nonnull %8, ptr noundef %2, ptr noundef null)
+          to label %.noexc9 unwind label %27
 
-11:                                               ; preds = %10
-  %12 = landingpad { ptr, i32 }
-          catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #17
-  unreachable
+.noexc9:                                          ; preds = %9
+  %11 = icmp eq i32 %10, 1
+  br i1 %11, label %12, label %.invoke, !prof !22
 
-_ZNSt10unique_ptrI13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEE5resetEPS0_.exitthread-pre-split.i: ; preds = %10
-  %.pr.i = load ptr, ptr %7, align 8, !tbaa !20
-  br label %_ZNSt10unique_ptrI13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEE5resetEPS0_.exit.i
-
-_ZNSt10unique_ptrI13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEE5resetEPS0_.exit.i: ; preds = %_ZNSt10unique_ptrI13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEE5resetEPS0_.exitthread-pre-split.i, %.noexc
-  %14 = phi ptr [ %.pr.i, %_ZNSt10unique_ptrI13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEE5resetEPS0_.exitthread-pre-split.i ], [ %8, %.noexc ]
-  %.not.i3.i = icmp eq ptr %14, null
-  br i1 %.not.i3.i, label %.invoke, label %15
-
-15:                                               ; preds = %_ZNSt10unique_ptrI13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEE5resetEPS0_.exit.i
-  %16 = invoke i32 @EVP_DigestInit_ex(ptr noundef nonnull %14, ptr noundef %2, ptr noundef null)
-          to label %.noexc9 unwind label %33
-
-.noexc9:                                          ; preds = %15
-  %17 = icmp eq i32 %16, 1
-  br i1 %17, label %18, label %.invoke, !prof !22
-
-18:                                               ; preds = %.noexc9
+12:                                               ; preds = %.noexc9
   store ptr %2, ptr %6, align 8, !tbaa !23
-  %19 = load ptr, ptr %7, align 8, !tbaa !20
-  %.not.i.i11 = icmp eq ptr %19, null
-  br i1 %.not.i.i11, label %.invoke, label %20
+  %13 = load ptr, ptr %7, align 8, !tbaa !20
+  %.not.i.i11 = icmp eq ptr %13, null
+  br i1 %.not.i.i11, label %.invoke, label %14
 
-20:                                               ; preds = %18
-  %21 = ptrtoint ptr %4 to i64
-  %22 = ptrtoint ptr %3 to i64
-  %23 = sub i64 %21, %22
-  %24 = invoke i32 @EVP_DigestUpdate(ptr noundef nonnull %19, ptr noundef %3, i64 noundef %23)
-          to label %.noexc13 unwind label %33
+14:                                               ; preds = %12
+  %15 = ptrtoint ptr %4 to i64
+  %16 = ptrtoint ptr %3 to i64
+  %17 = sub i64 %15, %16
+  %18 = invoke i32 @EVP_DigestUpdate(ptr noundef nonnull %13, ptr noundef %3, i64 noundef %17)
+          to label %.noexc13 unwind label %27
 
-.noexc13:                                         ; preds = %20
-  %25 = icmp eq i32 %24, 1
-  br i1 %25, label %_ZN5folly3ssl11OpenSSLHash6Digest11hash_updateENS_5RangeIPKhEE.exit, label %.invoke, !prof !22
+.noexc13:                                         ; preds = %14
+  %19 = icmp eq i32 %18, 1
+  br i1 %19, label %_ZN5folly3ssl11OpenSSLHash6Digest11hash_updateENS_5RangeIPKhEE.exit, label %.invoke, !prof !22
 
-.invoke:                                          ; preds = %.noexc13, %18, %.noexc9, %_ZNSt10unique_ptrI13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEE5resetEPS0_.exit.i
-  %26 = phi ptr [ @.str, %_ZNSt10unique_ptrI13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEE5resetEPS0_.exit.i ], [ @.str.1, %.noexc9 ], [ @.str.2, %18 ], [ @.str.1, %.noexc13 ]
-  invoke void @_ZN5folly6detail16throw_exception_ISt13runtime_errorJPKcEEEvDpT0_(ptr noundef nonnull %26) #10
-          to label %.cont unwind label %33
+.invoke:                                          ; preds = %.noexc13, %12, %.noexc9, %_ZNSt10unique_ptrI13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEE5resetEPS0_.exit.i
+  %20 = phi ptr [ @.str, %_ZNSt10unique_ptrI13evp_md_ctx_stN5folly23static_function_deleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEE5resetEPS0_.exit.i ], [ @.str.1, %.noexc9 ], [ @.str.2, %12 ], [ @.str.1, %.noexc13 ]
+  invoke void @_ZN5folly6detail16throw_exception_ISt13runtime_errorJPKcEEEvDpT0_(ptr noundef nonnull %20) #10
+          to label %.cont unwind label %27
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
 _ZN5folly3ssl11OpenSSLHash6Digest11hash_updateENS_5RangeIPKhEE.exit: ; preds = %.noexc13
   invoke void @_ZN5folly3ssl11OpenSSLHash6Digest10hash_finalENS_5RangeIPhEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr %0, ptr %1)
-          to label %27 unwind label %33
+          to label %21 unwind label %27
 
-27:                                               ; preds = %_ZN5folly3ssl11OpenSSLHash6Digest11hash_updateENS_5RangeIPKhEE.exit
-  %28 = load ptr, ptr %7, align 8, !tbaa !20
-  %.not.i.i15 = icmp eq ptr %28, null
-  br i1 %.not.i.i15, label %_ZN5folly3ssl11OpenSSLHash6DigestD2Ev.exit, label %29
+21:                                               ; preds = %_ZN5folly3ssl11OpenSSLHash6Digest11hash_updateENS_5RangeIPKhEE.exit
+  %22 = load ptr, ptr %7, align 8, !tbaa !20
+  %.not.i.i15 = icmp eq ptr %22, null
+  br i1 %.not.i.i15, label %_ZN5folly3ssl11OpenSSLHash6DigestD2Ev.exit, label %23
 
-29:                                               ; preds = %27
-  invoke void @EVP_MD_CTX_free(ptr noundef nonnull %28)
-          to label %_ZN5folly3ssl11OpenSSLHash6DigestD2Ev.exit unwind label %30
+23:                                               ; preds = %21
+  invoke void @EVP_MD_CTX_free(ptr noundef nonnull %22)
+          to label %_ZN5folly3ssl11OpenSSLHash6DigestD2Ev.exit unwind label %24
 
-30:                                               ; preds = %29
-  %31 = landingpad { ptr, i32 }
+24:                                               ; preds = %23
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #17
+  %26 = extractvalue { ptr, i32 } %25, 0
+  call void @__clang_call_terminate(ptr %26) #17
   unreachable
 
-_ZN5folly3ssl11OpenSSLHash6DigestD2Ev.exit:       ; preds = %27, %29
+_ZN5folly3ssl11OpenSSLHash6DigestD2Ev.exit:       ; preds = %21, %23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
   ret void
 
-33:                                               ; preds = %.invoke, %20, %15, %5, %_ZN5folly3ssl11OpenSSLHash6Digest11hash_updateENS_5RangeIPKhEE.exit
-  %34 = landingpad { ptr, i32 }
+27:                                               ; preds = %.invoke, %14, %9, %5, %_ZN5folly3ssl11OpenSSLHash6Digest11hash_updateENS_5RangeIPKhEE.exit
+  %28 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5folly3ssl11OpenSSLHash6DigestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
-  resume { ptr, i32 } %34
+  resume { ptr, i32 } %28
 }
 
 declare ptr @EVP_blake2s256() local_unnamed_addr #5

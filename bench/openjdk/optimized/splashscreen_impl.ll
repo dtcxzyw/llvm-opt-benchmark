@@ -114,8 +114,8 @@ SplashGetInstance.exit.thread:                    ; preds = %0
   br label %3
 
 SplashGetInstance.exit:                           ; preds = %0
-  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11668), align 4
-  %1 = icmp sgt i32 %.pre, 0
+  %.pr = load i32, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11668), align 4
+  %1 = icmp sgt i32 %.pr, 0
   br i1 %1, label %2, label %3
 
 2:                                                ; preds = %SplashGetInstance.exit
@@ -1032,8 +1032,8 @@ SplashGetInstance.exit.thread:                    ; preds = %1
   br label %6
 
 SplashGetInstance.exit:                           ; preds = %1
-  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11668), align 4
-  %2 = icmp slt i32 %.pre, 0
+  %.pr = load i32, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11668), align 4
+  %2 = icmp slt i32 %.pr, 0
   br i1 %2, label %3, label %6
 
 3:                                                ; preds = %SplashGetInstance.exit

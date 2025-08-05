@@ -404,7 +404,7 @@ declare void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6duckdb14BaseStatisticsC2ENS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-_ZN6duckdb11LogicalTypeaSEOS0_.exit:
+_ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i:
   %2 = alloca %"struct.duckdb::LogicalType", align 8
   tail call void @_ZN6duckdb11LogicalTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -437,19 +437,19 @@ _ZN6duckdb11LogicalTypeaSEOS0_.exit:
     i8 5, label %20
   ]
 
-18:                                               ; preds = %_ZN6duckdb11LogicalTypeaSEOS0_.exit
+18:                                               ; preds = %_ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i
   invoke void @_ZN6duckdb9ListStats9ConstructERNS_14BaseStatisticsE(ptr noundef nonnull align 8 dereferenceable(88) %0)
           to label %_ZN6duckdb14BaseStatistics9ConstructERS0_NS_11LogicalTypeE.exit unwind label %21
 
-19:                                               ; preds = %_ZN6duckdb11LogicalTypeaSEOS0_.exit
+19:                                               ; preds = %_ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i
   invoke void @_ZN6duckdb11StructStats9ConstructERNS_14BaseStatisticsE(ptr noundef nonnull align 8 dereferenceable(88) %0)
           to label %_ZN6duckdb14BaseStatistics9ConstructERS0_NS_11LogicalTypeE.exit unwind label %21
 
-20:                                               ; preds = %_ZN6duckdb11LogicalTypeaSEOS0_.exit
+20:                                               ; preds = %_ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i
   invoke void @_ZN6duckdb10ArrayStats9ConstructERNS_14BaseStatisticsE(ptr noundef nonnull align 8 dereferenceable(88) %0)
           to label %_ZN6duckdb14BaseStatistics9ConstructERS0_NS_11LogicalTypeE.exit unwind label %21
 
-_ZN6duckdb14BaseStatistics9ConstructERS0_NS_11LogicalTypeE.exit: ; preds = %_ZN6duckdb11LogicalTypeaSEOS0_.exit, %18, %19, %20
+_ZN6duckdb14BaseStatistics9ConstructERS0_NS_11LogicalTypeE.exit: ; preds = %_ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i, %18, %19, %20
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #29
   ret void
 

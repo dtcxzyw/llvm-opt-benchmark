@@ -2714,19 +2714,19 @@ _ZN7msgpack2v14zonenwEm.exit:                     ; preds = %8
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i32 0, ptr %25, align 8, !tbaa !171
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 88
-  %27 = getelementptr inbounds nuw i8, ptr %9, i64 104
-  %28 = ptrtoint ptr %11 to i64
-  %29 = invoke noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #30
+  %27 = ptrtoint ptr %11 to i64
+  %28 = invoke noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #30
           to label %.noexc12 unwind label %55
 
 .noexc12:                                         ; preds = %17
-  store ptr %29, ptr %26, align 8, !tbaa !172
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 256
-  store ptr %30, ptr %27, align 8, !tbaa !173
-  %31 = getelementptr inbounds nuw i8, ptr %9, i64 96
-  store ptr %25, ptr %29, align 8, !tbaa !174
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store ptr %32, ptr %31, align 8, !tbaa !175
+  %29 = getelementptr inbounds nuw i8, ptr %9, i64 104
+  %30 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  store ptr %28, ptr %26, align 8, !tbaa !172
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 256
+  store ptr %31, ptr %29, align 8, !tbaa !173
+  store ptr %25, ptr %28, align 8, !tbaa !174
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store ptr %32, ptr %30, align 8, !tbaa !175
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 112
   store ptr %11, ptr %33, align 8, !tbaa !176
   store i8 0, ptr %4, align 1, !tbaa !158
@@ -2746,7 +2746,7 @@ _ZN7msgpack2v14zonenwEm.exit:                     ; preds = %8
   br i1 %.not.i.i.i.i.i, label %52, label %39
 
 39:                                               ; preds = %36
-  %40 = load ptr, ptr %27, align 8, !tbaa !173
+  %40 = load ptr, ptr %29, align 8, !tbaa !173
   %41 = ptrtoint ptr %40 to i64
   %42 = ptrtoint ptr %38 to i64
   %43 = sub i64 %41, %42
@@ -2761,7 +2761,7 @@ _ZN7msgpack2v14zonenwEm.exit:                     ; preds = %8
   br i1 %.not.i.i.i.i13.i, label %_ZN7msgpack2v26detail21create_object_visitorD2Ev.exit14.i, label %47
 
 47:                                               ; preds = %44
-  %48 = load ptr, ptr %27, align 8, !tbaa !173
+  %48 = load ptr, ptr %29, align 8, !tbaa !173
   %49 = ptrtoint ptr %48 to i64
   %50 = ptrtoint ptr %46 to i64
   %51 = sub i64 %49, %50
@@ -2800,7 +2800,7 @@ _ZN7msgpack2v26detail21create_object_visitorD2Ev.exit14.i: ; preds = %47, %44
   %.sroa.7.0..sroa_idx17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.0..sroa_idx17, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7, i64 20, i1 false)
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %28, ptr %58, align 8, !tbaa !135
+  store i64 %27, ptr %58, align 8, !tbaa !135
   br label %_ZNSt10unique_ptrIN7msgpack2v14zoneESt14default_deleteIS2_EED2Ev.exit
 
 59:                                               ; preds = %52
@@ -2808,7 +2808,7 @@ _ZN7msgpack2v26detail21create_object_visitorD2Ev.exit14.i: ; preds = %47, %44
   %.sroa.7.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.0..sroa_idx18, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7, i64 20, i1 false)
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %28, ptr %60, align 8, !tbaa !135
+  store i64 %27, ptr %60, align 8, !tbaa !135
   br label %_ZNSt10unique_ptrIN7msgpack2v14zoneESt14default_deleteIS2_EED2Ev.exit
 
 61:                                               ; preds = %52
@@ -2981,13 +2981,13 @@ common.resume:                                    ; preds = %_ZN7msgpack2v26deta
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 0, ptr %15, align 8, !tbaa !188
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %18 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #30
-  %19 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store ptr %18, ptr %16, align 8, !tbaa !189
-  store ptr %18, ptr %19, align 8, !tbaa !190
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 256
-  store ptr %20, ptr %17, align 8, !tbaa !191
+  %17 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #30
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  store ptr %17, ptr %16, align 8, !tbaa !189
+  store ptr %17, ptr %18, align 8, !tbaa !190
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 256
+  store ptr %20, ptr %19, align 8, !tbaa !191
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr %3, ptr %21, align 8, !tbaa !192
   %22 = invoke noundef i32 @_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE7executeEPKcmRm(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %5)
@@ -3011,7 +3011,7 @@ _ZN7msgpack2v26detail12parse_helperINS1_21create_object_visitorEE7executeEPKcmRm
   br i1 %.not.i.i.i.i.i, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEED2Ev.exit, label %26
 
 26:                                               ; preds = %.body
-  %27 = load ptr, ptr %17, align 8, !tbaa !191
+  %27 = load ptr, ptr %19, align 8, !tbaa !191
   %28 = ptrtoint ptr %27 to i64
   %29 = ptrtoint ptr %25 to i64
   %30 = sub i64 %28, %29
@@ -3058,7 +3058,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   br i1 %.not.i.i.i.i.i21, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEED2Ev.exit22, label %42
 
 42:                                               ; preds = %40
-  %43 = load ptr, ptr %17, align 8, !tbaa !191
+  %43 = load ptr, ptr %19, align 8, !tbaa !191
   %44 = ptrtoint ptr %43 to i64
   %45 = ptrtoint ptr %41 to i64
   %46 = sub i64 %44, %45
@@ -12036,13 +12036,13 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
   %16 = add nuw nsw i64 %15, 1
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #30
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %18, ptr %4, align 8, !tbaa !276
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
-  store ptr %19, ptr %17, align 8, !tbaa !278
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %16
+  store ptr %20, ptr %17, align 8, !tbaa !278
   store i8 %12, ptr %18, align 1, !tbaa !40
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 1
-  store ptr %21, ptr %20, align 8, !tbaa !313
+  store ptr %21, ptr %19, align 8, !tbaa !313
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 %15
   invoke void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKcEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr nonnull %21, ptr noundef nonnull %13, ptr noundef nonnull %22)
           to label %_ZN7msgpack2v14type3extC2EaPKcj.exit unwind label %23
@@ -12072,7 +12072,7 @@ _ZN7msgpack2v14type3extC2EaPKcj.exit:             ; preds = %8
   %33 = load ptr, ptr %32, align 8, !tbaa !278
   %34 = load ptr, ptr %4, align 8, !tbaa !276
   store ptr %34, ptr %2, align 8, !tbaa !276
-  %35 = load ptr, ptr %20, align 8, !tbaa !313
+  %35 = load ptr, ptr %19, align 8, !tbaa !313
   store ptr %35, ptr %31, align 8, !tbaa !313
   %36 = load ptr, ptr %17, align 8, !tbaa !278
   store ptr %36, ptr %32, align 8, !tbaa !278

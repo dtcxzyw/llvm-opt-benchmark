@@ -541,8 +541,8 @@ _ZN4llvm5ErrorD2Ev.exit:
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not43 = icmp eq i32 %15, 0
-  br i1 %.not43, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i32 %15, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm5ErrorD2Ev.exit
   %17 = zext i32 %15 to i64
@@ -564,10 +564,10 @@ _ZN4llvm5ErrorD2Ev.exit:
   br label %33
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE9push_backEOS4_.exit, %_ZN4llvm5ErrorD2Ev.exit
-  %.lcssa26 = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit ], [ %70, %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE9push_backEOS4_.exit ]
-  %.lcssa23 = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit ], [ %71, %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE9push_backEOS4_.exit ]
-  store ptr %.lcssa23, ptr %16, align 8
-  store ptr %.lcssa26, ptr %0, align 8
+  %.lcssa27 = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit ], [ %70, %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE9push_backEOS4_.exit ]
+  %.lcssa24 = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit ], [ %71, %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE9push_backEOS4_.exit ]
+  store ptr %.lcssa24, ptr %16, align 8
+  store ptr %.lcssa27, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %30 = load i8, ptr %29, align 4, !tbaa !11, !range !73, !noundef !74
   %31 = trunc nuw i8 %30 to i1
@@ -584,32 +584,32 @@ _ZNSt8optionalIN4llvm8codeview22ContinuationRecordKindEE5resetEv.exit: ; preds =
 
 33:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE9push_backEOS4_.exit
   %34 = phi ptr [ %19, %.lr.ph ], [ %69, %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE9push_backEOS4_.exit ]
-  %.033 = phi i32 [ %26, %.lr.ph ], [ %38, %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE9push_backEOS4_.exit ]
-  %.sroa.022.032 = phi i32 [ %2, %.lr.ph ], [ %72, %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE9push_backEOS4_.exit ]
-  %.not.i731 = phi i1 [ true, %.lr.ph ], [ false, %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE9push_backEOS4_.exit ]
-  %.sroa.018.030 = phi i32 [ undef, %.lr.ph ], [ %.sroa.022.032, %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE9push_backEOS4_.exit ]
-  %.sroa.014.029 = phi ptr [ %23, %.lr.ph ], [ %37, %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE9push_backEOS4_.exit ]
+  %.034 = phi i32 [ %26, %.lr.ph ], [ %38, %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE9push_backEOS4_.exit ]
+  %.sroa.022.033 = phi i32 [ %2, %.lr.ph ], [ %72, %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE9push_backEOS4_.exit ]
+  %.not.i732 = phi i1 [ true, %.lr.ph ], [ false, %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE9push_backEOS4_.exit ]
+  %.sroa.018.031 = phi i32 [ undef, %.lr.ph ], [ %.sroa.022.033, %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE9push_backEOS4_.exit ]
+  %.sroa.014.030 = phi ptr [ %23, %.lr.ph ], [ %37, %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE9push_backEOS4_.exit ]
   %35 = phi ptr [ %21, %.lr.ph ], [ %71, %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE9push_backEOS4_.exit ]
   %36 = phi ptr [ %19, %.lr.ph ], [ %70, %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE9push_backEOS4_.exit ]
-  %37 = getelementptr inbounds i8, ptr %.sroa.014.029, i64 -4
+  %37 = getelementptr inbounds i8, ptr %.sroa.014.030, i64 -4
   %38 = load i32, ptr %37, align 4, !tbaa !47
   %39 = load ptr, ptr %27, align 8, !tbaa !49
   %40 = zext i32 %38 to i64
-  %41 = sub i32 %.033, %38
+  %41 = sub i32 %.034, %38
   %42 = zext i32 %41 to i64
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 %40
   %44 = trunc i32 %41 to i16
   %45 = add i16 %44, -2
   call void @llvm.assume(i1 true) [ "align"(ptr %43, i64 1) ]
   store i16 %45, ptr %43, align 1
-  br i1 %.not.i731, label %_ZN4llvm8codeview25ContinuationRecordBuilder19createSegmentRecordEjjSt8optionalINS0_9TypeIndexEE.exit, label %46
+  br i1 %.not.i732, label %_ZN4llvm8codeview25ContinuationRecordBuilder19createSegmentRecordEjjSt8optionalINS0_9TypeIndexEE.exit, label %46
 
 46:                                               ; preds = %33
   %.sroa.0.0.copyload.pn.idx.i.i = call i64 @llvm.usub.sat.i64(i64 %42, i64 8)
   %.sroa.0.0.copyload.pn.i.i = getelementptr inbounds nuw i8, ptr %43, i64 %.sroa.0.0.copyload.pn.idx.i.i
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.pn.i.i, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %47, i64 1) ]
-  store i32 %.sroa.018.030, ptr %47, align 1
+  store i32 %.sroa.018.031, ptr %47, align 1
   br label %_ZN4llvm8codeview25ContinuationRecordBuilder19createSegmentRecordEjjSt8optionalINS0_9TypeIndexEE.exit
 
 _ZN4llvm8codeview25ContinuationRecordBuilder19createSegmentRecordEjjSt8optionalINS0_9TypeIndexEE.exit: ; preds = %33, %46
@@ -683,9 +683,9 @@ _ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE9push_backEOS
   %69 = phi ptr [ %49, %48 ], [ %66, %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ]
   %70 = phi ptr [ %36, %48 ], [ %62, %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ]
   %71 = phi ptr [ %35, %48 ], [ %68, %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ]
-  %72 = add i32 %.sroa.022.032, 1
-  %.not = icmp eq ptr %37, %22
-  br i1 %.not, label %._crit_edge, label %33
+  %72 = add i32 %.sroa.022.033, 1
+  %.not23 = icmp eq ptr %37, %22
+  br i1 %.not23, label %._crit_edge, label %33
 }
 
 declare void @_ZN4llvm8codeview17TypeRecordMapping12visitTypeEndERNS0_8CVRecordINS0_12TypeLeafKindEEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8, ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1

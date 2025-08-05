@@ -18014,14 +18014,14 @@ _ZNSt3mapIN3nix6SymbolENS0_9ExprAttrs7AttrDefESt4lessIS1_ESaISt4pairIKS1_S3_EEE4
           to label %1689 unwind label %1722
 
 1689:                                             ; preds = %1682
-  %1690 = getelementptr inbounds nuw i8, ptr %1680, i64 48
-  %1691 = getelementptr inbounds nuw i8, ptr %1680, i64 40
-  %1692 = getelementptr inbounds nuw i8, ptr %1680, i64 32
+  %1690 = getelementptr inbounds nuw i8, ptr %1680, i64 32
   store i32 %.sroa.035.0.copyload, ptr %1688, align 8
+  %1691 = getelementptr inbounds nuw i8, ptr %1680, i64 48
+  %1692 = getelementptr inbounds nuw i8, ptr %1680, i64 40
   %1693 = getelementptr inbounds nuw i8, ptr %1688, i64 16
-  store ptr %1688, ptr %1692, align 8
+  store ptr %1688, ptr %1690, align 8
+  store ptr %1693, ptr %1692, align 8
   store ptr %1693, ptr %1691, align 8
-  store ptr %1693, ptr %1690, align 8
   br i1 %116, label %_ZL6yyfillP14yyGLRStackItemPiib.exit1289, label %1694
 
 1694:                                             ; preds = %1689
@@ -19805,14 +19805,14 @@ _ZNKSt6vectorIN3nix8AttrNameESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i:
   store ptr %2, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
-  %13 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #42
-  store i32 %3, ptr %13, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %13, ptr %10, align 8
-  store ptr %14, ptr %11, align 8
+  %11 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #42
+  store i32 %3, ptr %11, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store ptr %11, ptr %10, align 8
+  store ptr %14, ptr %13, align 8
   store ptr %14, ptr %12, align 8
   ret void
 }

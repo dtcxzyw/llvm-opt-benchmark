@@ -2343,12 +2343,12 @@ common.resume:                                    ; preds = %206, %.body.i
   br label %common.resume
 
 _ZN6Assimp7Blender12FileDatabaseC2Ev.exit:        ; preds = %4
-  %33 = getelementptr inbounds nuw i8, ptr %7, i64 200
-  %34 = getelementptr inbounds nuw i8, ptr %7, i64 208
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 208
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 200
   store ptr %28, ptr %26, align 8
-  store ptr %28, ptr %33, align 8
+  store ptr %28, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 3072
-  store ptr %35, ptr %34, align 8
+  store ptr %35, ptr %33, align 8
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 224
   store i64 0, ptr %36, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #26

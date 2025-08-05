@@ -25447,9 +25447,9 @@ _ZNKSt6vectorIPKN4crow4json6wvalueESaIS4_EE12_M_check_lenEmPKc.exit.i.i:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #37
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #39
-          to label %_ZNSt6vectorIPKN4crow4json6wvalueESaIS4_EE12emplace_backIJPS2_EEERS4_DpOT_.exit unwind label %.thread
+          to label %_ZNSt6vectorIPKN4crow4json6wvalueESaIS4_EE17_M_realloc_insertIJPS2_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i unwind label %.thread
 
-_ZNSt6vectorIPKN4crow4json6wvalueESaIS4_EE12emplace_backIJPS2_EEERS4_DpOT_.exit: ; preds = %_ZNKSt6vectorIPKN4crow4json6wvalueESaIS4_EE12_M_check_lenEmPKc.exit.i.i
+_ZNSt6vectorIPKN4crow4json6wvalueESaIS4_EE17_M_realloc_insertIJPS2_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %_ZNKSt6vectorIPKN4crow4json6wvalueESaIS4_EE12_M_check_lenEmPKc.exit.i.i
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %2, ptr %6, align 8, !tbaa !241
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -25474,7 +25474,7 @@ _ZNSt6vectorIPKN4crow4json6wvalueESaIS4_EE12emplace_backIJPS2_EEERS4_DpOT_.exit:
   invoke void @_ZNK4crow8mustache10template_t15render_internalEiiRSt6vectorIPKNS_4json6wvalueESaIS6_EERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef 0, i32 noundef %19, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 0)
           to label %20 unwind label %43
 
-20:                                               ; preds = %_ZNSt6vectorIPKN4crow4json6wvalueESaIS4_EE12emplace_backIJPS2_EEERS4_DpOT_.exit
+20:                                               ; preds = %_ZNSt6vectorIPKN4crow4json6wvalueESaIS4_EE17_M_realloc_insertIJPS2_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %22, ptr %21, align 8, !tbaa !4
@@ -25534,7 +25534,7 @@ _ZNSt6vectorIPKN4crow4json6wvalueESaIS4_EED2Ev.exit: ; preds = %_ZNSt7__cxx1112b
           cleanup
   br label %_ZNSt6vectorIPKN4crow4json6wvalueESaIS4_EED2Ev.exit11
 
-43:                                               ; preds = %_ZNSt6vectorIPKN4crow4json6wvalueESaIS4_EE12emplace_backIJPS2_EEERS4_DpOT_.exit
+43:                                               ; preds = %_ZNSt6vectorIPKN4crow4json6wvalueESaIS4_EE17_M_realloc_insertIJPS2_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i
   %44 = landingpad { ptr, i32 }
           cleanup
   %45 = load ptr, ptr %4, align 8, !tbaa !12
@@ -34513,9 +34513,9 @@ _ZNKSt6vectorIPKN4crow4json6wvalueESaIS4_EE12_M_check_lenEmPKc.exit.i.i:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #39
-          to label %_ZNSt6vectorIPKN4crow4json6wvalueESaIS4_EE12emplace_backIJS4_EEERS4_DpOT_.exit unwind label %19
+          to label %_ZNSt6vectorIPKN4crow4json6wvalueESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i unwind label %19
 
-_ZNSt6vectorIPKN4crow4json6wvalueESaIS4_EE12emplace_backIJS4_EEERS4_DpOT_.exit: ; preds = %_ZNKSt6vectorIPKN4crow4json6wvalueESaIS4_EE12_M_check_lenEmPKc.exit.i.i
+_ZNSt6vectorIPKN4crow4json6wvalueESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %_ZNKSt6vectorIPKN4crow4json6wvalueESaIS4_EE12_M_check_lenEmPKc.exit.i.i
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %2, ptr %5, align 8, !tbaa !241
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -34544,7 +34544,7 @@ _ZNSt6vectorIPKN4crow4json6wvalueESaIS4_EE12emplace_backIJS4_EEERS4_DpOT_.exit: 
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-21:                                               ; preds = %_ZNSt6vectorIPKN4crow4json6wvalueESaIS4_EE12emplace_backIJS4_EEERS4_DpOT_.exit
+21:                                               ; preds = %_ZNSt6vectorIPKN4crow4json6wvalueESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i
   %22 = landingpad { ptr, i32 }
           cleanup
   %23 = load ptr, ptr %0, align 8, !tbaa !12
@@ -34563,7 +34563,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   call void @_ZdlPvm(ptr noundef %23, i64 noundef %28) #38
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exitthread-pre-split
 
-29:                                               ; preds = %_ZNSt6vectorIPKN4crow4json6wvalueESaIS4_EE12emplace_backIJS4_EEERS4_DpOT_.exit
+29:                                               ; preds = %_ZNSt6vectorIPKN4crow4json6wvalueESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i
   %30 = load ptr, ptr %3, align 8, !tbaa !585
   %.not.i.i.i7 = icmp eq ptr %30, null
   br i1 %.not.i.i.i7, label %_ZNSt6vectorIPKN4crow4json6wvalueESaIS4_EED2Ev.exit, label %31

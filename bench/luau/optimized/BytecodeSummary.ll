@@ -128,8 +128,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit14: ; preds = %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   %37 = zext i32 %4 to i64
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %.not24 = icmp eq i32 %4, 0
-  br i1 %.not24, label %.lr.ph, label %_ZNSt12_Vector_baseISt6vectorIjSaIjEESaIS2_EE11_M_allocateEm.exit.i
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %.lr.ph, label %_ZNSt12_Vector_baseISt6vectorIjSaIjEESaIS2_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseISt6vectorIjSaIjEESaIS2_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit14
   %39 = mul nuw nsw i64 %37, 24
@@ -142,8 +142,8 @@ _ZNSt6vectorIS_IjSaIjEESaIS1_EE7reserveEm.exit:   ; preds = %_ZNSt12_Vector_base
   store ptr %40, ptr %41, align 8, !tbaa !25
   %42 = getelementptr inbounds nuw %"class.std::vector.3", ptr %40, i64 %37
   store ptr %42, ptr %38, align 8, !tbaa !26
-  %.not = icmp eq i32 %4, -1
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  %.not24 = icmp eq i32 %4, -1
+  br i1 %.not24, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit14, %_ZNSt6vectorIS_IjSaIjEESaIS1_EE7reserveEm.exit
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 16

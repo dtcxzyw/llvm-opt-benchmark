@@ -1385,19 +1385,19 @@ _ZN5ZXing6ResultC2Ev.exit:                        ; preds = %419
 
 448:                                              ; preds = %_ZNSt6vectorIhSaIhEE9push_backEOh.exit.i.i, %443
   %449 = phi ptr [ null, %443 ], [ %477, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit.i.i ]
-  %450 = phi ptr [ null, %443 ], [ %478, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit.i.i ]
-  %451 = phi ptr [ null, %443 ], [ %.promoted224, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit.i.i ]
+  %450 = phi ptr [ null, %443 ], [ %.promoted224, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit.i.i ]
+  %451 = phi ptr [ null, %443 ], [ %478, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit.i.i ]
   %.06.i.i = phi i32 [ 12, %443 ], [ %452, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit.i.i ]
   %452 = add nsw i32 %.06.i.i, -1
   %453 = lshr i32 %445, %452
   %454 = trunc i32 %453 to i8
   %455 = and i8 %454, 1
-  %.not.i.i.i.i84 = icmp eq ptr %450, %451
+  %.not.i.i.i.i84 = icmp eq ptr %451, %450
   br i1 %.not.i.i.i.i84, label %458, label %456
 
 456:                                              ; preds = %448
-  store i8 %455, ptr %450, align 1, !tbaa !69, !noalias !96
-  %457 = getelementptr inbounds nuw i8, ptr %450, i64 1
+  store i8 %455, ptr %451, align 1, !tbaa !69, !noalias !96
+  %457 = getelementptr inbounds nuw i8, ptr %451, i64 1
   store ptr %457, ptr %446, align 8, !tbaa !100, !alias.scope !96
   br label %_ZNSt6vectorIhSaIhEE9push_backEOh.exit.i.i
 
@@ -1457,7 +1457,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS
 
 _ZNSt6vectorIhSaIhEE9push_backEOh.exit.i.i:       ; preds = %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i, %456
   %477 = phi ptr [ %449, %456 ], [ %470, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i ]
-  %.promoted224 = phi ptr [ %451, %456 ], [ %476, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i ]
+  %.promoted224 = phi ptr [ %450, %456 ], [ %476, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i ]
   %478 = phi ptr [ %457, %456 ], [ %474, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i ]
   %.not.i.i85 = icmp eq i32 %452, 0
   br i1 %.not.i.i85, label %_ZN5ZXing8BitArray10appendBitsEii.exit.i, label %448, !llvm.loop !104

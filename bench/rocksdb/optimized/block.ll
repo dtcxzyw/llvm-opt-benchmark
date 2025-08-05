@@ -3263,7 +3263,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZN7rocksdb6Statusa
   br i1 %78, label %_ZN7rocksdb6StatusD2Ev.exit27, label %79
 
 79:                                               ; preds = %.thread, %77
-  %.0.i47 = phi i1 [ false, %.thread ], [ %76, %77 ]
+  %.0.i45 = phi i1 [ false, %.thread ], [ %76, %77 ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %81 = load i32, ptr %80, align 8, !tbaa !94
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 68
@@ -3279,7 +3279,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit24:                 ; preds = %79
   call void @_ZdaPv(ptr noundef nonnull %83) #22
   store i8 1, ptr %8, align 1, !tbaa !21
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #21
-  br i1 %.0.i47, label %96, label %_ZN7rocksdb9BlockIterINS_10IndexValueEE22FindKeyAfterBinarySeekERKNS_5SliceEjb.exit
+  br i1 %.0.i45, label %96, label %_ZN7rocksdb9BlockIterINS_10IndexValueEE22FindKeyAfterBinarySeekERKNS_5SliceEjb.exit
 
 84:                                               ; preds = %73, %67
   %85 = landingpad { ptr, i32 }
@@ -3288,10 +3288,10 @@ _ZN7rocksdb6StatusaSEOS0_.exit24:                 ; preds = %79
   br label %161
 
 _ZN7rocksdb6StatusD2Ev.exit27:                    ; preds = %79, %77
-  %.0.i48 = phi i1 [ %76, %77 ], [ %.0.i47, %79 ]
+  %.0.i46 = phi i1 [ %76, %77 ], [ %.0.i45, %79 ]
   store i8 1, ptr %8, align 1, !tbaa !21
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #21
-  br i1 %.0.i48, label %96, label %_ZN7rocksdb9BlockIterINS_10IndexValueEE22FindKeyAfterBinarySeekERKNS_5SliceEjb.exit
+  br i1 %.0.i46, label %96, label %_ZN7rocksdb9BlockIterINS_10IndexValueEE22FindKeyAfterBinarySeekERKNS_5SliceEjb.exit
 
 86:                                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 592
@@ -3319,15 +3319,15 @@ _ZN7rocksdb6StatusD2Ev.exit27:                    ; preds = %79, %77
 
 94:                                               ; preds = %92, %90
   %.0.in = phi i1 [ %91, %90 ], [ %93, %92 ]
-  br i1 %.0.in, label %._crit_edge44, label %_ZN7rocksdb9BlockIterINS_10IndexValueEE22FindKeyAfterBinarySeekERKNS_5SliceEjb.exit
+  br i1 %.0.in, label %._crit_edge42, label %_ZN7rocksdb9BlockIterINS_10IndexValueEE22FindKeyAfterBinarySeekERKNS_5SliceEjb.exit
 
-._crit_edge44:                                    ; preds = %94
-  %.pre45 = load i8, ptr %8, align 1, !tbaa !21, !range !65
-  %95 = trunc nuw i8 %.pre45 to i1
+._crit_edge42:                                    ; preds = %94
+  %.pre43 = load i8, ptr %8, align 1, !tbaa !21, !range !65
+  %95 = trunc nuw i8 %.pre43 to i1
   br label %96
 
-96:                                               ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit24, %._crit_edge44, %_ZN7rocksdb6StatusD2Ev.exit27
-  %97 = phi i1 [ %95, %._crit_edge44 ], [ true, %_ZN7rocksdb6StatusD2Ev.exit27 ], [ true, %_ZN7rocksdb6StatusaSEOS0_.exit24 ]
+96:                                               ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit24, %._crit_edge42, %_ZN7rocksdb6StatusD2Ev.exit27
+  %97 = phi i1 [ %95, %._crit_edge42 ], [ true, %_ZN7rocksdb6StatusD2Ev.exit27 ], [ true, %_ZN7rocksdb6StatusaSEOS0_.exit24 ]
   %98 = load i32, ptr %7, align 4, !tbaa !56
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 0, ptr %99, align 8, !tbaa !57

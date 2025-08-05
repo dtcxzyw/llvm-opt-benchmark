@@ -182,14 +182,7 @@ gv_alloc.exit.i:                                  ; preds = %.lr.ph.i, %106
   %149 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %calloc.i = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   %150 = icmp eq ptr %calloc.i, null
-  br i1 %150, label %151, label %moveTo.exit.i
-
-151:                                              ; preds = %135
-  %152 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %153 = tail call ptr @strerror(i32 noundef 12) #12
-  %154 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %152, ptr noundef nonnull @.str.2, ptr noundef %153) #14
-  tail call fastcc void @graphviz_exit() #15
-  unreachable
+  br i1 %150, label %162, label %moveTo.exit.i
 
 moveTo.exit.i:                                    ; preds = %135
   store ptr %calloc.i, ptr %9, align 8, !tbaa !13
@@ -199,21 +192,28 @@ moveTo.exit.i:                                    ; preds = %135
   store double %1, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !18
   store i64 1, ptr %148, align 8, !tbaa !20
   call fastcc void @curveTo(ptr noundef nonnull %9, double noundef %0, double noundef %1, double noundef %143, double noundef %144, double noundef %143, double noundef %144)
-  %155 = fmul double %137, 5.000000e-01
-  %156 = tail call double @tan(double noundef %155) #12, !tbaa !3
-  %157 = tail call double @sin(double noundef %137) #12, !tbaa !3
-  %158 = fmul double %156, 3.000000e+00
-  %159 = tail call double @llvm.fmuladd.f64(double %158, double %156, double 4.000000e+00)
-  %160 = tail call double @sqrt(double noundef %159) #12, !tbaa !3
-  %161 = fadd double %160, -1.000000e+00
-  %162 = fmul double %157, %161
-  %163 = fdiv double %162, 3.000000e+00
-  %164 = icmp sgt i32 %133, 0
-  br i1 %164, label %.lr.ph114.i, label %._crit_edge.i
+  %151 = fmul double %137, 5.000000e-01
+  %152 = tail call double @tan(double noundef %151) #12, !tbaa !3
+  %153 = tail call double @sin(double noundef %137) #12, !tbaa !3
+  %154 = fmul double %152, 3.000000e+00
+  %155 = tail call double @llvm.fmuladd.f64(double %154, double %152, double 4.000000e+00)
+  %156 = tail call double @sqrt(double noundef %155) #12, !tbaa !3
+  %157 = fadd double %156, -1.000000e+00
+  %158 = fmul double %153, %157
+  %159 = fdiv double %158, 3.000000e+00
+  %160 = icmp sgt i32 %133, 0
+  br i1 %160, label %.lr.ph114.i, label %._crit_edge.i
 
 .lr.ph114.i:                                      ; preds = %moveTo.exit.i
-  %165 = fneg double %163
+  %161 = fneg double %159
   br label %166
+
+162:                                              ; preds = %135
+  %163 = load ptr, ptr @stderr, align 8, !tbaa !7
+  %164 = tail call ptr @strerror(i32 noundef 12) #12
+  %165 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %163, ptr noundef nonnull @.str.2, ptr noundef %164) #14
+  tail call fastcc void @graphviz_exit() #15
+  unreachable
 
 166:                                              ; preds = %166, %.lr.ph114.i
   %.0113.i = phi double [ %14, %.lr.ph114.i ], [ %167, %166 ]
@@ -232,10 +232,10 @@ moveTo.exit.i:                                    ; preds = %135
   %174 = fadd double %1, %171
   %175 = fneg double %169
   %176 = fmul double %2, %175
-  %177 = tail call double @llvm.fmuladd.f64(double %163, double %.095108.i, double %.092111.i)
-  %178 = tail call double @llvm.fmuladd.f64(double %163, double %.094109.i, double %.093110.i)
-  %179 = tail call double @llvm.fmuladd.f64(double %165, double %176, double %173)
-  %180 = tail call double @llvm.fmuladd.f64(double %165, double %172, double %174)
+  %177 = tail call double @llvm.fmuladd.f64(double %159, double %.095108.i, double %.092111.i)
+  %178 = tail call double @llvm.fmuladd.f64(double %159, double %.094109.i, double %.093110.i)
+  %179 = tail call double @llvm.fmuladd.f64(double %161, double %176, double %173)
+  %180 = tail call double @llvm.fmuladd.f64(double %161, double %172, double %174)
   call fastcc void @curveTo(ptr noundef %9, double noundef %177, double noundef %178, double noundef %179, double noundef %180, double noundef %173, double noundef %174)
   %181 = add nuw nsw i32 %.1112.i, 1
   %exitcond.not.i = icmp eq i32 %181, %133

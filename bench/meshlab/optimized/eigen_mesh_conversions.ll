@@ -16409,8 +16409,8 @@ _ZN3vcg4face10vector_ocfI6CFaceOE17EnableFFAdjacencyEv.exit: ; preds = %59, %57,
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %63 = load ptr, ptr %62, align 8
   %64 = load ptr, ptr %61, align 8
-  %.not30 = icmp eq ptr %63, %64
-  br i1 %.not30, label %._crit_edge29, label %.lr.ph28
+  %.not = icmp eq ptr %63, %64
+  br i1 %.not, label %._crit_edge29, label %.lr.ph28
 
 .lr.ph28:                                         ; preds = %.preheader
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 8

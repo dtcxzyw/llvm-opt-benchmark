@@ -9025,7 +9025,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZZN7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEEE8treeTypeB5cxx11EvENKUlvE_clB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %this) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt6vectorIjSaIjEE5clearEv.exit.i:
+entry:
   %dims = alloca %"class.std::vector", align 8
   %ostr = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dims, i8 0, i64 24, i1 false)
@@ -9033,7 +9033,7 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit.i:
   invoke void @_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEE15getNodeLog2DimsERSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(24) %dims)
           to label %invoke.cont unwind label %lpad
 
-invoke.cont:                                      ; preds = %_ZNSt6vectorIjSaIjEE5clearEv.exit.i
+invoke.cont:                                      ; preds = %entry
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ostr)
           to label %invoke.cont2 unwind label %lpad
 
@@ -9072,7 +9072,7 @@ for.inc:                                          ; preds = %invoke.cont10
   %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !88
 
-lpad:                                             ; preds = %_ZNSt6vectorIjSaIjEE5clearEv.exit.i, %invoke.cont
+lpad:                                             ; preds = %entry, %invoke.cont
   %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -11296,9 +11296,9 @@ entry:
   %ref.tmp354 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp355 = alloca %"class.std::allocator.40", align 1
   %cmp = icmp slt i32 %verboseLevel, 1
-  br i1 %cmp, label %cleanup.cont, label %_ZNSt6vectorIjSaIjEE5clearEv.exit.i
+  br i1 %cmp, label %cleanup.cont, label %if.end
 
-_ZNSt6vectorIjSaIjEE5clearEv.exit.i:              ; preds = %entry
+if.end:                                           ; preds = %entry
   %vtable.i = load ptr, ptr %os, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
@@ -11310,7 +11310,7 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit.i:              ; preds = %entry
   invoke void @_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEE15getNodeLog2DimsERSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(24) %dims)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
-invoke.cont:                                      ; preds = %_ZNSt6vectorIjSaIjEE5clearEv.exit.i
+invoke.cont:                                      ; preds = %if.end
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.52)
           to label %invoke.cont2 unwind label %lpad.loopexit.split-lp
 
@@ -11398,7 +11398,7 @@ lpad.loopexit:                                    ; preds = %for.body, %invoke.c
           cleanup
   br label %ehcleanup388
 
-lpad.loopexit.split-lp:                           ; preds = %invoke.cont, %invoke.cont2, %invoke.cont3, %invoke.cont5, %invoke.cont7, %invoke.cont9, %if.then14, %invoke.cont15, %invoke.cont19, %for.end, %invoke.cont35, %invoke.cont39, %if.end43, %invoke.cont44, %invoke.cont48, %if.then57, %if.end68, %_ZNSt6vectorIjSaIjEE5clearEv.exit.i
+lpad.loopexit.split-lp:                           ; preds = %invoke.cont, %invoke.cont2, %invoke.cont3, %invoke.cont5, %invoke.cont7, %invoke.cont9, %if.then14, %invoke.cont15, %invoke.cont19, %for.end, %invoke.cont35, %invoke.cont39, %if.end43, %invoke.cont44, %invoke.cont48, %if.then57, %if.end68, %if.end
   %lpad.loopexit.split-lp186 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup388

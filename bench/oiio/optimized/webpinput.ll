@@ -772,23 +772,23 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_08webp_pvt9WebpInput4ope
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #24
   store i8 0, ptr %14, align 1, !tbaa !28
   %36 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.not116 = icmp eq i64 %31, 0
-  br i1 %.not116, label %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit, label %37
+  %.not111 = icmp eq i64 %31, 0
+  br i1 %.not111, label %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit, label %37
 
 37:                                               ; preds = %35
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %31, i64 64)
   invoke void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr null, i64 noundef %.sroa.speculated, ptr noundef nonnull align 1 dereferenceable(1) %14)
-          to label %._ZNSt6vectorIhSaIhEE6resizeEmRKh.exit_crit_edge112 unwind label %59
+          to label %._ZNSt6vectorIhSaIhEE6resizeEmRKh.exit_crit_edge unwind label %59
 
-._ZNSt6vectorIhSaIhEE6resizeEmRKh.exit_crit_edge112: ; preds = %37
+._ZNSt6vectorIhSaIhEE6resizeEmRKh.exit_crit_edge: ; preds = %37
   %.pre = load ptr, ptr %13, align 8, !tbaa !75
   %.pre113 = load ptr, ptr %36, align 8, !tbaa !77
   %38 = ptrtoint ptr %.pre113 to i64
   br label %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit
 
-_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit:            ; preds = %35, %._ZNSt6vectorIhSaIhEE6resizeEmRKh.exit_crit_edge112
-  %39 = phi i64 [ %38, %._ZNSt6vectorIhSaIhEE6resizeEmRKh.exit_crit_edge112 ], [ 0, %35 ]
-  %40 = phi ptr [ %.pre, %._ZNSt6vectorIhSaIhEE6resizeEmRKh.exit_crit_edge112 ], [ null, %35 ]
+_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit:            ; preds = %._ZNSt6vectorIhSaIhEE6resizeEmRKh.exit_crit_edge, %35
+  %39 = phi i64 [ %38, %._ZNSt6vectorIhSaIhEE6resizeEmRKh.exit_crit_edge ], [ 0, %35 ]
+  %40 = phi ptr [ %.pre, %._ZNSt6vectorIhSaIhEE6resizeEmRKh.exit_crit_edge ], [ null, %35 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #24
   %41 = ptrtoint ptr %40 to i64
   %42 = sub i64 %39, %41
@@ -871,9 +871,9 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetEDn.exit.i: ; preds = %_ZNKSt
           to label %_ZNK11OpenImageIO6v3_1_08webp_pvt9WebpInput10valid_fileEPNS0_10Filesystem7IOProxyE.exit unwind label %61
 
 _ZNK11OpenImageIO6v3_1_08webp_pvt9WebpInput10valid_fileEPNS0_10Filesystem7IOProxyE.exit: ; preds = %.noexc52
-  %.not111 = icmp eq i32 %71, 0
+  %.not112 = icmp eq i32 %71, 0
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #24
-  br i1 %.not111, label %_ZNK11OpenImageIO6v3_1_08webp_pvt9WebpInput10valid_fileEPNS0_10Filesystem7IOProxyE.exit.thread, label %83
+  br i1 %.not112, label %_ZNK11OpenImageIO6v3_1_08webp_pvt9WebpInput10valid_fileEPNS0_10Filesystem7IOProxyE.exit.thread, label %83
 
 _ZNK11OpenImageIO6v3_1_08webp_pvt9WebpInput10valid_fileEPNS0_10Filesystem7IOProxyE.exit.thread: ; preds = %63, %_ZNK11OpenImageIO6v3_1_08webp_pvt9WebpInput10valid_fileEPNS0_10Filesystem7IOProxyE.exit
   invoke void @_ZNK11OpenImageIO6v3_1_010ImageInput8errorfmtIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull @.str.1, ptr noundef nonnull align 8 dereferenceable(32) %20)

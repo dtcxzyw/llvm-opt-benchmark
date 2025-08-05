@@ -4332,7 +4332,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZN5boost3log11v2_m
 30:                                               ; preds = %31, %27
   %.010.i.i.i.i.i = phi i32 [ %29, %27 ], [ %35, %31 ]
   %.not.i.not.i.i.i = icmp eq i32 %.010.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i, label %_ZNK5boost8weak_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEE4lockEv.exit.thread8, label %31
+  br i1 %.not.i.not.i.i.i, label %_ZNK5boost8weak_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEE4lockEv.exit.thread9, label %31
 
 31:                                               ; preds = %30
   %32 = add i32 %.010.i.i.i.i.i, 1
@@ -4341,7 +4341,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZN5boost3log11v2_m
   %35 = extractvalue { i32, i1 } %33, 0
   br i1 %34, label %_ZNK5boost8weak_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEE4lockEv.exit, label %30, !llvm.loop !161
 
-_ZNK5boost8weak_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEE4lockEv.exit.thread8: ; preds = %30
+_ZNK5boost8weak_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEE4lockEv.exit.thread9: ; preds = %30
   store ptr null, ptr %25, align 8, !tbaa !43, !alias.scope !154
   br label %_ZNK5boost8weak_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEE4lockEv.exit.thread
 
@@ -4351,11 +4351,11 @@ _ZNK5boost8weak_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initiali
   %37 = icmp eq ptr %36, null
   br i1 %37, label %_ZNK5boost8weak_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEE4lockEv.exit.thread, label %_ZN5boost8weak_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEEaSIS5_EERS6_RKNS_10shared_ptrIT_EE.exit
 
-_ZNK5boost8weak_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEE4lockEv.exit.thread: ; preds = %_ZNK5boost8weak_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEE4lockEv.exit.thread8, %24, %_ZNK5boost8weak_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEE4lockEv.exit
-  %38 = phi ptr [ null, %24 ], [ %26, %_ZNK5boost8weak_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEE4lockEv.exit ], [ null, %_ZNK5boost8weak_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEE4lockEv.exit.thread8 ]
+_ZNK5boost8weak_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEE4lockEv.exit.thread: ; preds = %_ZNK5boost8weak_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEE4lockEv.exit.thread9, %24, %_ZNK5boost8weak_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEE4lockEv.exit
+  %38 = phi ptr [ null, %24 ], [ %26, %_ZNK5boost8weak_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEE4lockEv.exit ], [ null, %_ZNK5boost8weak_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEE4lockEv.exit.thread9 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #33
   invoke void @_ZN5boost11make_sharedINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERiEEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.boost::shared_ptr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 4 dereferenceable(4) %5)
-          to label %39 unwind label %100
+          to label %39 unwind label %99
 
 39:                                               ; preds = %_ZNK5boost8weak_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEE4lockEv.exit.thread
   %40 = load ptr, ptr %6, align 8, !tbaa !157
@@ -4365,7 +4365,7 @@ _ZNK5boost8weak_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initiali
   store ptr %40, ptr %0, align 8, !tbaa !72
   store ptr %42, ptr %25, align 8, !tbaa !43
   %.not.i.i.i3 = icmp eq ptr %38, null
-  br i1 %.not.i.i.i3, label %_ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEEaSEOS6_.exit, label %43
+  br i1 %.not.i.i.i3, label %_ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEED2Ev.exit, label %43
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -4400,102 +4400,106 @@ _ZNK5boost8weak_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initiali
   call void @__clang_call_terminate(ptr %60) #34
   unreachable
 
-_ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEEaSEOS6_.exit: ; preds = %39, %43, %.noexc.i.i.i, %54
-  %61 = load ptr, ptr %41, align 8, !tbaa !43
-  %.not.i.i4 = icmp eq ptr %61, null
-  br i1 %.not.i.i4, label %_ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEED2Ev.exit, label %62
+_ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEEaSEOS6_.exit: ; preds = %43, %.noexc.i.i.i, %54
+  %.pr7 = load ptr, ptr %41, align 8, !tbaa !43
+  %.not.i.i4 = icmp eq ptr %.pr7, null
+  br i1 %.not.i.i4, label %_ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEED2Ev.exitthread-pre-split, label %61
 
-62:                                               ; preds = %_ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEEaSEOS6_.exit
-  %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %64 = atomicrmw sub ptr %63, i32 1 acq_rel, align 4
-  %65 = icmp eq i32 %64, 1
-  br i1 %65, label %66, label %_ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEED2Ev.exit
+61:                                               ; preds = %_ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEEaSEOS6_.exit
+  %62 = getelementptr inbounds nuw i8, ptr %.pr7, i64 8
+  %63 = atomicrmw sub ptr %62, i32 1 acq_rel, align 4
+  %64 = icmp eq i32 %63, 1
+  br i1 %64, label %65, label %_ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEED2Ev.exitthread-pre-split
 
-66:                                               ; preds = %62
-  %67 = load ptr, ptr %61, align 8, !tbaa !37
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  %69 = load ptr, ptr %68, align 8
-  invoke void %69(ptr noundef nonnull align 8 dereferenceable(16) %61)
-          to label %.noexc.i.i unwind label %77
+65:                                               ; preds = %61
+  %66 = load ptr, ptr %.pr7, align 8, !tbaa !37
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
+  %68 = load ptr, ptr %67, align 8
+  invoke void %68(ptr noundef nonnull align 8 dereferenceable(16) %.pr7)
+          to label %.noexc.i.i unwind label %76
 
-.noexc.i.i:                                       ; preds = %66
-  %70 = getelementptr inbounds nuw i8, ptr %61, i64 12
-  %71 = atomicrmw sub ptr %70, i32 1 acq_rel, align 4
-  %72 = icmp eq i32 %71, 1
-  br i1 %72, label %73, label %_ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEED2Ev.exit
+.noexc.i.i:                                       ; preds = %65
+  %69 = getelementptr inbounds nuw i8, ptr %.pr7, i64 12
+  %70 = atomicrmw sub ptr %69, i32 1 acq_rel, align 4
+  %71 = icmp eq i32 %70, 1
+  br i1 %71, label %72, label %_ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEED2Ev.exitthread-pre-split
 
-73:                                               ; preds = %.noexc.i.i
-  %74 = load ptr, ptr %61, align 8, !tbaa !37
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  %76 = load ptr, ptr %75, align 8
-  invoke void %76(ptr noundef nonnull align 8 dereferenceable(16) %61)
-          to label %_ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEED2Ev.exit unwind label %77
+72:                                               ; preds = %.noexc.i.i
+  %73 = load ptr, ptr %.pr7, align 8, !tbaa !37
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
+  %75 = load ptr, ptr %74, align 8
+  invoke void %75(ptr noundef nonnull align 8 dereferenceable(16) %.pr7)
+          to label %_ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEED2Ev.exitthread-pre-split unwind label %76
 
-77:                                               ; preds = %73, %66
-  %78 = landingpad { ptr, i32 }
+76:                                               ; preds = %72, %65
+  %77 = landingpad { ptr, i32 }
           catch ptr null
-  %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #34
+  %78 = extractvalue { ptr, i32 } %77, 0
+  call void @__clang_call_terminate(ptr %78) #34
   unreachable
 
-_ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEED2Ev.exit: ; preds = %_ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEEaSEOS6_.exit, %62, %.noexc.i.i, %73
+_ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEED2Ev.exitthread-pre-split: ; preds = %72, %.noexc.i.i, %61, %_ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEEaSEOS6_.exit
+  %.pr = load ptr, ptr %25, align 8, !tbaa !43
+  br label %_ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEED2Ev.exit
+
+_ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEED2Ev.exit: ; preds = %39, %_ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEED2Ev.exitthread-pre-split
+  %79 = phi ptr [ %.pr, %_ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEED2Ev.exitthread-pre-split ], [ %42, %39 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #33
   %80 = load ptr, ptr %0, align 8, !tbaa !157
   store ptr %80, ptr @_ZZN5boost3log11v2_mt_posix5sinks9anonymous25native_syslog_initializer12get_instanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiE8instance, align 8, !tbaa !162
-  %81 = load ptr, ptr %25, align 8, !tbaa !43
-  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix5sinks9anonymous25native_syslog_initializer12get_instanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiE8instance, i64 8), align 8, !tbaa !159
-  %.not.i.i5 = icmp eq ptr %81, %82
-  br i1 %.not.i.i5, label %_ZN5boost8weak_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEEaSIS5_EERS6_RKNS_10shared_ptrIT_EE.exit, label %83
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix5sinks9anonymous25native_syslog_initializer12get_instanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiE8instance, i64 8), align 8, !tbaa !159
+  %.not.i.i5 = icmp eq ptr %79, %81
+  br i1 %.not.i.i5, label %_ZN5boost8weak_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEEaSIS5_EERS6_RKNS_10shared_ptrIT_EE.exit, label %82
 
-83:                                               ; preds = %_ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEED2Ev.exit
-  %.not7.i.i = icmp eq ptr %81, null
-  br i1 %.not7.i.i, label %87, label %84
+82:                                               ; preds = %_ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEED2Ev.exit
+  %.not7.i.i = icmp eq ptr %79, null
+  br i1 %.not7.i.i, label %86, label %83
 
-84:                                               ; preds = %83
-  %85 = getelementptr inbounds nuw i8, ptr %81, i64 12
-  %86 = atomicrmw add ptr %85, i32 1 monotonic, align 4
+83:                                               ; preds = %82
+  %84 = getelementptr inbounds nuw i8, ptr %79, i64 12
+  %85 = atomicrmw add ptr %84, i32 1 monotonic, align 4
   %.pr.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix5sinks9anonymous25native_syslog_initializer12get_instanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiE8instance, i64 8), align 8, !tbaa !159
-  br label %87
+  br label %86
 
-87:                                               ; preds = %84, %83
-  %88 = phi ptr [ %.pr.i.i, %84 ], [ %82, %83 ]
-  %.not8.i.i = icmp eq ptr %88, null
-  br i1 %.not8.i.i, label %_ZN5boost6detail15sp_counted_base12weak_releaseEv.exit.i.i, label %89
+86:                                               ; preds = %83, %82
+  %87 = phi ptr [ %.pr.i.i, %83 ], [ %81, %82 ]
+  %.not8.i.i = icmp eq ptr %87, null
+  br i1 %.not8.i.i, label %_ZN5boost6detail15sp_counted_base12weak_releaseEv.exit.i.i, label %88
 
-89:                                               ; preds = %87
-  %90 = getelementptr inbounds nuw i8, ptr %88, i64 12
-  %91 = atomicrmw sub ptr %90, i32 1 acq_rel, align 4
-  %92 = icmp eq i32 %91, 1
-  br i1 %92, label %93, label %_ZN5boost6detail15sp_counted_base12weak_releaseEv.exit.i.i
+88:                                               ; preds = %86
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 12
+  %90 = atomicrmw sub ptr %89, i32 1 acq_rel, align 4
+  %91 = icmp eq i32 %90, 1
+  br i1 %91, label %92, label %_ZN5boost6detail15sp_counted_base12weak_releaseEv.exit.i.i
 
-93:                                               ; preds = %89
-  %94 = load ptr, ptr %88, align 8, !tbaa !37
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  %96 = load ptr, ptr %95, align 8
-  invoke void %96(ptr noundef nonnull align 8 dereferenceable(16) %88)
-          to label %_ZN5boost6detail15sp_counted_base12weak_releaseEv.exit.i.i unwind label %97
+92:                                               ; preds = %88
+  %93 = load ptr, ptr %87, align 8, !tbaa !37
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 24
+  %95 = load ptr, ptr %94, align 8
+  invoke void %95(ptr noundef nonnull align 8 dereferenceable(16) %87)
+          to label %_ZN5boost6detail15sp_counted_base12weak_releaseEv.exit.i.i unwind label %96
 
-_ZN5boost6detail15sp_counted_base12weak_releaseEv.exit.i.i: ; preds = %93, %89, %87
-  store ptr %81, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix5sinks9anonymous25native_syslog_initializer12get_instanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiE8instance, i64 8), align 8, !tbaa !159
+_ZN5boost6detail15sp_counted_base12weak_releaseEv.exit.i.i: ; preds = %92, %88, %86
+  store ptr %79, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix5sinks9anonymous25native_syslog_initializer12get_instanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiE8instance, i64 8), align 8, !tbaa !159
   br label %_ZN5boost8weak_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEEaSIS5_EERS6_RKNS_10shared_ptrIT_EE.exit
 
-97:                                               ; preds = %93
-  %98 = landingpad { ptr, i32 }
+96:                                               ; preds = %92
+  %97 = landingpad { ptr, i32 }
           catch ptr null
-  %99 = extractvalue { ptr, i32 } %98, 0
-  call void @__clang_call_terminate(ptr %99) #34
+  %98 = extractvalue { ptr, i32 } %97, 0
+  call void @__clang_call_terminate(ptr %98) #34
   unreachable
 
-100:                                              ; preds = %_ZNK5boost8weak_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEE4lockEv.exit.thread
-  %101 = landingpad { ptr, i32 }
+99:                                               ; preds = %_ZNK5boost8weak_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEE4lockEv.exit.thread
+  %100 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #33
   call void @_ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #33
-  %102 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_5sinks9anonymous25native_syslog_initializerESt5mutexE12get_instanceEvE8instance) #33
-  resume { ptr, i32 } %101
+  %101 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_5sinks9anonymous25native_syslog_initializerESt5mutexE12get_instanceEvE8instance) #33
+  resume { ptr, i32 } %100
 
 _ZN5boost8weak_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEEaSIS5_EERS6_RKNS_10shared_ptrIT_EE.exit: ; preds = %_ZN5boost6detail15sp_counted_base12weak_releaseEv.exit.i.i, %_ZN5boost10shared_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEED2Ev.exit, %_ZNK5boost8weak_ptrINS_3log11v2_mt_posix5sinks9anonymous25native_syslog_initializerEE4lockEv.exit
-  %103 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_5sinks9anonymous25native_syslog_initializerESt5mutexE12get_instanceEvE8instance) #33
+  %102 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_5sinks9anonymous25native_syslog_initializerESt5mutexE12get_instanceEvE8instance) #33
   ret void
 }
 

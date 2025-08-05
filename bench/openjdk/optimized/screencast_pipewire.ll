@@ -2664,7 +2664,7 @@ spa_format_parse.exit:                            ; preds = %41
   %55 = load i32, ptr %37, align 4
   %56 = icmp eq i32 %55, 15
   %.pre27.i = load i32, ptr %2, align 4
-  br i1 %56, label %spa_pod_is_object.exit.i.i, label %.loopexit.i
+  br i1 %56, label %spa_pod_is_object.exit.i.i, label %spa_pod_find_prop.exit.thread.i
 
 spa_pod_is_object.exit.i.i:                       ; preds = %52
   %57 = icmp ult i32 %.pre27.i, 8
@@ -2687,7 +2687,7 @@ spa_pod_is_object.exit.i.i:                       ; preds = %52
   %64 = add i64 %63, %62
   %65 = add i64 %62, 24
   %.not.i25.i.i.i = icmp ugt i64 %65, %64
-  br i1 %.not.i25.i.i.i, label %.loopexit.i, label %.lr.ph.i.preheader.i.i
+  br i1 %.not.i25.i.i.i, label %spa_pod_find_prop.exit.thread.i, label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %61
   %66 = add i64 %62, 8
@@ -2702,7 +2702,7 @@ spa_pod_is_object.exit.i.i:                       ; preds = %52
   %71 = zext i32 %70 to i64
   %72 = add i64 %67, %71
   %.not22.i.i.i = icmp ugt i64 %72, %64
-  br i1 %.not22.i.i.i, label %.loopexit.i, label %73
+  br i1 %.not22.i.i.i, label %spa_pod_find_prop.exit.thread.i, label %73
 
 73:                                               ; preds = %.lr.ph.i.i.i
   %74 = load i32, ptr %.026.i.i.i, align 4
@@ -2716,14 +2716,14 @@ spa_pod_is_object.exit.i.i:                       ; preds = %52
   %80 = add i64 %79, %78
   %81 = add i64 %80, 16
   %.not.i.i.i.i32 = icmp ugt i64 %81, %64
-  br i1 %.not.i.i.i.i32, label %.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !16
+  br i1 %.not.i.i.i.i32, label %spa_pod_find_prop.exit.thread.i, label %.lr.ph.i.i.i, !llvm.loop !16
 
 spa_pod_find_prop.exit.i:                         ; preds = %73
   store i32 4, ptr %54, align 4
   %.pre.i = load i32, ptr %2, align 4
-  br label %.loopexit.i
+  br label %spa_pod_find_prop.exit.thread.i
 
-.loopexit.i:                                      ; preds = %76, %.lr.ph.i.i.i, %spa_pod_find_prop.exit.i, %61, %52
+spa_pod_find_prop.exit.thread.i:                  ; preds = %76, %.lr.ph.i.i.i, %spa_pod_find_prop.exit.i, %61, %52
   %82 = phi i32 [ %.pre27.i, %52 ], [ %.pre27.i, %61 ], [ %.pre.i, %spa_pod_find_prop.exit.i ], [ %.pre27.i, %.lr.ph.i.i.i ], [ %.pre27.i, %76 ]
   %83 = add i32 %82, 8
   store ptr %2, ptr %4, align 8
@@ -2736,11 +2736,11 @@ spa_pod_find_prop.exit.i:                         ; preds = %73
   %.not.i.i.i22.i = icmp ult i32 %82, -8
   br i1 %.not.i.i.i22.i, label %86, label %spa_format_video_raw_parse.exit.thread
 
-86:                                               ; preds = %.loopexit.i, %.thread
-  %87 = phi i32 [ %.pre27.i, %.thread ], [ %82, %.loopexit.i ]
-  %88 = phi i32 [ %58, %.thread ], [ %83, %.loopexit.i ]
-  %89 = phi ptr [ %59, %.thread ], [ %84, %.loopexit.i ]
-  %90 = phi ptr [ %60, %.thread ], [ %85, %.loopexit.i ]
+86:                                               ; preds = %spa_pod_find_prop.exit.thread.i, %.thread
+  %87 = phi i32 [ %.pre27.i, %.thread ], [ %82, %spa_pod_find_prop.exit.thread.i ]
+  %88 = phi i32 [ %58, %.thread ], [ %83, %spa_pod_find_prop.exit.thread.i ]
+  %89 = phi ptr [ %59, %.thread ], [ %84, %spa_pod_find_prop.exit.thread.i ]
+  %90 = phi ptr [ %60, %.thread ], [ %85, %spa_pod_find_prop.exit.thread.i ]
   %91 = zext i32 %88 to i64
   %92 = zext i32 %87 to i64
   %93 = add nsw i64 %92, -1
@@ -2761,7 +2761,7 @@ spa_pod_parser_current.exit.i.i28:                ; preds = %86
   %.not16.i.i30 = icmp eq i32 %100, 262147
   br i1 %.not16.i.i30, label %spa_format_video_raw_parse.exit, label %spa_format_video_raw_parse.exit.thread
 
-spa_format_video_raw_parse.exit.thread:           ; preds = %.loopexit.i, %spa_pod_parser_current.exit.i.i28, %86, %99
+spa_format_video_raw_parse.exit.thread:           ; preds = %spa_pod_find_prop.exit.thread.i, %spa_pod_parser_current.exit.i.i28, %86, %99
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %149

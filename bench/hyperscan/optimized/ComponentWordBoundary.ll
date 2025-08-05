@@ -110,14 +110,14 @@ _ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %3 = load i32, ptr %2, align 4
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #10
+  %4 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #10
   %.sroa.0.0.insert.ext5 = zext i32 %3 to i64
-  store i64 %.sroa.0.0.insert.ext5, ptr %6, align 4
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %6, ptr %0, align 8
-  store ptr %7, ptr %4, align 8
+  store i64 %.sroa.0.0.insert.ext5, ptr %4, align 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %4, ptr %0, align 8
+  store ptr %7, ptr %6, align 8
   store ptr %7, ptr %5, align 8
   ret void
 }

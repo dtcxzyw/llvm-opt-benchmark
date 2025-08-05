@@ -38396,7 +38396,7 @@ define void @_ZN6open3d13visualization10Visualizer13GetViewStatusB5cxx11Ev(ptr d
   call void @_ZN6open3d7utility6Logger11LogWarning_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 164, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d13visualization10Visualizer13GetViewStatusB5cxx11Ev, ptr noundef nonnull @.str.54)
   br label %10
 
-10:                                               ; preds = %2, %9
+10:                                               ; preds = %9, %2
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #35
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6open3d13visualization14ViewTrajectoryE, i64 16), ptr %4, align 8, !tbaa !107
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -38406,74 +38406,73 @@ define void @_ZN6open3d13visualization10Visualizer13GetViewStatusB5cxx11Ev(ptr d
   store i32 %13, ptr %12, align 4, !tbaa !846
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   invoke void @_ZNSt6vectorIN6open3d13visualization14ViewParametersESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr null, ptr noundef nonnull align 8 dereferenceable(144) %3)
-          to label %_ZNSt6vectorIN6open3d13visualization14ViewParametersESaIS2_EE9push_backERKS2_.exit unwind label %22
+          to label %_ZNSt6vectorIN6open3d13visualization14ViewParametersESaIS2_EE9push_backERKS2_.exit unwind label %20
 
 _ZNSt6vectorIN6open3d13visualization14ViewParametersESaIS2_EE9push_backERKS2_.exit: ; preds = %10
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %17, ptr %0, align 8, !tbaa !39
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %18, align 8, !tbaa !45
-  store i8 0, ptr %17, align 8, !tbaa !38
-  %19 = invoke noundef zeroext i1 @_ZN6open3d2io33WriteIJsonConvertibleToJSONStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7utility16IJsonConvertibleE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %20 unwind label %24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %15, ptr %0, align 8, !tbaa !39
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %16, align 8, !tbaa !45
+  store i8 0, ptr %15, align 8, !tbaa !38
+  %17 = invoke noundef zeroext i1 @_ZN6open3d2io33WriteIJsonConvertibleToJSONStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7utility16IJsonConvertibleE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %18 unwind label %22
 
-20:                                               ; preds = %_ZNSt6vectorIN6open3d13visualization14ViewParametersESaIS2_EE9push_backERKS2_.exit
-  br i1 %19, label %32, label %21
+18:                                               ; preds = %_ZNSt6vectorIN6open3d13visualization14ViewParametersESaIS2_EE9push_backERKS2_.exit
+  br i1 %17, label %30, label %19
 
-21:                                               ; preds = %20
+19:                                               ; preds = %18
   invoke void @_ZN6open3d7utility6Logger11LogWarning_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 170, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d13visualization10Visualizer13GetViewStatusB5cxx11Ev, ptr noundef nonnull @.str.55)
-          to label %32 unwind label %24
+          to label %30 unwind label %22
 
-22:                                               ; preds = %10
+20:                                               ; preds = %10
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+
+22:                                               ; preds = %19, %_ZNSt6vectorIN6open3d13visualization14ViewParametersESaIS2_EE9push_backERKS2_.exit
   %23 = landingpad { ptr, i32 }
           cleanup
+  %24 = load ptr, ptr %0, align 8, !tbaa !43
+  %25 = icmp eq ptr %24, %15
+  br i1 %25, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %22
+  %26 = load i64, ptr %16, align 8, !tbaa !45
+  %27 = icmp ult i64 %26, 16
+  call void @llvm.assume(i1 %27)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-24:                                               ; preds = %21, %_ZNSt6vectorIN6open3d13visualization14ViewParametersESaIS2_EE9push_backERKS2_.exit
-  %25 = landingpad { ptr, i32 }
-          cleanup
-  %26 = load ptr, ptr %0, align 8, !tbaa !43
-  %27 = icmp eq ptr %26, %17
-  br i1 %27, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %24
-  %28 = load i64, ptr %18, align 8, !tbaa !45
-  %29 = icmp ult i64 %28, 16
-  call void @llvm.assume(i1 %29)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %22
+  %28 = load i64, ptr %15, align 8, !tbaa !38
+  %29 = add i64 %28, 1
+  call void @_ZdlPvm(ptr noundef %24, i64 noundef %29) #32
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %24
-  %30 = load i64, ptr %17, align 8, !tbaa !38
-  %31 = add i64 %30, 1
-  call void @_ZdlPvm(ptr noundef %26, i64 noundef %31) #32
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-
-32:                                               ; preds = %20, %21
+30:                                               ; preds = %18, %19
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6open3d13visualization14ViewTrajectoryE, i64 16), ptr %4, align 8, !tbaa !107
-  %33 = load ptr, ptr %14, align 8, !tbaa !859
-  %.not.i.i.i.i = icmp eq ptr %33, null
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN5Eigen6MatrixIdLi17ELi4ELi1ELi17ELi4EEENS0_17aligned_allocatorIS2_EEED2Ev.exit.i, label %34
+  %31 = load ptr, ptr %14, align 8, !tbaa !859
+  %.not.i.i.i.i = icmp eq ptr %31, null
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN5Eigen6MatrixIdLi17ELi4ELi1ELi17ELi4EEENS0_17aligned_allocatorIS2_EEED2Ev.exit.i, label %32
 
-34:                                               ; preds = %32
-  call void @free(ptr noundef nonnull %33) #35
+32:                                               ; preds = %30
+  call void @free(ptr noundef nonnull %31) #35
   br label %_ZNSt6vectorIN5Eigen6MatrixIdLi17ELi4ELi1ELi17ELi4EEENS0_17aligned_allocatorIS2_EEED2Ev.exit.i
 
-_ZNSt6vectorIN5Eigen6MatrixIdLi17ELi4ELi1ELi17ELi4EEENS0_17aligned_allocatorIS2_EEED2Ev.exit.i: ; preds = %34, %32
-  %35 = load ptr, ptr %11, align 8, !tbaa !860
-  %36 = load ptr, ptr %15, align 8, !tbaa !861
-  %.not4.i.i.i.i = icmp eq ptr %35, %36
+_ZNSt6vectorIN5Eigen6MatrixIdLi17ELi4ELi1ELi17ELi4EEENS0_17aligned_allocatorIS2_EEED2Ev.exit.i: ; preds = %32, %30
+  %33 = load ptr, ptr %11, align 8, !tbaa !860
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %35 = load ptr, ptr %34, align 8, !tbaa !861
+  %.not4.i.i.i.i = icmp eq ptr %33, %35
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN6open3d13visualization14ViewParametersES2_EvT_S4_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt6vectorIN5Eigen6MatrixIdLi17ELi4ELi1ELi17ELi4EEENS0_17aligned_allocatorIS2_EEED2Ev.exit.i, %.lr.ph.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i ], [ %35, %_ZNSt6vectorIN5Eigen6MatrixIdLi17ELi4ELi1ELi17ELi4EEENS0_17aligned_allocatorIS2_EEED2Ev.exit.i ]
-  %37 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !107
-  %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(144) %.05.i.i.i.i) #35
-  %39 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 144
-  %.not.i.i.i1.i = icmp eq ptr %39, %36
+  %.05.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i ], [ %33, %_ZNSt6vectorIN5Eigen6MatrixIdLi17ELi4ELi1ELi17ELi4EEENS0_17aligned_allocatorIS2_EEED2Ev.exit.i ]
+  %36 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !107
+  %37 = load ptr, ptr %36, align 8
+  call void %37(ptr noundef nonnull align 8 dereferenceable(144) %.05.i.i.i.i) #35
+  %38 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 144
+  %.not.i.i.i1.i = icmp eq ptr %38, %35
   br i1 %.not.i.i.i1.i, label %_ZSt8_DestroyIPN6open3d13visualization14ViewParametersES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !862
 
 _ZSt8_DestroyIPN6open3d13visualization14ViewParametersES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %.lr.ph.i.i.i.i
@@ -38481,25 +38480,26 @@ _ZSt8_DestroyIPN6open3d13visualization14ViewParametersES2_EvT_S4_RSaIT0_E.exitth
   br label %_ZSt8_DestroyIPN6open3d13visualization14ViewParametersES2_EvT_S4_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPN6open3d13visualization14ViewParametersES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN6open3d13visualization14ViewParametersES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, %_ZNSt6vectorIN5Eigen6MatrixIdLi17ELi4ELi1ELi17ELi4EEENS0_17aligned_allocatorIS2_EEED2Ev.exit.i
-  %40 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN6open3d13visualization14ViewParametersES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i ], [ %35, %_ZNSt6vectorIN5Eigen6MatrixIdLi17ELi4ELi1ELi17ELi4EEENS0_17aligned_allocatorIS2_EEED2Ev.exit.i ]
-  %.not.i.i1.i.i = icmp eq ptr %40, null
-  br i1 %.not.i.i1.i.i, label %_ZN6open3d13visualization14ViewTrajectoryD2Ev.exit, label %41
+  %39 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN6open3d13visualization14ViewParametersES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i ], [ %33, %_ZNSt6vectorIN5Eigen6MatrixIdLi17ELi4ELi1ELi17ELi4EEENS0_17aligned_allocatorIS2_EEED2Ev.exit.i ]
+  %.not.i.i1.i.i = icmp eq ptr %39, null
+  br i1 %.not.i.i1.i.i, label %_ZN6open3d13visualization14ViewTrajectoryD2Ev.exit, label %40
 
-41:                                               ; preds = %_ZSt8_DestroyIPN6open3d13visualization14ViewParametersES2_EvT_S4_RSaIT0_E.exit.i.i
-  %42 = load ptr, ptr %16, align 8, !tbaa !863
+40:                                               ; preds = %_ZSt8_DestroyIPN6open3d13visualization14ViewParametersES2_EvT_S4_RSaIT0_E.exit.i.i
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %42 = load ptr, ptr %41, align 8, !tbaa !863
   %43 = ptrtoint ptr %42 to i64
-  %44 = ptrtoint ptr %40 to i64
+  %44 = ptrtoint ptr %39 to i64
   %45 = sub i64 %43, %44
-  call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef %45) #32
+  call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef %45) #32
   br label %_ZN6open3d13visualization14ViewTrajectoryD2Ev.exit
 
-_ZN6open3d13visualization14ViewTrajectoryD2Ev.exit: ; preds = %_ZSt8_DestroyIPN6open3d13visualization14ViewParametersES2_EvT_S4_RSaIT0_E.exit.i.i, %41
+_ZN6open3d13visualization14ViewTrajectoryD2Ev.exit: ; preds = %_ZSt8_DestroyIPN6open3d13visualization14ViewParametersES2_EvT_S4_RSaIT0_E.exit.i.i, %40
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #35
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #35
   ret void
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %22
-  %.pn = phi { ptr, i32 } [ %23, %22 ], [ %25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %20
+  %.pn = phi { ptr, i32 } [ %21, %20 ], [ %23, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %23, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   call void @_ZN6open3d13visualization14ViewTrajectoryD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #35
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #35
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #35

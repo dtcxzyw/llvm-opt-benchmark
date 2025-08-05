@@ -1385,7 +1385,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %1
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 24
   %179 = load ptr, ptr %178, align 8
   call void %179(ptr noundef nonnull align 8 dereferenceable(16) %166) #31
-  br label %_ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEEaSEOS3_.exit
+  br label %_ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEEaSEOS3_.exitthread-pre-split
 
 180:                                              ; preds = %167
   %181 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15
@@ -1404,14 +1404,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %184, %182
   %.0.i.i.i.i.i.i.i = phi i32 [ %171, %182 ], [ %185, %184 ]
   %186 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %186, label %187, label %_ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEEaSEOS3_.exit, !prof !49
+  br i1 %186, label %187, label %_ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEEaSEOS3_.exitthread-pre-split, !prof !49
 
 187:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %166) #31
+  br label %_ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEEaSEOS3_.exitthread-pre-split
+
+_ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEEaSEOS3_.exitthread-pre-split: ; preds = %187, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %172
+  %.pr = load ptr, ptr %49, align 8, !tbaa !40
   br label %_ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEEaSEOS3_.exit
 
-_ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEEaSEOS3_.exit: ; preds = %161, %172, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %187
-  %188 = load ptr, ptr %49, align 8, !tbaa !40
+_ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEEaSEOS3_.exit: ; preds = %_ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEEaSEOS3_.exitthread-pre-split, %161
+  %188 = phi ptr [ %.pr, %_ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEEaSEOS3_.exitthread-pre-split ], [ null, %161 ]
   %.not.i.i.i = icmp eq ptr %188, null
   br i1 %.not.i.i.i, label %_ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEED2Ev.exit, label %189
 
@@ -1656,7 +1660,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit137: ; preds =
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 24
   %291 = load ptr, ptr %290, align 8
   call void %291(ptr noundef nonnull align 8 dereferenceable(16) %278) #31
-  br label %_ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEEaSEOS3_.exit142
+  br label %_ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEEaSEOS3_.exit142thread-pre-split
 
 292:                                              ; preds = %279
   %293 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15
@@ -1675,14 +1679,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit137: ; preds =
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i140: ; preds = %296, %294
   %.0.i.i.i.i.i.i.i141 = phi i32 [ %283, %294 ], [ %297, %296 ]
   %298 = icmp eq i32 %.0.i.i.i.i.i.i.i141, 1
-  br i1 %298, label %299, label %_ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEEaSEOS3_.exit142, !prof !49
+  br i1 %298, label %299, label %_ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEEaSEOS3_.exit142thread-pre-split, !prof !49
 
 299:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i140
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %278) #31
+  br label %_ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEEaSEOS3_.exit142thread-pre-split
+
+_ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEEaSEOS3_.exit142thread-pre-split: ; preds = %299, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i140, %284
+  %.pr333 = load ptr, ptr %38, align 8, !tbaa !40
   br label %_ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEEaSEOS3_.exit142
 
-_ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEEaSEOS3_.exit142: ; preds = %273, %284, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i140, %299
-  %300 = load ptr, ptr %38, align 8, !tbaa !40
+_ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEEaSEOS3_.exit142: ; preds = %_ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEEaSEOS3_.exit142thread-pre-split, %273
+  %300 = phi ptr [ %.pr333, %_ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEEaSEOS3_.exit142thread-pre-split ], [ null, %273 ]
   %.not.i.i.i143 = icmp eq ptr %300, null
   br i1 %.not.i.i.i143, label %_ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEED2Ev.exit147, label %301
 
@@ -2174,8 +2182,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170: ; preds = %_Z
 483:                                              ; preds = %480
   %.val112 = load ptr, ptr %9, align 8
   %.not190306 = icmp ne ptr %.val112, %.val
-  %or.cond.not354 = select i1 %.082.lcssa, i1 %.not190306, i1 false
-  br i1 %or.cond.not354, label %.lr.ph309, label %.loopexit
+  %or.cond.not355 = select i1 %.082.lcssa, i1 %.not190306, i1 false
+  br i1 %or.cond.not355, label %.lr.ph309, label %.loopexit
 
 .lr.ph309:                                        ; preds = %483, %495
   %.sroa.0183.0307 = phi ptr [ %496, %495 ], [ %.val112, %483 ]

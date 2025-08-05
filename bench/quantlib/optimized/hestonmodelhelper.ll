@@ -5167,9 +5167,9 @@ _ZN5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEEC2INS1_18PlainVanillaPayoff
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %exercise) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp28) #26
   invoke void @_ZN5boost11make_sharedIN8QuantLib16EuropeanExerciseEJRNS1_4DateEEEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.boost::shared_ptr.41") align 8 %ref.tmp28, ptr noundef nonnull align 8 dereferenceable(8) %exerciseDate_)
-          to label %_ZN5boost10shared_ptrIN8QuantLib16EuropeanExerciseEED2Ev.exit unwind label %lpad30
+          to label %invoke.cont31 unwind label %lpad30
 
-_ZN5boost10shared_ptrIN8QuantLib16EuropeanExerciseEED2Ev.exit: ; preds = %_ZN5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEEC2INS1_18PlainVanillaPayoffEEEPT_.exit
+invoke.cont31:                                    ; preds = %_ZN5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEEC2INS1_18PlainVanillaPayoffEEEPT_.exit
   %23 = load ptr, ptr %ref.tmp28, align 8, !tbaa !141
   store ptr %23, ptr %exercise, align 8, !tbaa !143
   %pn.i19 = getelementptr inbounds nuw i8, ptr %exercise, i64 8
@@ -5181,7 +5181,7 @@ _ZN5boost10shared_ptrIN8QuantLib16EuropeanExerciseEED2Ev.exit: ; preds = %_ZN5bo
   invoke void @_ZN5boost11make_sharedIN8QuantLib13VanillaOptionEJRNS_10shared_ptrINS1_17StrikedTypePayoffEEERNS3_INS1_8ExerciseEEEEEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.boost::shared_ptr.23") align 8 %ref.tmp32, ptr noundef nonnull align 8 dereferenceable(16) %payoff, ptr noundef nonnull align 8 dereferenceable(16) %exercise)
           to label %invoke.cont34 unwind label %lpad33
 
-invoke.cont34:                                    ; preds = %_ZN5boost10shared_ptrIN8QuantLib16EuropeanExerciseEED2Ev.exit
+invoke.cont34:                                    ; preds = %invoke.cont31
   %option_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   %25 = load ptr, ptr %ref.tmp32, align 8, !tbaa !145
   %pn3.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp32, i64 8
@@ -5388,7 +5388,7 @@ lpad30:                                           ; preds = %_ZN5boost10shared_p
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp28) #26
   br label %ehcleanup38
 
-lpad33:                                           ; preds = %_ZN5boost10shared_ptrIN8QuantLib16EuropeanExerciseEED2Ev.exit
+lpad33:                                           ; preds = %invoke.cont31
   %60 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp32) #26

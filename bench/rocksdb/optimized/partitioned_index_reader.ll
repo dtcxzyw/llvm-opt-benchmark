@@ -3873,9 +3873,9 @@ _ZN7rocksdb11ReadOptionsD2Ev.exit.thread:         ; preds = %_ZN7rocksdb13Cachab
   unreachable
 
 _ZN7rocksdb11ReadOptionsD2Ev.exit:                ; preds = %248
-  %.pre = load ptr, ptr %226, align 8, !tbaa !24
+  %.pr = load ptr, ptr %226, align 8, !tbaa !24
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %7) #21
-  %.not.i.i37 = icmp eq ptr %.pre, null
+  %.not.i.i37 = icmp eq ptr %.pr, null
   br i1 %.not.i.i37, label %261, label %254, !prof !450
 
 254:                                              ; preds = %_ZN7rocksdb11ReadOptionsD2Ev.exit
@@ -3884,7 +3884,7 @@ _ZN7rocksdb11ReadOptionsD2Ev.exit:                ; preds = %248
   %257 = load ptr, ptr %256, align 8, !tbaa !31
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 184
   %259 = load ptr, ptr %258, align 8
-  %260 = invoke noundef zeroext i1 %259(ptr noundef nonnull align 8 dereferenceable(80) %256, ptr noundef nonnull %.pre, i1 noundef zeroext false)
+  %260 = invoke noundef zeroext i1 %259(ptr noundef nonnull align 8 dereferenceable(80) %256, ptr noundef nonnull %.pr, i1 noundef zeroext false)
           to label %_ZN7rocksdb13CachableEntryINS_5BlockEED2Ev.exit unwind label %269
 
 261:                                              ; preds = %_ZN7rocksdb11ReadOptionsD2Ev.exit.thread, %_ZN7rocksdb11ReadOptionsD2Ev.exit

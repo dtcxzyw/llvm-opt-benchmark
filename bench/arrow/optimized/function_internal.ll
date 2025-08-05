@@ -7218,7 +7218,7 @@ _ZN5arrow6StatusD2Ev.exit15.thread:               ; preds = %7, %8, %12
 
 _ZNSt6vectorIN5arrow10TypeHolderESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %13
   %.not.i.i.i.i = icmp eq ptr %15, %16
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN5arrow10TypeHolderESaIS1_EED2Ev.exit, label %.lr.ph.preheader
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN5arrow10TypeHolderES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIN5arrow10TypeHolderESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %22 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #23
@@ -7231,16 +7231,16 @@ _ZNSt6vectorIN5arrow10TypeHolderESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; pr
   store ptr %23, ptr %24, align 8, !tbaa !291
   br label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+_ZSt8_DestroyIPN5arrow10TypeHolderES1_EvT_S3_RSaIT0_E.exit.i.loopexit: ; preds = %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %.pre = load ptr, ptr %4, align 8, !tbaa !287
   %.pre31 = load ptr, ptr %24, align 8, !tbaa !291
   %.pre32 = load ptr, ptr %25, align 8, !tbaa !290
-  br label %_ZNSt6vectorIN5arrow10TypeHolderESaIS1_EED2Ev.exit
+  br label %_ZSt8_DestroyIPN5arrow10TypeHolderES1_EvT_S3_RSaIT0_E.exit.i
 
-_ZNSt6vectorIN5arrow10TypeHolderESaIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorIN5arrow10TypeHolderESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i, %._crit_edge.loopexit
-  %26 = phi ptr [ %.pre32, %._crit_edge.loopexit ], [ null, %_ZNSt6vectorIN5arrow10TypeHolderESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
-  %27 = phi ptr [ %.pre31, %._crit_edge.loopexit ], [ null, %_ZNSt6vectorIN5arrow10TypeHolderESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
-  %28 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ null, %_ZNSt6vectorIN5arrow10TypeHolderESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
+_ZSt8_DestroyIPN5arrow10TypeHolderES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZNSt6vectorIN5arrow10TypeHolderESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i, %_ZSt8_DestroyIPN5arrow10TypeHolderES1_EvT_S3_RSaIT0_E.exit.i.loopexit
+  %26 = phi ptr [ %.pre32, %_ZSt8_DestroyIPN5arrow10TypeHolderES1_EvT_S3_RSaIT0_E.exit.i.loopexit ], [ null, %_ZNSt6vectorIN5arrow10TypeHolderESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
+  %27 = phi ptr [ %.pre31, %_ZSt8_DestroyIPN5arrow10TypeHolderES1_EvT_S3_RSaIT0_E.exit.i.loopexit ], [ null, %_ZNSt6vectorIN5arrow10TypeHolderESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
+  %28 = phi ptr [ %.pre, %_ZSt8_DestroyIPN5arrow10TypeHolderES1_EvT_S3_RSaIT0_E.exit.i.loopexit ], [ null, %_ZNSt6vectorIN5arrow10TypeHolderESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
   store ptr null, ptr %0, align 8, !tbaa !40
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %28, ptr %29, align 8, !tbaa !287
@@ -7346,7 +7346,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %78 = sub i64 %76, %77
   %79 = sdiv exact i64 %78, 24
   %.not = icmp eq i64 %73, %79
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !295
+  br i1 %.not, label %_ZSt8_DestroyIPN5arrow10TypeHolderES1_EvT_S3_RSaIT0_E.exit.i.loopexit, label %.lr.ph, !llvm.loop !295
 
 80:                                               ; preds = %.lr.ph
   %81 = landingpad { ptr, i32 }
@@ -7355,7 +7355,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #21
   resume { ptr, i32 } %81
 
-82:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit15.thread, %_ZNSt6vectorIN5arrow10TypeHolderESaIS1_EED2Ev.exit
+82:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit15.thread, %_ZSt8_DestroyIPN5arrow10TypeHolderES1_EvT_S3_RSaIT0_E.exit.i
   ret void
 }
 

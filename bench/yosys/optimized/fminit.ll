@@ -1993,7 +1993,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i37
 ._crit_edge2642:                                  ; preds = %878
   %.pre3011 = load i32, ptr %43, align 8, !tbaa !48
   %836 = icmp eq i32 %.pre3011, 0
-  br i1 %836, label %._crit_edge2642.thread, label %.noexc.i388
+  br i1 %836, label %thread-pre-split, label %.noexc.i388
 
 .loopexit1351:                                    ; preds = %863, %876, %840, %856, %869
   %lpad.loopexit1353 = landingpad { ptr, i32 }
@@ -2452,7 +2452,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i446: ; preds = 
 
 _ZN5Yosys5RTLIL7SigSpecD2Ev.exit448:              ; preds = %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i446, %1001
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %45) #22
-  br label %._crit_edge2642.thread
+  br label %thread-pre-split
 
 1006:                                             ; preds = %.noexc.i388
   %1007 = landingpad { ptr, i32 }
@@ -2613,8 +2613,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit457: ; preds = %10
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %45) #22
   br label %1152
 
-._crit_edge2642.thread:                           ; preds = %833, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit448, %._crit_edge2642
-  %1059 = load ptr, ptr %600, align 8, !tbaa !63
+thread-pre-split:                                 ; preds = %._crit_edge2642, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit448
+  %.pr = load ptr, ptr %600, align 8, !tbaa !63
+  br label %._crit_edge2642.thread
+
+._crit_edge2642.thread:                           ; preds = %833, %thread-pre-split
+  %1059 = phi ptr [ %.pr, %thread-pre-split ], [ null, %833 ]
   %.not.i.i.i.i467 = icmp eq ptr %1059, null
   br i1 %.not.i.i.i.i467, label %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit.i468, label %1060
 

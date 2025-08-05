@@ -386,7 +386,7 @@ declare noundef zeroext i8 @_ZN17duckdb_libpgquery10is_keywordEPKc(ptr noundef) 
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6duckdb14PostgresParser11KeywordListEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::vector.3") align 8 captures(none) initializes((0, 24)) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt6vectorIN17duckdb_libpgquery9PGKeywordESaIS1_EED2Ev.exit:
+_ZSt8_DestroyIPN17duckdb_libpgquery9PGKeywordES1_EvT_S3_RSaIT0_E.exit.i:
   %1 = alloca %"class.std::vector.4", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1) #10
   call void @_ZN17duckdb_libpgquery12keyword_listEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.4") align 8 %1)

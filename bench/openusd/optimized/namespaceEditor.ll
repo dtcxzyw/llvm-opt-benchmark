@@ -7060,21 +7060,21 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEESaIS3
           to label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEESaIS3_EE9push_backEOS3_.exit unwind label %146
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEESaIS3_EE9push_backEOS3_.exit: ; preds = %138
-  %.pre = load ptr, ptr %76, align 8
-  %.not.i.i.i.i38 = icmp eq ptr %.pre, null
+  %.pr = load ptr, ptr %76, align 8
+  %.not.i.i.i.i38 = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i.i38, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i39
 
 _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i39: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEESaIS3_EE9push_backEOS3_.exit
-  %139 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
   %140 = atomicrmw sub ptr %139, i32 1 release, align 4
   %141 = icmp eq i32 %140, 1
   br i1 %141, label %142, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit
 
 142:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i39
-  %143 = load ptr, ptr %.pre, align 8
+  %143 = load ptr, ptr %.pr, align 8
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %145 = load ptr, ptr %144, align 8
-  call void %145(ptr noundef nonnull align 8 dereferenceable(12) %.pre) #13
+  call void %145(ptr noundef nonnull align 8 dereferenceable(12) %.pr) #13
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit
 
 146:                                              ; preds = %138

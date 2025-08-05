@@ -4918,8 +4918,8 @@ define dso_local void @_ZN4pbrt15DebugMLTSampler6CreateEN4pstd4spanIKNSt7__cxx11
   store i64 0, ptr %39, align 8, !tbaa !254
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
-  %.not17 = icmp eq i64 %2, 0
-  br i1 %.not17, label %._crit_edge, label %41
+  %.not = icmp eq i64 %2, 0
+  br i1 %.not, label %._crit_edge, label %41
 
 41:                                               ; preds = %4
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %40, i64 noundef %2)

@@ -9282,7 +9282,7 @@ define hidden void @_ZN23Emitter_OnAndErase_Test8TestBodyEv(ptr nonnull readnone
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 48, i1 false)
   store float 8.750000e-01, ptr %23, align 8, !tbaa !20
   invoke void @_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIvESaISt4pairIKjS4_EEE6rehashEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef 8)
-          to label %_ZNSt8functionIFvRN4test5emptyERNS0_7emitterEEEC2ERKS6_.exit unwind label %24
+          to label %_ZN4test7emitterC2Ev.exit unwind label %24
 
 24:                                               ; preds = %1
   %25 = landingpad { ptr, i32 }
@@ -9306,7 +9306,7 @@ common.resume:                                    ; preds = %24, %28, %_ZNSt14_F
   %common.resume.op = phi { ptr, i32 } [ %.pn39.pn.pn.pn.pn, %_ZNSt14_Function_baseD2Ev.exit136 ], [ %25, %28 ], [ %25, %24 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZNSt8functionIFvRN4test5emptyERNS0_7emitterEEEC2ERKS6_.exit: ; preds = %1
+_ZN4test7emitterC2Ev.exit:                        ; preds = %1
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4test7emitterE, i64 16), ptr %2, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
@@ -9316,7 +9316,7 @@ _ZNSt8functionIFvRN4test5emptyERNS0_7emitterEEEC2ERKS6_.exit: ; preds = %1
   invoke void @_ZN4entt7emitterIN4test7emitterESaIvEE2onINS1_5emptyEEEvSt8functionIFvRT_RS2_EE(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull %4)
           to label %36 unwind label %50
 
-36:                                               ; preds = %_ZNSt8functionIFvRN4test5emptyERNS0_7emitterEEEC2ERKS6_.exit
+36:                                               ; preds = %_ZN4test7emitterC2Ev.exit
   %37 = load ptr, ptr %34, align 8, !tbaa !42
   %.not.i = icmp eq ptr %37, null
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %38
@@ -9345,7 +9345,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %36, %38
   store ptr null, ptr %49, align 8, !tbaa !54
   br i1 %47, label %107, label %58
 
-50:                                               ; preds = %_ZNSt8functionIFvRN4test5emptyERNS0_7emitterEEEC2ERKS6_.exit
+50:                                               ; preds = %_ZN4test7emitterC2Ev.exit
   %51 = landingpad { ptr, i32 }
           cleanup
   %52 = load ptr, ptr %34, align 8, !tbaa !42
@@ -9729,11 +9729,11 @@ _ZN7testing7MessageD2Ev.exit80:                   ; preds = %_ZNKSt14default_del
   store i64 %187, ptr %.012.i.i, align 8, !tbaa !65
   call void @_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIvESaISt4pairIKjS4_EEE12move_and_popEm(ptr noundef nonnull align 8 dereferenceable(52) %22, i64 noundef %180)
   %.pre = load ptr, ptr %43, align 8, !tbaa !43
-  %.pre155 = load ptr, ptr %45, align 8, !tbaa !43
+  %.pre154 = load ptr, ptr %45, align 8, !tbaa !43
   br label %_ZN4entt7emitterIN4test7emitterESaIvEE5eraseINS1_5emptyEEEvv.exit
 
 _ZN4entt7emitterIN4test7emitterESaIvEE5eraseINS1_5emptyEEEvv.exit: ; preds = %179, %186
-  %.pre.i.i113 = phi ptr [ %.pre155, %186 ], [ %46, %179 ]
+  %.pre.i.i113 = phi ptr [ %.pre154, %186 ], [ %46, %179 ]
   %188 = phi ptr [ %.pre, %186 ], [ %44, %179 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #23
   %189 = icmp eq ptr %188, %.pre.i.i113

@@ -1461,8 +1461,8 @@ define internal void @_ZN12_GLOBAL__N_143CleanupTest_FactoryProducesCorrectType_
   %2 = alloca %"class.absl::Cleanup.14", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #27
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_143CleanupTest_FactoryProducesCorrectType_TestINS1_19FunctorClassFactoryEE8TestBodyEvEUlvE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %4, align 8, !tbaa !47, !alias.scope !49
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_143CleanupTest_FactoryProducesCorrectType_TestINS1_19FunctorClassFactoryEE8TestBodyEvEUlvE_E9_M_invokeERKSt9_Any_data, ptr %5, align 8, !tbaa !56, !alias.scope !49
@@ -2157,8 +2157,8 @@ define internal void @_ZN12_GLOBAL__N_140CleanupTest_CTADProducesCorrectType_Tes
   %2 = alloca %"class.absl::Cleanup.14", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #27
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_140CleanupTest_CTADProducesCorrectType_TestINS1_19FunctorClassFactoryEE8TestBodyEvEUlvE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %4, align 8, !tbaa !47, !alias.scope !90
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_140CleanupTest_CTADProducesCorrectType_TestINS1_19FunctorClassFactoryEE8TestBodyEvEUlvE_E9_M_invokeERKSt9_Any_data, ptr %5, align 8, !tbaa !56, !alias.scope !90
@@ -2293,18 +2293,18 @@ define internal void @_ZN12_GLOBAL__N_146CleanupTest_FactoryAndCTADProduceSameTy
   %3 = alloca %"class.absl::Cleanup.14", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #27
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_146CleanupTest_FactoryAndCTADProduceSameType_TestINS1_15IdentityFactoryEE8TestBodyEvEUlvE0_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %5, align 8, !tbaa !47, !alias.scope !95
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_146CleanupTest_FactoryAndCTADProduceSameType_TestINS1_15IdentityFactoryEE8TestBodyEvEUlvE0_E9_M_invokeERKSt9_Any_data, ptr %6, align 8, !tbaa !56, !alias.scope !95
   store i8 1, ptr %2, align 8, !tbaa !58, !alias.scope !102
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #27
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_146CleanupTest_FactoryAndCTADProduceSameType_TestINS1_15IdentityFactoryEE8TestBodyEvEUlvE1_E9_M_invokeERKSt9_Any_data, ptr %8, align 8, !tbaa !56, !alias.scope !103
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_146CleanupTest_FactoryAndCTADProduceSameType_TestINS1_15IdentityFactoryEE8TestBodyEvEUlvE1_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %9, align 8, !tbaa !47, !alias.scope !103
   store i8 1, ptr %3, align 8, !tbaa !58
   invoke fastcc void @_ZN4absl16cleanup_internal7StorageIN12_GLOBAL__N_112FunctorClassEE14InvokeCallbackEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
@@ -2342,8 +2342,8 @@ define internal void @_ZN12_GLOBAL__N_146CleanupTest_FactoryAndCTADProduceSameTy
 21:                                               ; preds = %20
   store i8 0, ptr %2, align 8, !tbaa !58
   %22 = load ptr, ptr %5, align 8, !tbaa !47
-  %.not.i.i.i.i20 = icmp eq ptr %22, null
-  br i1 %.not.i.i.i.i20, label %_ZNKSt8functionIFvvEEclEv.exit.i.i, label %23
+  %.not.i.i.i.i21 = icmp eq ptr %22, null
+  br i1 %.not.i.i.i.i21, label %_ZNKSt8functionIFvvEEclEv.exit.i.i, label %23
 
 23:                                               ; preds = %21
   %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
@@ -2453,18 +2453,18 @@ define internal void @_ZN12_GLOBAL__N_146CleanupTest_FactoryAndCTADProduceSameTy
   %3 = alloca %"class.absl::Cleanup.14", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #27
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_146CleanupTest_FactoryAndCTADProduceSameType_TestINS1_19FunctorClassFactoryEE8TestBodyEvEUlvE0_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %5, align 8, !tbaa !47, !alias.scope !108
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_146CleanupTest_FactoryAndCTADProduceSameType_TestINS1_19FunctorClassFactoryEE8TestBodyEvEUlvE0_E9_M_invokeERKSt9_Any_data, ptr %6, align 8, !tbaa !56, !alias.scope !108
   store i8 1, ptr %2, align 8, !tbaa !58, !alias.scope !115
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #27
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_146CleanupTest_FactoryAndCTADProduceSameType_TestINS1_19FunctorClassFactoryEE8TestBodyEvEUlvE1_E9_M_invokeERKSt9_Any_data, ptr %8, align 8, !tbaa !56, !alias.scope !116
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_146CleanupTest_FactoryAndCTADProduceSameType_TestINS1_19FunctorClassFactoryEE8TestBodyEvEUlvE1_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %9, align 8, !tbaa !47, !alias.scope !116
   store i8 1, ptr %3, align 8, !tbaa !58
   invoke fastcc void @_ZN4absl16cleanup_internal7StorageIN12_GLOBAL__N_112FunctorClassEE14InvokeCallbackEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
@@ -2502,8 +2502,8 @@ define internal void @_ZN12_GLOBAL__N_146CleanupTest_FactoryAndCTADProduceSameTy
 21:                                               ; preds = %20
   store i8 0, ptr %2, align 8, !tbaa !58
   %22 = load ptr, ptr %5, align 8, !tbaa !47
-  %.not.i.i.i.i20 = icmp eq ptr %22, null
-  br i1 %.not.i.i.i.i20, label %_ZNKSt8functionIFvvEEclEv.exit.i.i, label %23
+  %.not.i.i.i.i21 = icmp eq ptr %22, null
+  br i1 %.not.i.i.i.i21, label %_ZNKSt8functionIFvvEEclEv.exit.i.i, label %23
 
 23:                                               ; preds = %21
   %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
@@ -2613,18 +2613,18 @@ define internal void @_ZN12_GLOBAL__N_146CleanupTest_FactoryAndCTADProduceSameTy
   %3 = alloca %"class.absl::Cleanup.14", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #27
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_146CleanupTest_FactoryAndCTADProduceSameType_TestINS1_18StdFunctionFactoryEE8TestBodyEvEUlvE0_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %5, align 8, !tbaa !47, !alias.scope !121
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_146CleanupTest_FactoryAndCTADProduceSameType_TestINS1_18StdFunctionFactoryEE8TestBodyEvEUlvE0_E9_M_invokeERKSt9_Any_data, ptr %6, align 8, !tbaa !56, !alias.scope !121
   store i8 1, ptr %2, align 8, !tbaa !58, !alias.scope !128
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #27
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_146CleanupTest_FactoryAndCTADProduceSameType_TestINS1_18StdFunctionFactoryEE8TestBodyEvEUlvE1_E9_M_invokeERKSt9_Any_data, ptr %8, align 8, !tbaa !56, !alias.scope !129
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_146CleanupTest_FactoryAndCTADProduceSameType_TestINS1_18StdFunctionFactoryEE8TestBodyEvEUlvE1_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %9, align 8, !tbaa !47, !alias.scope !129
   store i8 1, ptr %3, align 8, !tbaa !58
   invoke fastcc void @_ZN4absl16cleanup_internal7StorageIN12_GLOBAL__N_112FunctorClassEE14InvokeCallbackEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
@@ -2662,8 +2662,8 @@ define internal void @_ZN12_GLOBAL__N_146CleanupTest_FactoryAndCTADProduceSameTy
 21:                                               ; preds = %20
   store i8 0, ptr %2, align 8, !tbaa !58
   %22 = load ptr, ptr %5, align 8, !tbaa !47
-  %.not.i.i.i.i20 = icmp eq ptr %22, null
-  br i1 %.not.i.i.i.i20, label %_ZNKSt8functionIFvvEEclEv.exit.i.i, label %23
+  %.not.i.i.i.i21 = icmp eq ptr %22, null
+  br i1 %.not.i.i.i.i21, label %_ZNKSt8functionIFvvEEclEv.exit.i.i, label %23
 
 23:                                               ; preds = %21
   %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
@@ -2816,10 +2816,10 @@ define internal void @_ZN12_GLOBAL__N_127CleanupTest_BasicUsage_TestINS_19Functo
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #27
   %8 = ptrtoint ptr %2 to i64
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %8, ptr %9, align 8
-  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 0, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_127CleanupTest_BasicUsage_TestINS1_19FunctorClassFactoryEE8TestBodyEvEUlvE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %10, align 8, !tbaa !47, !alias.scope !135
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_127CleanupTest_BasicUsage_TestINS1_19FunctorClassFactoryEE8TestBodyEvEUlvE_E9_M_invokeERKSt9_Any_data, ptr %11, align 8, !tbaa !56, !alias.scope !135
@@ -3159,10 +3159,10 @@ define internal void @_ZN12_GLOBAL__N_146CleanupTest_BasicUsageWithFunctionPoint
   store i1 false, ptr @_ZN12_GLOBAL__N_113fn_ptr_calledE, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #27
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr @_ZN12_GLOBAL__N_113FnPtrFunctionEv, ptr %7, align 8
-  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 0, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr @_ZNSt17_Function_handlerIFvvEPS0_E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation, ptr %8, align 8, !tbaa !47, !alias.scope !149
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr @_ZNSt17_Function_handlerIFvvEPS0_E9_M_invokeERKSt9_Any_data, ptr %9, align 8, !tbaa !56, !alias.scope !149
@@ -3615,10 +3615,10 @@ _ZN7testing15AssertionResultD2Ev.exit:
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #27
   %11 = ptrtoint ptr %1 to i64
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %11, ptr %12, align 8
-  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 0, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_123CleanupTest_Invoke_TestINS1_19FunctorClassFactoryEE8TestBodyEvEUlvE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %13, align 8, !tbaa !47, !alias.scope !157
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_123CleanupTest_Invoke_TestINS1_19FunctorClassFactoryEE8TestBodyEvEUlvE_E9_M_invokeERKSt9_Any_data, ptr %14, align 8, !tbaa !56, !alias.scope !157
@@ -4172,10 +4172,10 @@ define internal void @_ZN12_GLOBAL__N_121CleanupTest_Move_TestINS_19FunctorClass
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #27
   %13 = ptrtoint ptr %2 to i64
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %13, ptr %14, align 8
-  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 0, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_121CleanupTest_Move_TestINS1_19FunctorClassFactoryEE8TestBodyEvEUlvE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %15, align 8, !tbaa !47, !alias.scope !167
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_121CleanupTest_Move_TestINS1_19FunctorClassFactoryEE8TestBodyEvEUlvE_E9_M_invokeERKSt9_Any_data, ptr %16, align 8, !tbaa !56, !alias.scope !167
@@ -5106,10 +5106,10 @@ define internal void @_ZN12_GLOBAL__N_135CleanupTest_DestructorDestroys_TestINS_
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %7, ptr %9, align 8
-  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 0, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr @_ZNSt17_Function_handlerIFvvEN12_GLOBAL__N_118DestructionCounterEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation, ptr %10, align 8, !tbaa !47, !alias.scope !196
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr @_ZNSt17_Function_handlerIFvvEN12_GLOBAL__N_118DestructionCounterEE9_M_invokeERKSt9_Any_data, ptr %11, align 8, !tbaa !56, !alias.scope !196
@@ -5848,10 +5848,10 @@ define internal void @_ZN12_GLOBAL__N_131CleanupTest_CancelDestroys_TestINS_19Fu
 
 _ZNO4absl7CleanupINS_16cleanup_internal3TagEN12_GLOBAL__N_112FunctorClassEE6CancelEv.exit: ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %11, ptr %12, align 8
-  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 0, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr @_ZNSt17_Function_handlerIFvvEN12_GLOBAL__N_118DestructionCounterEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation, ptr %13, align 8, !tbaa !47, !alias.scope !216
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr @_ZNSt17_Function_handlerIFvvEN12_GLOBAL__N_118DestructionCounterEE9_M_invokeERKSt9_Any_data, ptr %14, align 8, !tbaa !56, !alias.scope !216
@@ -6941,10 +6941,10 @@ define internal void @_ZN12_GLOBAL__N_131CleanupTest_InvokeDestroys_TestINS_19Fu
 
 _ZN12_GLOBAL__N_112FunctorClassD2Ev.exit:         ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %11, ptr %12, align 8
-  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 0, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr @_ZNSt17_Function_handlerIFvvEN12_GLOBAL__N_118DestructionCounterEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation, ptr %13, align 8, !tbaa !47, !alias.scope !251
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr @_ZNSt17_Function_handlerIFvvEN12_GLOBAL__N_118DestructionCounterEE9_M_invokeERKSt9_Any_data, ptr %14, align 8, !tbaa !56, !alias.scope !251

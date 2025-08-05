@@ -41438,11 +41438,11 @@ define linkonce_odr dso_local void @_ZN7AstNode11foreachImplI9AstVarRefZN12Const
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @_ZNSt6vectorIP7AstNodeSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 32)
-          to label %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit unwind label %8
+          to label %.noexc unwind label %8
 
-_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit: ; preds = %3
+.noexc:                                           ; preds = %3
   %.pre3.i = load ptr, ptr %4, align 8, !tbaa !83
-  %.ptr80 = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 16
+  %.ptr79 = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 16
   br label %10
 
 6:                                                ; preds = %10
@@ -41454,9 +41454,9 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNo
           cleanup
   br label %118
 
-10:                                               ; preds = %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit, %10
-  %indvars.iv = phi i64 [ -2, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds ptr, ptr %.ptr80, i64 %indvars.iv
+10:                                               ; preds = %.noexc, %10
+  %indvars.iv = phi i64 [ -2, %.noexc ], [ %indvars.iv.next, %10 ]
+  %11 = getelementptr inbounds ptr, ptr %.ptr79, i64 %indvars.iv
   store ptr %0, ptr %11, align 8, !tbaa !153
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %12 = icmp eq i64 %indvars.iv.next, 0
@@ -41469,7 +41469,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNo
   br i1 %.not17, label %17, label %16
 
 16:                                               ; preds = %13
-  store ptr %15, ptr %.ptr80, align 8, !tbaa !153
+  store ptr %15, ptr %.ptr79, align 8, !tbaa !153
   br label %17
 
 17:                                               ; preds = %16, %13, %6
@@ -41550,24 +41550,24 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNo
   br i1 %42, label %.lr.ph.preheader, label %._crit_edge.thread, !prof !584
 
 .lr.ph.preheader:                                 ; preds = %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit.thread, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit
-  %.7.idx87 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit.thread ], [ %.7.idx, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit ]
-  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx87
+  %.7.idx86 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit.thread ], [ %.7.idx, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit ]
+  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx86
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit35
   %43 = phi ptr [ %76, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit35 ], [ %.pre3.i, %.lr.ph.preheader ]
-  %.079 = phi ptr [ %.1, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit35 ], [ %7, %.lr.ph.preheader ]
-  %.07178 = phi ptr [ %.172, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit35 ], [ %.ptr80, %.lr.ph.preheader ]
-  %.17477 = phi ptr [ %.11, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit35 ], [ %.7.ptr, %.lr.ph.preheader ]
-  %44 = getelementptr inbounds i8, ptr %.17477, i64 -8
+  %.078 = phi ptr [ %.1, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit35 ], [ %7, %.lr.ph.preheader ]
+  %.07177 = phi ptr [ %.172, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit35 ], [ %.ptr79, %.lr.ph.preheader ]
+  %.17476 = phi ptr [ %.11, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit35 ], [ %.7.ptr, %.lr.ph.preheader ]
+  %44 = getelementptr inbounds i8, ptr %.17476, i64 -8
   %45 = load ptr, ptr %44, align 8, !tbaa !153
-  %46 = getelementptr inbounds i8, ptr %.17477, i64 -24
+  %46 = getelementptr inbounds i8, ptr %.17476, i64 -24
   %47 = load ptr, ptr %46, align 8, !tbaa !153
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   call void @llvm.prefetch.p0(ptr nonnull %48, i32 0, i32 3, i32 1)
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 64
   call void @llvm.prefetch.p0(ptr nonnull %49, i32 0, i32 3, i32 1)
-  %.not18 = icmp ult ptr %44, %.079
+  %.not18 = icmp ult ptr %44, %.078
   br i1 %.not18, label %75, label %50, !prof !129
 
 50:                                               ; preds = %.lr.ph
@@ -41605,7 +41605,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNo
 _ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28: ; preds = %.noexc27, %60, %62, %64
   %65 = phi ptr [ %.pre3.i24, %.noexc27 ], [ %43, %60 ], [ %43, %62 ], [ %43, %64 ]
   %66 = ptrtoint ptr %44 to i64
-  %67 = ptrtoint ptr %.07178 to i64
+  %67 = ptrtoint ptr %.07177 to i64
   %68 = sub i64 %66, %67
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %70 = getelementptr inbounds i8, ptr %69, i64 %68
@@ -41621,8 +41621,8 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNo
 75:                                               ; preds = %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28, %.lr.ph
   %76 = phi ptr [ %43, %.lr.ph ], [ %65, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
   %.2 = phi ptr [ %44, %.lr.ph ], [ %70, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
-  %.172 = phi ptr [ %.07178, %.lr.ph ], [ %69, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
-  %.1 = phi ptr [ %.079, %.lr.ph ], [ %72, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
+  %.172 = phi ptr [ %.07177, %.lr.ph ], [ %69, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
+  %.1 = phi ptr [ %.078, %.lr.ph ], [ %72, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
   %77 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %78 = load ptr, ptr %77, align 8, !tbaa !170
   %.not19 = icmp eq ptr %78, null
@@ -41869,11 +41869,11 @@ define linkonce_odr dso_local void @_ZN7AstNode11foreachImplI9AstVarRefZN12Const
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @_ZNSt6vectorIP7AstNodeSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 32)
-          to label %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E0_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit unwind label %8
+          to label %.noexc unwind label %8
 
-_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E0_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit: ; preds = %3
+.noexc:                                           ; preds = %3
   %.pre3.i = load ptr, ptr %4, align 8, !tbaa !83
-  %.ptr83 = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 16
+  %.ptr82 = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 16
   br label %10
 
 6:                                                ; preds = %10
@@ -41885,9 +41885,9 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNo
           cleanup
   br label %130
 
-10:                                               ; preds = %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E0_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit, %10
-  %indvars.iv = phi i64 [ -2, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E0_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds ptr, ptr %.ptr83, i64 %indvars.iv
+10:                                               ; preds = %.noexc, %10
+  %indvars.iv = phi i64 [ -2, %.noexc ], [ %indvars.iv.next, %10 ]
+  %11 = getelementptr inbounds ptr, ptr %.ptr82, i64 %indvars.iv
   store ptr %0, ptr %11, align 8, !tbaa !153
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %12 = icmp eq i64 %indvars.iv.next, 0
@@ -41900,7 +41900,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNo
   br i1 %.not17, label %17, label %16
 
 16:                                               ; preds = %13
-  store ptr %15, ptr %.ptr83, align 8, !tbaa !153
+  store ptr %15, ptr %.ptr82, align 8, !tbaa !153
   br label %17
 
 17:                                               ; preds = %16, %13, %6
@@ -41990,24 +41990,24 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNo
   br i1 %48, label %.lr.ph.preheader, label %._crit_edge.thread, !prof !584
 
 .lr.ph.preheader:                                 ; preds = %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E0_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit.thread, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E0_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit
-  %.7.idx90 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E0_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit.thread ], [ %.7.idx, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E0_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit ]
-  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx90
+  %.7.idx89 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E0_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit.thread ], [ %.7.idx, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E0_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit ]
+  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx89
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E0_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit37
   %49 = phi ptr [ %82, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E0_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit37 ], [ %.pre3.i, %.lr.ph.preheader ]
-  %.082 = phi ptr [ %.1, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E0_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit37 ], [ %7, %.lr.ph.preheader ]
-  %.07481 = phi ptr [ %.175, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E0_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit37 ], [ %.ptr83, %.lr.ph.preheader ]
-  %.17780 = phi ptr [ %.11, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E0_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit37 ], [ %.7.ptr, %.lr.ph.preheader ]
-  %50 = getelementptr inbounds i8, ptr %.17780, i64 -8
+  %.081 = phi ptr [ %.1, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E0_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit37 ], [ %7, %.lr.ph.preheader ]
+  %.07480 = phi ptr [ %.175, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E0_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit37 ], [ %.ptr82, %.lr.ph.preheader ]
+  %.17779 = phi ptr [ %.11, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E0_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit37 ], [ %.7.ptr, %.lr.ph.preheader ]
+  %50 = getelementptr inbounds i8, ptr %.17779, i64 -8
   %51 = load ptr, ptr %50, align 8, !tbaa !153
-  %52 = getelementptr inbounds i8, ptr %.17780, i64 -24
+  %52 = getelementptr inbounds i8, ptr %.17779, i64 -24
   %53 = load ptr, ptr %52, align 8, !tbaa !153
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   call void @llvm.prefetch.p0(ptr nonnull %54, i32 0, i32 3, i32 1)
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 64
   call void @llvm.prefetch.p0(ptr nonnull %55, i32 0, i32 3, i32 1)
-  %.not18 = icmp ult ptr %50, %.082
+  %.not18 = icmp ult ptr %50, %.081
   br i1 %.not18, label %81, label %56, !prof !129
 
 56:                                               ; preds = %.lr.ph
@@ -42045,7 +42045,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNo
 _ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E0_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28: ; preds = %.noexc27, %66, %68, %70
   %71 = phi ptr [ %.pre3.i24, %.noexc27 ], [ %49, %66 ], [ %49, %68 ], [ %49, %70 ]
   %72 = ptrtoint ptr %50 to i64
-  %73 = ptrtoint ptr %.07481 to i64
+  %73 = ptrtoint ptr %.07480 to i64
   %74 = sub i64 %72, %73
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %76 = getelementptr inbounds i8, ptr %75, i64 %74
@@ -42061,8 +42061,8 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNo
 81:                                               ; preds = %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E0_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28, %.lr.ph
   %82 = phi ptr [ %49, %.lr.ph ], [ %71, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E0_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
   %.2 = phi ptr [ %50, %.lr.ph ], [ %76, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E0_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
-  %.175 = phi ptr [ %.07481, %.lr.ph ], [ %75, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E0_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
-  %.1 = phi ptr [ %.082, %.lr.ph ], [ %78, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E0_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
+  %.175 = phi ptr [ %.07480, %.lr.ph ], [ %75, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E0_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
+  %.1 = phi ptr [ %.081, %.lr.ph ], [ %78, %_ZZN7AstNode11foreachImplI9AstVarRefZN12ConstVisitor17replaceNodeAssignEP13AstNodeAssignEUlPKS1_E0_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
   %83 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !170
   %.not19 = icmp eq ptr %84, null

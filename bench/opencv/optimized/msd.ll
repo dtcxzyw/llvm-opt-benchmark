@@ -4547,33 +4547,33 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %_ZNSt6vectorIN2cv3M
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %105 = load i32, ptr %62, align 8, !tbaa !108
-  %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.not = icmp eq i32 %105, 0
-  br i1 %.not, label %._crit_edge, label %108
+  br i1 %.not, label %._crit_edge, label %107
 
-108:                                              ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit
+107:                                              ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit
+  %108 = sext i32 %105 to i64
   %109 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %110 = icmp slt i32 %105, 0
   br i1 %110, label %111, label %_ZNKSt6vectorIS_IfSaIfEESaIS1_EE12_M_check_lenEmPKc.exit.i
 
-111:                                              ; preds = %108
+111:                                              ; preds = %107
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.18) #24
           to label %.noexc73 unwind label %130
 
 .noexc73:                                         ; preds = %111
   unreachable
 
-_ZNKSt6vectorIS_IfSaIfEESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %108
-  %112 = mul nuw nsw i64 %106, 24
+_ZNKSt6vectorIS_IfSaIfEESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %107
+  %112 = mul nuw nsw i64 %108, 24
   %113 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %112) #25
           to label %.lr.ph.preheader unwind label %130
 
 .lr.ph.preheader:                                 ; preds = %_ZNKSt6vectorIS_IfSaIfEESaIS1_EE12_M_check_lenEmPKc.exit.i
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %113, i8 0, i64 %112, i1 false)
   store ptr %113, ptr %12, align 8, !tbaa !19
-  %114 = getelementptr inbounds nuw %"class.std::vector.5", ptr %113, i64 %106
-  store ptr %114, ptr %107, align 8, !tbaa !178
+  %114 = getelementptr inbounds nuw %"class.std::vector.5", ptr %113, i64 %108
+  store ptr %114, ptr %106, align 8, !tbaa !178
   store ptr %114, ptr %109, align 8, !tbaa !179
   br label %.lr.ph
 
@@ -4775,7 +4775,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit:      ; preds = %._crit_edge82, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i
   %195 = load ptr, ptr %12, align 8, !tbaa !19
-  %196 = load ptr, ptr %107, align 8, !tbaa !178
+  %196 = load ptr, ptr %106, align 8, !tbaa !178
   %.not4.i.i.i.i59 = icmp eq ptr %195, %196
   br i1 %.not4.i.i.i.i59, label %_ZSt8_DestroyIPSt6vectorIfSaIfEES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i60
 

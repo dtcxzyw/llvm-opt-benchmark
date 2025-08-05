@@ -40417,11 +40417,11 @@ define linkonce_odr hidden void @_ZN2cv6detail10VectorRefTISt6vectorINS_6Point_I
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8, !tbaa !542
   switch i64 %5, label %14 [
-    i64 0, label %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit
+    i64 0, label %_ZN2cv4util7variantIJNS0_9monostateEPKSt6vectorIS3_INS_6Point_IiEESaIS5_EESaIS7_EEPS9_S9_EEaSIS9_vEERSD_OT_.exit.thread
     i64 3, label %_ZN2cv4util3getISt6vectorIS2_INS_6Point_IiEESaIS4_EESaIS6_EEJNS0_9monostateEPKS8_PS8_S8_EEERT_RNS0_7variantIJDpT0_EEE.exit
   ]
 
-_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit: ; preds = %1
+_ZN2cv4util7variantIJNS0_9monostateEPKSt6vectorIS3_INS_6Point_IiEESaIS5_EESaIS7_EEPS9_S9_EEaSIS9_vEERSD_OT_.exit.thread: ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store i64 3, ptr %4, align 8, !tbaa !542
@@ -40488,7 +40488,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #23
   resume { ptr, i32 } %17
 
-_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE5clearEv.exit: ; preds = %_ZSt8_DestroyIPSt6vectorIN2cv6Point_IiEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i.i, %_ZN2cv4util3getISt6vectorIS2_INS_6Point_IiEESaIS4_EESaIS6_EEJNS0_9monostateEPKS8_PS8_S8_EEERT_RNS0_7variantIJDpT0_EEE.exit, %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit
+_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE5clearEv.exit: ; preds = %_ZSt8_DestroyIPSt6vectorIN2cv6Point_IiEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i.i, %_ZN2cv4util3getISt6vectorIS2_INS_6Point_IiEESaIS4_EESaIS6_EEJNS0_9monostateEPKS8_PS8_S8_EEERT_RNS0_7variantIJDpT0_EEE.exit, %_ZN2cv4util7variantIJNS0_9monostateEPKSt6vectorIS3_INS_6Point_IiEESaIS5_EESaIS7_EEPS9_S9_EEaSIS9_vEERSD_OT_.exit.thread
   ret void
 }
 

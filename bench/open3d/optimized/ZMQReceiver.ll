@@ -9474,19 +9474,19 @@ _ZN7msgpack2v14zoneC2Em.exit:                     ; preds = %_ZN7msgpack2v14zone
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i32 0, ptr %27, align 8, !tbaa !310
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 88
-  %29 = getelementptr inbounds nuw i8, ptr %9, i64 104
-  %30 = ptrtoint ptr %11 to i64
-  %31 = invoke noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #37
+  %29 = ptrtoint ptr %11 to i64
+  %30 = invoke noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #37
           to label %.noexc unwind label %55
 
 .noexc:                                           ; preds = %_ZN7msgpack2v14zoneC2Em.exit
-  store ptr %31, ptr %28, align 8, !tbaa !311
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 256
-  store ptr %32, ptr %29, align 8, !tbaa !312
-  %33 = getelementptr inbounds nuw i8, ptr %9, i64 96
-  store ptr %27, ptr %31, align 8, !tbaa !313
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store ptr %34, ptr %33, align 8, !tbaa !315
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 104
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  store ptr %30, ptr %28, align 8, !tbaa !311
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 256
+  store ptr %33, ptr %31, align 8, !tbaa !312
+  store ptr %27, ptr %30, align 8, !tbaa !313
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store ptr %34, ptr %32, align 8, !tbaa !315
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 112
   store ptr %11, ptr %35, align 8, !tbaa !316
   store i8 0, ptr %4, align 1, !tbaa !296
@@ -9506,7 +9506,7 @@ _ZN7msgpack2v14zoneC2Em.exit:                     ; preds = %_ZN7msgpack2v14zone
   br i1 %.not.i.i.i.i.i, label %54, label %41
 
 41:                                               ; preds = %38
-  %42 = load ptr, ptr %29, align 8, !tbaa !312
+  %42 = load ptr, ptr %31, align 8, !tbaa !312
   %43 = ptrtoint ptr %42 to i64
   %44 = ptrtoint ptr %40 to i64
   %45 = sub i64 %43, %44
@@ -9521,7 +9521,7 @@ _ZN7msgpack2v14zoneC2Em.exit:                     ; preds = %_ZN7msgpack2v14zone
   br i1 %.not.i.i.i.i13.i, label %_ZN7msgpack2v26detail21create_object_visitorD2Ev.exit14.i, label %49
 
 49:                                               ; preds = %46
-  %50 = load ptr, ptr %29, align 8, !tbaa !312
+  %50 = load ptr, ptr %31, align 8, !tbaa !312
   %51 = ptrtoint ptr %50 to i64
   %52 = ptrtoint ptr %48 to i64
   %53 = sub i64 %51, %52
@@ -9556,7 +9556,7 @@ _ZN7msgpack2v26detail21create_object_visitorD2Ev.exit14.i: ; preds = %49, %46
   %.sroa.7.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.0..sroa_idx14, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7, i64 20, i1 false)
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %30, ptr %58, align 8, !tbaa !164
+  store i64 %29, ptr %58, align 8, !tbaa !164
   br label %_ZNSt10unique_ptrIN7msgpack2v14zoneESt14default_deleteIS2_EED2Ev.exit
 
 59:                                               ; preds = %54
@@ -9564,7 +9564,7 @@ _ZN7msgpack2v26detail21create_object_visitorD2Ev.exit14.i: ; preds = %49, %46
   %.sroa.7.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.0..sroa_idx15, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7, i64 20, i1 false)
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %30, ptr %60, align 8, !tbaa !164
+  store i64 %29, ptr %60, align 8, !tbaa !164
   br label %_ZNSt10unique_ptrIN7msgpack2v14zoneESt14default_deleteIS2_EED2Ev.exit
 
 61:                                               ; preds = %54
@@ -9723,13 +9723,13 @@ common.resume:                                    ; preds = %_ZN7msgpack2v26deta
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 0, ptr %15, align 8, !tbaa !328
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %18 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #37
-  %19 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store ptr %18, ptr %16, align 8, !tbaa !329
-  store ptr %18, ptr %19, align 8, !tbaa !330
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 256
-  store ptr %20, ptr %17, align 8, !tbaa !331
+  %17 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #37
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  store ptr %17, ptr %16, align 8, !tbaa !329
+  store ptr %17, ptr %18, align 8, !tbaa !330
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 256
+  store ptr %20, ptr %19, align 8, !tbaa !331
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr %3, ptr %21, align 8, !tbaa !332
   %22 = invoke noundef i32 @_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE7executeEPKcmRm(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %5)
@@ -9753,7 +9753,7 @@ _ZN7msgpack2v26detail12parse_helperINS1_21create_object_visitorEE7executeEPKcmRm
   br i1 %.not.i.i.i.i.i, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEED2Ev.exit, label %26
 
 26:                                               ; preds = %.body
-  %27 = load ptr, ptr %17, align 8, !tbaa !331
+  %27 = load ptr, ptr %19, align 8, !tbaa !331
   %28 = ptrtoint ptr %27 to i64
   %29 = ptrtoint ptr %25 to i64
   %30 = sub i64 %28, %29
@@ -9800,7 +9800,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   br i1 %.not.i.i.i.i.i21, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEED2Ev.exit22, label %42
 
 42:                                               ; preds = %40
-  %43 = load ptr, ptr %17, align 8, !tbaa !331
+  %43 = load ptr, ptr %19, align 8, !tbaa !331
   %44 = ptrtoint ptr %43 to i64
   %45 = ptrtoint ptr %41 to i64
   %46 = sub i64 %44, %45

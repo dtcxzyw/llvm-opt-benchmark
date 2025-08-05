@@ -15943,7 +15943,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   %137 = add i64 %107, %136
   %138 = call i64 %134(ptr noundef %135, i64 noundef %137, ptr noundef nonnull %132, i64 noundef %127) #31
   %.not788 = icmp eq i64 %138, %127
-  br i1 %.not788, label %.preheader937, label %141
+  br i1 %.not788, label %.preheader934, label %141
 
 139:                                              ; preds = %126
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -15959,13 +15959,13 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   store i32 20, ptr %145, align 4
   br label %.critedge
 
-.preheader937:                                    ; preds = %.critedge831, %173
+.preheader934:                                    ; preds = %.critedge831, %173
   %.0723 = phi ptr [ %175, %173 ], [ %132, %.critedge831 ]
   %.0722 = phi i32 [ %176, %173 ], [ %113, %.critedge831 ]
   %146 = icmp ult i32 %.0722, 4
   br i1 %146, label %147, label %152
 
-147:                                              ; preds = %.preheader937
+147:                                              ; preds = %.preheader934
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %149 = load ptr, ptr %148, align 8
   %150 = load ptr, ptr %130, align 8
@@ -15974,7 +15974,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   store i32 9, ptr %151, align 4
   br label %.critedge
 
-152:                                              ; preds = %.preheader937
+152:                                              ; preds = %.preheader934
   %153 = getelementptr inbounds nuw i8, ptr %.0723, i64 2
   %154 = load i16, ptr %153, align 2
   %155 = zext i16 %154 to i32
@@ -16014,7 +16014,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   %175 = getelementptr inbounds nuw i8, ptr %.0723, i64 %174
   %176 = sub i32 %.0722, %156
   %.not789 = icmp eq i32 %176, 0
-  br i1 %.not789, label %.loopexit, label %.preheader937
+  br i1 %.not789, label %.loopexit, label %.preheader934
 
 .loopexit:                                        ; preds = %173, %166
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -16079,8 +16079,8 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
 
 .preheader:                                       ; preds = %205
   %214 = add i64 %197, 30
-  %.not793948 = icmp eq i64 %118, 0
-  br i1 %.not793948, label %240, label %.lr.ph
+  %.not793945 = icmp eq i64 %118, 0
+  br i1 %.not793945, label %240, label %.lr.ph
 
 215:                                              ; preds = %205
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -16088,13 +16088,13 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   br label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader, %235
-  %.0729951 = phi i64 [ %237, %235 ], [ %214, %.preheader ]
-  %.0731950 = phi i64 [ %236, %235 ], [ %107, %.preheader ]
-  %.0732949 = phi i64 [ %238, %235 ], [ %118, %.preheader ]
-  %217 = call i64 @llvm.umin.i64(i64 %.0732949, i64 65536)
+  %.0729948 = phi i64 [ %237, %235 ], [ %214, %.preheader ]
+  %.0731947 = phi i64 [ %236, %235 ], [ %107, %.preheader ]
+  %.0732946 = phi i64 [ %238, %235 ], [ %118, %.preheader ]
+  %217 = call i64 @llvm.umin.i64(i64 %.0732946, i64 65536)
   %218 = load ptr, ptr %16, align 8
   %219 = load ptr, ptr %97, align 8
-  %220 = call i64 %218(ptr noundef %219, i64 noundef %.0731950, ptr noundef %212, i64 noundef %217) #31
+  %220 = call i64 %218(ptr noundef %219, i64 noundef %.0731947, ptr noundef %212, i64 noundef %217) #31
   %.not828 = icmp eq i64 %220, %217
   br i1 %.not828, label %226, label %221
 
@@ -16110,7 +16110,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
 226:                                              ; preds = %.lr.ph
   %227 = load ptr, ptr %198, align 8
   %228 = load ptr, ptr %200, align 8
-  %229 = call i64 %227(ptr noundef %228, i64 noundef %.0729951, ptr noundef %212, i64 noundef %217) #31
+  %229 = call i64 %227(ptr noundef %228, i64 noundef %.0729948, ptr noundef %212, i64 noundef %217) #31
   %.not829 = icmp eq i64 %229, %217
   br i1 %.not829, label %235, label %230
 
@@ -16124,9 +16124,9 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   br label %.critedge
 
 235:                                              ; preds = %226
-  %236 = add i64 %.0731950, %217
-  %237 = add i64 %.0729951, %217
-  %238 = sub i64 %.0732949, %217
+  %236 = add i64 %.0731947, %217
+  %237 = add i64 %.0729948, %217
+  %238 = sub i64 %.0732946, %217
   %.not793 = icmp eq i64 %238, 0
   br i1 %.not793, label %._crit_edge, label %.lr.ph
 
@@ -16274,8 +16274,8 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   %316 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %.20..20..20..20..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i64 -1, ptr %.20..20..20..20..sroa_idx, align 4
-  %.42..42..42..42..sroa_idx999 = getelementptr inbounds nuw i8, ptr %6, i64 42
-  store i32 -1, ptr %.42..42..42..42..sroa_idx999, align 2
+  %.42..42..42..42..sroa_idx996 = getelementptr inbounds nuw i8, ptr %6, i64 42
+  store i32 -1, ptr %.42..42..42..42..sroa_idx996, align 2
   %.val853 = load i64, ptr %316, align 8
   %317 = call fastcc i32 @mz_zip_writer_update_zip64_extension_block(ptr noundef %8, ptr noundef %0, ptr noundef %314, i32 noundef %57, i64 %117, i64 %.val853, i64 %197)
   %.not807 = icmp eq i32 %317, 0

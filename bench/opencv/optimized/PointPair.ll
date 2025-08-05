@@ -134,8 +134,8 @@ define hidden void @_ZN5logos9PointPair19computeLocalSupportERSt6vectorIPS0_SaIS
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
-  %.not53 = icmp eq ptr %8, %9
-  br i1 %.not53, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPN5logos5PointESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i, label %13
+  %.not54 = icmp eq ptr %8, %9
+  br i1 %.not54, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPN5logos5PointESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i, label %13
 
 13:                                               ; preds = %3
   %14 = icmp ugt i64 %12, 9223372036854775800
@@ -168,7 +168,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPN5logos5PointESt6vectorIS4_SaIS4_EEE
   br i1 %18, label %.lr.ph47.split.us, label %.lr.ph47.split.preheader
 
 .lr.ph47.split.preheader:                         ; preds = %.lr.ph47
-  %.not54 = icmp eq i32 %2, 0
+  %.not49 = icmp eq i32 %2, 0
   br label %.lr.ph47.split
 
 .lr.ph47.split.us:                                ; preds = %.lr.ph47
@@ -192,7 +192,7 @@ _ZNSt6vectorIPN5logos5PointESaIS2_EED2Ev.exit:    ; preds = %._crit_edge48, %25
   %.sroa.030.046 = phi ptr [ %37, %_ZNSt6vectorIPN5logos5PointESaIS2_EED2Ev.exit12 ], [ %.sroa.0.1, %.lr.ph47.split.preheader ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  br i1 %.not54, label %_ZNSt6vectorIPN5logos5PointESaIS2_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIPN5logos5PointESaIS2_EE11_M_allocateEm.exit.i
+  br i1 %.not49, label %_ZNSt6vectorIPN5logos5PointESaIS2_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIPN5logos5PointESaIS2_EE11_M_allocateEm.exit.i
 
 .noexc:                                           ; preds = %.lr.ph47.split.us
   unreachable

@@ -2515,7 +2515,7 @@ define hidden void @_ZN3ue224getLiteralComponentClassEhb(ptr dead_on_unwind noal
           to label %_ZN3ue217getComponentClassERKNS_9ParseModeE.exit unwind label %common.resume.i, !noalias !58
 
 common.resume:                                    ; preds = %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit, %common.resume.i
-  %common.resume.op = phi { ptr, i32 } [ %8, %common.resume.i ], [ %14, %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit ]
+  %common.resume.op = phi { ptr, i32 } [ %8, %common.resume.i ], [ %17, %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit ]
   resume { ptr, i32 } %common.resume.op
 
 common.resume.i:                                  ; preds = %3
@@ -2525,33 +2525,33 @@ common.resume.i:                                  ; preds = %3
   br label %common.resume
 
 _ZN3ue217getComponentClassERKNS_9ParseModeE.exit: ; preds = %3
-  %.pre = load ptr, ptr %7, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 136
-  %.pre5 = load ptr, ptr %.phi.trans.insert, align 8
   store ptr %7, ptr %0, align 8, !alias.scope !55
   %9 = zext i8 %1 to i32
-  invoke void %.pre5(ptr noundef nonnull align 8 dereferenceable(29) %7, i32 noundef %9)
-          to label %10 unwind label %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit
+  %10 = load ptr, ptr %7, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 136
+  %12 = load ptr, ptr %11, align 8
+  invoke void %12(ptr noundef nonnull align 8 dereferenceable(29) %7, i32 noundef %9)
+          to label %13 unwind label %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit
 
-10:                                               ; preds = %_ZN3ue217getComponentClassERKNS_9ParseModeE.exit
-  %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 144
-  %13 = load ptr, ptr %12, align 8
-  invoke void %13(ptr noundef nonnull align 8 dereferenceable(29) %7)
-          to label %18 unwind label %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit
+13:                                               ; preds = %_ZN3ue217getComponentClassERKNS_9ParseModeE.exit
+  %14 = load ptr, ptr %7, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 144
+  %16 = load ptr, ptr %15, align 8
+  invoke void %16(ptr noundef nonnull align 8 dereferenceable(29) %7)
+          to label %21 unwind label %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit: ; preds = %10, %_ZN3ue217getComponentClassERKNS_9ParseModeE.exit
-  %14 = landingpad { ptr, i32 }
+_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit: ; preds = %13, %_ZN3ue217getComponentClassERKNS_9ParseModeE.exit
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load ptr, ptr %16, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(29) %7) #20
+  %18 = load ptr, ptr %7, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %20 = load ptr, ptr %19, align 8
+  call void %20(ptr noundef nonnull align 8 dereferenceable(29) %7) #20
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %4) #20
   br label %common.resume
 
-18:                                               ; preds = %10
+21:                                               ; preds = %13
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %4) #20
   ret void
 }

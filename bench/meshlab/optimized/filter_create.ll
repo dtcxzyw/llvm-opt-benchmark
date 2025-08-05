@@ -9977,12 +9977,12 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE9push_backEOS2_.exit856: ; preds = %_ZNSt6v
   %1345 = fpext float %1344 to double
   %1346 = fdiv double %1345, 0x400921FB54442D18
   %1347 = call double @sqrt(double noundef %1346) #28
+  %1348 = fmul double %1347, 2.000000e+00
+  %1349 = fptrunc double %1348 to float
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, i8 0, i64 24, i1 false)
   store ptr %61, ptr %62, align 8
-  %1348 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  store i8 0, ptr %1348, align 8
-  %1349 = fmul double %1347, 2.000000e+00
-  %1350 = fptrunc double %1349 to float
+  %1350 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  store i8 0, ptr %1350, align 8
   %1351 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i8 0, ptr %1351, align 8
   %1352 = getelementptr inbounds nuw i8, ptr %63, i64 1
@@ -10002,7 +10002,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE9push_backEOS2_.exit856: ; preds = %_ZNSt6v
   store i8 0, ptr %63, align 8
   %1359 = getelementptr inbounds nuw i8, ptr %63, i64 36
   store i32 0, ptr %1359, align 4
-  invoke void @_ZN3vcg3tri15SurfaceSamplingI6CMeshONS0_14TrivialSamplerIS2_EEE18PoissonDiskPruningERS4_RS2_fRNS5_16PoissonDiskParamE(ptr noundef nonnull align 8 dereferenceable(9) %62, ptr noundef nonnull align 8 dereferenceable(1196) %60, float noundef %1350, ptr noundef nonnull align 8 dereferenceable(88) %63)
+  invoke void @_ZN3vcg3tri15SurfaceSamplingI6CMeshONS0_14TrivialSamplerIS2_EEE18PoissonDiskPruningERS4_RS2_fRNS5_16PoissonDiskParamE(ptr noundef nonnull align 8 dereferenceable(9) %62, ptr noundef nonnull align 8 dereferenceable(1196) %60, float noundef %1349, ptr noundef nonnull align 8 dereferenceable(88) %63)
           to label %1360 unwind label %1363
 
 1360:                                             ; preds = %1341

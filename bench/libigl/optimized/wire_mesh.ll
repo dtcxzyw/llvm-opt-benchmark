@@ -367,7 +367,7 @@ define weak_odr dso_local void @_ZN3igl8copyleft4cgal9wire_meshIN5Eigen6MatrixId
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #25
   %9 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #26
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %.noexc, label %12
+  br i1 %10, label %.noexc, label %.sink.split.i.i
 
 .noexc:                                           ; preds = %7
   %11 = tail call ptr @__cxa_allocate_exception(i64 8) #25
@@ -375,25 +375,25 @@ define weak_odr dso_local void @_ZN3igl8copyleft4cgal9wire_meshIN5Eigen6MatrixId
   tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #27
   unreachable
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
+.sink.split.i.i:                                  ; preds = %7
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %9, ptr %8, align 8, !tbaa !7
-  store i64 1, ptr %13, align 8, !tbaa !13
+  store i64 1, ptr %12, align 8, !tbaa !13
   store double %2, ptr %9, align 8, !tbaa !14, !noalias !16
   invoke void @_ZN3igl8copyleft4cgal9wire_meshIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_IdLin1ELi1ELi0ELin1ELi1EEES5_S6_NS4_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS3_10MatrixBaseIT_EERKNS9_IT0_EERKNS9_IT1_EEibRNS3_15PlainObjectBaseIT2_EERNSM_IT3_EERNSM_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %8, i32 noundef %3, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %_ZN3igl8copyleft4cgal9wire_meshIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_S6_NS4_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EEdibRNS3_15PlainObjectBaseIT1_EERNSH_IT2_EERNSH_IT3_EE.exit unwind label %common.resume.i
 
-common.resume.i:                                  ; preds = %12
-  %14 = landingpad { ptr, i32 }
+common.resume.i:                                  ; preds = %.sink.split.i.i
+  %13 = landingpad { ptr, i32 }
           cleanup
+  %14 = load ptr, ptr %8, align 8, !tbaa !7
+  call void @free(ptr noundef %14) #25
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
+  resume { ptr, i32 } %13
+
+_ZN3igl8copyleft4cgal9wire_meshIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_S6_NS4_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EEdibRNS3_15PlainObjectBaseIT1_EERNSH_IT2_EERNSH_IT3_EE.exit: ; preds = %.sink.split.i.i
   %15 = load ptr, ptr %8, align 8, !tbaa !7
   call void @free(ptr noundef %15) #25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
-  resume { ptr, i32 } %14
-
-_ZN3igl8copyleft4cgal9wire_meshIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_S6_NS4_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EEdibRNS3_15PlainObjectBaseIT1_EERNSH_IT2_EERNSH_IT3_EE.exit: ; preds = %12
-  %16 = load ptr, ptr %8, align 8, !tbaa !7
-  call void @free(ptr noundef %16) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
   ret void
 }

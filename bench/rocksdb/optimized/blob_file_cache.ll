@@ -460,7 +460,7 @@ _ZN7rocksdb6StatusD2Ev.exit64:                    ; preds = %.critedge, %_ZNKSt1
 
 _ZN7rocksdb24BasicTypedCacheInterfaceINS_14BlobFileReaderELNS_14CacheEntryRoleE13EPNS_5CacheEE5GuardEPNS5_11TypedHandleE.exit67: ; preds = %_ZN7rocksdb6StatusD2Ev.exit64, %152
   %.sroa.0.0 = phi ptr [ %153, %152 ], [ null, %_ZN7rocksdb6StatusD2Ev.exit64 ]
-  %.sroa.11.0 = phi ptr [ %157, %152 ], [ null, %_ZN7rocksdb6StatusD2Ev.exit64 ]
+  %.sroa.9.0 = phi ptr [ %157, %152 ], [ null, %_ZN7rocksdb6StatusD2Ev.exit64 ]
   %158 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %159 = load ptr, ptr %158, align 8, !tbaa !53
   %.not.i.i.i68 = icmp eq ptr %159, null
@@ -485,7 +485,7 @@ _ZN7rocksdb16CacheHandleGuardINS_14BlobFileReaderEED2Ev.exit73: ; preds = %_ZN7r
   store ptr %.sroa.0.0, ptr %4, align 8, !tbaa !57
   store ptr %151, ptr %158, align 8, !tbaa !53
   %169 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %.sroa.11.0, ptr %169, align 8, !tbaa !58
+  store ptr %.sroa.9.0, ptr %169, align 8, !tbaa !58
   store ptr null, ptr %123, align 8, !tbaa !59, !alias.scope !150
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !150
   br label %.critedge30

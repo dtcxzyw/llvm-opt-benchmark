@@ -1500,7 +1500,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__36HdDataSourceMaterialNetwork
   %20 = ptrtoint ptr %19 to i64
   %21 = xor i64 %20, %13
   %22 = icmp ult i64 %21, 8
-  br i1 %22, label %_ZN32pxrInternal_v0_24__pxrReserved__20HdMaterialNodeSchemaC2ESt10shared_ptrINS_21HdContainerDataSourceEE.exit, label %16, !llvm.loop !21
+  br i1 %22, label %_ZNKSt13unordered_setIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_6TfHashESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit, label %16, !llvm.loop !21
 
 23:                                               ; preds = %3
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 424
@@ -1527,7 +1527,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__36HdDataSourceMaterialNetwork
   %42 = xor i64 %41, %13
   %43 = icmp ult i64 %42, 8
   %44 = select i1 %39, i1 %43, i1 false
-  br i1 %44, label %_ZN32pxrInternal_v0_24__pxrReserved__20HdMaterialNodeSchemaC2ESt10shared_ptrINS_21HdContainerDataSourceEE.exit, label %.lr.ph.i.i.i.i
+  br i1 %44, label %_ZNKSt13unordered_setIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_6TfHashESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit, label %.lr.ph.i.i.i.i
 
 45:                                               ; preds = %54
   %46 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -1537,7 +1537,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__36HdDataSourceMaterialNetwork
   %50 = xor i64 %49, %13
   %51 = icmp ult i64 %50, 8
   %52 = select i1 %47, i1 %51, i1 false
-  br i1 %52, label %_ZN32pxrInternal_v0_24__pxrReserved__20HdMaterialNodeSchemaC2ESt10shared_ptrINS_21HdContainerDataSourceEE.exit, label %.lr.ph.i.i.i.i, !llvm.loop !22
+  br i1 %52, label %_ZNKSt13unordered_setIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_6TfHashESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !22
 
 .lr.ph.i.i.i.i:                                   ; preds = %34, %45
   %.018.i.i.i.i = phi ptr [ %53, %45 ], [ %35, %34 ]
@@ -1555,7 +1555,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__36HdDataSourceMaterialNetwork
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %54
   br label %.loopexit, !llvm.loop !22
 
-_ZN32pxrInternal_v0_24__pxrReserved__20HdMaterialNodeSchemaC2ESt10shared_ptrINS_21HdContainerDataSourceEE.exit: ; preds = %45, %17, %34
+_ZNKSt13unordered_setIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_6TfHashESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit: ; preds = %45, %17, %34
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit
 
@@ -2448,7 +2448,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
   resume { ptr, i32 } %488
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__20HdMaterialNodeSchemaC2ESt10shared_ptrINS_21HdContainerDataSourceEE.exit, %485, %482, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit66, %75, %72, %63
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit: ; preds = %_ZNKSt13unordered_setIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_6TfHashESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit, %485, %482, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit66, %75, %72, %63
   ret void
 }
 
@@ -13528,8 +13528,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_42HdMaterialNodeSchemaTo
   %46 = load i32, ptr %45, align 8
   %47 = zext i32 %46 to i64
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.not81 = icmp eq i32 %46, 0
-  br i1 %.not81, label %._crit_edge, label %_ZNSt12_Vector_baseISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEESaIS3_EE11_M_allocateEm.exit.i
+  %.not77 = icmp eq i32 %46, 0
+  br i1 %.not77, label %._crit_edge, label %_ZNSt12_Vector_baseISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEESaIS3_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEESaIS3_EE11_M_allocateEm.exit.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_42HdMaterialNodeSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
   %49 = shl nuw nsw i64 %47, 4
@@ -13558,9 +13558,9 @@ _ZNSt12_Vector_baseISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSo
   br label %65
 
 65:                                               ; preds = %.lr.ph, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS0_7TfTokenEEEED2Ev.exit59
-  %.01878 = phi ptr [ %spec.select.i.i, %.lr.ph ], [ %298, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS0_7TfTokenEEEED2Ev.exit59 ]
+  %.01879 = phi ptr [ %spec.select.i.i, %.lr.ph ], [ %298, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS0_7TfTokenEEEED2Ev.exit59 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS_7TfTokenEE3NewERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.62") align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %.01878)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS_7TfTokenEE3NewERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.62") align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %.01879)
           to label %66 unwind label %301
 
 66:                                               ; preds = %65
@@ -13574,7 +13574,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSo
           to label %70 unwind label %303
 
 70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %.01878, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.01879, i64 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS_7TfTokenEE3NewERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.62") align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %71)
           to label %72 unwind label %303
 
@@ -14061,7 +14061,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS0_7TfTokenEEEED2Ev.exit59: ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7TfTokenEEEED2Ev.exit52, %280, %293, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i58
   call void @_ZN32pxrInternal_v0_24__pxrReserved__26HdMaterialConnectionSchema7BuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #19
-  %298 = getelementptr inbounds nuw i8, ptr %.01878, i64 16
+  %298 = getelementptr inbounds nuw i8, ptr %.01879, i64 16
   %.not = icmp eq ptr %298, %57
   br i1 %.not, label %._crit_edge.loopexit, label %65
 
@@ -14111,12 +14111,12 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDat
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS0_7TfTokenEEEED2Ev.exit59
   %.pre = load ptr, ptr %64, align 8
-  %.pre79 = load ptr, ptr %6, align 8
+  %.pre80 = load ptr, ptr %6, align 8
   %312 = ptrtoint ptr %.pre to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_42HdMaterialNodeSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit, %._crit_edge.loopexit
-  %313 = phi ptr [ %.pre79, %._crit_edge.loopexit ], [ null, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_42HdMaterialNodeSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit ]
+  %313 = phi ptr [ %.pre80, %._crit_edge.loopexit ], [ null, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_42HdMaterialNodeSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit ]
   %314 = phi i64 [ %312, %._crit_edge.loopexit ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_42HdMaterialNodeSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit ]
   %315 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %316 = ptrtoint ptr %313 to i64

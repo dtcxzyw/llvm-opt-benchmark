@@ -13835,7 +13835,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit65:            ; preds = %231, %235, %241
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #20
   br label %348
 
-246:                                              ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit48, %_ZN4cvc58internal8TypeNodeD2Ev.exit65
+246:                                              ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit65, %_ZN4cvc58internal8TypeNodeD2Ev.exit48
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   %247 = getelementptr inbounds nuw i8, ptr %15, i64 8

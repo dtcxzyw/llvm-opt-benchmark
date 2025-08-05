@@ -9291,11 +9291,11 @@ define linkonce_odr dso_local void @_ZN7AstNode11foreachImplI9AstAssignZN17ForkD
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @_ZNSt6vectorIP7AstNodeSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 32)
-          to label %_ZZN7AstNode11foreachImplI9AstAssignZN17ForkDynScopeFrame15linkNodesOfForkER10VMemberMapEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit unwind label %8
+          to label %.noexc unwind label %8
 
-_ZZN7AstNode11foreachImplI9AstAssignZN17ForkDynScopeFrame15linkNodesOfForkER10VMemberMapEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit: ; preds = %3
+.noexc:                                           ; preds = %3
   %.pre3.i = load ptr, ptr %4, align 8, !tbaa !191
-  %.ptr87 = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 16
+  %.ptr86 = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 16
   br label %10
 
 6:                                                ; preds = %10
@@ -9307,9 +9307,9 @@ _ZZN7AstNode11foreachImplI9AstAssignZN17ForkDynScopeFrame15linkNodesOfForkER10VM
           cleanup
   br label %110
 
-10:                                               ; preds = %_ZZN7AstNode11foreachImplI9AstAssignZN17ForkDynScopeFrame15linkNodesOfForkER10VMemberMapEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit, %10
-  %indvars.iv = phi i64 [ -2, %_ZZN7AstNode11foreachImplI9AstAssignZN17ForkDynScopeFrame15linkNodesOfForkER10VMemberMapEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds ptr, ptr %.ptr87, i64 %indvars.iv
+10:                                               ; preds = %.noexc, %10
+  %indvars.iv = phi i64 [ -2, %.noexc ], [ %indvars.iv.next, %10 ]
+  %11 = getelementptr inbounds ptr, ptr %.ptr86, i64 %indvars.iv
   store ptr %0, ptr %11, align 8, !tbaa !107
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %12 = icmp eq i64 %indvars.iv.next, 0
@@ -9322,7 +9322,7 @@ _ZZN7AstNode11foreachImplI9AstAssignZN17ForkDynScopeFrame15linkNodesOfForkER10VM
   br i1 %.not17, label %19, label %16
 
 16:                                               ; preds = %13
-  store ptr %15, ptr %.ptr87, align 8, !tbaa !107
+  store ptr %15, ptr %.ptr86, align 8, !tbaa !107
   br label %19
 
 17:                                               ; preds = %.noexc22, %22
@@ -9402,23 +9402,23 @@ _ZZN7AstNode11foreachImplI9AstAssignZN17ForkDynScopeFrame15linkNodesOfForkER10VM
   br i1 %39, label %.lr.ph.preheader, label %._crit_edge, !prof !349
 
 .lr.ph.preheader:                                 ; preds = %_ZZN7AstNode11foreachImplI9AstAssignZN17ForkDynScopeFrame15linkNodesOfForkER10VMemberMapEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit.thread, %_ZZN7AstNode11foreachImplI9AstAssignZN17ForkDynScopeFrame15linkNodesOfForkER10VMemberMapEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit
-  %.7.idx91 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplI9AstAssignZN17ForkDynScopeFrame15linkNodesOfForkER10VMemberMapEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit.thread ], [ %.6.idx, %_ZZN7AstNode11foreachImplI9AstAssignZN17ForkDynScopeFrame15linkNodesOfForkER10VMemberMapEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit ]
-  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx91
+  %.7.idx90 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplI9AstAssignZN17ForkDynScopeFrame15linkNodesOfForkER10VMemberMapEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit.thread ], [ %.6.idx, %_ZZN7AstNode11foreachImplI9AstAssignZN17ForkDynScopeFrame15linkNodesOfForkER10VMemberMapEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit ]
+  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx90
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZZN7AstNode11foreachImplI9AstAssignZN17ForkDynScopeFrame15linkNodesOfForkER10VMemberMapEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit38
-  %.083 = phi ptr [ %.1, %_ZZN7AstNode11foreachImplI9AstAssignZN17ForkDynScopeFrame15linkNodesOfForkER10VMemberMapEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit38 ], [ %7, %.lr.ph.preheader ]
-  %.07582 = phi ptr [ %.176, %_ZZN7AstNode11foreachImplI9AstAssignZN17ForkDynScopeFrame15linkNodesOfForkER10VMemberMapEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit38 ], [ %.ptr87, %.lr.ph.preheader ]
-  %.17881 = phi ptr [ %.11, %_ZZN7AstNode11foreachImplI9AstAssignZN17ForkDynScopeFrame15linkNodesOfForkER10VMemberMapEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit38 ], [ %.7.ptr, %.lr.ph.preheader ]
-  %40 = getelementptr inbounds i8, ptr %.17881, i64 -8
+  %.082 = phi ptr [ %.1, %_ZZN7AstNode11foreachImplI9AstAssignZN17ForkDynScopeFrame15linkNodesOfForkER10VMemberMapEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit38 ], [ %7, %.lr.ph.preheader ]
+  %.07581 = phi ptr [ %.176, %_ZZN7AstNode11foreachImplI9AstAssignZN17ForkDynScopeFrame15linkNodesOfForkER10VMemberMapEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit38 ], [ %.ptr86, %.lr.ph.preheader ]
+  %.17880 = phi ptr [ %.11, %_ZZN7AstNode11foreachImplI9AstAssignZN17ForkDynScopeFrame15linkNodesOfForkER10VMemberMapEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit38 ], [ %.7.ptr, %.lr.ph.preheader ]
+  %40 = getelementptr inbounds i8, ptr %.17880, i64 -8
   %41 = load ptr, ptr %40, align 8, !tbaa !107
-  %42 = getelementptr inbounds i8, ptr %.17881, i64 -24
+  %42 = getelementptr inbounds i8, ptr %.17880, i64 -24
   %43 = load ptr, ptr %42, align 8, !tbaa !107
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   call void @llvm.prefetch.p0(ptr nonnull %44, i32 0, i32 3, i32 1)
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 64
   call void @llvm.prefetch.p0(ptr nonnull %45, i32 0, i32 3, i32 1)
-  %.not18 = icmp ult ptr %40, %.083
+  %.not18 = icmp ult ptr %40, %.082
   br i1 %.not18, label %72, label %46, !prof !228
 
 46:                                               ; preds = %.lr.ph
@@ -9457,7 +9457,7 @@ _ZZN7AstNode11foreachImplI9AstAssignZN17ForkDynScopeFrame15linkNodesOfForkER10VM
 _ZZN7AstNode11foreachImplI9AstAssignZN17ForkDynScopeFrame15linkNodesOfForkER10VMemberMapEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30: ; preds = %.noexc29, %57, %59, %61
   %62 = phi ptr [ %.pre3.i26, %.noexc29 ], [ %48, %57 ], [ %48, %59 ], [ %48, %61 ]
   %63 = ptrtoint ptr %40 to i64
-  %64 = ptrtoint ptr %.07582 to i64
+  %64 = ptrtoint ptr %.07581 to i64
   %65 = sub i64 %63, %64
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %67 = getelementptr inbounds i8, ptr %66, i64 %65
@@ -9472,8 +9472,8 @@ _ZZN7AstNode11foreachImplI9AstAssignZN17ForkDynScopeFrame15linkNodesOfForkER10VM
 
 72:                                               ; preds = %_ZZN7AstNode11foreachImplI9AstAssignZN17ForkDynScopeFrame15linkNodesOfForkER10VMemberMapEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30, %.lr.ph
   %.2 = phi ptr [ %40, %.lr.ph ], [ %67, %_ZZN7AstNode11foreachImplI9AstAssignZN17ForkDynScopeFrame15linkNodesOfForkER10VMemberMapEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30 ]
-  %.176 = phi ptr [ %.07582, %.lr.ph ], [ %66, %_ZZN7AstNode11foreachImplI9AstAssignZN17ForkDynScopeFrame15linkNodesOfForkER10VMemberMapEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30 ]
-  %.1 = phi ptr [ %.083, %.lr.ph ], [ %69, %_ZZN7AstNode11foreachImplI9AstAssignZN17ForkDynScopeFrame15linkNodesOfForkER10VMemberMapEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30 ]
+  %.176 = phi ptr [ %.07581, %.lr.ph ], [ %66, %_ZZN7AstNode11foreachImplI9AstAssignZN17ForkDynScopeFrame15linkNodesOfForkER10VMemberMapEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30 ]
+  %.1 = phi ptr [ %.082, %.lr.ph ], [ %69, %_ZZN7AstNode11foreachImplI9AstAssignZN17ForkDynScopeFrame15linkNodesOfForkER10VMemberMapEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30 ]
   %73 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %74 = load ptr, ptr %73, align 8, !tbaa !229
   %.not19 = icmp eq ptr %74, null

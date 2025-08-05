@@ -1096,9 +1096,9 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #37
-          to label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit unwind label %.loopexit.split-lp
+          to label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i unwind label %.loopexit.split-lp
 
-_ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
+_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
   store i32 %10, ptr %20, align 4, !tbaa !50
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store ptr %20, ptr %0, align 8, !tbaa !13
@@ -1107,11 +1107,11 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNKSt6vectorIiSaIi
   %22 = invoke noundef i32 @_ZNK6open3d8geometry20HalfEdgeTriangleMesh22NextHalfEdgeOnBoundaryEi(ptr noundef nonnull align 8 dereferenceable(216) %1, i32 noundef %10)
           to label %.preheader unwind label %.loopexit.split-lp
 
-.preheader:                                       ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit17
-  %23 = phi ptr [ %48, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit17 ], [ %20, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
-  %24 = phi ptr [ %49, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit17 ], [ %21, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
-  %25 = phi ptr [ %50, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit17 ], [ %21, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
-  %storemerge = phi i32 [ %51, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit17 ], [ %22, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
+.preheader:                                       ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit17
+  %23 = phi ptr [ %48, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit17 ], [ %20, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ]
+  %24 = phi ptr [ %49, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit17 ], [ %21, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ]
+  %25 = phi ptr [ %50, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit17 ], [ %21, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ]
+  %storemerge = phi i32 [ %51, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit17 ], [ %22, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ]
   %26 = icmp ne i32 %storemerge, %10
   %27 = icmp ne i32 %storemerge, -1
   %28 = and i1 %26, %27
@@ -1189,9 +1189,9 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit17:        ; preds = %_ZNSt6vectorIiSaIiE
   store ptr %52, ptr %0, align 8
   br label %57
 
-.loopexit.split-lp:                               ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i, %36
-  %55 = phi ptr [ %21, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i ], [ %24, %36 ]
-  %56 = phi ptr [ %20, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i ], [ %23, %36 ]
+.loopexit.split-lp:                               ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i, %36
+  %55 = phi ptr [ %21, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i ], [ %24, %36 ]
+  %56 = phi ptr [ %20, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i ], [ %23, %36 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %57

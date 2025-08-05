@@ -555,27 +555,27 @@ define noundef ptr @_ZN11OpenImageIO6v3_1_024pnm_input_imageio_createEv() local_
 .noexc:                                           ; preds = %0
   store ptr getelementptr inbounds nuw inrange(-16, 272) (i8, ptr @_ZTVN11OpenImageIO6v3_1_08PNMInputE, i64 16), ptr %1, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
   invoke void @_ZN11OpenImageIO6v3_1_010ImageInput13ioproxy_clearEv(ptr noundef nonnull align 8 dereferenceable(264) %1)
-          to label %12 unwind label %4
+          to label %12 unwind label %3
 
-4:                                                ; preds = %.noexc
-  %5 = landingpad { ptr, i32 }
+3:                                                ; preds = %.noexc
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %6 = load ptr, ptr %2, align 8, !tbaa !6
-  %.not.i.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit.i, label %7
+  %5 = load ptr, ptr %2, align 8, !tbaa !6
+  %.not.i.i.i.i = icmp eq ptr %5, null
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit.i, label %6
 
-7:                                                ; preds = %4
-  %8 = load ptr, ptr %3, align 8, !tbaa !11
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %8 = load ptr, ptr %7, align 8, !tbaa !11
   %9 = ptrtoint ptr %8 to i64
-  %10 = ptrtoint ptr %6 to i64
+  %10 = ptrtoint ptr %5 to i64
   %11 = sub i64 %9, %10
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %11) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %11) #26
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit.i
 
-_ZNSt6vectorIcSaIcEED2Ev.exit.i:                  ; preds = %7, %4
+_ZNSt6vectorIcSaIcEED2Ev.exit.i:                  ; preds = %6, %3
   tail call void @_ZN11OpenImageIO6v3_1_010ImageInputD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %1) #25
   br label %.body
 
@@ -590,7 +590,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit.i:                  ; preds = %7, %4
   br label %.body
 
 .body:                                            ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit.i, %14
-  %eh.lpad-body = phi { ptr, i32 } [ %15, %14 ], [ %5, %_ZNSt6vectorIcSaIcEED2Ev.exit.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %15, %14 ], [ %4, %_ZNSt6vectorIcSaIcEED2Ev.exit.i ]
   tail call void @_ZN11OpenImageIO6v3_1_010ImageInputdlEPv(ptr noundef nonnull %1) #25
   resume { ptr, i32 } %eh.lpad-body
 }

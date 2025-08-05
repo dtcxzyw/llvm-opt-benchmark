@@ -73,7 +73,7 @@ define noundef i64 @_ZN6rocc_t7custom3E11rocc_insn_tmm(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6rocc_t16get_instructionsEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6rocc_t16get_instructionsEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNKSt6vectorI11insn_desc_tSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -103,9 +103,9 @@ _ZNKSt6vectorI11insn_desc_tSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i:
   store ptr %5, ptr %2, align 8, !tbaa !12
   store ptr %5, ptr %3, align 8, !tbaa !13
   %6 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #15
-          to label %_ZNSt6vectorI11insn_desc_tSaIS0_EE9push_backEOS0_.exit14 unwind label %15
+          to label %_ZNKSt6vectorI11insn_desc_tSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i16 unwind label %15
 
-_ZNSt6vectorI11insn_desc_tSaIS0_EE9push_backEOS0_.exit14: ; preds = %_ZNKSt6vectorI11insn_desc_tSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
+_ZNKSt6vectorI11insn_desc_tSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i16: ; preds = %_ZNKSt6vectorI11insn_desc_tSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store i64 43, ptr %7, align 8, !tbaa !3
   %.sroa.685.0..sroa_idx86 = getelementptr inbounds nuw i8, ptr %6, i64 88
@@ -134,9 +134,9 @@ _ZNSt6vectorI11insn_desc_tSaIS0_EE9push_backEOS0_.exit14: ; preds = %_ZNKSt6vect
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 160
   store ptr %9, ptr %3, align 8, !tbaa !13
   %10 = invoke noalias noundef nonnull dereferenceable(320) ptr @_Znwm(i64 noundef 320) #15
-          to label %.noexc23 unwind label %17
+          to label %_ZNSt6vectorI11insn_desc_tSaIS0_EE9push_backEOS0_.exit24 unwind label %17
 
-.noexc23:                                         ; preds = %_ZNSt6vectorI11insn_desc_tSaIS0_EE9push_backEOS0_.exit14
+_ZNSt6vectorI11insn_desc_tSaIS0_EE9push_backEOS0_.exit24: ; preds = %_ZNKSt6vectorI11insn_desc_tSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i16
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 160
   store i64 91, ptr %11, align 8, !tbaa !3
   %.sroa.656.0..sroa_idx57 = getelementptr inbounds nuw i8, ptr %10, i64 168
@@ -190,22 +190,22 @@ _ZNSt6vectorI11insn_desc_tSaIS0_EE9push_backEOS0_.exit14: ; preds = %_ZNKSt6vect
 15:                                               ; preds = %_ZNKSt6vectorI11insn_desc_tSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread
+  br label %_ZNSt6vectorI11insn_desc_tSaIS0_EED2Ev.exit
 
-17:                                               ; preds = %_ZNSt6vectorI11insn_desc_tSaIS0_EE9push_backEOS0_.exit14
+17:                                               ; preds = %_ZNKSt6vectorI11insn_desc_tSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i16
   %18 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread
+  br label %_ZNSt6vectorI11insn_desc_tSaIS0_EED2Ev.exit
 
-.thread:                                          ; preds = %15, %17
-  %.pn144 = phi { ptr, i32 } [ %16, %15 ], [ %18, %17 ]
-  %19 = phi ptr [ %4, %15 ], [ %6, %17 ]
-  %20 = phi ptr [ %5, %15 ], [ %9, %17 ]
-  %21 = ptrtoint ptr %20 to i64
-  %22 = ptrtoint ptr %19 to i64
-  %23 = sub i64 %21, %22
-  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %23) #16
-  resume { ptr, i32 } %.pn144
+_ZNSt6vectorI11insn_desc_tSaIS0_EED2Ev.exit:      ; preds = %17, %15
+  %.ph = phi ptr [ %5, %15 ], [ %9, %17 ]
+  %.ph141 = phi ptr [ %4, %15 ], [ %6, %17 ]
+  %.pn.ph = phi { ptr, i32 } [ %16, %15 ], [ %18, %17 ]
+  %19 = ptrtoint ptr %.ph to i64
+  %20 = ptrtoint ptr %.ph141 to i64
+  %21 = sub i64 %19, %20
+  tail call void @_ZdlPvm(ptr noundef nonnull %.ph141, i64 noundef %21) #16
+  resume { ptr, i32 } %.pn.ph
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

@@ -88,7 +88,7 @@ define noalias noundef ptr @CreateIpoptProblem(i32 noundef %0, ptr noundef %1, p
   %or.cond19 = and i1 %31, %32
   br i1 %or.cond19, label %_ZN5Ipopt8SmartPtrINS_16StdInterfaceTNLPEEaSEPS1_.exit, label %70
 
-_ZN5Ipopt8SmartPtrINS_16StdInterfaceTNLPEEaSEPS1_.exit: ; preds = %30, %29
+_ZN5Ipopt8SmartPtrINS_16StdInterfaceTNLPEEaSEPS1_.exit: ; preds = %29, %30
   %33 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #18
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)

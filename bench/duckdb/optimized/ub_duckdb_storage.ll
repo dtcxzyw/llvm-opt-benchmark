@@ -75596,9 +75596,9 @@ _ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IRKlNS5_11_Alloc_nod
   store ptr %105, ptr %103, align 8, !tbaa !2319
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   invoke void @_ZN6duckdb14MetadataWriterC2ERNS_15MetadataManagerENS_12optional_ptrINS_6vectorINS_16MetaBlockPointerELb1EEELb1EEE(ptr noundef nonnull align 8 dereferenceable(112) %18, ptr noundef nonnull align 8 dereferenceable(128) %23, ptr null)
-          to label %_ZNSt6vectorIN6duckdb14MetadataHandleESaIS1_EED2Ev.exit unwind label %126
+          to label %_ZSt8_DestroyIPN6duckdb14MetadataHandleES1_EvT_S3_RSaIT0_E.exit.i unwind label %126
 
-_ZNSt6vectorIN6duckdb14MetadataHandleESaIS1_EED2Ev.exit: ; preds = %101
+_ZSt8_DestroyIPN6duckdb14MetadataHandleES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %101
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN6duckdb19FreeListBlockWriterE, i64 16), ptr %18, align 8, !tbaa !41
   %106 = getelementptr inbounds nuw i8, ptr %18, i64 80
   store ptr %47, ptr %106, align 8, !tbaa !2320
@@ -75612,7 +75612,7 @@ _ZNSt6vectorIN6duckdb14MetadataHandleESaIS1_EED2Ev.exit: ; preds = %101
   %110 = invoke { i64, i64 } @_ZN6duckdb14MetadataWriter19GetMetaBlockPointerEv(ptr noundef nonnull align 8 dereferenceable(80) %18)
           to label %111 unwind label %128
 
-111:                                              ; preds = %_ZNSt6vectorIN6duckdb14MetadataHandleESaIS1_EED2Ev.exit
+111:                                              ; preds = %_ZSt8_DestroyIPN6duckdb14MetadataHandleES1_EvT_S3_RSaIT0_E.exit.i
   %112 = extractvalue { i64, i64 } %110, 0
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %112, ptr %113, align 8, !tbaa !2242
@@ -75649,7 +75649,7 @@ _ZNSt6vectorIN6duckdb14MetadataHandleESaIS1_EED2Ev.exit: ; preds = %101
   call void @_ZNSt6vectorIN6duckdb14MetadataHandleESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #40
   br label %163
 
-128:                                              ; preds = %._crit_edge137, %111, %154, %153, %._crit_edge143, %_ZNSt6vectorIN6duckdb14MetadataHandleESaIS1_EED2Ev.exit
+128:                                              ; preds = %._crit_edge137, %111, %154, %153, %._crit_edge143, %_ZSt8_DestroyIPN6duckdb14MetadataHandleES1_EvT_S3_RSaIT0_E.exit.i
   %129 = landingpad { ptr, i32 }
           cleanup
   br label %162

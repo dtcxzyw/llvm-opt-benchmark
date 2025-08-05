@@ -2184,7 +2184,7 @@ ehcleanup27:                                      ; preds = %lpad.i, %ehcleanup2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK8QuantLib12FdmCIRSolver19performCalculationsEv(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-_ZN5boost10shared_ptrIN8QuantLib8FdmCIROpEED2Ev.exit:
+entry:
   %op = alloca %"class.boost::shared_ptr.44", align 8
   %ref.tmp = alloca %"class.boost::shared_ptr.45", align 8
   %ref.tmp3 = alloca %"class.boost::shared_ptr.43", align 8
@@ -2210,7 +2210,7 @@ _ZN5boost10shared_ptrIN8QuantLib8FdmCIROpEED2Ev.exit:
   invoke void @_ZN5boost11make_sharedIN8QuantLib13Fdm2DimSolverEJRKNS1_13FdmSolverDescERKNS1_13FdmSchemeDescERNS_10shared_ptrINS1_20FdmLinearOpCompositeEEEEEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.boost::shared_ptr.43") align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(96) %solverDesc_, ptr noundef nonnull align 8 dereferenceable(24) %schemeDesc_, ptr noundef nonnull align 8 dereferenceable(16) %op)
           to label %invoke.cont unwind label %lpad
 
-invoke.cont:                                      ; preds = %_ZN5boost10shared_ptrIN8QuantLib8FdmCIROpEED2Ev.exit
+invoke.cont:                                      ; preds = %entry
   %solver_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %2 = load ptr, ptr %ref.tmp3, align 8, !tbaa !102
   %pn3.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 8
@@ -2337,7 +2337,7 @@ _ZN5boost10shared_ptrIN8QuantLib20FdmLinearOpCompositeEED2Ev.exit: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %op) #26
   ret void
 
-lpad:                                             ; preds = %_ZN5boost10shared_ptrIN8QuantLib8FdmCIROpEED2Ev.exit
+lpad:                                             ; preds = %entry
   %25 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3) #26

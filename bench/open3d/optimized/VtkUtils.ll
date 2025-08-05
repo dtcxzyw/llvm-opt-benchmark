@@ -32766,12 +32766,12 @@ _ZN15vtkSmartPointerI12vtkDataArrayEC2ERKS1_.exit.i.i.i: ; preds = %175
   %185 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %183, i64 noundef 8) #35, !noalias !725
-  %.pre4.i.i.i.i.i.i.i.i.i = load ptr, ptr %182, align 8, !tbaa !728, !noalias !725
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.pre4.i.i.i.i.i.i.i.i.i, null
+  %.pr.i.i.i.i.i.i.i.i.i = load ptr, ptr %182, align 8, !tbaa !728, !noalias !725
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.pr.i.i.i.i.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i, label %186
 
 186:                                              ; preds = %.body2.i.i.i.i.i.i.i.i.i
-  %187 = invoke noundef zeroext i1 %.pre4.i.i.i.i.i.i.i.i.i(ptr noundef nonnull align 8 dereferenceable(48) %179, ptr noundef nonnull align 8 dereferenceable(48) %179, i32 noundef 3)
+  %187 = invoke noundef zeroext i1 %.pr.i.i.i.i.i.i.i.i.i(ptr noundef nonnull align 8 dereferenceable(48) %179, ptr noundef nonnull align 8 dereferenceable(48) %179, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i unwind label %188, !noalias !725
 
 188:                                              ; preds = %186
@@ -32782,7 +32782,7 @@ _ZN15vtkSmartPointerI12vtkDataArrayEC2ERKS1_.exit.i.i.i: ; preds = %175
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i: ; preds = %186, %.body2.i.i.i.i.i.i.i.i.i, %.body2.thread.i.i.i.i.i.i.i.i.i
-  %eh.lpad-body7.i.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %184, %.body2.thread.i.i.i.i.i.i.i.i.i ], [ %185, %.body2.i.i.i.i.i.i.i.i.i ], [ %185, %186 ]
+  %eh.lpad-body6.i.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %184, %.body2.thread.i.i.i.i.i.i.i.i.i ], [ %185, %.body2.i.i.i.i.i.i.i.i.i ], [ %185, %186 ]
   call void @_ZN19vtkSmartPointerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %180) #38, !noalias !725
   call void @_ZdlPvm(ptr noundef nonnull %180, i64 noundef 8) #35, !noalias !725
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6open3d4core4BlobESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i.i
@@ -32793,7 +32793,7 @@ _ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i: ; preds = %186, %.body2.i.i.i
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6open3d4core4BlobESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6open3d4core4BlobESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i.i: ; preds = %191, %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i
-  %eh.lpad-body.i.i.i.i.i.i.i = phi { ptr, i32 } [ %192, %191 ], [ %eh.lpad-body7.i.i.i.i.i.i.i.i.i, %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i ]
+  %eh.lpad-body.i.i.i.i.i.i.i = phi { ptr, i32 } [ %192, %191 ], [ %eh.lpad-body6.i.i.i.i.i.i.i.i.i, %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i ]
   call void @_ZdlPvm(ptr noundef nonnull %176, i64 noundef 64) #35, !noalias !725
   br label %.body.i.i.i
 
@@ -33482,12 +33482,12 @@ _ZN15vtkSmartPointerI12vtkDataArrayEC2ERKS1_.exit.i.i.i.i: ; preds = %430
   %440 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %438, i64 noundef 8) #35, !noalias !756
-  %.pre4.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %437, align 8, !tbaa !728, !noalias !756
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.pre4.i.i.i.i.i.i.i.i.i.i, null
+  %.pr.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %437, align 8, !tbaa !728, !noalias !756
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.pr.i.i.i.i.i.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i.i, label %441
 
 441:                                              ; preds = %.body2.i.i.i.i.i.i.i.i.i.i
-  %442 = invoke noundef zeroext i1 %.pre4.i.i.i.i.i.i.i.i.i.i(ptr noundef nonnull align 8 dereferenceable(48) %434, ptr noundef nonnull align 8 dereferenceable(48) %434, i32 noundef 3)
+  %442 = invoke noundef zeroext i1 %.pr.i.i.i.i.i.i.i.i.i.i(ptr noundef nonnull align 8 dereferenceable(48) %434, ptr noundef nonnull align 8 dereferenceable(48) %434, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i.i unwind label %443, !noalias !756
 
 443:                                              ; preds = %441
@@ -33498,7 +33498,7 @@ _ZN15vtkSmartPointerI12vtkDataArrayEC2ERKS1_.exit.i.i.i.i: ; preds = %430
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i.i: ; preds = %441, %.body2.i.i.i.i.i.i.i.i.i.i, %.body2.thread.i.i.i.i.i.i.i.i.i.i
-  %eh.lpad-body7.i.i.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %439, %.body2.thread.i.i.i.i.i.i.i.i.i.i ], [ %440, %.body2.i.i.i.i.i.i.i.i.i.i ], [ %440, %441 ]
+  %eh.lpad-body6.i.i.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %439, %.body2.thread.i.i.i.i.i.i.i.i.i.i ], [ %440, %.body2.i.i.i.i.i.i.i.i.i.i ], [ %440, %441 ]
   call void @_ZN19vtkSmartPointerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %435) #38, !noalias !756
   call void @_ZdlPvm(ptr noundef nonnull %435, i64 noundef 8) #35, !noalias !756
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6open3d4core4BlobESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i.i.i
@@ -33509,7 +33509,7 @@ _ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i.i: ; preds = %441, %.body2.i.i
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6open3d4core4BlobESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6open3d4core4BlobESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i.i.i: ; preds = %446, %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i.i
-  %eh.lpad-body.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %447, %446 ], [ %eh.lpad-body7.i.i.i.i.i.i.i.i.i.i, %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i.i ]
+  %eh.lpad-body.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %447, %446 ], [ %eh.lpad-body6.i.i.i.i.i.i.i.i.i.i, %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i.i ]
   call void @_ZdlPvm(ptr noundef nonnull %431, i64 noundef 64) #35, !noalias !756
   br label %.body.i.i.i.i
 
@@ -35013,12 +35013,12 @@ _ZN15vtkSmartPointerI12vtkDataArrayEC2ERKS1_.exit.i: ; preds = %202
   %212 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %210, i64 noundef 8) #35, !noalias !790
-  %.pre4.i.i.i.i.i.i.i = load ptr, ptr %209, align 8, !tbaa !728, !noalias !790
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.pre4.i.i.i.i.i.i.i, null
+  %.pr.i.i.i.i.i.i.i = load ptr, ptr %209, align 8, !tbaa !728, !noalias !790
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.pr.i.i.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i, label %213
 
 213:                                              ; preds = %.body2.i.i.i.i.i.i.i
-  %214 = invoke noundef zeroext i1 %.pre4.i.i.i.i.i.i.i(ptr noundef nonnull align 8 dereferenceable(48) %206, ptr noundef nonnull align 8 dereferenceable(48) %206, i32 noundef 3)
+  %214 = invoke noundef zeroext i1 %.pr.i.i.i.i.i.i.i(ptr noundef nonnull align 8 dereferenceable(48) %206, ptr noundef nonnull align 8 dereferenceable(48) %206, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i unwind label %215, !noalias !790
 
 215:                                              ; preds = %213
@@ -35029,7 +35029,7 @@ _ZN15vtkSmartPointerI12vtkDataArrayEC2ERKS1_.exit.i: ; preds = %202
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i:    ; preds = %213, %.body2.i.i.i.i.i.i.i, %.body2.thread.i.i.i.i.i.i.i
-  %eh.lpad-body7.i.i.i.i.i.i.i = phi { ptr, i32 } [ %211, %.body2.thread.i.i.i.i.i.i.i ], [ %212, %.body2.i.i.i.i.i.i.i ], [ %212, %213 ]
+  %eh.lpad-body6.i.i.i.i.i.i.i = phi { ptr, i32 } [ %211, %.body2.thread.i.i.i.i.i.i.i ], [ %212, %.body2.i.i.i.i.i.i.i ], [ %212, %213 ]
   call void @_ZN19vtkSmartPointerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %207) #38, !noalias !790
   call void @_ZdlPvm(ptr noundef nonnull %207, i64 noundef 8) #35, !noalias !790
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6open3d4core4BlobESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i
@@ -35040,7 +35040,7 @@ _ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i:    ; preds = %213, %.body2.i.i.i.
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6open3d4core4BlobESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6open3d4core4BlobESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i: ; preds = %218, %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i
-  %eh.lpad-body.i.i.i.i.i = phi { ptr, i32 } [ %219, %218 ], [ %eh.lpad-body7.i.i.i.i.i.i.i, %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i ]
+  %eh.lpad-body.i.i.i.i.i = phi { ptr, i32 } [ %219, %218 ], [ %eh.lpad-body6.i.i.i.i.i.i.i, %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i ]
   call void @_ZdlPvm(ptr noundef nonnull %203, i64 noundef 64) #35, !noalias !790
   br label %.body.i
 
@@ -35714,12 +35714,12 @@ _ZN15vtkSmartPointerI12vtkDataArrayEC2ERKS1_.exit.i.i: ; preds = %462
   %472 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %470, i64 noundef 8) #35, !noalias !809
-  %.pre4.i.i.i.i.i.i.i.i = load ptr, ptr %469, align 8, !tbaa !728, !noalias !809
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.pre4.i.i.i.i.i.i.i.i, null
+  %.pr.i.i.i.i.i.i.i.i = load ptr, ptr %469, align 8, !tbaa !728, !noalias !809
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.pr.i.i.i.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i, label %473
 
 473:                                              ; preds = %.body2.i.i.i.i.i.i.i.i
-  %474 = invoke noundef zeroext i1 %.pre4.i.i.i.i.i.i.i.i(ptr noundef nonnull align 8 dereferenceable(48) %466, ptr noundef nonnull align 8 dereferenceable(48) %466, i32 noundef 3)
+  %474 = invoke noundef zeroext i1 %.pr.i.i.i.i.i.i.i.i(ptr noundef nonnull align 8 dereferenceable(48) %466, ptr noundef nonnull align 8 dereferenceable(48) %466, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i unwind label %475, !noalias !809
 
 475:                                              ; preds = %473
@@ -35730,7 +35730,7 @@ _ZN15vtkSmartPointerI12vtkDataArrayEC2ERKS1_.exit.i.i: ; preds = %462
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i:  ; preds = %473, %.body2.i.i.i.i.i.i.i.i, %.body2.thread.i.i.i.i.i.i.i.i
-  %eh.lpad-body7.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %471, %.body2.thread.i.i.i.i.i.i.i.i ], [ %472, %.body2.i.i.i.i.i.i.i.i ], [ %472, %473 ]
+  %eh.lpad-body6.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %471, %.body2.thread.i.i.i.i.i.i.i.i ], [ %472, %.body2.i.i.i.i.i.i.i.i ], [ %472, %473 ]
   call void @_ZN19vtkSmartPointerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %467) #38, !noalias !809
   call void @_ZdlPvm(ptr noundef nonnull %467, i64 noundef 8) #35, !noalias !809
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6open3d4core4BlobESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i
@@ -35741,7 +35741,7 @@ _ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i:  ; preds = %473, %.body2.i.i.i.
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6open3d4core4BlobESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6open3d4core4BlobESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i: ; preds = %478, %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i
-  %eh.lpad-body.i.i.i.i.i.i = phi { ptr, i32 } [ %479, %478 ], [ %eh.lpad-body7.i.i.i.i.i.i.i.i, %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i ]
+  %eh.lpad-body.i.i.i.i.i.i = phi { ptr, i32 } [ %479, %478 ], [ %eh.lpad-body6.i.i.i.i.i.i.i.i, %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i ]
   call void @_ZdlPvm(ptr noundef nonnull %463, i64 noundef 64) #35, !noalias !809
   br label %.body.i.i
 
@@ -36411,12 +36411,12 @@ _ZN15vtkSmartPointerI12vtkDataArrayEC2ERKS1_.exit.i.i.i: ; preds = %722
   %732 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %730, i64 noundef 8) #35, !noalias !824
-  %.pre4.i.i.i.i.i.i.i.i.i = load ptr, ptr %729, align 8, !tbaa !728, !noalias !824
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.pre4.i.i.i.i.i.i.i.i.i, null
+  %.pr.i.i.i.i.i.i.i.i.i = load ptr, ptr %729, align 8, !tbaa !728, !noalias !824
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.pr.i.i.i.i.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i, label %733
 
 733:                                              ; preds = %.body2.i.i.i.i.i.i.i.i.i
-  %734 = invoke noundef zeroext i1 %.pre4.i.i.i.i.i.i.i.i.i(ptr noundef nonnull align 8 dereferenceable(48) %726, ptr noundef nonnull align 8 dereferenceable(48) %726, i32 noundef 3)
+  %734 = invoke noundef zeroext i1 %.pr.i.i.i.i.i.i.i.i.i(ptr noundef nonnull align 8 dereferenceable(48) %726, ptr noundef nonnull align 8 dereferenceable(48) %726, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i unwind label %735, !noalias !824
 
 735:                                              ; preds = %733
@@ -36427,7 +36427,7 @@ _ZN15vtkSmartPointerI12vtkDataArrayEC2ERKS1_.exit.i.i.i: ; preds = %722
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i: ; preds = %733, %.body2.i.i.i.i.i.i.i.i.i, %.body2.thread.i.i.i.i.i.i.i.i.i
-  %eh.lpad-body7.i.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %731, %.body2.thread.i.i.i.i.i.i.i.i.i ], [ %732, %.body2.i.i.i.i.i.i.i.i.i ], [ %732, %733 ]
+  %eh.lpad-body6.i.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %731, %.body2.thread.i.i.i.i.i.i.i.i.i ], [ %732, %.body2.i.i.i.i.i.i.i.i.i ], [ %732, %733 ]
   call void @_ZN19vtkSmartPointerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %727) #38, !noalias !824
   call void @_ZdlPvm(ptr noundef nonnull %727, i64 noundef 8) #35, !noalias !824
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6open3d4core4BlobESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i.i
@@ -36438,7 +36438,7 @@ _ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i: ; preds = %733, %.body2.i.i.i
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6open3d4core4BlobESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6open3d4core4BlobESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i.i: ; preds = %738, %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i
-  %eh.lpad-body.i.i.i.i.i.i.i = phi { ptr, i32 } [ %739, %738 ], [ %eh.lpad-body7.i.i.i.i.i.i.i.i.i, %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i ]
+  %eh.lpad-body.i.i.i.i.i.i.i = phi { ptr, i32 } [ %739, %738 ], [ %eh.lpad-body6.i.i.i.i.i.i.i.i.i, %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i ]
   call void @_ZdlPvm(ptr noundef nonnull %723, i64 noundef 64) #35, !noalias !824
   br label %.body.i.i.i
 
@@ -37108,12 +37108,12 @@ _ZN15vtkSmartPointerI12vtkDataArrayEC2ERKS1_.exit.i.i.i.i: ; preds = %982
   %992 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %990, i64 noundef 8) #35, !noalias !843
-  %.pre4.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %989, align 8, !tbaa !728, !noalias !843
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.pre4.i.i.i.i.i.i.i.i.i.i, null
+  %.pr.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %989, align 8, !tbaa !728, !noalias !843
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.pr.i.i.i.i.i.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i.i, label %993
 
 993:                                              ; preds = %.body2.i.i.i.i.i.i.i.i.i.i
-  %994 = invoke noundef zeroext i1 %.pre4.i.i.i.i.i.i.i.i.i.i(ptr noundef nonnull align 8 dereferenceable(48) %986, ptr noundef nonnull align 8 dereferenceable(48) %986, i32 noundef 3)
+  %994 = invoke noundef zeroext i1 %.pr.i.i.i.i.i.i.i.i.i.i(ptr noundef nonnull align 8 dereferenceable(48) %986, ptr noundef nonnull align 8 dereferenceable(48) %986, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i.i unwind label %995, !noalias !843
 
 995:                                              ; preds = %993
@@ -37124,7 +37124,7 @@ _ZN15vtkSmartPointerI12vtkDataArrayEC2ERKS1_.exit.i.i.i.i: ; preds = %982
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i.i: ; preds = %993, %.body2.i.i.i.i.i.i.i.i.i.i, %.body2.thread.i.i.i.i.i.i.i.i.i.i
-  %eh.lpad-body7.i.i.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %991, %.body2.thread.i.i.i.i.i.i.i.i.i.i ], [ %992, %.body2.i.i.i.i.i.i.i.i.i.i ], [ %992, %993 ]
+  %eh.lpad-body6.i.i.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %991, %.body2.thread.i.i.i.i.i.i.i.i.i.i ], [ %992, %.body2.i.i.i.i.i.i.i.i.i.i ], [ %992, %993 ]
   call void @_ZN19vtkSmartPointerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %987) #38, !noalias !843
   call void @_ZdlPvm(ptr noundef nonnull %987, i64 noundef 8) #35, !noalias !843
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6open3d4core4BlobESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i.i.i
@@ -37135,7 +37135,7 @@ _ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i.i: ; preds = %993, %.body2.i.i
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6open3d4core4BlobESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6open3d4core4BlobESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i.i.i: ; preds = %998, %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i.i
-  %eh.lpad-body.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %999, %998 ], [ %eh.lpad-body7.i.i.i.i.i.i.i.i.i.i, %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i.i ]
+  %eh.lpad-body.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %999, %998 ], [ %eh.lpad-body6.i.i.i.i.i.i.i.i.i.i, %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i.i ]
   call void @_ZdlPvm(ptr noundef nonnull %983, i64 noundef 64) #35, !noalias !843
   br label %.body.i.i.i.i
 
@@ -37805,12 +37805,12 @@ _ZN15vtkSmartPointerI12vtkDataArrayEC2ERKS1_.exit.i.i.i.i.i: ; preds = %1242
   %1252 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %1250, i64 noundef 8) #35, !noalias !862
-  %.pre4.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %1249, align 8, !tbaa !728, !noalias !862
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.pre4.i.i.i.i.i.i.i.i.i.i.i, null
+  %.pr.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %1249, align 8, !tbaa !728, !noalias !862
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.pr.i.i.i.i.i.i.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i.i.i, label %1253
 
 1253:                                             ; preds = %.body2.i.i.i.i.i.i.i.i.i.i.i
-  %1254 = invoke noundef zeroext i1 %.pre4.i.i.i.i.i.i.i.i.i.i.i(ptr noundef nonnull align 8 dereferenceable(48) %1246, ptr noundef nonnull align 8 dereferenceable(48) %1246, i32 noundef 3)
+  %1254 = invoke noundef zeroext i1 %.pr.i.i.i.i.i.i.i.i.i.i.i(ptr noundef nonnull align 8 dereferenceable(48) %1246, ptr noundef nonnull align 8 dereferenceable(48) %1246, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i.i.i unwind label %1255, !noalias !862
 
 1255:                                             ; preds = %1253
@@ -37821,7 +37821,7 @@ _ZN15vtkSmartPointerI12vtkDataArrayEC2ERKS1_.exit.i.i.i.i.i: ; preds = %1242
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i.i.i: ; preds = %1253, %.body2.i.i.i.i.i.i.i.i.i.i.i, %.body2.thread.i.i.i.i.i.i.i.i.i.i.i
-  %eh.lpad-body7.i.i.i.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %1251, %.body2.thread.i.i.i.i.i.i.i.i.i.i.i ], [ %1252, %.body2.i.i.i.i.i.i.i.i.i.i.i ], [ %1252, %1253 ]
+  %eh.lpad-body6.i.i.i.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %1251, %.body2.thread.i.i.i.i.i.i.i.i.i.i.i ], [ %1252, %.body2.i.i.i.i.i.i.i.i.i.i.i ], [ %1252, %1253 ]
   call void @_ZN19vtkSmartPointerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1247) #38, !noalias !862
   call void @_ZdlPvm(ptr noundef nonnull %1247, i64 noundef 8) #35, !noalias !862
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6open3d4core4BlobESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i.i.i.i
@@ -37832,7 +37832,7 @@ _ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i.i.i: ; preds = %1253, %.body2.
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6open3d4core4BlobESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i.i.i.i
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6open3d4core4BlobESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i.i.i.i: ; preds = %1258, %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i.i.i
-  %eh.lpad-body.i.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %1259, %1258 ], [ %eh.lpad-body7.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i.i.i ]
+  %eh.lpad-body.i.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %1259, %1258 ], [ %eh.lpad-body6.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt14_Function_baseD2Ev.exit6.i.i.i.i.i.i.i.i.i.i.i ]
   call void @_ZdlPvm(ptr noundef nonnull %1243, i64 noundef 64) #35, !noalias !862
   br label %.body.i.i.i.i.i
 

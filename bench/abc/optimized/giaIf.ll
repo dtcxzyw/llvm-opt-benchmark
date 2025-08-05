@@ -15544,15 +15544,15 @@ define noalias noundef ptr @Abc_FrameMiniAigReadCoArrivals(ptr noundef %0) local
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %15 = load i32, ptr %14, align 4, !tbaa !54
   %.not.i = icmp eq i32 %15, 0
-  br i1 %.not.i, label %Vec_IntFree.exit, label %16
+  br i1 %.not.i, label %Vec_IntDup.exit, label %16
 
 16:                                               ; preds = %13
   %17 = sext i32 %15 to i64
   %18 = shl nsw i64 %17, 2
   %19 = tail call noalias ptr @malloc(i64 noundef %18) #29
-  br label %Vec_IntFree.exit
+  br label %Vec_IntDup.exit
 
-Vec_IntFree.exit:                                 ; preds = %16, %13
+Vec_IntDup.exit:                                  ; preds = %13, %16
   %.pre-phi12.i = phi i64 [ %18, %16 ], [ 0, %13 ]
   %20 = phi ptr [ %19, %16 ], [ null, %13 ]
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -15560,8 +15560,8 @@ Vec_IntFree.exit:                                 ; preds = %16, %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %20, ptr align 4 %22, i64 %.pre-phi12.i, i1 false)
   br label %23
 
-23:                                               ; preds = %Vec_IntFree.exit, %12, %7, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %7 ], [ null, %12 ], [ %20, %Vec_IntFree.exit ]
+23:                                               ; preds = %Vec_IntDup.exit, %12, %7, %3
+  %.0 = phi ptr [ null, %3 ], [ null, %7 ], [ null, %12 ], [ %20, %Vec_IntDup.exit ]
   ret ptr %.0
 }
 

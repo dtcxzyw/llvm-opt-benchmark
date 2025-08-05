@@ -3600,20 +3600,20 @@ define hidden void @_ZN8rawspeed15VC5Decompressor15initVC5LogTableEv(ptr noundef
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4, !tbaa !215
   %4 = invoke noalias noundef nonnull dereferenceable(16384) ptr @_Znwm(i64 noundef 16384) #31
-          to label %_ZNSt6vectorIjSaIjEE7reserveEm.exit.i unwind label %.loopexit.split-lp.i
+          to label %.noexc.i unwind label %.loopexit.split-lp.i
 
-_ZNSt6vectorIjSaIjEE7reserveEm.exit.i:            ; preds = %1
+.noexc.i:                                         ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16384
   %6 = sub nsw i32 16, %3
   br label %7
 
-7:                                                ; preds = %_ZNSt20back_insert_iteratorISt6vectorIjSaIjEEEaSEOj.exit.i.i, %_ZNSt6vectorIjSaIjEE7reserveEm.exit.i
-  %.sroa.0.1 = phi ptr [ %4, %_ZNSt6vectorIjSaIjEE7reserveEm.exit.i ], [ %.sroa.0.2, %_ZNSt20back_insert_iteratorISt6vectorIjSaIjEEEaSEOj.exit.i.i ]
-  %.sroa.13.2 = phi ptr [ %5, %_ZNSt6vectorIjSaIjEE7reserveEm.exit.i ], [ %.sroa.13.3, %_ZNSt20back_insert_iteratorISt6vectorIjSaIjEEEaSEOj.exit.i.i ]
-  %.val3.val.i.i = phi ptr [ %4, %_ZNSt6vectorIjSaIjEE7reserveEm.exit.i ], [ %.val3.val.i9.i, %_ZNSt20back_insert_iteratorISt6vectorIjSaIjEEEaSEOj.exit.i.i ]
-  %8 = phi ptr [ %5, %_ZNSt6vectorIjSaIjEE7reserveEm.exit.i ], [ %38, %_ZNSt20back_insert_iteratorISt6vectorIjSaIjEEEaSEOj.exit.i.i ]
-  %.val3.val4.i.i = phi ptr [ %4, %_ZNSt6vectorIjSaIjEE7reserveEm.exit.i ], [ %.sroa.9.0, %_ZNSt20back_insert_iteratorISt6vectorIjSaIjEEEaSEOj.exit.i.i ]
-  %.07.i.i = phi i32 [ 4096, %_ZNSt6vectorIjSaIjEE7reserveEm.exit.i ], [ %39, %_ZNSt20back_insert_iteratorISt6vectorIjSaIjEEEaSEOj.exit.i.i ]
+7:                                                ; preds = %_ZNSt20back_insert_iteratorISt6vectorIjSaIjEEEaSEOj.exit.i.i, %.noexc.i
+  %.sroa.0.1 = phi ptr [ %4, %.noexc.i ], [ %.sroa.0.2, %_ZNSt20back_insert_iteratorISt6vectorIjSaIjEEEaSEOj.exit.i.i ]
+  %.sroa.13.2 = phi ptr [ %5, %.noexc.i ], [ %.sroa.13.3, %_ZNSt20back_insert_iteratorISt6vectorIjSaIjEEEaSEOj.exit.i.i ]
+  %.val3.val.i.i = phi ptr [ %4, %.noexc.i ], [ %.val3.val.i6.i, %_ZNSt20back_insert_iteratorISt6vectorIjSaIjEEEaSEOj.exit.i.i ]
+  %8 = phi ptr [ %5, %.noexc.i ], [ %38, %_ZNSt20back_insert_iteratorISt6vectorIjSaIjEEEaSEOj.exit.i.i ]
+  %.val3.val4.i.i = phi ptr [ %4, %.noexc.i ], [ %.sroa.9.0, %_ZNSt20back_insert_iteratorISt6vectorIjSaIjEEEaSEOj.exit.i.i ]
+  %.07.i.i = phi i32 [ 4096, %.noexc.i ], [ %39, %_ZNSt20back_insert_iteratorISt6vectorIjSaIjEEEaSEOj.exit.i.i ]
   %9 = ptrtoint ptr %.val3.val4.i.i to i64
   %10 = ptrtoint ptr %.val3.val.i.i to i64
   %11 = sub i64 %9, %10
@@ -3678,7 +3678,7 @@ _ZNSt20back_insert_iteratorISt6vectorIjSaIjEEEaSEOj.exit.i.i: ; preds = %_ZNSt6v
   %.sroa.0.2 = phi ptr [ %33, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i.i.i ], [ %.sroa.0.1, %21 ]
   %.pn = phi ptr [ %34, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i.i.i ], [ %.val3.val4.i.i, %21 ]
   %.sroa.13.3 = phi ptr [ %37, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i.i.i ], [ %.sroa.13.2, %21 ]
-  %.val3.val.i9.i = phi ptr [ %33, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i.i.i ], [ %.val3.val.i.i, %21 ]
+  %.val3.val.i6.i = phi ptr [ %33, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i.i.i ], [ %.val3.val.i.i, %21 ]
   %38 = phi ptr [ %37, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i.i.i ], [ %8, %21 ]
   %.sroa.9.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
   %39 = add nsw i32 %.07.i.i, -1

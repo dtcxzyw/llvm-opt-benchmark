@@ -2935,9 +2935,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %84, 
 _ZN6duckdb11LogicalTypeaSERKS0_.exit:             ; preds = %46, %_ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEC2ERKS2_.exit.i.i, %72, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %87
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #21
   invoke void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 noundef zeroext 23)
-          to label %_ZN6duckdb11LogicalTypeaSEOS0_.exit unwind label %117
+          to label %_ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i unwind label %117
 
-_ZN6duckdb11LogicalTypeaSEOS0_.exit:              ; preds = %_ZN6duckdb11LogicalTypeaSERKS0_.exit
+_ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i: ; preds = %_ZN6duckdb11LogicalTypeaSERKS0_.exit
   %88 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %89 = load i8, ptr %8, align 8, !tbaa !41
   store i8 %89, ptr %88, align 8, !tbaa !41
@@ -2962,7 +2962,7 @@ _ZN6duckdb11LogicalTypeaSEOS0_.exit:              ; preds = %_ZN6duckdb11Logical
   %101 = invoke noundef zeroext i8 @_ZN6duckdb11DecimalType8GetScaleERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %102 unwind label %119
 
-102:                                              ; preds = %_ZN6duckdb11LogicalTypeaSEOS0_.exit
+102:                                              ; preds = %_ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i
   %103 = zext i8 %101 to i64
   %104 = getelementptr inbounds nuw [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %103
   %.sroa.0.0.copyload = load i64, ptr %104, align 16, !tbaa !44
@@ -3015,7 +3015,7 @@ _ZNSt10unique_ptrIN6duckdb22AverageDecimalBindDataESt14default_deleteIS1_EED2Ev.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #21
   br label %121
 
-119:                                              ; preds = %106, %102, %_ZN6duckdb11LogicalTypeaSEOS0_.exit
+119:                                              ; preds = %106, %102, %_ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i
   %120 = landingpad { ptr, i32 }
           cleanup
   br label %121

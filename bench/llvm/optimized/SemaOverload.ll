@@ -71349,67 +71349,67 @@ _ZN5clang12CXXScopeSpecD2Ev.exit:
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   %36 = call fastcc noundef zeroext i1 @_ZL22DiagnoseTwoPhaseLookupRN5clang4SemaENS_14SourceLocationERKNS_12CXXScopeSpecERNS_12LookupResultENS_20OverloadCandidateSet16CandidateSetKindEPNS_24TemplateArgumentListInfoEN4llvm8ArrayRefIPNS_4ExprEEEPPNS_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %2, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(168) %5, i32 noundef 1, ptr noundef null, ptr %3, i64 %4, ptr noundef null)
-  %.pre2.i.pre = load i32, ptr %5, align 8
-  %.pre = load i8, ptr %31, align 1, !tbaa !1155, !range !28
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #30
-  %37 = trunc nuw i8 %.pre to i1
-  br i1 %37, label %38, label %_ZN5clang12LookupResult14diagnoseAccessEv.exit.i
+  %37 = load i8, ptr %31, align 1, !tbaa !1155, !range !28, !noundef !29
+  %38 = trunc nuw i8 %37 to i1
+  %.pre2.i = load i32, ptr %5, align 8
+  br i1 %38, label %39, label %_ZN5clang12LookupResult14diagnoseAccessEv.exit.i
 
-38:                                               ; preds = %_ZN5clang12CXXScopeSpecD2Ev.exit
-  %39 = icmp ne i32 %.pre2.i.pre, 5
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %41 = load ptr, ptr %40, align 8
-  %42 = icmp ne ptr %41, null
-  %or.cond.i.i = select i1 %39, i1 %42, i1 false
-  br i1 %or.cond.i.i, label %43, label %_ZN5clang12LookupResult14diagnoseAccessEv.exit.i
+39:                                               ; preds = %_ZN5clang12CXXScopeSpecD2Ev.exit
+  %40 = icmp ne i32 %.pre2.i, 5
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp ne ptr %42, null
+  %or.cond.i.i = select i1 %40, i1 %43, i1 false
+  br i1 %or.cond.i.i, label %44, label %_ZN5clang12LookupResult14diagnoseAccessEv.exit.i
 
-43:                                               ; preds = %38
-  %44 = load ptr, ptr %20, align 8, !tbaa !1147
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 232
-  %46 = load ptr, ptr %45, align 8, !tbaa !1160
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 40
-  %48 = load i64, ptr %47, align 8
-  %49 = and i64 %48, 9007199254740992
-  %.not.i.i10 = icmp eq i64 %49, 0
-  br i1 %.not.i.i10, label %_ZN5clang12LookupResult17diagnoseAmbiguousEv.exit.i, label %50
+44:                                               ; preds = %39
+  %45 = load ptr, ptr %20, align 8, !tbaa !1147
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 232
+  %47 = load ptr, ptr %46, align 8, !tbaa !1160
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 40
+  %49 = load i64, ptr %48, align 8
+  %50 = and i64 %49, 9007199254740992
+  %.not.i.i10 = icmp eq i64 %50, 0
+  br i1 %.not.i.i10, label %_ZN5clang12LookupResult17diagnoseAmbiguousEv.exit.i, label %51
 
-50:                                               ; preds = %43
-  call void @_ZN5clang4Sema17CheckLookupAccessERKNS_12LookupResultE(ptr noundef nonnull align 8 dereferenceable(17504) %44, ptr noundef nonnull align 8 dereferenceable(168) %5) #30
+51:                                               ; preds = %44
+  call void @_ZN5clang4Sema17CheckLookupAccessERKNS_12LookupResultE(ptr noundef nonnull align 8 dereferenceable(17504) %45, ptr noundef nonnull align 8 dereferenceable(168) %5) #30
   %.pre.i = load i32, ptr %5, align 8
   br label %_ZN5clang12LookupResult14diagnoseAccessEv.exit.i
 
-_ZN5clang12LookupResult14diagnoseAccessEv.exit.i: ; preds = %50, %38, %_ZN5clang12CXXScopeSpecD2Ev.exit
-  %51 = phi i32 [ %.pre.i, %50 ], [ %.pre2.i.pre, %38 ], [ %.pre2.i.pre, %_ZN5clang12CXXScopeSpecD2Ev.exit ]
-  %52 = load i8, ptr %32, align 4, !tbaa !1156, !range !28, !noundef !29
-  %53 = trunc nuw i8 %52 to i1
-  %54 = icmp eq i32 %51, 5
-  %or.cond.i = select i1 %53, i1 %54, i1 false
-  br i1 %or.cond.i, label %55, label %_ZN5clang12LookupResult17diagnoseAmbiguousEv.exit.i
+_ZN5clang12LookupResult14diagnoseAccessEv.exit.i: ; preds = %51, %39, %_ZN5clang12CXXScopeSpecD2Ev.exit
+  %52 = phi i32 [ %.pre.i, %51 ], [ %.pre2.i, %39 ], [ %.pre2.i, %_ZN5clang12CXXScopeSpecD2Ev.exit ]
+  %53 = load i8, ptr %32, align 4, !tbaa !1156, !range !28, !noundef !29
+  %54 = trunc nuw i8 %53 to i1
+  %55 = icmp eq i32 %52, 5
+  %or.cond.i = select i1 %54, i1 %55, i1 false
+  br i1 %or.cond.i, label %56, label %_ZN5clang12LookupResult17diagnoseAmbiguousEv.exit.i
 
-55:                                               ; preds = %_ZN5clang12LookupResult14diagnoseAccessEv.exit.i
-  %56 = load ptr, ptr %20, align 8, !tbaa !1147
-  call void @_ZN5clang4Sema23DiagnoseAmbiguousLookupERNS_12LookupResultE(ptr noundef nonnull align 8 dereferenceable(17504) %56, ptr noundef nonnull align 8 dereferenceable(168) %5) #30
+56:                                               ; preds = %_ZN5clang12LookupResult14diagnoseAccessEv.exit.i
+  %57 = load ptr, ptr %20, align 8, !tbaa !1147
+  call void @_ZN5clang4Sema23DiagnoseAmbiguousLookupERNS_12LookupResultE(ptr noundef nonnull align 8 dereferenceable(17504) %57, ptr noundef nonnull align 8 dereferenceable(168) %5) #30
   br label %_ZN5clang12LookupResult17diagnoseAmbiguousEv.exit.i
 
-_ZN5clang12LookupResult17diagnoseAmbiguousEv.exit.i: ; preds = %55, %_ZN5clang12LookupResult14diagnoseAccessEv.exit.i, %43
-  %57 = load ptr, ptr %19, align 8, !tbaa !1161
-  %.not.i = icmp eq ptr %57, null
-  br i1 %.not.i, label %59, label %58
+_ZN5clang12LookupResult17diagnoseAmbiguousEv.exit.i: ; preds = %56, %_ZN5clang12LookupResult14diagnoseAccessEv.exit.i, %44
+  %58 = load ptr, ptr %19, align 8, !tbaa !1161
+  %.not.i = icmp eq ptr %58, null
+  br i1 %.not.i, label %60, label %59
 
-58:                                               ; preds = %_ZN5clang12LookupResult17diagnoseAmbiguousEv.exit.i
-  call void @_ZN5clang12LookupResult11deletePathsEPNS_12CXXBasePathsE(ptr noundef nonnull %57) #30
-  br label %59
+59:                                               ; preds = %_ZN5clang12LookupResult17diagnoseAmbiguousEv.exit.i
+  call void @_ZN5clang12LookupResult11deletePathsEPNS_12CXXBasePathsE(ptr noundef nonnull %58) #30
+  br label %60
 
-59:                                               ; preds = %58, %_ZN5clang12LookupResult17diagnoseAmbiguousEv.exit.i
-  %60 = load ptr, ptr %15, align 8, !tbaa !418
-  %61 = icmp eq ptr %60, %16
-  br i1 %61, label %_ZN5clang12LookupResultD2Ev.exit, label %62
+60:                                               ; preds = %59, %_ZN5clang12LookupResult17diagnoseAmbiguousEv.exit.i
+  %61 = load ptr, ptr %15, align 8, !tbaa !418
+  %62 = icmp eq ptr %61, %16
+  br i1 %62, label %_ZN5clang12LookupResultD2Ev.exit, label %63
 
-62:                                               ; preds = %59
-  call void @free(ptr noundef %60) #30
+63:                                               ; preds = %60
+  call void @free(ptr noundef %61) #30
   br label %_ZN5clang12LookupResultD2Ev.exit
 
-_ZN5clang12LookupResultD2Ev.exit:                 ; preds = %59, %62
+_ZN5clang12LookupResultD2Ev.exit:                 ; preds = %60, %63
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %5) #30
   ret i1 %36
 }
@@ -83806,7 +83806,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDec
   %49 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %40, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !1426
   %51 = icmp eq ptr %38, %50
-  br i1 %51, label %_ZSt8_DestroyIPSt4pairIN5clang14SourceLocationENS1_17PartialDiagnosticEES4_EvT_S6_RSaIT0_E.exit.i.i, label %.lr.ph.i13.i, !prof !1940
+  br i1 %51, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_E15LookupBucketForIS6_EEbRKT_RPSI_.exit.i, label %.lr.ph.i13.i, !prof !1940
 
 .lr.ph.i13.i:                                     ; preds = %39, %57
   %52 = phi ptr [ %64, %57 ], [ %50, %39 ]
@@ -83820,7 +83820,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDec
 55:                                               ; preds = %.lr.ph.i13.i
   %.not.i14.i = icmp eq ptr %.02945.i.i, null
   %56 = select i1 %.not.i14.i, ptr %53, ptr %.02945.i.i
-  br label %_ZSt8_DestroyIPSt4pairIN5clang14SourceLocationENS1_17PartialDiagnosticEES4_EvT_S6_RSaIT0_E.exit.i.i
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_E15LookupBucketForIS6_EEbRKT_RPSI_.exit.i
 
 57:                                               ; preds = %.lr.ph.i13.i
   %58 = icmp eq ptr %52, inttoptr (i64 -8192 to ptr)
@@ -83834,9 +83834,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDec
   %63 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %40, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !1426
   %65 = icmp eq ptr %38, %64
-  br i1 %65, label %_ZSt8_DestroyIPSt4pairIN5clang14SourceLocationENS1_17PartialDiagnosticEES4_EvT_S6_RSaIT0_E.exit.i.i, label %.lr.ph.i13.i, !prof !1941, !llvm.loop !2221
+  br i1 %65, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_E15LookupBucketForIS6_EEbRKT_RPSI_.exit.i, label %.lr.ph.i13.i, !prof !1941, !llvm.loop !2221
 
-_ZSt8_DestroyIPSt4pairIN5clang14SourceLocationENS1_17PartialDiagnosticEES4_EvT_S6_RSaIT0_E.exit.i.i: ; preds = %57, %55, %39
+_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_E15LookupBucketForIS6_EEbRKT_RPSI_.exit.i: ; preds = %57, %55, %39
   %.sink.i.i = phi ptr [ %56, %55 ], [ %49, %39 ], [ %63, %57 ]
   store i64 %magicptr.i, ptr %.sink.i.i, align 8, !tbaa !1509
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
@@ -83857,7 +83857,7 @@ _ZSt8_DestroyIPSt4pairIN5clang14SourceLocationENS1_17PartialDiagnosticEES4_EvT_S
   store i32 %76, ptr %32, align 8, !tbaa !2223
   br label %_ZNSt6vectorISt4pairIN5clang14SourceLocationENS1_17PartialDiagnosticEESaIS4_EED2Ev.exit.i
 
-_ZNSt6vectorISt4pairIN5clang14SourceLocationENS1_17PartialDiagnosticEESaIS4_EED2Ev.exit.i: ; preds = %_ZSt8_DestroyIPSt4pairIN5clang14SourceLocationENS1_17PartialDiagnosticEES4_EvT_S6_RSaIT0_E.exit.i.i, %.lr.ph.i7, %.lr.ph.i7
+_ZNSt6vectorISt4pairIN5clang14SourceLocationENS1_17PartialDiagnosticEESaIS4_EED2Ev.exit.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_E15LookupBucketForIS6_EEbRKT_RPSI_.exit.i, %.lr.ph.i7, %.lr.ph.i7
   %77 = getelementptr inbounds nuw i8, ptr %.025.i, i64 32
   %.not.i8 = icmp eq ptr %77, %31
   br i1 %.not.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_E18moveFromOldBucketsEPSI_SL_.exit, label %.lr.ph.i7, !llvm.loop !2228

@@ -11178,11 +11178,11 @@ _ZNK2cv11_InputArray6getMatEi.exit25:             ; preds = %17, %20
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !107
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #25
-  %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %26 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %33
 
 .preheader:                                       ; preds = %33
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double %44, ptr %7, align 8, !tbaa !110
   store double %52, ptr %25, align 8, !tbaa !110
   store double %60, ptr %26, align 8, !tbaa !110

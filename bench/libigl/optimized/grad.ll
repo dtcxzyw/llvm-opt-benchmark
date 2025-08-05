@@ -948,7 +948,7 @@ _ZN3igl12_GLOBAL__N_18grad_triIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEENS3_IiLin
   %397 = load i64, ptr %396, align 8, !tbaa !11
   %398 = trunc i64 %397 to i32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #22
-  %399 = shl nsw i32 %398, 2
+  %399 = shl i32 %398, 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %400 = sext i32 %399 to i64
   %401 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2719,7 +2719,7 @@ _ZN3igl12_GLOBAL__N_18grad_triIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS3_IiL
   %395 = load i64, ptr %394, align 8, !tbaa !11
   %396 = trunc i64 %395 to i32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #22
-  %397 = shl nsw i32 %396, 2
+  %397 = shl i32 %396, 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %398 = sext i32 %397 to i64
   %399 = getelementptr inbounds nuw i8, ptr %6, i64 8

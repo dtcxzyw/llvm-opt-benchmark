@@ -7631,7 +7631,7 @@ _ZNK3nix3refIKNS_5flake4NodeEE20dynamic_pointer_castIKNS1_10LockedNodeEEESt10sha
   %116 = atomicrmw volatile add ptr %111, i32 1 acq_rel, align 4, !noalias !118
   %.pr.pre = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %.pr.pre, null
-  br i1 %.not, label %128, label %_ZNK3nix3refIKNS_5flake4NodeEE20dynamic_pointer_castIKNS1_10LockedNodeEEESt10shared_ptrIT_Ev.exit.thread
+  br i1 %.not, label %thread-pre-split, label %_ZNK3nix3refIKNS_5flake4NodeEE20dynamic_pointer_castIKNS1_10LockedNodeEEESt10shared_ptrIT_Ev.exit.thread
 
 _ZNK3nix3refIKNS_5flake4NodeEE20dynamic_pointer_castIKNS1_10LockedNodeEEESt10shared_ptrIT_Ev.exit.thread: ; preds = %107, %113, %_ZNK3nix3refIKNS_5flake4NodeEE20dynamic_pointer_castIKNS1_10LockedNodeEEESt10shared_ptrIT_Ev.exit
   %117 = phi ptr [ %.pr.pre, %_ZNK3nix3refIKNS_5flake4NodeEE20dynamic_pointer_castIKNS1_10LockedNodeEEESt10shared_ptrIT_Ev.exit ], [ %106, %113 ], [ %106, %107 ]
@@ -7640,7 +7640,7 @@ _ZNK3nix3refIKNS_5flake4NodeEE20dynamic_pointer_castIKNS1_10LockedNodeEEESt10sha
           to label %120 unwind label %.loopexit38
 
 120:                                              ; preds = %_ZNK3nix3refIKNS_5flake4NodeEE20dynamic_pointer_castIKNS1_10LockedNodeEEESt10shared_ptrIT_Ev.exit.thread
-  br i1 %119, label %128, label %121
+  br i1 %119, label %thread-pre-split, label %121
 
 121:                                              ; preds = %120
   %122 = load ptr, ptr %6, align 8
@@ -7675,8 +7675,12 @@ _ZNK3nix3refIKNS_5flake4NodeEE20dynamic_pointer_castIKNS1_10LockedNodeEEESt10sha
   call void @_ZNSt10shared_ptrIKN3nix5flake10LockedNodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #31
   br label %213
 
-128:                                              ; preds = %_ZNK3nix3refIKNS_5flake4NodeEE20dynamic_pointer_castIKNS1_10LockedNodeEEESt10shared_ptrIT_Ev.exit.thread48, %_ZNK3nix3refIKNS_5flake4NodeEE20dynamic_pointer_castIKNS1_10LockedNodeEEESt10shared_ptrIT_Ev.exit, %120
-  %129 = load ptr, ptr %58, align 8
+thread-pre-split:                                 ; preds = %120, %_ZNK3nix3refIKNS_5flake4NodeEE20dynamic_pointer_castIKNS1_10LockedNodeEEESt10shared_ptrIT_Ev.exit
+  %.pr = load ptr, ptr %58, align 8
+  br label %128
+
+128:                                              ; preds = %thread-pre-split, %_ZNK3nix3refIKNS_5flake4NodeEE20dynamic_pointer_castIKNS1_10LockedNodeEEESt10shared_ptrIT_Ev.exit.thread48
+  %129 = phi ptr [ %.pr, %thread-pre-split ], [ null, %_ZNK3nix3refIKNS_5flake4NodeEE20dynamic_pointer_castIKNS1_10LockedNodeEEESt10shared_ptrIT_Ev.exit.thread48 ]
   %.not.i.i.i21 = icmp eq ptr %129, null
   br i1 %.not.i.i.i21, label %_ZNSt10shared_ptrIKN3nix5flake10LockedNodeEED2Ev.exit, label %130
 

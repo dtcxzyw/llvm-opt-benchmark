@@ -150,22 +150,22 @@ _ZL15findGlobalCtorsRN4llvm6ModuleE.exit.thread53: ; preds = %select.unfold.i, %
   %57 = and i32 %28, 134217727
   %58 = zext nneg i32 %57 to i64
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.not8.i = icmp eq i32 %57, 0
-  br i1 %.not8.i, label %_ZNSt6vectorISt4pairIjPN4llvm8FunctionEESaIS4_EE7reserveEm.exit.i, label %_ZNSt12_Vector_baseISt4pairIjPN4llvm8FunctionEESaIS4_EE13_M_deallocateEPS4_m.exit.i.i
+  %.not3.i = icmp eq i32 %57, 0
+  br i1 %.not3.i, label %_ZNSt6vectorISt4pairIjPN4llvm8FunctionEESaIS4_EE7reserveEm.exit.i, label %_ZNSt12_Vector_baseISt4pairIjPN4llvm8FunctionEESaIS4_EE13_M_deallocateEPS4_m.exit.i.i
 
 _ZNSt12_Vector_baseISt4pairIjPN4llvm8FunctionEESaIS4_EE13_M_deallocateEPS4_m.exit.i.i: ; preds = %_ZL15findGlobalCtorsRN4llvm6ModuleE.exit.thread53
-  %60 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %61 = shl nuw nsw i64 %58, 4
-  %62 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %61) #15, !noalias !49
-  store ptr %62, ptr %6, align 8, !tbaa !52, !alias.scope !49
-  store ptr %62, ptr %60, align 8, !tbaa !55, !alias.scope !49
-  %63 = getelementptr inbounds nuw %"struct.std::pair", ptr %62, i64 %58
+  %60 = shl nuw nsw i64 %58, 4
+  %61 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %60) #15, !noalias !49
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %61, ptr %6, align 8, !tbaa !52, !alias.scope !49
+  store ptr %61, ptr %62, align 8, !tbaa !55, !alias.scope !49
+  %63 = getelementptr inbounds nuw %"struct.std::pair", ptr %61, i64 %58
   store ptr %63, ptr %59, align 8, !tbaa !56, !alias.scope !49
   br label %_ZNSt6vectorISt4pairIjPN4llvm8FunctionEESaIS4_EE7reserveEm.exit.i
 
 _ZNSt6vectorISt4pairIjPN4llvm8FunctionEESaIS4_EE7reserveEm.exit.i: ; preds = %_ZNSt12_Vector_baseISt4pairIjPN4llvm8FunctionEESaIS4_EE13_M_deallocateEPS4_m.exit.i.i, %_ZL15findGlobalCtorsRN4llvm6ModuleE.exit.thread53
-  %.promoted5.i = phi ptr [ null, %_ZL15findGlobalCtorsRN4llvm6ModuleE.exit.thread53 ], [ %63, %_ZNSt12_Vector_baseISt4pairIjPN4llvm8FunctionEESaIS4_EE13_M_deallocateEPS4_m.exit.i.i ]
-  %.promoted.i = phi ptr [ null, %_ZL15findGlobalCtorsRN4llvm6ModuleE.exit.thread53 ], [ %62, %_ZNSt12_Vector_baseISt4pairIjPN4llvm8FunctionEESaIS4_EE13_M_deallocateEPS4_m.exit.i.i ]
+  %.promoted6.i = phi ptr [ null, %_ZL15findGlobalCtorsRN4llvm6ModuleE.exit.thread53 ], [ %63, %_ZNSt12_Vector_baseISt4pairIjPN4llvm8FunctionEESaIS4_EE13_M_deallocateEPS4_m.exit.i.i ]
+  %.promoted.i = phi ptr [ null, %_ZL15findGlobalCtorsRN4llvm6ModuleE.exit.thread53 ], [ %61, %_ZNSt12_Vector_baseISt4pairIjPN4llvm8FunctionEESaIS4_EE13_M_deallocateEPS4_m.exit.i.i ]
   br i1 %.not.i.i.i.i.i, label %67, label %64
 
 64:                                               ; preds = %_ZNSt6vectorISt4pairIjPN4llvm8FunctionEESaIS4_EE7reserveEm.exit.i
@@ -182,7 +182,7 @@ _ZN4llvm4User8operandsEv.exit.i25:                ; preds = %67, %64
   %70 = phi ptr [ %66, %64 ], [ %69, %67 ]
   %.idx.i26 = shl nuw nsw i64 %58, 5
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx.i26
-  br i1 %.not8.i, label %_ZL16parseGlobalCtorsPN4llvm14GlobalVariableE.exit.thread, label %.lr.ph.i27
+  br i1 %.not3.i, label %_ZL16parseGlobalCtorsPN4llvm14GlobalVariableE.exit.thread, label %.lr.ph.i27
 
 .lr.ph.i27:                                       ; preds = %_ZN4llvm4User8operandsEv.exit.i25
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -190,10 +190,10 @@ _ZN4llvm4User8operandsEv.exit.i25:                ; preds = %67, %64
 
 73:                                               ; preds = %_ZNSt6vectorISt4pairIjPN4llvm8FunctionEESaIS4_EE12emplace_backIJmS3_EEERS4_DpOT_.exit.i, %.lr.ph.i27
   %74 = phi ptr [ %.promoted.i, %.lr.ph.i27 ], [ %119, %_ZNSt6vectorISt4pairIjPN4llvm8FunctionEESaIS4_EE12emplace_backIJmS3_EEERS4_DpOT_.exit.i ]
-  %75 = phi ptr [ %.promoted5.i, %.lr.ph.i27 ], [ %120, %_ZNSt6vectorISt4pairIjPN4llvm8FunctionEESaIS4_EE12emplace_backIJmS3_EEERS4_DpOT_.exit.i ]
+  %75 = phi ptr [ %.promoted6.i, %.lr.ph.i27 ], [ %120, %_ZNSt6vectorISt4pairIjPN4llvm8FunctionEESaIS4_EE12emplace_backIJmS3_EEERS4_DpOT_.exit.i ]
   %76 = phi ptr [ %.promoted.i, %.lr.ph.i27 ], [ %121, %_ZNSt6vectorISt4pairIjPN4llvm8FunctionEESaIS4_EE12emplace_backIJmS3_EEERS4_DpOT_.exit.i ]
-  %.04.i = phi ptr [ %70, %.lr.ph.i27 ], [ %122, %_ZNSt6vectorISt4pairIjPN4llvm8FunctionEESaIS4_EE12emplace_backIJmS3_EEERS4_DpOT_.exit.i ]
-  %77 = load ptr, ptr %.04.i, align 8, !tbaa !3, !noalias !49
+  %.05.i = phi ptr [ %70, %.lr.ph.i27 ], [ %122, %_ZNSt6vectorISt4pairIjPN4llvm8FunctionEESaIS4_EE12emplace_backIJmS3_EEERS4_DpOT_.exit.i ]
+  %77 = load ptr, ptr %.05.i, align 8, !tbaa !3, !noalias !49
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %79 = load i32, ptr %78, align 4, !noalias !49
   %80 = and i32 %79, 134217727
@@ -285,7 +285,7 @@ _ZNSt6vectorISt4pairIjPN4llvm8FunctionEESaIS4_EE12emplace_backIJmS3_EEERS4_DpOT_
   %119 = phi ptr [ %74, %94 ], [ %110, %_ZNSt6vectorISt4pairIjPN4llvm8FunctionEESaIS4_EE17_M_realloc_insertIJmS3_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ]
   %120 = phi ptr [ %75, %94 ], [ %118, %_ZNSt6vectorISt4pairIjPN4llvm8FunctionEESaIS4_EE17_M_realloc_insertIJmS3_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ]
   %121 = phi ptr [ %97, %94 ], [ %116, %_ZNSt6vectorISt4pairIjPN4llvm8FunctionEESaIS4_EE17_M_realloc_insertIJmS3_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ]
-  %122 = getelementptr inbounds nuw i8, ptr %.04.i, i64 32
+  %122 = getelementptr inbounds nuw i8, ptr %.05.i, i64 32
   %.not.i29 = icmp eq ptr %122, %71
   br i1 %.not.i29, label %_ZL16parseGlobalCtorsPN4llvm14GlobalVariableE.exit, label %73
 

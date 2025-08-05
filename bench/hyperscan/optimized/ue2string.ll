@@ -1104,9 +1104,9 @@ _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i:
   %13 = zext i1 %12 to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   %14 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #26
-          to label %_ZNSt6vectorImSaImEE6resizeEm.exit.i.i unwind label %.body
+          to label %.noexc12 unwind label %.body
 
-_ZNSt6vectorImSaImEE6resizeEm.exit.i.i:           ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i
+.noexc12:                                         ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1118,11 +1118,11 @@ _ZNSt6vectorImSaImEE6resizeEm.exit.i.i:           ; preds = %_ZNKSt6vectorImSaIm
   store i64 1, ptr %17, align 8
   br i1 %12, label %.lr.ph.split.us.i.i, label %_ZN5boost14dynamic_bitsetImSaImEEC2EmmRKS1_.exit
 
-.lr.ph.split.us.i.i:                              ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit.i.i
+.lr.ph.split.us.i.i:                              ; preds = %.noexc12
   store i64 %13, ptr %14, align 8
   br label %_ZN5boost14dynamic_bitsetImSaImEEC2EmmRKS1_.exit
 
-_ZN5boost14dynamic_bitsetImSaImEEC2EmmRKS1_.exit: ; preds = %.lr.ph.split.us.i.i, %_ZNSt6vectorImSaImEE6resizeEm.exit.i.i
+_ZN5boost14dynamic_bitsetImSaImEEC2EmmRKS1_.exit: ; preds = %.lr.ph.split.us.i.i, %.noexc12
   ret void
 
 .body:                                            ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i

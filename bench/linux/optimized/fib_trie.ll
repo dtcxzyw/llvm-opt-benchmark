@@ -6946,20 +6946,20 @@ define internal noundef i32 @fib_triestat_seq_show(ptr noundef %0, ptr readnone 
   br label %13
 
 13:                                               ; preds = %.loopexit, %2
-  %14 = phi i64 [ 0, %2 ], [ %181, %.loopexit ]
+  %14 = phi i64 [ 0, %2 ], [ %180, %.loopexit ]
   %15 = load ptr, ptr %6, align 8
   %16 = getelementptr %struct.hlist_head, ptr %15, i64 %14
   %17 = load volatile ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.loopexit, label %.preheader26
 
-.preheader26:                                     ; preds = %13, %178
-  %19 = phi ptr [ %179, %178 ], [ %17, %13 ]
+.preheader26:                                     ; preds = %13, %177
+  %19 = phi ptr [ %178, %177 ], [ %17, %13 ]
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3) #17
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %178, label %23
+  br i1 %22, label %177, label %23
 
 23:                                               ; preds = %.preheader26
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -6991,7 +6991,7 @@ define internal noundef i32 @fib_triestat_seq_show(ptr noundef %0, ptr readnone 
 
 .thread.thread:                                   ; preds = %29
   tail call void @__rcu_read_unlock() #17
-  br label %132
+  br label %131
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 5
@@ -7001,18 +7001,18 @@ define internal noundef i32 @fib_triestat_seq_show(ptr noundef %0, ptr readnone 
   %38 = zext i1 %36 to i32
   br label %39
 
-39:                                               ; preds = %109, %33
-  %40 = phi i8 [ %35, %33 ], [ %111, %109 ]
-  %41 = phi i32 [ 0, %33 ], [ %80, %109 ]
-  %42 = phi i32 [ 0, %33 ], [ %81, %109 ]
-  %43 = phi i32 [ 0, %33 ], [ %82, %109 ]
-  %44 = phi i32 [ 0, %33 ], [ %83, %109 ]
-  %45 = phi i32 [ 0, %33 ], [ %84, %109 ]
-  %46 = phi i32 [ 0, %33 ], [ %85, %109 ]
-  %47 = phi ptr [ %31, %33 ], [ %107, %109 ]
-  %48 = phi i32 [ %38, %33 ], [ %.ph17, %109 ]
-  %49 = phi i64 [ 0, %33 ], [ %.ph16, %109 ]
-  %50 = phi ptr [ %37, %33 ], [ %.ph, %109 ]
+39:                                               ; preds = %108, %33
+  %40 = phi i8 [ %35, %33 ], [ %110, %108 ]
+  %41 = phi i32 [ 0, %33 ], [ %80, %108 ]
+  %42 = phi i32 [ 0, %33 ], [ %81, %108 ]
+  %43 = phi i32 [ 0, %33 ], [ %82, %108 ]
+  %44 = phi i32 [ 0, %33 ], [ %.pr, %108 ]
+  %45 = phi i32 [ 0, %33 ], [ %83, %108 ]
+  %46 = phi i32 [ 0, %33 ], [ %84, %108 ]
+  %47 = phi ptr [ %31, %33 ], [ %106, %108 ]
+  %48 = phi i32 [ %38, %33 ], [ %.ph17, %108 ]
+  %49 = phi i64 [ 0, %33 ], [ %.ph16, %108 ]
+  %50 = phi ptr [ %37, %33 ], [ %.ph, %108 ]
   %51 = icmp eq i8 %40, 0
   br i1 %51, label %52, label %64
 
@@ -7067,166 +7067,166 @@ define internal noundef i32 @fib_triestat_seq_show(ptr noundef %0, ptr readnone 
   %80 = phi i32 [ %61, %78 ], [ %41, %74 ], [ %41, %52 ]
   %81 = phi i32 [ %55, %78 ], [ %42, %74 ], [ %55, %52 ]
   %82 = phi i32 [ %54, %78 ], [ %43, %74 ], [ %54, %52 ]
-  %83 = phi i32 [ %53, %78 ], [ %44, %74 ], [ %53, %52 ]
-  %84 = phi i32 [ %45, %78 ], [ %77, %74 ], [ %45, %52 ]
-  %85 = phi i32 [ %46, %78 ], [ %66, %74 ], [ %46, %52 ]
-  %86 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  %87 = load i8, ptr %86, align 4
-  %88 = icmp ult i8 %87, 32
-  br i1 %88, label %89, label %.thread
+  %.pr = phi i32 [ %53, %78 ], [ %44, %74 ], [ %53, %52 ]
+  %83 = phi i32 [ %45, %78 ], [ %77, %74 ], [ %45, %52 ]
+  %84 = phi i32 [ %46, %78 ], [ %66, %74 ], [ %46, %52 ]
+  %85 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %86 = load i8, ptr %85, align 4
+  %87 = icmp ult i8 %86, 32
+  br i1 %87, label %88, label %.thread
 
-89:                                               ; preds = %79
-  %90 = and i64 %49, 4294967295
-  br label %91
+88:                                               ; preds = %79
+  %89 = and i64 %49, 4294967295
+  br label %90
 
-91:                                               ; preds = %114, %89
-  %92 = phi i32 [ %48, %89 ], [ %126, %114 ]
-  %93 = phi i64 [ %90, %89 ], [ %125, %114 ]
-  %94 = phi ptr [ %50, %89 ], [ %117, %114 ]
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 5
-  %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %97 = load i8, ptr %95, align 1
-  %98 = zext nneg i8 %97 to i64
-  %99 = shl nuw i64 1, %98
-  %100 = and i64 %99, -2
-  br label %101
+90:                                               ; preds = %113, %88
+  %91 = phi i32 [ %48, %88 ], [ %125, %113 ]
+  %92 = phi i64 [ %89, %88 ], [ %124, %113 ]
+  %93 = phi ptr [ %50, %88 ], [ %116, %113 ]
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 5
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  %96 = load i8, ptr %94, align 1
+  %97 = zext nneg i8 %96 to i64
+  %98 = shl nuw i64 1, %97
+  %99 = and i64 %98, -2
+  br label %100
 
-101:                                              ; preds = %104, %91
-  %102 = phi i64 [ %93, %91 ], [ %105, %104 ]
-  %103 = icmp ult i64 %102, %100
-  br i1 %103, label %104, label %114
+100:                                              ; preds = %103, %90
+  %101 = phi i64 [ %92, %90 ], [ %104, %103 ]
+  %102 = icmp ult i64 %101, %99
+  br i1 %102, label %103, label %113
 
-104:                                              ; preds = %101
-  %105 = add nuw i64 %102, 1
-  %106 = getelementptr [0 x ptr], ptr %96, i64 0, i64 %102
-  %107 = load volatile ptr, ptr %106, align 8
-  %108 = icmp eq ptr %107, null
-  br i1 %108, label %101, label %109, !llvm.loop !89
+103:                                              ; preds = %100
+  %104 = add nuw i64 %101, 1
+  %105 = getelementptr [0 x ptr], ptr %95, i64 0, i64 %101
+  %106 = load volatile ptr, ptr %105, align 8
+  %107 = icmp eq ptr %106, null
+  br i1 %107, label %100, label %108, !llvm.loop !89
 
-109:                                              ; preds = %104
-  %110 = getelementptr inbounds nuw i8, ptr %107, i64 5
-  %111 = load i8, ptr %110, align 1
-  %112 = icmp ne i8 %111, 0
-  %.ph = select i1 %112, ptr %107, ptr %94
-  %.ph16 = select i1 %112, i64 0, i64 %105
-  %113 = zext i1 %112 to i32
-  %.ph17 = add i32 %92, %113
+108:                                              ; preds = %103
+  %109 = getelementptr inbounds nuw i8, ptr %106, i64 5
+  %110 = load i8, ptr %109, align 1
+  %111 = icmp ne i8 %110, 0
+  %.ph = select i1 %111, ptr %106, ptr %93
+  %.ph16 = select i1 %111, i64 0, i64 %104
+  %112 = zext i1 %111 to i32
+  %.ph17 = add i32 %91, %112
   br label %39, !llvm.loop !90
 
-114:                                              ; preds = %101
-  %115 = load i32, ptr %94, align 8
-  %116 = getelementptr i8, ptr %94, i64 -8
-  %117 = load volatile ptr, ptr %116, align 8
-  %118 = load i32, ptr %117, align 8
-  %119 = xor i32 %118, %115
-  %120 = zext i32 %119 to i64
-  %121 = getelementptr inbounds nuw i8, ptr %117, i64 4
-  %122 = load i8, ptr %121, align 4
-  %123 = zext nneg i8 %122 to i64
-  %124 = lshr i64 %120, %123
-  %125 = add nuw nsw i64 %124, 1
-  %126 = add i32 %92, -1
-  %127 = icmp ult i8 %122, 32
-  br i1 %127, label %91, label %.thread, !llvm.loop !91
+113:                                              ; preds = %100
+  %114 = load i32, ptr %93, align 8
+  %115 = getelementptr i8, ptr %93, i64 -8
+  %116 = load volatile ptr, ptr %115, align 8
+  %117 = load i32, ptr %116, align 8
+  %118 = xor i32 %117, %114
+  %119 = zext i32 %118 to i64
+  %120 = getelementptr inbounds nuw i8, ptr %116, i64 4
+  %121 = load i8, ptr %120, align 4
+  %122 = zext nneg i8 %121 to i64
+  %123 = lshr i64 %119, %122
+  %124 = add nuw nsw i64 %123, 1
+  %125 = add i32 %91, -1
+  %126 = icmp ult i8 %121, 32
+  br i1 %126, label %90, label %.thread, !llvm.loop !91
 
-.thread:                                          ; preds = %79, %114
+.thread:                                          ; preds = %79, %113
   tail call void @__rcu_read_unlock() #17
-  %128 = icmp eq i32 %83, 0
-  br i1 %128, label %132, label %129
+  %127 = icmp eq i32 %.pr, 0
+  br i1 %127, label %131, label %128
 
-129:                                              ; preds = %.thread
-  %130 = mul i32 %82, 100
-  %131 = udiv i32 %130, %83
-  br label %132
+128:                                              ; preds = %.thread
+  %129 = mul i32 %82, 100
+  %130 = udiv i32 %129, %.pr
+  br label %131
 
-132:                                              ; preds = %.thread.thread, %129, %.thread
-  %133 = phi i32 [ %83, %129 ], [ 0, %.thread ], [ 0, %.thread.thread ]
-  %134 = phi i32 [ %81, %129 ], [ %81, %.thread ], [ 0, %.thread.thread ]
-  %135 = phi i32 [ %80, %129 ], [ %80, %.thread ], [ 0, %.thread.thread ]
-  %136 = phi i32 [ %85, %129 ], [ %85, %.thread ], [ 0, %.thread.thread ]
-  %137 = phi i32 [ %84, %129 ], [ %84, %.thread ], [ 0, %.thread.thread ]
-  %138 = phi i32 [ %131, %129 ], [ 0, %.thread ], [ 0, %.thread.thread ]
-  %139 = udiv i32 %138, 100
-  %140 = urem i32 %138, 100
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.37, i32 noundef %139, i32 noundef %140) #17
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.38, i32 noundef %134) #17
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.39, i32 noundef %133) #17
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.40, i32 noundef %135) #17
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.41, i32 noundef %136) #17
-  br label %141
+131:                                              ; preds = %.thread.thread, %128, %.thread
+  %132 = phi i32 [ %83, %128 ], [ %83, %.thread ], [ 0, %.thread.thread ]
+  %133 = phi i32 [ %84, %128 ], [ %84, %.thread ], [ 0, %.thread.thread ]
+  %134 = phi i32 [ %80, %128 ], [ %80, %.thread ], [ 0, %.thread.thread ]
+  %135 = phi i32 [ %81, %128 ], [ %81, %.thread ], [ 0, %.thread.thread ]
+  %136 = phi i32 [ %.pr, %128 ], [ 0, %.thread ], [ 0, %.thread.thread ]
+  %137 = phi i32 [ %130, %128 ], [ 0, %.thread ], [ 0, %.thread.thread ]
+  %138 = udiv i32 %137, 100
+  %139 = urem i32 %137, 100
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.37, i32 noundef %138, i32 noundef %139) #17
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.38, i32 noundef %135) #17
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.39, i32 noundef %136) #17
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.40, i32 noundef %134) #17
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.41, i32 noundef %133) #17
+  br label %140
 
-141:                                              ; preds = %144, %132
-  %142 = phi i64 [ %145, %144 ], [ 32, %132 ]
-  %143 = icmp eq i64 %142, 0
-  br i1 %143, label %.thread23, label %144
+140:                                              ; preds = %143, %131
+  %141 = phi i64 [ %144, %143 ], [ 32, %131 ]
+  %142 = icmp eq i64 %141, 0
+  br i1 %142, label %.thread23, label %143
 
-144:                                              ; preds = %141
-  %145 = add nsw i64 %142, -1
-  %146 = and i64 %145, 4294967295
-  %147 = getelementptr [32 x i32], ptr %8, i64 0, i64 %146
-  %148 = load i32, ptr %147, align 4
-  %149 = icmp eq i32 %148, 0
-  br i1 %149, label %141, label %150, !llvm.loop !92
+143:                                              ; preds = %140
+  %144 = add nsw i64 %141, -1
+  %145 = and i64 %144, 4294967295
+  %146 = getelementptr [32 x i32], ptr %8, i64 0, i64 %145
+  %147 = load i32, ptr %146, align 4
+  %148 = icmp eq i32 %147, 0
+  br i1 %148, label %140, label %149, !llvm.loop !92
 
-150:                                              ; preds = %144
-  %151 = and i64 %142, 4294967294
-  %.not = icmp eq i64 %151, 0
-  br i1 %.not, label %.thread23, label %152
+149:                                              ; preds = %143
+  %150 = and i64 %141, 4294967294
+  %.not = icmp eq i64 %150, 0
+  br i1 %.not, label %.thread23, label %151
 
-152:                                              ; preds = %150
-  %153 = and i64 %142, 4294967295
-  br label %154
+151:                                              ; preds = %149
+  %152 = and i64 %141, 4294967295
+  br label %153
 
-154:                                              ; preds = %164, %152
-  %155 = phi i64 [ 1, %152 ], [ %166, %164 ]
-  %156 = phi i32 [ 0, %152 ], [ %165, %164 ]
-  %157 = getelementptr [32 x i32], ptr %8, i64 0, i64 %155
-  %158 = load i32, ptr %157, align 4
-  %159 = icmp eq i32 %158, 0
-  br i1 %159, label %164, label %160
+153:                                              ; preds = %163, %151
+  %154 = phi i64 [ 1, %151 ], [ %165, %163 ]
+  %155 = phi i32 [ 0, %151 ], [ %164, %163 ]
+  %156 = getelementptr [32 x i32], ptr %8, i64 0, i64 %154
+  %157 = load i32, ptr %156, align 4
+  %158 = icmp eq i32 %157, 0
+  br i1 %158, label %163, label %159
 
-160:                                              ; preds = %154
-  %161 = trunc i64 %155 to i32
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.42, i32 noundef %161, i32 noundef %158) #17
-  %162 = shl i32 %158, %161
-  %163 = add i32 %162, %156
-  br label %164
+159:                                              ; preds = %153
+  %160 = trunc i64 %154 to i32
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.42, i32 noundef %160, i32 noundef %157) #17
+  %161 = shl i32 %157, %160
+  %162 = add i32 %161, %155
+  br label %163
 
-164:                                              ; preds = %160, %154
-  %165 = phi i32 [ %163, %160 ], [ %156, %154 ]
-  %166 = add nuw nsw i64 %155, 1
-  %167 = icmp eq i64 %166, %153
-  br i1 %167, label %.thread23, label %154, !llvm.loop !93
+163:                                              ; preds = %159, %153
+  %164 = phi i32 [ %162, %159 ], [ %155, %153 ]
+  %165 = add nuw nsw i64 %154, 1
+  %166 = icmp eq i64 %165, %152
+  br i1 %166, label %.thread23, label %153, !llvm.loop !93
 
-.thread23:                                        ; preds = %141, %164, %150
-  %168 = phi i32 [ 0, %150 ], [ %165, %164 ], [ 0, %141 ]
-  %169 = mul i32 %135, 56
-  %170 = mul i32 %133, 48
-  %171 = mul i32 %136, 40
+.thread23:                                        ; preds = %140, %163, %149
+  %167 = phi i32 [ 0, %149 ], [ %164, %163 ], [ 0, %140 ]
+  %168 = mul i32 %134, 56
+  %169 = mul i32 %136, 48
+  %170 = mul i32 %133, 40
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 10) #17
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.43, i32 noundef %168) #17
-  %172 = shl i32 %168, 3
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.44, i32 noundef %137) #17
-  %173 = add i32 %170, 1023
-  %174 = add i32 %173, %169
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.43, i32 noundef %167) #17
+  %171 = shl i32 %167, 3
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.44, i32 noundef %132) #17
+  %172 = add i32 %169, 1023
+  %173 = add i32 %172, %168
+  %174 = add i32 %173, %170
   %175 = add i32 %174, %171
-  %176 = add i32 %175, %172
-  %177 = lshr i32 %176, 10
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.45, i32 noundef %177) #17
-  br label %178
+  %176 = lshr i32 %175, 10
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.45, i32 noundef %176) #17
+  br label %177
 
-178:                                              ; preds = %.thread23, %.preheader26
+177:                                              ; preds = %.thread23, %.preheader26
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3) #17
-  %179 = load volatile ptr, ptr %19, align 8
-  %180 = icmp eq ptr %179, null
-  br i1 %180, label %.loopexit, label %.preheader26, !llvm.loop !94
+  %178 = load volatile ptr, ptr %19, align 8
+  %179 = icmp eq ptr %178, null
+  br i1 %179, label %.loopexit, label %.preheader26, !llvm.loop !94
 
-.loopexit:                                        ; preds = %178, %13
-  %181 = add nuw nsw i64 %14, 1
-  %182 = icmp eq i64 %181, 256
-  br i1 %182, label %183, label %13, !llvm.loop !95
+.loopexit:                                        ; preds = %177, %13
+  %180 = add nuw nsw i64 %14, 1
+  %181 = icmp eq i64 %180, 256
+  br i1 %181, label %182, label %13, !llvm.loop !95
 
-183:                                              ; preds = %.loopexit
+182:                                              ; preds = %.loopexit
   tail call void @__rcu_read_unlock() #17
   ret i32 0
 }

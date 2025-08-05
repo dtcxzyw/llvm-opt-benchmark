@@ -407,9 +407,9 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN3ue211hwlmLiteralESt6v
 
 "_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_122assignStringsToBucketsERS7_RKNS2_20FDREngineDescriptionEE3$_0EvT_SF_T0_.exit.i.i": ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEES3_ED2Ev.exit.i.i.i.i, %._crit_edge.i.i
   %97 = invoke noalias noundef nonnull dereferenceable(6144) ptr @_Znwm(i64 noundef 6144) #26
-          to label %_ZNSt6vectorIN3ue212_GLOBAL__N_15ChunkESaIS2_EE7reserveEm.exit.i.i.i unwind label %thread-pre-split.i.thread.i.i, !noalias !16
+          to label %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_15ChunkESaIS2_EE13_M_deallocateEPS2_m.exit.i.i.i.i unwind label %thread-pre-split.i.thread.i.i, !noalias !16
 
-_ZNSt6vectorIN3ue212_GLOBAL__N_15ChunkESaIS2_EE7reserveEm.exit.i.i.i: ; preds = %"_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_122assignStringsToBucketsERS7_RKNS2_20FDREngineDescriptionEE3$_0EvT_SF_T0_.exit.i.i"
+_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_15ChunkESaIS2_EE13_M_deallocateEPS2_m.exit.i.i.i.i: ; preds = %"_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_122assignStringsToBucketsERS7_RKNS2_20FDREngineDescriptionEE3$_0EvT_SF_T0_.exit.i.i"
   %98 = load ptr, ptr %47, align 8, !noalias !19
   %99 = load ptr, ptr %2, align 8, !noalias !19
   %100 = ptrtoint ptr %98 to i64
@@ -426,11 +426,11 @@ _ZNSt6vectorIN3ue212_GLOBAL__N_15ChunkESaIS2_EE7reserveEm.exit.i.i.i: ; preds = 
   %.not106.i.i.i = icmp eq ptr %98, %99
   br i1 %.not106.i.i.i, label %.critedge.i.thread.i.i, label %.lr.ph.i.preheader.i.preheader.i
 
-.lr.ph.i.preheader.i.preheader.i:                 ; preds = %_ZNSt6vectorIN3ue212_GLOBAL__N_15ChunkESaIS2_EE7reserveEm.exit.i.i.i
+.lr.ph.i.preheader.i.preheader.i:                 ; preds = %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_15ChunkESaIS2_EE13_M_deallocateEPS2_m.exit.i.i.i.i
   %110 = getelementptr inbounds nuw i8, ptr %97, i64 6144
   br label %.lr.ph.i.preheader.i.i
 
-.critedge.i.thread.i.i:                           ; preds = %_ZNSt6vectorIN3ue212_GLOBAL__N_15ChunkESaIS2_EE7reserveEm.exit.i.i.i
+.critedge.i.thread.i.i:                           ; preds = %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_15ChunkESaIS2_EE13_M_deallocateEPS2_m.exit.i.i.i.i
   %111 = getelementptr inbounds i8, ptr %97, i64 -8
   store i32 0, ptr %111, align 4, !noalias !16
   br label %129

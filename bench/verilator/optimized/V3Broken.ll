@@ -1243,20 +1243,20 @@ _ZNK15BrokenCntGlobal3getEv.exit:                 ; preds = %31
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %67 = load ptr, ptr %66, align 8, !tbaa !53
   %.not21.i.i = icmp eq ptr %67, null
-  br i1 %.not21.i.i, label %.preheader66.i.i, label %.preheader66.i.thread.i
+  br i1 %.not21.i.i, label %.preheader65.i.i, label %.preheader65.i.thread.i
 
-.preheader66.i.thread.i:                          ; preds = %65
+.preheader65.i.thread.i:                          ; preds = %65
   %.2.ptr.i = getelementptr inbounds nuw i8, ptr %37, i64 %.2.idx.i
   %.2.add.i = add nuw nsw i64 %.2.idx.i, 8
   store ptr %67, ptr %.2.ptr.i, align 8, !tbaa !21
   br label %.lr.ph.i.preheader.i
 
-.preheader66.i.i:                                 ; preds = %65
+.preheader65.i.i:                                 ; preds = %65
   %68 = icmp samesign ugt i64 %.2.idx.i, 16
   br i1 %68, label %.lr.ph.i.preheader.i, label %"_ZN7AstNode7foreachIZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvOT_.exit", !prof !54
 
-.lr.ph.i.preheader.i:                             ; preds = %.preheader66.i.i, %.preheader66.i.thread.i
-  %.3.idx114.i = phi i64 [ %.2.add.i, %.preheader66.i.thread.i ], [ %.2.idx.i, %.preheader66.i.i ]
+.lr.ph.i.preheader.i:                             ; preds = %.preheader65.i.i, %.preheader65.i.thread.i
+  %.3.idx114.i = phi i64 [ %.2.add.i, %.preheader65.i.thread.i ], [ %.2.idx.i, %.preheader65.i.i ]
   %69 = getelementptr inbounds nuw i8, ptr %37, i64 232
   %.3.ptr.i = getelementptr inbounds nuw i8, ptr %37, i64 %.3.idx114.i
   br label %.lr.ph.i.i
@@ -1273,8 +1273,8 @@ _ZNK15BrokenCntGlobal3getEv.exit:                 ; preds = %31
   %.sroa.0.1.i = phi ptr [ %.sroa.0.5.i, %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESE_.exit.i.i" ], [ %37, %.lr.ph.i.preheader.i ]
   %.sroa.13.1.i = phi ptr [ %.sroa.13.4.i, %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESE_.exit.i.i" ], [ %39, %.lr.ph.i.preheader.i ]
   %.sroa.21.1.i = phi ptr [ %.sroa.21.5.i, %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESE_.exit.i.i" ], [ %39, %.lr.ph.i.preheader.i ]
-  %.090.i.i = phi ptr [ %.1.i.i, %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESE_.exit.i.i" ], [ %69, %.lr.ph.i.preheader.i ]
-  %.06289.i.i = phi ptr [ %.163.i.i, %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESE_.exit.i.i" ], [ %.ptr34.i, %.lr.ph.i.preheader.i ]
+  %.089.i.i = phi ptr [ %.1.i.i, %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESE_.exit.i.i" ], [ %69, %.lr.ph.i.preheader.i ]
+  %.06288.i.i = phi ptr [ %.163.i.i, %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESE_.exit.i.i" ], [ %.ptr34.i, %.lr.ph.i.preheader.i ]
   %73 = phi ptr [ %271, %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESE_.exit.i.i" ], [ %.3.ptr.i, %.lr.ph.i.preheader.i ]
   %74 = getelementptr inbounds i8, ptr %73, i64 -8
   %75 = load ptr, ptr %74, align 8, !tbaa !21
@@ -1284,7 +1284,7 @@ _ZNK15BrokenCntGlobal3getEv.exit:                 ; preds = %31
   call void @llvm.prefetch.p0(ptr nonnull %78, i32 0, i32 3, i32 1)
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 64
   call void @llvm.prefetch.p0(ptr nonnull %79, i32 0, i32 3, i32 1)
-  %.not17.i.i = icmp ult ptr %74, %.090.i.i
+  %.not17.i.i = icmp ult ptr %74, %.089.i.i
   br i1 %.not17.i.i, label %130, label %80, !prof !23
 
 80:                                               ; preds = %.lr.ph.i.i
@@ -1382,7 +1382,7 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i: ; preds =
   %.sroa.13.3.i = phi ptr [ %117, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i ], [ %101, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %96, %95 ], [ %spec.select.i10, %119 ]
   %.sroa.21.3.i = phi ptr [ %118, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i ], [ %.sroa.21.1.i, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %.sroa.21.1.i, %95 ], [ %.sroa.21.1.i, %119 ]
   %122 = ptrtoint ptr %74 to i64
-  %123 = ptrtoint ptr %.06289.i.i to i64
+  %123 = ptrtoint ptr %.06288.i.i to i64
   %124 = sub i64 %122, %123
   %125 = getelementptr inbounds nuw i8, ptr %.sroa.0.3.i, i64 16
   %126 = getelementptr inbounds i8, ptr %125, i64 %124
@@ -1417,8 +1417,8 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i: ; preds =
   %.sroa.13.4.i = phi ptr [ %.sroa.13.1.i, %.lr.ph.i.i ], [ %.sroa.13.3.i, %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i" ]
   %.sroa.21.5.i = phi ptr [ %.sroa.21.1.i, %.lr.ph.i.i ], [ %.sroa.21.3.i, %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i" ]
   %131 = phi ptr [ %74, %.lr.ph.i.i ], [ %126, %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i" ]
-  %.163.i.i = phi ptr [ %.06289.i.i, %.lr.ph.i.i ], [ %125, %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i" ]
-  %.1.i.i = phi ptr [ %.090.i.i, %.lr.ph.i.i ], [ %128, %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i" ]
+  %.163.i.i = phi ptr [ %.06288.i.i, %.lr.ph.i.i ], [ %125, %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i" ]
+  %.1.i.i = phi ptr [ %.089.i.i, %.lr.ph.i.i ], [ %128, %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i" ]
   %132 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %133 = load ptr, ptr %132, align 8, !tbaa !56
   %.not18.i.i = icmp eq ptr %133, null
@@ -1569,14 +1569,14 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i: ; preds =
 
 .noexc.i.i.i.i.i:                                 ; preds = %193
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #26
-          to label %.noexc48.i.i unwind label %.loopexit.split-lp68.i.i
+          to label %.noexc48.i.i unwind label %.loopexit.split-lp67.i.i
 
 .noexc48.i.i:                                     ; preds = %.noexc.i.i.i.i.i
   unreachable
 
 .noexc7.i.i.i.i.i:                                ; preds = %193
   invoke void @_ZSt17__throw_bad_allocv() #26
-          to label %.noexc49.i.i unwind label %.loopexit.split-lp68.i.i
+          to label %.noexc49.i.i unwind label %.loopexit.split-lp67.i.i
 
 .noexc49.i.i:                                     ; preds = %.noexc7.i.i.i.i.i
   unreachable
@@ -1584,7 +1584,7 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i: ; preds =
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPK7AstNodeLb0EEEEE19_M_allocate_bucketsEm.exit.i.i.i.i: ; preds = %191
   %195 = shl nuw nsw i64 %188, 3
   %196 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %195) #28
-          to label %.noexc50.i.i unwind label %.loopexit67.i.i
+          to label %.noexc50.i.i unwind label %.loopexit66.i.i
 
 .noexc50.i.i:                                     ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPK7AstNodeLb0EEEEE19_M_allocate_bucketsEm.exit.i.i.i.i
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %196, i8 0, i64 %195, i1 false)
@@ -1647,19 +1647,19 @@ _ZNSt10_HashtableIPK7AstNodeS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4
   call void @_ZdlPvm(ptr noundef %214, i64 noundef %218) #25
   br label %_ZNSt10_HashtableIPK7AstNodeS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit.i.i.i
 
-.loopexit67.i.i:                                  ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPK7AstNodeLb0EEEEE19_M_allocate_bucketsEm.exit.i.i.i.i
-  %lpad.loopexit69.i.i = landingpad { ptr, i32 }
+.loopexit66.i.i:                                  ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPK7AstNodeLb0EEEEE19_M_allocate_bucketsEm.exit.i.i.i.i
+  %lpad.loopexit68.i.i = landingpad { ptr, i32 }
           catch ptr null
   br label %219
 
-.loopexit.split-lp68.i.i:                         ; preds = %.noexc7.i.i.i.i.i, %.noexc.i.i.i.i.i
-  %lpad.loopexit.split-lp70.i.i = landingpad { ptr, i32 }
+.loopexit.split-lp67.i.i:                         ; preds = %.noexc7.i.i.i.i.i, %.noexc.i.i.i.i.i
+  %lpad.loopexit.split-lp69.i.i = landingpad { ptr, i32 }
           catch ptr null
   br label %219
 
-219:                                              ; preds = %.loopexit.split-lp68.i.i, %.loopexit67.i.i
-  %lpad.phi71.i.i = phi { ptr, i32 } [ %lpad.loopexit69.i.i, %.loopexit67.i.i ], [ %lpad.loopexit.split-lp70.i.i, %.loopexit.split-lp68.i.i ]
-  %220 = extractvalue { ptr, i32 } %lpad.phi71.i.i, 0
+219:                                              ; preds = %.loopexit.split-lp67.i.i, %.loopexit66.i.i
+  %lpad.phi70.i.i = phi { ptr, i32 } [ %lpad.loopexit68.i.i, %.loopexit66.i.i ], [ %lpad.loopexit.split-lp69.i.i, %.loopexit.split-lp67.i.i ]
+  %220 = extractvalue { ptr, i32 } %lpad.phi70.i.i, 0
   %221 = call ptr @__cxa_begin_catch(ptr %220) #27
   store i64 %183, ptr getelementptr inbounds nuw (i8, ptr @_ZL15s_linkableTable, i64 40), align 8, !tbaa !58
   invoke void @__cxa_rethrow() #26
@@ -1810,9 +1810,9 @@ _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit39.i.i:    ; preds = %_ZNSt10_HashtableIP
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.728.i, i64 noundef %275) #25
   br label %common.resume
 
-"_ZN7AstNode7foreachIZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvOT_.exit": ; preds = %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESE_.exit.i.i", %.preheader66.i.i
-  %.sroa.21.617.i = phi ptr [ %39, %.preheader66.i.i ], [ %.sroa.21.5.i, %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESE_.exit.i.i" ]
-  %.sroa.0.616.i = phi ptr [ %37, %.preheader66.i.i ], [ %.sroa.0.5.i, %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESE_.exit.i.i" ]
+"_ZN7AstNode7foreachIZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvOT_.exit": ; preds = %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESE_.exit.i.i", %.preheader65.i.i
+  %.sroa.21.617.i = phi ptr [ %39, %.preheader65.i.i ], [ %.sroa.21.5.i, %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESE_.exit.i.i" ]
+  %.sroa.0.616.i = phi ptr [ %37, %.preheader65.i.i ], [ %.sroa.0.5.i, %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESE_.exit.i.i" ]
   %276 = ptrtoint ptr %.sroa.21.617.i to i64
   %277 = ptrtoint ptr %.sroa.0.616.i to i64
   %278 = sub i64 %276, %277

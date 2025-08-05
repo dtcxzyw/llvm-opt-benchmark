@@ -32600,9 +32600,9 @@ define void @_ZN6open3d9pipelines9color_map30CreateVertexAndImageVisibilityERKNS
 _ZNKSt6vectorIS_IiSaIiEESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %35
   %39 = mul nuw nsw i64 %25, 24
   %40 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %39) #33
-          to label %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit37.i unwind label %54
+          to label %.noexc35 unwind label %54
 
-_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit37.i: ; preds = %_ZNKSt6vectorIS_IiSaIiEESaIS1_EE12_M_check_lenEmPKc.exit.i
+.noexc35:                                         ; preds = %_ZNKSt6vectorIS_IiSaIiEESaIS1_EE12_M_check_lenEmPKc.exit.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %40, i8 0, i64 %39, i1 false)
   store ptr %40, ptr %12, align 8, !tbaa !648
   %41 = getelementptr inbounds nuw %"class.std::vector.181", ptr %40, i64 %25
@@ -32610,12 +32610,12 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit37.i: ; p
   store ptr %41, ptr %36, align 8, !tbaa !652
   br label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit
 
-_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit:    ; preds = %7, %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit37.i
+_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit:    ; preds = %7, %.noexc35
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   %42 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.not54 = icmp eq ptr %28, %29
-  br i1 %.not54, label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit19, label %43
+  %.not53 = icmp eq ptr %28, %29
+  br i1 %.not53, label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit19, label %43
 
 43:                                               ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -32631,9 +32631,9 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit:    ; preds = %7, %_ZNSt12_Vector_
 
 _ZNKSt6vectorIS_IiSaIiEESaIS1_EE12_M_check_lenEmPKc.exit.i40: ; preds = %43
   %47 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #33
-          to label %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit37.i49 unwind label %56
+          to label %.noexc51 unwind label %56
 
-_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit37.i49: ; preds = %_ZNKSt6vectorIS_IiSaIiEESaIS1_EE12_M_check_lenEmPKc.exit.i40
+.noexc51:                                         ; preds = %_ZNKSt6vectorIS_IiSaIiEESaIS1_EE12_M_check_lenEmPKc.exit.i40
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %47, i8 0, i64 %32, i1 false)
   store ptr %47, ptr %13, align 8, !tbaa !648
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 %32
@@ -32641,7 +32641,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit37.i49: ;
   store ptr %48, ptr %44, align 8, !tbaa !652
   br label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit19
 
-_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit19:  ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit, %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit37.i49
+_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit19:  ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit, %.noexc51
   %49 = invoke noundef i32 @_ZN6open3d7utility18EstimateMaxThreadsEv()
           to label %50 unwind label %56
 
@@ -32671,9 +32671,9 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit19:  ; preds = %_ZNSt6vectorIS_IiSa
   br label %115
 
 .lr.ph:                                           ; preds = %50, %73
-  %storemerge53 = phi i32 [ %75, %73 ], [ 0, %50 ]
+  %storemerge54 = phi i32 [ %75, %73 ], [ 0, %50 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #25
-  %58 = sext i32 %storemerge53 to i64
+  %58 = sext i32 %storemerge54 to i64
   %59 = load ptr, ptr %12, align 8, !tbaa !648
   %60 = getelementptr inbounds nuw %"class.std::vector.181", ptr %59, i64 %58
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8

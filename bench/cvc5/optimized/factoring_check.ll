@@ -4788,7 +4788,7 @@ _ZN4cvc58internal8RationalD2Ev.exit672:           ; preds = %1892, %1890
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %74) #20
   br label %2542
 
-1910:                                             ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit662, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit671
+1910:                                             ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit671, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit662
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %75) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %75, i8 0, i64 24, i1 false)
   invoke void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %75, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %71)

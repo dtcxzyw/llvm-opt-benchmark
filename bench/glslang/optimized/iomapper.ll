@@ -9287,7 +9287,7 @@ _ZNSt6vectorIN7glslang12TVarLivePairESaIS1_EED2Ev.exit261: ; preds = %.preheader
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7glslang16TSymbolValidaterC2ERNS_14TIoMapResolverER9TInfoSinkPPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEENS_13TVarEntryInfoESt4lessISC_ESaISt4pairIKSC_SD_EEESM_SM_Rb8EProfilei(ptr noundef nonnull align 8 dereferenceable(368) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull align 1 dereferenceable(1) %6, i32 noundef %7, i32 noundef %8) unnamed_addr #4 comdat align 2 {
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESaIS7_EE5clearEv.exit:
+_ZNSt6vectorIN7glslang6TRangeESaIS1_EE5clearEv.exit:
   %9 = alloca %"class.std::map.294", align 8
   %10 = alloca %"class.std::vector.299", align 8
   %11 = alloca %"struct.std::pair.170", align 8
@@ -9353,11 +9353,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_alloca
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 16
   br label %57
 
-57:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESaIS7_EE5clearEv.exit, %.loopexit
-  %indvars.iv = phi i64 [ 0, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESaIS7_EE5clearEv.exit ], [ %indvars.iv.next, %.loopexit ]
-  %.sroa.0165.0250 = phi ptr [ null, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESaIS7_EE5clearEv.exit ], [ %.sroa.0165.4, %.loopexit ]
-  %.sroa.7170.0249 = phi ptr [ null, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESaIS7_EE5clearEv.exit ], [ %.sroa.7170.4, %.loopexit ]
-  %.sroa.14.0248 = phi ptr [ null, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESaIS7_EE5clearEv.exit ], [ %.sroa.14.4, %.loopexit ]
+57:                                               ; preds = %_ZNSt6vectorIN7glslang6TRangeESaIS1_EE5clearEv.exit, %.loopexit
+  %indvars.iv = phi i64 [ 0, %_ZNSt6vectorIN7glslang6TRangeESaIS1_EE5clearEv.exit ], [ %indvars.iv.next, %.loopexit ]
+  %.sroa.0165.0250 = phi ptr [ null, %_ZNSt6vectorIN7glslang6TRangeESaIS1_EE5clearEv.exit ], [ %.sroa.0165.4, %.loopexit ]
+  %.sroa.7170.0249 = phi ptr [ null, %_ZNSt6vectorIN7glslang6TRangeESaIS1_EE5clearEv.exit ], [ %.sroa.7170.4, %.loopexit ]
+  %.sroa.14.0248 = phi ptr [ null, %_ZNSt6vectorIN7glslang6TRangeESaIS1_EE5clearEv.exit ], [ %.sroa.14.4, %.loopexit ]
   %58 = getelementptr inbounds nuw [14 x ptr], ptr %28, i64 0, i64 %indvars.iv
   %59 = load ptr, ptr %58, align 8
   %.not = icmp eq ptr %59, null

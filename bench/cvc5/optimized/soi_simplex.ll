@@ -5307,9 +5307,9 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i: ; preds = %_ZNK4cvc58internal
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %233 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #29
-          to label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit unwind label %.loopexit722
+          to label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i unwind label %.loopexit722
 
-_ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
+_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
   store i32 %219, ptr %233, align 4, !tbaa !13
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 4
   store ptr %233, ptr %12, align 8, !tbaa !74
@@ -5318,7 +5318,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNKSt6vectorIjSaIj
   %235 = invoke noundef i32 @_ZN4cvc58internal6theory5arith6linear24SimplexDecisionProcedure29constructInfeasiblityFunctionERNS0_9TimerStatEj(ptr noundef nonnull align 8 dereferenceable(304) %1, ptr noundef nonnull align 8 dereferenceable(8) %120, i32 noundef %219)
           to label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit270 unwind label %.loopexit722
 
-_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit270: ; preds = %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
+_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit270: ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i
   store i32 %235, ptr %121, align 8, !tbaa !15
   br label %236
 
@@ -5345,7 +5345,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit319: ; preds = %240
   %248 = icmp eq i32 %246, %123
   br i1 %248, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit424, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit372
 
-.loopexit722:                                     ; preds = %_ZNSt6vectorIjSaIjEE9push_backERKj.exit, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
+.loopexit722:                                     ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit724 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp

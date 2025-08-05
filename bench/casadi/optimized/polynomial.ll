@@ -137,105 +137,105 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 define void @_ZN6casadi10PolynomialC2Edd(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, double noundef %1, double noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 2)
-          to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit unwind label %5
+          to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit unwind label %6
 
 _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %3
-  %.pre = load ptr, ptr %0, align 8, !tbaa !3
-  store double %1, ptr %.pre, align 8, !tbaa !10
-  %4 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  store double %2, ptr %4, align 8, !tbaa !10
+  %4 = load ptr, ptr %0, align 8, !tbaa !3
+  store double %1, ptr %4, align 8, !tbaa !10
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store double %2, ptr %5, align 8, !tbaa !10
   ret void
 
-5:                                                ; preds = %3
-  %6 = landingpad { ptr, i32 }
+6:                                                ; preds = %3
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = load ptr, ptr %0, align 8, !tbaa !3
-  %.not.i.i.i = icmp eq ptr %7, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %8
+  %8 = load ptr, ptr %0, align 8, !tbaa !3
+  %.not.i.i.i = icmp eq ptr %8, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %9
 
-8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !9
-  %11 = ptrtoint ptr %10 to i64
-  %12 = ptrtoint ptr %7 to i64
-  %13 = sub i64 %11, %12
-  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef %13) #22
+9:                                                ; preds = %6
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = load ptr, ptr %10, align 8, !tbaa !9
+  %12 = ptrtoint ptr %11 to i64
+  %13 = ptrtoint ptr %8 to i64
+  %14 = sub i64 %12, %13
+  tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef %14) #22
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
-_ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %5, %8
-  resume { ptr, i32 } %6
+_ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %6, %9
+  resume { ptr, i32 } %7
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6casadi10PolynomialC2Eddd(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, double noundef %1, double noundef %2, double noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 3)
-          to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit unwind label %7
+          to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit unwind label %8
 
 _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %4
-  %.pre = load ptr, ptr %0, align 8, !tbaa !3
-  store double %1, ptr %.pre, align 8, !tbaa !10
-  %5 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  store double %2, ptr %5, align 8, !tbaa !10
-  %6 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  store double %3, ptr %6, align 8, !tbaa !10
+  %5 = load ptr, ptr %0, align 8, !tbaa !3
+  store double %1, ptr %5, align 8, !tbaa !10
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store double %2, ptr %6, align 8, !tbaa !10
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store double %3, ptr %7, align 8, !tbaa !10
   ret void
 
-7:                                                ; preds = %4
-  %8 = landingpad { ptr, i32 }
+8:                                                ; preds = %4
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = load ptr, ptr %0, align 8, !tbaa !3
-  %.not.i.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %10
+  %10 = load ptr, ptr %0, align 8, !tbaa !3
+  %.not.i.i.i = icmp eq ptr %10, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %11
 
-10:                                               ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !9
-  %13 = ptrtoint ptr %12 to i64
-  %14 = ptrtoint ptr %9 to i64
-  %15 = sub i64 %13, %14
-  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %15) #22
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = load ptr, ptr %12, align 8, !tbaa !9
+  %14 = ptrtoint ptr %13 to i64
+  %15 = ptrtoint ptr %10 to i64
+  %16 = sub i64 %14, %15
+  tail call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef %16) #22
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
-_ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %7, %10
-  resume { ptr, i32 } %8
+_ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %8, %11
+  resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6casadi10PolynomialC2Edddd(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 4)
-          to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit unwind label %9
+          to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit unwind label %10
 
 _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %5
-  %.pre = load ptr, ptr %0, align 8, !tbaa !3
-  store double %1, ptr %.pre, align 8, !tbaa !10
-  %6 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  store double %2, ptr %6, align 8, !tbaa !10
-  %7 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  store double %3, ptr %7, align 8, !tbaa !10
-  %8 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
-  store double %4, ptr %8, align 8, !tbaa !10
+  %6 = load ptr, ptr %0, align 8, !tbaa !3
+  store double %1, ptr %6, align 8, !tbaa !10
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store double %2, ptr %7, align 8, !tbaa !10
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store double %3, ptr %8, align 8, !tbaa !10
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store double %4, ptr %9, align 8, !tbaa !10
   ret void
 
-9:                                                ; preds = %5
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %5
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = load ptr, ptr %0, align 8, !tbaa !3
-  %.not.i.i.i = icmp eq ptr %11, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %12
+  %12 = load ptr, ptr %0, align 8, !tbaa !3
+  %.not.i.i.i = icmp eq ptr %12, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %13
 
-12:                                               ; preds = %9
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !9
-  %15 = ptrtoint ptr %14 to i64
-  %16 = ptrtoint ptr %11 to i64
-  %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #22
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %15 = load ptr, ptr %14, align 8, !tbaa !9
+  %16 = ptrtoint ptr %15 to i64
+  %17 = ptrtoint ptr %12 to i64
+  %18 = sub i64 %16, %17
+  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %18) #22
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
-_ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %9, %12
-  resume { ptr, i32 } %10
+_ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %10, %13
+  resume { ptr, i32 } %11
 }
 
 ; Function Attrs: mustprogress uwtable

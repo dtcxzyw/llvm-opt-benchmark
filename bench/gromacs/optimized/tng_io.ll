@@ -1564,9 +1564,9 @@ define range(i32 0, 3) i32 @tng_residue_atom_w_id_add(ptr readnone captures(none
 33:                                               ; preds = %.thread.i
   %34 = load ptr, ptr @stderr, align 8, !tbaa !14
   %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6310) #29
-  %.pre35 = load ptr, ptr %5, align 8, !tbaa !42
-  %.phi.trans.insert36 = getelementptr inbounds nuw i8, ptr %.pre35, i64 16
-  %.pre37 = load ptr, ptr %.phi.trans.insert36, align 8, !tbaa !16
+  %.pre34 = load ptr, ptr %5, align 8, !tbaa !42
+  %.phi.trans.insert35 = getelementptr inbounds nuw i8, ptr %.pre34, i64 16
+  %.pre36 = load ptr, ptr %.phi.trans.insert35, align 8, !tbaa !16
   br label %tng_atom_name_set.exit
 
 36:                                               ; preds = %.thread.i
@@ -1574,8 +1574,8 @@ define range(i32 0, 3) i32 @tng_residue_atom_w_id_add(ptr readnone captures(none
   br label %tng_atom_name_set.exit
 
 tng_atom_name_set.exit:                           ; preds = %33, %36
-  %38 = phi ptr [ %.pre37, %33 ], [ null, %36 ]
-  %39 = phi ptr [ %.pre35, %33 ], [ %26, %36 ]
+  %38 = phi ptr [ %.pre36, %33 ], [ null, %36 ]
+  %39 = phi ptr [ %.pre34, %33 ], [ %26, %36 ]
   %40 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #27
   %41 = add i64 %40, 1
   %42 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %41, i64 1024)

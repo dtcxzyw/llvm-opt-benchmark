@@ -533,6 +533,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEaSINS_14CwiseNulla
   %70 = ashr exact i64 %sext1020, 32
   %71 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %72 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %.not.i564 = icmp eq i64 %sext1020, 0
   %73 = icmp sgt i64 %70, 0
   %74 = mul nuw nsw i64 %70, 48
   %75 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -648,7 +649,6 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEaSINS_14CwiseNulla
   %178 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %179 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %180 = and i64 %42, 4294967295
-  %.not.i564 = icmp eq i64 %sext1020, 0
   %181 = ashr exact i64 %sext1020, 30
   %182 = add nsw i64 %181, 4
   br label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i

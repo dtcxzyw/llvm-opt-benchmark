@@ -4538,7 +4538,7 @@ terminate.lpad.i.i31:                             ; preds = %if.then.i.i.i.i35, 
   call void @__clang_call_terminate(ptr %47) #29
   unreachable
 
-_ZN5boost10shared_ptrIN8QuantLib28SabrInterpolatedSmileSectionEED2Ev.exit: ; preds = %_ZN5boost10shared_ptrIN8QuantLib18OptimizationMethodEED2Ev.exit, %if.then.i.i25, %.noexc.i.i32, %if.then.i.i.i.i35
+_ZN5boost10shared_ptrIN8QuantLib28SabrInterpolatedSmileSectionEED2Ev.exit: ; preds = %if.then.i.i.i.i35, %.noexc.i.i32, %if.then.i.i25, %_ZN5boost10shared_ptrIN8QuantLib18OptimizationMethodEED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp15) #28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp7) #28
   %48 = load ptr, ptr %tmp, align 8, !tbaa !148
@@ -4546,18 +4546,18 @@ _ZN5boost10shared_ptrIN8QuantLib28SabrInterpolatedSmileSectionEED2Ev.exit: ; pre
   %pn.i38 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %49 = load ptr, ptr %pn.i, align 8, !tbaa !31
   store ptr %49, ptr %pn.i38, align 8, !tbaa !31
-  %.pre = load ptr, ptr %volSpreads, align 8, !tbaa !64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp) #28
-  %tobool.not.i.i.i = icmp eq ptr %.pre, null
+  %50 = load ptr, ptr %volSpreads, align 8, !tbaa !64
+  %tobool.not.i.i.i = icmp eq ptr %50, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %if.then.i.i.i54
 
 if.then.i.i.i54:                                  ; preds = %_ZN5boost10shared_ptrIN8QuantLib28SabrInterpolatedSmileSectionEED2Ev.exit
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %volSpreads, i64 16
-  %50 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !66
-  %sub.ptr.lhs.cast.i.i55 = ptrtoint ptr %50 to i64
-  %sub.ptr.rhs.cast.i.i56 = ptrtoint ptr %.pre to i64
+  %51 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !66
+  %sub.ptr.lhs.cast.i.i55 = ptrtoint ptr %51 to i64
+  %sub.ptr.rhs.cast.i.i56 = ptrtoint ptr %50 to i64
   %sub.ptr.sub.i.i57 = sub i64 %sub.ptr.lhs.cast.i.i55, %sub.ptr.rhs.cast.i.i56
-  call void @_ZdlPvm(ptr noundef nonnull %.pre, i64 noundef %sub.ptr.sub.i.i57) #31
+  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %sub.ptr.sub.i.i57) #31
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZN5boost10shared_ptrIN8QuantLib28SabrInterpolatedSmileSectionEED2Ev.exit, %if.then.i.i.i54
@@ -4566,39 +4566,39 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZN5boost10shared_p
   ret void
 
 lpad4:                                            ; preds = %invoke.cont
-  %51 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup44
 
 ehcleanup41.thread:                               ; preds = %invoke.cont9, %cond.false.i
-  %52 = landingpad { ptr, i32 }
+  %53 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action.sink.split
 
 ehcleanup41.thread68:                             ; preds = %invoke.cont13, %invoke.cont19, %cond.false.i7
-  %53 = landingpad { ptr, i32 }
+  %54 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp15) #28
   br label %cleanup.action.sink.split
 
 lpad33:                                           ; preds = %invoke.cont21
-  %54 = landingpad { ptr, i32 }
+  %55 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup41
 
 lpad35:                                           ; preds = %invoke.cont34
-  %55 = landingpad { ptr, i32 }
+  %56 = landingpad { ptr, i32 }
           cleanup
   br label %lpad35.body
 
 lpad35.body:                                      ; preds = %lpad.body.i, %lpad35
   %cleanup.isactive.0.lpad-body = phi i1 [ true, %lpad35 ], [ false, %lpad.body.i ]
-  %eh.lpad-body = phi { ptr, i32 } [ %55, %lpad35 ], [ %24, %lpad.body.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %56, %lpad35 ], [ %24, %lpad.body.i ]
   call void @_ZN8QuantLib10DayCounterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp32) #28
   br label %ehcleanup41
 
 ehcleanup41:                                      ; preds = %lpad33, %lpad35.body
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %lpad35.body ], [ %54, %lpad33 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %lpad35.body ], [ %55, %lpad33 ]
   %cleanup.isactive.3 = phi i1 [ %cleanup.isactive.0.lpad-body, %lpad35.body ], [ true, %lpad33 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp32) #28
   call void @_ZN5boost10shared_ptrIN8QuantLib18OptimizationMethodEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp31) #28
@@ -4608,7 +4608,7 @@ ehcleanup41:                                      ; preds = %lpad33, %lpad35.bod
   br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup44
 
 cleanup.action.sink.split:                        ; preds = %ehcleanup41.thread, %ehcleanup41.thread68
-  %.pn.pn.pn67.ph = phi { ptr, i32 } [ %53, %ehcleanup41.thread68 ], [ %52, %ehcleanup41.thread ]
+  %.pn.pn.pn67.ph = phi { ptr, i32 } [ %54, %ehcleanup41.thread68 ], [ %53, %ehcleanup41.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp7) #28
   br label %cleanup.action
 
@@ -4618,19 +4618,19 @@ cleanup.action:                                   ; preds = %cleanup.action.sink
   br label %ehcleanup44
 
 ehcleanup44:                                      ; preds = %ehcleanup41, %cleanup.action, %lpad4
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn67, %cleanup.action ], [ %.pn, %ehcleanup41 ], [ %51, %lpad4 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn67, %cleanup.action ], [ %.pn, %ehcleanup41 ], [ %52, %lpad4 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp) #28
-  %56 = load ptr, ptr %volSpreads, align 8, !tbaa !64
-  %tobool.not.i.i.i58 = icmp eq ptr %56, null
+  %57 = load ptr, ptr %volSpreads, align 8, !tbaa !64
+  %tobool.not.i.i.i58 = icmp eq ptr %57, null
   br i1 %tobool.not.i.i.i58, label %_ZNSt6vectorIdSaIdEED2Ev.exit64, label %if.then.i.i.i59
 
 if.then.i.i.i59:                                  ; preds = %ehcleanup44
   %_M_end_of_storage.i.i60 = getelementptr inbounds nuw i8, ptr %volSpreads, i64 16
-  %57 = load ptr, ptr %_M_end_of_storage.i.i60, align 8, !tbaa !66
-  %sub.ptr.lhs.cast.i.i61 = ptrtoint ptr %57 to i64
-  %sub.ptr.rhs.cast.i.i62 = ptrtoint ptr %56 to i64
+  %58 = load ptr, ptr %_M_end_of_storage.i.i60, align 8, !tbaa !66
+  %sub.ptr.lhs.cast.i.i61 = ptrtoint ptr %58 to i64
+  %sub.ptr.rhs.cast.i.i62 = ptrtoint ptr %57 to i64
   %sub.ptr.sub.i.i63 = sub i64 %sub.ptr.lhs.cast.i.i61, %sub.ptr.rhs.cast.i.i62
-  call void @_ZdlPvm(ptr noundef nonnull %56, i64 noundef %sub.ptr.sub.i.i63) #31
+  call void @_ZdlPvm(ptr noundef nonnull %57, i64 noundef %sub.ptr.sub.i.i63) #31
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit64
 
 _ZNSt6vectorIdSaIdEED2Ev.exit64:                  ; preds = %ehcleanup44, %if.then.i.i.i59

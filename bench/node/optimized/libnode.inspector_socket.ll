@@ -2645,9 +2645,9 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
 if.else.i:                                        ; preds = %entry
   %cmp3.i = icmp ult i64 %sub.ptr.sub.i.i, 65536
   %incdec.ptr.i.i.i66.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i29.i, i64 2
-  br i1 %cmp3.i, label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit73.i, label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit166.i
+  br i1 %cmp3.i, label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit104.i, label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit166.i
 
-_ZNSt6vectorIcSaIcEE9push_backEOc.exit73.i:       ; preds = %if.else.i
+_ZNSt6vectorIcSaIcEE9push_backEOc.exit104.i:      ; preds = %if.else.i
   store i8 126, ptr %add.ptr.i.i.i32.i, align 1
   store i8 -127, ptr %call5.i.i.i.i.i.i29.i, align 1
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i.i) #23
@@ -2699,7 +2699,7 @@ for.end.i:                                        ; preds = %for.body.i
   br i1 %cmp23.not.i, label %for.end.if.end32_crit_edge.i, label %do.body28.i
 
 for.end.if.end32_crit_edge.i:                     ; preds = %for.end.i
-  %.pre185.i = load ptr, ptr %_M_finish.i.i.i, align 8, !alias.scope !25
+  %.pre.i = load ptr, ptr %_M_finish.i.i.i, align 8, !alias.scope !25
   %.pre = load ptr, ptr %output, align 8, !alias.scope !25
   br label %_ZN4node9inspector12_GLOBAL__N_119encode_frame_hybi17ERKSt6vectorIcSaIcEE.exit
 
@@ -2708,9 +2708,9 @@ do.body28.i:                                      ; preds = %for.end.i
   call void @abort() #21
   unreachable
 
-_ZN4node9inspector12_GLOBAL__N_119encode_frame_hybi17ERKSt6vectorIcSaIcEE.exit: ; preds = %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i38.i, %_ZNSt6vectorIcSaIcEE9push_backEOc.exit73.i, %for.end.if.end32_crit_edge.i
-  %4 = phi ptr [ %.pre, %for.end.if.end32_crit_edge.i ], [ %call5.i.i.i.i.i.i91.i, %_ZNSt6vectorIcSaIcEE9push_backEOc.exit73.i ], [ %call5.i.i.i.i.i.i29.i, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i38.i ]
-  %5 = phi ptr [ %.pre185.i, %for.end.if.end32_crit_edge.i ], [ %add.ptr19.i.i.i101.i, %_ZNSt6vectorIcSaIcEE9push_backEOc.exit73.i ], [ %incdec.ptr.i.i.i35.i, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i38.i ]
+_ZN4node9inspector12_GLOBAL__N_119encode_frame_hybi17ERKSt6vectorIcSaIcEE.exit: ; preds = %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i38.i, %_ZNSt6vectorIcSaIcEE9push_backEOc.exit104.i, %for.end.if.end32_crit_edge.i
+  %4 = phi ptr [ %.pre, %for.end.if.end32_crit_edge.i ], [ %call5.i.i.i.i.i.i91.i, %_ZNSt6vectorIcSaIcEE9push_backEOc.exit104.i ], [ %call5.i.i.i.i.i.i29.i, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i38.i ]
+  %5 = phi ptr [ %.pre.i, %for.end.if.end32_crit_edge.i ], [ %add.ptr19.i.i.i101.i, %_ZNSt6vectorIcSaIcEE9push_backEOc.exit104.i ], [ %incdec.ptr.i.i.i35.i, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i38.i ]
   %6 = load ptr, ptr %data, align 8, !noalias !25
   %7 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !25
   %sub.ptr.lhs.cast.i.i170.i = ptrtoint ptr %5 to i64

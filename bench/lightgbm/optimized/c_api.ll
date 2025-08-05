@@ -18582,8 +18582,8 @@ define linkonce_odr void @_ZN8LightGBM10ArrowTableC2ElPK10ArrowArrayPK11ArrowSch
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %._crit_edge46, label %15
+  %.not47 = icmp eq i64 %10, 0
+  br i1 %.not47, label %._crit_edge46, label %15
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18625,7 +18625,7 @@ _ZNSt6vectorIN8LightGBM17ArrowChunkedArrayESaIS1_EE7reserveEm.exit: ; preds = %.
   br i1 %24, label %.lr.ph45.split.us, label %.lr.ph45.split.preheader
 
 .lr.ph45.split.preheader:                         ; preds = %.lr.ph45
-  %.not47 = icmp eq i64 %1, 0
+  %.not = icmp eq i64 %1, 0
   br label %.lr.ph45.split
 
 .lr.ph45.split.us:                                ; preds = %.lr.ph45
@@ -18646,7 +18646,7 @@ _ZNSt6vectorIN8LightGBM17ArrowChunkedArrayESaIS1_EE7reserveEm.exit: ; preds = %.
   %.02044 = phi i64 [ %82, %_ZNSt6vectorIPK10ArrowArraySaIS2_EED2Ev.exit ], [ 0, %.lr.ph45.split.preheader ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  br i1 %.not47, label %._crit_edge, label %_ZNSt12_Vector_baseIPK10ArrowArraySaIS2_EE11_M_allocateEm.exit.i
+  br i1 %.not, label %._crit_edge, label %_ZNSt12_Vector_baseIPK10ArrowArraySaIS2_EE11_M_allocateEm.exit.i
 
 .noexc28:                                         ; preds = %.lr.ph45.split.us
   unreachable
@@ -19467,7 +19467,7 @@ _ZNSt14_Function_baseD2Ev.exit7.thread:           ; preds = %10
   br label %61
 
 .body:                                            ; preds = %.body.i.i.i, %34
-  %eh.lpad-body = phi { ptr, i32 } [ %35, %34 ], [ %27, %.body.i.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %.body.i.i.i ], [ %35, %34 ]
   %.pre = load ptr, ptr %14, align 8, !tbaa !200
   %.not.i6 = icmp eq ptr %.pre, null
   br i1 %.not.i6, label %_ZNSt14_Function_baseD2Ev.exit7, label %56

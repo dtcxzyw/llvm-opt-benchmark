@@ -4880,31 +4880,31 @@ _ZN3spv11Instruction12addIdOperandEj.exit:        ; preds = %_ZNSt3mapIjPN3spv11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %273, i8 0, i64 36, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %276, i8 0, i64 16, i1 false)
   %277 = getelementptr inbounds nuw i8, ptr %261, i64 24
-  %278 = load ptr, ptr %277, align 8
-  %279 = load i32, ptr %278, align 4
-  %280 = getelementptr inbounds nuw i8, ptr %265, i64 32
-  %281 = getelementptr inbounds nuw i8, ptr %265, i64 40
+  %278 = getelementptr inbounds nuw i8, ptr %265, i64 32
+  %279 = getelementptr inbounds nuw i8, ptr %265, i64 40
+  %280 = load ptr, ptr %277, align 8
+  %281 = load i32, ptr %280, align 4
   %282 = call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #18
-  store i32 %279, ptr %282, align 4
+  store i32 %281, ptr %282, align 4
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 4
   store ptr %282, ptr %273, align 8
-  store ptr %283, ptr %280, align 8
-  store ptr %283, ptr %281, align 8
+  store ptr %283, ptr %278, align 8
+  store ptr %283, ptr %279, align 8
   %284 = getelementptr inbounds nuw i8, ptr %265, i64 48
   call void @_ZNSt6vectorIbSaIbEE13_M_insert_auxESt13_Bit_iteratorb(ptr noundef nonnull align 8 dereferenceable(40) %284, ptr null, i32 0, i1 noundef zeroext true)
   %.pre300 = load ptr, ptr %277, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre300, i64 4
   %.pre301 = load i32, ptr %.phi.trans.insert, align 4
-  %.pre302 = load ptr, ptr %280, align 8
-  %.pre303 = load ptr, ptr %281, align 8
+  %.pre302 = load ptr, ptr %278, align 8
+  %.pre303 = load ptr, ptr %279, align 8
   %.not.i.i71 = icmp eq ptr %.pre302, %.pre303
   br i1 %.not.i.i71, label %288, label %285
 
 285:                                              ; preds = %_ZN3spv11Instruction12addIdOperandEj.exit
   store i32 %.pre301, ptr %.pre302, align 4
-  %286 = load ptr, ptr %280, align 8
+  %286 = load ptr, ptr %278, align 8
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 4
-  store ptr %287, ptr %280, align 8
+  store ptr %287, ptr %278, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.i72
 
 288:                                              ; preds = %_ZN3spv11Instruction12addIdOperandEj.exit
@@ -4950,9 +4950,9 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i80: ; preds = %304, %
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i82: ; preds = %306, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i80
   store ptr %301, ptr %273, align 8
-  store ptr %305, ptr %280, align 8
+  store ptr %305, ptr %278, align 8
   %307 = getelementptr inbounds nuw i32, ptr %301, i64 %299
-  store ptr %307, ptr %281, align 8
+  store ptr %307, ptr %279, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.i72
 
 _ZNSt6vectorIjSaIjEE9push_backERKj.exit.i72:      ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i82, %285

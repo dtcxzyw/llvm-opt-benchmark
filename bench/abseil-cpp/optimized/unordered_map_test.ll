@@ -10379,7 +10379,7 @@ _ZNSt13unordered_mapIiiN4absl18container_internal19StatefulTestingHashENS1_20Sta
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %1) #28
   ret void
 
-69:                                               ; preds = %21, %_ZN7testing7MessageD2Ev.exit29
+69:                                               ; preds = %_ZN7testing7MessageD2Ev.exit29, %21
   %.pn11.pn.pn = phi { ptr, i32 } [ %.pn11.pn, %_ZN7testing7MessageD2Ev.exit29 ], [ %22, %21 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #28
   call void @_ZNSt13unordered_mapIiiN4absl18container_internal19StatefulTestingHashENS1_20StatefulTestingEqualENS1_5AllocISt4pairIKiiEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %1) #28
@@ -13711,7 +13711,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %1) #28
   ret void
 
-87:                                               ; preds = %21, %_ZN7testing7MessageD2Ev.exit29
+87:                                               ; preds = %_ZN7testing7MessageD2Ev.exit29, %21
   %.pn11.pn.pn = phi { ptr, i32 } [ %.pn11.pn, %_ZN7testing7MessageD2Ev.exit29 ], [ %22, %21 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #28
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_EN4absl18container_internal5AllocIS8_EENSt8__detail10_Select1stENSA_20StatefulTestingEqualENSA_19StatefulTestingHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %1) #28

@@ -490,20 +490,20 @@ define internal void @_ZN12_GLOBAL__N_115EquivInductPass7executeESt6vectorINSt7_
   %27 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull @.str.24) #28
   %28 = icmp eq i32 %27, 0
   %.pre.pre = load ptr, ptr %13, align 8, !tbaa !6
-  %.pre180.pre = load ptr, ptr %1, align 8, !tbaa !12
+  %.pre181.pre = load ptr, ptr %1, align 8, !tbaa !12
   br i1 %28, label %29, label %._crit_edge.loopexit
 
 29:                                               ; preds = %24
   %30 = add nuw i64 %.036150, 1
   %31 = ptrtoint ptr %.pre.pre to i64
-  %32 = ptrtoint ptr %.pre180.pre to i64
+  %32 = ptrtoint ptr %.pre181.pre to i64
   %33 = sub i64 %31, %32
   %34 = ashr exact i64 %33, 5
   %35 = icmp ult i64 %30, %34
   br i1 %35, label %36, label %._crit_edge.loopexit
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre180.pre, i64 %30
+  %37 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre181.pre, i64 %30
   %38 = load ptr, ptr %37, align 8, !tbaa !13
   %39 = tail call i64 @strtol(ptr noundef nonnull captures(none) %38, ptr noundef null, i32 noundef 10) #28
   %40 = trunc i64 %39 to i32
@@ -524,19 +524,19 @@ define internal void @_ZN12_GLOBAL__N_115EquivInductPass7executeESt6vectorINSt7_
   br i1 %49, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !18
 
 ._crit_edge.loopexit:                             ; preds = %29, %41, %24
-  %.pre180 = phi ptr [ %.pre180.pre, %24 ], [ %.pre180.pre, %29 ], [ %44, %41 ]
+  %.pre181 = phi ptr [ %.pre181.pre, %24 ], [ %.pre181.pre, %29 ], [ %44, %41 ]
   %.pre = phi ptr [ %.pre.pre, %24 ], [ %.pre.pre, %29 ], [ %43, %41 ]
   %.036.lcssa.ph = phi i64 [ %.036150, %24 ], [ %.036150, %29 ], [ %42, %41 ]
   %.027.lcssa.ph = phi i32 [ %.027151, %24 ], [ %.027151, %29 ], [ %.128, %41 ]
   %.024.lcssa.ph = phi i8 [ %.024152, %24 ], [ %.024152, %29 ], [ %.125, %41 ]
-  %.pre185 = ptrtoint ptr %.pre to i64
-  %.pre186 = ptrtoint ptr %.pre180 to i64
-  %.pre188 = sub i64 %.pre185, %.pre186
+  %.pre186 = ptrtoint ptr %.pre to i64
+  %.pre187 = ptrtoint ptr %.pre181 to i64
+  %.pre189 = sub i64 %.pre186, %.pre187
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %.pre-phi189 = phi i64 [ %.pre188, %._crit_edge.loopexit ], [ %18, %3 ]
-  %50 = phi ptr [ %.pre180, %._crit_edge.loopexit ], [ %15, %3 ]
+  %.pre-phi190 = phi i64 [ %.pre189, %._crit_edge.loopexit ], [ %18, %3 ]
+  %50 = phi ptr [ %.pre181, %._crit_edge.loopexit ], [ %15, %3 ]
   %51 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %14, %3 ]
   %.036.lcssa = phi i64 [ %.036.lcssa.ph, %._crit_edge.loopexit ], [ 1, %3 ]
   %.027.lcssa = phi i32 [ %.027.lcssa.ph, %._crit_edge.loopexit ], [ 4, %3 ]
@@ -545,7 +545,7 @@ define internal void @_ZN12_GLOBAL__N_115EquivInductPass7executeESt6vectorINSt7_
   br i1 %.not.i.i.i.i, label %55, label %52
 
 52:                                               ; preds = %._crit_edge
-  %53 = icmp ugt i64 %.pre-phi189, 9223372036854775776
+  %53 = icmp ugt i64 %.pre-phi190, 9223372036854775776
   br i1 %53, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i.i, !prof !20
 
 .noexc.i.i:                                       ; preds = %52
@@ -553,7 +553,7 @@ define internal void @_ZN12_GLOBAL__N_115EquivInductPass7executeESt6vectorINSt7_
   unreachable
 
 _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i.i: ; preds = %52
-  %54 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.pre-phi189) #31
+  %54 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.pre-phi190) #31
   br label %55
 
 55:                                               ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i.i, %._crit_edge
@@ -561,7 +561,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   store ptr %56, ptr %7, align 8, !tbaa !12
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %56, ptr %57, align 8, !tbaa !6
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 %.pre-phi189
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 %.pre-phi190
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %58, ptr %59, align 8, !tbaa !21
   %60 = invoke noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_ET0_T_SG_SF_(ptr %50, ptr %51, ptr noundef %56)
@@ -675,11 +675,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %122
 
 ._crit_edge175.loopexit:                          ; preds = %_ZN5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEED2Ev.exit
-  %.pre182 = load ptr, ptr %8, align 8, !tbaa !28
+  %.pre183 = load ptr, ptr %8, align 8, !tbaa !28
   br label %._crit_edge175
 
 ._crit_edge175:                                   ; preds = %._crit_edge175.loopexit, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
-  %113 = phi ptr [ %87, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ %.pre182, %._crit_edge175.loopexit ]
+  %113 = phi ptr [ %87, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ %.pre183, %._crit_edge175.loopexit ]
   %.0.lcssa = phi i32 [ 0, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ %.1, %._crit_edge175.loopexit ]
   %.not.i.i.i48 = icmp eq ptr %113, null
   br i1 %.not.i.i.i48, label %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit, label %114
@@ -721,11 +721,11 @@ _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit: ; preds = %._crit_edge175,
   br i1 %.not92166, label %._crit_edge170, label %.lr.ph169
 
 ._crit_edge170.loopexit:                          ; preds = %349
-  %.pre181 = load ptr, ptr %10, align 8, !tbaa !35
+  %.pre182 = load ptr, ptr %10, align 8, !tbaa !35
   br label %._crit_edge170
 
 ._crit_edge170:                                   ; preds = %._crit_edge170.loopexit, %124
-  %127 = phi ptr [ %.pre181, %._crit_edge170.loopexit ], [ %125, %124 ]
+  %127 = phi ptr [ %.pre182, %._crit_edge170.loopexit ], [ %125, %124 ]
   %.not.i.i.i49 = icmp eq ptr %127, null
   br i1 %.not.i.i.i49, label %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit, label %128
 
@@ -1242,8 +1242,8 @@ _ZN5Yosys6SigMapC2EPNS_5RTLIL6ModuleE.exit.i:     ; preds = %362
   %368 = ptrtoint ptr %366 to i64
   %369 = ptrtoint ptr %367 to i64
   %370 = sub i64 %368, %369
-  %.not190 = icmp eq ptr %366, %367
-  br i1 %.not190, label %.loopexit94, label %371
+  %.not177 = icmp eq ptr %366, %367
+  br i1 %.not177, label %.loopexit94, label %371
 
 371:                                              ; preds = %365
   %372 = icmp ugt i64 %370, 9223372036854775792

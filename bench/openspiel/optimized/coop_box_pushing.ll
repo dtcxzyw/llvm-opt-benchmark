@@ -978,7 +978,7 @@ define void @_ZN10open_spiel16coop_box_pushing19CoopBoxPushingStateC2ESt10shared
 
 _ZNSt10shared_ptrIKN10open_spiel4GameEEC2ERKS3_.exit: ; preds = %4, %14, %17
   invoke void @_ZN10open_spiel12SimMoveStateC2ESt10shared_ptrIKNS_4GameEE(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull %5)
-          to label %19 unwind label %81
+          to label %19 unwind label %83
 
 19:                                               ; preds = %_ZNSt10shared_ptrIKN10open_spiel4GameEEC2ERKS3_.exit
   %20 = zext i1 %3 to i8
@@ -1054,7 +1054,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void %55(ptr noundef nonnull align 8 dereferenceable(16) %21) #28
   br label %56
 
-56:                                               ; preds = %19, %38, %51, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+56:                                               ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, %51, %38, %19
   store ptr getelementptr inbounds nuw inrange(-16, 304) (i8, ptr @_ZTVN10open_spiel16coop_box_pushing19CoopBoxPushingStateE, i64 16), ptr %0, align 8
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double 0.000000e+00, ptr %57, align 8
@@ -1077,52 +1077,52 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, i8 0, i64 24, i1 false)
   store i8 46, ptr %6, align 1
   invoke void @_ZNSt6vectorIcSaIcEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPcS1_EEmRKc(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr null, i64 noundef 64, ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %._crit_edge46 unwind label %83
+          to label %66 unwind label %85
 
-._crit_edge46:                                    ; preds = %56
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %.pre = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %.pre, i64 25
-  store i8 98, ptr %67, align 1
+66:                                               ; preds = %56
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %68 = load ptr, ptr %65, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 30
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 25
   store i8 98, ptr %69, align 1
   %70 = load ptr, ptr %65, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 27
-  store i8 66, ptr %71, align 1
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 30
+  store i8 98, ptr %71, align 1
   %72 = load ptr, ptr %65, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 28
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 27
   store i8 66, ptr %73, align 1
   %74 = load ptr, ptr %65, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 49
-  store i8 62, ptr %75, align 1
-  store i64 4294967302, ptr %66, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 1, ptr %76, align 8
-  %77 = load ptr, ptr %65, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 54
-  store i8 60, ptr %78, align 1
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i64 25769803782, ptr %79, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  store i32 3, ptr %80, align 4
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 28
+  store i8 66, ptr %75, align 1
+  %76 = load ptr, ptr %65, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 49
+  store i8 62, ptr %77, align 1
+  store i64 4294967302, ptr %67, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i32 1, ptr %78, align 8
+  %79 = load ptr, ptr %65, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 54
+  store i8 60, ptr %80, align 1
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i64 25769803782, ptr %81, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 124
+  store i32 3, ptr %82, align 4
   ret void
 
-81:                                               ; preds = %_ZNSt10shared_ptrIKN10open_spiel4GameEEC2ERKS3_.exit
-  %82 = landingpad { ptr, i32 }
+83:                                               ; preds = %_ZNSt10shared_ptrIKN10open_spiel4GameEEC2ERKS3_.exit
+  %84 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #28
-  br label %85
+  br label %87
 
-83:                                               ; preds = %56
-  %84 = landingpad { ptr, i32 }
+85:                                               ; preds = %56
+  %86 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %65) #28
   call void @_ZN10open_spiel12SimMoveStateD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #28
-  br label %85
+  br label %87
 
-85:                                               ; preds = %83, %81
-  %.pn.pn = phi { ptr, i32 } [ %84, %83 ], [ %82, %81 ]
+87:                                               ; preds = %85, %83
+  %.pn.pn = phi { ptr, i32 } [ %86, %85 ], [ %84, %83 ]
   resume { ptr, i32 } %.pn.pn
 }
 

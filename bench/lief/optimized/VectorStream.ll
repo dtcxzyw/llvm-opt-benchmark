@@ -711,19 +711,19 @@ define void @_ZN4LIEF12VectorStream9from_fileERKNSt7__cxx1112basic_stringIcSt11c
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #21
   store i8 0, ptr %6, align 1, !tbaa !31
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.not18 = icmp eq i64 %24, 0
-  br i1 %.not18, label %_ZNSt6vectorIhSaIhEED2Ev.exit3, label %27
+  %.not17 = icmp eq i64 %24, 0
+  br i1 %.not17, label %_ZNSt6vectorIhSaIhEED2Ev.exit3, label %27
 
 27:                                               ; preds = %18
   call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr null, i64 noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %6)
   %.pre = load ptr, ptr %5, align 8, !tbaa !32
-  %.pre17 = load ptr, ptr %26, align 8, !tbaa !35
-  %28 = ptrtoint ptr %.pre17 to i64
+  %.pre18 = load ptr, ptr %26, align 8, !tbaa !35
+  %28 = ptrtoint ptr %.pre18 to i64
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit3
 
 _ZNSt6vectorIhSaIhEED2Ev.exit3:                   ; preds = %27, %18
-  %29 = phi i64 [ %28, %27 ], [ 0, %18 ]
-  %30 = phi ptr [ %.pre, %27 ], [ null, %18 ]
+  %29 = phi i64 [ 0, %18 ], [ %28, %27 ]
+  %30 = phi ptr [ null, %18 ], [ %.pre, %27 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #21
   %31 = ptrtoint ptr %30 to i64
   %32 = sub i64 %29, %31

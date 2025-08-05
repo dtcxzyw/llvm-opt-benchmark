@@ -3171,9 +3171,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %_Z
 
 208:                                              ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit.thread
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %210, label %.thread332
+  br i1 %.not, label %210, label %.thread337
 
-.thread332:                                       ; preds = %208
+.thread337:                                       ; preds = %208
   store i8 1, ptr %4, align 1, !tbaa !112
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %209, align 8, !tbaa !491
@@ -3187,15 +3187,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %_Z
           to label %213 unwind label %166
 
 213:                                              ; preds = %_ZN7rocksdb6Status8NotFoundERKNS_5SliceES3_.exit, %105, %117, %118, %210, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110
-  %.pr331 = load i8, ptr %10, align 8, !tbaa !478
+  %.pr336 = load i8, ptr %10, align 8, !tbaa !478
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %214, align 8, !tbaa !491
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false)
-  %215 = icmp eq i8 %.pr331, 0
+  %215 = icmp eq i8 %.pr336, 0
   br i1 %215, label %216, label %226
 
-216:                                              ; preds = %.thread332, %213
-  %217 = phi ptr [ %209, %.thread332 ], [ %214, %213 ]
+216:                                              ; preds = %.thread337, %213
+  %217 = phi ptr [ %209, %.thread337 ], [ %214, %213 ]
   %218 = getelementptr inbounds nuw i8, ptr %1, i64 1552
   %219 = load ptr, ptr %218, align 8, !tbaa !455
   %220 = invoke noundef zeroext i1 @_ZN7rocksdb7Version5UnrefEv(ptr noundef nonnull align 16 dereferenceable(5009) %219)
@@ -3300,7 +3300,7 @@ _ZN7rocksdb6StatusD2Ev.exit120:                   ; preds = %221, %_ZN7rocksdb6S
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 61
   %259 = load atomic i8, ptr %258 monotonic, align 1
   %260 = trunc i8 %259 to i1
-  br i1 %260, label %261, label %.thread333
+  br i1 %260, label %261, label %.thread338
 
 261:                                              ; preds = %255
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #26
@@ -3384,21 +3384,21 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #26
   %.pr318.pre = load i8, ptr %0, align 8, !tbaa !478
   %289 = icmp eq i8 %.pr318.pre, 0
-  br i1 %289, label %.thread333, label %.thread
+  br i1 %289, label %.thread338, label %.thread
 
 .thread:                                          ; preds = %_ZN7rocksdb6StatusD2Ev.exit120, %288
   %290 = phi i8 [ %.pr318.pre, %288 ], [ %253, %_ZN7rocksdb6StatusD2Ev.exit120 ]
   %291 = icmp eq i8 %290, 15
-  br i1 %291, label %.thread333, label %323
+  br i1 %291, label %.thread338, label %323
 
-.thread333:                                       ; preds = %255, %.thread, %288
+.thread338:                                       ; preds = %255, %.thread, %288
   %292 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %293 = load ptr, ptr %292, align 8, !tbaa !127
   %294 = load atomic i8, ptr %293 acquire, align 1
   %295 = trunc i8 %294 to i1
   br i1 %295, label %296, label %323
 
-296:                                              ; preds = %.thread333
+296:                                              ; preds = %.thread338
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #26
   store ptr @.str.63, ptr %21, align 8, !tbaa !475
@@ -3480,7 +3480,7 @@ _ZN7rocksdb6StatusD2Ev.exit141:                   ; preds = %_ZN7rocksdb6Statusa
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #26
   br label %872
 
-323:                                              ; preds = %.thread, %.thread333, %_ZN7rocksdb6StatusD2Ev.exit141
+323:                                              ; preds = %.thread, %.thread338, %_ZN7rocksdb6StatusD2Ev.exit141
   %324 = load i8, ptr %0, align 8, !tbaa !478
   %325 = icmp eq i8 %324, 0
   br i1 %325, label %326, label %.thread320

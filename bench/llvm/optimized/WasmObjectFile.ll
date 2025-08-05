@@ -20012,7 +20012,7 @@ define dso_local noundef range(i32 55, 57) i32 @_ZNK4llvm6object14WasmObjectFile
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm6object14WasmObjectFile11getFeaturesEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.217") align 8 captures(none) initializes((0, 24)) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #0 align 2 {
-_ZN4llvm17SubtargetFeaturesD2Ev.exit:
+_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i:
   %2 = alloca %"class.llvm::SubtargetFeatures", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #26
   call void @_ZN4llvm17SubtargetFeaturesC1ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr nonnull @.str.120, i64 0) #26

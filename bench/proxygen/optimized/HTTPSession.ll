@@ -16229,9 +16229,9 @@ entry:
 _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i: ; preds = %entry
   %mul.i.i.i.i = shl nuw nsw i64 %shr.i.i.i.i, 3
   %call5.i.i.i.i2 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #43
-          to label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i unwind label %lpad.loopexit.split-lp
+          to label %call5.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp
 
-_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i: ; preds = %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i
+call5.i.i.i.i.noexc:                              ; preds = %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %ids, i64 8
   store ptr %call5.i.i.i.i2, ptr %ids, align 8
   store ptr %call5.i.i.i.i2, ptr %_M_finish.i.i, align 8
@@ -16239,7 +16239,7 @@ _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i: ; preds = %_ZNSt12_Vector
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   br label %invoke.cont9
 
-invoke.cont9:                                     ; preds = %entry, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i
+invoke.cont9:                                     ; preds = %entry, %call5.i.i.i.i.noexc
   %packedBegin_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1960
   %2 = load i64, ptr %packedBegin_.i.i.i.i, align 8
   %and.i.i.i.i.i = and i64 %2, -8
@@ -26681,9 +26681,9 @@ entry:
 _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i: ; preds = %entry
   %mul.i.i.i.i = shl nuw nsw i64 %shr.i.i.i.i, 3
   %call5.i.i.i.i1 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #43
-          to label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i unwind label %lpad
+          to label %call5.i.i.i.i.noexc unwind label %lpad
 
-_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i: ; preds = %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i
+call5.i.i.i.i.noexc:                              ; preds = %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %ids, i64 8
   store ptr %call5.i.i.i.i1, ptr %ids, align 8
   store ptr %call5.i.i.i.i1, ptr %_M_finish.i.i, align 8
@@ -26691,7 +26691,7 @@ _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i: ; preds = %_ZNSt12_Vector
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   br label %invoke.cont9
 
-invoke.cont9:                                     ; preds = %entry, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i
+invoke.cont9:                                     ; preds = %entry, %call5.i.i.i.i.noexc
   %packedBegin_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1960
   %1 = load i64, ptr %packedBegin_.i.i.i.i, align 8
   %and.i.i.i.i.i = and i64 %1, -8
@@ -31519,7 +31519,7 @@ if.end16:                                         ; preds = %_ZN5folly15Destruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS1_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEEE11addObserverEPNS7_8ObserverE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %observer) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS0_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEC2IvEERKS_IT_EPS9_.exit:
+entry:
   %agg.tmp = alloca %"class.std::shared_ptr.629", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.689", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
@@ -31533,7 +31533,7 @@ _ZNSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserver
   invoke void %0(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
-invoke.cont:                                      ; preds = %_ZNSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS0_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEC2IvEERKS_IT_EPS9_.exit
+invoke.cont:                                      ; preds = %entry
   %1 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i2 = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i2, label %_ZNSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS0_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEED2Ev.exit, label %if.then.i.i.i3
@@ -31682,7 +31682,7 @@ if.end8.sink.split.i.i.i.i30:                     ; preds = %_ZN9__gnu_cxx27__ex
 _ZNSt10shared_ptrIvED2Ev.exit:                    ; preds = %_ZNSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS0_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i17, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i27, %if.end8.sink.split.i.i.i.i30
   ret void
 
-lpad:                                             ; preds = %_ZNSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS0_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEC2IvEERKS_IT_EPS9_.exit
+lpad:                                             ; preds = %entry
   %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS0_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #41
@@ -31873,7 +31873,7 @@ return:                                           ; preds = %_ZN5folly15Destruct
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS1_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEEE14removeObserverEPNS7_8ObserverE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %observer) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS0_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEC2IvEERKS_IT_EPS9_.exit:
+entry:
   %agg.tmp = alloca %"class.std::shared_ptr.629", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.689", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
@@ -31887,7 +31887,7 @@ _ZNSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserver
   %call = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
-invoke.cont:                                      ; preds = %_ZNSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS0_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEC2IvEERKS_IT_EPS9_.exit
+invoke.cont:                                      ; preds = %entry
   %1 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i2 = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i2, label %_ZNSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS0_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEED2Ev.exit, label %if.then.i.i.i3
@@ -32036,7 +32036,7 @@ if.end8.sink.split.i.i.i.i30:                     ; preds = %_ZN9__gnu_cxx27__ex
 _ZNSt10shared_ptrIvED2Ev.exit:                    ; preds = %_ZNSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS0_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i17, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i27, %if.end8.sink.split.i.i.i.i30
   ret i1 %call
 
-lpad:                                             ; preds = %_ZNSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS0_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEC2IvEERKS_IT_EPS9_.exit
+lpad:                                             ; preds = %entry
   %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS0_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #41

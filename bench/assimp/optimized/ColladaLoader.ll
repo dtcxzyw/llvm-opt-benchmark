@@ -16587,15 +16587,15 @@ define hidden void @_ZN6Assimp20insertMorphTimeValueERSt6vectorINS_15MorphTimeVa
   %14 = fcmp olt float %1, %13
   br i1 %14, label %_ZNKSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE12_M_check_lenEmPKc.exit.i.i, label %36
 
-_ZNKSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %12, %4
+_ZNKSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %4, %12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #33
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store float %1, ptr %5, align 8
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %17 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #36
-          to label %_ZNSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE9push_backERKS2_.exit unwind label %.thread
+          to label %_ZNSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i unwind label %.thread
 
-_ZNSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNKSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+_ZNSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %_ZNKSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store float %2, ptr %17, align 4
   %.sroa_idx96 = getelementptr inbounds nuw i8, ptr %17, i64 4
@@ -16607,7 +16607,7 @@ _ZNSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE9push_backERKS2_.exit: ; pred
   %20 = invoke ptr @_ZNSt6vectorIN6Assimp15MorphTimeValuesESaIS1_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EERS6_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %8, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %21 unwind label %29
 
-21:                                               ; preds = %_ZNSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE9push_backERKS2_.exit
+21:                                               ; preds = %_ZNSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   %22 = load ptr, ptr %15, align 8
   %.not.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i.i, label %_ZN6Assimp15MorphTimeValuesD2Ev.exit, label %23
@@ -16629,7 +16629,7 @@ _ZN6Assimp15MorphTimeValuesD2Ev.exit:             ; preds = %21, %23
           cleanup
   br label %_ZN6Assimp15MorphTimeValuesD2Ev.exit51
 
-29:                                               ; preds = %_ZNSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE9push_backERKS2_.exit
+29:                                               ; preds = %_ZNSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   %30 = landingpad { ptr, i32 }
           cleanup
   %.pre135 = load ptr, ptr %15, align 8
@@ -16668,9 +16668,9 @@ _ZNKSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   store float %1, ptr %6, align 8
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %46 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #36
-          to label %_ZNSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE9push_backERKS2_.exit61 unwind label %.thread142
+          to label %_ZNSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i58 unwind label %.thread142
 
-_ZNSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE9push_backERKS2_.exit61: ; preds = %_ZNKSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE12_M_check_lenEmPKc.exit.i.i53
+_ZNSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i58: ; preds = %_ZNKSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE12_M_check_lenEmPKc.exit.i.i53
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store float %2, ptr %46, align 4
   %.sroa_idx100 = getelementptr inbounds nuw i8, ptr %46, i64 4
@@ -16682,7 +16682,7 @@ _ZNSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE9push_backERKS2_.exit61: ; pr
   %49 = invoke ptr @_ZNSt6vectorIN6Assimp15MorphTimeValuesESaIS1_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EERS6_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull %10, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %50 unwind label %58
 
-50:                                               ; preds = %_ZNSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE9push_backERKS2_.exit61
+50:                                               ; preds = %_ZNSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i58
   %51 = load ptr, ptr %44, align 8
   %.not.i.i.i.i62 = icmp eq ptr %51, null
   br i1 %.not.i.i.i.i62, label %_ZN6Assimp15MorphTimeValuesD2Ev.exit63, label %52
@@ -16704,7 +16704,7 @@ _ZN6Assimp15MorphTimeValuesD2Ev.exit63:           ; preds = %50, %52
           cleanup
   br label %_ZN6Assimp15MorphTimeValuesD2Ev.exit65
 
-58:                                               ; preds = %_ZNSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE9push_backERKS2_.exit61
+58:                                               ; preds = %_ZNSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i58
   %59 = landingpad { ptr, i32 }
           cleanup
   %.pre134 = load ptr, ptr %44, align 8
@@ -16820,9 +16820,9 @@ _ZNKSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   store float %1, ptr %7, align 8
   %109 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %110 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #36
-          to label %_ZNSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE9push_backERKS2_.exit83 unwind label %.thread146
+          to label %_ZNSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i80 unwind label %.thread146
 
-_ZNSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE9push_backERKS2_.exit83: ; preds = %_ZNKSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE12_M_check_lenEmPKc.exit.i.i75
+_ZNSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i80: ; preds = %_ZNKSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE12_M_check_lenEmPKc.exit.i.i75
   %111 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store float %2, ptr %110, align 4
   %.sroa_idx108 = getelementptr inbounds nuw i8, ptr %110, i64 4
@@ -16834,7 +16834,7 @@ _ZNSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE9push_backERKS2_.exit83: ; pr
   %113 = invoke ptr @_ZNSt6vectorIN6Assimp15MorphTimeValuesESaIS1_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EERS6_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull %66, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %114 unwind label %122
 
-114:                                              ; preds = %_ZNSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE9push_backERKS2_.exit83
+114:                                              ; preds = %_ZNSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i80
   %115 = load ptr, ptr %108, align 8
   %.not.i.i.i.i84 = icmp eq ptr %115, null
   br i1 %.not.i.i.i.i84, label %_ZN6Assimp15MorphTimeValuesD2Ev.exit85, label %116
@@ -16856,7 +16856,7 @@ _ZN6Assimp15MorphTimeValuesD2Ev.exit85:           ; preds = %114, %116
           cleanup
   br label %_ZN6Assimp15MorphTimeValuesD2Ev.exit87
 
-122:                                              ; preds = %_ZNSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE9push_backERKS2_.exit83
+122:                                              ; preds = %_ZNSt6vectorIN6Assimp15MorphTimeValues3keyESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i80
   %123 = landingpad { ptr, i32 }
           cleanup
   %.pre = load ptr, ptr %108, align 8

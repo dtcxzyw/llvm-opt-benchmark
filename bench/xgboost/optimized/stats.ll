@@ -703,16 +703,16 @@ _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_T0_.exit.i
 
 152:                                              ; preds = %145
   %153 = icmp slt i64 %151, 2
-  br i1 %153, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.thread82.i, label %_ZNSt6vectorIN14__gnu_parallel6_PieceIlEESaIS2_EE17_M_default_appendEm.exit.i.i.i.i.i
+  br i1 %153, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.thread82.i, label %.split54.i.i.i.i.i.i
 
-_ZNSt6vectorIN14__gnu_parallel6_PieceIlEESaIS2_EE17_M_default_appendEm.exit.i.i.i.i.i: ; preds = %152
+.split54.i.i.i.i.i.i:                             ; preds = %152
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #11
   store i16 1, ptr %5, align 8, !tbaa !71
   store i64 %149, ptr %77, align 8, !tbaa !78
   %154 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znam(i64 noundef 8) #36
           to label %.noexc48.i unwind label %224
 
-.noexc48.i:                                       ; preds = %_ZNSt6vectorIN14__gnu_parallel6_PieceIlEESaIS2_EE17_M_default_appendEm.exit.i.i.i.i.i
+.noexc48.i:                                       ; preds = %.split54.i.i.i.i.i.i
   store ptr %154, ptr %78, align 8, !tbaa !79
   store ptr null, ptr %79, align 8, !tbaa !80
   %155 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef 0) #36
@@ -948,7 +948,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEElEvRT_T0_.exit
   %223 = icmp sgt i64 %.1.i.i.i, 0
   br i1 %223, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit.loopexit.i, !llvm.loop !91
 
-224:                                              ; preds = %.noexc52.i, %.noexc51.i, %.noexc50.i, %.noexc49.i, %.noexc48.i, %_ZNSt6vectorIN14__gnu_parallel6_PieceIlEESaIS2_EE17_M_default_appendEm.exit.i.i.i.i.i, %143, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_T0_.exit.i
+224:                                              ; preds = %.noexc52.i, %.noexc51.i, %.noexc50.i, %.noexc49.i, %.noexc48.i, %.split54.i.i.i.i.i.i, %143, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_T0_.exit.i
   %225 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i

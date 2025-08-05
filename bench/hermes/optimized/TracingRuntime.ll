@@ -6082,8 +6082,8 @@ entry:
 
 _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2ERKS9_.exit.thread: ; preds = %entry
   store ptr %this, ptr %tracer, align 8
-  %plainHF_.i.i66 = getelementptr inbounds nuw i8, ptr %tracer, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i66, i8 0, i64 32, i1 false)
+  %plainHF_.i.i65 = getelementptr inbounds nuw i8, ptr %tracer, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i65, i8 0, i64 32, i1 false)
   br label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit
 
 if.then.i:                                        ; preds = %entry
@@ -6134,7 +6134,7 @@ if.then.i.i.i:                                    ; preds = %_ZNSt8functionIFN8f
   br label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit
 
 _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit: ; preds = %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2ERKS9_.exit, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2ERKS9_.exit.thread, %if.then.i.i.i
-  %plainHF_.i.i69 = phi ptr [ %plainHF_.i.i, %if.then.i.i.i ], [ %plainHF_.i.i66, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2ERKS9_.exit.thread ], [ %plainHF_.i.i, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2ERKS9_.exit ]
+  %plainHF_.i.i68 = phi ptr [ %plainHF_.i.i, %if.then.i.i.i ], [ %plainHF_.i.i65, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2ERKS9_.exit.thread ], [ %plainHF_.i.i, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2ERKS9_.exit ]
   %7 = phi ptr [ %5, %if.then.i.i.i ], [ null, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2ERKS9_.exit.thread ], [ %5, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2ERKS9_.exit ]
   %8 = phi ptr [ %6, %if.then.i.i.i ], [ null, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2ERKS9_.exit.thread ], [ null, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2ERKS9_.exit ]
   %plain_.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -6156,7 +6156,7 @@ call.i.i2.i.noexc:                                ; preds = %_ZNSt8functionIFN8f
 
 if.then.i.i.i.i.i.i:                              ; preds = %call.i.i2.i.noexc
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i2.i13, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i68, i64 16, i1 false)
   store ptr %8, ptr %_M_manager.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.i
@@ -6371,7 +6371,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont22
   br i1 %tobool.not.i.i.i.i, label %_ZZN8facebook6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKNS_3jsi10PropNameIDEjSt8functionIFNS3_5ValueERNS3_7RuntimeERKS8_PSB_mEEEN19TracingHostFunctionD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %nrvo.skipdtor
-  %call.i.i.i.i = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i69, ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i69, i32 noundef 3)
+  %call.i.i.i.i = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i68, ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i68, i32 noundef 3)
           to label %_ZZN8facebook6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKNS_3jsi10PropNameIDEjSt8functionIFNS3_5ValueERNS3_7RuntimeERKS8_PSB_mEEEN19TracingHostFunctionD2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
@@ -6392,7 +6392,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i53, %l
   br i1 %tobool.not.i.i.i.i58, label %common.resume, label %if.then.i.i.i.i59
 
 if.then.i.i.i.i59:                                ; preds = %ehcleanup
-  %call.i.i.i.i61 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i69, ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i69, i32 noundef 3)
+  %call.i.i.i.i61 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i68, ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i68, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i.i.i62
 
 terminate.lpad.i.i.i.i62:                         ; preds = %if.then.i.i.i.i59

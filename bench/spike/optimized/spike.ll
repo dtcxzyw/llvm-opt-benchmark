@@ -6039,14 +6039,14 @@ _ZNKSt6vectorI9mem_cfg_tSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i44.i.i.i.i: ; pred
   %161 = phi ptr [ %157, %.lr.ph.i.i.i.i.i ], [ %230, %228 ]
   %162 = phi ptr [ %156, %.lr.ph.i.i.i.i.i ], [ %.pre.i173.i.i.i.i, %228 ]
   %163 = phi ptr [ %157, %.lr.ph.i.i.i.i.i ], [ %231, %228 ]
-  %.sroa.080.0113.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.sroa.080.0.i.i.i.i.i, %228 ]
-  %.pn112.i.i.i.i.i = phi ptr [ %74, %.lr.ph.i.i.i.i.i ], [ %.sroa.080.0113.i.i.i.i.i, %228 ]
+  %.sroa.080.0112.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.sroa.080.0.i.i.i.i.i, %228 ]
+  %.pn111.i.i.i.i.i = phi ptr [ %74, %.lr.ph.i.i.i.i.i ], [ %.sroa.080.0112.i.i.i.i.i, %228 ]
   %164 = getelementptr inbounds i8, ptr %163, i64 -16
   %.val.i.i.i.i.i = load i64, ptr %164, align 8, !tbaa !3, !noalias !451
   %165 = getelementptr i8, ptr %163, i64 -8
   %.val17.i.i.i.i.i = load i64, ptr %165, align 8, !tbaa !92, !noalias !451
-  %.val18.i.i.i.i.i = load i64, ptr %.sroa.080.0113.i.i.i.i.i, align 8, !tbaa !3, !noalias !451
-  %166 = getelementptr i8, ptr %.pn112.i.i.i.i.i, i64 24
+  %.val18.i.i.i.i.i = load i64, ptr %.sroa.080.0112.i.i.i.i.i, align 8, !tbaa !3, !noalias !451
+  %166 = getelementptr i8, ptr %.pn111.i.i.i.i.i, i64 24
   %.val19.i.i.i.i.i = load i64, ptr %166, align 8, !tbaa !92, !noalias !451
   %.sroa.speculated8.i.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %.val.i.i.i.i.i, i64 %.val18.i.i.i.i.i)
   %167 = add i64 %.val.i.i.i.i.i, -1
@@ -6062,7 +6062,7 @@ _ZNKSt6vectorI9mem_cfg_tSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i44.i.i.i.i: ; pred
   br i1 %.not.i29.i.i.i.i.i, label %174, label %172
 
 172:                                              ; preds = %171
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %163, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.080.0113.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !444, !noalias !451
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %163, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.080.0112.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !444, !noalias !451
   %173 = getelementptr inbounds nuw i8, ptr %163, i64 16
   br label %228
 
@@ -6095,7 +6095,7 @@ _ZNKSt6vectorI9mem_cfg_tSaIS0_EE12_M_check_lenEmPKc.exit.i.i30.i.i.i.i.i: ; pred
 
 .noexc43.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorI9mem_cfg_tSaIS0_EE12_M_check_lenEmPKc.exit.i.i30.i.i.i.i.i
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 %177
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %187, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.080.0113.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !444, !noalias !451
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %187, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.080.0112.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !444, !noalias !451
   %.not10.i.i.i.i.i33.i.i.i.i.i = icmp eq ptr %162, %160
   br i1 %.not10.i.i.i.i.i33.i.i.i.i.i, label %_ZNSt6vectorI9mem_cfg_tSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i41.i.i.i.i.i, label %.lr.ph.i.i.i.i.i34.i.i.i.i.i
 
@@ -6265,7 +6265,7 @@ _ZNSt6vectorI9mem_cfg_tSaIS0_EE9push_backERKS0_.exit44.i.i.i.i.i: ; preds = %_ZN
   %230 = phi ptr [ %191, %_ZNSt6vectorI9mem_cfg_tSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i41.i.i.i.i.i ], [ %160, %172 ], [ %161, %227 ]
   %.pre.i173.i.i.i.i = phi ptr [ %186, %_ZNSt6vectorI9mem_cfg_tSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i41.i.i.i.i.i ], [ %162, %172 ], [ %162, %227 ]
   %231 = phi ptr [ %190, %_ZNSt6vectorI9mem_cfg_tSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i41.i.i.i.i.i ], [ %173, %172 ], [ %163, %227 ]
-  %.sroa.080.0.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.080.0113.i.i.i.i.i, i64 16
+  %.sroa.080.0.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.080.0112.i.i.i.i.i, i64 16
   %232 = icmp eq ptr %.sroa.080.0.i.i.i.i.i, %.ptr.le.i.i.i.i
   br i1 %232, label %.loopexit.i.i.i.i, label %159, !llvm.loop !465
 

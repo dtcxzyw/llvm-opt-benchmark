@@ -1491,12 +1491,12 @@ _ZNSt14_Function_baseD2Ev.exit31:                 ; preds = %_ZNSt14_Function_ba
   %58 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %56, i64 noundef 192) #32
-  %.pre94 = load ptr, ptr %55, align 8, !tbaa !40
-  %.not.i.i.i.i = icmp eq ptr %.pre94, null
+  %.pr = load ptr, ptr %55, align 8, !tbaa !40
+  %.not.i.i.i.i = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i.i, label %.body32, label %59
 
 59:                                               ; preds = %.body89
-  %60 = invoke noundef zeroext i1 %.pre94(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
+  %60 = invoke noundef zeroext i1 %.pr(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %.body32 unwind label %61
 
 61:                                               ; preds = %59
@@ -1630,12 +1630,12 @@ _ZNSt14_Function_baseD2Ev.exit35:                 ; preds = %79, %81
   %103 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %101, i64 noundef 192) #32
-  %.pre95 = load ptr, ptr %100, align 8, !tbaa !40
-  %.not.i.i.i.i45 = icmp eq ptr %.pre95, null
+  %.pr94 = load ptr, ptr %100, align 8, !tbaa !40
+  %.not.i.i.i.i45 = icmp eq ptr %.pr94, null
   br i1 %.not.i.i.i.i45, label %.body48, label %104
 
 104:                                              ; preds = %.body92
-  %105 = invoke noundef zeroext i1 %.pre95(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
+  %105 = invoke noundef zeroext i1 %.pr94(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %.body48 unwind label %106
 
 106:                                              ; preds = %104
@@ -1764,12 +1764,12 @@ _ZNSt14_Function_baseD2Ev.exit51:                 ; preds = %124, %126
   %145 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %143, i64 noundef 184) #32
-  %.pre96 = load ptr, ptr %142, align 8, !tbaa !40
-  %.not.i.i.i.i61 = icmp eq ptr %.pre96, null
+  %.pr95 = load ptr, ptr %142, align 8, !tbaa !40
+  %.not.i.i.i.i61 = icmp eq ptr %.pr95, null
   br i1 %.not.i.i.i.i61, label %.body64, label %146
 
 146:                                              ; preds = %.body87
-  %147 = invoke noundef zeroext i1 %.pre96(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
+  %147 = invoke noundef zeroext i1 %.pr95(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %.body64 unwind label %148
 
 148:                                              ; preds = %146
@@ -1909,7 +1909,7 @@ _ZNSt14_Function_baseD2Ev.exit73:                 ; preds = %_ZNSt14_Function_ba
   br label %.body
 
 .body32:                                          ; preds = %.body89.thread, %.body89, %59
-  %eh.lpad-body9099 = phi { ptr, i32 } [ %57, %.body89.thread ], [ %58, %.body89 ], [ %58, %59 ]
+  %eh.lpad-body9098 = phi { ptr, i32 } [ %57, %.body89.thread ], [ %58, %.body89 ], [ %58, %59 ]
   %198 = load ptr, ptr %43, align 8, !tbaa !40
   %.not.i74 = icmp eq ptr %198, null
   br i1 %.not.i74, label %.body, label %199
@@ -1926,7 +1926,7 @@ _ZNSt14_Function_baseD2Ev.exit73:                 ; preds = %_ZNSt14_Function_ba
   unreachable
 
 .body:                                            ; preds = %199, %.body32, %196, %46, %.body.i
-  %.pn = phi { ptr, i32 } [ %197, %196 ], [ %45, %46 ], [ %45, %.body.i ], [ %eh.lpad-body9099, %.body32 ], [ %eh.lpad-body9099, %199 ]
+  %.pn = phi { ptr, i32 } [ %197, %196 ], [ %45, %46 ], [ %45, %.body.i ], [ %eh.lpad-body9098, %.body32 ], [ %eh.lpad-body9098, %199 ]
   call void @_ZN7rocksdb14OptionTypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(185) %14) #30
   br label %204
 
@@ -1947,7 +1947,7 @@ _ZNSt14_Function_baseD2Ev.exit73:                 ; preds = %_ZNSt14_Function_ba
   br label %.body41
 
 .body48:                                          ; preds = %.body92.thread, %.body92, %104
-  %eh.lpad-body93102 = phi { ptr, i32 } [ %102, %.body92.thread ], [ %103, %.body92 ], [ %103, %104 ]
+  %eh.lpad-body93101 = phi { ptr, i32 } [ %102, %.body92.thread ], [ %103, %.body92 ], [ %103, %104 ]
   %209 = load ptr, ptr %88, align 8, !tbaa !40
   %.not.i76 = icmp eq ptr %209, null
   br i1 %.not.i76, label %.body41, label %210
@@ -1964,7 +1964,7 @@ _ZNSt14_Function_baseD2Ev.exit73:                 ; preds = %_ZNSt14_Function_ba
   unreachable
 
 .body41:                                          ; preds = %210, %.body48, %207, %91, %.body.i36
-  %.pn20 = phi { ptr, i32 } [ %208, %207 ], [ %90, %91 ], [ %90, %.body.i36 ], [ %eh.lpad-body93102, %.body48 ], [ %eh.lpad-body93102, %210 ]
+  %.pn20 = phi { ptr, i32 } [ %208, %207 ], [ %90, %91 ], [ %90, %.body.i36 ], [ %eh.lpad-body93101, %.body48 ], [ %eh.lpad-body93101, %210 ]
   call void @_ZN7rocksdb14OptionTypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(185) %16) #30
   br label %215
 
@@ -1985,7 +1985,7 @@ _ZNSt14_Function_baseD2Ev.exit73:                 ; preds = %_ZNSt14_Function_ba
   br label %.body57
 
 .body64:                                          ; preds = %.body87.thread, %.body87, %146
-  %eh.lpad-body105 = phi { ptr, i32 } [ %144, %.body87.thread ], [ %145, %.body87 ], [ %145, %146 ]
+  %eh.lpad-body104 = phi { ptr, i32 } [ %144, %.body87.thread ], [ %145, %.body87 ], [ %145, %146 ]
   %220 = load ptr, ptr %132, align 8, !tbaa !40
   %.not.i78 = icmp eq ptr %220, null
   br i1 %.not.i78, label %.body57, label %221
@@ -2002,7 +2002,7 @@ _ZNSt14_Function_baseD2Ev.exit73:                 ; preds = %_ZNSt14_Function_ba
   unreachable
 
 .body57:                                          ; preds = %221, %.body64, %218, %135, %.body.i52
-  %.pn23 = phi { ptr, i32 } [ %219, %218 ], [ %134, %135 ], [ %134, %.body.i52 ], [ %eh.lpad-body105, %.body64 ], [ %eh.lpad-body105, %221 ]
+  %.pn23 = phi { ptr, i32 } [ %219, %218 ], [ %134, %135 ], [ %134, %.body.i52 ], [ %eh.lpad-body104, %.body64 ], [ %eh.lpad-body104, %221 ]
   call void @_ZN7rocksdb14OptionTypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %18) #30
   br label %226
 
@@ -24903,12 +24903,12 @@ _ZNSt14_Function_baseD2Ev.exit31:                 ; preds = %_ZNSt14_Function_ba
   %58 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %56, i64 noundef 192) #32
-  %.pre94 = load ptr, ptr %55, align 8, !tbaa !40
-  %.not.i.i.i.i = icmp eq ptr %.pre94, null
+  %.pr = load ptr, ptr %55, align 8, !tbaa !40
+  %.not.i.i.i.i = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i.i, label %.body32, label %59
 
 59:                                               ; preds = %.body89
-  %60 = invoke noundef zeroext i1 %.pre94(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
+  %60 = invoke noundef zeroext i1 %.pr(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %.body32 unwind label %61
 
 61:                                               ; preds = %59
@@ -25042,12 +25042,12 @@ _ZNSt14_Function_baseD2Ev.exit35:                 ; preds = %79, %81
   %103 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %101, i64 noundef 192) #32
-  %.pre95 = load ptr, ptr %100, align 8, !tbaa !40
-  %.not.i.i.i.i45 = icmp eq ptr %.pre95, null
+  %.pr94 = load ptr, ptr %100, align 8, !tbaa !40
+  %.not.i.i.i.i45 = icmp eq ptr %.pr94, null
   br i1 %.not.i.i.i.i45, label %.body48, label %104
 
 104:                                              ; preds = %.body92
-  %105 = invoke noundef zeroext i1 %.pre95(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
+  %105 = invoke noundef zeroext i1 %.pr94(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %.body48 unwind label %106
 
 106:                                              ; preds = %104
@@ -25176,12 +25176,12 @@ _ZNSt14_Function_baseD2Ev.exit51:                 ; preds = %124, %126
   %145 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %143, i64 noundef 184) #32
-  %.pre96 = load ptr, ptr %142, align 8, !tbaa !40
-  %.not.i.i.i.i61 = icmp eq ptr %.pre96, null
+  %.pr95 = load ptr, ptr %142, align 8, !tbaa !40
+  %.not.i.i.i.i61 = icmp eq ptr %.pr95, null
   br i1 %.not.i.i.i.i61, label %.body64, label %146
 
 146:                                              ; preds = %.body87
-  %147 = invoke noundef zeroext i1 %.pre96(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
+  %147 = invoke noundef zeroext i1 %.pr95(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %.body64 unwind label %148
 
 148:                                              ; preds = %146
@@ -25321,7 +25321,7 @@ _ZNSt14_Function_baseD2Ev.exit73:                 ; preds = %_ZNSt14_Function_ba
   br label %.body
 
 .body32:                                          ; preds = %.body89.thread, %.body89, %59
-  %eh.lpad-body9099 = phi { ptr, i32 } [ %57, %.body89.thread ], [ %58, %.body89 ], [ %58, %59 ]
+  %eh.lpad-body9098 = phi { ptr, i32 } [ %57, %.body89.thread ], [ %58, %.body89 ], [ %58, %59 ]
   %198 = load ptr, ptr %43, align 8, !tbaa !40
   %.not.i74 = icmp eq ptr %198, null
   br i1 %.not.i74, label %.body, label %199
@@ -25338,7 +25338,7 @@ _ZNSt14_Function_baseD2Ev.exit73:                 ; preds = %_ZNSt14_Function_ba
   unreachable
 
 .body:                                            ; preds = %199, %.body32, %196, %46, %.body.i
-  %.pn = phi { ptr, i32 } [ %197, %196 ], [ %45, %46 ], [ %45, %.body.i ], [ %eh.lpad-body9099, %.body32 ], [ %eh.lpad-body9099, %199 ]
+  %.pn = phi { ptr, i32 } [ %197, %196 ], [ %45, %46 ], [ %45, %.body.i ], [ %eh.lpad-body9098, %.body32 ], [ %eh.lpad-body9098, %199 ]
   call void @_ZN7rocksdb14OptionTypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(185) %14) #30
   br label %204
 
@@ -25359,7 +25359,7 @@ _ZNSt14_Function_baseD2Ev.exit73:                 ; preds = %_ZNSt14_Function_ba
   br label %.body41
 
 .body48:                                          ; preds = %.body92.thread, %.body92, %104
-  %eh.lpad-body93102 = phi { ptr, i32 } [ %102, %.body92.thread ], [ %103, %.body92 ], [ %103, %104 ]
+  %eh.lpad-body93101 = phi { ptr, i32 } [ %102, %.body92.thread ], [ %103, %.body92 ], [ %103, %104 ]
   %209 = load ptr, ptr %88, align 8, !tbaa !40
   %.not.i76 = icmp eq ptr %209, null
   br i1 %.not.i76, label %.body41, label %210
@@ -25376,7 +25376,7 @@ _ZNSt14_Function_baseD2Ev.exit73:                 ; preds = %_ZNSt14_Function_ba
   unreachable
 
 .body41:                                          ; preds = %210, %.body48, %207, %91, %.body.i36
-  %.pn20 = phi { ptr, i32 } [ %208, %207 ], [ %90, %91 ], [ %90, %.body.i36 ], [ %eh.lpad-body93102, %.body48 ], [ %eh.lpad-body93102, %210 ]
+  %.pn20 = phi { ptr, i32 } [ %208, %207 ], [ %90, %91 ], [ %90, %.body.i36 ], [ %eh.lpad-body93101, %.body48 ], [ %eh.lpad-body93101, %210 ]
   call void @_ZN7rocksdb14OptionTypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(185) %16) #30
   br label %215
 
@@ -25397,7 +25397,7 @@ _ZNSt14_Function_baseD2Ev.exit73:                 ; preds = %_ZNSt14_Function_ba
   br label %.body57
 
 .body64:                                          ; preds = %.body87.thread, %.body87, %146
-  %eh.lpad-body105 = phi { ptr, i32 } [ %144, %.body87.thread ], [ %145, %.body87 ], [ %145, %146 ]
+  %eh.lpad-body104 = phi { ptr, i32 } [ %144, %.body87.thread ], [ %145, %.body87 ], [ %145, %146 ]
   %220 = load ptr, ptr %132, align 8, !tbaa !40
   %.not.i78 = icmp eq ptr %220, null
   br i1 %.not.i78, label %.body57, label %221
@@ -25414,7 +25414,7 @@ _ZNSt14_Function_baseD2Ev.exit73:                 ; preds = %_ZNSt14_Function_ba
   unreachable
 
 .body57:                                          ; preds = %221, %.body64, %218, %135, %.body.i52
-  %.pn23 = phi { ptr, i32 } [ %219, %218 ], [ %134, %135 ], [ %134, %.body.i52 ], [ %eh.lpad-body105, %.body64 ], [ %eh.lpad-body105, %221 ]
+  %.pn23 = phi { ptr, i32 } [ %219, %218 ], [ %134, %135 ], [ %134, %.body.i52 ], [ %eh.lpad-body104, %.body64 ], [ %eh.lpad-body104, %221 ]
   call void @_ZN7rocksdb14OptionTypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %18) #30
   br label %226
 
@@ -26513,12 +26513,12 @@ _ZNSt14_Function_baseD2Ev.exit31:                 ; preds = %_ZNSt14_Function_ba
   %58 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %56, i64 noundef 192) #32
-  %.pre94 = load ptr, ptr %55, align 8, !tbaa !40
-  %.not.i.i.i.i = icmp eq ptr %.pre94, null
+  %.pr = load ptr, ptr %55, align 8, !tbaa !40
+  %.not.i.i.i.i = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i.i, label %.body32, label %59
 
 59:                                               ; preds = %.body89
-  %60 = invoke noundef zeroext i1 %.pre94(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
+  %60 = invoke noundef zeroext i1 %.pr(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %.body32 unwind label %61
 
 61:                                               ; preds = %59
@@ -26652,12 +26652,12 @@ _ZNSt14_Function_baseD2Ev.exit35:                 ; preds = %79, %81
   %103 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %101, i64 noundef 192) #32
-  %.pre95 = load ptr, ptr %100, align 8, !tbaa !40
-  %.not.i.i.i.i45 = icmp eq ptr %.pre95, null
+  %.pr94 = load ptr, ptr %100, align 8, !tbaa !40
+  %.not.i.i.i.i45 = icmp eq ptr %.pr94, null
   br i1 %.not.i.i.i.i45, label %.body48, label %104
 
 104:                                              ; preds = %.body92
-  %105 = invoke noundef zeroext i1 %.pre95(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
+  %105 = invoke noundef zeroext i1 %.pr94(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %.body48 unwind label %106
 
 106:                                              ; preds = %104
@@ -26786,12 +26786,12 @@ _ZNSt14_Function_baseD2Ev.exit51:                 ; preds = %124, %126
   %145 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %143, i64 noundef 184) #32
-  %.pre96 = load ptr, ptr %142, align 8, !tbaa !40
-  %.not.i.i.i.i61 = icmp eq ptr %.pre96, null
+  %.pr95 = load ptr, ptr %142, align 8, !tbaa !40
+  %.not.i.i.i.i61 = icmp eq ptr %.pr95, null
   br i1 %.not.i.i.i.i61, label %.body64, label %146
 
 146:                                              ; preds = %.body87
-  %147 = invoke noundef zeroext i1 %.pre96(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
+  %147 = invoke noundef zeroext i1 %.pr95(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %.body64 unwind label %148
 
 148:                                              ; preds = %146
@@ -26931,7 +26931,7 @@ _ZNSt14_Function_baseD2Ev.exit73:                 ; preds = %_ZNSt14_Function_ba
   br label %.body
 
 .body32:                                          ; preds = %.body89.thread, %.body89, %59
-  %eh.lpad-body9099 = phi { ptr, i32 } [ %57, %.body89.thread ], [ %58, %.body89 ], [ %58, %59 ]
+  %eh.lpad-body9098 = phi { ptr, i32 } [ %57, %.body89.thread ], [ %58, %.body89 ], [ %58, %59 ]
   %198 = load ptr, ptr %43, align 8, !tbaa !40
   %.not.i74 = icmp eq ptr %198, null
   br i1 %.not.i74, label %.body, label %199
@@ -26948,7 +26948,7 @@ _ZNSt14_Function_baseD2Ev.exit73:                 ; preds = %_ZNSt14_Function_ba
   unreachable
 
 .body:                                            ; preds = %199, %.body32, %196, %46, %.body.i
-  %.pn = phi { ptr, i32 } [ %197, %196 ], [ %45, %46 ], [ %45, %.body.i ], [ %eh.lpad-body9099, %.body32 ], [ %eh.lpad-body9099, %199 ]
+  %.pn = phi { ptr, i32 } [ %197, %196 ], [ %45, %46 ], [ %45, %.body.i ], [ %eh.lpad-body9098, %.body32 ], [ %eh.lpad-body9098, %199 ]
   call void @_ZN7rocksdb14OptionTypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(185) %14) #30
   br label %204
 
@@ -26969,7 +26969,7 @@ _ZNSt14_Function_baseD2Ev.exit73:                 ; preds = %_ZNSt14_Function_ba
   br label %.body41
 
 .body48:                                          ; preds = %.body92.thread, %.body92, %104
-  %eh.lpad-body93102 = phi { ptr, i32 } [ %102, %.body92.thread ], [ %103, %.body92 ], [ %103, %104 ]
+  %eh.lpad-body93101 = phi { ptr, i32 } [ %102, %.body92.thread ], [ %103, %.body92 ], [ %103, %104 ]
   %209 = load ptr, ptr %88, align 8, !tbaa !40
   %.not.i76 = icmp eq ptr %209, null
   br i1 %.not.i76, label %.body41, label %210
@@ -26986,7 +26986,7 @@ _ZNSt14_Function_baseD2Ev.exit73:                 ; preds = %_ZNSt14_Function_ba
   unreachable
 
 .body41:                                          ; preds = %210, %.body48, %207, %91, %.body.i36
-  %.pn20 = phi { ptr, i32 } [ %208, %207 ], [ %90, %91 ], [ %90, %.body.i36 ], [ %eh.lpad-body93102, %.body48 ], [ %eh.lpad-body93102, %210 ]
+  %.pn20 = phi { ptr, i32 } [ %208, %207 ], [ %90, %91 ], [ %90, %.body.i36 ], [ %eh.lpad-body93101, %.body48 ], [ %eh.lpad-body93101, %210 ]
   call void @_ZN7rocksdb14OptionTypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(185) %16) #30
   br label %215
 
@@ -27007,7 +27007,7 @@ _ZNSt14_Function_baseD2Ev.exit73:                 ; preds = %_ZNSt14_Function_ba
   br label %.body57
 
 .body64:                                          ; preds = %.body87.thread, %.body87, %146
-  %eh.lpad-body105 = phi { ptr, i32 } [ %144, %.body87.thread ], [ %145, %.body87 ], [ %145, %146 ]
+  %eh.lpad-body104 = phi { ptr, i32 } [ %144, %.body87.thread ], [ %145, %.body87 ], [ %145, %146 ]
   %220 = load ptr, ptr %132, align 8, !tbaa !40
   %.not.i78 = icmp eq ptr %220, null
   br i1 %.not.i78, label %.body57, label %221
@@ -27024,7 +27024,7 @@ _ZNSt14_Function_baseD2Ev.exit73:                 ; preds = %_ZNSt14_Function_ba
   unreachable
 
 .body57:                                          ; preds = %221, %.body64, %218, %135, %.body.i52
-  %.pn23 = phi { ptr, i32 } [ %219, %218 ], [ %134, %135 ], [ %134, %.body.i52 ], [ %eh.lpad-body105, %.body64 ], [ %eh.lpad-body105, %221 ]
+  %.pn23 = phi { ptr, i32 } [ %219, %218 ], [ %134, %135 ], [ %134, %.body.i52 ], [ %eh.lpad-body104, %.body64 ], [ %eh.lpad-body104, %221 ]
   call void @_ZN7rocksdb14OptionTypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %18) #30
   br label %226
 
@@ -34867,12 +34867,12 @@ _ZNSt14_Function_baseD2Ev.exit31:                 ; preds = %_ZNSt14_Function_ba
   %58 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %56, i64 noundef 192) #32
-  %.pre94 = load ptr, ptr %55, align 8, !tbaa !40
-  %.not.i.i.i.i = icmp eq ptr %.pre94, null
+  %.pr = load ptr, ptr %55, align 8, !tbaa !40
+  %.not.i.i.i.i = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i.i, label %.body32, label %59
 
 59:                                               ; preds = %.body89
-  %60 = invoke noundef zeroext i1 %.pre94(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
+  %60 = invoke noundef zeroext i1 %.pr(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %.body32 unwind label %61
 
 61:                                               ; preds = %59
@@ -35006,12 +35006,12 @@ _ZNSt14_Function_baseD2Ev.exit35:                 ; preds = %79, %81
   %103 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %101, i64 noundef 192) #32
-  %.pre95 = load ptr, ptr %100, align 8, !tbaa !40
-  %.not.i.i.i.i45 = icmp eq ptr %.pre95, null
+  %.pr94 = load ptr, ptr %100, align 8, !tbaa !40
+  %.not.i.i.i.i45 = icmp eq ptr %.pr94, null
   br i1 %.not.i.i.i.i45, label %.body48, label %104
 
 104:                                              ; preds = %.body92
-  %105 = invoke noundef zeroext i1 %.pre95(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
+  %105 = invoke noundef zeroext i1 %.pr94(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %.body48 unwind label %106
 
 106:                                              ; preds = %104
@@ -35140,12 +35140,12 @@ _ZNSt14_Function_baseD2Ev.exit51:                 ; preds = %124, %126
   %145 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %143, i64 noundef 184) #32
-  %.pre96 = load ptr, ptr %142, align 8, !tbaa !40
-  %.not.i.i.i.i61 = icmp eq ptr %.pre96, null
+  %.pr95 = load ptr, ptr %142, align 8, !tbaa !40
+  %.not.i.i.i.i61 = icmp eq ptr %.pr95, null
   br i1 %.not.i.i.i.i61, label %.body64, label %146
 
 146:                                              ; preds = %.body87
-  %147 = invoke noundef zeroext i1 %.pre96(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
+  %147 = invoke noundef zeroext i1 %.pr95(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %.body64 unwind label %148
 
 148:                                              ; preds = %146
@@ -35285,7 +35285,7 @@ _ZNSt14_Function_baseD2Ev.exit73:                 ; preds = %_ZNSt14_Function_ba
   br label %.body
 
 .body32:                                          ; preds = %.body89.thread, %.body89, %59
-  %eh.lpad-body9099 = phi { ptr, i32 } [ %57, %.body89.thread ], [ %58, %.body89 ], [ %58, %59 ]
+  %eh.lpad-body9098 = phi { ptr, i32 } [ %57, %.body89.thread ], [ %58, %.body89 ], [ %58, %59 ]
   %198 = load ptr, ptr %43, align 8, !tbaa !40
   %.not.i74 = icmp eq ptr %198, null
   br i1 %.not.i74, label %.body, label %199
@@ -35302,7 +35302,7 @@ _ZNSt14_Function_baseD2Ev.exit73:                 ; preds = %_ZNSt14_Function_ba
   unreachable
 
 .body:                                            ; preds = %199, %.body32, %196, %46, %.body.i
-  %.pn = phi { ptr, i32 } [ %197, %196 ], [ %45, %46 ], [ %45, %.body.i ], [ %eh.lpad-body9099, %.body32 ], [ %eh.lpad-body9099, %199 ]
+  %.pn = phi { ptr, i32 } [ %197, %196 ], [ %45, %46 ], [ %45, %.body.i ], [ %eh.lpad-body9098, %.body32 ], [ %eh.lpad-body9098, %199 ]
   call void @_ZN7rocksdb14OptionTypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(185) %14) #30
   br label %204
 
@@ -35323,7 +35323,7 @@ _ZNSt14_Function_baseD2Ev.exit73:                 ; preds = %_ZNSt14_Function_ba
   br label %.body41
 
 .body48:                                          ; preds = %.body92.thread, %.body92, %104
-  %eh.lpad-body93102 = phi { ptr, i32 } [ %102, %.body92.thread ], [ %103, %.body92 ], [ %103, %104 ]
+  %eh.lpad-body93101 = phi { ptr, i32 } [ %102, %.body92.thread ], [ %103, %.body92 ], [ %103, %104 ]
   %209 = load ptr, ptr %88, align 8, !tbaa !40
   %.not.i76 = icmp eq ptr %209, null
   br i1 %.not.i76, label %.body41, label %210
@@ -35340,7 +35340,7 @@ _ZNSt14_Function_baseD2Ev.exit73:                 ; preds = %_ZNSt14_Function_ba
   unreachable
 
 .body41:                                          ; preds = %210, %.body48, %207, %91, %.body.i36
-  %.pn20 = phi { ptr, i32 } [ %208, %207 ], [ %90, %91 ], [ %90, %.body.i36 ], [ %eh.lpad-body93102, %.body48 ], [ %eh.lpad-body93102, %210 ]
+  %.pn20 = phi { ptr, i32 } [ %208, %207 ], [ %90, %91 ], [ %90, %.body.i36 ], [ %eh.lpad-body93101, %.body48 ], [ %eh.lpad-body93101, %210 ]
   call void @_ZN7rocksdb14OptionTypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(185) %16) #30
   br label %215
 
@@ -35361,7 +35361,7 @@ _ZNSt14_Function_baseD2Ev.exit73:                 ; preds = %_ZNSt14_Function_ba
   br label %.body57
 
 .body64:                                          ; preds = %.body87.thread, %.body87, %146
-  %eh.lpad-body105 = phi { ptr, i32 } [ %144, %.body87.thread ], [ %145, %.body87 ], [ %145, %146 ]
+  %eh.lpad-body104 = phi { ptr, i32 } [ %144, %.body87.thread ], [ %145, %.body87 ], [ %145, %146 ]
   %220 = load ptr, ptr %132, align 8, !tbaa !40
   %.not.i78 = icmp eq ptr %220, null
   br i1 %.not.i78, label %.body57, label %221
@@ -35378,7 +35378,7 @@ _ZNSt14_Function_baseD2Ev.exit73:                 ; preds = %_ZNSt14_Function_ba
   unreachable
 
 .body57:                                          ; preds = %221, %.body64, %218, %135, %.body.i52
-  %.pn23 = phi { ptr, i32 } [ %219, %218 ], [ %134, %135 ], [ %134, %.body.i52 ], [ %eh.lpad-body105, %.body64 ], [ %eh.lpad-body105, %221 ]
+  %.pn23 = phi { ptr, i32 } [ %219, %218 ], [ %134, %135 ], [ %134, %.body.i52 ], [ %eh.lpad-body104, %.body64 ], [ %eh.lpad-body104, %221 ]
   call void @_ZN7rocksdb14OptionTypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %18) #30
   br label %226
 

@@ -886,7 +886,7 @@ define dso_local void @_ZNK27cmInstallDirectoryGenerator14GetDirectoriesERKNSt7_
 
 16:                                               ; preds = %3
   %.not42 = icmp eq ptr %13, %15
-  br i1 %.not42, label %_ZN6cmListD2Ev.exit, label %.lr.ph
+  br i1 %.not42, label %_ZN6cmListaSERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -1088,7 +1088,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
 _ZN6cmList5clearEv.exit.i.i:                      ; preds = %3
   %87 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %88 = icmp eq ptr %13, %15
-  br i1 %88, label %_ZN6cmListD2Ev.exit, label %.lr.ph50.i.i.i.i.i
+  br i1 %88, label %_ZN6cmListaSERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE.exit, label %.lr.ph50.i.i.i.i.i
 
 .lr.ph50.i.i.i.i.i:                               ; preds = %_ZN6cmList5clearEv.exit.i.i, %.noexc28
   %89 = phi ptr [ %97, %.noexc28 ], [ null, %_ZN6cmList5clearEv.exit.i.i ]
@@ -1113,7 +1113,7 @@ _ZN6cmList5clearEv.exit.i.i:                      ; preds = %3
   %103 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %91, i64 %102
   %104 = getelementptr inbounds nuw i8, ptr %.sroa.033.049.i.i.i.i.i, i64 32
   %.not41.i.i.i.i.i = icmp eq ptr %104, %15
-  br i1 %.not41.i.i.i.i.i, label %_ZN6cmListD2Ev.exit, label %.lr.ph50.i.i.i.i.i, !llvm.loop !56
+  br i1 %.not41.i.i.i.i.i, label %_ZN6cmListaSERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE.exit, label %.lr.ph50.i.i.i.i.i, !llvm.loop !56
 
 105:                                              ; preds = %.lr.ph50.i.i.i.i.i
   %106 = landingpad { ptr, i32 }
@@ -1123,9 +1123,9 @@ _ZN6cmList5clearEv.exit.i.i:                      ; preds = %3
 _ZN6cmListaSERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE.exit.loopexit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18
   %.pre = load ptr, ptr %5, align 8, !tbaa !47
   %.pre45 = load ptr, ptr %22, align 8, !tbaa !46
-  br label %_ZN6cmListD2Ev.exit
+  br label %_ZN6cmListaSERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE.exit
 
-_ZN6cmListD2Ev.exit:                              ; preds = %.noexc28, %_ZN6cmListaSERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE.exit.loopexit, %16, %_ZN6cmList5clearEv.exit.i.i
+_ZN6cmListaSERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE.exit: ; preds = %.noexc28, %_ZN6cmListaSERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE.exit.loopexit, %16, %_ZN6cmList5clearEv.exit.i.i
   %107 = phi ptr [ %.pre45, %_ZN6cmListaSERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE.exit.loopexit ], [ null, %16 ], [ null, %_ZN6cmList5clearEv.exit.i.i ], [ %96, %.noexc28 ]
   %108 = phi ptr [ %.pre, %_ZN6cmListaSERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE.exit.loopexit ], [ null, %16 ], [ null, %_ZN6cmList5clearEv.exit.i.i ], [ %97, %.noexc28 ]
   store ptr %108, ptr %0, align 8, !tbaa !47

@@ -610,8 +610,8 @@ define dso_local void @_ZNK4llvm8codeview26DebugStringTableSubsection9sortedIdsE
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !78
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not25 = icmp eq i32 %5, 0
-  br i1 %.not25, label %7, label %13
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %7, label %13
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %3, align 8, !tbaa !79
@@ -654,16 +654,16 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIjNS_9StringRefENS_12DenseMapInfoIjvEENS_6de
   %26 = phi i64 [ %11, %7 ], [ 0, %13 ], [ %22, %.critedge2.i8.i14.i9.i ], [ %22, %.lr.ph.i6.i12.i3.i ]
   %27 = phi ptr [ %8, %7 ], [ %19, %13 ], [ %19, %.critedge2.i8.i14.i9.i ], [ %19, %.lr.ph.i6.i12.i3.i ]
   %.promoted30 = phi ptr [ null, %7 ], [ %18, %13 ], [ %18, %.critedge2.i8.i14.i9.i ], [ %18, %.lr.ph.i6.i12.i3.i ]
-  %.promoted1028 = phi ptr [ null, %7 ], [ %17, %13 ], [ %17, %.critedge2.i8.i14.i9.i ], [ %17, %.lr.ph.i6.i12.i3.i ]
+  %.promoted1128 = phi ptr [ null, %7 ], [ %17, %13 ], [ %17, %.critedge2.i8.i14.i9.i ], [ %17, %.lr.ph.i6.i12.i3.i ]
   %.pn14.i = phi ptr [ %12, %7 ], [ %19, %13 ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ], [ %23, %.critedge2.i8.i14.i9.i ]
   %.pn12.i = phi ptr [ %12, %7 ], [ %23, %13 ], [ %23, %.critedge2.i8.i14.i9.i ], [ %23, %.lr.ph.i6.i12.i3.i ]
   %28 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %27, i64 %26
-  %.not13 = icmp eq ptr %.pn14.i, %28
-  br i1 %.not13, label %._crit_edge.thread, label %.lr.ph
+  %.not814 = icmp eq ptr %.pn14.i, %28
+  br i1 %.not814, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIjNS_9StringRefENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_E5beginEv.exit
   store ptr %.promoted30, ptr %6, align 8
-  store ptr %.promoted1028, ptr %0, align 8
+  store ptr %.promoted1128, ptr %0, align 8
   br label %_ZN4llvm4sortIRSt6vectorIjSaIjEEEEvOT_.exit
 
 .lr.ph:                                           ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIjNS_9StringRefENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_E5beginEv.exit
@@ -802,15 +802,15 @@ _ZN4llvm4sortIRSt6vectorIjSaIjEEEEvOT_.exit:      ; preds = %_ZSt25__unguarded_l
   ret void
 
 72:                                               ; preds = %.lr.ph, %_ZN4llvm16DenseMapIteratorIjNS_9StringRefENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS1_EELb1EEppEv.exit
-  %73 = phi ptr [ %.promoted1028, %.lr.ph ], [ %99, %_ZN4llvm16DenseMapIteratorIjNS_9StringRefENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS1_EELb1EEppEv.exit ]
-  %.sroa.05.014 = phi ptr [ %.pn14.i, %.lr.ph ], [ %.sroa.05.2, %_ZN4llvm16DenseMapIteratorIjNS_9StringRefENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS1_EELb1EEppEv.exit ]
+  %73 = phi ptr [ %.promoted1128, %.lr.ph ], [ %99, %_ZN4llvm16DenseMapIteratorIjNS_9StringRefENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS1_EELb1EEppEv.exit ]
+  %.sroa.05.015 = phi ptr [ %.pn14.i, %.lr.ph ], [ %.sroa.05.2, %_ZN4llvm16DenseMapIteratorIjNS_9StringRefENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS1_EELb1EEppEv.exit ]
   %74 = phi ptr [ %.promoted30, %.lr.ph ], [ %101, %_ZN4llvm16DenseMapIteratorIjNS_9StringRefENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS1_EELb1EEppEv.exit ]
-  %75 = phi ptr [ %.promoted1028, %.lr.ph ], [ %100, %_ZN4llvm16DenseMapIteratorIjNS_9StringRefENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS1_EELb1EEppEv.exit ]
+  %75 = phi ptr [ %.promoted1128, %.lr.ph ], [ %100, %_ZN4llvm16DenseMapIteratorIjNS_9StringRefENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS1_EELb1EEppEv.exit ]
   %.not.i = icmp eq ptr %73, %74
   br i1 %.not.i, label %79, label %76
 
 76:                                               ; preds = %72
-  %77 = load i32, ptr %.sroa.05.014, align 4, !tbaa !21
+  %77 = load i32, ptr %.sroa.05.015, align 4, !tbaa !21
   store i32 %77, ptr %73, align 4, !tbaa !21
   %78 = getelementptr inbounds nuw i8, ptr %73, i64 4
   store ptr %78, ptr %29, align 8, !tbaa !84
@@ -841,7 +841,7 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i: ; preds = %79
   %90 = shl nuw nsw i64 %89, 2
   %91 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %90) #19
   %92 = getelementptr inbounds i8, ptr %91, i64 %82
-  %93 = load i32, ptr %.sroa.05.014, align 4, !tbaa !21
+  %93 = load i32, ptr %.sroa.05.015, align 4, !tbaa !21
   store i32 %93, ptr %92, align 4, !tbaa !21
   %94 = icmp sgt i64 %82, 0
   br i1 %94, label %95, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
@@ -868,7 +868,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %76, %_ZNSt6vectorIj
   %99 = phi ptr [ %78, %76 ], [ %96, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
   %100 = phi ptr [ %75, %76 ], [ %91, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
   %101 = phi ptr [ %74, %76 ], [ %98, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
-  %102 = getelementptr inbounds nuw i8, ptr %.sroa.05.014, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %.sroa.05.015, i64 24
   %.not4.i3.i = icmp eq ptr %102, %.pn12.i
   br i1 %.not4.i3.i, label %_ZN4llvm16DenseMapIteratorIjNS_9StringRefENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS1_EELb1EEppEv.exit, label %.lr.ph.i4.i
 
@@ -885,8 +885,8 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %76, %_ZNSt6vectorIj
 
 _ZN4llvm16DenseMapIteratorIjNS_9StringRefENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS1_EELb1EEppEv.exit: ; preds = %.lr.ph.i4.i, %.critedge2.i6.i, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
   %.sroa.05.2 = phi ptr [ %102, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %.sroa.05.1, %.lr.ph.i4.i ], [ %104, %.critedge2.i6.i ]
-  %.not = icmp eq ptr %.sroa.05.2, %28
-  br i1 %.not, label %._crit_edge, label %72
+  %.not8 = icmp eq ptr %.sroa.05.2, %28
+  br i1 %.not8, label %._crit_edge, label %72
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

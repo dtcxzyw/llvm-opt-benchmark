@@ -7656,7 +7656,7 @@ _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit161: ; pr
   %286 = trunc i64 %.086310 to i32
   br label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
 
-_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %.lr.ph307, %_ZN2cv4text15beamSearch_nodeD2Ev.exit
+_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %_ZN2cv4text15beamSearch_nodeD2Ev.exit, %.lr.ph307
   %.085305 = phi i64 [ %280, %.lr.ph307 ], [ %351, %_ZN2cv4text15beamSearch_nodeD2Ev.exit ]
   %.188304 = phi i32 [ %.087309, %.lr.ph307 ], [ %346, %_ZN2cv4text15beamSearch_nodeD2Ev.exit ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %18) #26

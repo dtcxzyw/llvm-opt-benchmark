@@ -2788,8 +2788,8 @@ _ZNSt10unique_ptrI17delta_h_history_tSt14default_deleteIS0_EED2Ev.exit: ; preds 
   store ptr %5, ptr %3, align 8, !tbaa !254
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8, !tbaa !153
-  %.not47 = icmp eq i32 %7, 0
-  br i1 %.not47, label %_ZNSt6vectorIS_IfSaIfEESaIS1_EE6resizeEm.exit, label %8
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %_ZNSt6vectorIS_IfSaIfEESaIS1_EE6resizeEm.exit, label %8
 
 8:                                                ; preds = %_ZNSt10unique_ptrI17delta_h_history_tSt14default_deleteIS0_EED2Ev.exit
   %9 = sext i32 %7 to i64
@@ -2798,7 +2798,7 @@ _ZNSt10unique_ptrI17delta_h_history_tSt14default_deleteIS0_EED2Ev.exit: ; preds 
   br label %_ZNSt6vectorIS_IfSaIfEESaIS1_EE6resizeEm.exit
 
 _ZNSt6vectorIS_IfSaIfEESaIS1_EE6resizeEm.exit:    ; preds = %_ZNSt10unique_ptrI17delta_h_history_tSt14default_deleteIS0_EED2Ev.exit, %8, %2
-  %10 = phi ptr [ %.pre, %8 ], [ %4, %2 ], [ %5, %_ZNSt10unique_ptrI17delta_h_history_tSt14default_deleteIS0_EED2Ev.exit ]
+  %10 = phi ptr [ %5, %_ZNSt10unique_ptrI17delta_h_history_tSt14default_deleteIS0_EED2Ev.exit ], [ %.pre, %8 ], [ %4, %2 ]
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !259
   %13 = load ptr, ptr %10, align 8, !tbaa !262
@@ -2817,7 +2817,7 @@ _ZNSt6vectorIS_IfSaIfEESaIS1_EE6resizeEm.exit:    ; preds = %_ZNSt10unique_ptrI1
   br i1 %22, label %.lr.ph31.preheader, label %._crit_edge32
 
 .lr.ph31.preheader:                               ; preds = %.preheader
-  %.pre37 = load ptr, ptr %0, align 8, !tbaa !170
+  %.pre38 = load ptr, ptr %0, align 8, !tbaa !170
   br label %.lr.ph31
 
 23:                                               ; preds = %_ZNSt6vectorIS_IfSaIfEESaIS1_EE6resizeEm.exit
@@ -2836,45 +2836,45 @@ _ZNSt6vectorIS_IfSaIfEESaIS1_EE6resizeEm.exit:    ; preds = %_ZNSt10unique_ptrI1
   ret void
 
 .lr.ph31:                                         ; preds = %.lr.ph31.preheader, %._crit_edge
-  %.pre4042 = phi ptr [ %.pre37, %.lr.ph31.preheader ], [ %.pre4043, %._crit_edge ]
+  %.pre4143 = phi ptr [ %.pre38, %.lr.ph31.preheader ], [ %.pre4144, %._crit_edge ]
   %30 = phi i32 [ %19, %.lr.ph31.preheader ], [ %40, %._crit_edge ]
-  %31 = phi ptr [ %.pre37, %.lr.ph31.preheader ], [ %41, %._crit_edge ]
-  %32 = phi ptr [ %.pre37, %.lr.ph31.preheader ], [ %42, %._crit_edge ]
-  %indvars.iv34 = phi i64 [ 0, %.lr.ph31.preheader ], [ %indvars.iv.next35, %._crit_edge ]
+  %31 = phi ptr [ %.pre38, %.lr.ph31.preheader ], [ %41, %._crit_edge ]
+  %32 = phi ptr [ %.pre38, %.lr.ph31.preheader ], [ %42, %._crit_edge ]
+  %indvars.iv35 = phi i64 [ 0, %.lr.ph31.preheader ], [ %indvars.iv.next36, %._crit_edge ]
   %33 = load ptr, ptr %10, align 8, !tbaa !262
-  %34 = getelementptr inbounds nuw %"class.std::vector.71", ptr %33, i64 %indvars.iv34
-  %35 = getelementptr inbounds nuw %struct.t_mde_delta_h, ptr %32, i64 %indvars.iv34
+  %34 = getelementptr inbounds nuw %"class.std::vector.71", ptr %33, i64 %indvars.iv35
+  %35 = getelementptr inbounds nuw %struct.t_mde_delta_h, ptr %32, i64 %indvars.iv35
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %37 = load i32, ptr %36, align 8, !tbaa !196
-  %.not = icmp eq i32 %37, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  %.not33 = icmp eq i32 %37, 0
+  br i1 %.not33, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph31
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %.pre38 = load ptr, ptr %38, align 8, !tbaa !190
-  %.pre39 = load ptr, ptr %39, align 8, !tbaa !204
+  %.pre39 = load ptr, ptr %38, align 8, !tbaa !190
+  %.pre40 = load ptr, ptr %39, align 8, !tbaa !204
   br label %45
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt6vectorIfSaIfEE12emplace_backIJRKfEEERfDpOT_.exit
-  %.pre41 = load i32, ptr %18, align 8, !tbaa !153
+  %.pre42 = load i32, ptr %18, align 8, !tbaa !153
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph31
-  %.pre4043 = phi ptr [ %.pre4045, %._crit_edge.loopexit ], [ %.pre4042, %.lr.ph31 ]
-  %40 = phi i32 [ %.pre41, %._crit_edge.loopexit ], [ %30, %.lr.ph31 ]
+  %.pre4144 = phi ptr [ %.pre4146, %._crit_edge.loopexit ], [ %.pre4143, %.lr.ph31 ]
+  %40 = phi i32 [ %.pre42, %._crit_edge.loopexit ], [ %30, %.lr.ph31 ]
   %41 = phi ptr [ %76, %._crit_edge.loopexit ], [ %31, %.lr.ph31 ]
   %42 = phi ptr [ %76, %._crit_edge.loopexit ], [ %32, %.lr.ph31 ]
-  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
+  %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %43 = sext i32 %40 to i64
-  %44 = icmp slt i64 %indvars.iv.next35, %43
+  %44 = icmp slt i64 %indvars.iv.next36, %43
   br i1 %44, label %.lr.ph31, label %._crit_edge32, !llvm.loop !269
 
 45:                                               ; preds = %.lr.ph, %_ZNSt6vectorIfSaIfEE12emplace_backIJRKfEEERfDpOT_.exit
-  %.pre4044 = phi ptr [ %.pre4042, %.lr.ph ], [ %.pre4045, %_ZNSt6vectorIfSaIfEE12emplace_backIJRKfEEERfDpOT_.exit ]
+  %.pre4145 = phi ptr [ %.pre4143, %.lr.ph ], [ %.pre4146, %_ZNSt6vectorIfSaIfEE12emplace_backIJRKfEEERfDpOT_.exit ]
   %46 = phi ptr [ %31, %.lr.ph ], [ %76, %_ZNSt6vectorIfSaIfEE12emplace_backIJRKfEEERfDpOT_.exit ]
-  %47 = phi ptr [ %.pre39, %.lr.ph ], [ %77, %_ZNSt6vectorIfSaIfEE12emplace_backIJRKfEEERfDpOT_.exit ]
-  %48 = phi ptr [ %.pre38, %.lr.ph ], [ %78, %_ZNSt6vectorIfSaIfEE12emplace_backIJRKfEEERfDpOT_.exit ]
+  %47 = phi ptr [ %.pre40, %.lr.ph ], [ %77, %_ZNSt6vectorIfSaIfEE12emplace_backIJRKfEEERfDpOT_.exit ]
+  %48 = phi ptr [ %.pre39, %.lr.ph ], [ %78, %_ZNSt6vectorIfSaIfEE12emplace_backIJRKfEEERfDpOT_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIfSaIfEE12emplace_backIJRKfEEERfDpOT_.exit ]
   %49 = phi ptr [ %35, %.lr.ph ], [ %79, %_ZNSt6vectorIfSaIfEE12emplace_backIJRKfEEERfDpOT_.exit ]
   %50 = load ptr, ptr %49, align 8, !tbaa !191
@@ -2929,11 +2929,11 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i: ; preds = %72, %_ZNKS
 
 74:                                               ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %56, i64 noundef %59) #19
-  %.pre40.pre = load ptr, ptr %0, align 8, !tbaa !170
+  %.pre41.pre = load ptr, ptr %0, align 8, !tbaa !170
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i: ; preds = %74, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i
-  %.pre40 = phi ptr [ %.pre40.pre, %74 ], [ %.pre4044, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i ]
+  %.pre41 = phi ptr [ %.pre41.pre, %74 ], [ %.pre4145, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i ]
   store ptr %68, ptr %34, align 8, !tbaa !191
   store ptr %73, ptr %38, align 8, !tbaa !190
   %75 = getelementptr inbounds nuw float, ptr %68, i64 %66
@@ -2941,12 +2941,12 @@ _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorIfSaIfEE12emplace_backIJRKfEEERfDpOT_.exit
 
 _ZNSt6vectorIfSaIfEE12emplace_backIJRKfEEERfDpOT_.exit: ; preds = %52, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i
-  %.pre4045 = phi ptr [ %.pre4044, %52 ], [ %.pre40, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i ]
-  %76 = phi ptr [ %46, %52 ], [ %.pre40, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i ]
+  %.pre4146 = phi ptr [ %.pre4145, %52 ], [ %.pre41, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i ]
+  %76 = phi ptr [ %46, %52 ], [ %.pre41, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i ]
   %77 = phi ptr [ %47, %52 ], [ %75, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i ]
   %78 = phi ptr [ %54, %52 ], [ %73, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %79 = getelementptr inbounds nuw %struct.t_mde_delta_h, ptr %76, i64 %indvars.iv34
+  %79 = getelementptr inbounds nuw %struct.t_mde_delta_h, ptr %76, i64 %indvars.iv35
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %81 = load i32, ptr %80, align 8, !tbaa !196
   %82 = zext i32 %81 to i64

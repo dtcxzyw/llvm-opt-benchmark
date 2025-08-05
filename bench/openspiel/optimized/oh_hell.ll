@@ -10707,15 +10707,15 @@ _ZN10open_spiel7oh_hell5TrickC2EiNS0_4SuitEiNS0_14DeckPropertiesE.exit:
   store i32 -3, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
-  %7 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #29
-  store i32 -1, ptr %7, align 4
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store ptr %7, ptr %4, align 8
-  store ptr %8, ptr %5, align 8
-  store ptr %8, ptr %6, align 8
+  %5 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #29
+  store i32 -1, ptr %5, align 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %5, ptr %4, align 8
+  store ptr %7, ptr %8, align 8
+  store ptr %7, ptr %6, align 8
   ret void
 }
 
@@ -10731,7 +10731,7 @@ define void @_ZN10open_spiel7oh_hell5TrickC2EiNS0_4SuitEiNS0_14DeckPropertiesE(p
   %9 = sdiv i32 %3, %.sroa.0.0.extract.trunc
   br label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
 
-_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %5, %7
+_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %7, %5
   %.sink18 = phi i32 [ %8, %7 ], [ -1, %5 ]
   %.0.i7 = phi i32 [ %9, %7 ], [ -1, %5 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -10748,14 +10748,14 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %5, %7
   store i64 %4, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %17 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #29
+  store i32 %3, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %19 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #29
-  store i32 %3, ptr %19, align 4
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  store ptr %19, ptr %16, align 8
-  store ptr %20, ptr %17, align 8
-  store ptr %20, ptr %18, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %17, ptr %16, align 8
+  store ptr %19, ptr %20, align 8
+  store ptr %19, ptr %18, align 8
   ret void
 }
 

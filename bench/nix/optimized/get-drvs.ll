@@ -21641,8 +21641,8 @@ define linkonce_odr void @_ZNK3nix8Bindings18lexicographicOrderERKNS_11SymbolTab
   %5 = load i32, ptr %4, align 4
   %6 = zext i32 %5 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not39 = icmp eq i32 %5, 0
-  br i1 %.not39, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEEZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EvT_SG_T0_.exit, label %_ZNSt12_Vector_baseIPKN3nix4AttrESaIS3_EE11_M_allocateEm.exit.i
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPKN3nix4AttrESt6vectorIS5_SaIS5_EEEEZNKS2_8Bindings18lexicographicOrderERKNS2_11SymbolTableEEUlS5_S5_E_EvT_SG_T0_.exit, label %_ZNSt12_Vector_baseIPKN3nix4AttrESaIS3_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIPKN3nix4AttrESaIS3_EE11_M_allocateEm.exit.i: ; preds = %3
   %8 = shl nuw nsw i64 %6, 3

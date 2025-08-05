@@ -118,9 +118,9 @@ if.end:                                           ; preds = %entry
   %1 = load i32, ptr %this, align 8
   %call4 = call i64 @read(i32 noundef %1, ptr noundef nonnull %count, i64 noundef 8) #8
   %cmp5 = icmp slt i64 %call4, 1
-  br i1 %cmp5, label %return, label %_ZN4llvh11raw_ostreamlsEPKc.exit
+  br i1 %cmp5, label %return, label %if.end7
 
-_ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.end
+if.end7:                                          ; preds = %if.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %stats) #8
   %BufferMode.i.i = getelementptr inbounds nuw i8, ptr %os, i64 32
   store i32 1, ptr %BufferMode.i.i, align 8
@@ -136,7 +136,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.end
   %tobool.i.not.i = icmp eq ptr %2, null
   br i1 %tobool.i.not.i, label %_ZN4llvh11raw_ostreamlsEPKc.exit17, label %cond.true.i.split.i
 
-cond.true.i.split.i:                              ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
+cond.true.i.split.i:                              ; preds = %if.end7
   %call.i.i3 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #9
   %OutBufEnd.i5.i4 = getelementptr inbounds nuw i8, ptr %call3.i.i, i64 16
   %3 = load ptr, ptr %OutBufEnd.i5.i4, align 8
@@ -163,8 +163,8 @@ if.then4.i.i12:                                   ; preds = %if.end.i.i10
   store ptr %add.ptr.i.i13, ptr %OutBufCur.i6.i5, align 8
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit17
 
-_ZN4llvh11raw_ostreamlsEPKc.exit17:               ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit, %if.then.i.i15, %if.end.i.i10, %if.then4.i.i12
-  %phi.call.i14 = phi ptr [ %call3.i.i16, %if.then.i.i15 ], [ %call3.i.i, %if.then4.i.i12 ], [ %call3.i.i, %if.end.i.i10 ], [ %call3.i.i, %_ZN4llvh11raw_ostreamlsEPKc.exit ]
+_ZN4llvh11raw_ostreamlsEPKc.exit17:               ; preds = %if.end7, %if.then.i.i15, %if.end.i.i10, %if.then4.i.i12
+  %phi.call.i14 = phi ptr [ %call3.i.i16, %if.then.i.i15 ], [ %call3.i.i, %if.then4.i.i12 ], [ %call3.i.i, %if.end.i.i10 ], [ %call3.i.i, %if.end7 ]
   %OutBufEnd.i5.i20 = getelementptr inbounds nuw i8, ptr %phi.call.i14, i64 16
   %6 = load ptr, ptr %OutBufEnd.i5.i20, align 8
   %OutBufCur.i6.i21 = getelementptr inbounds nuw i8, ptr %phi.call.i14, i64 24

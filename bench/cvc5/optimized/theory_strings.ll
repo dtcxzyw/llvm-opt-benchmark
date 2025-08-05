@@ -9763,9 +9763,9 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i: ; preds = %1975
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %96) #30
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %97) #30
   %1979 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #31
-          to label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit unwind label %.thread4834
+          to label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i unwind label %.thread4834
 
-_ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
+_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
   store i32 %1974, ptr %1979, align 4, !tbaa !550
   %1980 = getelementptr inbounds nuw i8, ptr %1979, i64 4
   store ptr %1979, ptr %97, align 8, !tbaa !703
@@ -9776,7 +9776,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNKSt6vectorIjSaIj
   invoke void @_ZN4cvc58internal6StringC1ERKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(24) %99, ptr noundef nonnull align 8 dereferenceable(24) %97)
           to label %1981 unwind label %2077
 
-1981:                                             ; preds = %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
+1981:                                             ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i
   invoke void @_ZN4cvc58internal11NodeManager7mkConstINS0_6StringEEENS0_12NodeTemplateILb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %98, ptr noundef nonnull align 8 dereferenceable(3560) %337, ptr noundef nonnull align 8 dereferenceable(24) %99)
           to label %1982 unwind label %2079
 
@@ -9998,7 +9998,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit1351:           ; preds = %2072, %2070
           cleanup
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit1355
 
-2077:                                             ; preds = %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
+2077:                                             ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i
   %2078 = landingpad { ptr, i32 }
           cleanup
   br label %2090

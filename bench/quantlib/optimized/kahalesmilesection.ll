@@ -3324,7 +3324,7 @@ if.then.i.i.i346:                                 ; preds = %invoke.cont534
   %use_count_.i.i.i.i347 = getelementptr inbounds nuw i8, ptr %235, i64 8
   %236 = atomicrmw sub ptr %use_count_.i.i.i.i347, i32 1 acq_rel, align 4
   %cmp.i.i.i.i348 = icmp eq i32 %236, 1
-  br i1 %cmp.i.i.i.i348, label %if.then.i.i.i.i349, label %_ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEEaSEOS4_.exit
+  br i1 %cmp.i.i.i.i348, label %if.then.i.i.i.i349, label %_ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEEaSEOS4_.exitthread-pre-split
 
 if.then.i.i.i.i349:                               ; preds = %if.then.i.i.i346
   %vtable.i.i.i.i350 = load ptr, ptr %235, align 8, !tbaa !35
@@ -3337,14 +3337,14 @@ if.then.i.i.i.i349:                               ; preds = %if.then.i.i.i346
   %weak_count_.i.i.i.i.i354 = getelementptr inbounds nuw i8, ptr %235, i64 12
   %238 = atomicrmw sub ptr %weak_count_.i.i.i.i.i354, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i355 = icmp eq i32 %238, 1
-  br i1 %cmp.i.i.i.i.i355, label %if.then.i.i.i.i.i356, label %_ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEEaSEOS4_.exit
+  br i1 %cmp.i.i.i.i.i355, label %if.then.i.i.i.i.i356, label %_ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEEaSEOS4_.exitthread-pre-split
 
 if.then.i.i.i.i.i356:                             ; preds = %.noexc.i.i.i353
   %vtable.i.i.i.i.i357 = load ptr, ptr %235, align 8, !tbaa !35
   %vfn.i.i.i.i.i358 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i357, i64 24
   %239 = load ptr, ptr %vfn.i.i.i.i.i358, align 8
   invoke void %239(ptr noundef nonnull align 8 dereferenceable(16) %235)
-          to label %_ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEEaSEOS4_.exit unwind label %terminate.lpad.i.i.i352
+          to label %_ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEEaSEOS4_.exitthread-pre-split unwind label %terminate.lpad.i.i.i352
 
 terminate.lpad.i.i.i352:                          ; preds = %if.then.i.i.i.i.i356, %if.then.i.i.i.i349
   %240 = landingpad { ptr, i32 }
@@ -3353,8 +3353,12 @@ terminate.lpad.i.i.i352:                          ; preds = %if.then.i.i.i.i.i35
   call void @__clang_call_terminate(ptr %241) #30
   unreachable
 
-_ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEEaSEOS4_.exit: ; preds = %invoke.cont534, %if.then.i.i.i346, %.noexc.i.i.i353, %if.then.i.i.i.i.i356
-  %242 = load ptr, ptr %pn3.i.i343, align 8, !tbaa !37
+_ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEEaSEOS4_.exitthread-pre-split: ; preds = %if.then.i.i.i.i.i356, %.noexc.i.i.i353, %if.then.i.i.i346
+  %.pr = load ptr, ptr %pn3.i.i343, align 8, !tbaa !37
+  br label %_ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEEaSEOS4_.exit
+
+_ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEEaSEOS4_.exit: ; preds = %_ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEEaSEOS4_.exitthread-pre-split, %invoke.cont534
+  %242 = phi ptr [ %.pr, %_ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEEaSEOS4_.exitthread-pre-split ], [ null, %invoke.cont534 ]
   %cmp.not.i.i360 = icmp eq ptr %242, null
   br i1 %cmp.not.i.i360, label %_ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEED2Ev.exit374, label %if.then.i.i361
 
@@ -3442,7 +3446,7 @@ if.then.i.i.i380:                                 ; preds = %invoke.cont553
   %use_count_.i.i.i.i381 = getelementptr inbounds nuw i8, ptr %252, i64 8
   %253 = atomicrmw sub ptr %use_count_.i.i.i.i381, i32 1 acq_rel, align 4
   %cmp.i.i.i.i382 = icmp eq i32 %253, 1
-  br i1 %cmp.i.i.i.i382, label %if.then.i.i.i.i383, label %_ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEEaSEOS4_.exit393
+  br i1 %cmp.i.i.i.i382, label %if.then.i.i.i.i383, label %_ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEEaSEOS4_.exit393thread-pre-split
 
 if.then.i.i.i.i383:                               ; preds = %if.then.i.i.i380
   %vtable.i.i.i.i384 = load ptr, ptr %252, align 8, !tbaa !35
@@ -3455,14 +3459,14 @@ if.then.i.i.i.i383:                               ; preds = %if.then.i.i.i380
   %weak_count_.i.i.i.i.i388 = getelementptr inbounds nuw i8, ptr %252, i64 12
   %255 = atomicrmw sub ptr %weak_count_.i.i.i.i.i388, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i389 = icmp eq i32 %255, 1
-  br i1 %cmp.i.i.i.i.i389, label %if.then.i.i.i.i.i390, label %_ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEEaSEOS4_.exit393
+  br i1 %cmp.i.i.i.i.i389, label %if.then.i.i.i.i.i390, label %_ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEEaSEOS4_.exit393thread-pre-split
 
 if.then.i.i.i.i.i390:                             ; preds = %.noexc.i.i.i387
   %vtable.i.i.i.i.i391 = load ptr, ptr %252, align 8, !tbaa !35
   %vfn.i.i.i.i.i392 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i391, i64 24
   %256 = load ptr, ptr %vfn.i.i.i.i.i392, align 8
   invoke void %256(ptr noundef nonnull align 8 dereferenceable(16) %252)
-          to label %_ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEEaSEOS4_.exit393 unwind label %terminate.lpad.i.i.i386
+          to label %_ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEEaSEOS4_.exit393thread-pre-split unwind label %terminate.lpad.i.i.i386
 
 terminate.lpad.i.i.i386:                          ; preds = %if.then.i.i.i.i.i390, %if.then.i.i.i.i383
   %257 = landingpad { ptr, i32 }
@@ -3471,8 +3475,12 @@ terminate.lpad.i.i.i386:                          ; preds = %if.then.i.i.i.i.i39
   call void @__clang_call_terminate(ptr %258) #30
   unreachable
 
-_ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEEaSEOS4_.exit393: ; preds = %invoke.cont553, %if.then.i.i.i380, %.noexc.i.i.i387, %if.then.i.i.i.i.i390
-  %259 = load ptr, ptr %pn3.i.i377, align 8, !tbaa !37
+_ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEEaSEOS4_.exit393thread-pre-split: ; preds = %if.then.i.i.i.i.i390, %.noexc.i.i.i387, %if.then.i.i.i380
+  %.pr692 = load ptr, ptr %pn3.i.i377, align 8, !tbaa !37
+  br label %_ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEEaSEOS4_.exit393
+
+_ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEEaSEOS4_.exit393: ; preds = %_ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEEaSEOS4_.exit393thread-pre-split, %invoke.cont553
+  %259 = phi ptr [ %.pr692, %_ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEEaSEOS4_.exit393thread-pre-split ], [ null, %invoke.cont553 ]
   %cmp.not.i.i395 = icmp eq ptr %259, null
   br i1 %cmp.not.i.i395, label %_ZN5boost10shared_ptrIN8QuantLib18KahaleSmileSection9cFunctionEED2Ev.exit409, label %if.then.i.i396
 

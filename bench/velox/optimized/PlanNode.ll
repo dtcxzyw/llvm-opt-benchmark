@@ -7387,7 +7387,7 @@ invoke.cont2:                                     ; preds = %entry
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %array, i64 16
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not21 = icmp eq ptr %1, %2
-  br i1 %cmp.i.not21, label %_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EED2Ev.exit, label %for.body.lr.ph
+  br i1 %cmp.i.not21, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont2
   %_M_finish.i.i7 = getelementptr inbounds nuw i8, ptr %exprs, i64 8
@@ -7596,9 +7596,9 @@ for.end.loopexit:                                 ; preds = %_ZNSt10shared_ptrIK
   %.pre = load ptr, ptr %exprs, align 8
   %.pre23 = load ptr, ptr %_M_finish.i.i7, align 8
   %.pre24 = load ptr, ptr %_M_end_of_storage.i.i, align 8
-  br label %_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EED2Ev.exit
+  br label %for.end
 
-_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EED2Ev.exit: ; preds = %for.end.loopexit, %invoke.cont2
+for.end:                                          ; preds = %for.end.loopexit, %invoke.cont2
   %25 = phi ptr [ %.pre24, %for.end.loopexit ], [ null, %invoke.cont2 ]
   %26 = phi ptr [ %.pre23, %for.end.loopexit ], [ null, %invoke.cont2 ]
   %27 = phi ptr [ %.pre, %for.end.loopexit ], [ null, %invoke.cont2 ]
@@ -11928,7 +11928,7 @@ invoke.cont2:                                     ; preds = %entry
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %array, i64 16
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not12 = icmp eq ptr %1, %2
-  br i1 %cmp.i.not12, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %for.body.lr.ph
+  br i1 %cmp.i.not12, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont2
   %_M_finish.i.i8 = getelementptr inbounds nuw i8, ptr %exprs, i64 8
@@ -11978,9 +11978,9 @@ for.end.loopexit:                                 ; preds = %invoke.cont9
   %.pre = load ptr, ptr %exprs, align 8
   %.pre14 = load ptr, ptr %_M_finish.i.i8, align 8
   %.pre15 = load ptr, ptr %_M_end_of_storage.i.i, align 8
-  br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
+  br label %for.end
 
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %for.end.loopexit, %invoke.cont2
+for.end:                                          ; preds = %for.end.loopexit, %invoke.cont2
   %8 = phi ptr [ %.pre15, %for.end.loopexit ], [ null, %invoke.cont2 ]
   %9 = phi ptr [ %.pre14, %for.end.loopexit ], [ null, %invoke.cont2 ]
   %10 = phi ptr [ %.pre, %for.end.loopexit ], [ null, %invoke.cont2 ]
@@ -14041,7 +14041,7 @@ invoke.cont2:                                     ; preds = %entry
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %array, i64 16
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not22 = icmp eq ptr %1, %2
-  br i1 %cmp.i.not22, label %_ZNSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS7_EED2Ev.exit, label %for.body.lr.ph
+  br i1 %cmp.i.not22, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont2
   %_M_finish.i.i7 = getelementptr inbounds nuw i8, ptr %exprs, i64 8
@@ -14126,9 +14126,9 @@ for.end.loopexit:                                 ; preds = %_ZNSt6vectorINSt7__
   %.pre25 = load ptr, ptr %exprs, align 8
   %.pre26 = load ptr, ptr %_M_finish.i.i7, align 8
   %.pre27 = load ptr, ptr %_M_end_of_storage.i.i, align 8
-  br label %_ZNSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS7_EED2Ev.exit
+  br label %for.end
 
-_ZNSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS7_EED2Ev.exit: ; preds = %for.end.loopexit, %invoke.cont2
+for.end:                                          ; preds = %for.end.loopexit, %invoke.cont2
   %12 = phi ptr [ %.pre27, %for.end.loopexit ], [ null, %invoke.cont2 ]
   %13 = phi ptr [ %.pre26, %for.end.loopexit ], [ null, %invoke.cont2 ]
   %14 = phi ptr [ %.pre25, %for.end.loopexit ], [ null, %invoke.cont2 ]
@@ -16064,7 +16064,7 @@ invoke.cont2:                                     ; preds = %entry
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %array, i64 16
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not21 = icmp eq ptr %1, %2
-  br i1 %cmp.i.not21, label %_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4core10ITypedExprEESaIS6_EED2Ev.exit, label %for.body.lr.ph
+  br i1 %cmp.i.not21, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont2
   %_M_finish.i.i7 = getelementptr inbounds nuw i8, ptr %exprs, i64 8
@@ -16273,9 +16273,9 @@ for.end.loopexit:                                 ; preds = %_ZNSt10shared_ptrIK
   %.pre = load ptr, ptr %exprs, align 8
   %.pre23 = load ptr, ptr %_M_finish.i.i7, align 8
   %.pre24 = load ptr, ptr %_M_end_of_storage.i.i, align 8
-  br label %_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4core10ITypedExprEESaIS6_EED2Ev.exit
+  br label %for.end
 
-_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4core10ITypedExprEESaIS6_EED2Ev.exit: ; preds = %for.end.loopexit, %invoke.cont2
+for.end:                                          ; preds = %for.end.loopexit, %invoke.cont2
   %25 = phi ptr [ %.pre24, %for.end.loopexit ], [ null, %invoke.cont2 ]
   %26 = phi ptr [ %.pre23, %for.end.loopexit ], [ null, %invoke.cont2 ]
   %27 = phi ptr [ %.pre, %for.end.loopexit ], [ null, %invoke.cont2 ]
@@ -56441,7 +56441,7 @@ invoke.cont2:                                     ; preds = %entry
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %array, i64 16
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not21 = icmp eq ptr %1, %2
-  br i1 %cmp.i.not21, label %_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4core20FieldAccessTypedExprEESaIS6_EED2Ev.exit, label %for.body.lr.ph
+  br i1 %cmp.i.not21, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont2
   %_M_finish.i.i7 = getelementptr inbounds nuw i8, ptr %exprs, i64 8
@@ -56650,9 +56650,9 @@ for.end.loopexit:                                 ; preds = %_ZNSt10shared_ptrIK
   %.pre = load ptr, ptr %exprs, align 8
   %.pre23 = load ptr, ptr %_M_finish.i.i7, align 8
   %.pre24 = load ptr, ptr %_M_end_of_storage.i.i, align 8
-  br label %_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4core20FieldAccessTypedExprEESaIS6_EED2Ev.exit
+  br label %for.end
 
-_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4core20FieldAccessTypedExprEESaIS6_EED2Ev.exit: ; preds = %for.end.loopexit, %invoke.cont2
+for.end:                                          ; preds = %for.end.loopexit, %invoke.cont2
   %25 = phi ptr [ %.pre24, %for.end.loopexit ], [ null, %invoke.cont2 ]
   %26 = phi ptr [ %.pre23, %for.end.loopexit ], [ null, %invoke.cont2 ]
   %27 = phi ptr [ %.pre, %for.end.loopexit ], [ null, %invoke.cont2 ]
@@ -57820,7 +57820,7 @@ invoke.cont2:                                     ; preds = %entry
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %array, i64 16
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not21 = icmp eq ptr %1, %2
-  br i1 %cmp.i.not21, label %_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4core8PlanNodeEESaIS6_EED2Ev.exit, label %for.body.lr.ph
+  br i1 %cmp.i.not21, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont2
   %_M_finish.i.i7 = getelementptr inbounds nuw i8, ptr %exprs, i64 8
@@ -58029,9 +58029,9 @@ for.end.loopexit:                                 ; preds = %_ZNSt10shared_ptrIK
   %.pre = load ptr, ptr %exprs, align 8
   %.pre23 = load ptr, ptr %_M_finish.i.i7, align 8
   %.pre24 = load ptr, ptr %_M_end_of_storage.i.i, align 8
-  br label %_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4core8PlanNodeEESaIS6_EED2Ev.exit
+  br label %for.end
 
-_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4core8PlanNodeEESaIS6_EED2Ev.exit: ; preds = %for.end.loopexit, %invoke.cont2
+for.end:                                          ; preds = %for.end.loopexit, %invoke.cont2
   %25 = phi ptr [ %.pre24, %for.end.loopexit ], [ null, %invoke.cont2 ]
   %26 = phi ptr [ %.pre23, %for.end.loopexit ], [ null, %invoke.cont2 ]
   %27 = phi ptr [ %.pre, %for.end.loopexit ], [ null, %invoke.cont2 ]

@@ -3904,180 +3904,180 @@ define internal noundef i32 @e100_configure(ptr noundef readonly captures(none) 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, @mdio_ctrl_phy_mii_emulated
-  %spec.select = select i1 %12, i80 453350497004842588831744, i80 453350497005942100459520
-  store i80 %spec.select, ptr %9, align 1
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 22
-  store i8 -14, ptr %13, align 1
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 23
-  store i8 72, ptr %14, align 1
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 25
-  store i8 64, ptr %15, align 1
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  store i40 88047858, ptr %16, align 1
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 840
-  %18 = load i8, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  store i8 %18, ptr %19, align 1
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 800
-  %21 = load i32, ptr %20, align 32
-  %22 = and i32 %21, 3
-  %23 = zext nneg i32 %22 to i80
-  %24 = shl nuw nsw i80 %23, 62
-  %25 = or disjoint i80 %24, %spec.select
-  store i80 %25, ptr %9, align 1
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  %27 = load i8, ptr %26, align 16
-  %28 = and i8 %27, 3
-  %29 = icmp eq i8 %28, 3
-  br i1 %29, label %30, label %31
+  %13 = select i1 %12, i80 453350497004842588831744, i80 453350497005942100459520
+  store i80 %13, ptr %9, align 1
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 22
+  store i8 -14, ptr %14, align 1
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 23
+  store i8 72, ptr %15, align 1
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 25
+  store i8 64, ptr %16, align 1
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 26
+  store i40 88047858, ptr %17, align 1
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 840
+  %19 = load i8, ptr %18, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  store i8 %19, ptr %20, align 1
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 800
+  %22 = load i32, ptr %21, align 32
+  %23 = and i32 %22, 3
+  %24 = zext nneg i32 %23 to i80
+  %25 = shl nuw nsw i80 %24, 62
+  %26 = or disjoint i80 %25, %13
+  store i80 %26, ptr %9, align 1
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 736
+  %28 = load i8, ptr %27, align 16
+  %29 = and i8 %28, 3
+  %30 = icmp eq i8 %29, 3
+  br i1 %30, label %31, label %32
 
-30:                                               ; preds = %3
-  store i40 88064242, ptr %16, align 1
-  br label %31
+31:                                               ; preds = %3
+  store i40 88064242, ptr %17, align 1
+  br label %32
 
-31:                                               ; preds = %30, %3
-  %32 = phi i40 [ 88064242, %30 ], [ 88047858, %3 ]
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  %34 = load i32, ptr %33, align 64
-  %35 = and i32 %34, 2
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %40
+32:                                               ; preds = %31, %3
+  %33 = phi i40 [ 88064242, %31 ], [ 88047858, %3 ]
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  %35 = load i32, ptr %34, align 64
+  %36 = and i32 %35, 2
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %38, label %41
 
-37:                                               ; preds = %31
-  %38 = load i32, ptr %20, align 32
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %43, label %40
+38:                                               ; preds = %32
+  %39 = load i32, ptr %21, align 32
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %44, label %41
 
-40:                                               ; preds = %37, %31
-  %41 = and i80 %25, 453364332063993087655936
-  %42 = or disjoint i80 %41, 2147483648
-  store i80 %42, ptr %9, align 1
-  store i8 73, ptr %14, align 1
-  br label %43
+41:                                               ; preds = %38, %32
+  %42 = and i80 %26, 453364332063993087655936
+  %43 = or disjoint i80 %42, 2147483648
+  store i80 %43, ptr %9, align 1
+  store i8 73, ptr %15, align 1
+  br label %44
 
-43:                                               ; preds = %40, %37
-  %44 = phi i80 [ %42, %40 ], [ %25, %37 ]
-  %45 = getelementptr inbounds nuw i8, ptr %6, i64 176
-  %46 = load i64, ptr %45, align 8
-  %47 = and i64 %46, 8796093022208
-  %48 = icmp eq i64 %47, 0
-  br i1 %48, label %51, label %49, !prof !8
+44:                                               ; preds = %41, %38
+  %45 = phi i80 [ %43, %41 ], [ %26, %38 ]
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 176
+  %47 = load i64, ptr %46, align 8
+  %48 = and i64 %47, 8796093022208
+  %49 = icmp eq i64 %48, 0
+  br i1 %49, label %52, label %50, !prof !8
 
-49:                                               ; preds = %43
-  %50 = or disjoint i40 %32, 4
-  store i40 %50, ptr %16, align 1
-  br label %51
+50:                                               ; preds = %44
+  %51 = or disjoint i40 %33, 4
+  store i40 %51, ptr %17, align 1
+  br label %52
 
-51:                                               ; preds = %49, %43
-  %52 = phi i40 [ %50, %49 ], [ %32, %43 ]
-  %53 = load i32, ptr %33, align 64
-  %54 = and i32 %53, 4
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %58, label %56
+52:                                               ; preds = %50, %44
+  %53 = phi i40 [ %51, %50 ], [ %33, %44 ]
+  %54 = load i32, ptr %34, align 64
+  %55 = and i32 %54, 4
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %59, label %57
 
-56:                                               ; preds = %51
-  %57 = or i40 %52, 134217728
-  store i40 %57, ptr %16, align 1
-  br label %58
+57:                                               ; preds = %52
+  %58 = or i40 %53, 134217728
+  store i40 %58, ptr %17, align 1
+  br label %59
 
-58:                                               ; preds = %56, %51
-  %59 = phi i40 [ %57, %56 ], [ %52, %51 ]
-  %60 = load ptr, ptr %5, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 352
-  %62 = load volatile i64, ptr %61, align 8
-  %63 = and i64 %62, 1
-  %64 = icmp eq i64 %63, 0
-  br i1 %64, label %65, label %69
+59:                                               ; preds = %57, %52
+  %60 = phi i40 [ %58, %57 ], [ %53, %52 ]
+  %61 = load ptr, ptr %5, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 352
+  %63 = load volatile i64, ptr %62, align 8
+  %64 = and i64 %63, 1
+  %65 = icmp eq i64 %64, 0
+  br i1 %65, label %66, label %70
 
-65:                                               ; preds = %58
-  %66 = load i32, ptr %33, align 64
-  %67 = and i32 %66, 8
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %69, label %71
+66:                                               ; preds = %59
+  %67 = load i32, ptr %34, align 64
+  %68 = and i32 %67, 8
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %70, label %72
 
-69:                                               ; preds = %65, %58
-  %70 = or i40 %59, 512
-  store i40 %70, ptr %16, align 1
-  br label %71
+70:                                               ; preds = %66, %59
+  %71 = or i40 %60, 512
+  store i40 %71, ptr %17, align 1
+  br label %72
 
-71:                                               ; preds = %69, %65
-  %72 = phi i40 [ %70, %69 ], [ %59, %65 ]
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 644
-  %74 = load i32, ptr %73, align 4
-  %75 = icmp ugt i32 %74, 3
-  br i1 %75, label %76, label %90
+72:                                               ; preds = %70, %66
+  %73 = phi i40 [ %71, %70 ], [ %60, %66 ]
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 644
+  %75 = load i32, ptr %74, align 4
+  %76 = icmp ugt i32 %75, 3
+  br i1 %76, label %77, label %91
 
-76:                                               ; preds = %71
-  %77 = and i80 %44, -268435458
-  %78 = or disjoint i80 %77, 1
-  store i80 %78, ptr %9, align 1
-  %79 = or i40 %72, 1032
-  store i40 %79, ptr %16, align 1
-  %80 = load i32, ptr %73, align 4
-  %81 = icmp ugt i32 %80, 7
-  br i1 %81, label %82, label %88
+77:                                               ; preds = %72
+  %78 = and i80 %45, -268435458
+  %79 = or disjoint i80 %78, 1
+  store i80 %79, ptr %9, align 1
+  %80 = or i40 %73, 1032
+  store i40 %80, ptr %17, align 1
+  %81 = load i32, ptr %74, align 4
+  %82 = icmp ugt i32 %81, 7
+  br i1 %82, label %83, label %89
 
-82:                                               ; preds = %76
-  %83 = or i80 %77, 67108865
-  store i80 %83, ptr %9, align 1
-  %84 = load i32, ptr %73, align 4
-  %85 = icmp ugt i32 %84, 15
-  br i1 %85, label %86, label %90
+83:                                               ; preds = %77
+  %84 = or i80 %78, 67108865
+  store i80 %84, ptr %9, align 1
+  %85 = load i32, ptr %74, align 4
+  %86 = icmp ugt i32 %85, 15
+  br i1 %86, label %87, label %91
 
-86:                                               ; preds = %82
+87:                                               ; preds = %83
   store i16 2080, ptr %4, align 1
-  %87 = or i40 %72, 4294968328
-  store i40 %87, ptr %16, align 1
-  br label %90
+  %88 = or i40 %73, 4294968328
+  store i40 %88, ptr %17, align 1
+  br label %91
 
-88:                                               ; preds = %76
-  %89 = and i80 %78, -805306369
-  store i80 %89, ptr %9, align 1
-  br label %90
+89:                                               ; preds = %77
+  %90 = and i80 %79, -805306369
+  store i80 %90, ptr %9, align 1
+  br label %91
 
-90:                                               ; preds = %88, %86, %82, %71
-  %91 = phi i80 [ %89, %88 ], [ %83, %86 ], [ %83, %82 ], [ %44, %71 ]
-  %92 = load i64, ptr %45, align 8
-  %93 = and i64 %92, 17592186044416
-  %94 = icmp eq i64 %93, 0
-  br i1 %94, label %98, label %95
+91:                                               ; preds = %89, %87, %83, %72
+  %92 = phi i80 [ %90, %89 ], [ %84, %87 ], [ %84, %83 ], [ %45, %72 ]
+  %93 = load i64, ptr %46, align 8
+  %94 = and i64 %93, 17592186044416
+  %95 = icmp eq i64 %94, 0
+  br i1 %95, label %99, label %96
 
-95:                                               ; preds = %90
-  %96 = and i80 %91, -7516192769
-  %97 = or disjoint i80 %96, 3221225472
-  store i80 %97, ptr %9, align 1
-  br label %98
+96:                                               ; preds = %91
+  %97 = and i80 %92, -7516192769
+  %98 = or disjoint i80 %97, 3221225472
+  store i80 %98, ptr %9, align 1
+  br label %99
 
-98:                                               ; preds = %95, %90
-  %99 = load i32, ptr %0, align 64
-  %100 = and i32 %99, 8192
-  %101 = icmp eq i32 %100, 0
-  br i1 %101, label %.thread6, label %102
+99:                                               ; preds = %96, %91
+  %100 = load i32, ptr %0, align 64
+  %101 = and i32 %100, 8192
+  %102 = icmp eq i32 %101, 0
+  br i1 %102, label %.thread6, label %103
 
-102:                                              ; preds = %98
-  %103 = load ptr, ptr %5, align 8
-  tail call void (ptr, ptr, ptr, ...) @netdev_printk(ptr noundef nonnull @.str.30, ptr noundef %103, ptr noundef nonnull @.str.31, ptr noundef nonnull %4) #20
+103:                                              ; preds = %99
+  %104 = load ptr, ptr %5, align 8
+  tail call void (ptr, ptr, ptr, ...) @netdev_printk(ptr noundef nonnull @.str.30, ptr noundef %104, ptr noundef nonnull @.str.31, ptr noundef nonnull %4) #20
   %.pre = load i32, ptr %0, align 64
   %.pre2 = and i32 %.pre, 8192
-  %104 = icmp eq i32 %.pre2, 0
-  br i1 %104, label %.thread6, label %105
+  %105 = icmp eq i32 %.pre2, 0
+  br i1 %105, label %.thread6, label %106
 
-105:                                              ; preds = %102
-  %106 = load ptr, ptr %5, align 8
-  %107 = getelementptr i8, ptr %1, i64 16
-  tail call void (ptr, ptr, ptr, ...) @netdev_printk(ptr noundef nonnull @.str.30, ptr noundef %106, ptr noundef nonnull @.str.32, ptr noundef %107) #20
+106:                                              ; preds = %103
+  %107 = load ptr, ptr %5, align 8
+  %108 = getelementptr i8, ptr %1, i64 16
+  tail call void (ptr, ptr, ptr, ...) @netdev_printk(ptr noundef nonnull @.str.30, ptr noundef %107, ptr noundef nonnull @.str.32, ptr noundef %108) #20
   %.pre1 = load i32, ptr %0, align 64
   %.pre3 = and i32 %.pre1, 8192
-  %108 = icmp eq i32 %.pre3, 0
-  br i1 %108, label %.thread6, label %109
+  %109 = icmp eq i32 %.pre3, 0
+  br i1 %109, label %.thread6, label %110
 
-109:                                              ; preds = %105
-  %110 = load ptr, ptr %5, align 8
-  %111 = getelementptr i8, ptr %1, i64 24
-  tail call void (ptr, ptr, ptr, ...) @netdev_printk(ptr noundef nonnull @.str.30, ptr noundef %110, ptr noundef nonnull @.str.33, ptr noundef %111) #20
+110:                                              ; preds = %106
+  %111 = load ptr, ptr %5, align 8
+  %112 = getelementptr i8, ptr %1, i64 24
+  tail call void (ptr, ptr, ptr, ...) @netdev_printk(ptr noundef nonnull @.str.30, ptr noundef %111, ptr noundef nonnull @.str.33, ptr noundef %112) #20
   br label %.thread6
 
-.thread6:                                         ; preds = %98, %102, %109, %105
+.thread6:                                         ; preds = %99, %103, %110, %106
   ret i32 0
 }
 

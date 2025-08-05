@@ -44104,9 +44104,9 @@ _ZNKSt6vectorIZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS2_10HeapEntityE
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #41
-          to label %.lr.ph185.preheader unwind label %22
+          to label %.lr.ph184.preheader unwind label %22
 
-.lr.ph185.preheader:                              ; preds = %_ZNKSt6vectorIZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS2_10HeapEntityEE5StateSaIS6_EE12_M_check_lenEmPKc.exit.i.i
+.lr.ph184.preheader:                              ; preds = %_ZNKSt6vectorIZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS2_10HeapEntityEE5StateSaIS6_EE12_M_check_lenEmPKc.exit.i.i
   store ptr %0, ptr %5, align 8, !tbaa !642
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -44114,12 +44114,12 @@ _ZNKSt6vectorIZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS2_10HeapEntityE
   store ptr %5, ptr %1, align 8, !tbaa !644
   store ptr %7, ptr %3, align 8, !tbaa !647
   store ptr %7, ptr %4, align 8, !tbaa !648
-  br label %.lr.ph185
+  br label %.lr.ph184
 
-.lr.ph185:                                        ; preds = %.lr.ph185.preheader, %_ZNSt6vectorIZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS2_10HeapEntityEE5StateSaIS6_EE12emplace_backIJRS5_EEERS6_DpOT_.exit250
-  %8 = phi ptr [ %427, %_ZNSt6vectorIZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS2_10HeapEntityEE5StateSaIS6_EE12emplace_backIJRS5_EEERS6_DpOT_.exit250 ], [ %5, %.lr.ph185.preheader ]
-  %9 = phi ptr [ %426, %_ZNSt6vectorIZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS2_10HeapEntityEE5StateSaIS6_EE12emplace_backIJRS5_EEERS6_DpOT_.exit250 ], [ %7, %.lr.ph185.preheader ]
-  %10 = phi ptr [ %425, %_ZNSt6vectorIZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS2_10HeapEntityEE5StateSaIS6_EE12emplace_backIJRS5_EEERS6_DpOT_.exit250 ], [ %7, %.lr.ph185.preheader ]
+.lr.ph184:                                        ; preds = %.lr.ph184.preheader, %_ZNSt6vectorIZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS2_10HeapEntityEE5StateSaIS6_EE12emplace_backIJRS5_EEERS6_DpOT_.exit250
+  %8 = phi ptr [ %427, %_ZNSt6vectorIZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS2_10HeapEntityEE5StateSaIS6_EE12emplace_backIJRS5_EEERS6_DpOT_.exit250 ], [ %5, %.lr.ph184.preheader ]
+  %9 = phi ptr [ %426, %_ZNSt6vectorIZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS2_10HeapEntityEE5StateSaIS6_EE12emplace_backIJRS5_EEERS6_DpOT_.exit250 ], [ %7, %.lr.ph184.preheader ]
+  %10 = phi ptr [ %425, %_ZNSt6vectorIZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS2_10HeapEntityEE5StateSaIS6_EE12emplace_backIJRS5_EEERS6_DpOT_.exit250 ], [ %7, %.lr.ph184.preheader ]
   %11 = ptrtoint ptr %8 to i64
   %12 = ptrtoint ptr %9 to i64
   %13 = sub i64 %12, %11
@@ -44131,7 +44131,7 @@ _ZNKSt6vectorIZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS2_10HeapEntityE
   %.not73 = icmp eq i8 %18, %2
   br i1 %.not73, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit146, label %19
 
-19:                                               ; preds = %.lr.ph185
+19:                                               ; preds = %.lr.ph184
   store i8 %2, ptr %17, align 8, !tbaa !160
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 9
   %21 = load i8, ptr %20, align 1, !tbaa !143
@@ -44153,22 +44153,22 @@ _ZNKSt6vectorIZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS2_10HeapEntityE
   %25 = getelementptr i8, ptr %16, i64 40
   %.val97 = load ptr, ptr %25, align 8, !tbaa !128
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.not18109 = icmp eq ptr %.val97, %26
-  br i1 %.not18109, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit146, label %.lr.ph112
+  %.not18108 = icmp eq ptr %.val97, %26
+  br i1 %.not18108, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit146, label %.lr.ph111
 
-.lr.ph112:                                        ; preds = %24
+.lr.ph111:                                        ; preds = %24
   %27 = getelementptr i8, ptr %14, i64 -24
   %28 = getelementptr i8, ptr %14, i64 -16
   %29 = getelementptr i8, ptr %14, i64 -8
-  %.pre276 = load ptr, ptr %28, align 8, !tbaa !155
-  %.pre277 = load ptr, ptr %29, align 8, !tbaa !156
+  %.pre271 = load ptr, ptr %28, align 8, !tbaa !155
+  %.pre272 = load ptr, ptr %29, align 8, !tbaa !156
   br label %30
 
-30:                                               ; preds = %.lr.ph112, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit
-  %31 = phi ptr [ %.pre277, %.lr.ph112 ], [ %55, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit ]
-  %32 = phi ptr [ %.pre276, %.lr.ph112 ], [ %56, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit ]
-  %.sroa.011.0110 = phi ptr [ %.val97, %.lr.ph112 ], [ %57, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit ]
-  %.sroa.432.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.011.0110, i64 40
+30:                                               ; preds = %.lr.ph111, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit
+  %31 = phi ptr [ %.pre272, %.lr.ph111 ], [ %55, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit ]
+  %32 = phi ptr [ %.pre271, %.lr.ph111 ], [ %56, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit ]
+  %.sroa.011.0109 = phi ptr [ %.val97, %.lr.ph111 ], [ %57, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit ]
+  %.sroa.432.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.011.0109, i64 40
   %.sroa.432.0.copyload = load ptr, ptr %.sroa.432.0..sroa_idx, align 8
   %.not.i.i = icmp eq ptr %32, %31
   br i1 %.not.i.i, label %35, label %33
@@ -44240,7 +44240,7 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_
 _ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit: ; preds = %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, %33
   %55 = phi ptr [ %54, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %31, %33 ]
   %56 = phi ptr [ %52, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %34, %33 ]
-  %57 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.011.0110) #43
+  %57 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.011.0109) #43
   %.not18 = icmp eq ptr %57, %26
   br i1 %.not18, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit146, label %30
 
@@ -44411,37 +44411,37 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_
   %113 = getelementptr i8, ptr %16, i64 40
   %.val96 = load ptr, ptr %113, align 8, !tbaa !128
   %114 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.not16100 = icmp eq ptr %.val96, %114
-  br i1 %.not16100, label %._crit_edge104, label %.lr.ph103
+  %.not1699 = icmp eq ptr %.val96, %114
+  br i1 %.not1699, label %._crit_edge103, label %.lr.ph102
 
-.lr.ph103:                                        ; preds = %112
+.lr.ph102:                                        ; preds = %112
   %115 = getelementptr i8, ptr %14, i64 -24
   %116 = getelementptr i8, ptr %14, i64 -16
   %117 = getelementptr i8, ptr %14, i64 -8
-  %.pre272 = load ptr, ptr %116, align 8, !tbaa !155
-  %.pre273 = load ptr, ptr %117, align 8, !tbaa !156
+  %.pre267 = load ptr, ptr %116, align 8, !tbaa !155
+  %.pre268 = load ptr, ptr %117, align 8, !tbaa !156
   br label %123
 
-._crit_edge104:                                   ; preds = %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit157, %112
+._crit_edge103:                                   ; preds = %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit157, %112
   %118 = getelementptr i8, ptr %16, i64 104
   %.val107 = load ptr, ptr %118, align 8, !tbaa !128
   %119 = getelementptr inbounds nuw i8, ptr %16, i64 88
-  %.not17105 = icmp eq ptr %.val107, %119
-  br i1 %.not17105, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit146, label %.lr.ph108
+  %.not17104 = icmp eq ptr %.val107, %119
+  br i1 %.not17104, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit146, label %.lr.ph107
 
-.lr.ph108:                                        ; preds = %._crit_edge104
+.lr.ph107:                                        ; preds = %._crit_edge103
   %120 = getelementptr i8, ptr %14, i64 -24
   %121 = getelementptr i8, ptr %14, i64 -16
   %122 = getelementptr i8, ptr %14, i64 -8
-  %.pre274 = load ptr, ptr %121, align 8, !tbaa !155
-  %.pre275 = load ptr, ptr %122, align 8, !tbaa !156
+  %.pre269 = load ptr, ptr %121, align 8, !tbaa !155
+  %.pre270 = load ptr, ptr %122, align 8, !tbaa !156
   br label %151
 
-123:                                              ; preds = %.lr.ph103, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit157
-  %124 = phi ptr [ %.pre273, %.lr.ph103 ], [ %148, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit157 ]
-  %125 = phi ptr [ %.pre272, %.lr.ph103 ], [ %149, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit157 ]
-  %.sroa.09.0101 = phi ptr [ %.val96, %.lr.ph103 ], [ %150, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit157 ]
-  %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.09.0101, i64 40
+123:                                              ; preds = %.lr.ph102, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit157
+  %124 = phi ptr [ %.pre268, %.lr.ph102 ], [ %148, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit157 ]
+  %125 = phi ptr [ %.pre267, %.lr.ph102 ], [ %149, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit157 ]
+  %.sroa.09.0100 = phi ptr [ %.val96, %.lr.ph102 ], [ %150, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit157 ]
+  %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.09.0100, i64 40
   %.sroa.424.0.copyload = load ptr, ptr %.sroa.424.0..sroa_idx, align 8
   %.not.i.i147 = icmp eq ptr %125, %124
   br i1 %.not.i.i147, label %128, label %126
@@ -44513,9 +44513,9 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_
 _ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit157: ; preds = %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i154, %126
   %148 = phi ptr [ %147, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i154 ], [ %124, %126 ]
   %149 = phi ptr [ %145, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i154 ], [ %127, %126 ]
-  %150 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.09.0101) #43
+  %150 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.09.0100) #43
   %.not16 = icmp eq ptr %150, %114
-  br i1 %.not16, label %._crit_edge104, label %123
+  br i1 %.not16, label %._crit_edge103, label %123
 
 .loopexit25:                                      ; preds = %_ZNKSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i149
   %lpad.loopexit27 = landingpad { ptr, i32 }
@@ -44530,11 +44530,11 @@ _ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6v
           cleanup
   br label %431
 
-151:                                              ; preds = %.lr.ph108, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit168
-  %152 = phi ptr [ %.pre275, %.lr.ph108 ], [ %176, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit168 ]
-  %153 = phi ptr [ %.pre274, %.lr.ph108 ], [ %177, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit168 ]
-  %.sroa.07.0106 = phi ptr [ %.val107, %.lr.ph108 ], [ %178, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit168 ]
-  %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.07.0106, i64 40
+151:                                              ; preds = %.lr.ph107, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit168
+  %152 = phi ptr [ %.pre270, %.lr.ph107 ], [ %176, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit168 ]
+  %153 = phi ptr [ %.pre269, %.lr.ph107 ], [ %177, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit168 ]
+  %.sroa.07.0105 = phi ptr [ %.val107, %.lr.ph107 ], [ %178, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit168 ]
+  %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.07.0105, i64 40
   %.sroa.420.0.copyload = load ptr, ptr %.sroa.420.0..sroa_idx, align 8
   %.not.i.i158 = icmp eq ptr %153, %152
   br i1 %.not.i.i158, label %156, label %154
@@ -44606,7 +44606,7 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_
 _ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit168: ; preds = %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i165, %154
   %176 = phi ptr [ %175, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i165 ], [ %152, %154 ]
   %177 = phi ptr [ %173, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i165 ], [ %155, %154 ]
-  %178 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.07.0106) #43
+  %178 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.07.0105) #43
   %.not17 = icmp eq ptr %178, %119
   br i1 %.not17, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit146, label %151
 
@@ -44628,22 +44628,22 @@ _ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6v
   %.val115 = load ptr, ptr %180, align 8, !tbaa !321
   %181 = getelementptr i8, ptr %16, i64 24
   %.val116 = load ptr, ptr %181, align 8, !tbaa !321
-  %.not1596 = icmp eq ptr %.val115, %.val116
-  br i1 %.not1596, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit146, label %.lr.ph99
+  %.not1595 = icmp eq ptr %.val115, %.val116
+  br i1 %.not1595, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit146, label %.lr.ph98
 
-.lr.ph99:                                         ; preds = %179
+.lr.ph98:                                         ; preds = %179
   %182 = getelementptr i8, ptr %14, i64 -24
   %183 = getelementptr i8, ptr %14, i64 -16
   %184 = getelementptr i8, ptr %14, i64 -8
-  %.pre270 = load ptr, ptr %183, align 8, !tbaa !155
-  %.pre271 = load ptr, ptr %184, align 8, !tbaa !156
+  %.pre265 = load ptr, ptr %183, align 8, !tbaa !155
+  %.pre266 = load ptr, ptr %184, align 8, !tbaa !156
   br label %185
 
-185:                                              ; preds = %.lr.ph99, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit179
-  %186 = phi ptr [ %.pre271, %.lr.ph99 ], [ %211, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit179 ]
-  %187 = phi ptr [ %.pre270, %.lr.ph99 ], [ %212, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit179 ]
-  %.sroa.05.097 = phi ptr [ %.val115, %.lr.ph99 ], [ %213, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit179 ]
-  %188 = load ptr, ptr %.sroa.05.097, align 8, !tbaa !192
+185:                                              ; preds = %.lr.ph98, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit179
+  %186 = phi ptr [ %.pre266, %.lr.ph98 ], [ %211, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit179 ]
+  %187 = phi ptr [ %.pre265, %.lr.ph98 ], [ %212, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit179 ]
+  %.sroa.05.096 = phi ptr [ %.val115, %.lr.ph98 ], [ %213, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit179 ]
+  %188 = load ptr, ptr %.sroa.05.096, align 8, !tbaa !192
   %.not.i.i169 = icmp eq ptr %187, %186
   br i1 %.not.i.i169, label %191, label %189
 
@@ -44714,7 +44714,7 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_
 _ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit179: ; preds = %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i176, %189
   %211 = phi ptr [ %210, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i176 ], [ %186, %189 ]
   %212 = phi ptr [ %208, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i176 ], [ %190, %189 ]
-  %213 = getelementptr inbounds nuw i8, ptr %.sroa.05.097, i64 8
+  %213 = getelementptr inbounds nuw i8, ptr %.sroa.05.096, i64 8
   %.not15 = icmp eq ptr %213, %.val116
   br i1 %.not15, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit146, label %185
 
@@ -44735,28 +44735,28 @@ _ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6v
   %215 = getelementptr i8, ptr %16, i64 40
   %.val95 = load ptr, ptr %215, align 8, !tbaa !128
   %216 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.not1491 = icmp eq ptr %.val95, %216
-  br i1 %.not1491, label %._crit_edge95, label %.lr.ph94
+  %.not1490 = icmp eq ptr %.val95, %216
+  br i1 %.not1490, label %._crit_edge94, label %.lr.ph93
 
-.lr.ph94:                                         ; preds = %214
+.lr.ph93:                                         ; preds = %214
   %217 = getelementptr i8, ptr %14, i64 -24
   %218 = getelementptr i8, ptr %14, i64 -16
   %219 = getelementptr i8, ptr %14, i64 -8
-  %.pre268 = load ptr, ptr %218, align 8, !tbaa !155
-  %.pre269 = load ptr, ptr %219, align 8, !tbaa !156
+  %.pre263 = load ptr, ptr %218, align 8, !tbaa !155
+  %.pre264 = load ptr, ptr %219, align 8, !tbaa !156
   br label %222
 
-._crit_edge95:                                    ; preds = %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit190, %214
+._crit_edge94:                                    ; preds = %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit190, %214
   %220 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %221 = load ptr, ptr %220, align 8, !tbaa !322
   %.not76 = icmp eq ptr %221, null
   br i1 %.not76, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit146, label %250
 
-222:                                              ; preds = %.lr.ph94, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit190
-  %223 = phi ptr [ %.pre269, %.lr.ph94 ], [ %247, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit190 ]
-  %224 = phi ptr [ %.pre268, %.lr.ph94 ], [ %248, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit190 ]
-  %.sroa.03.092 = phi ptr [ %.val95, %.lr.ph94 ], [ %249, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit190 ]
-  %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.03.092, i64 40
+222:                                              ; preds = %.lr.ph93, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit190
+  %223 = phi ptr [ %.pre264, %.lr.ph93 ], [ %247, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit190 ]
+  %224 = phi ptr [ %.pre263, %.lr.ph93 ], [ %248, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit190 ]
+  %.sroa.03.091 = phi ptr [ %.val95, %.lr.ph93 ], [ %249, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit190 ]
+  %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.03.091, i64 40
   %.sroa.49.0.copyload = load ptr, ptr %.sroa.49.0..sroa_idx, align 8
   %.not.i.i180 = icmp eq ptr %224, %223
   br i1 %.not.i.i180, label %227, label %225
@@ -44828,9 +44828,9 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_
 _ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit190: ; preds = %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i187, %225
   %247 = phi ptr [ %246, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i187 ], [ %223, %225 ]
   %248 = phi ptr [ %244, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i187 ], [ %226, %225 ]
-  %249 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.03.092) #43
+  %249 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.03.091) #43
   %.not14 = icmp eq ptr %249, %216
-  br i1 %.not14, label %._crit_edge95, label %222
+  br i1 %.not14, label %._crit_edge94, label %222
 
 .loopexit36:                                      ; preds = %_ZNKSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i182
   %lpad.loopexit38 = landingpad { ptr, i32 }
@@ -44845,7 +44845,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6v
           cleanup
   br label %431
 
-250:                                              ; preds = %._crit_edge95
+250:                                              ; preds = %._crit_edge94
   %251 = getelementptr i8, ptr %14, i64 -24
   %252 = getelementptr i8, ptr %14, i64 -16
   %253 = load ptr, ptr %252, align 8, !tbaa !155
@@ -44967,16 +44967,16 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_
   %297 = ptrtoint ptr %.val.i.i.i203 to i64
   %298 = sub i64 %296, %297
   %299 = icmp eq i64 %298, 9223372036854775800
-  br i1 %299, label %.invoke351, label %_ZNKSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i204
+  br i1 %299, label %.invoke346, label %_ZNKSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i204
 
-.invoke351:                                       ; preds = %295, %358
+.invoke346:                                       ; preds = %295, %358
   store ptr %8, ptr %1, align 8
   store ptr %9, ptr %3, align 8
   store ptr %10, ptr %4, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.98) #42
-          to label %.cont352 unwind label %.loopexit.split-lp47
+          to label %.cont347 unwind label %.loopexit.split-lp47
 
-.cont352:                                         ; preds = %.invoke351
+.cont347:                                         ; preds = %.invoke346
   unreachable
 
 _ZNKSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i204: ; preds = %295
@@ -45027,7 +45027,7 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_
   store ptr %10, ptr %4, align 8
   br label %431
 
-.loopexit.split-lp47:                             ; preds = %.invoke351
+.loopexit.split-lp47:                             ; preds = %.invoke346
   %lpad.loopexit.split-lp49 = landingpad { ptr, i32 }
           cleanup
   br label %431
@@ -45036,15 +45036,15 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_
   %315 = getelementptr i8, ptr %16, i64 64
   %.val108 = load ptr, ptr %315, align 8, !tbaa !128
   %316 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %.not1289 = icmp eq ptr %.val108, %316
-  br i1 %.not1289, label %._crit_edge, label %.lr.ph
+  %.not1288 = icmp eq ptr %.val108, %316
+  br i1 %.not1288, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %314
   %317 = getelementptr i8, ptr %14, i64 -24
   %318 = getelementptr i8, ptr %14, i64 -16
   %319 = getelementptr i8, ptr %14, i64 -8
   %.pre = load ptr, ptr %318, align 8, !tbaa !155
-  %.pre267 = load ptr, ptr %319, align 8, !tbaa !156
+  %.pre262 = load ptr, ptr %319, align 8, !tbaa !156
   br label %322
 
 ._crit_edge:                                      ; preds = %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit223, %314
@@ -45054,10 +45054,10 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_
   br i1 %.not74, label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit146, label %350
 
 322:                                              ; preds = %.lr.ph, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit223
-  %323 = phi ptr [ %.pre267, %.lr.ph ], [ %347, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit223 ]
+  %323 = phi ptr [ %.pre262, %.lr.ph ], [ %347, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit223 ]
   %324 = phi ptr [ %.pre, %.lr.ph ], [ %348, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit223 ]
-  %.sroa.01.090 = phi ptr [ %.val108, %.lr.ph ], [ %349, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit223 ]
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01.090, i64 40
+  %.sroa.01.089 = phi ptr [ %.val108, %.lr.ph ], [ %349, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit223 ]
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01.089, i64 40
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   %.not.i.i213 = icmp eq ptr %324, %323
   br i1 %.not.i.i213, label %327, label %325
@@ -45129,7 +45129,7 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_
 _ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit223: ; preds = %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i220, %325
   %347 = phi ptr [ %346, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i220 ], [ %323, %325 ]
   %348 = phi ptr [ %344, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i220 ], [ %326, %325 ]
-  %349 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.01.090) #43
+  %349 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.01.089) #43
   %.not12 = icmp eq ptr %349, %316
   br i1 %.not12, label %._crit_edge, label %322
 
@@ -45167,7 +45167,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6v
   %360 = ptrtoint ptr %.val.i.i.i225 to i64
   %361 = sub i64 %359, %360
   %362 = icmp eq i64 %361, 9223372036854775800
-  br i1 %362, label %.invoke351, label %_ZNKSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i226
+  br i1 %362, label %.invoke346, label %_ZNKSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i226
 
 _ZNKSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i226: ; preds = %358
   %363 = ashr exact i64 %361, 3
@@ -45209,7 +45209,7 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_
   store ptr %376, ptr %354, align 8, !tbaa !156
   br label %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit146
 
-_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit146: ; preds = %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit179, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit168, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit, %179, %._crit_edge104, %24, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i231, %356, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i209, %293, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i198, %256, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i143, %91, %282, %._crit_edge, %._crit_edge95, %19, %.lr.ph185
+_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit146: ; preds = %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit179, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit168, %_ZN7jsonnet8internal12_GLOBAL__N_14Heap15addIfHeapEntityEPNS1_10HeapEntityERSt6vectorIS4_SaIS4_EE.exit, %179, %._crit_edge103, %24, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i231, %356, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i209, %293, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i198, %256, %_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_110HeapEntityESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i143, %91, %282, %._crit_edge, %._crit_edge94, %19, %.lr.ph184
   %377 = getelementptr i8, ptr %14, i64 -24
   %.val = load ptr, ptr %377, align 8, !tbaa !159
   %378 = getelementptr i8, ptr %14, i64 -16
@@ -45337,7 +45337,7 @@ _ZNSt6vectorIZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS2_10HeapEntityEE
   %426 = phi ptr [ %418, %420 ], [ %418, %417 ], [ %389, %387 ], [ %415, %_ZNSt6vectorIZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS2_10HeapEntityEE5StateSaIS6_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i247 ]
   %427 = phi ptr [ %8, %420 ], [ %8, %417 ], [ %8, %387 ], [ %400, %_ZNSt6vectorIZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS2_10HeapEntityEE5StateSaIS6_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i247 ]
   %.not = icmp eq ptr %426, %427
-  br i1 %.not, label %_ZNSt6vectorIZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS2_10HeapEntityEE5StateSaIS6_EED2Ev.exit, label %.lr.ph185, !llvm.loop !655
+  br i1 %.not, label %_ZNSt6vectorIZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS2_10HeapEntityEE5StateSaIS6_EED2Ev.exit, label %.lr.ph184, !llvm.loop !655
 
 _ZNSt6vectorIZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS2_10HeapEntityEE5StateSaIS6_EED2Ev.exit: ; preds = %_ZNSt6vectorIZN7jsonnet8internal12_GLOBAL__N_14Heap8markFromEPNS2_10HeapEntityEE5StateSaIS6_EE12emplace_backIJRS5_EEERS6_DpOT_.exit250
   %428 = ptrtoint ptr %425 to i64

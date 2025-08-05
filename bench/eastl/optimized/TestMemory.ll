@@ -1150,13 +1150,13 @@ land.end341:                                      ; preds = %land.rhs339, %_ZN5e
   %call342 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %209, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 351, ptr noundef nonnull @.str.16)
   %210 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gLCTestObjectFalseFalse, i64 64), align 64
   %tobool.not.i255 = icmp eq ptr %210, null
-  br i1 %tobool.not.i255, label %invoke.cont352, label %if.then.i256
+  br i1 %tobool.not.i255, label %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE8destructEv.exit259, label %if.then.i256
 
 if.then.i256:                                     ; preds = %land.end341
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @gLCTestObjectFalseFalse, i64 64), align 64
-  br label %invoke.cont352
+  br label %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE8destructEv.exit259
 
-invoke.cont352:                                   ; preds = %land.end341, %if.then.i256
+_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE8destructEv.exit259: ; preds = %land.end341, %if.then.i256
   store i64 0, ptr @_ZN12LCTestObject12sTODtorCountE, align 8
   %mpValue.i = getelementptr inbounds nuw i8, ptr %lc, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %lc, i8 0, i64 64, i1 false)
@@ -1278,8 +1278,8 @@ invoke.cont352:                                   ; preds = %land.end341, %if.th
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %testCharArray479, i8 0, i64 10, i1 false)
   br label %for.body
 
-for.body:                                         ; preds = %invoke.cont352, %for.body
-  %indvars.iv = phi i64 [ 0, %invoke.cont352 ], [ %indvars.iv.next, %for.body ]
+for.body:                                         ; preds = %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE8destructEv.exit259, %for.body
+  %indvars.iv = phi i64 [ 0, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE8destructEv.exit259 ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr inbounds nuw %struct.foo, ptr %testCharArray479, i64 %indvars.iv
   %217 = load i8, ptr %arrayidx, align 1
   %cmp485 = icmp eq i8 %217, 0

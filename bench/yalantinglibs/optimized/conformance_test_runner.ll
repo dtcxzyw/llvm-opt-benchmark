@@ -2370,18 +2370,18 @@ invoke.cont10:                                    ; preds = %invoke.cont8
 
 invoke.cont12:                                    ; preds = %invoke.cont10
   invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(56) %call13)
-          to label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i unwind label %lpad9
+          to label %invoke.cont15 unwind label %lpad9
 
-_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i: ; preds = %invoke.cont12
+invoke.cont15:                                    ; preds = %invoke.cont12
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp7) #31
   %41 = load i32, ptr %child_pid_, align 8
   %call16 = call i32 @kill(i32 noundef %41, i32 noundef 3) #31
   call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %err) #31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %err, i8 0, i64 24, i1 false)
   %call5.i.i.i.i.i10 = invoke noalias noundef nonnull dereferenceable(5000) ptr @_Znwm(i64 noundef 5000) #33
-          to label %_ZNSt6vectorIcSaIcEE6resizeEm.exit unwind label %lpad17.loopexit.split-lp
+          to label %call5.i.i.i.i.i.noexc unwind label %lpad17.loopexit.split-lp
 
-_ZNSt6vectorIcSaIcEE6resizeEm.exit:               ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i
+call5.i.i.i.i.i.noexc:                            ; preds = %invoke.cont15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5000) %call5.i.i.i.i.i10, i8 0, i64 5000, i1 false)
   store ptr %call5.i.i.i.i.i10, ptr %err, align 8
   %add.ptr36.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i10, i64 5000
@@ -2389,10 +2389,10 @@ _ZNSt6vectorIcSaIcEE6resizeEm.exit:               ; preds = %_ZNKSt6vectorIcSaIc
   store ptr %add.ptr36.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %do.body
 
-do.body:                                          ; preds = %_ZNSt6vectorIcSaIcEE6resizeEm.exit, %land.rhs
-  %42 = phi ptr [ %45, %land.rhs ], [ %add.ptr36.i.i, %_ZNSt6vectorIcSaIcEE6resizeEm.exit ]
-  %43 = phi ptr [ %46, %land.rhs ], [ %call5.i.i.i.i.i10, %_ZNSt6vectorIcSaIcEE6resizeEm.exit ]
-  %err_ofs.0 = phi i64 [ %add, %land.rhs ], [ 0, %_ZNSt6vectorIcSaIcEE6resizeEm.exit ]
+do.body:                                          ; preds = %call5.i.i.i.i.i.noexc, %land.rhs
+  %42 = phi ptr [ %45, %land.rhs ], [ %add.ptr36.i.i, %call5.i.i.i.i.i.noexc ]
+  %43 = phi ptr [ %46, %land.rhs ], [ %call5.i.i.i.i.i10, %call5.i.i.i.i.i.noexc ]
+  %err_ofs.0 = phi i64 [ %add, %land.rhs ], [ 0, %call5.i.i.i.i.i.noexc ]
   %add.ptr.i11 = getelementptr inbounds i8, ptr %43, i64 %err_ofs.0
   %sub.ptr.lhs.cast.i = ptrtoint ptr %42 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %43 to i64
@@ -2481,7 +2481,7 @@ lpad17.loopexit:                                  ; preds = %do.body
           cleanup
   br label %ehcleanup
 
-lpad17.loopexit.split-lp:                         ; preds = %do.end, %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i
+lpad17.loopexit.split-lp:                         ; preds = %do.end, %invoke.cont15
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup

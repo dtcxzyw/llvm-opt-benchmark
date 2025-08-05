@@ -11539,7 +11539,7 @@ _ZNSt6vectorIN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %58 = add i64 %45, 1
   br label %_ZSt8_DestroyIPN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_EvT_SA_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_EvT_SA_RSaIT0_E.exit.i: ; preds = %57, %53
+_ZSt8_DestroyIPN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_EvT_SA_RSaIT0_E.exit.i: ; preds = %53, %57
   %storemerge = phi i64 [ %58, %57 ], [ 0, %53 ]
   store i64 %storemerge, ptr %28, align 8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24

@@ -7475,8 +7475,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, i8 0, i64 16, i1 false)
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %87 = sext i32 %1 to i64
-  %.not452 = icmp eq i32 %1, 0
-  br i1 %.not452, label %._crit_edge446, label %.lr.ph
+  %.not447 = icmp eq i32 %1, 0
+  br i1 %.not447, label %._crit_edge446, label %.lr.ph
 
 .lr.ph:                                           ; preds = %74, %90
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #21
@@ -11985,8 +11985,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %65
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, i8 0, i64 16, i1 false)
   %87 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %88 = sext i32 %1 to i64
-  %.not439 = icmp eq i32 %1, 0
-  br i1 %.not439, label %._crit_edge436, label %.lr.ph
+  %.not437 = icmp eq i32 %1, 0
+  br i1 %.not437, label %._crit_edge436, label %.lr.ph
 
 .lr.ph:                                           ; preds = %75, %91
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #21

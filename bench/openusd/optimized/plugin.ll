@@ -3226,21 +3226,21 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_10PlugPluginEEESa
           to label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_10PlugPluginEEESaIS3_EE9push_backEOS3_.exit unwind label %126
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_10PlugPluginEEESaIS3_EE9push_backEOS3_.exit: ; preds = %107
-  %.pre = load ptr, ptr %57, align 8
-  %.not.i.i.i.i13 = icmp eq ptr %.pre, null
+  %.pr = load ptr, ptr %57, align 8
+  %.not.i.i.i.i13 = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i.i13, label %.preheader.i.preheader, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_10PlugPluginEEESaIS3_EE9push_backEOS3_.exit
-  %108 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
   %109 = atomicrmw sub ptr %108, i32 1 release, align 4
   %110 = icmp eq i32 %109, 1
   br i1 %110, label %111, label %.preheader.i.preheader
 
 111:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i
-  %112 = load ptr, ptr %.pre, align 8
+  %112 = load ptr, ptr %.pr, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load ptr, ptr %113, align 8
-  call void %114(ptr noundef nonnull align 8 dereferenceable(12) %.pre) #24
+  call void %114(ptr noundef nonnull align 8 dereferenceable(12) %.pr) #24
   br label %.preheader.i.preheader
 
 .preheader.i.preheader:                           ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_10PlugPluginEEESaIS3_EE9push_backEOS3_.exit.thread, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_10PlugPluginEEESaIS3_EE9push_backEOS3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i, %111

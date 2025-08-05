@@ -1016,7 +1016,7 @@ _ZN6duckdb12Deserializer23ReadPropertyWithDefaultIiEEvtPKcRT_.exit: ; preds = %.
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 56
   %31 = load ptr, ptr %30, align 8
   invoke void %31(ptr noundef nonnull align 8 dereferenceable(632) %1)
-          to label %_ZN6duckdb11LogicalTypeaSEOS0_.exit.i unwind label %32
+          to label %_ZN6duckdb12Deserializer4ReadINS_11LogicalTypeEEENSt9enable_ifIXsr15has_deserializeIT_EE5valueES4_E4typeEv.exit.i unwind label %32
 
 32:                                               ; preds = %.noexc15
   %33 = landingpad { ptr, i32 }
@@ -1024,7 +1024,7 @@ _ZN6duckdb12Deserializer23ReadPropertyWithDefaultIiEEvtPKcRT_.exit: ; preds = %.
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #22
   br label %.body
 
-_ZN6duckdb11LogicalTypeaSEOS0_.exit.i:            ; preds = %.noexc15
+_ZN6duckdb12Deserializer4ReadINS_11LogicalTypeEEENSt9enable_ifIXsr15has_deserializeIT_EE5valueES4_E4typeEv.exit.i: ; preds = %.noexc15
   %34 = load i8, ptr %5, align 8, !tbaa !109
   store i8 %34, ptr %22, align 8, !tbaa !109
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -1051,7 +1051,7 @@ _ZN6duckdb11LogicalTypeaSEOS0_.exit.i:            ; preds = %.noexc15
   invoke void %48(ptr noundef nonnull align 8 dereferenceable(632) %1)
           to label %_ZN6duckdb12Deserializer12ReadPropertyINS_11LogicalTypeEEEvtPKcRT_.exit unwind label %87
 
-_ZN6duckdb12Deserializer12ReadPropertyINS_11LogicalTypeEEEvtPKcRT_.exit: ; preds = %_ZN6duckdb11LogicalTypeaSEOS0_.exit.i
+_ZN6duckdb12Deserializer12ReadPropertyINS_11LogicalTypeEEEvtPKcRT_.exit: ; preds = %_ZN6duckdb12Deserializer4ReadINS_11LogicalTypeEEENSt9enable_ifIXsr15has_deserializeIT_EE5valueES4_E4typeEv.exit.i
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %50 = load ptr, ptr %1, align 8, !tbaa !83
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
@@ -1160,7 +1160,7 @@ _ZN6duckdb12Deserializer31ReadPropertyWithExplicitDefaultINS_5ValueEEEvtPKcRT_S5
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #22
   ret void
 
-87:                                               ; preds = %_ZN6duckdb12Deserializer4ReadINS_5ValueEEENSt9enable_ifIXsr15has_deserializeIT_EE5valueES4_E4typeEv.exit.i, %.noexc18, %.noexc17, %_ZN6duckdb12Deserializer12ReadPropertyINS_11LogicalTypeEEEvtPKcRT_.exit, %_ZN6duckdb11LogicalTypeaSEOS0_.exit.i, %.noexc14, %.noexc13, %21, %.noexc11, %12, %2, %_ZN6duckdb12Deserializer12ReadPropertyINS_5ValueEEEvtPKcRT_.exit, %_ZN6duckdb12Deserializer23ReadPropertyWithDefaultIiEEvtPKcRT_.exit
+87:                                               ; preds = %_ZN6duckdb12Deserializer4ReadINS_5ValueEEENSt9enable_ifIXsr15has_deserializeIT_EE5valueES4_E4typeEv.exit.i, %.noexc18, %.noexc17, %_ZN6duckdb12Deserializer12ReadPropertyINS_11LogicalTypeEEEvtPKcRT_.exit, %_ZN6duckdb12Deserializer4ReadINS_11LogicalTypeEEENSt9enable_ifIXsr15has_deserializeIT_EE5valueES4_E4typeEv.exit.i, %.noexc14, %.noexc13, %21, %.noexc11, %12, %2, %_ZN6duckdb12Deserializer12ReadPropertyINS_5ValueEEEvtPKcRT_.exit, %_ZN6duckdb12Deserializer23ReadPropertyWithDefaultIiEEvtPKcRT_.exit
   %88 = landingpad { ptr, i32 }
           cleanup
   br label %.body

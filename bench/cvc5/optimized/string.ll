@@ -84,8 +84,8 @@ define hidden void @_ZN4cvc58internal6StringC2ERKNSt7__cxx1112basic_stringIwSt11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !3
-  %.not12 = icmp eq i64 %4, 0
-  br i1 %.not12, label %._crit_edge, label %5
+  %.not = icmp eq i64 %4, 0
+  br i1 %.not, label %._crit_edge, label %5
 
 5:                                                ; preds = %2
   invoke void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %4)
@@ -93,8 +93,8 @@ define hidden void @_ZN4cvc58internal6StringC2ERKNSt7__cxx1112basic_stringIwSt11
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %5
   %.pre = load i64, ptr %3, align 8, !tbaa !3
-  %.not = icmp eq i64 %.pre, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  %.not11 = icmp eq i64 %.pre, 0
+  br i1 %.not11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
   %6 = load ptr, ptr %1, align 8, !tbaa !11

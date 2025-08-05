@@ -7411,8 +7411,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm8FastISel11lowerCallToEPKNS_8CallIn
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %12 = zext i32 %3 to i64
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.not24 = icmp eq i32 %3, 0
-  br i1 %.not24, label %._crit_edge, label %.lr.ph
+  %.not21 = icmp eq i32 %3, 0
+  br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %14 = mul nuw nsw i64 %12, 48

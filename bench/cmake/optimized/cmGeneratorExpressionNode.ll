@@ -42548,9 +42548,9 @@ define internal void @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11c
 
 18:                                               ; preds = %14
   %19 = invoke ptr @_ZN6cmList6InsertERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEN9__gnu_cxx17__normal_iteratorIPKS6_S8_EERSC_NS_14ExpandElementsENS_13EmptyElementsE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr null, ptr noundef nonnull align 8 dereferenceable(32) %.val.i.i.i, i32 noundef 1, i32 noundef 1)
-          to label %._crit_edge.i.i.i unwind label %20, !noalias !1520
+          to label %._ZN6cmList5clearEv.exit.i_crit_edge.i.i.i unwind label %20, !noalias !1520
 
-._crit_edge.i.i.i:                                ; preds = %18
+._ZN6cmList5clearEv.exit.i_crit_edge.i.i.i:       ; preds = %18
   %.pre.i.i.i = load ptr, ptr %4, align 8, !tbaa !655, !noalias !1520
   br label %_ZN6cmList5clearEv.exit.i.i.i.i
 
@@ -42564,8 +42564,8 @@ common.resume.i.i.i:                              ; preds = %.body.i.i.i, %20
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #29, !noalias !1520
   br label %common.resume.i.i.i
 
-_ZN6cmList5clearEv.exit.i.i.i.i:                  ; preds = %._crit_edge.i.i.i, %14
-  %22 = phi ptr [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %.val.i.i.i, %14 ]
+_ZN6cmList5clearEv.exit.i.i.i.i:                  ; preds = %._ZN6cmList5clearEv.exit.i_crit_edge.i.i.i, %14
+  %22 = phi ptr [ %.pre.i.i.i, %._ZN6cmList5clearEv.exit.i_crit_edge.i.i.i ], [ %.val.i.i.i, %14 ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr %23, ptr %4, align 8, !tbaa !655, !noalias !1520
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #29, !noalias !1520

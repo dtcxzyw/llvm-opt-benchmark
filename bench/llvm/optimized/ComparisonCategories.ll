@@ -1143,34 +1143,32 @@ define dso_local range(i64 0, -15) i64 @_ZNK5clang22ComparisonCategoryInfo7getTy
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang20ComparisonCategories25getPossibleResultsForTypeENS_22ComparisonCategoryTypeE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.394") align 8 captures(none) initializes((0, 24)) %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 2 {
-_ZNSt6vectorIN5clang24ComparisonCategoryResultESaIS1_EE9push_backEOS1_.exit:
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %2, align 8
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+_ZNSt6vectorIN5clang24ComparisonCategoryResultESaIS1_EE9push_backEOS1_.exit20:
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #15
   store ptr %4, ptr %0, align 8, !tbaa !478
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store ptr %5, ptr %3, align 8, !tbaa !480
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = icmp ne i8 %1, 2
-  %8 = zext i1 %7 to i8
-  store i8 %8, ptr %4, align 1, !tbaa !32
-  %9 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 2, ptr %9, align 1, !tbaa !32
-  %10 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i8 3, ptr %10, align 1, !tbaa !32
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  store ptr %11, ptr %6, align 8, !tbaa !481
-  %12 = icmp eq i8 %1, 0
-  br i1 %12, label %13, label %_ZNSt6vectorIN5clang24ComparisonCategoryResultESaIS1_EE9push_backEOS1_.exit29
+  store ptr %5, ptr %2, align 8, !tbaa !480
+  %6 = icmp ne i8 %1, 2
+  %7 = zext i1 %6 to i8
+  store i8 %7, ptr %4, align 1, !tbaa !32
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  store i8 2, ptr %8, align 1, !tbaa !32
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  store i8 3, ptr %9, align 1, !tbaa !32
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 3
+  store ptr %10, ptr %3, align 8, !tbaa !481
+  %11 = icmp eq i8 %1, 0
+  br i1 %11, label %12, label %_ZNSt6vectorIN5clang24ComparisonCategoryResultESaIS1_EE9push_backEOS1_.exit29
 
-13:                                               ; preds = %_ZNSt6vectorIN5clang24ComparisonCategoryResultESaIS1_EE9push_backEOS1_.exit
-  store i8 4, ptr %11, align 1, !tbaa !32
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store ptr %14, ptr %6, align 8, !tbaa !481
+12:                                               ; preds = %_ZNSt6vectorIN5clang24ComparisonCategoryResultESaIS1_EE9push_backEOS1_.exit20
+  store i8 4, ptr %10, align 1, !tbaa !32
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store ptr %13, ptr %3, align 8, !tbaa !481
   br label %_ZNSt6vectorIN5clang24ComparisonCategoryResultESaIS1_EE9push_backEOS1_.exit29
 
-_ZNSt6vectorIN5clang24ComparisonCategoryResultESaIS1_EE9push_backEOS1_.exit29: ; preds = %13, %_ZNSt6vectorIN5clang24ComparisonCategoryResultESaIS1_EE9push_backEOS1_.exit
+_ZNSt6vectorIN5clang24ComparisonCategoryResultESaIS1_EE9push_backEOS1_.exit29: ; preds = %12, %_ZNSt6vectorIN5clang24ComparisonCategoryResultESaIS1_EE9push_backEOS1_.exit20
   ret void
 }
 

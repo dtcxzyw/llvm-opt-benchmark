@@ -1491,15 +1491,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit18: ; preds = 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_ET0_T_SB_SA_.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit18, %67
   %69 = load i64, ptr %63, align 8, !tbaa !29
   %.not.i.i.i.i.i19 = icmp samesign eq i64 %69, 0
-  br i1 %.not.i.i.i.i.i19, label %_ZN4LIEF15vector_iostream5writeINS_3ELF7details14Elf32_PrpsinfoEvEERS0_RKT_.exit, label %70
+  br i1 %.not.i.i.i.i.i19, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_ET0_T_SB_SA_.exit20, label %70
 
 70:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_ET0_T_SB_SA_.exit
   %71 = load ptr, ptr %6, align 8, !tbaa !49
   %.sroa.16.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.16, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.16.16..sroa_idx, ptr align 1 %71, i64 %69, i1 false)
-  br label %_ZN4LIEF15vector_iostream5writeINS_3ELF7details14Elf32_PrpsinfoEvEERS0_RKT_.exit
+  br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_ET0_T_SB_SA_.exit20
 
-_ZN4LIEF15vector_iostream5writeINS_3ELF7details14Elf32_PrpsinfoEvEERS0_RKT_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_ET0_T_SB_SA_.exit, %70
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_ET0_T_SB_SA_.exit20: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_ET0_T_SB_SA_.exit, %70
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #21
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 64
@@ -1508,56 +1508,56 @@ _ZN4LIEF15vector_iostream5writeINS_3ELF7details14Elf32_PrpsinfoEvEERS0_RKT_.exit
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store i8 0, ptr %74, align 8, !tbaa !75
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %76 = getelementptr inbounds nuw i8, ptr %7, i64 48
   call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %72, i64 noundef 124)
-  %77 = load ptr, ptr %73, align 8, !tbaa !65
-  %78 = load ptr, ptr %77, align 8, !tbaa !31
-  store i8 %8, ptr %78, align 1
-  %.sroa.6.0..sroa_idx27 = getelementptr inbounds nuw i8, ptr %78, i64 1
+  %76 = load ptr, ptr %73, align 8, !tbaa !65
+  %77 = load ptr, ptr %76, align 8, !tbaa !31
+  store i8 %8, ptr %77, align 1
+  %.sroa.6.0..sroa_idx27 = getelementptr inbounds nuw i8, ptr %77, i64 1
   store i8 %10, ptr %.sroa.6.0..sroa_idx27, align 1
-  %.sroa.7.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %78, i64 2
+  %.sroa.7.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %77, i64 2
   store i8 %12, ptr %.sroa.7.0..sroa_idx29, align 1
-  %.sroa.8.0..sroa_idx31 = getelementptr inbounds nuw i8, ptr %78, i64 3
+  %.sroa.8.0..sroa_idx31 = getelementptr inbounds nuw i8, ptr %77, i64 3
   store i8 %14, ptr %.sroa.8.0..sroa_idx31, align 1
-  %.sroa.9.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %78, i64 4
+  %.sroa.9.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %77, i64 4
   store i32 %17, ptr %.sroa.9.0..sroa_idx33, align 1
-  %.sroa.10.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %.sroa.10.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store i16 %20, ptr %.sroa.10.0..sroa_idx35, align 1
-  %.sroa.11.0..sroa_idx37 = getelementptr inbounds nuw i8, ptr %78, i64 10
+  %.sroa.11.0..sroa_idx37 = getelementptr inbounds nuw i8, ptr %77, i64 10
   store i16 %23, ptr %.sroa.11.0..sroa_idx37, align 1
-  %.sroa.12.0..sroa_idx39 = getelementptr inbounds nuw i8, ptr %78, i64 12
+  %.sroa.12.0..sroa_idx39 = getelementptr inbounds nuw i8, ptr %77, i64 12
   store i32 %25, ptr %.sroa.12.0..sroa_idx39, align 1
-  %.sroa.13.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %78, i64 16
+  %.sroa.13.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %77, i64 16
   store i32 %27, ptr %.sroa.13.0..sroa_idx41, align 1
-  %.sroa.14.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %78, i64 20
+  %.sroa.14.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %77, i64 20
   store i32 %29, ptr %.sroa.14.0..sroa_idx43, align 1
-  %.sroa.15.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %78, i64 24
+  %.sroa.15.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %77, i64 24
   store i32 %31, ptr %.sroa.15.0..sroa_idx45, align 1
-  %.sroa.16.0..sroa_idx47 = getelementptr inbounds nuw i8, ptr %78, i64 28
+  %.sroa.16.0..sroa_idx47 = getelementptr inbounds nuw i8, ptr %77, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(96) %.sroa.16.0..sroa_idx47, ptr noundef nonnull align 4 dereferenceable(96) %.sroa.16, i64 96, i1 false)
-  %79 = load i64, ptr %75, align 8, !tbaa !76
-  %80 = add nsw i64 %79, 124
-  store i64 %80, ptr %75, align 8, !tbaa !76
-  %81 = load ptr, ptr %0, align 8, !tbaa !31
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %84 = load ptr, ptr %83, align 8, !tbaa !77
-  %85 = load ptr, ptr %72, align 8, !tbaa !31
-  store ptr %85, ptr %0, align 8, !tbaa !31
-  %86 = load ptr, ptr %76, align 8, !tbaa !35
-  store ptr %86, ptr %82, align 8, !tbaa !35
+  %78 = load i64, ptr %75, align 8, !tbaa !76
+  %79 = add nsw i64 %78, 124
+  store i64 %79, ptr %75, align 8, !tbaa !76
+  %80 = load ptr, ptr %0, align 8, !tbaa !31
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %83 = load ptr, ptr %82, align 8, !tbaa !77
+  %84 = load ptr, ptr %72, align 8, !tbaa !31
+  store ptr %84, ptr %0, align 8, !tbaa !31
+  %85 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %86 = load ptr, ptr %85, align 8, !tbaa !35
+  store ptr %86, ptr %81, align 8, !tbaa !35
   %87 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %88 = load ptr, ptr %87, align 8, !tbaa !77
-  store ptr %88, ptr %83, align 8, !tbaa !77
-  %.not.i.i.i.i.i.i = icmp eq ptr %81, null
+  store ptr %88, ptr %82, align 8, !tbaa !77
+  %.not.i.i.i.i.i.i = icmp eq ptr %80, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %72, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i, label %_ZN4LIEF15vector_iostream4moveERSt6vectorIhSaIhEE.exit
 
-_ZN4LIEF15vector_iostream4moveERSt6vectorIhSaIhEE.exit: ; preds = %_ZN4LIEF15vector_iostream5writeINS_3ELF7details14Elf32_PrpsinfoEvEERS0_RKT_.exit
-  %89 = ptrtoint ptr %84 to i64
-  %90 = ptrtoint ptr %81 to i64
+_ZN4LIEF15vector_iostream4moveERSt6vectorIhSaIhEE.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_ET0_T_SB_SA_.exit20
+  %89 = ptrtoint ptr %83 to i64
+  %90 = ptrtoint ptr %80 to i64
   %91 = sub i64 %89, %90
-  call void @_ZdlPvm(ptr noundef nonnull %81, i64 noundef %91) #22
+  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %91) #22
   %.pr = load ptr, ptr %72, align 8, !tbaa !31
   %.not.i.i.i.i = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i, label %92
@@ -1570,7 +1570,7 @@ _ZN4LIEF15vector_iostream4moveERSt6vectorIhSaIhEE.exit: ; preds = %_ZN4LIEF15vec
   call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %96) #22
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit.i
 
-_ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %_ZN4LIEF15vector_iostream5writeINS_3ELF7details14Elf32_PrpsinfoEvEERS0_RKT_.exit, %92, %_ZN4LIEF15vector_iostream4moveERSt6vectorIhSaIhEE.exit
+_ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_ET0_T_SB_SA_.exit20, %92, %_ZN4LIEF15vector_iostream4moveERSt6vectorIhSaIhEE.exit
   %97 = load ptr, ptr %7, align 8, !tbaa !78
   %98 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %99 = load ptr, ptr %98, align 8, !tbaa !79
@@ -1788,15 +1788,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit18: ; preds = 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_ET0_T_SB_SA_.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit18, %64
   %66 = load i64, ptr %60, align 8, !tbaa !29
   %.not.i.i.i.i.i19 = icmp samesign eq i64 %66, 0
-  br i1 %.not.i.i.i.i.i19, label %_ZN4LIEF15vector_iostream5writeINS_3ELF7details14Elf64_PrpsinfoEvEERS0_RKT_.exit, label %67
+  br i1 %.not.i.i.i.i.i19, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_ET0_T_SB_SA_.exit20, label %67
 
 67:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_ET0_T_SB_SA_.exit
   %68 = load ptr, ptr %6, align 8, !tbaa !49
   %.sroa.16.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.16, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.16.16..sroa_idx, ptr align 1 %68, i64 %66, i1 false)
-  br label %_ZN4LIEF15vector_iostream5writeINS_3ELF7details14Elf64_PrpsinfoEvEERS0_RKT_.exit
+  br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_ET0_T_SB_SA_.exit20
 
-_ZN4LIEF15vector_iostream5writeINS_3ELF7details14Elf64_PrpsinfoEvEERS0_RKT_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_ET0_T_SB_SA_.exit, %67
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_ET0_T_SB_SA_.exit20: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_ET0_T_SB_SA_.exit, %67
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #21
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %70 = getelementptr inbounds nuw i8, ptr %7, i64 64
@@ -1805,58 +1805,58 @@ _ZN4LIEF15vector_iostream5writeINS_3ELF7details14Elf64_PrpsinfoEvEERS0_RKT_.exit
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store i8 0, ptr %71, align 8, !tbaa !75
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %73 = getelementptr inbounds nuw i8, ptr %7, i64 48
   call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %69, i64 noundef 136)
-  %74 = load ptr, ptr %70, align 8, !tbaa !65
-  %75 = load ptr, ptr %74, align 8, !tbaa !31
-  store i8 %8, ptr %75, align 1
-  %.sroa.6.0..sroa_idx27 = getelementptr inbounds nuw i8, ptr %75, i64 1
+  %73 = load ptr, ptr %70, align 8, !tbaa !65
+  %74 = load ptr, ptr %73, align 8, !tbaa !31
+  store i8 %8, ptr %74, align 1
+  %.sroa.6.0..sroa_idx27 = getelementptr inbounds nuw i8, ptr %74, i64 1
   store i8 %10, ptr %.sroa.6.0..sroa_idx27, align 1
-  %.sroa.7.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %75, i64 2
+  %.sroa.7.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %74, i64 2
   store i8 %12, ptr %.sroa.7.0..sroa_idx29, align 1
-  %.sroa.8.0..sroa_idx31 = getelementptr inbounds nuw i8, ptr %75, i64 3
+  %.sroa.8.0..sroa_idx31 = getelementptr inbounds nuw i8, ptr %74, i64 3
   store i8 %14, ptr %.sroa.8.0..sroa_idx31, align 1
-  %.sroa.9.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %75, i64 4
+  %.sroa.9.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %74, i64 4
   store i32 0, ptr %.sroa.9.0..sroa_idx33, align 1
-  %.sroa.935.0..sroa_idx36 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %.sroa.935.0..sroa_idx36 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i64 %16, ptr %.sroa.935.0..sroa_idx36, align 1
-  %.sroa.10.0..sroa_idx38 = getelementptr inbounds nuw i8, ptr %75, i64 16
+  %.sroa.10.0..sroa_idx38 = getelementptr inbounds nuw i8, ptr %74, i64 16
   store i32 %18, ptr %.sroa.10.0..sroa_idx38, align 1
-  %.sroa.11.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %75, i64 20
+  %.sroa.11.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %74, i64 20
   store i32 %20, ptr %.sroa.11.0..sroa_idx40, align 1
-  %.sroa.12.0..sroa_idx42 = getelementptr inbounds nuw i8, ptr %75, i64 24
+  %.sroa.12.0..sroa_idx42 = getelementptr inbounds nuw i8, ptr %74, i64 24
   store i32 %22, ptr %.sroa.12.0..sroa_idx42, align 1
-  %.sroa.13.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %75, i64 28
+  %.sroa.13.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %74, i64 28
   store i32 %24, ptr %.sroa.13.0..sroa_idx44, align 1
-  %.sroa.14.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %75, i64 32
+  %.sroa.14.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %74, i64 32
   store i32 %26, ptr %.sroa.14.0..sroa_idx46, align 1
-  %.sroa.15.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %75, i64 36
+  %.sroa.15.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %74, i64 36
   store i32 %28, ptr %.sroa.15.0..sroa_idx48, align 1
-  %.sroa.16.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %75, i64 40
+  %.sroa.16.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %74, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(96) %.sroa.16.0..sroa_idx50, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.16, i64 96, i1 false)
-  %76 = load i64, ptr %72, align 8, !tbaa !76
-  %77 = add nsw i64 %76, 136
-  store i64 %77, ptr %72, align 8, !tbaa !76
-  %78 = load ptr, ptr %0, align 8, !tbaa !31
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = load ptr, ptr %80, align 8, !tbaa !77
-  %82 = load ptr, ptr %69, align 8, !tbaa !31
-  store ptr %82, ptr %0, align 8, !tbaa !31
-  %83 = load ptr, ptr %73, align 8, !tbaa !35
-  store ptr %83, ptr %79, align 8, !tbaa !35
+  %75 = load i64, ptr %72, align 8, !tbaa !76
+  %76 = add nsw i64 %75, 136
+  store i64 %76, ptr %72, align 8, !tbaa !76
+  %77 = load ptr, ptr %0, align 8, !tbaa !31
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load ptr, ptr %79, align 8, !tbaa !77
+  %81 = load ptr, ptr %69, align 8, !tbaa !31
+  store ptr %81, ptr %0, align 8, !tbaa !31
+  %82 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %83 = load ptr, ptr %82, align 8, !tbaa !35
+  store ptr %83, ptr %78, align 8, !tbaa !35
   %84 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %85 = load ptr, ptr %84, align 8, !tbaa !77
-  store ptr %85, ptr %80, align 8, !tbaa !77
-  %.not.i.i.i.i.i.i = icmp eq ptr %78, null
+  store ptr %85, ptr %79, align 8, !tbaa !77
+  %.not.i.i.i.i.i.i = icmp eq ptr %77, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i, label %_ZN4LIEF15vector_iostream4moveERSt6vectorIhSaIhEE.exit
 
-_ZN4LIEF15vector_iostream4moveERSt6vectorIhSaIhEE.exit: ; preds = %_ZN4LIEF15vector_iostream5writeINS_3ELF7details14Elf64_PrpsinfoEvEERS0_RKT_.exit
-  %86 = ptrtoint ptr %81 to i64
-  %87 = ptrtoint ptr %78 to i64
+_ZN4LIEF15vector_iostream4moveERSt6vectorIhSaIhEE.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_ET0_T_SB_SA_.exit20
+  %86 = ptrtoint ptr %80 to i64
+  %87 = ptrtoint ptr %77 to i64
   %88 = sub i64 %86, %87
-  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef %88) #22
+  call void @_ZdlPvm(ptr noundef nonnull %77, i64 noundef %88) #22
   %.pr = load ptr, ptr %69, align 8, !tbaa !31
   %.not.i.i.i.i = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i, label %89
@@ -1869,7 +1869,7 @@ _ZN4LIEF15vector_iostream4moveERSt6vectorIhSaIhEE.exit: ; preds = %_ZN4LIEF15vec
   call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %93) #22
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit.i
 
-_ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %_ZN4LIEF15vector_iostream5writeINS_3ELF7details14Elf64_PrpsinfoEvEERS0_RKT_.exit, %89, %_ZN4LIEF15vector_iostream4moveERSt6vectorIhSaIhEE.exit
+_ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_ET0_T_SB_SA_.exit20, %89, %_ZN4LIEF15vector_iostream4moveERSt6vectorIhSaIhEE.exit
   %94 = load ptr, ptr %7, align 8, !tbaa !78
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %96 = load ptr, ptr %95, align 8, !tbaa !79

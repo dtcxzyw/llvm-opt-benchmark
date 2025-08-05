@@ -55292,7 +55292,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55: ; preds = %_ZN
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 24
   %172 = load ptr, ptr %171, align 8
   call void %172(ptr noundef nonnull align 8 dereferenceable(16) %159) #36
-  br label %_ZNSt10shared_ptrIN6open3d8geometry10PointCloudEEaSEOS3_.exit
+  br label %_ZNSt10shared_ptrIN6open3d8geometry10PointCloudEEaSEOS3_.exitthread-pre-split
 
 173:                                              ; preds = %160
   %174 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !72
@@ -55311,14 +55311,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55: ; preds = %_ZN
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %177, %175
   %.0.i.i.i.i.i.i = phi i32 [ %164, %175 ], [ %178, %177 ]
   %179 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %179, label %180, label %_ZNSt10shared_ptrIN6open3d8geometry10PointCloudEEaSEOS3_.exit, !prof !22
+  br i1 %179, label %180, label %_ZNSt10shared_ptrIN6open3d8geometry10PointCloudEEaSEOS3_.exitthread-pre-split, !prof !22
 
 180:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %159) #36
+  br label %_ZNSt10shared_ptrIN6open3d8geometry10PointCloudEEaSEOS3_.exitthread-pre-split
+
+_ZNSt10shared_ptrIN6open3d8geometry10PointCloudEEaSEOS3_.exitthread-pre-split: ; preds = %180, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %165
+  %.pr = load ptr, ptr %62, align 8, !tbaa !81
   br label %_ZNSt10shared_ptrIN6open3d8geometry10PointCloudEEaSEOS3_.exit
 
-_ZNSt10shared_ptrIN6open3d8geometry10PointCloudEEaSEOS3_.exit: ; preds = %156, %165, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %180
-  %181 = load ptr, ptr %62, align 8, !tbaa !81
+_ZNSt10shared_ptrIN6open3d8geometry10PointCloudEEaSEOS3_.exit: ; preds = %_ZNSt10shared_ptrIN6open3d8geometry10PointCloudEEaSEOS3_.exitthread-pre-split, %156
+  %181 = phi ptr [ %.pr, %_ZNSt10shared_ptrIN6open3d8geometry10PointCloudEEaSEOS3_.exitthread-pre-split ], [ null, %156 ]
   %.not.i.i = icmp eq ptr %181, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN6open3d8geometry10PointCloudELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %182
 

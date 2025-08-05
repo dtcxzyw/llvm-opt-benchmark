@@ -964,9 +964,9 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %225, %222, %220
   store ptr %194, ptr %231, align 8, !tbaa !38, !noalias !35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %232 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
-          to label %"_ZZL11mk_and_thenR11cmd_contextP5sexprEN3$_0D2Ev.exit" unwind label %256
+          to label %_ZSt8_DestroyIPSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEESB_EvT_SD_RSaIT0_E.exit.i.i unwind label %256
 
-"_ZZL11mk_and_thenR11cmd_contextP5sexprEN3$_0D2Ev.exit": ; preds = %230
+_ZSt8_DestroyIPSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEESB_EvT_SD_RSaIT0_E.exit.i.i: ; preds = %230
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %191, ptr %232, align 8, !tbaa !41
@@ -983,8 +983,8 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %225, %222, %220
   %.not4.i.i.i.i = icmp eq ptr %237, %238
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEESB_EvT_SD_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %"_ZZL11mk_and_thenR11cmd_contextP5sexprEN3$_0D2Ev.exit", %_ZSt8_DestroyISt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %246, %_ZSt8_DestroyISt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEEEvPT_.exit.i.i.i.i ], [ %237, %"_ZZL11mk_and_thenR11cmd_contextP5sexprEN3$_0D2Ev.exit" ]
+.lr.ph.i.i.i.i:                                   ; preds = %_ZSt8_DestroyIPSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEESB_EvT_SD_RSaIT0_E.exit.i.i, %_ZSt8_DestroyISt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEEEvPT_.exit.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %246, %_ZSt8_DestroyISt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEEEvPT_.exit.i.i.i.i ], [ %237, %_ZSt8_DestroyIPSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEESB_EvT_SD_RSaIT0_E.exit.i.i ]
   %239 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
   %240 = load ptr, ptr %239, align 8, !tbaa !12, !noalias !35
   %.not.i.i.i.i.i.i.i = icmp eq ptr %240, null
@@ -1010,8 +1010,8 @@ _ZSt8_DestroyIPSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params
   %.pr.i = load ptr, ptr %15, align 8, !tbaa !41, !noalias !35
   br label %_ZSt8_DestroyIPSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEESB_EvT_SD_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEESB_EvT_SD_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEESB_EvT_SD_RSaIT0_E.exitthread-pre-split.i, %"_ZZL11mk_and_thenR11cmd_contextP5sexprEN3$_0D2Ev.exit"
-  %247 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEESB_EvT_SD_RSaIT0_E.exitthread-pre-split.i ], [ %237, %"_ZZL11mk_and_thenR11cmd_contextP5sexprEN3$_0D2Ev.exit" ]
+_ZSt8_DestroyIPSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEESB_EvT_SD_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEESB_EvT_SD_RSaIT0_E.exitthread-pre-split.i, %_ZSt8_DestroyIPSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEESB_EvT_SD_RSaIT0_E.exit.i.i
+  %247 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEESB_EvT_SD_RSaIT0_E.exitthread-pre-split.i ], [ %237, %_ZSt8_DestroyIPSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEESB_EvT_SD_RSaIT0_E.exit.i.i ]
   %.not.i.i.i69 = icmp eq ptr %247, null
   br i1 %.not.i.i.i69, label %_ZNSt6vectorISt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEESaISB_EED2Ev.exit, label %248
 

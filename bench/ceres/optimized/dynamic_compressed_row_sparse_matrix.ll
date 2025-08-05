@@ -96,17 +96,17 @@ define hidden void @_ZN5ceres8internal32DynamicCompressedRowSparseMatrixC2Eiii(p
 
 8:                                                ; preds = %4
   invoke void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %7)
-          to label %._ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit_crit_edge13 unwind label %31
+          to label %._ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit_crit_edge unwind label %31
 
-._ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit_crit_edge13: ; preds = %8
+._ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit_crit_edge: ; preds = %8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 176
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !6
-  %.pre14 = load ptr, ptr %6, align 8, !tbaa !11
+  %.pre13 = load ptr, ptr %6, align 8, !tbaa !11
   br label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit
 
-_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit:    ; preds = %4, %._ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit_crit_edge13
-  %9 = phi ptr [ %.pre14, %._ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit_crit_edge13 ], [ null, %4 ]
-  %10 = phi ptr [ %.pre, %._ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit_crit_edge13 ], [ null, %4 ]
+_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit:    ; preds = %._ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit_crit_edge, %4
+  %9 = phi ptr [ %.pre13, %._ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit_crit_edge ], [ null, %4 ]
+  %10 = phi ptr [ %.pre, %._ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit_crit_edge ], [ null, %4 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %12 = ptrtoint ptr %10 to i64
   %13 = ptrtoint ptr %9 to i64

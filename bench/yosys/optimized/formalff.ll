@@ -5435,9 +5435,9 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %1624
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %41) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
   %1629 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #28
-          to label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit unwind label %.loopexit899
+          to label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i unwind label %.loopexit899
 
-_ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
+_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
   store i32 %.0175, ptr %1629, align 4, !tbaa !169
   %1630 = getelementptr inbounds nuw i8, ptr %1629, i64 4
   store ptr %1629, ptr %41, align 8, !tbaa !219
@@ -5445,8 +5445,8 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNKSt6vectorIiSaIi
   store ptr %1630, ptr %228, align 8, !tbaa !220
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit430
 
-_ZNSt6vectorIiSaIiEE9push_backEOi.exit430:        ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit430.backedge, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
-  %indvars.iv1992 = phi i64 [ %1625, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ], [ %indvars.iv.next1993, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit430.backedge ]
+_ZNSt6vectorIiSaIiEE9push_backEOi.exit430:        ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit430.backedge, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i
+  %indvars.iv1992 = phi i64 [ %1625, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %indvars.iv.next1993, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit430.backedge ]
   %indvars.iv.next1993 = add nsw i64 %indvars.iv1992, 1
   %1631 = invoke noundef i32 @_ZNK5Yosys5RTLIL5Const4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %225)
           to label %1632 unwind label %.loopexit880

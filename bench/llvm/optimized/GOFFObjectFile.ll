@@ -4553,7 +4553,7 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm6object10ObjectFile5getOSEv(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm6object14GOFFObjectFile11getFeaturesEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.69") align 8 %0, ptr noundef nonnull align 8 dereferenceable(4256) %1) unnamed_addr #0 comdat align 2 {
-_ZN4llvm17SubtargetFeaturesD2Ev.exit:
+_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i:
   %2 = alloca %"class.llvm::SubtargetFeatures", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #23
   call void @_ZN4llvm17SubtargetFeaturesC1ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr nonnull @.str.16, i64 0) #23

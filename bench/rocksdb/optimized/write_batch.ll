@@ -25831,22 +25831,22 @@ _ZN7rocksdb6StatusD2Ev.exit113:                   ; preds = %_ZN7rocksdb6Statusa
   %291 = load i8, ptr %290, align 1, !tbaa !168
   %292 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %293 = load i8, ptr %292, align 2, !tbaa !170
-  %.sroa.9.2.insert.ext = zext i8 %293 to i32
+  %.sroa.9205.2.insert.ext = zext i8 %293 to i32
   %294 = getelementptr inbounds nuw i8, ptr %17, i64 3
   %295 = load i8, ptr %294, align 1, !tbaa !172, !range !173, !noundef !174
-  %.sroa.9.3.insert.ext = zext nneg i8 %295 to i32
-  %.sroa.9.3.insert.shift = shl nuw nsw i32 %.sroa.9.3.insert.ext, 8
-  %.sroa.9.3.insert.insert = or disjoint i32 %.sroa.9.3.insert.shift, %.sroa.9.2.insert.ext
+  %.sroa.9205.3.insert.ext = zext nneg i8 %295 to i32
+  %.sroa.9205.3.insert.shift = shl nuw nsw i32 %.sroa.9205.3.insert.ext, 8
+  %.sroa.9205.3.insert.insert = or disjoint i32 %.sroa.9205.3.insert.shift, %.sroa.9205.2.insert.ext
   %296 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %297 = load i8, ptr %296, align 4, !tbaa !172, !range !173, !noundef !174
-  %.sroa.9.4.insert.ext = zext nneg i8 %297 to i32
-  %.sroa.9.4.insert.shift = shl nuw nsw i32 %.sroa.9.4.insert.ext, 16
-  %.sroa.9.4.insert.insert = or disjoint i32 %.sroa.9.3.insert.insert, %.sroa.9.4.insert.shift
+  %.sroa.9205.4.insert.ext = zext nneg i8 %297 to i32
+  %.sroa.9205.4.insert.shift = shl nuw nsw i32 %.sroa.9205.4.insert.ext, 16
+  %.sroa.9205.4.insert.insert = or disjoint i32 %.sroa.9205.3.insert.insert, %.sroa.9205.4.insert.shift
   %298 = getelementptr inbounds nuw i8, ptr %17, i64 5
   %299 = load i8, ptr %298, align 1, !tbaa !17
-  %.sroa.9.5.insert.ext = zext i8 %299 to i32
-  %.sroa.9.5.insert.shift = shl nuw i32 %.sroa.9.5.insert.ext, 24
-  %.sroa.9.5.insert.insert = or disjoint i32 %.sroa.9.4.insert.insert, %.sroa.9.5.insert.shift
+  %.sroa.9205.5.insert.ext = zext i8 %299 to i32
+  %.sroa.9205.5.insert.shift = shl nuw i32 %.sroa.9205.5.insert.ext, 24
+  %.sroa.9205.5.insert.insert = or disjoint i32 %.sroa.9205.4.insert.insert, %.sroa.9205.5.insert.shift
   %300 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %301 = load ptr, ptr %300, align 8, !tbaa !108
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #37
@@ -25858,26 +25858,26 @@ _ZN7rocksdb6StatusD2Ev.exit113:                   ; preds = %_ZN7rocksdb6Statusa
   %303 = phi i1 [ %302, %288 ], [ false, %266 ]
   %.sroa.18206.2222 = phi ptr [ %301, %288 ], [ null, %266 ]
   %.sroa.0204.0220 = phi i8 [ %289, %288 ], [ 3, %266 ]
-  %.sroa.6205.0219 = phi i8 [ %291, %288 ], [ 0, %266 ]
-  %.sroa.9.0218 = phi i32 [ %.sroa.9.5.insert.insert, %288 ], [ 0, %266 ]
+  %.sroa.6.0219 = phi i8 [ %291, %288 ], [ 0, %266 ]
+  %.sroa.9205.0218 = phi i32 [ %.sroa.9205.5.insert.insert, %288 ], [ 0, %266 ]
   store i8 %.sroa.0204.0220, ptr %0, align 8, !tbaa !156
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.sroa.6205.0219, ptr %304, align 1, !tbaa !169
-  %.sroa.9.2.extract.trunc = trunc i32 %.sroa.9.0218 to i8
+  store i8 %.sroa.6.0219, ptr %304, align 1, !tbaa !169
+  %.sroa.9205.2.extract.trunc = trunc i32 %.sroa.9205.0218 to i8
   %305 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %.sroa.9.2.extract.trunc, ptr %305, align 2, !tbaa !171
-  %.sroa.9.3.extract.shift = lshr i32 %.sroa.9.0218, 8
-  %.sroa.9.3.extract.trunc = trunc i32 %.sroa.9.3.extract.shift to i8
+  store i8 %.sroa.9205.2.extract.trunc, ptr %305, align 2, !tbaa !171
+  %.sroa.9205.3.extract.shift = lshr i32 %.sroa.9205.0218, 8
+  %.sroa.9205.3.extract.trunc = trunc i32 %.sroa.9205.3.extract.shift to i8
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 %.sroa.9.3.extract.trunc, ptr %306, align 1, !tbaa !175
-  %.sroa.9.4.extract.shift = lshr i32 %.sroa.9.0218, 16
-  %.sroa.9.4.extract.trunc = trunc i32 %.sroa.9.4.extract.shift to i8
+  store i8 %.sroa.9205.3.extract.trunc, ptr %306, align 1, !tbaa !175
+  %.sroa.9205.4.extract.shift = lshr i32 %.sroa.9205.0218, 16
+  %.sroa.9205.4.extract.trunc = trunc i32 %.sroa.9205.4.extract.shift to i8
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %.sroa.9.4.extract.trunc, ptr %307, align 4, !tbaa !176
-  %.sroa.9.5.extract.shift = lshr i32 %.sroa.9.0218, 24
-  %.sroa.9.5.extract.trunc = trunc nuw i32 %.sroa.9.5.extract.shift to i8
+  store i8 %.sroa.9205.4.extract.trunc, ptr %307, align 4, !tbaa !176
+  %.sroa.9205.5.extract.shift = lshr i32 %.sroa.9205.0218, 24
+  %.sroa.9205.5.extract.trunc = trunc nuw i32 %.sroa.9205.5.extract.shift to i8
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i8 %.sroa.9.5.extract.trunc, ptr %308, align 1, !tbaa !177
+  store i8 %.sroa.9205.5.extract.trunc, ptr %308, align 1, !tbaa !177
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #37
   %.not.i.i122 = icmp eq ptr %.sroa.18206.2222, null
   br i1 %.not.i.i122, label %310, label %309

@@ -1345,9 +1345,9 @@ _ZNKSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESa
   %62 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %64 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #30
-          to label %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE12emplace_backIJS0_INS1_27AndersenTemperatureCouplingES3_IS9_EEEEERS5_DpOT_.exit unwind label %150
+          to label %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i unwind label %150
 
-_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE12emplace_backIJS0_INS1_27AndersenTemperatureCouplingES3_IS9_EEEEERS5_DpOT_.exit: ; preds = %_ZNKSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i
+_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i: ; preds = %_ZNKSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i
   store ptr %36, ptr %64, align 8, !tbaa !293
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store ptr %64, ptr %12, align 8, !tbaa !295
@@ -1358,7 +1358,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaI
   %.not = icmp eq ptr %67, null
   br i1 %.not, label %_ZNSt10unique_ptrIN3gmx18ConstraintsElementILNS0_18ConstraintVariableE1EEESt14default_deleteIS3_EED2Ev.exit, label %68
 
-68:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE12emplace_backIJS0_INS1_27AndersenTemperatureCouplingES3_IS9_EEEEERS5_DpOT_.exit
+68:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
   %69 = load ptr, ptr %14, align 8, !tbaa !150
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 192
   %71 = load i32, ptr %70, align 8, !tbaa !191
@@ -1610,7 +1610,7 @@ _ZNSt10unique_ptrIN3gmx18ConstraintsElementILNS0_18ConstraintVariableE1EEESt14de
   call void @_ZdlPvm(ptr noundef nonnull %87, i64 noundef 120) #28
   br label %.body
 
-_ZNSt10unique_ptrIN3gmx18ConstraintsElementILNS0_18ConstraintVariableE1EEESt14default_deleteIS3_EED2Ev.exit: ; preds = %.noexc50, %118, %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE12emplace_backIJS0_INS1_27AndersenTemperatureCouplingES3_IS9_EEEEERS5_DpOT_.exit
+_ZNSt10unique_ptrIN3gmx18ConstraintsElementILNS0_18ConstraintVariableE1EEESt14default_deleteIS3_EED2Ev.exit: ; preds = %.noexc50, %118, %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
   invoke void @_ZSt11make_uniqueIN3gmx25CompositeSimulatorElementEJSt6vectorINS0_6compat8not_nullIPNS0_17ISimulatorElementEEESaIS7_EES2_ISt10unique_ptrIS5_St14default_deleteIS5_EESaISD_EERKiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.296") align 8 %13, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 4 dereferenceable(4) %10)
           to label %160 unwind label %150
 

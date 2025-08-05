@@ -260,8 +260,8 @@ define void @_Z15CalcChunkCommoni(i32 noundef %0) local_unnamed_addr #3 personal
   %2 = alloca %"class.std::vector.10", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %3 = load i32, ptr @cparam, align 8
-  %.not22 = icmp eq i32 %3, 0
-  br i1 %.not22, label %_ZNSt6vectorI12futureTricksSaIS0_EE6resizeEm.exit.preheader, label %4
+  %.not19 = icmp eq i32 %3, 0
+  br i1 %.not19, label %_ZNSt6vectorI12futureTricksSaIS0_EE6resizeEm.exit.preheader, label %4
 
 4:                                                ; preds = %1
   %5 = zext i32 %3 to i64
@@ -273,14 +273,14 @@ _ZNSt6vectorI12futureTricksSaIS0_EE6resizeEm.exit.preheader: ; preds = %1, %4
 
 _ZNSt6vectorI12futureTricksSaIS0_EE6resizeEm.exit: ; preds = %_ZNSt6vectorI12futureTricksSaIS0_EE6resizeEm.exit.preheader, %.backedge
   %6 = invoke i64 @_ZN9Scheduler9GetNumberEi(ptr noundef nonnull align 8 dereferenceable(43416) @scheduler, i32 noundef %0)
-          to label %7 unwind label %.loopexit19
+          to label %7 unwind label %.loopexit20
 
 7:                                                ; preds = %_ZNSt6vectorI12futureTricksSaIS0_EE6resizeEm.exit
   %.sroa.05.0.extract.trunc = trunc i64 %6 to i32
   %8 = icmp eq i32 %.sroa.05.0.extract.trunc, -1
   br i1 %8, label %35, label %17
 
-.loopexit19:                                      ; preds = %_ZNSt6vectorI12futureTricksSaIS0_EE6resizeEm.exit, %34
+.loopexit20:                                      ; preds = %_ZNSt6vectorI12futureTricksSaIS0_EE6resizeEm.exit, %34
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %9
@@ -290,8 +290,8 @@ _ZNSt6vectorI12futureTricksSaIS0_EE6resizeEm.exit: ; preds = %_ZNSt6vectorI12fut
           cleanup
   br label %9
 
-9:                                                ; preds = %.loopexit.split-lp, %.loopexit19
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit19 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+9:                                                ; preds = %.loopexit.split-lp, %.loopexit20
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit20 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %10 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorI12futureTricksSaIS0_EED2Ev.exit, label %11
@@ -344,7 +344,7 @@ _ZNSt6vectorI12futureTricksSaIS0_EED2Ev.exit:     ; preds = %9, %11
 
 34:                                               ; preds = %17
   invoke void @_Z16CalcSingleCommonii(i32 noundef %0, i32 noundef %.sroa.05.0.extract.trunc)
-          to label %.backedge unwind label %.loopexit19
+          to label %.backedge unwind label %.loopexit20
 
 .backedge:                                        ; preds = %20, %34
   br label %_ZNSt6vectorI12futureTricksSaIS0_EE6resizeEm.exit, !llvm.loop !9

@@ -767,7 +767,7 @@ declare ptr @agattr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_un
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @plot_dot_polygons(ptr noundef nonnull captures(none) %0, double noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef readonly captures(address_is_null) %7, ptr noundef readonly captures(address_is_null) %8, ptr noundef %9) unnamed_addr #0 {
-agxbputc.exit.i:
+agxbuse.exit:
   %10 = alloca %struct.agxbuf, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !30
@@ -779,37 +779,36 @@ agxbputc.exit.i:
   %18 = fcmp ult double %1, 0.000000e+00
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #19
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 31
-  %20 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %21 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %22 = getelementptr inbounds nuw i8, ptr %10, i64 10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(21) %22, i8 0, i64 21, i1 false)
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(21) %20, i8 0, i64 21, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %10, ptr noundef nonnull align 1 dereferenceable(9) @.str.27, i64 9, i1 false)
-  store i8 9, ptr %19, align 1, !tbaa !35
-  %23 = getelementptr inbounds nuw i8, ptr %10, i64 9
-  store i8 0, ptr %23, align 1, !tbaa !35
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 9
+  store i8 0, ptr %21, align 1, !tbaa !35
   store i8 0, ptr %19, align 1, !tbaa !35
-  %24 = load i8, ptr @Verbose, align 1, !tbaa !35
-  %.not = icmp eq i8 %24, 0
-  br i1 %.not, label %28, label %25
+  %22 = load i8, ptr @Verbose, align 1, !tbaa !35
+  %.not = icmp eq i8 %22, 0
+  br i1 %.not, label %26, label %23
 
-25:                                               ; preds = %agxbputc.exit.i
-  %26 = load ptr, ptr @stderr, align 8, !tbaa !15
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.28, i32 noundef %17) #20
-  br label %28
+23:                                               ; preds = %agxbuse.exit
+  %24 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.28, i32 noundef %17) #20
+  br label %26
 
-28:                                               ; preds = %25, %agxbputc.exit.i
-  %29 = icmp sgt i32 %17, 0
-  br i1 %29, label %.lr.ph281, label %._crit_edge282
+26:                                               ; preds = %23, %agxbuse.exit
+  %27 = icmp sgt i32 %17, 0
+  br i1 %27, label %.lr.ph281, label %agxbfree.exit
 
-.lr.ph281:                                        ; preds = %28
-  %30 = load i32, ptr %16, align 4, !tbaa !19
-  %31 = tail call i32 @llvm.abs.i32(i32 %30, i1 true)
-  %32 = add nuw nsw i32 %31, 1
-  %33 = icmp ne ptr %6, null
-  %34 = icmp ne ptr %7, null
-  %or.cond = and i1 %33, %34
-  %35 = icmp ne ptr %8, null
-  %or.cond3 = and i1 %or.cond, %35
+.lr.ph281:                                        ; preds = %26
+  %28 = load i32, ptr %16, align 4, !tbaa !19
+  %29 = tail call i32 @llvm.abs.i32(i32 %28, i1 true)
+  %30 = add nuw nsw i32 %29, 1
+  %31 = icmp ne ptr %6, null
+  %32 = icmp ne ptr %7, null
+  %or.cond = and i1 %31, %32
+  %33 = icmp ne ptr %8, null
+  %or.cond3 = and i1 %or.cond, %33
+  %34 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %36 = fcmp ogt double %1, 0.000000e+00
   %wide.trip.count = zext nneg i32 %17 to i64
   br label %37
@@ -817,7 +816,7 @@ agxbputc.exit.i:
 37:                                               ; preds = %.lr.ph281, %dot_polygon.exit93
   %indvars.iv296 = phi i64 [ 0, %.lr.ph281 ], [ %indvars.iv.next297, %dot_polygon.exit93 ]
   %.0279 = phi ptr [ %10, %.lr.ph281 ], [ %.1.lcssa, %dot_polygon.exit93 ]
-  %.055277 = phi i32 [ %32, %.lr.ph281 ], [ %.156.lcssa, %dot_polygon.exit93 ]
+  %.055277 = phi i32 [ %30, %.lr.ph281 ], [ %.156.lcssa, %dot_polygon.exit93 ]
   %.sroa.19.0276 = phi i64 [ 0, %.lr.ph281 ], [ %.sroa.19.1.lcssa, %dot_polygon.exit93 ]
   %.sroa.16.0275 = phi i64 [ 0, %.lr.ph281 ], [ %.sroa.16.1.lcssa, %dot_polygon.exit93 ]
   %.sroa.11.0274 = phi i64 [ 0, %.lr.ph281 ], [ %.sroa.11.1.lcssa, %dot_polygon.exit93 ]
@@ -881,8 +880,8 @@ agxbsizeof.exit.i.i69:                            ; preds = %50
   br i1 %.not.i5.i72, label %85, label %78
 
 agxbsizeof.exit.i.i69.thread:                     ; preds = %50
-  %59 = load i64, ptr %21, align 8, !tbaa !35
-  %60 = load i64, ptr %20, align 8, !tbaa !35
+  %59 = load i64, ptr %34, align 8, !tbaa !35
+  %60 = load i64, ptr %35, align 8, !tbaa !35
   %.fr.i = freeze i64 %60
   %.not.i5.i72190 = icmp ult i64 %59, %.fr.i
   br i1 %.not.i5.i72190, label %agxbsizeof.exit.i.i69.thread..thread192_crit_edge, label %agxbsizeof.exit.i
@@ -940,16 +939,16 @@ agxbsizeof.exit.i:                                ; preds = %agxbsizeof.exit.i.i
 gv_calloc.exit.i:                                 ; preds = %78
   %84 = zext i8 %.val.i67 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %79, ptr nonnull align 8 %10, i64 %84, i1 false)
-  store i64 %84, ptr %21, align 8, !tbaa !35
+  store i64 %84, ptr %34, align 8, !tbaa !35
   br label %agxbmore.exit
 
 agxbmore.exit:                                    ; preds = %66, %73, %75, %gv_calloc.exit.i
   %spec.select3944.i = phi i64 [ 62, %gv_calloc.exit.i ], [ 0, %66 ], [ %spec.select36.i, %73 ], [ %spec.select36.i, %75 ]
   %.0.i = phi ptr [ %79, %gv_calloc.exit.i ], [ null, %66 ], [ %68, %73 ], [ %68, %75 ]
   store ptr %.0.i, ptr %10, align 8, !tbaa !35
-  store i64 %spec.select3944.i, ptr %20, align 8, !tbaa !35
+  store i64 %spec.select3944.i, ptr %35, align 8, !tbaa !35
   store i8 -1, ptr %19, align 1, !tbaa !35
-  %.pre299 = load i64, ptr %21, align 8, !tbaa !35
+  %.pre299 = load i64, ptr %34, align 8, !tbaa !35
   br label %.thread192
 
 85:                                               ; preds = %agxbsizeof.exit.i.i69
@@ -966,9 +965,9 @@ agxbmore.exit:                                    ; preds = %66, %73, %75, %gv_c
   %91 = phi i64 [ %59, %agxbsizeof.exit.i.i69.thread..thread192_crit_edge ], [ %.pre299, %agxbmore.exit ]
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 %91
   store i8 0, ptr %92, align 1, !tbaa !35
-  %93 = load i64, ptr %21, align 8, !tbaa !35
+  %93 = load i64, ptr %34, align 8, !tbaa !35
   %94 = add i64 %93, 1
-  store i64 %94, ptr %21, align 8, !tbaa !35
+  store i64 %94, ptr %34, align 8, !tbaa !35
   %.val.i6.pr.i79 = load i8, ptr %19, align 1, !tbaa !35
   br label %agxbputc.exit.i76
 
@@ -982,7 +981,7 @@ agxbclear.exit.thread.i68:                        ; preds = %agxbputc.exit.i76, 
   br label %agxbuse.exit81
 
 95:                                               ; preds = %agxbputc.exit.i76
-  store i64 0, ptr %21, align 8, !tbaa !35
+  store i64 0, ptr %34, align 8, !tbaa !35
   %96 = load ptr, ptr %10, align 8, !tbaa !35
   br label %agxbuse.exit81
 
@@ -1178,18 +1177,18 @@ doubles_append.exit89:                            ; preds = %164, %170, %doubles
   %193 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #24
   %194 = add nsw i64 %192, 14
   call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %0, ptr noundef nonnull @.str.31, i64 noundef %193, ptr noundef nonnull %2, i64 noundef %194, double noundef %1, i64 noundef %.sroa.16140.1.lcssa)
-  br label %.preheader323
+  br label %.preheader329
 
 195:                                              ; preds = %189
   %196 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #24
   call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %0, ptr noundef nonnull @.str.32, i64 noundef %196, ptr noundef nonnull %2, i64 noundef %.sroa.16140.1.lcssa)
-  br label %.preheader323
+  br label %.preheader329
 
-.preheader323:                                    ; preds = %195, %190
+.preheader329:                                    ; preds = %195, %190
   br label %197
 
-197:                                              ; preds = %.preheader323, %197
-  %.025.i91 = phi i64 [ %206, %197 ], [ 0, %.preheader323 ]
+197:                                              ; preds = %.preheader329, %197
+  %.025.i91 = phi i64 [ %206, %197 ], [ 0, %.preheader329 ]
   %198 = add i64 %.025.i91, %.sroa.11135.1.lcssa
   %199 = urem i64 %198, %.sroa.19146.1.lcssa
   %200 = getelementptr inbounds nuw double, ptr %.sroa.0131.1.lcssa, i64 %199
@@ -1228,27 +1227,23 @@ doubles_append.exit89:                            ; preds = %164, %170, %doubles
 
 dot_polygon.exit93:                               ; preds = %197, %210, %207, %188
   %exitcond.not = icmp eq i64 %indvars.iv.next297, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge282.loopexit, label %37, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge282, label %37, !llvm.loop !45
 
-._crit_edge282.loopexit:                          ; preds = %dot_polygon.exit93
+._crit_edge282:                                   ; preds = %dot_polygon.exit93
   %.val64.pre = load i8, ptr %19, align 1, !tbaa !35
   %220 = icmp eq i8 %.val64.pre, -1
-  br label %._crit_edge282
-
-._crit_edge282:                                   ; preds = %._crit_edge282.loopexit, %28
-  %.val64 = phi i1 [ false, %28 ], [ %220, %._crit_edge282.loopexit ]
-  %.sroa.0131.0.lcssa = phi ptr [ null, %28 ], [ %.sroa.0131.1.lcssa, %._crit_edge282.loopexit ]
-  %.sroa.0.0.lcssa = phi ptr [ null, %28 ], [ %.sroa.0.1.lcssa, %._crit_edge282.loopexit ]
-  br i1 %.val64, label %221, label %agxbfree.exit
+  br i1 %220, label %221, label %agxbfree.exit
 
 221:                                              ; preds = %._crit_edge282
   %.val = load ptr, ptr %10, align 8
   call void @free(ptr noundef %.val) #19
   br label %agxbfree.exit
 
-agxbfree.exit:                                    ; preds = %._crit_edge282, %221
-  call void @free(ptr noundef %.sroa.0131.0.lcssa) #19
-  call void @free(ptr noundef %.sroa.0.0.lcssa) #19
+agxbfree.exit:                                    ; preds = %26, %._crit_edge282, %221
+  %.sroa.0.0.lcssa308 = phi ptr [ %.sroa.0.1.lcssa, %._crit_edge282 ], [ %.sroa.0.1.lcssa, %221 ], [ null, %26 ]
+  %.sroa.0131.0.lcssa307 = phi ptr [ %.sroa.0131.1.lcssa, %._crit_edge282 ], [ %.sroa.0131.1.lcssa, %221 ], [ null, %26 ]
+  call void @free(ptr noundef %.sroa.0131.0.lcssa307) #19
+  call void @free(ptr noundef %.sroa.0.0.lcssa308) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #19
   ret void
 }

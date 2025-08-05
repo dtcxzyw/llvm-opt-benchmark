@@ -441,8 +441,8 @@ define dso_local void @_ZN4llvm6object13OffloadBinary5writeERKNS1_15OffloadingIm
   %12 = zext i32 %11 to i64
   %.idx = shl nuw nsw i64 %12, 5
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
-  %.not77 = icmp eq i32 %11, 0
-  br i1 %.not77, label %._crit_edge, label %.lr.ph
+  %.not78 = icmp eq i32 %11, 0
+  br i1 %.not78, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   call void @_ZN4llvm18StringTableBuilder8finalizeEv(ptr noundef nonnull align 8 dereferenceable(38) %3) #17
@@ -514,8 +514,8 @@ define dso_local void @_ZN4llvm6object13OffloadBinary5writeERKNS1_15OffloadingIm
   store ptr %59, ptr %0, align 8, !tbaa !105
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false)
-  %.not84 = icmp eq i64 %44, 0
-  br i1 %.not84, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit, label %61
+  %.not69 = icmp eq i64 %44, 0
+  br i1 %.not69, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit, label %61
 
 61:                                               ; preds = %._crit_edge
   call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %59, i64 noundef %44, i64 noundef 1) #17
@@ -581,19 +581,19 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit44:    ; preds = %86, %88
   %91 = load ptr, ptr %8, align 8, !tbaa !51
   %92 = load i32, ptr %10, align 8, !tbaa !53
   %93 = zext i32 %92 to i64
-  %.idx83 = shl nuw nsw i64 %93, 5
-  %94 = getelementptr inbounds nuw i8, ptr %91, i64 %.idx83
-  %.not4179 = icmp eq i32 %92, 0
-  br i1 %.not4179, label %._crit_edge82, label %.lr.ph81
+  %.idx84 = shl nuw nsw i64 %93, 5
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 %.idx84
+  %.not4180 = icmp eq i32 %92, 0
+  br i1 %.not4180, label %._crit_edge83, label %.lr.ph82
 
-.lr.ph81:                                         ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit44
+.lr.ph82:                                         ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit44
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %148
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.078 = phi ptr [ %101, %.lr.ph ], [ %9, %2 ]
-  %.sroa.020.0.copyload = load ptr, ptr %.078, align 8, !tbaa !17
-  %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.078, i64 8
+  %.079 = phi ptr [ %101, %.lr.ph ], [ %9, %2 ]
+  %.sroa.020.0.copyload = load ptr, ptr %.079, align 8, !tbaa !17
+  %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.079, i64 8
   %.sroa.221.0.copyload = load i64, ptr %.sroa.221.0..sroa_idx, align 8, !tbaa !75
   %96 = call noundef i32 @_ZN4llvm12DenseMapInfoINS_9StringRefEvE12getHashValueES1_(ptr %.sroa.020.0.copyload, i64 %.sroa.221.0.copyload) #17
   %.sroa.4.8.insert.ext.i = zext i32 %96 to i64
@@ -601,9 +601,9 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit44:    ; preds = %86, %88
   %.sroa.2.8.insert.ext.i = and i64 %.sroa.221.0.copyload, 4294967295
   %.sroa.2.8.insert.insert.i = or disjoint i64 %.sroa.4.8.insert.shift.i, %.sroa.2.8.insert.ext.i
   %97 = call noundef i64 @_ZN4llvm18StringTableBuilder3addENS_19CachedHashStringRefE(ptr noundef nonnull align 8 dereferenceable(38) %3, ptr %.sroa.020.0.copyload, i64 %.sroa.2.8.insert.insert.i) #17
-  %98 = getelementptr inbounds nuw i8, ptr %.078, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %.079, i64 16
   %.sroa.018.0.copyload = load ptr, ptr %98, align 8, !tbaa !17
-  %.sroa.219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.078, i64 24
+  %.sroa.219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.079, i64 24
   %.sroa.219.0.copyload = load i64, ptr %.sroa.219.0..sroa_idx, align 8, !tbaa !75
   %99 = call noundef i32 @_ZN4llvm12DenseMapInfoINS_9StringRefEvE12getHashValueES1_(ptr %.sroa.018.0.copyload, i64 %.sroa.219.0.copyload) #17
   %.sroa.4.8.insert.ext.i45 = zext i32 %99 to i64
@@ -611,11 +611,11 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit44:    ; preds = %86, %88
   %.sroa.2.8.insert.ext.i47 = and i64 %.sroa.219.0.copyload, 4294967295
   %.sroa.2.8.insert.insert.i48 = or disjoint i64 %.sroa.4.8.insert.shift.i46, %.sroa.2.8.insert.ext.i47
   %100 = call noundef i64 @_ZN4llvm18StringTableBuilder3addENS_19CachedHashStringRefE(ptr noundef nonnull align 8 dereferenceable(38) %3, ptr %.sroa.018.0.copyload, i64 %.sroa.2.8.insert.insert.i48) #17
-  %101 = getelementptr inbounds nuw i8, ptr %.078, i64 32
+  %101 = getelementptr inbounds nuw i8, ptr %.079, i64 32
   %.not = icmp eq ptr %101, %13
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge82:                                    ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit62, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit44
+._crit_edge83:                                    ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit62, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit44
   call void @_ZNK4llvm18StringTableBuilder5writeERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(38) %3, ptr noundef nonnull align 8 dereferenceable(48) %6) #17
   %102 = load i64, ptr %57, align 8, !tbaa !39
   %103 = load ptr, ptr %6, align 8, !tbaa !49
@@ -627,8 +627,8 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit44:    ; preds = %86, %88
   %109 = ptrtoint ptr %107 to i64
   %110 = ptrtoint ptr %108 to i64
   %111 = add i64 %106, %109
-  %.neg69 = sub i64 %102, %111
-  %112 = add i64 %.neg69, %110
+  %.neg70 = sub i64 %102, %111
+  %112 = add i64 %.neg70, %110
   %113 = trunc i64 %112 to i32
   %114 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream11write_zerosEj(ptr noundef nonnull align 8 dereferenceable(48) %6, i32 noundef %113) #17
   %115 = load ptr, ptr %30, align 8, !tbaa !86
@@ -647,11 +647,11 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit44:    ; preds = %86, %88
   %128 = icmp ugt i64 %122, %127
   br i1 %128, label %129, label %131
 
-129:                                              ; preds = %._crit_edge82
+129:                                              ; preds = %._crit_edge83
   %130 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %117, i64 noundef %122) #17
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit51
 
-131:                                              ; preds = %._crit_edge82
+131:                                              ; preds = %._crit_edge83
   %.not.i49 = icmp eq ptr %119, %117
   br i1 %.not.i49, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit51, label %132
 
@@ -673,8 +673,8 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit51:    ; preds = %129, %131, %132
   %142 = ptrtoint ptr %140 to i64
   %143 = ptrtoint ptr %141 to i64
   %144 = add i64 %139, %142
-  %.neg70 = sub i64 %135, %144
-  %145 = add i64 %.neg70, %143
+  %.neg71 = sub i64 %135, %144
+  %145 = add i64 %.neg71, %143
   %146 = trunc i64 %145 to i32
   %147 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream11write_zerosEj(ptr noundef nonnull align 8 dereferenceable(48) %6, i32 noundef %146) #17
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #17
@@ -685,11 +685,11 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit51:    ; preds = %129, %131, %132
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #17
   ret void
 
-148:                                              ; preds = %.lr.ph81, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit62
-  %.04080 = phi ptr [ %91, %.lr.ph81 ], [ %167, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit62 ]
+148:                                              ; preds = %.lr.ph82, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit62
+  %.04081 = phi ptr [ %91, %.lr.ph82 ], [ %167, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit62 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #17
-  %.sroa.03.0.copyload = load ptr, ptr %.04080, align 8, !tbaa !17
-  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.04080, i64 8
+  %.sroa.03.0.copyload = load ptr, ptr %.04081, align 8, !tbaa !17
+  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.04081, i64 8
   %.sroa.24.0.copyload = load i64, ptr %.sroa.24.0..sroa_idx, align 8, !tbaa !75
   %149 = call noundef i32 @_ZN4llvm12DenseMapInfoINS_9StringRefEvE12getHashValueES1_(ptr %.sroa.03.0.copyload, i64 %.sroa.24.0.copyload) #17
   %.sroa.4.8.insert.ext.i52 = zext i32 %149 to i64
@@ -699,9 +699,9 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit51:    ; preds = %129, %131, %132
   %150 = call noundef i64 @_ZNK4llvm18StringTableBuilder9getOffsetENS_19CachedHashStringRefE(ptr noundef nonnull align 8 dereferenceable(38) %3, ptr %.sroa.03.0.copyload, i64 %.sroa.2.8.insert.insert.i55) #17
   %151 = add i64 %150, %17
   store i64 %151, ptr %7, align 8, !tbaa !72
-  %152 = getelementptr inbounds nuw i8, ptr %.04080, i64 16
+  %152 = getelementptr inbounds nuw i8, ptr %.04081, i64 16
   %.sroa.01.0.copyload = load ptr, ptr %152, align 8, !tbaa !17
-  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.04080, i64 24
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.04081, i64 24
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !75
   %153 = call noundef i32 @_ZN4llvm12DenseMapInfoINS_9StringRefEvE12getHashValueES1_(ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload) #17
   %.sroa.4.8.insert.ext.i56 = zext i32 %153 to i64
@@ -732,9 +732,9 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit51:    ; preds = %129, %131, %132
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit62:    ; preds = %162, %164
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
-  %167 = getelementptr inbounds nuw i8, ptr %.04080, i64 32
+  %167 = getelementptr inbounds nuw i8, ptr %.04081, i64 32
   %.not41 = icmp eq ptr %167, %94
-  br i1 %.not41, label %._crit_edge82, label %148
+  br i1 %.not41, label %._crit_edge83, label %148
 }
 
 declare void @_ZN4llvm18StringTableBuilderC1ENS0_4KindENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(38), i32 noundef, i8) unnamed_addr #2

@@ -15383,7 +15383,7 @@ _ZNSt6vectorIPN4LIEF5MachO15DyldBindingInfoESaIS3_EEC2ISt23_Rb_tree_const_iterat
   br label %83
 
 83:                                               ; preds = %.lr.ph, %228
-  %.0115349 = phi i64 [ -1, %.lr.ph ], [ %.2117402, %228 ]
+  %.0115349 = phi i64 [ -1, %.lr.ph ], [ %.2117401, %228 ]
   %.0118348 = phi i32 [ -2147483648, %.lr.ph ], [ %.1119, %228 ]
   %.0122347 = phi i64 [ -1, %.lr.ph ], [ %.2124, %228 ]
   %.sroa.0286.0346 = phi ptr [ %70, %.lr.ph ], [ %229, %228 ]
@@ -15654,7 +15654,7 @@ _ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJh
   %191 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %192 = load ptr, ptr %191, align 8, !tbaa !498
   %.not146 = icmp eq ptr %192, null
-  br i1 %.not146, label %.thread, label %.thread397
+  br i1 %.not146, label %.thread, label %.thread396
 
 .thread:                                          ; preds = %186
   %193 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4LIEF7logging6Logger8instanceEPKc(ptr noundef nonnull @.str.125) #24
@@ -15672,7 +15672,7 @@ _ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJh
   %.not147 = icmp eq i64 %196, %198
   br i1 %.not147, label %217, label %205
 
-.thread397:                                       ; preds = %186
+.thread396:                                       ; preds = %186
   %199 = getelementptr inbounds nuw i8, ptr %192, i64 136
   %200 = load i8, ptr %199, align 8, !tbaa !358
   %201 = sext i8 %200 to i64
@@ -15680,12 +15680,12 @@ _ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJh
   %202 = load i64, ptr %34, align 8, !tbaa !54
   %203 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %204 = load i64, ptr %203, align 8, !tbaa !499
-  %.not147400 = icmp eq i64 %202, %204
-  br i1 %.not147400, label %.thread406, label %205
+  %.not147399 = icmp eq i64 %202, %204
+  br i1 %.not147399, label %.thread405, label %205
 
-205:                                              ; preds = %.thread397, %195
-  %206 = phi i64 [ %204, %.thread397 ], [ %198, %195 ]
-  %.2117404 = phi i64 [ %190, %.thread397 ], [ %.0115349, %195 ]
+205:                                              ; preds = %.thread396, %195
+  %206 = phi i64 [ %204, %.thread396 ], [ %198, %195 ]
+  %.2117403 = phi i64 [ %190, %.thread396 ], [ %.0115349, %195 ]
   store i64 %206, ptr %34, align 8, !tbaa !54
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %43) #24
   store i8 96, ptr %43, align 1, !tbaa !76
@@ -15716,13 +15716,13 @@ _ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJh
 
 .thread293:                                       ; preds = %216, %209
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %43) #24
-  br label %.thread406
+  br label %.thread405
 
 217:                                              ; preds = %195
-  br i1 %.2133, label %.thread406, label %228
+  br i1 %.2133, label %.thread405, label %228
 
-.thread406:                                       ; preds = %.thread397, %.thread293, %217
-  %.2117403 = phi i64 [ %.2117404, %.thread293 ], [ %.0115349, %217 ], [ %190, %.thread397 ]
+.thread405:                                       ; preds = %.thread396, %.thread293, %217
+  %.2117402 = phi i64 [ %.2117403, %.thread293 ], [ %.0115349, %217 ], [ %190, %.thread396 ]
   %218 = add i64 %.0122347, 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %44) #24
   store i8 -112, ptr %44, align 1, !tbaa !76
@@ -15733,7 +15733,7 @@ _ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJh
   %.not.i168 = icmp eq ptr %219, %220
   br i1 %.not.i168, label %227, label %221
 
-221:                                              ; preds = %.thread406
+221:                                              ; preds = %.thread405
   store i8 -112, ptr %219, align 8, !tbaa !494
   %222 = getelementptr inbounds nuw i8, ptr %219, i64 8
   %223 = getelementptr inbounds nuw i8, ptr %219, i64 24
@@ -15747,7 +15747,7 @@ _ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJh
   store ptr %226, ptr %81, align 8, !tbaa !489
   br label %_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJhiEEERS3_DpOT_.exit
 
-227:                                              ; preds = %.thread406
+227:                                              ; preds = %.thread405
   call void @_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE17_M_realloc_insertIJhiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr %219, ptr noundef nonnull align 1 dereferenceable(1) %44, ptr noundef nonnull align 4 dereferenceable(4) %45)
   br label %_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJhiEEERS3_DpOT_.exit
 
@@ -15761,7 +15761,7 @@ _ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJh
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 228:                                              ; preds = %_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJhiEEERS3_DpOT_.exit, %217
-  %.2117402 = phi i64 [ %.2117403, %_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJhiEEERS3_DpOT_.exit ], [ %.0115349, %217 ]
+  %.2117401 = phi i64 [ %.2117402, %_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJhiEEERS3_DpOT_.exit ], [ %.0115349, %217 ]
   %.2124 = phi i64 [ %218, %_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJhiEEERS3_DpOT_.exit ], [ %.0122347, %217 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #24
   %229 = getelementptr inbounds nuw i8, ptr %.sroa.0286.0346, i64 8
@@ -15783,7 +15783,7 @@ _ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJh
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 ._crit_edge.thread:                               ; preds = %_ZNSt6vectorIPN4LIEF5MachO15DyldBindingInfoESaIS3_EEC2ISt23_Rb_tree_const_iteratorIS3_EvEET_S9_RKS4_.exit, %._crit_edge
-  %.0122.lcssa411 = phi i64 [ %.2124, %._crit_edge ], [ -1, %_ZNSt6vectorIPN4LIEF5MachO15DyldBindingInfoESaIS3_EEC2ISt23_Rb_tree_const_iteratorIS3_EvEET_S9_RKS4_.exit ]
+  %.0122.lcssa410 = phi i64 [ %.2124, %._crit_edge ], [ -1, %_ZNSt6vectorIPN4LIEF5MachO15DyldBindingInfoESaIS3_EEC2ISt23_Rb_tree_const_iteratorIS3_EvEET_S9_RKS4_.exit ]
   %234 = ptrtoint ptr %71 to i64
   %235 = ptrtoint ptr %70 to i64
   %236 = sub i64 %234, %235
@@ -15822,14 +15822,14 @@ _ZNSt6vectorImSaImEE7reserveEm.exit:              ; preds = %248, %_ZNSt12_Vecto
 ._crit_edge356.loopexit:                          ; preds = %_ZNSt6vectorImSaImEE9push_backEOm.exit
   %.pre = load ptr, ptr %72, align 8, !tbaa !521
   %.pre383 = load ptr, ptr %29, align 8, !tbaa !516
-  %.pre390 = ptrtoint ptr %.pre to i64
-  %.pre391 = ptrtoint ptr %.pre383 to i64
-  %.pre393 = sub i64 %.pre390, %.pre391
-  %.pre395 = ashr exact i64 %.pre393, 3
+  %.pre389 = ptrtoint ptr %.pre to i64
+  %.pre390 = ptrtoint ptr %.pre383 to i64
+  %.pre392 = sub i64 %.pre389, %.pre390
+  %.pre394 = ashr exact i64 %.pre392, 3
   br label %._crit_edge356
 
 ._crit_edge356:                                   ; preds = %._crit_edge356.loopexit, %_ZNSt6vectorImSaImEE7reserveEm.exit
-  %.pre-phi396 = phi i64 [ %.pre395, %._crit_edge356.loopexit ], [ %237, %_ZNSt6vectorImSaImEE7reserveEm.exit ]
+  %.pre-phi395 = phi i64 [ %.pre394, %._crit_edge356.loopexit ], [ %237, %_ZNSt6vectorImSaImEE7reserveEm.exit ]
   %252 = phi ptr [ %.pre383, %._crit_edge356.loopexit ], [ %70, %_ZNSt6vectorImSaImEE7reserveEm.exit ]
   %253 = phi ptr [ %.pre, %._crit_edge356.loopexit ], [ %71, %_ZNSt6vectorImSaImEE7reserveEm.exit ]
   %.sroa.22.0.lcssa = phi ptr [ %.sroa.22.3, %._crit_edge356.loopexit ], [ %.sroa.22.2, %_ZNSt6vectorImSaImEE7reserveEm.exit ]
@@ -15908,9 +15908,9 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %255, %_ZNSt6vectorI
   %.sroa.12.1.lcssa = phi ptr [ %.sroa.12.0.lcssa, %._crit_edge356 ], [ %.sroa.12.4, %_ZNSt6vectorImSaImEE9push_backEOm.exit181 ]
   %.sroa.0272.1.lcssa = phi ptr [ %.sroa.0272.0.lcssa, %._crit_edge356 ], [ %.sroa.0272.4, %_ZNSt6vectorImSaImEE9push_backEOm.exit181 ]
   %.not.i.i171 = icmp eq ptr %.sroa.0272.1.lcssa, %.sroa.12.1.lcssa
-  br i1 %.not.i.i171, label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS8_15DyldBindingInfoESt8functionIFbSC_SC_EESaISC_EES3_IPNS8_14RelocationDyldESaISL_EERNS7_15vector_iostreamEE3$_0EvT_SR_T0_.exit.thread412", label %275
+  br i1 %.not.i.i171, label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS8_15DyldBindingInfoESt8functionIFbSC_SC_EESaISC_EES3_IPNS8_14RelocationDyldESaISL_EERNS7_15vector_iostreamEE3$_0EvT_SR_T0_.exit.thread411", label %275
 
-"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS8_15DyldBindingInfoESt8functionIFbSC_SC_EESaISC_EES3_IPNS8_14RelocationDyldESaISL_EERNS7_15vector_iostreamEE3$_0EvT_SR_T0_.exit.thread412": ; preds = %._crit_edge367
+"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS8_15DyldBindingInfoESt8functionIFbSC_SC_EESaISC_EES3_IPNS8_14RelocationDyldESaISL_EERNS7_15vector_iostreamEE3$_0EvT_SR_T0_.exit.thread411": ; preds = %._crit_edge367
   store i64 0, ptr %31, align 8, !tbaa !54
   br label %._crit_edge377
 
@@ -16121,7 +16121,7 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit181:        ; preds = %347, %_ZNSt6vectorI
   %.pn328 = phi ptr [ %361, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i180 ], [ %.sroa.12.1362, %347 ]
   %.sroa.0272.4 = phi ptr [ %360, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i180 ], [ %.sroa.0272.1363, %347 ]
   %.sroa.12.4 = getelementptr inbounds nuw i8, ptr %.pn328, i64 8
-  %.not149 = icmp eq i64 %346, %.pre-phi396
+  %.not149 = icmp eq i64 %346, %.pre-phi395
   br i1 %.not149, label %._crit_edge367, label %.lr.ph366, !llvm.loop !528
 
 366:                                              ; preds = %.lr.ph376, %434
@@ -16292,7 +16292,7 @@ _ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJi
   %.not329 = icmp eq ptr %435, %.sroa.12.1.lcssa
   br i1 %.not329, label %._crit_edge377, label %366
 
-._crit_edge377:                                   ; preds = %434, %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS8_15DyldBindingInfoESt8functionIFbSC_SC_EESaISC_EES3_IPNS8_14RelocationDyldESaISL_EERNS7_15vector_iostreamEE3$_0EvT_SR_T0_.exit.thread412"
+._crit_edge377:                                   ; preds = %434, %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZN4LIEF5MachO8DyldInfo27update_standard_bindings_v2ERKSt3setIPNS8_15DyldBindingInfoESt8functionIFbSC_SC_EESaISC_EES3_IPNS8_14RelocationDyldESaISL_EERNS7_15vector_iostreamEE3$_0EvT_SR_T0_.exit.thread411"
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %50) #24
   store i8 0, ptr %50, align 1, !tbaa !76
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %51) #24
@@ -16316,50 +16316,50 @@ _ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJi
   store i8 0, ptr %443, align 1, !tbaa !76
   %445 = getelementptr inbounds nuw i8, ptr %437, i64 56
   store ptr %445, ptr %436, align 8, !tbaa !489
-  br label %447
+  br label %_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJhiEEERS3_DpOT_.exit188
 
 446:                                              ; preds = %._crit_edge377
   call void @_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE17_M_realloc_insertIJhiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr %437, ptr noundef nonnull align 1 dereferenceable(1) %50, ptr noundef nonnull align 4 dereferenceable(4) %51)
-  br label %447
+  br label %_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJhiEEERS3_DpOT_.exit188
 
-447:                                              ; preds = %440, %446
+_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJhiEEERS3_DpOT_.exit188: ; preds = %440, %446
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %51) #24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %50) #24
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %52) #24
-  %448 = getelementptr inbounds nuw i8, ptr %52, i64 40
-  %449 = getelementptr inbounds nuw i8, ptr %52, i64 64
+  %447 = getelementptr inbounds nuw i8, ptr %52, i64 40
+  %448 = getelementptr inbounds nuw i8, ptr %52, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %52, i8 0, i64 64, i1 false)
-  store ptr %448, ptr %449, align 8, !tbaa !444
-  %450 = getelementptr inbounds nuw i8, ptr %52, i64 72
-  store i8 0, ptr %450, align 8, !tbaa !454
-  %451 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %448, i64 noundef 1)
-  %.pre386 = load i8, ptr %450, align 8, !tbaa !454, !range !116
-  %452 = trunc nuw i8 %.pre386 to i1
+  store ptr %447, ptr %448, align 8, !tbaa !444
+  %449 = getelementptr inbounds nuw i8, ptr %52, i64 72
+  store i8 0, ptr %449, align 8, !tbaa !454
+  %450 = getelementptr inbounds nuw i8, ptr %52, i64 24
+  call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %447, i64 noundef 1)
+  %451 = load i8, ptr %449, align 8, !tbaa !454, !range !116, !noundef !117
+  %452 = trunc nuw i8 %451 to i1
   br i1 %452, label %453, label %457
 
-453:                                              ; preds = %447
+453:                                              ; preds = %_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJhiEEERS3_DpOT_.exit188
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %22) #24
   store i8 -48, ptr %22, align 1, !tbaa !76
   call void @_ZN4LIEF11swap_endianIhEEvPT_(ptr noundef nonnull %22) #24
-  %454 = load ptr, ptr %449, align 8, !tbaa !444
+  %454 = load ptr, ptr %448, align 8, !tbaa !444
   %455 = load ptr, ptr %454, align 8, !tbaa !49
   %456 = load i8, ptr %22, align 1
   store i8 %456, ptr %455, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22) #24
   br label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit
 
-457:                                              ; preds = %447
-  %458 = load ptr, ptr %449, align 8, !tbaa !444
+457:                                              ; preds = %_ZNSt6vectorIN4LIEF5MachO7details19binding_instructionESaIS3_EE12emplace_backIJhiEEERS3_DpOT_.exit188
+  %458 = load ptr, ptr %448, align 8, !tbaa !444
   %459 = load ptr, ptr %458, align 8, !tbaa !49
   store i8 -48, ptr %459, align 1
   br label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit
 
 _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit: ; preds = %453, %457
-  %460 = load i64, ptr %451, align 8, !tbaa !456
+  %460 = load i64, ptr %450, align 8, !tbaa !456
   %461 = add nsw i64 %460, 1
-  store i64 %461, ptr %451, align 8, !tbaa !456
-  %462 = add i64 %.0122.lcssa411, 1
+  store i64 %461, ptr %450, align 8, !tbaa !456
+  %462 = add i64 %.0122.lcssa410, 1
   %463 = call noundef nonnull align 8 dereferenceable(73) ptr @_ZN4LIEF15vector_iostream13write_uleb128Em(ptr noundef nonnull align 8 dereferenceable(73) %52, i64 noundef %462) #24
   %464 = load ptr, ptr %30, align 8, !tbaa !500
   %465 = load ptr, ptr %436, align 8
@@ -16367,8 +16367,8 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit: ; preds = %453, %457
   br i1 %466, label %.critedge, label %.lr.ph379
 
 .critedge:                                        ; preds = %.lr.ph379, %911, %908, %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit
-  %.sroa.0.0.copyload.i.i189 = load i64, ptr %451, align 8, !tbaa !54
-  %467 = load ptr, ptr %449, align 8, !tbaa !444
+  %.sroa.0.0.copyload.i.i189 = load i64, ptr %450, align 8, !tbaa !54
+  %467 = load ptr, ptr %448, align 8, !tbaa !444
   %468 = getelementptr inbounds nuw i8, ptr %467, i64 8
   %469 = load ptr, ptr %468, align 8, !tbaa !56
   %470 = load ptr, ptr %467, align 8, !tbaa !49
@@ -16384,7 +16384,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit: ; preds = %453, %457
   br label %477
 
 477:                                              ; preds = %476, %.critedge
-  %478 = load i8, ptr %450, align 8, !tbaa !454, !range !116, !noundef !117
+  %478 = load i8, ptr %449, align 8, !tbaa !454, !range !116, !noundef !117
   %479 = trunc nuw i8 %478 to i1
   br i1 %479, label %480, label %485
 
@@ -16392,7 +16392,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit: ; preds = %453, %457
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %21) #24
   store i8 0, ptr %21, align 1, !tbaa !76
   call void @_ZN4LIEF11swap_endianIhEEvPT_(ptr noundef nonnull %21) #24
-  %481 = load ptr, ptr %449, align 8, !tbaa !444
+  %481 = load ptr, ptr %448, align 8, !tbaa !444
   %482 = load ptr, ptr %481, align 8, !tbaa !49
   %483 = getelementptr inbounds nuw i8, ptr %482, i64 %.sroa.0.0.copyload.i.i189
   %484 = load i8, ptr %21, align 1
@@ -16401,18 +16401,18 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit: ; preds = %453, %457
   br label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit190
 
 485:                                              ; preds = %477
-  %486 = load ptr, ptr %449, align 8, !tbaa !444
+  %486 = load ptr, ptr %448, align 8, !tbaa !444
   %487 = load ptr, ptr %486, align 8, !tbaa !49
   %488 = getelementptr inbounds nuw i8, ptr %487, i64 %.sroa.0.0.copyload.i.i189
   store i8 0, ptr %488, align 1
   br label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit190
 
 _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit190: ; preds = %480, %485
-  %489 = load i64, ptr %451, align 8, !tbaa !456
+  %489 = load i64, ptr %450, align 8, !tbaa !456
   %490 = add nsw i64 %489, 1
-  store i64 %490, ptr %451, align 8, !tbaa !456
+  store i64 %490, ptr %450, align 8, !tbaa !456
   %491 = call noundef nonnull align 8 dereferenceable(73) ptr @_ZN4LIEF15vector_iostream5alignEmh(ptr noundef nonnull align 8 dereferenceable(73) %52, i64 noundef %80, i8 noundef zeroext 0) #24
-  %492 = load ptr, ptr %449, align 8, !tbaa !444
+  %492 = load ptr, ptr %448, align 8, !tbaa !444
   %493 = getelementptr inbounds nuw i8, ptr %492, i64 8
   %494 = load ptr, ptr %493, align 8, !tbaa !56
   %495 = load ptr, ptr %492, align 8, !tbaa !49
@@ -16450,8 +16450,8 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit190: ; preds = %480, %485
   %505 = load i64, ptr %504, align 8, !tbaa !496
   %506 = trunc i64 %505 to i8
   %507 = or i8 %506, 16
-  %.sroa.0.0.copyload.i.i191 = load i64, ptr %451, align 8, !tbaa !54
-  %508 = load ptr, ptr %449, align 8, !tbaa !444
+  %.sroa.0.0.copyload.i.i191 = load i64, ptr %450, align 8, !tbaa !54
+  %508 = load ptr, ptr %448, align 8, !tbaa !444
   %509 = getelementptr inbounds nuw i8, ptr %508, i64 8
   %510 = load ptr, ptr %509, align 8, !tbaa !56
   %511 = load ptr, ptr %508, align 8, !tbaa !49
@@ -16467,7 +16467,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit190: ; preds = %480, %485
   br label %518
 
 518:                                              ; preds = %517, %503
-  %519 = load i8, ptr %450, align 8, !tbaa !454, !range !116, !noundef !117
+  %519 = load i8, ptr %449, align 8, !tbaa !454, !range !116, !noundef !117
   %520 = trunc nuw i8 %519 to i1
   br i1 %520, label %521, label %526
 
@@ -16475,7 +16475,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit190: ; preds = %480, %485
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20) #24
   store i8 %507, ptr %20, align 1, !tbaa !76
   call void @_ZN4LIEF11swap_endianIhEEvPT_(ptr noundef nonnull %20) #24
-  %522 = load ptr, ptr %449, align 8, !tbaa !444
+  %522 = load ptr, ptr %448, align 8, !tbaa !444
   %523 = load ptr, ptr %522, align 8, !tbaa !49
   %524 = getelementptr inbounds nuw i8, ptr %523, i64 %.sroa.0.0.copyload.i.i191
   %525 = load i8, ptr %20, align 1
@@ -16484,21 +16484,21 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit190: ; preds = %480, %485
   br label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit192
 
 526:                                              ; preds = %518
-  %527 = load ptr, ptr %449, align 8, !tbaa !444
+  %527 = load ptr, ptr %448, align 8, !tbaa !444
   %528 = load ptr, ptr %527, align 8, !tbaa !49
   %529 = getelementptr inbounds nuw i8, ptr %528, i64 %.sroa.0.0.copyload.i.i191
   store i8 %507, ptr %529, align 1
   br label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit192
 
 _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit192: ; preds = %521, %526
-  %530 = load i64, ptr %451, align 8, !tbaa !456
+  %530 = load i64, ptr %450, align 8, !tbaa !456
   %531 = add nsw i64 %530, 1
-  store i64 %531, ptr %451, align 8, !tbaa !456
+  store i64 %531, ptr %450, align 8, !tbaa !456
   br label %911
 
 532:                                              ; preds = %.lr.ph379
-  %.sroa.0.0.copyload.i.i193 = load i64, ptr %451, align 8, !tbaa !54
-  %533 = load ptr, ptr %449, align 8, !tbaa !444
+  %.sroa.0.0.copyload.i.i193 = load i64, ptr %450, align 8, !tbaa !54
+  %533 = load ptr, ptr %448, align 8, !tbaa !444
   %534 = getelementptr inbounds nuw i8, ptr %533, i64 8
   %535 = load ptr, ptr %534, align 8, !tbaa !56
   %536 = load ptr, ptr %533, align 8, !tbaa !49
@@ -16514,7 +16514,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit192: ; preds = %521, %526
   br label %543
 
 543:                                              ; preds = %542, %532
-  %544 = load i8, ptr %450, align 8, !tbaa !454, !range !116, !noundef !117
+  %544 = load i8, ptr %449, align 8, !tbaa !454, !range !116, !noundef !117
   %545 = trunc nuw i8 %544 to i1
   br i1 %545, label %546, label %551
 
@@ -16522,7 +16522,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit192: ; preds = %521, %526
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %19) #24
   store i8 32, ptr %19, align 1, !tbaa !76
   call void @_ZN4LIEF11swap_endianIhEEvPT_(ptr noundef nonnull %19) #24
-  %547 = load ptr, ptr %449, align 8, !tbaa !444
+  %547 = load ptr, ptr %448, align 8, !tbaa !444
   %548 = load ptr, ptr %547, align 8, !tbaa !49
   %549 = getelementptr inbounds nuw i8, ptr %548, i64 %.sroa.0.0.copyload.i.i193
   %550 = load i8, ptr %19, align 1
@@ -16531,16 +16531,16 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit192: ; preds = %521, %526
   br label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit194
 
 551:                                              ; preds = %543
-  %552 = load ptr, ptr %449, align 8, !tbaa !444
+  %552 = load ptr, ptr %448, align 8, !tbaa !444
   %553 = load ptr, ptr %552, align 8, !tbaa !49
   %554 = getelementptr inbounds nuw i8, ptr %553, i64 %.sroa.0.0.copyload.i.i193
   store i8 32, ptr %554, align 1
   br label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit194
 
 _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit194: ; preds = %546, %551
-  %555 = load i64, ptr %451, align 8, !tbaa !456
+  %555 = load i64, ptr %450, align 8, !tbaa !456
   %556 = add nsw i64 %555, 1
-  store i64 %556, ptr %451, align 8, !tbaa !456
+  store i64 %556, ptr %450, align 8, !tbaa !456
   %557 = getelementptr inbounds nuw i8, ptr %.sroa.0258.0378, i64 8
   %558 = load i64, ptr %557, align 8, !tbaa !496
   %559 = call noundef nonnull align 8 dereferenceable(73) ptr @_ZN4LIEF15vector_iostream13write_uleb128Em(ptr noundef nonnull align 8 dereferenceable(73) %52, i64 noundef %558) #24
@@ -16552,8 +16552,8 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit194: ; preds = %546, %551
   %563 = trunc i64 %562 to i8
   %564 = and i8 %563, 15
   %565 = or disjoint i8 %564, 48
-  %.sroa.0.0.copyload.i.i195 = load i64, ptr %451, align 8, !tbaa !54
-  %566 = load ptr, ptr %449, align 8, !tbaa !444
+  %.sroa.0.0.copyload.i.i195 = load i64, ptr %450, align 8, !tbaa !54
+  %566 = load ptr, ptr %448, align 8, !tbaa !444
   %567 = getelementptr inbounds nuw i8, ptr %566, i64 8
   %568 = load ptr, ptr %567, align 8, !tbaa !56
   %569 = load ptr, ptr %566, align 8, !tbaa !49
@@ -16569,7 +16569,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit194: ; preds = %546, %551
   br label %576
 
 576:                                              ; preds = %575, %560
-  %577 = load i8, ptr %450, align 8, !tbaa !454, !range !116, !noundef !117
+  %577 = load i8, ptr %449, align 8, !tbaa !454, !range !116, !noundef !117
   %578 = trunc nuw i8 %577 to i1
   br i1 %578, label %579, label %584
 
@@ -16577,7 +16577,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit194: ; preds = %546, %551
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %18) #24
   store i8 %565, ptr %18, align 1, !tbaa !76
   call void @_ZN4LIEF11swap_endianIhEEvPT_(ptr noundef nonnull %18) #24
-  %580 = load ptr, ptr %449, align 8, !tbaa !444
+  %580 = load ptr, ptr %448, align 8, !tbaa !444
   %581 = load ptr, ptr %580, align 8, !tbaa !49
   %582 = getelementptr inbounds nuw i8, ptr %581, i64 %.sroa.0.0.copyload.i.i195
   %583 = load i8, ptr %18, align 1
@@ -16586,16 +16586,16 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit194: ; preds = %546, %551
   br label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit196
 
 584:                                              ; preds = %576
-  %585 = load ptr, ptr %449, align 8, !tbaa !444
+  %585 = load ptr, ptr %448, align 8, !tbaa !444
   %586 = load ptr, ptr %585, align 8, !tbaa !49
   %587 = getelementptr inbounds nuw i8, ptr %586, i64 %.sroa.0.0.copyload.i.i195
   store i8 %565, ptr %587, align 1
   br label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit196
 
 _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit196: ; preds = %579, %584
-  %588 = load i64, ptr %451, align 8, !tbaa !456
+  %588 = load i64, ptr %450, align 8, !tbaa !456
   %589 = add nsw i64 %588, 1
-  store i64 %589, ptr %451, align 8, !tbaa !456
+  store i64 %589, ptr %450, align 8, !tbaa !456
   br label %911
 
 590:                                              ; preds = %.lr.ph379
@@ -16603,8 +16603,8 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit196: ; preds = %579, %584
   %592 = load i64, ptr %591, align 8, !tbaa !496
   %593 = trunc i64 %592 to i8
   %594 = or i8 %593, 64
-  %.sroa.0.0.copyload.i.i197 = load i64, ptr %451, align 8, !tbaa !54
-  %595 = load ptr, ptr %449, align 8, !tbaa !444
+  %.sroa.0.0.copyload.i.i197 = load i64, ptr %450, align 8, !tbaa !54
+  %595 = load ptr, ptr %448, align 8, !tbaa !444
   %596 = getelementptr inbounds nuw i8, ptr %595, i64 8
   %597 = load ptr, ptr %596, align 8, !tbaa !56
   %598 = load ptr, ptr %595, align 8, !tbaa !49
@@ -16620,7 +16620,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit196: ; preds = %579, %584
   br label %605
 
 605:                                              ; preds = %604, %590
-  %606 = load i8, ptr %450, align 8, !tbaa !454, !range !116, !noundef !117
+  %606 = load i8, ptr %449, align 8, !tbaa !454, !range !116, !noundef !117
   %607 = trunc nuw i8 %606 to i1
   br i1 %607, label %608, label %613
 
@@ -16628,7 +16628,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit196: ; preds = %579, %584
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17) #24
   store i8 %594, ptr %17, align 1, !tbaa !76
   call void @_ZN4LIEF11swap_endianIhEEvPT_(ptr noundef nonnull %17) #24
-  %609 = load ptr, ptr %449, align 8, !tbaa !444
+  %609 = load ptr, ptr %448, align 8, !tbaa !444
   %610 = load ptr, ptr %609, align 8, !tbaa !49
   %611 = getelementptr inbounds nuw i8, ptr %610, i64 %.sroa.0.0.copyload.i.i197
   %612 = load i8, ptr %17, align 1
@@ -16637,16 +16637,16 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit196: ; preds = %579, %584
   br label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit198
 
 613:                                              ; preds = %605
-  %614 = load ptr, ptr %449, align 8, !tbaa !444
+  %614 = load ptr, ptr %448, align 8, !tbaa !444
   %615 = load ptr, ptr %614, align 8, !tbaa !49
   %616 = getelementptr inbounds nuw i8, ptr %615, i64 %.sroa.0.0.copyload.i.i197
   store i8 %594, ptr %616, align 1
   br label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit198
 
 _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit198: ; preds = %608, %613
-  %617 = load i64, ptr %451, align 8, !tbaa !456
+  %617 = load i64, ptr %450, align 8, !tbaa !456
   %618 = add nsw i64 %617, 1
-  store i64 %618, ptr %451, align 8, !tbaa !456
+  store i64 %618, ptr %450, align 8, !tbaa !456
   %619 = getelementptr inbounds nuw i8, ptr %.sroa.0258.0378, i64 24
   %620 = load ptr, ptr %619, align 8, !tbaa !134
   %621 = getelementptr inbounds nuw i8, ptr %.sroa.0258.0378, i64 32
@@ -16660,8 +16660,8 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit198: ; preds = %608, %613
   %627 = load i64, ptr %626, align 8, !tbaa !496
   %628 = trunc i64 %627 to i8
   %629 = or i8 %628, 80
-  %.sroa.0.0.copyload.i.i199 = load i64, ptr %451, align 8, !tbaa !54
-  %630 = load ptr, ptr %449, align 8, !tbaa !444
+  %.sroa.0.0.copyload.i.i199 = load i64, ptr %450, align 8, !tbaa !54
+  %630 = load ptr, ptr %448, align 8, !tbaa !444
   %631 = getelementptr inbounds nuw i8, ptr %630, i64 8
   %632 = load ptr, ptr %631, align 8, !tbaa !56
   %633 = load ptr, ptr %630, align 8, !tbaa !49
@@ -16677,7 +16677,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit198: ; preds = %608, %613
   br label %640
 
 640:                                              ; preds = %639, %625
-  %641 = load i8, ptr %450, align 8, !tbaa !454, !range !116, !noundef !117
+  %641 = load i8, ptr %449, align 8, !tbaa !454, !range !116, !noundef !117
   %642 = trunc nuw i8 %641 to i1
   br i1 %642, label %643, label %648
 
@@ -16685,7 +16685,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit198: ; preds = %608, %613
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16) #24
   store i8 %629, ptr %16, align 1, !tbaa !76
   call void @_ZN4LIEF11swap_endianIhEEvPT_(ptr noundef nonnull %16) #24
-  %644 = load ptr, ptr %449, align 8, !tbaa !444
+  %644 = load ptr, ptr %448, align 8, !tbaa !444
   %645 = load ptr, ptr %644, align 8, !tbaa !49
   %646 = getelementptr inbounds nuw i8, ptr %645, i64 %.sroa.0.0.copyload.i.i199
   %647 = load i8, ptr %16, align 1
@@ -16694,21 +16694,21 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit198: ; preds = %608, %613
   br label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit200
 
 648:                                              ; preds = %640
-  %649 = load ptr, ptr %449, align 8, !tbaa !444
+  %649 = load ptr, ptr %448, align 8, !tbaa !444
   %650 = load ptr, ptr %649, align 8, !tbaa !49
   %651 = getelementptr inbounds nuw i8, ptr %650, i64 %.sroa.0.0.copyload.i.i199
   store i8 %629, ptr %651, align 1
   br label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit200
 
 _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit200: ; preds = %643, %648
-  %652 = load i64, ptr %451, align 8, !tbaa !456
+  %652 = load i64, ptr %450, align 8, !tbaa !456
   %653 = add nsw i64 %652, 1
-  store i64 %653, ptr %451, align 8, !tbaa !456
+  store i64 %653, ptr %450, align 8, !tbaa !456
   br label %911
 
 654:                                              ; preds = %.lr.ph379
-  %.sroa.0.0.copyload.i.i201 = load i64, ptr %451, align 8, !tbaa !54
-  %655 = load ptr, ptr %449, align 8, !tbaa !444
+  %.sroa.0.0.copyload.i.i201 = load i64, ptr %450, align 8, !tbaa !54
+  %655 = load ptr, ptr %448, align 8, !tbaa !444
   %656 = getelementptr inbounds nuw i8, ptr %655, i64 8
   %657 = load ptr, ptr %656, align 8, !tbaa !56
   %658 = load ptr, ptr %655, align 8, !tbaa !49
@@ -16724,7 +16724,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit200: ; preds = %643, %648
   br label %665
 
 665:                                              ; preds = %664, %654
-  %666 = load i8, ptr %450, align 8, !tbaa !454, !range !116, !noundef !117
+  %666 = load i8, ptr %449, align 8, !tbaa !454, !range !116, !noundef !117
   %667 = trunc nuw i8 %666 to i1
   br i1 %667, label %668, label %673
 
@@ -16732,7 +16732,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit200: ; preds = %643, %648
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #24
   store i8 96, ptr %15, align 1, !tbaa !76
   call void @_ZN4LIEF11swap_endianIhEEvPT_(ptr noundef nonnull %15) #24
-  %669 = load ptr, ptr %449, align 8, !tbaa !444
+  %669 = load ptr, ptr %448, align 8, !tbaa !444
   %670 = load ptr, ptr %669, align 8, !tbaa !49
   %671 = getelementptr inbounds nuw i8, ptr %670, i64 %.sroa.0.0.copyload.i.i201
   %672 = load i8, ptr %15, align 1
@@ -16741,16 +16741,16 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit200: ; preds = %643, %648
   br label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit202
 
 673:                                              ; preds = %665
-  %674 = load ptr, ptr %449, align 8, !tbaa !444
+  %674 = load ptr, ptr %448, align 8, !tbaa !444
   %675 = load ptr, ptr %674, align 8, !tbaa !49
   %676 = getelementptr inbounds nuw i8, ptr %675, i64 %.sroa.0.0.copyload.i.i201
   store i8 96, ptr %676, align 1
   br label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit202
 
 _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit202: ; preds = %668, %673
-  %677 = load i64, ptr %451, align 8, !tbaa !456
+  %677 = load i64, ptr %450, align 8, !tbaa !456
   %678 = add nsw i64 %677, 1
-  store i64 %678, ptr %451, align 8, !tbaa !456
+  store i64 %678, ptr %450, align 8, !tbaa !456
   %679 = getelementptr inbounds nuw i8, ptr %.sroa.0258.0378, i64 8
   %680 = load i64, ptr %679, align 8, !tbaa !496
   %681 = call noundef nonnull align 8 dereferenceable(73) ptr @_ZN4LIEF15vector_iostream13write_sleb128El(ptr noundef nonnull align 8 dereferenceable(73) %52, i64 noundef %680) #24
@@ -16761,8 +16761,8 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit202: ; preds = %668, %673
   %684 = load i64, ptr %683, align 8, !tbaa !496
   %685 = trunc i64 %684 to i8
   %686 = or i8 %685, 112
-  %.sroa.0.0.copyload.i.i203 = load i64, ptr %451, align 8, !tbaa !54
-  %687 = load ptr, ptr %449, align 8, !tbaa !444
+  %.sroa.0.0.copyload.i.i203 = load i64, ptr %450, align 8, !tbaa !54
+  %687 = load ptr, ptr %448, align 8, !tbaa !444
   %688 = getelementptr inbounds nuw i8, ptr %687, i64 8
   %689 = load ptr, ptr %688, align 8, !tbaa !56
   %690 = load ptr, ptr %687, align 8, !tbaa !49
@@ -16778,7 +16778,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit202: ; preds = %668, %673
   br label %697
 
 697:                                              ; preds = %696, %682
-  %698 = load i8, ptr %450, align 8, !tbaa !454, !range !116, !noundef !117
+  %698 = load i8, ptr %449, align 8, !tbaa !454, !range !116, !noundef !117
   %699 = trunc nuw i8 %698 to i1
   br i1 %699, label %700, label %705
 
@@ -16786,7 +16786,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit202: ; preds = %668, %673
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #24
   store i8 %686, ptr %14, align 1, !tbaa !76
   call void @_ZN4LIEF11swap_endianIhEEvPT_(ptr noundef nonnull %14) #24
-  %701 = load ptr, ptr %449, align 8, !tbaa !444
+  %701 = load ptr, ptr %448, align 8, !tbaa !444
   %702 = load ptr, ptr %701, align 8, !tbaa !49
   %703 = getelementptr inbounds nuw i8, ptr %702, i64 %.sroa.0.0.copyload.i.i203
   %704 = load i8, ptr %14, align 1
@@ -16795,24 +16795,24 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit202: ; preds = %668, %673
   br label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit204
 
 705:                                              ; preds = %697
-  %706 = load ptr, ptr %449, align 8, !tbaa !444
+  %706 = load ptr, ptr %448, align 8, !tbaa !444
   %707 = load ptr, ptr %706, align 8, !tbaa !49
   %708 = getelementptr inbounds nuw i8, ptr %707, i64 %.sroa.0.0.copyload.i.i203
   store i8 %686, ptr %708, align 1
   br label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit204
 
 _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit204: ; preds = %700, %705
-  %709 = load i64, ptr %451, align 8, !tbaa !456
+  %709 = load i64, ptr %450, align 8, !tbaa !456
   %710 = add nsw i64 %709, 1
-  store i64 %710, ptr %451, align 8, !tbaa !456
+  store i64 %710, ptr %450, align 8, !tbaa !456
   %711 = getelementptr inbounds nuw i8, ptr %.sroa.0258.0378, i64 16
   %712 = load i64, ptr %711, align 8, !tbaa !497
   %713 = call noundef nonnull align 8 dereferenceable(73) ptr @_ZN4LIEF15vector_iostream13write_uleb128Em(ptr noundef nonnull align 8 dereferenceable(73) %52, i64 noundef %712) #24
   br label %911
 
 714:                                              ; preds = %.lr.ph379
-  %.sroa.0.0.copyload.i.i205 = load i64, ptr %451, align 8, !tbaa !54
-  %715 = load ptr, ptr %449, align 8, !tbaa !444
+  %.sroa.0.0.copyload.i.i205 = load i64, ptr %450, align 8, !tbaa !54
+  %715 = load ptr, ptr %448, align 8, !tbaa !444
   %716 = getelementptr inbounds nuw i8, ptr %715, i64 8
   %717 = load ptr, ptr %716, align 8, !tbaa !56
   %718 = load ptr, ptr %715, align 8, !tbaa !49
@@ -16828,7 +16828,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit204: ; preds = %700, %705
   br label %725
 
 725:                                              ; preds = %724, %714
-  %726 = load i8, ptr %450, align 8, !tbaa !454, !range !116, !noundef !117
+  %726 = load i8, ptr %449, align 8, !tbaa !454, !range !116, !noundef !117
   %727 = trunc nuw i8 %726 to i1
   br i1 %727, label %728, label %733
 
@@ -16836,7 +16836,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit204: ; preds = %700, %705
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #24
   store i8 -128, ptr %13, align 1, !tbaa !76
   call void @_ZN4LIEF11swap_endianIhEEvPT_(ptr noundef nonnull %13) #24
-  %729 = load ptr, ptr %449, align 8, !tbaa !444
+  %729 = load ptr, ptr %448, align 8, !tbaa !444
   %730 = load ptr, ptr %729, align 8, !tbaa !49
   %731 = getelementptr inbounds nuw i8, ptr %730, i64 %.sroa.0.0.copyload.i.i205
   %732 = load i8, ptr %13, align 1
@@ -16845,24 +16845,24 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit204: ; preds = %700, %705
   br label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit206
 
 733:                                              ; preds = %725
-  %734 = load ptr, ptr %449, align 8, !tbaa !444
+  %734 = load ptr, ptr %448, align 8, !tbaa !444
   %735 = load ptr, ptr %734, align 8, !tbaa !49
   %736 = getelementptr inbounds nuw i8, ptr %735, i64 %.sroa.0.0.copyload.i.i205
   store i8 -128, ptr %736, align 1
   br label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit206
 
 _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit206: ; preds = %728, %733
-  %737 = load i64, ptr %451, align 8, !tbaa !456
+  %737 = load i64, ptr %450, align 8, !tbaa !456
   %738 = add nsw i64 %737, 1
-  store i64 %738, ptr %451, align 8, !tbaa !456
+  store i64 %738, ptr %450, align 8, !tbaa !456
   %739 = getelementptr inbounds nuw i8, ptr %.sroa.0258.0378, i64 8
   %740 = load i64, ptr %739, align 8, !tbaa !496
   %741 = call noundef nonnull align 8 dereferenceable(73) ptr @_ZN4LIEF15vector_iostream13write_uleb128Em(ptr noundef nonnull align 8 dereferenceable(73) %52, i64 noundef %740) #24
   br label %911
 
 742:                                              ; preds = %.lr.ph379
-  %.sroa.0.0.copyload.i.i207 = load i64, ptr %451, align 8, !tbaa !54
-  %743 = load ptr, ptr %449, align 8, !tbaa !444
+  %.sroa.0.0.copyload.i.i207 = load i64, ptr %450, align 8, !tbaa !54
+  %743 = load ptr, ptr %448, align 8, !tbaa !444
   %744 = getelementptr inbounds nuw i8, ptr %743, i64 8
   %745 = load ptr, ptr %744, align 8, !tbaa !56
   %746 = load ptr, ptr %743, align 8, !tbaa !49
@@ -16878,7 +16878,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit206: ; preds = %728, %733
   br label %753
 
 753:                                              ; preds = %752, %742
-  %754 = load i8, ptr %450, align 8, !tbaa !454, !range !116, !noundef !117
+  %754 = load i8, ptr %449, align 8, !tbaa !454, !range !116, !noundef !117
   %755 = trunc nuw i8 %754 to i1
   br i1 %755, label %756, label %761
 
@@ -16886,7 +16886,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit206: ; preds = %728, %733
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #24
   store i8 -112, ptr %12, align 1, !tbaa !76
   call void @_ZN4LIEF11swap_endianIhEEvPT_(ptr noundef nonnull %12) #24
-  %757 = load ptr, ptr %449, align 8, !tbaa !444
+  %757 = load ptr, ptr %448, align 8, !tbaa !444
   %758 = load ptr, ptr %757, align 8, !tbaa !49
   %759 = getelementptr inbounds nuw i8, ptr %758, i64 %.sroa.0.0.copyload.i.i207
   %760 = load i8, ptr %12, align 1
@@ -16895,21 +16895,21 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit206: ; preds = %728, %733
   br label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit208
 
 761:                                              ; preds = %753
-  %762 = load ptr, ptr %449, align 8, !tbaa !444
+  %762 = load ptr, ptr %448, align 8, !tbaa !444
   %763 = load ptr, ptr %762, align 8, !tbaa !49
   %764 = getelementptr inbounds nuw i8, ptr %763, i64 %.sroa.0.0.copyload.i.i207
   store i8 -112, ptr %764, align 1
   br label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit208
 
 _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit208: ; preds = %756, %761
-  %765 = load i64, ptr %451, align 8, !tbaa !456
+  %765 = load i64, ptr %450, align 8, !tbaa !456
   %766 = add nsw i64 %765, 1
-  store i64 %766, ptr %451, align 8, !tbaa !456
+  store i64 %766, ptr %450, align 8, !tbaa !456
   br label %911
 
 767:                                              ; preds = %.lr.ph379
-  %.sroa.0.0.copyload.i.i209 = load i64, ptr %451, align 8, !tbaa !54
-  %768 = load ptr, ptr %449, align 8, !tbaa !444
+  %.sroa.0.0.copyload.i.i209 = load i64, ptr %450, align 8, !tbaa !54
+  %768 = load ptr, ptr %448, align 8, !tbaa !444
   %769 = getelementptr inbounds nuw i8, ptr %768, i64 8
   %770 = load ptr, ptr %769, align 8, !tbaa !56
   %771 = load ptr, ptr %768, align 8, !tbaa !49
@@ -16925,7 +16925,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit208: ; preds = %756, %761
   br label %778
 
 778:                                              ; preds = %777, %767
-  %779 = load i8, ptr %450, align 8, !tbaa !454, !range !116, !noundef !117
+  %779 = load i8, ptr %449, align 8, !tbaa !454, !range !116, !noundef !117
   %780 = trunc nuw i8 %779 to i1
   br i1 %780, label %781, label %786
 
@@ -16933,7 +16933,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit208: ; preds = %756, %761
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #24
   store i8 -96, ptr %11, align 1, !tbaa !76
   call void @_ZN4LIEF11swap_endianIhEEvPT_(ptr noundef nonnull %11) #24
-  %782 = load ptr, ptr %449, align 8, !tbaa !444
+  %782 = load ptr, ptr %448, align 8, !tbaa !444
   %783 = load ptr, ptr %782, align 8, !tbaa !49
   %784 = getelementptr inbounds nuw i8, ptr %783, i64 %.sroa.0.0.copyload.i.i209
   %785 = load i8, ptr %11, align 1
@@ -16942,16 +16942,16 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit208: ; preds = %756, %761
   br label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit210
 
 786:                                              ; preds = %778
-  %787 = load ptr, ptr %449, align 8, !tbaa !444
+  %787 = load ptr, ptr %448, align 8, !tbaa !444
   %788 = load ptr, ptr %787, align 8, !tbaa !49
   %789 = getelementptr inbounds nuw i8, ptr %788, i64 %.sroa.0.0.copyload.i.i209
   store i8 -96, ptr %789, align 1
   br label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit210
 
 _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit210: ; preds = %781, %786
-  %790 = load i64, ptr %451, align 8, !tbaa !456
+  %790 = load i64, ptr %450, align 8, !tbaa !456
   %791 = add nsw i64 %790, 1
-  store i64 %791, ptr %451, align 8, !tbaa !456
+  store i64 %791, ptr %450, align 8, !tbaa !456
   %792 = getelementptr inbounds nuw i8, ptr %.sroa.0258.0378, i64 8
   %793 = load i64, ptr %792, align 8, !tbaa !496
   %794 = call noundef nonnull align 8 dereferenceable(73) ptr @_ZN4LIEF15vector_iostream13write_uleb128Em(ptr noundef nonnull align 8 dereferenceable(73) %52, i64 noundef %793) #24
@@ -16962,8 +16962,8 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit210: ; preds = %781, %786
   %797 = load i64, ptr %796, align 8, !tbaa !496
   %798 = trunc i64 %797 to i8
   %799 = or i8 %798, -80
-  %.sroa.0.0.copyload.i.i211 = load i64, ptr %451, align 8, !tbaa !54
-  %800 = load ptr, ptr %449, align 8, !tbaa !444
+  %.sroa.0.0.copyload.i.i211 = load i64, ptr %450, align 8, !tbaa !54
+  %800 = load ptr, ptr %448, align 8, !tbaa !444
   %801 = getelementptr inbounds nuw i8, ptr %800, i64 8
   %802 = load ptr, ptr %801, align 8, !tbaa !56
   %803 = load ptr, ptr %800, align 8, !tbaa !49
@@ -16979,7 +16979,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit210: ; preds = %781, %786
   br label %810
 
 810:                                              ; preds = %809, %795
-  %811 = load i8, ptr %450, align 8, !tbaa !454, !range !116, !noundef !117
+  %811 = load i8, ptr %449, align 8, !tbaa !454, !range !116, !noundef !117
   %812 = trunc nuw i8 %811 to i1
   br i1 %812, label %813, label %818
 
@@ -16987,7 +16987,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit210: ; preds = %781, %786
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #24
   store i8 %799, ptr %10, align 1, !tbaa !76
   call void @_ZN4LIEF11swap_endianIhEEvPT_(ptr noundef nonnull %10) #24
-  %814 = load ptr, ptr %449, align 8, !tbaa !444
+  %814 = load ptr, ptr %448, align 8, !tbaa !444
   %815 = load ptr, ptr %814, align 8, !tbaa !49
   %816 = getelementptr inbounds nuw i8, ptr %815, i64 %.sroa.0.0.copyload.i.i211
   %817 = load i8, ptr %10, align 1
@@ -16996,21 +16996,21 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit210: ; preds = %781, %786
   br label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit212
 
 818:                                              ; preds = %810
-  %819 = load ptr, ptr %449, align 8, !tbaa !444
+  %819 = load ptr, ptr %448, align 8, !tbaa !444
   %820 = load ptr, ptr %819, align 8, !tbaa !49
   %821 = getelementptr inbounds nuw i8, ptr %820, i64 %.sroa.0.0.copyload.i.i211
   store i8 %799, ptr %821, align 1
   br label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit212
 
 _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit212: ; preds = %813, %818
-  %822 = load i64, ptr %451, align 8, !tbaa !456
+  %822 = load i64, ptr %450, align 8, !tbaa !456
   %823 = add nsw i64 %822, 1
-  store i64 %823, ptr %451, align 8, !tbaa !456
+  store i64 %823, ptr %450, align 8, !tbaa !456
   br label %911
 
 824:                                              ; preds = %.lr.ph379
-  %.sroa.0.0.copyload.i.i213 = load i64, ptr %451, align 8, !tbaa !54
-  %825 = load ptr, ptr %449, align 8, !tbaa !444
+  %.sroa.0.0.copyload.i.i213 = load i64, ptr %450, align 8, !tbaa !54
+  %825 = load ptr, ptr %448, align 8, !tbaa !444
   %826 = getelementptr inbounds nuw i8, ptr %825, i64 8
   %827 = load ptr, ptr %826, align 8, !tbaa !56
   %828 = load ptr, ptr %825, align 8, !tbaa !49
@@ -17026,7 +17026,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit212: ; preds = %813, %818
   br label %835
 
 835:                                              ; preds = %834, %824
-  %836 = load i8, ptr %450, align 8, !tbaa !454, !range !116, !noundef !117
+  %836 = load i8, ptr %449, align 8, !tbaa !454, !range !116, !noundef !117
   %837 = trunc nuw i8 %836 to i1
   br i1 %837, label %838, label %843
 
@@ -17034,7 +17034,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit212: ; preds = %813, %818
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #24
   store i8 -64, ptr %9, align 1, !tbaa !76
   call void @_ZN4LIEF11swap_endianIhEEvPT_(ptr noundef nonnull %9) #24
-  %839 = load ptr, ptr %449, align 8, !tbaa !444
+  %839 = load ptr, ptr %448, align 8, !tbaa !444
   %840 = load ptr, ptr %839, align 8, !tbaa !49
   %841 = getelementptr inbounds nuw i8, ptr %840, i64 %.sroa.0.0.copyload.i.i213
   %842 = load i8, ptr %9, align 1
@@ -17043,16 +17043,16 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit212: ; preds = %813, %818
   br label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit214
 
 843:                                              ; preds = %835
-  %844 = load ptr, ptr %449, align 8, !tbaa !444
+  %844 = load ptr, ptr %448, align 8, !tbaa !444
   %845 = load ptr, ptr %844, align 8, !tbaa !49
   %846 = getelementptr inbounds nuw i8, ptr %845, i64 %.sroa.0.0.copyload.i.i213
   store i8 -64, ptr %846, align 1
   br label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit214
 
 _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit214: ; preds = %838, %843
-  %847 = load i64, ptr %451, align 8, !tbaa !456
+  %847 = load i64, ptr %450, align 8, !tbaa !456
   %848 = add nsw i64 %847, 1
-  store i64 %848, ptr %451, align 8, !tbaa !456
+  store i64 %848, ptr %450, align 8, !tbaa !456
   %849 = getelementptr inbounds nuw i8, ptr %.sroa.0258.0378, i64 8
   %850 = load i64, ptr %849, align 8, !tbaa !496
   %851 = call noundef nonnull align 8 dereferenceable(73) ptr @_ZN4LIEF15vector_iostream13write_uleb128Em(ptr noundef nonnull align 8 dereferenceable(73) %52, i64 noundef %850) #24
@@ -17062,8 +17062,8 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit214: ; preds = %838, %843
   br label %911
 
 855:                                              ; preds = %.lr.ph379
-  %.sroa.0.0.copyload.i.i215 = load i64, ptr %451, align 8, !tbaa !54
-  %856 = load ptr, ptr %449, align 8, !tbaa !444
+  %.sroa.0.0.copyload.i.i215 = load i64, ptr %450, align 8, !tbaa !54
+  %856 = load ptr, ptr %448, align 8, !tbaa !444
   %857 = getelementptr inbounds nuw i8, ptr %856, i64 8
   %858 = load ptr, ptr %857, align 8, !tbaa !56
   %859 = load ptr, ptr %856, align 8, !tbaa !49
@@ -17079,7 +17079,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit214: ; preds = %838, %843
   br label %866
 
 866:                                              ; preds = %865, %855
-  %867 = load i8, ptr %450, align 8, !tbaa !454, !range !116, !noundef !117
+  %867 = load i8, ptr %449, align 8, !tbaa !454, !range !116, !noundef !117
   %868 = trunc nuw i8 %867 to i1
   br i1 %868, label %869, label %874
 
@@ -17087,7 +17087,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit214: ; preds = %838, %843
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #24
   store i8 -48, ptr %8, align 1, !tbaa !76
   call void @_ZN4LIEF11swap_endianIhEEvPT_(ptr noundef nonnull %8) #24
-  %870 = load ptr, ptr %449, align 8, !tbaa !444
+  %870 = load ptr, ptr %448, align 8, !tbaa !444
   %871 = load ptr, ptr %870, align 8, !tbaa !49
   %872 = getelementptr inbounds nuw i8, ptr %871, i64 %.sroa.0.0.copyload.i.i215
   %873 = load i8, ptr %8, align 1
@@ -17096,24 +17096,24 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit214: ; preds = %838, %843
   br label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit216
 
 874:                                              ; preds = %866
-  %875 = load ptr, ptr %449, align 8, !tbaa !444
+  %875 = load ptr, ptr %448, align 8, !tbaa !444
   %876 = load ptr, ptr %875, align 8, !tbaa !49
   %877 = getelementptr inbounds nuw i8, ptr %876, i64 %.sroa.0.0.copyload.i.i215
   store i8 -48, ptr %877, align 1
   br label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit216
 
 _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit216: ; preds = %869, %874
-  %878 = load i64, ptr %451, align 8, !tbaa !456
+  %878 = load i64, ptr %450, align 8, !tbaa !456
   %879 = add nsw i64 %878, 1
-  store i64 %879, ptr %451, align 8, !tbaa !456
+  store i64 %879, ptr %450, align 8, !tbaa !456
   %880 = getelementptr inbounds nuw i8, ptr %.sroa.0258.0378, i64 8
   %881 = load i64, ptr %880, align 8, !tbaa !496
   %882 = call noundef nonnull align 8 dereferenceable(73) ptr @_ZN4LIEF15vector_iostream13write_uleb128Em(ptr noundef nonnull align 8 dereferenceable(73) %52, i64 noundef %881) #24
   br label %911
 
 883:                                              ; preds = %.lr.ph379
-  %.sroa.0.0.copyload.i.i217 = load i64, ptr %451, align 8, !tbaa !54
-  %884 = load ptr, ptr %449, align 8, !tbaa !444
+  %.sroa.0.0.copyload.i.i217 = load i64, ptr %450, align 8, !tbaa !54
+  %884 = load ptr, ptr %448, align 8, !tbaa !444
   %885 = getelementptr inbounds nuw i8, ptr %884, i64 8
   %886 = load ptr, ptr %885, align 8, !tbaa !56
   %887 = load ptr, ptr %884, align 8, !tbaa !49
@@ -17129,7 +17129,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit216: ; preds = %869, %874
   br label %894
 
 894:                                              ; preds = %893, %883
-  %895 = load i8, ptr %450, align 8, !tbaa !454, !range !116, !noundef !117
+  %895 = load i8, ptr %449, align 8, !tbaa !454, !range !116, !noundef !117
   %896 = trunc nuw i8 %895 to i1
   br i1 %896, label %897, label %902
 
@@ -17137,7 +17137,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit216: ; preds = %869, %874
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #24
   store i8 -47, ptr %7, align 1, !tbaa !76
   call void @_ZN4LIEF11swap_endianIhEEvPT_(ptr noundef nonnull %7) #24
-  %898 = load ptr, ptr %449, align 8, !tbaa !444
+  %898 = load ptr, ptr %448, align 8, !tbaa !444
   %899 = load ptr, ptr %898, align 8, !tbaa !49
   %900 = getelementptr inbounds nuw i8, ptr %899, i64 %.sroa.0.0.copyload.i.i217
   %901 = load i8, ptr %7, align 1
@@ -17146,16 +17146,16 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit216: ; preds = %869, %874
   br label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit218
 
 902:                                              ; preds = %894
-  %903 = load ptr, ptr %449, align 8, !tbaa !444
+  %903 = load ptr, ptr %448, align 8, !tbaa !444
   %904 = load ptr, ptr %903, align 8, !tbaa !49
   %905 = getelementptr inbounds nuw i8, ptr %904, i64 %.sroa.0.0.copyload.i.i217
   store i8 -47, ptr %905, align 1
   br label %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit218
 
 _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit218: ; preds = %897, %902
-  %906 = load i64, ptr %451, align 8, !tbaa !456
+  %906 = load i64, ptr %450, align 8, !tbaa !456
   %907 = add nsw i64 %906, 1
-  store i64 %907, ptr %451, align 8, !tbaa !456
+  store i64 %907, ptr %450, align 8, !tbaa !456
   br label %911
 
 908:                                              ; preds = %.lr.ph379
@@ -17179,7 +17179,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit218: ; preds = %897, %902
   %917 = load i64, ptr %499, align 8, !tbaa !65
   store i64 %917, ptr %53, align 8, !tbaa !54
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54) #24
-  %918 = load ptr, ptr %449, align 8, !tbaa !444
+  %918 = load ptr, ptr %448, align 8, !tbaa !444
   %919 = getelementptr inbounds nuw i8, ptr %918, i64 8
   %920 = load ptr, ptr %919, align 8, !tbaa !56
   %921 = load ptr, ptr %918, align 8, !tbaa !49
@@ -17194,16 +17194,16 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit218: ; preds = %897, %902
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53) #24
-  %.pre387 = load ptr, ptr %449, align 8, !tbaa !444
-  %.pre388 = load ptr, ptr %.pre387, align 8, !tbaa !49
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre387, i64 8
-  %.pre389 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !56
+  %.pre386 = load ptr, ptr %448, align 8, !tbaa !444
+  %.pre387 = load ptr, ptr %.pre386, align 8, !tbaa !49
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre386, i64 8
+  %.pre388 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !56
   br label %926
 
 926:                                              ; preds = %915, %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit190
-  %927 = phi ptr [ %.pre389, %915 ], [ %494, %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit190 ]
-  %928 = phi ptr [ %.pre388, %915 ], [ %495, %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit190 ]
-  %929 = phi ptr [ %.pre387, %915 ], [ %492, %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit190 ]
+  %927 = phi ptr [ %.pre388, %915 ], [ %494, %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit190 ]
+  %928 = phi ptr [ %.pre387, %915 ], [ %495, %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit190 ]
+  %929 = phi ptr [ %.pre386, %915 ], [ %492, %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit190 ]
   %930 = getelementptr inbounds nuw i8, ptr %929, i64 16
   %931 = load ptr, ptr %930, align 8, !tbaa !50
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %929, i8 0, i64 24, i1 false)
@@ -17229,7 +17229,7 @@ _ZN4LIEF15vector_iostream5writeESt6vectorIhSaIhEE.exit: ; preds = %926, %933
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZN4LIEF15vector_iostream5writeESt6vectorIhSaIhEE.exit, %938
-  %942 = load ptr, ptr %448, align 8, !tbaa !49
+  %942 = load ptr, ptr %447, align 8, !tbaa !49
   %.not.i.i.i.i219 = icmp eq ptr %942, null
   br i1 %.not.i.i.i.i219, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i, label %943
 

@@ -15584,12 +15584,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 .body56:                                          ; preds = %209, %211
   %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %212, %211 ], [ %210, %209 ]
   call void @_ZdlPv(ptr noundef nonnull %192) #36
-  %.pre57 = load ptr, ptr %191, align 8
-  %.not.i.i.i31 = icmp eq ptr %.pre57, null
+  %.pr = load ptr, ptr %191, align 8
+  %.not.i.i.i31 = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i31, label %.body29, label %214
 
 214:                                              ; preds = %.body56
-  %215 = invoke noundef zeroext i1 %.pre57(ptr noundef nonnull align 8 dereferenceable(33) %12, ptr noundef nonnull align 8 dereferenceable(33) %12, i32 noundef 3)
+  %215 = invoke noundef zeroext i1 %.pr(ptr noundef nonnull align 8 dereferenceable(33) %12, ptr noundef nonnull align 8 dereferenceable(33) %12, i32 noundef 3)
           to label %.body29 unwind label %216
 
 216:                                              ; preds = %214
@@ -18590,12 +18590,12 @@ _ZNSt10shared_ptrIN3nix8CallbackIS_IKNS0_11RealisationEEEEEC2ERKS6_.exit: ; pred
   %326 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZdlPv(ptr noundef nonnull %309) #36
-  %.pre = load ptr, ptr %308, align 8
-  %.not.i.i.i58 = icmp eq ptr %.pre, null
+  %.pr = load ptr, ptr %308, align 8
+  %.not.i.i.i58 = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i58, label %.body56, label %327
 
 327:                                              ; preds = %.body90
-  %328 = invoke noundef zeroext i1 %.pre(ptr noundef nonnull align 8 dereferenceable(33) %21, ptr noundef nonnull align 8 dereferenceable(33) %21, i32 noundef 3)
+  %328 = invoke noundef zeroext i1 %.pr(ptr noundef nonnull align 8 dereferenceable(33) %21, ptr noundef nonnull align 8 dereferenceable(33) %21, i32 noundef 3)
           to label %.body56 unwind label %329
 
 329:                                              ; preds = %327
@@ -91178,12 +91178,12 @@ _ZN3nix14checkInterruptEv.exit.i.i.i.i.i.i.i:     ; preds = %21, %_ZNKSt8functio
   %42 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %40) #36
-  %.pre.i.i.i.i.i.i.i = load ptr, ptr %39, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.pre.i.i.i.i.i.i.i, null
+  %.pr.i.i.i.i.i.i.i = load ptr, ptr %39, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.pr.i.i.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %.body8.i.i.i.i.i.i.i, label %43
 
 43:                                               ; preds = %.body17.i.i.i.i.i.i.i
-  %44 = invoke noundef zeroext i1 %.pre.i.i.i.i.i.i.i(ptr noundef nonnull align 8 dereferenceable(33) %2, ptr noundef nonnull align 8 dereferenceable(33) %2, i32 noundef 3)
+  %44 = invoke noundef zeroext i1 %.pr.i.i.i.i.i.i.i(ptr noundef nonnull align 8 dereferenceable(33) %2, ptr noundef nonnull align 8 dereferenceable(33) %2, i32 noundef 3)
           to label %.body8.i.i.i.i.i.i.i unwind label %45
 
 45:                                               ; preds = %43
@@ -91259,13 +91259,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %.body.i.i.i.i.i.i.i
 
 .body8.i.i.i.i.i.i.i:                             ; preds = %43, %.body17.i.i.i.i.i.i.i
-  %.pr.i.i.i.i.i.i.i = load ptr, ptr %28, align 8
-  %.not.i.i13.i.i.i.i.i.i.i = icmp eq ptr %.pr.i.i.i.i.i.i.i, null
+  %.pr21.i.i.i.i.i.i.i = load ptr, ptr %28, align 8
+  %.not.i.i13.i.i.i.i.i.i.i = icmp eq ptr %.pr21.i.i.i.i.i.i.i, null
   br i1 %.not.i.i13.i.i.i.i.i.i.i, label %.body.i.i.i.i.i.i.i, label %74
 
 74:                                               ; preds = %.body8.i.i.i.i.i.i.i, %.body8.thread.i.i.i.i.i.i.i
-  %eh.lpad-body2023.i.i.i.i.i.i.i = phi { ptr, i32 } [ %41, %.body8.thread.i.i.i.i.i.i.i ], [ %42, %.body8.i.i.i.i.i.i.i ]
-  %75 = phi ptr [ @"_ZNSt17_Function_handlerIFvSt6futureIN3nix3refIKNS1_13ValidPathInfoEEEEEZZNS1_5Store15queryValidPathsERKSt3setINS1_9StorePathESt4lessISA_ESaISA_EENS1_14SubstituteFlagEENK3$_0clERKSA_EUlS6_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", %.body8.thread.i.i.i.i.i.i.i ], [ %.pr.i.i.i.i.i.i.i, %.body8.i.i.i.i.i.i.i ]
+  %eh.lpad-body2024.i.i.i.i.i.i.i = phi { ptr, i32 } [ %41, %.body8.thread.i.i.i.i.i.i.i ], [ %42, %.body8.i.i.i.i.i.i.i ]
+  %75 = phi ptr [ @"_ZNSt17_Function_handlerIFvSt6futureIN3nix3refIKNS1_13ValidPathInfoEEEEEZZNS1_5Store15queryValidPathsERKSt3setINS1_9StorePathESt4lessISA_ESaISA_EENS1_14SubstituteFlagEENK3$_0clERKSA_EUlS6_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", %.body8.thread.i.i.i.i.i.i.i ], [ %.pr21.i.i.i.i.i.i.i, %.body8.i.i.i.i.i.i.i ]
   %76 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %.body.i.i.i.i.i.i.i unwind label %77
 
@@ -91277,7 +91277,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   unreachable
 
 .body.i.i.i.i.i.i.i:                              ; preds = %74, %.body8.i.i.i.i.i.i.i, %72, %31, %.body.i.i.i.i.i.i.i.i
-  %.pn.i.i.i.i.i.i.i = phi { ptr, i32 } [ %73, %72 ], [ %30, %31 ], [ %30, %.body.i.i.i.i.i.i.i.i ], [ %42, %.body8.i.i.i.i.i.i.i ], [ %eh.lpad-body2023.i.i.i.i.i.i.i, %74 ]
+  %.pn.i.i.i.i.i.i.i = phi { ptr, i32 } [ %73, %72 ], [ %30, %31 ], [ %30, %.body.i.i.i.i.i.i.i.i ], [ %42, %.body8.i.i.i.i.i.i.i ], [ %eh.lpad-body2024.i.i.i.i.i.i.i, %74 ]
   call fastcc void @"_ZZZN3nix5Store15queryValidPathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EENS_14SubstituteFlagEENK3$_0clERKS2_ENUlSt6futureINS_3refIKNS_13ValidPathInfoEEEEE_D2Ev"(ptr noundef nonnull align 8 dereferenceable(48) %4) #33
   resume { ptr, i32 } %.pn.i.i.i.i.i.i.i
 

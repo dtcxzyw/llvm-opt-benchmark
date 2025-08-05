@@ -15071,48 +15071,48 @@ define linkonce_odr dso_local void @_ZNK7testing8internal14FunctionMockerIFvvEE1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %12 = load ptr, ptr %11, align 8, !tbaa !78
   %.not.i.i.not.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.not.i.i, label %_ZN7testing6ActionIFvvEEC2ERKS2_.exit.thread, label %13
+  br i1 %.not.i.i.not.i.i, label %.critedge, label %13
 
 13:                                               ; preds = %8
   %14 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 2)
-          to label %_ZN7testing6ActionIFvvEEC2ERKS2_.exit unwind label %15
-
-15:                                               ; preds = %13
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  %17 = load ptr, ptr %9, align 8, !tbaa !78
-  %.not.i.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i.i, label %common.resume, label %18
-
-18:                                               ; preds = %15
-  %19 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
-          to label %common.resume unwind label %20
-
-20:                                               ; preds = %18
-  %21 = landingpad { ptr, i32 }
-          catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #26
-  unreachable
-
-common.resume:                                    ; preds = %15, %18, %_ZN7testing6ActionIFvvEED2Ev.exit9
-  %common.resume.op = phi { ptr, i32 } [ %36, %_ZN7testing6ActionIFvvEED2Ev.exit9 ], [ %16, %18 ], [ %16, %15 ]
-  resume { ptr, i32 } %common.resume.op
+          to label %_ZN7testing6ActionIFvvEEC2ERKS2_.exit unwind label %19
 
 _ZN7testing6ActionIFvvEEC2ERKS2_.exit:            ; preds = %13
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !517
-  store ptr %24, ptr %10, align 8, !tbaa !517
-  %25 = load ptr, ptr %11, align 8, !tbaa !78
-  store ptr %25, ptr %9, align 8, !tbaa !78
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %_ZN7testing6ActionIFvvEEC2ERKS2_.exit.thread, label %_ZN7testing8internal5ApplyIRKSt8functionIFvvEESt5tupleIJEEEEDTcl9ApplyImplclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv18__make_integer_seqISt16integer_sequencemXsr3std10tuple_sizeINSt16remove_referenceISA_E4typeEEE5valueEE_EEEOS9_OSA_.exit.i
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %16 = load ptr, ptr %15, align 8, !tbaa !517
+  store ptr %16, ptr %10, align 8, !tbaa !517
+  %17 = load ptr, ptr %11, align 8, !tbaa !78
+  store ptr %17, ptr %9, align 8, !tbaa !78
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %.critedge, label %_ZN7testing8internal5ApplyIRKSt8functionIFvvEESt5tupleIJEEEEDTcl9ApplyImplclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv18__make_integer_seqISt16integer_sequencemXsr3std10tuple_sizeINSt16remove_referenceISA_E4typeEEE5valueEE_EEEOS9_OSA_.exit.i
 
-_ZN7testing6ActionIFvvEEC2ERKS2_.exit.thread:     ; preds = %8, %_ZN7testing6ActionIFvvEEC2ERKS2_.exit
+19:                                               ; preds = %13
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = load ptr, ptr %9, align 8, !tbaa !78
+  %.not.i.i.i = icmp eq ptr %21, null
+  br i1 %.not.i.i.i, label %common.resume, label %22
+
+22:                                               ; preds = %19
+  %23 = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
+          to label %common.resume unwind label %24
+
+24:                                               ; preds = %22
+  %25 = landingpad { ptr, i32 }
+          catch ptr null
+  %26 = extractvalue { ptr, i32 } %25, 0
+  call void @__clang_call_terminate(ptr %26) #26
+  unreachable
+
+common.resume:                                    ; preds = %19, %22, %_ZN7testing6ActionIFvvEED2Ev.exit9
+  %common.resume.op = phi { ptr, i32 } [ %36, %_ZN7testing6ActionIFvvEED2Ev.exit9 ], [ %20, %22 ], [ %20, %19 ]
+  resume { ptr, i32 } %common.resume.op
+
+.critedge:                                        ; preds = %8, %_ZN7testing6ActionIFvvEEC2ERKS2_.exit
   invoke void @_ZN7testing8internal16IllegalDoDefaultEPKci(ptr noundef nonnull @.str.72, i32 noundef 795)
           to label %.noexc unwind label %35
 
-.noexc:                                           ; preds = %_ZN7testing6ActionIFvvEEC2ERKS2_.exit.thread
+.noexc:                                           ; preds = %.critedge
   %.pr.i = load ptr, ptr %9, align 8, !tbaa !78
   %.not.i.i.i.i.i = icmp eq ptr %.pr.i, null
   br i1 %.not.i.i.i.i.i, label %27, label %.noexc._ZN7testing8internal5ApplyIRKSt8functionIFvvEESt5tupleIJEEEEDTcl9ApplyImplclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv18__make_integer_seqISt16integer_sequencemXsr3std10tuple_sizeINSt16remove_referenceISA_E4typeEEE5valueEE_EEEOS9_OSA_.exit.i_crit_edge
@@ -15129,7 +15129,7 @@ _ZN7testing6ActionIFvvEEC2ERKS2_.exit.thread:     ; preds = %8, %_ZN7testing6Act
   unreachable
 
 _ZN7testing8internal5ApplyIRKSt8functionIFvvEESt5tupleIJEEEEDTcl9ApplyImplclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv18__make_integer_seqISt16integer_sequencemXsr3std10tuple_sizeINSt16remove_referenceISA_E4typeEEE5valueEE_EEEOS9_OSA_.exit.i: ; preds = %.noexc._ZN7testing8internal5ApplyIRKSt8functionIFvvEESt5tupleIJEEEEDTcl9ApplyImplclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv18__make_integer_seqISt16integer_sequencemXsr3std10tuple_sizeINSt16remove_referenceISA_E4typeEEE5valueEE_EEEOS9_OSA_.exit.i_crit_edge, %_ZN7testing6ActionIFvvEEC2ERKS2_.exit
-  %28 = phi ptr [ %.pre, %.noexc._ZN7testing8internal5ApplyIRKSt8functionIFvvEESt5tupleIJEEEEDTcl9ApplyImplclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv18__make_integer_seqISt16integer_sequencemXsr3std10tuple_sizeINSt16remove_referenceISA_E4typeEEE5valueEE_EEEOS9_OSA_.exit.i_crit_edge ], [ %24, %_ZN7testing6ActionIFvvEEC2ERKS2_.exit ]
+  %28 = phi ptr [ %.pre, %.noexc._ZN7testing8internal5ApplyIRKSt8functionIFvvEESt5tupleIJEEEEDTcl9ApplyImplclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv18__make_integer_seqISt16integer_sequencemXsr3std10tuple_sizeINSt16remove_referenceISA_E4typeEEE5valueEE_EEEOS9_OSA_.exit.i_crit_edge ], [ %16, %_ZN7testing6ActionIFvvEEC2ERKS2_.exit ]
   invoke void %28(ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %_ZNK7testing6ActionIFvvEE7PerformESt5tupleIJEE.exit unwind label %35
 
@@ -15153,7 +15153,7 @@ _ZN7testing6ActionIFvvEED2Ev.exit:                ; preds = %_ZNK7testing6Action
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #25
   br label %43
 
-35:                                               ; preds = %_ZN7testing8internal5ApplyIRKSt8functionIFvvEESt5tupleIJEEEEDTcl9ApplyImplclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv18__make_integer_seqISt16integer_sequencemXsr3std10tuple_sizeINSt16remove_referenceISA_E4typeEEE5valueEE_EEEOS9_OSA_.exit.i, %27, %_ZN7testing6ActionIFvvEEC2ERKS2_.exit.thread
+35:                                               ; preds = %_ZN7testing8internal5ApplyIRKSt8functionIFvvEESt5tupleIJEEEEDTcl9ApplyImplclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv18__make_integer_seqISt16integer_sequencemXsr3std10tuple_sizeINSt16remove_referenceISA_E4typeEEE5valueEE_EEEOS9_OSA_.exit.i, %27, %.critedge
   %36 = landingpad { ptr, i32 }
           cleanup
   %37 = load ptr, ptr %9, align 8, !tbaa !78

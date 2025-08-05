@@ -9366,7 +9366,7 @@ _ZNSt13unordered_setIiN4absl18container_internal19StatefulTestingHashENS1_20Stat
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %1) #28
   ret void
 
-87:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit29, %_ZN7testing7MessageD2Ev.exit36
+87:                                               ; preds = %_ZN7testing7MessageD2Ev.exit36, %_ZNSt6vectorIiSaIiEED2Ev.exit29
   %.pn16.pn.pn = phi { ptr, i32 } [ %.pn16.pn, %_ZN7testing7MessageD2Ev.exit36 ], [ %.pn13, %_ZNSt6vectorIiSaIiEED2Ev.exit29 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #28
   call void @_ZNSt13unordered_setIiN4absl18container_internal19StatefulTestingHashENS1_20StatefulTestingEqualENS1_5AllocIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %1) #28
@@ -13214,7 +13214,7 @@ _ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl1
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %1) #28
   ret void
 
-102:                                              ; preds = %46, %_ZN7testing7MessageD2Ev.exit34
+102:                                              ; preds = %_ZN7testing7MessageD2Ev.exit34, %46
   %.pn16.pn.pn = phi { ptr, i32 } [ %.pn16.pn, %_ZN7testing7MessageD2Ev.exit34 ], [ %.pn13, %46 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #28
   call void @_ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl18container_internal19StatefulTestingHashENS7_20StatefulTestingEqualENS7_5AllocIS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %1) #28

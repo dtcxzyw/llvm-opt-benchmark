@@ -5093,8 +5093,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_112unpackStructERN8WasmEdge4LLVM7Bu
   %6 = tail call noundef i32 @LLVMCountStructElementTypes(ptr noundef %5) #16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not18 = icmp eq i32 %6, 0
-  br i1 %.not18, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %8 = zext i32 %6 to i64

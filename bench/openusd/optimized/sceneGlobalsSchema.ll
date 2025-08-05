@@ -599,9 +599,9 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneGlobalsSchema17GetFro
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexPrim", align 8
   %5 = load ptr, ptr %1, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneGlobalsSchemaC2ESt10shared_ptrINS_21HdContainerDataSourceEE.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEptEv.exit
+  br i1 %6, label %_ZN32pxrInternal_v0_24__pxrReserved__8HdSchemaC2ESt10shared_ptrINS_21HdContainerDataSourceEE.exit.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEptEv.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneGlobalsSchemaC2ESt10shared_ptrINS_21HdContainerDataSourceEE.exit: ; preds = %2
+_ZN32pxrInternal_v0_24__pxrReserved__8HdSchemaC2ESt10shared_ptrINS_21HdContainerDataSourceEE.exit.i: ; preds = %2
   store ptr @.str.6, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__20HdSceneGlobalsSchema17GetFromSceneIndexERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEE, ptr %7, align 8
@@ -718,7 +718,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2
   call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexPrimD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
   resume { ptr, i32 } %61
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneGlobalsSchemaC2ESt10shared_ptrINS_21HdContainerDataSourceEE.exit, %56, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit.i
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8HdSchemaC2ESt10shared_ptrINS_21HdContainerDataSourceEE.exit.i, %56, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit.i
   ret void
 }
 

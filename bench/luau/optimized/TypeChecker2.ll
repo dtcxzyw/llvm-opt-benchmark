@@ -38212,7 +38212,7 @@ define linkonce_odr dso_local void @_ZN4Luau12TypeChecker218explainReasonings_IP
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %55 = load i64, ptr %54, align 8, !tbaa !970
   %.not.i.i = icmp eq i64 %55, 0
-  br i1 %.not.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %53
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -38237,7 +38237,7 @@ define linkonce_odr dso_local void @_ZN4Luau12TypeChecker218explainReasonings_IP
 .loopexit606:                                     ; preds = %.noexc, %61
   %.0.lcssa.i.i = phi i64 [ %.04.i.i, %.noexc ], [ %62, %61 ]
   %.not1283 = icmp eq i64 %.0.lcssa.i.i, %.pre.pre
-  br i1 %.not1283, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %.lr.ph
+  br i1 %.not1283, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.loopexit606
   %64 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -38310,7 +38310,7 @@ define linkonce_odr dso_local void @_ZN4Luau12TypeChecker218explainReasonings_IP
   %131 = getelementptr inbounds nuw i8, ptr %17, i64 28
   br label %144
 
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZN4Luau6detail14DenseHashTableINS_18SubtypingReasoningES2_S2_NS0_16ItemInterfaceSetIS2_EENS_22SubtypingReasoningHashESt8equal_toIS2_EE14const_iteratorppEv.exit, %53, %.loopexit606
+_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %_ZN4Luau6detail14DenseHashTableINS_18SubtypingReasoningES2_S2_NS0_16ItemInterfaceSetIS2_EENS_22SubtypingReasoningHashESt8equal_toIS2_EE14const_iteratorppEv.exit, %53, %.loopexit606
   %.0.lcssa = phi i8 [ 1, %.loopexit606 ], [ 1, %53 ], [ %.1, %_ZN4Luau6detail14DenseHashTableINS_18SubtypingReasoningES2_S2_NS0_16ItemInterfaceSetIS2_EENS_22SubtypingReasoningHashESt8equal_toIS2_EE14const_iteratorppEv.exit ]
   %132 = load ptr, ptr %10, align 8, !tbaa !443
   store ptr %132, ptr %0, align 8, !tbaa !443
@@ -41580,7 +41580,7 @@ _ZNSt14_Optional_baseIN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEELb0ELb0
 
 _ZN4Luau6detail14DenseHashTableINS_18SubtypingReasoningES2_S2_NS0_16ItemInterfaceSetIS2_EENS_22SubtypingReasoningHashESt8equal_toIS2_EE14const_iteratorppEv.exit: ; preds = %1220, %.noexc510
   %.not = icmp eq i64 %1221, %.pre.pre
-  br i1 %.not, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %144
+  br i1 %.not, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %144
 
 1227:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit498, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit266, %480
   %.pn136 = phi { ptr, i32 } [ %481, %480 ], [ %.pn126.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit266 ], [ %.pn108.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit498 ]
@@ -41682,7 +41682,7 @@ _ZNSt14_Optional_baseIN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEELb0ELb0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #34
   resume { ptr, i32 } %.pn148.pn
 
-1263:                                             ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %52
+1263:                                             ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %52
   ret void
 }
 
@@ -41752,7 +41752,7 @@ define linkonce_odr dso_local void @_ZN4Luau12TypeChecker218explainReasonings_IP
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %55 = load i64, ptr %54, align 8, !tbaa !970
   %.not.i.i = icmp eq i64 %55, 0
-  br i1 %.not.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %53
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -41777,7 +41777,7 @@ define linkonce_odr dso_local void @_ZN4Luau12TypeChecker218explainReasonings_IP
 .loopexit606:                                     ; preds = %.noexc, %61
   %.0.lcssa.i.i = phi i64 [ %.04.i.i, %.noexc ], [ %62, %61 ]
   %.not1283 = icmp eq i64 %.0.lcssa.i.i, %.pre.pre
-  br i1 %.not1283, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %.lr.ph
+  br i1 %.not1283, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.loopexit606
   %64 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -41850,7 +41850,7 @@ define linkonce_odr dso_local void @_ZN4Luau12TypeChecker218explainReasonings_IP
   %131 = getelementptr inbounds nuw i8, ptr %17, i64 28
   br label %144
 
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZN4Luau6detail14DenseHashTableINS_18SubtypingReasoningES2_S2_NS0_16ItemInterfaceSetIS2_EENS_22SubtypingReasoningHashESt8equal_toIS2_EE14const_iteratorppEv.exit, %53, %.loopexit606
+_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %_ZN4Luau6detail14DenseHashTableINS_18SubtypingReasoningES2_S2_NS0_16ItemInterfaceSetIS2_EENS_22SubtypingReasoningHashESt8equal_toIS2_EE14const_iteratorppEv.exit, %53, %.loopexit606
   %.0.lcssa = phi i8 [ 1, %.loopexit606 ], [ 1, %53 ], [ %.1, %_ZN4Luau6detail14DenseHashTableINS_18SubtypingReasoningES2_S2_NS0_16ItemInterfaceSetIS2_EENS_22SubtypingReasoningHashESt8equal_toIS2_EE14const_iteratorppEv.exit ]
   %132 = load ptr, ptr %10, align 8, !tbaa !443
   store ptr %132, ptr %0, align 8, !tbaa !443
@@ -45120,7 +45120,7 @@ _ZNSt14_Optional_baseIN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEELb0ELb0
 
 _ZN4Luau6detail14DenseHashTableINS_18SubtypingReasoningES2_S2_NS0_16ItemInterfaceSetIS2_EENS_22SubtypingReasoningHashESt8equal_toIS2_EE14const_iteratorppEv.exit: ; preds = %1220, %.noexc510
   %.not = icmp eq i64 %1221, %.pre.pre
-  br i1 %.not, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %144
+  br i1 %.not, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %144
 
 1227:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit498, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit266, %480
   %.pn136 = phi { ptr, i32 } [ %481, %480 ], [ %.pn126.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit266 ], [ %.pn108.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit498 ]
@@ -45222,7 +45222,7 @@ _ZNSt14_Optional_baseIN4Luau7VariantIJPKNS0_4TypeEPKNS0_11TypePackVarEEEELb0ELb0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #34
   resume { ptr, i32 } %.pn148.pn
 
-1263:                                             ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %52
+1263:                                             ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %52
   ret void
 }
 

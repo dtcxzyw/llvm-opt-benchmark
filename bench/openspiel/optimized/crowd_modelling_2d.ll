@@ -6459,9 +6459,9 @@ _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #30
-          to label %_ZNSt6vectorIlSaIlEE7reserveEm.exit unwind label %.loopexit.split-lp
+          to label %.noexc unwind label %.loopexit.split-lp
 
-_ZNSt6vectorIlSaIlEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i
+.noexc:                                           ; preds = %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %0, align 8
   store ptr %3, ptr %4, align 8
@@ -6472,147 +6472,146 @@ _ZNSt6vectorIlSaIlEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %_ZNKSt5arrayIiLm5EE2atEm.exit4.i
 
-_ZNKSt5arrayIiLm5EE2atEm.exit4.i:                 ; preds = %_ZNSt6vectorIlSaIlEE7reserveEm.exit, %_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState11IsForbiddenEl.exit
-  %12 = phi ptr [ %3, %_ZNSt6vectorIlSaIlEE7reserveEm.exit ], [ %67, %_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState11IsForbiddenEl.exit ]
-  %storemerge17 = phi i64 [ 0, %_ZNSt6vectorIlSaIlEE7reserveEm.exit ], [ %70, %_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState11IsForbiddenEl.exit ]
-  %13 = phi ptr [ %5, %_ZNSt6vectorIlSaIlEE7reserveEm.exit ], [ %69, %_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState11IsForbiddenEl.exit ]
-  %14 = phi ptr [ %3, %_ZNSt6vectorIlSaIlEE7reserveEm.exit ], [ %68, %_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState11IsForbiddenEl.exit ]
-  %15 = load i32, ptr %6, align 4
-  %16 = getelementptr inbounds nuw [5 x i32], ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveXE, i64 0, i64 %storemerge17
-  %17 = load i32, ptr %16, align 4
-  %18 = add nsw i32 %17, %15
-  %19 = load i32, ptr %7, align 8
-  %20 = add nsw i32 %18, %19
-  %21 = srem i32 %20, %19
-  %22 = load i32, ptr %8, align 8
-  %23 = getelementptr inbounds nuw [5 x i32], ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveYE, i64 0, i64 %storemerge17
-  %24 = load i32, ptr %23, align 4
-  %25 = add i32 %22, %19
-  %26 = add i32 %25, %24
-  %27 = srem i32 %26, %19
-  %28 = load ptr, ptr %9, align 8
-  %29 = load ptr, ptr %10, align 8
-  %.not.i.i = icmp eq ptr %28, %29
+_ZNKSt5arrayIiLm5EE2atEm.exit4.i:                 ; preds = %.noexc, %_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState11IsForbiddenEl.exit
+  %11 = phi ptr [ %3, %.noexc ], [ %66, %_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState11IsForbiddenEl.exit ]
+  %storemerge17 = phi i64 [ 0, %.noexc ], [ %69, %_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState11IsForbiddenEl.exit ]
+  %12 = phi ptr [ %5, %.noexc ], [ %68, %_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState11IsForbiddenEl.exit ]
+  %13 = phi ptr [ %3, %.noexc ], [ %67, %_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState11IsForbiddenEl.exit ]
+  %14 = load i32, ptr %6, align 4
+  %15 = getelementptr inbounds nuw [5 x i32], ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveXE, i64 0, i64 %storemerge17
+  %16 = load i32, ptr %15, align 4
+  %17 = add nsw i32 %16, %14
+  %18 = load i32, ptr %7, align 8
+  %19 = add nsw i32 %17, %18
+  %20 = srem i32 %19, %18
+  %21 = load i32, ptr %8, align 8
+  %22 = getelementptr inbounds nuw [5 x i32], ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveYE, i64 0, i64 %storemerge17
+  %23 = load i32, ptr %22, align 4
+  %24 = add i32 %21, %18
+  %25 = add i32 %24, %23
+  %26 = srem i32 %25, %18
+  %27 = load ptr, ptr %9, align 8
+  %28 = load ptr, ptr %10, align 8
+  %.not.i.i = icmp eq ptr %27, %28
   br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %_ZNKSt5arrayIiLm5EE2atEm.exit4.i, %36
-  %.sroa.07.010.i.i = phi ptr [ %37, %36 ], [ %28, %_ZNKSt5arrayIiLm5EE2atEm.exit4.i ]
-  %30 = load i32, ptr %.sroa.07.010.i.i, align 4
-  %31 = icmp eq i32 %21, %30
-  br i1 %31, label %32, label %36
+.lr.ph.i.i:                                       ; preds = %_ZNKSt5arrayIiLm5EE2atEm.exit4.i, %35
+  %.sroa.07.010.i.i = phi ptr [ %36, %35 ], [ %27, %_ZNKSt5arrayIiLm5EE2atEm.exit4.i ]
+  %29 = load i32, ptr %.sroa.07.010.i.i, align 4
+  %30 = icmp eq i32 %20, %29
+  br i1 %30, label %31, label %35
 
-32:                                               ; preds = %.lr.ph.i.i
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.07.010.i.i, i64 4
-  %34 = load i32, ptr %33, align 4
-  %35 = icmp eq i32 %27, %34
-  br i1 %35, label %_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState11IsForbiddenEl.exit, label %36
+31:                                               ; preds = %.lr.ph.i.i
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.07.010.i.i, i64 4
+  %33 = load i32, ptr %32, align 4
+  %34 = icmp eq i32 %26, %33
+  br i1 %34, label %_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState11IsForbiddenEl.exit, label %35
 
-36:                                               ; preds = %32, %.lr.ph.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.07.010.i.i, i64 8
-  %.not13.i.i = icmp eq ptr %37, %29
+35:                                               ; preds = %31, %.lr.ph.i.i
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.07.010.i.i, i64 8
+  %.not13.i.i = icmp eq ptr %36, %28
   br i1 %.not13.i.i, label %.loopexit, label %.lr.ph.i.i
 
-.loopexit:                                        ; preds = %36, %_ZNKSt5arrayIiLm5EE2atEm.exit4.i
-  %.not.i = icmp eq ptr %12, %13
-  br i1 %.not.i, label %40, label %38
+.loopexit:                                        ; preds = %35, %_ZNKSt5arrayIiLm5EE2atEm.exit4.i
+  %.not.i = icmp eq ptr %11, %12
+  br i1 %.not.i, label %39, label %37
 
-38:                                               ; preds = %.loopexit
-  store i64 %storemerge17, ptr %12, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %39, ptr %11, align 8
+37:                                               ; preds = %.loopexit
+  store i64 %storemerge17, ptr %11, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr %38, ptr %4, align 8
   br label %_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState11IsForbiddenEl.exit
 
-40:                                               ; preds = %.loopexit
-  %41 = ptrtoint ptr %12 to i64
-  %42 = ptrtoint ptr %14 to i64
-  %43 = sub i64 %41, %42
-  %44 = icmp eq i64 %43, 9223372036854775800
-  br i1 %44, label %45, label %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i
+39:                                               ; preds = %.loopexit
+  %40 = ptrtoint ptr %11 to i64
+  %41 = ptrtoint ptr %13 to i64
+  %42 = sub i64 %40, %41
+  %43 = icmp eq i64 %42, 9223372036854775800
+  br i1 %43, label %44, label %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i
 
-45:                                               ; preds = %40
-  store ptr %13, ptr %2, align 8
-  store ptr %14, ptr %0, align 8
+44:                                               ; preds = %39
+  store ptr %12, ptr %2, align 8
+  store ptr %13, ptr %0, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.107) #27
           to label %.noexc4 unwind label %.loopexit.split-lp
 
-.noexc4:                                          ; preds = %45
+.noexc4:                                          ; preds = %44
   unreachable
 
-_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i: ; preds = %40
-  %46 = ashr exact i64 %43, 3
-  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %46, i64 1)
-  %47 = add nsw i64 %.sroa.speculated.i.i.i, %46
-  %48 = icmp ult i64 %47, %46
-  %49 = tail call i64 @llvm.umin.i64(i64 %47, i64 1152921504606846975)
-  %50 = select i1 %48, i64 1152921504606846975, i64 %49
-  %.not.i.i.i = icmp ne i64 %50, 0
+_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i: ; preds = %39
+  %45 = ashr exact i64 %42, 3
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %45, i64 1)
+  %46 = add nsw i64 %.sroa.speculated.i.i.i, %45
+  %47 = icmp ult i64 %46, %45
+  %48 = tail call i64 @llvm.umin.i64(i64 %46, i64 1152921504606846975)
+  %49 = select i1 %47, i64 1152921504606846975, i64 %48
+  %.not.i.i.i = icmp ne i64 %49, 0
   tail call void @llvm.assume(i1 %.not.i.i.i)
-  %51 = shl nuw nsw i64 %50, 3
-  %52 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %51) #30
+  %50 = shl nuw nsw i64 %49, 3
+  %51 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %50) #30
           to label %.noexc5 unwind label %.loopexit10
 
 .noexc5:                                          ; preds = %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i
-  %53 = getelementptr inbounds i8, ptr %52, i64 %43
-  store i64 %storemerge17, ptr %53, align 8
-  %54 = icmp sgt i64 %43, 0
-  br i1 %54, label %55, label %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i
+  %52 = getelementptr inbounds i8, ptr %51, i64 %42
+  store i64 %storemerge17, ptr %52, align 8
+  %53 = icmp sgt i64 %42, 0
+  br i1 %53, label %54, label %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i
 
-55:                                               ; preds = %.noexc5
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %52, ptr align 8 %14, i64 %43, i1 false)
+54:                                               ; preds = %.noexc5
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %51, ptr align 8 %13, i64 %42, i1 false)
   br label %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i
 
-_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i: ; preds = %55, %.noexc5
-  %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %43) #28
-  store ptr %56, ptr %11, align 8
-  %57 = getelementptr inbounds nuw i64, ptr %52, i64 %50
+_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i: ; preds = %54, %.noexc5
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %42) #28
+  store ptr %55, ptr %4, align 8
+  %56 = getelementptr inbounds nuw i64, ptr %51, i64 %49
   br label %_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState11IsForbiddenEl.exit
 
 .loopexit10:                                      ; preds = %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  store ptr %13, ptr %2, align 8
-  store ptr %14, ptr %0, align 8
-  br label %60
+  store ptr %12, ptr %2, align 8
+  store ptr %13, ptr %0, align 8
+  br label %59
 
-.loopexit.split-lp:                               ; preds = %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i, %45
-  %58 = phi ptr [ null, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i ], [ %12, %45 ]
-  %59 = phi ptr [ null, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i ], [ %14, %45 ]
+.loopexit.split-lp:                               ; preds = %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i, %44
+  %57 = phi ptr [ null, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i ], [ %11, %44 ]
+  %58 = phi ptr [ null, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i ], [ %13, %44 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %60
+  br label %59
 
-60:                                               ; preds = %.loopexit.split-lp, %.loopexit10
-  %61 = phi ptr [ %12, %.loopexit10 ], [ %58, %.loopexit.split-lp ]
-  %62 = phi ptr [ %14, %.loopexit10 ], [ %59, %.loopexit.split-lp ]
+59:                                               ; preds = %.loopexit.split-lp, %.loopexit10
+  %60 = phi ptr [ %11, %.loopexit10 ], [ %57, %.loopexit.split-lp ]
+  %61 = phi ptr [ %13, %.loopexit10 ], [ %58, %.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit10 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.not.i.i.i6 = icmp eq ptr %62, null
-  br i1 %.not.i.i.i6, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %63
+  %.not.i.i.i6 = icmp eq ptr %61, null
+  br i1 %.not.i.i.i6, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %62
 
-63:                                               ; preds = %60
+62:                                               ; preds = %59
+  %63 = ptrtoint ptr %60 to i64
   %64 = ptrtoint ptr %61 to i64
-  %65 = ptrtoint ptr %62 to i64
-  %66 = sub i64 %64, %65
-  tail call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %66) #28
+  %65 = sub i64 %63, %64
+  tail call void @_ZdlPvm(ptr noundef nonnull %61, i64 noundef %65) #28
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
-_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %60, %63
+_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %59, %62
   resume { ptr, i32 } %lpad.phi
 
-_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState11IsForbiddenEl.exit: ; preds = %32, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i, %38
-  %67 = phi ptr [ %56, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i ], [ %39, %38 ], [ %12, %32 ]
-  %68 = phi ptr [ %52, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i ], [ %14, %38 ], [ %14, %32 ]
-  %69 = phi ptr [ %57, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i ], [ %13, %38 ], [ %13, %32 ]
-  %70 = add nuw nsw i64 %storemerge17, 1
-  %exitcond.not = icmp eq i64 %70, 5
-  br i1 %exitcond.not, label %71, label %_ZNKSt5arrayIiLm5EE2atEm.exit4.i, !llvm.loop !41
+_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState11IsForbiddenEl.exit: ; preds = %31, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i, %37
+  %66 = phi ptr [ %55, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i ], [ %38, %37 ], [ %11, %31 ]
+  %67 = phi ptr [ %51, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i ], [ %13, %37 ], [ %13, %31 ]
+  %68 = phi ptr [ %56, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i ], [ %12, %37 ], [ %12, %31 ]
+  %69 = add nuw nsw i64 %storemerge17, 1
+  %exitcond.not = icmp eq i64 %69, 5
+  br i1 %exitcond.not, label %70, label %_ZNKSt5arrayIiLm5EE2atEm.exit4.i, !llvm.loop !41
 
-71:                                               ; preds = %_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState11IsForbiddenEl.exit
-  store ptr %69, ptr %2, align 8
-  store ptr %68, ptr %0, align 8
+70:                                               ; preds = %_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState11IsForbiddenEl.exit
+  store ptr %68, ptr %2, align 8
+  store ptr %67, ptr %0, align 8
   ret void
 }
 

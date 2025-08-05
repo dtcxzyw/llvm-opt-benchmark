@@ -2253,7 +2253,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %14, %2
 50:                                               ; preds = %48, %46
   %.0.i.i.i.i.i = phi i32 [ %38, %46 ], [ %49, %48 ]
   %51 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %51, label %52, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEaSEOS3_.exit
+  br i1 %51, label %52, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEaSEOS3_.exitthread-pre-split
 
 52:                                               ; preds = %50
   %53 = load ptr, ptr %33, align 8
@@ -2278,17 +2278,21 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %14, %2
 63:                                               ; preds = %61, %58
   %.0.i.i.i.i.i.i.i = phi i32 [ %59, %58 ], [ %62, %61 ]
   %64 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %64, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEaSEOS3_.exit
+  br i1 %64, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEaSEOS3_.exitthread-pre-split
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %63, %39
   %65 = load ptr, ptr %33, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %67 = load ptr, ptr %66, align 8
   call void %67(ptr noundef nonnull align 8 dereferenceable(16) %33) #20
+  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEaSEOS3_.exitthread-pre-split
+
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEaSEOS3_.exitthread-pre-split: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %63, %50
+  %.pr = load ptr, ptr %12, align 8
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEaSEOS3_.exit
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEaSEOS3_.exit: ; preds = %29, %50, %63, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  %68 = load ptr, ptr %12, align 8
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEaSEOS3_.exit: ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEaSEOS3_.exitthread-pre-split, %29
+  %68 = phi ptr [ %.pr, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEaSEOS3_.exitthread-pre-split ], [ null, %29 ]
   %.not.i.i.i = icmp eq ptr %68, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEED2Ev.exit, label %69
 

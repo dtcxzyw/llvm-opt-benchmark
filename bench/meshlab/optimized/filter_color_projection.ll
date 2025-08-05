@@ -14250,7 +14250,7 @@ _ZN3vcg4face8IsBorderI6CFaceOEEbRKT_i.exit.thread.i: ; preds = %_ZN3vcg4face8IsB
           cleanup
   br label %_ZNSt6vectorI9TexelDescSaIS0_EED2Ev.exit1198
 
-_ZNSt12_Vector_baseI9TexelDescSaIS0_EE11_M_allocateEm.exit.i: ; preds = %.loopexit.i, %.noexc980, %1332
+_ZNSt12_Vector_baseI9TexelDescSaIS0_EE11_M_allocateEm.exit.i: ; preds = %.loopexit.i, %1332, %.noexc980
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, i8 0, i64 24, i1 false)
   %1372 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %1373 = mul nuw nsw i32 %1093, %1093

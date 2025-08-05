@@ -5028,9 +5028,9 @@ if.then5:                                         ; preds = %if.end3
   tail call void @ACQUIRE_DTOA_LOCK(i32 noundef 1) #17
   %2 = load ptr, ptr @p5s, align 8
   %tobool6.not = icmp eq ptr %2, null
-  br i1 %tobool6.not, label %i2b.exit, label %if.end9
+  br i1 %tobool6.not, label %if.then7, label %if.end9
 
-i2b.exit:                                         ; preds = %if.then5
+if.then7:                                         ; preds = %if.then5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) @cache, i8 0, i64 80, i1 false)
   store i32 2304, ptr @cache, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @cache, i64 120), ptr getelementptr inbounds nuw (i8, ptr @cache, i64 8), align 8
@@ -5043,8 +5043,8 @@ i2b.exit:                                         ; preds = %if.then5
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @cache, i64 80), align 8
   br label %if.end9
 
-if.end9:                                          ; preds = %i2b.exit, %if.then5
-  %p5.1 = phi ptr [ %2, %if.then5 ], [ getelementptr inbounds nuw (i8, ptr @cache, i64 80), %i2b.exit ]
+if.end9:                                          ; preds = %if.then7, %if.then5
+  %p5.1 = phi ptr [ %2, %if.then5 ], [ getelementptr inbounds nuw (i8, ptr @cache, i64 80), %if.then7 ]
   tail call void @FREE_DTOA_LOCK(i32 noundef 1) #17
   br label %if.end10
 

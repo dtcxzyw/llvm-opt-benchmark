@@ -41672,14 +41672,14 @@ invoke.cont157:                                   ; preds = %if.then5.i289, %if.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp124) #52
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp125) #52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %args, i8 0, i64 24, i1 false)
-  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %args, i64 8
-  %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %args, i64 16
   %call5.i.i.i.i.i.i1.i295 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #55
           to label %invoke.cont173 unwind label %lpad172
 
 invoke.cont173:                                   ; preds = %invoke.cont157
   store ptr null, ptr %call5.i.i.i.i.i.i1.i295, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i1.i295, i64 8
+  %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %args, i64 16
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %args, i64 8
   store ptr %call5.i.i.i.i.i.i1.i295, ptr %args, align 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8

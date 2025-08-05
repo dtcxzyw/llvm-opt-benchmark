@@ -605,23 +605,23 @@ LZ4_compress_HC_extStateHC_fastReset.exit:        ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 262180
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store i32 %3, ptr %7, align 4, !tbaa !17
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 262184
-  store ptr null, ptr %12, align 8, !tbaa !32
-  %13 = icmp slt i32 %5, 1
-  %14 = tail call i32 @llvm.umin.i32(i32 %5, i32 12)
-  %15 = trunc nuw nsw i32 %14 to i16
-  %16 = select i1 %13, i16 9, i16 %15
-  store i16 %16, ptr %11, align 4, !tbaa !26
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 262144
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 262152
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 262168
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 262144
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 262184
+  store ptr null, ptr %13, align 8, !tbaa !32
+  %14 = icmp slt i32 %5, 1
+  %15 = tail call i32 @llvm.umin.i32(i32 %5, i32 12)
+  %16 = trunc nuw nsw i32 %15 to i16
+  %17 = select i1 %14, i16 9, i16 %16
+  store i16 %17, ptr %11, align 4, !tbaa !26
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 262168
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 262152
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 262176
   store i32 65536, ptr %20, align 8, !tbaa !33
-  store ptr %1, ptr %18, align 8, !tbaa !13
-  store ptr %1, ptr %17, align 8, !tbaa !4
+  store ptr %1, ptr %19, align 8, !tbaa !13
+  store ptr %1, ptr %12, align 8, !tbaa !4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 262160
   store ptr %1, ptr %21, align 8, !tbaa !34
-  store i32 65536, ptr %19, align 8, !tbaa !14
+  store i32 65536, ptr %18, align 8, !tbaa !14
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 262172
   store i32 65536, ptr %22, align 4, !tbaa !35
   %23 = tail call i32 @LZ4_compressBound(i32 noundef %3) #18
@@ -676,23 +676,23 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i:      ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 262180
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 %2, ptr %6, align 4, !tbaa !17
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 262184
-  store ptr null, ptr %13, align 8, !tbaa !32
-  %14 = icmp slt i32 %4, 1
-  %15 = tail call i32 @llvm.umin.i32(i32 %4, i32 12)
-  %16 = trunc nuw nsw i32 %15 to i16
-  %17 = select i1 %14, i16 9, i16 %16
-  store i16 %17, ptr %12, align 4, !tbaa !26
-  %18 = getelementptr inbounds nuw i8, ptr %7, i64 262144
-  %19 = getelementptr inbounds nuw i8, ptr %7, i64 262152
-  %20 = getelementptr inbounds nuw i8, ptr %7, i64 262168
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 262144
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 262184
+  store ptr null, ptr %14, align 8, !tbaa !32
+  %15 = icmp slt i32 %4, 1
+  %16 = tail call i32 @llvm.umin.i32(i32 %4, i32 12)
+  %17 = trunc nuw nsw i32 %16 to i16
+  %18 = select i1 %15, i16 9, i16 %17
+  store i16 %18, ptr %12, align 4, !tbaa !26
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 262168
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 262152
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 262176
   store i32 65536, ptr %21, align 8, !tbaa !33
-  store ptr %0, ptr %19, align 8, !tbaa !13
-  store ptr %0, ptr %18, align 8, !tbaa !4
+  store ptr %0, ptr %20, align 8, !tbaa !13
+  store ptr %0, ptr %13, align 8, !tbaa !4
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 262160
   store ptr %0, ptr %22, align 8, !tbaa !34
-  store i32 65536, ptr %20, align 8, !tbaa !14
+  store i32 65536, ptr %19, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 262172
   store i32 65536, ptr %23, align 4, !tbaa !35
   %24 = tail call i32 @LZ4_compressBound(i32 noundef %2) #18
@@ -730,16 +730,16 @@ define dso_local i32 @LZ4_compress_HC_destSize(ptr noundef %0, ptr noundef %1, p
 LZ4HC_init_internal.exit:                         ; preds = %6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(262192) %0, i8 0, i64 262192, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 262180
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 262168
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 262144
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 262152
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 262144
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 262168
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 262176
   store i32 65536, ptr %14, align 8, !tbaa !33
   store ptr %1, ptr %12, align 8, !tbaa !13
-  store ptr %1, ptr %13, align 8, !tbaa !4
+  store ptr %1, ptr %11, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 262160
   store ptr %1, ptr %15, align 8, !tbaa !34
-  store i32 65536, ptr %11, align 8, !tbaa !14
+  store i32 65536, ptr %13, align 8, !tbaa !14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 262172
   store i32 65536, ptr %16, align 4, !tbaa !35
   %17 = icmp slt i32 %5, 1
@@ -1342,19 +1342,19 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i.i:    ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 262180
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 %2, ptr %4, align 4, !tbaa !17
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 262184
-  store ptr null, ptr %12, align 8, !tbaa !32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 262144
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 262184
+  store ptr null, ptr %13, align 8, !tbaa !32
   store i16 9, ptr %11, align 4, !tbaa !26
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 262144
-  %14 = getelementptr inbounds nuw i8, ptr %6, i64 262152
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 262168
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 262168
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 262152
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 262176
   store i32 65536, ptr %16, align 8, !tbaa !33
-  store ptr %0, ptr %14, align 8, !tbaa !13
-  store ptr %0, ptr %13, align 8, !tbaa !4
+  store ptr %0, ptr %15, align 8, !tbaa !13
+  store ptr %0, ptr %12, align 8, !tbaa !4
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 262160
   store ptr %0, ptr %17, align 8, !tbaa !34
-  store i32 65536, ptr %15, align 8, !tbaa !14
+  store i32 65536, ptr %14, align 8, !tbaa !14
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 262172
   store i32 65536, ptr %18, align 4, !tbaa !35
   %19 = tail call i32 @LZ4_compressBound(i32 noundef %2) #18
@@ -1392,19 +1392,19 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i.i:    ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 262180
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 %2, ptr %5, align 4, !tbaa !17
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 262184
-  store ptr null, ptr %12, align 8, !tbaa !32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 262144
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 262184
+  store ptr null, ptr %13, align 8, !tbaa !32
   store i16 9, ptr %11, align 4, !tbaa !26
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 262144
-  %14 = getelementptr inbounds nuw i8, ptr %6, i64 262152
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 262168
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 262168
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 262152
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 262176
   store i32 65536, ptr %16, align 8, !tbaa !33
-  store ptr %0, ptr %14, align 8, !tbaa !13
-  store ptr %0, ptr %13, align 8, !tbaa !4
+  store ptr %0, ptr %15, align 8, !tbaa !13
+  store ptr %0, ptr %12, align 8, !tbaa !4
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 262160
   store ptr %0, ptr %17, align 8, !tbaa !34
-  store i32 65536, ptr %15, align 8, !tbaa !14
+  store i32 65536, ptr %14, align 8, !tbaa !14
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 262172
   store i32 65536, ptr %18, align 4, !tbaa !35
   %19 = tail call i32 @LZ4_compressBound(i32 noundef %2) #18
@@ -1443,23 +1443,23 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i.i:    ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 262180
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 %2, ptr %5, align 4, !tbaa !17
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 262184
-  store ptr null, ptr %13, align 8, !tbaa !32
-  %14 = icmp slt i32 %3, 1
-  %15 = tail call i32 @llvm.umin.i32(i32 %3, i32 12)
-  %16 = trunc nuw nsw i32 %15 to i16
-  %17 = select i1 %14, i16 9, i16 %16
-  store i16 %17, ptr %12, align 4, !tbaa !26
-  %18 = getelementptr inbounds nuw i8, ptr %7, i64 262144
-  %19 = getelementptr inbounds nuw i8, ptr %7, i64 262152
-  %20 = getelementptr inbounds nuw i8, ptr %7, i64 262168
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 262144
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 262184
+  store ptr null, ptr %14, align 8, !tbaa !32
+  %15 = icmp slt i32 %3, 1
+  %16 = tail call i32 @llvm.umin.i32(i32 %3, i32 12)
+  %17 = trunc nuw nsw i32 %16 to i16
+  %18 = select i1 %15, i16 9, i16 %17
+  store i16 %18, ptr %12, align 4, !tbaa !26
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 262168
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 262152
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 262176
   store i32 65536, ptr %21, align 8, !tbaa !33
-  store ptr %0, ptr %19, align 8, !tbaa !13
-  store ptr %0, ptr %18, align 8, !tbaa !4
+  store ptr %0, ptr %20, align 8, !tbaa !13
+  store ptr %0, ptr %13, align 8, !tbaa !4
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 262160
   store ptr %0, ptr %22, align 8, !tbaa !34
-  store i32 65536, ptr %20, align 8, !tbaa !14
+  store i32 65536, ptr %19, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 262172
   store i32 65536, ptr %23, align 4, !tbaa !35
   %24 = tail call i32 @LZ4_compressBound(i32 noundef %2) #18
@@ -1497,23 +1497,23 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i.i:    ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 262180
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 %2, ptr %6, align 4, !tbaa !17
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 262184
-  store ptr null, ptr %13, align 8, !tbaa !32
-  %14 = icmp slt i32 %4, 1
-  %15 = tail call i32 @llvm.umin.i32(i32 %4, i32 12)
-  %16 = trunc nuw nsw i32 %15 to i16
-  %17 = select i1 %14, i16 9, i16 %16
-  store i16 %17, ptr %12, align 4, !tbaa !26
-  %18 = getelementptr inbounds nuw i8, ptr %7, i64 262144
-  %19 = getelementptr inbounds nuw i8, ptr %7, i64 262152
-  %20 = getelementptr inbounds nuw i8, ptr %7, i64 262168
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 262144
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 262184
+  store ptr null, ptr %14, align 8, !tbaa !32
+  %15 = icmp slt i32 %4, 1
+  %16 = tail call i32 @llvm.umin.i32(i32 %4, i32 12)
+  %17 = trunc nuw nsw i32 %16 to i16
+  %18 = select i1 %15, i16 9, i16 %17
+  store i16 %18, ptr %12, align 4, !tbaa !26
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 262168
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 262152
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 262176
   store i32 65536, ptr %21, align 8, !tbaa !33
-  store ptr %0, ptr %19, align 8, !tbaa !13
-  store ptr %0, ptr %18, align 8, !tbaa !4
+  store ptr %0, ptr %20, align 8, !tbaa !13
+  store ptr %0, ptr %13, align 8, !tbaa !4
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 262160
   store ptr %0, ptr %22, align 8, !tbaa !34
-  store i32 65536, ptr %20, align 8, !tbaa !14
+  store i32 65536, ptr %19, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 262172
   store i32 65536, ptr %23, align 4, !tbaa !35
   %24 = tail call i32 @LZ4_compressBound(i32 noundef %2) #18
@@ -1549,19 +1549,19 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i:      ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 262180
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 %3, ptr %5, align 4, !tbaa !17
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 262184
-  store ptr null, ptr %11, align 8, !tbaa !32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 262144
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 262184
+  store ptr null, ptr %12, align 8, !tbaa !32
   store i16 9, ptr %10, align 4, !tbaa !26
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 262144
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 262152
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 262168
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 262168
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 262152
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 262176
   store i32 65536, ptr %15, align 8, !tbaa !33
-  store ptr %1, ptr %13, align 8, !tbaa !13
-  store ptr %1, ptr %12, align 8, !tbaa !4
+  store ptr %1, ptr %14, align 8, !tbaa !13
+  store ptr %1, ptr %11, align 8, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 262160
   store ptr %1, ptr %16, align 8, !tbaa !34
-  store i32 65536, ptr %14, align 8, !tbaa !14
+  store i32 65536, ptr %13, align 8, !tbaa !14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 262172
   store i32 65536, ptr %17, align 4, !tbaa !35
   %18 = tail call i32 @LZ4_compressBound(i32 noundef %3) #18
@@ -1591,19 +1591,19 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i:      ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 262180
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 %3, ptr %6, align 4, !tbaa !17
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 262184
-  store ptr null, ptr %11, align 8, !tbaa !32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 262144
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 262184
+  store ptr null, ptr %12, align 8, !tbaa !32
   store i16 9, ptr %10, align 4, !tbaa !26
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 262144
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 262152
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 262168
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 262168
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 262152
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 262176
   store i32 65536, ptr %15, align 8, !tbaa !33
-  store ptr %1, ptr %13, align 8, !tbaa !13
-  store ptr %1, ptr %12, align 8, !tbaa !4
+  store ptr %1, ptr %14, align 8, !tbaa !13
+  store ptr %1, ptr %11, align 8, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 262160
   store ptr %1, ptr %16, align 8, !tbaa !34
-  store i32 65536, ptr %14, align 8, !tbaa !14
+  store i32 65536, ptr %13, align 8, !tbaa !14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 262172
   store i32 65536, ptr %17, align 4, !tbaa !35
   %18 = tail call i32 @LZ4_compressBound(i32 noundef %3) #18
@@ -1634,23 +1634,23 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i:      ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 262180
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 %3, ptr %6, align 4, !tbaa !17
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 262184
-  store ptr null, ptr %12, align 8, !tbaa !32
-  %13 = icmp slt i32 %4, 1
-  %14 = tail call i32 @llvm.umin.i32(i32 %4, i32 12)
-  %15 = trunc nuw nsw i32 %14 to i16
-  %16 = select i1 %13, i16 9, i16 %15
-  store i16 %16, ptr %11, align 4, !tbaa !26
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 262144
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 262152
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 262168
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 262144
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 262184
+  store ptr null, ptr %13, align 8, !tbaa !32
+  %14 = icmp slt i32 %4, 1
+  %15 = tail call i32 @llvm.umin.i32(i32 %4, i32 12)
+  %16 = trunc nuw nsw i32 %15 to i16
+  %17 = select i1 %14, i16 9, i16 %16
+  store i16 %17, ptr %11, align 4, !tbaa !26
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 262168
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 262152
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 262176
   store i32 65536, ptr %20, align 8, !tbaa !33
-  store ptr %1, ptr %18, align 8, !tbaa !13
-  store ptr %1, ptr %17, align 8, !tbaa !4
+  store ptr %1, ptr %19, align 8, !tbaa !13
+  store ptr %1, ptr %12, align 8, !tbaa !4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 262160
   store ptr %1, ptr %21, align 8, !tbaa !34
-  store i32 65536, ptr %19, align 8, !tbaa !14
+  store i32 65536, ptr %18, align 8, !tbaa !14
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 262172
   store i32 65536, ptr %22, align 4, !tbaa !35
   %23 = tail call i32 @LZ4_compressBound(i32 noundef %3) #18
@@ -1680,23 +1680,23 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i:      ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 262180
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store i32 %3, ptr %7, align 4, !tbaa !17
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 262184
-  store ptr null, ptr %12, align 8, !tbaa !32
-  %13 = icmp slt i32 %5, 1
-  %14 = tail call i32 @llvm.umin.i32(i32 %5, i32 12)
-  %15 = trunc nuw nsw i32 %14 to i16
-  %16 = select i1 %13, i16 9, i16 %15
-  store i16 %16, ptr %11, align 4, !tbaa !26
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 262144
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 262152
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 262168
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 262144
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 262184
+  store ptr null, ptr %13, align 8, !tbaa !32
+  %14 = icmp slt i32 %5, 1
+  %15 = tail call i32 @llvm.umin.i32(i32 %5, i32 12)
+  %16 = trunc nuw nsw i32 %15 to i16
+  %17 = select i1 %14, i16 9, i16 %16
+  store i16 %17, ptr %11, align 4, !tbaa !26
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 262168
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 262152
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 262176
   store i32 65536, ptr %20, align 8, !tbaa !33
-  store ptr %1, ptr %18, align 8, !tbaa !13
-  store ptr %1, ptr %17, align 8, !tbaa !4
+  store ptr %1, ptr %19, align 8, !tbaa !13
+  store ptr %1, ptr %12, align 8, !tbaa !4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 262160
   store ptr %1, ptr %21, align 8, !tbaa !34
-  store i32 65536, ptr %19, align 8, !tbaa !14
+  store i32 65536, ptr %18, align 8, !tbaa !14
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 262172
   store i32 65536, ptr %22, align 4, !tbaa !35
   %23 = tail call i32 @LZ4_compressBound(i32 noundef %3) #18
@@ -1756,16 +1756,16 @@ LZ4HC_init_internal.exit:                         ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(262192) %0, i8 0, i64 262192, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 262180
   store i16 9, ptr %6, align 4, !tbaa !26
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 262168
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 262144
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 262152
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 262144
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 262168
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 262176
   store i32 65536, ptr %10, align 8, !tbaa !33
   store ptr %1, ptr %8, align 8, !tbaa !13
-  store ptr %1, ptr %9, align 8, !tbaa !4
+  store ptr %1, ptr %7, align 8, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 262160
   store ptr %1, ptr %11, align 8, !tbaa !34
-  store i32 65536, ptr %7, align 8, !tbaa !14
+  store i32 65536, ptr %9, align 8, !tbaa !14
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 262172
   store i32 65536, ptr %12, align 4, !tbaa !35
   br label %LZ4_initStreamHC.exit.thread

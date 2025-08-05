@@ -3012,9 +3012,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %176, i8 0, i64 28, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %39) #27
   invoke void @_ZNK6duckdb13ParquetReader17DeriveLogicalTypeERKN14duckdb_parquet13SchemaElementERNS_19ParquetColumnSchemaE(ptr dead_on_unwind nonnull writable sret(%"struct.duckdb::LogicalType") align 8 %39, ptr noundef nonnull align 8 dereferenceable(560) %32, ptr noundef nonnull align 8 dereferenceable(322) %298, ptr noundef nonnull align 8 dereferenceable(144) %38)
-          to label %_ZN6duckdb11LogicalTypeaSEOS0_.exit unwind label %365
+          to label %_ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i unwind label %365
 
-_ZN6duckdb11LogicalTypeaSEOS0_.exit:              ; preds = %312
+_ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i: ; preds = %312
   %313 = load i8, ptr %39, align 8, !tbaa !118
   store i8 %313, ptr %171, align 8, !tbaa !118
   %314 = load i8, ptr %177, align 1, !tbaa !119
@@ -3034,7 +3034,7 @@ _ZN6duckdb11LogicalTypeaSEOS0_.exit:              ; preds = %312
   %.not.i.i = icmp eq ptr %319, %320
   br i1 %.not.i.i, label %344, label %321
 
-321:                                              ; preds = %_ZN6duckdb11LogicalTypeaSEOS0_.exit
+321:                                              ; preds = %_ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i
   %322 = load i32, ptr %38, align 8, !tbaa !124
   store i32 %322, ptr %319, align 8, !tbaa !124
   %323 = getelementptr inbounds nuw i8, ptr %319, i64 8
@@ -3085,7 +3085,7 @@ _ZNSt16allocator_traitsISaIN6duckdb19ParquetColumnSchemaEEE9constructIS1_JS1_EEE
   store ptr %343, ptr %183, align 8, !tbaa !122
   br label %_ZNSt6vectorIN6duckdb19ParquetColumnSchemaESaIS1_EE9push_backEOS1_.exit
 
-344:                                              ; preds = %_ZN6duckdb11LogicalTypeaSEOS0_.exit
+344:                                              ; preds = %_ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i
   invoke void @_ZNSt6vectorIN6duckdb19ParquetColumnSchemaESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr %319, ptr noundef nonnull align 8 dereferenceable(144) %38)
           to label %._ZNSt6vectorIN6duckdb19ParquetColumnSchemaESaIS1_EE9push_backEOS1_.exit_crit_edge unwind label %367
 

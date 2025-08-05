@@ -1833,9 +1833,9 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %.lr.ph296.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #24, !noalias !62
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !noalias !62
   %158 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #29
-          to label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i unwind label %.loopexit.split-lp.loopexit.i
+          to label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i unwind label %.loopexit.split-lp.loopexit.i
 
-_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
+_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
   %159 = load i32, ptr %4, align 4, !tbaa !10, !noalias !62
   store i32 %159, ptr %158, align 4, !tbaa !10
   %160 = getelementptr inbounds nuw i8, ptr %158, i64 4
@@ -1848,8 +1848,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %_ZNKSt6vectorIiSaIi
   %164 = icmp eq i32 %163, 1
   br i1 %164, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit112.i
-  %.135292.i = phi ptr [ %193, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit112.i ], [ %162, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i ]
+.lr.ph.i:                                         ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit112.i
+  %.135292.i = phi ptr [ %193, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit112.i ], [ %162, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ]
   %165 = load i32, ptr %5, align 4, !tbaa !10, !noalias !62
   %166 = load ptr, ptr %90, align 8, !tbaa !71, !noalias !62
   %167 = load ptr, ptr %91, align 8, !tbaa !72, !noalias !62
@@ -1960,7 +1960,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %197, %.loopexit.spl
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #24, !noalias !62
   br label %536
 
-._crit_edge.i:                                    ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit112.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i
+._crit_edge.i:                                    ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit112.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i
   %202 = load ptr, ptr %92, align 8, !tbaa !65, !noalias !62
   %203 = load ptr, ptr %93, align 8, !tbaa !74, !noalias !62
   %.not.i114.i = icmp eq ptr %202, %203

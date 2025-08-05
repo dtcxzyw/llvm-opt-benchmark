@@ -2445,7 +2445,7 @@ declare void @_ZN3re26Regexp4SwapEPS0_(ptr noundef nonnull align 8 dereferenceab
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN3re26Regexp17FactorAlternationEPPS0_iNS0_10ParseFlagsE(ptr noundef %sub, i32 noundef %nsub, i32 noundef %flags) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-if.else.i:
+entry:
   %s.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %sub.addr = alloca ptr, align 8
   %nsub.addr = alloca i32, align 4
@@ -2459,15 +2459,15 @@ if.else.i:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %stk, i64 8
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %stk, i64 16
   invoke void @_ZNSt6vectorIN3re25FrameESaIS1_EE17_M_realloc_insertIJRPPNS0_6RegexpERiEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %stk, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %sub.addr, ptr noundef nonnull align 4 dereferenceable(4) %nsub.addr)
-          to label %_ZNSt6vectorIN3re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEERS1_DpOT_.exit unwind label %lpad.loopexit.split-lp.loopexit.split-lp
+          to label %for.cond.preheader unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
-_ZNSt6vectorIN3re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEERS1_DpOT_.exit: ; preds = %if.else.i
+for.cond.preheader:                               ; preds = %entry
   %arrayidx42 = getelementptr inbounds nuw i8, ptr %re, i64 8
   %str_.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %str_.i99 = getelementptr inbounds nuw i8, ptr %ref.tmp109, i64 8
   br label %for.cond
 
-for.cond:                                         ; preds = %for.cond.backedge, %_ZNSt6vectorIN3re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEERS1_DpOT_.exit
+for.cond:                                         ; preds = %for.cond.backedge, %for.cond.preheader
   %0 = load ptr, ptr %_M_finish.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 -48
   %nsub6 = getelementptr inbounds i8, ptr %0, i64 -40
@@ -2490,7 +2490,7 @@ lpad.loopexit.split-lp.loopexit:                  ; preds = %sw.default108, %if.
           cleanup
   br label %ehcleanup
 
-lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.else.i
+lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %entry
   %lpad.loopexit.split-lp131 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup

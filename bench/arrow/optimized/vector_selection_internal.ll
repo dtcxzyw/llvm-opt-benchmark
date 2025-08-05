@@ -1341,7 +1341,7 @@ _ZN5arrow7compute9InputType8CopyIntoERKS1_.exit:  ; preds = %_ZNSt10shared_ptrIN
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 24
   %144 = load ptr, ptr %143, align 8
   call void %144(ptr noundef nonnull align 8 dereferenceable(16) %131) #25
-  br label %_ZNSt10shared_ptrIN5arrow7compute15KernelSignatureEEaSEOS3_.exit
+  br label %_ZNSt10shared_ptrIN5arrow7compute15KernelSignatureEEaSEOS3_.exitthread-pre-split
 
 145:                                              ; preds = %132
   %146 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !74
@@ -1360,14 +1360,18 @@ _ZN5arrow7compute9InputType8CopyIntoERKS1_.exit:  ; preds = %_ZNSt10shared_ptrIN
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %149, %147
   %.0.i.i.i.i.i.i = phi i32 [ %136, %147 ], [ %150, %149 ]
   %151 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %151, label %152, label %_ZNSt10shared_ptrIN5arrow7compute15KernelSignatureEEaSEOS3_.exit, !prof !76
+  br i1 %151, label %152, label %_ZNSt10shared_ptrIN5arrow7compute15KernelSignatureEEaSEOS3_.exitthread-pre-split, !prof !76
 
 152:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %131) #25
+  br label %_ZNSt10shared_ptrIN5arrow7compute15KernelSignatureEEaSEOS3_.exitthread-pre-split
+
+_ZNSt10shared_ptrIN5arrow7compute15KernelSignatureEEaSEOS3_.exitthread-pre-split: ; preds = %152, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %137
+  %.pr = load ptr, ptr %37, align 8, !tbaa !43
   br label %_ZNSt10shared_ptrIN5arrow7compute15KernelSignatureEEaSEOS3_.exit
 
-_ZNSt10shared_ptrIN5arrow7compute15KernelSignatureEEaSEOS3_.exit: ; preds = %128, %137, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %152
-  %153 = load ptr, ptr %37, align 8, !tbaa !43
+_ZNSt10shared_ptrIN5arrow7compute15KernelSignatureEEaSEOS3_.exit: ; preds = %_ZNSt10shared_ptrIN5arrow7compute15KernelSignatureEEaSEOS3_.exitthread-pre-split, %128
+  %153 = phi ptr [ %.pr, %_ZNSt10shared_ptrIN5arrow7compute15KernelSignatureEEaSEOS3_.exitthread-pre-split ], [ null, %128 ]
   %.not.i.i23 = icmp eq ptr %153, null
   br i1 %.not.i.i23, label %_ZNSt12__shared_ptrIN5arrow7compute15KernelSignatureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %154
 

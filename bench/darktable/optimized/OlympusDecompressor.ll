@@ -270,9 +270,9 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit:               ; preds = %2, %13, %16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %23 = invoke noalias noundef nonnull dereferenceable(4096) ptr @_Znwm(i64 noundef 4096) #22
-          to label %_ZNSt6vectorIaSaIaEE7reserveEm.exit.i.i unwind label %.loopexit.split-lp.i.i
+          to label %.noexc.i.i unwind label %.loopexit.split-lp.i.i
 
-_ZNSt6vectorIaSaIaEE7reserveEm.exit.i.i:          ; preds = %_ZN8rawspeed8RawImageC2ERKS0_.exit
+.noexc.i.i:                                       ; preds = %_ZN8rawspeed8RawImageC2ERKS0_.exit
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %23, ptr %21, align 8, !tbaa !94
   store ptr %23, ptr %24, align 8, !tbaa !96
@@ -285,11 +285,11 @@ thread-pre-split.i.i:                             ; preds = %_ZNSt20back_insert_
   %.pre.i = load ptr, ptr %22, align 8, !tbaa !97
   br label %26
 
-26:                                               ; preds = %thread-pre-split.i.i, %_ZNSt6vectorIaSaIaEE7reserveEm.exit.i.i
-  %27 = phi ptr [ %.pre.i, %thread-pre-split.i.i ], [ %25, %_ZNSt6vectorIaSaIaEE7reserveEm.exit.i.i ]
-  %.val.val.i.i.i = phi ptr [ %.val.val.i.pr.i.i, %thread-pre-split.i.i ], [ %23, %_ZNSt6vectorIaSaIaEE7reserveEm.exit.i.i ]
-  %.val.val3.i.i.i = phi ptr [ %53, %thread-pre-split.i.i ], [ %23, %_ZNSt6vectorIaSaIaEE7reserveEm.exit.i.i ]
-  %.06.i.i.i = phi i32 [ %54, %thread-pre-split.i.i ], [ 4096, %_ZNSt6vectorIaSaIaEE7reserveEm.exit.i.i ]
+26:                                               ; preds = %thread-pre-split.i.i, %.noexc.i.i
+  %27 = phi ptr [ %.pre.i, %thread-pre-split.i.i ], [ %25, %.noexc.i.i ]
+  %.val.val.i.i.i = phi ptr [ %.val.val.i.pr.i.i, %thread-pre-split.i.i ], [ %23, %.noexc.i.i ]
+  %.val.val3.i.i.i = phi ptr [ %53, %thread-pre-split.i.i ], [ %23, %.noexc.i.i ]
+  %.06.i.i.i = phi i32 [ %54, %thread-pre-split.i.i ], [ 4096, %.noexc.i.i ]
   %28 = ptrtoint ptr %.val.val3.i.i.i to i64
   %29 = ptrtoint ptr %.val.val.i.i.i to i64
   %30 = sub i64 %28, %29

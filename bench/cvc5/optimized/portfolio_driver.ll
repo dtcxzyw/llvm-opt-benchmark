@@ -355,7 +355,7 @@ define hidden noundef zeroext i1 @_ZN4cvc54main16ExecutionContext15solveContinuo
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(16) %14) #26
-  br label %_ZN4cvc56parser7CommandaSEOS1_.exit
+  br label %_ZN4cvc56parser7CommandaSEOS1_.exitthread-pre-split
 
 28:                                               ; preds = %15
   %29 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !19
@@ -374,14 +374,18 @@ define hidden noundef zeroext i1 @_ZN4cvc54main16ExecutionContext15solveContinuo
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %32, %30
   %.0.i.i.i.i.i.i.i = phi i32 [ %19, %30 ], [ %33, %32 ]
   %34 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %34, label %35, label %_ZN4cvc56parser7CommandaSEOS1_.exit, !prof !21
+  br i1 %34, label %35, label %_ZN4cvc56parser7CommandaSEOS1_.exitthread-pre-split, !prof !21
 
 35:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #26
+  br label %_ZN4cvc56parser7CommandaSEOS1_.exitthread-pre-split
+
+_ZN4cvc56parser7CommandaSEOS1_.exitthread-pre-split: ; preds = %35, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %20
+  %.pr = load ptr, ptr %6, align 8, !tbaa !11
   br label %_ZN4cvc56parser7CommandaSEOS1_.exit
 
-_ZN4cvc56parser7CommandaSEOS1_.exit:              ; preds = %11, %20, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %35
-  %36 = load ptr, ptr %6, align 8, !tbaa !11
+_ZN4cvc56parser7CommandaSEOS1_.exit:              ; preds = %_ZN4cvc56parser7CommandaSEOS1_.exitthread-pre-split, %11
+  %36 = phi ptr [ %.pr, %_ZN4cvc56parser7CommandaSEOS1_.exitthread-pre-split ], [ null, %11 ]
   %.not.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i, label %_ZN4cvc56parser7CommandD2Ev.exit, label %37
 

@@ -258614,9 +258614,9 @@ _ZNK17QArrayDataPointerI14QSharedPointerI22QCPAbstractPaintBufferEE11needsDetach
   br label %_ZN14QSharedPointerI22QCPAbstractPaintBufferED2Ev.exit
 
 _ZN14QSharedPointerI22QCPAbstractPaintBufferED2Ev.exit: ; preds = %62, %71
-  %storemerge.in = load i64, ptr %53, align 8
-  %storemerge = add i64 %storemerge.in, 1
-  store i64 %storemerge, ptr %53, align 8
+  %.sink.in = load i64, ptr %53, align 8
+  %.sink = add i64 %.sink.in, 1
+  store i64 %.sink, ptr %53, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #52
   br label %80
 

@@ -549,8 +549,8 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit: ; preds = %_ZN4llvm11raw_ostr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16
   store i32 0, ptr %3, align 4, !tbaa !56
-  %.not32.i = icmp eq i64 %.sroa.278.0.copyload, 0
-  br i1 %.not32.i, label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit.i, label %40
+  %.not27.i = icmp eq i64 %.sroa.278.0.copyload, 0
+  br i1 %.not27.i, label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit.i, label %40
 
 40:                                               ; preds = %._crit_edge
   call void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPjS1_EEmRKj(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr null, i64 noundef %.sroa.278.0.copyload, ptr noundef nonnull align 4 dereferenceable(4) %3)
@@ -560,32 +560,32 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit.i:          ; preds = %40, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #16
   %.idx.i133 = mul nuw nsw i64 %.sroa.276.0.copyload, 56
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.075.0.copyload, i64 %.idx.i133
-  %.not27.i = icmp eq i64 %.sroa.276.0.copyload, 0
-  br i1 %.not27.i, label %_ZN12_GLOBAL__N_127CounterExpressionsMinimizerC2EN4llvm8ArrayRefINS1_8coverage17CounterExpressionEEENS2_INS3_20CounterMappingRegionEEE.exit, label %.lr.ph.i
+  %.not28.i = icmp eq i64 %.sroa.276.0.copyload, 0
+  br i1 %.not28.i, label %_ZN12_GLOBAL__N_127CounterExpressionsMinimizerC2EN4llvm8ArrayRefINS1_8coverage17CounterExpressionEEENS2_INS3_20CounterMappingRegionEEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit.i, %.lr.ph.i
-  %.028.i = phi ptr [ %43, %.lr.ph.i ], [ %.sroa.075.0.copyload, %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit.i ]
-  %.sroa.010.0.copyload.i = load i64, ptr %.028.i, align 4
+  %.029.i = phi ptr [ %43, %.lr.ph.i ], [ %.sroa.075.0.copyload, %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit.i ]
+  %.sroa.010.0.copyload.i = load i64, ptr %.029.i, align 4
   call fastcc void @_ZN12_GLOBAL__N_127CounterExpressionsMinimizer4markEN4llvm8coverage7CounterE(ptr noundef nonnull align 8 dereferenceable(376) %4, i64 %.sroa.010.0.copyload.i)
-  %42 = getelementptr inbounds nuw i8, ptr %.028.i, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.029.i, i64 8
   %.sroa.09.0.copyload.i = load i64, ptr %42, align 4
   call fastcc void @_ZN12_GLOBAL__N_127CounterExpressionsMinimizer4markEN4llvm8coverage7CounterE(ptr noundef nonnull align 8 dereferenceable(376) %4, i64 %.sroa.09.0.copyload.i)
-  %43 = getelementptr inbounds nuw i8, ptr %.028.i, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %.029.i, i64 56
   %.not.i134 = icmp eq ptr %43, %41
-  br i1 %.not.i134, label %.lr.ph31.i, label %.lr.ph.i
+  br i1 %.not.i134, label %.lr.ph32.i, label %.lr.ph.i
 
-.lr.ph31.i:                                       ; preds = %.lr.ph.i, %.lr.ph31.i
-  %.02030.i = phi ptr [ %45, %.lr.ph31.i ], [ %.sroa.075.0.copyload, %.lr.ph.i ]
-  %.sroa.01.0.copyload.i = load i64, ptr %.02030.i, align 4
+.lr.ph32.i:                                       ; preds = %.lr.ph.i, %.lr.ph32.i
+  %.02031.i = phi ptr [ %45, %.lr.ph32.i ], [ %.sroa.075.0.copyload, %.lr.ph.i ]
+  %.sroa.01.0.copyload.i = load i64, ptr %.02031.i, align 4
   call fastcc void @_ZN12_GLOBAL__N_127CounterExpressionsMinimizer10gatherUsedEN4llvm8coverage7CounterE(ptr noundef nonnull align 8 dereferenceable(376) %4, i64 %.sroa.01.0.copyload.i)
-  %44 = getelementptr inbounds nuw i8, ptr %.02030.i, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.02031.i, i64 8
   %.sroa.0.0.copyload.i = load i64, ptr %44, align 4
   call fastcc void @_ZN12_GLOBAL__N_127CounterExpressionsMinimizer10gatherUsedEN4llvm8coverage7CounterE(ptr noundef nonnull align 8 dereferenceable(376) %4, i64 %.sroa.0.0.copyload.i)
-  %45 = getelementptr inbounds nuw i8, ptr %.02030.i, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %.02031.i, i64 56
   %.not21.i = icmp eq ptr %45, %41
-  br i1 %.not21.i, label %_ZN12_GLOBAL__N_127CounterExpressionsMinimizerC2EN4llvm8ArrayRefINS1_8coverage17CounterExpressionEEENS2_INS3_20CounterMappingRegionEEE.exit, label %.lr.ph31.i
+  br i1 %.not21.i, label %_ZN12_GLOBAL__N_127CounterExpressionsMinimizerC2EN4llvm8ArrayRefINS1_8coverage17CounterExpressionEEENS2_INS3_20CounterMappingRegionEEE.exit, label %.lr.ph32.i
 
-_ZN12_GLOBAL__N_127CounterExpressionsMinimizerC2EN4llvm8ArrayRefINS1_8coverage17CounterExpressionEEENS2_INS3_20CounterMappingRegionEEE.exit: ; preds = %.lr.ph31.i, %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit.i
+_ZN12_GLOBAL__N_127CounterExpressionsMinimizerC2EN4llvm8ArrayRefINS1_8coverage17CounterExpressionEEENS2_INS3_20CounterMappingRegionEEE.exit: ; preds = %.lr.ph32.i, %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit.i
   %.val127 = load ptr, ptr %35, align 8, !tbaa !51
   %.val128 = load i32, ptr %37, align 8, !tbaa !54
   %46 = zext i32 %.val128 to i64

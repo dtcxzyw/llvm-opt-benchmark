@@ -1739,7 +1739,7 @@ cond.false.i46:                                   ; preds = %_ZN8QuantLib13UnitO
   %.pre.i47 = load ptr, ptr %this, align 8, !tbaa !9
   br label %_ZN8QuantLib13UnitOfMeasureD2Ev.exit
 
-_ZN8QuantLib13UnitOfMeasureD2Ev.exit:             ; preds = %_ZN8QuantLib13UnitOfMeasureC2ERKS0_.exit, %.noexc48, %_ZN8QuantLib13UnitOfMeasureC2ERKS0_.exit.thread
+_ZN8QuantLib13UnitOfMeasureD2Ev.exit:             ; preds = %_ZN8QuantLib13UnitOfMeasureC2ERKS0_.exit.thread, %_ZN8QuantLib13UnitOfMeasureC2ERKS0_.exit, %.noexc48
   %22 = phi double [ %21, %_ZN8QuantLib13UnitOfMeasureC2ERKS0_.exit ], [ %21, %.noexc48 ], [ %19, %_ZN8QuantLib13UnitOfMeasureC2ERKS0_.exit.thread ]
   %23 = phi ptr [ %.pre473, %_ZN8QuantLib13UnitOfMeasureC2ERKS0_.exit ], [ %.pre.i47, %.noexc48 ], [ %16, %_ZN8QuantLib13UnitOfMeasureC2ERKS0_.exit.thread ]
   %conversionFactor = getelementptr inbounds nuw i8, ptr %23, i64 48
@@ -1889,7 +1889,7 @@ cond.false.i113:                                  ; preds = %_ZN8QuantLib13UnitO
   %.pre.i114 = load ptr, ptr %this, align 8, !tbaa !9
   br label %_ZN8QuantLib13UnitOfMeasureD2Ev.exit138
 
-_ZN8QuantLib13UnitOfMeasureD2Ev.exit138:          ; preds = %_ZN8QuantLib13UnitOfMeasureC2ERKS0_.exit110, %.noexc115, %_ZN8QuantLib13UnitOfMeasureC2ERKS0_.exit110.thread
+_ZN8QuantLib13UnitOfMeasureD2Ev.exit138:          ; preds = %_ZN8QuantLib13UnitOfMeasureC2ERKS0_.exit110.thread, %_ZN8QuantLib13UnitOfMeasureC2ERKS0_.exit110, %.noexc115
   %48 = phi double [ %47, %_ZN8QuantLib13UnitOfMeasureC2ERKS0_.exit110 ], [ %47, %.noexc115 ], [ %45, %_ZN8QuantLib13UnitOfMeasureC2ERKS0_.exit110.thread ]
   %49 = phi ptr [ %.pre472, %_ZN8QuantLib13UnitOfMeasureC2ERKS0_.exit110 ], [ %.pre.i114, %.noexc115 ], [ %42, %_ZN8QuantLib13UnitOfMeasureC2ERKS0_.exit110.thread ]
   %conversionFactor37 = getelementptr inbounds nuw i8, ptr %49, i64 48

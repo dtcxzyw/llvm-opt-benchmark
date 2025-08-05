@@ -1122,7 +1122,7 @@ define dso_local void @_ZNK23cmInstallFilesGenerator8GetFilesERKNSt7__cxx1112bas
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %16 = load ptr, ptr %15, align 8, !tbaa !49
   %.not38 = icmp eq ptr %14, %16
-  br i1 %.not38, label %_ZN6cmListD2Ev.exit, label %.lr.ph
+  br i1 %.not38, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -1135,17 +1135,17 @@ define dso_local void @_ZNK23cmInstallFilesGenerator8GetFilesERKNSt7__cxx1112bas
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %30
 
-._crit_edge.loopexit:                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16
+_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.loopexit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16
   %.pre = load ptr, ptr %5, align 8, !tbaa !47
   %.pre40 = load ptr, ptr %22, align 8, !tbaa !46
   %.phi.trans.insert41 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.pre42 = load ptr, ptr %.phi.trans.insert41, align 8, !tbaa !48
-  br label %_ZN6cmListD2Ev.exit
+  br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
 
-_ZN6cmListD2Ev.exit:                              ; preds = %._crit_edge.loopexit, %12
-  %25 = phi ptr [ %.pre42, %._crit_edge.loopexit ], [ null, %12 ]
-  %26 = phi ptr [ %.pre40, %._crit_edge.loopexit ], [ null, %12 ]
-  %27 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ null, %12 ]
+_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.loopexit, %12
+  %25 = phi ptr [ %.pre42, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.loopexit ], [ null, %12 ]
+  %26 = phi ptr [ %.pre40, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.loopexit ], [ null, %12 ]
+  %27 = phi ptr [ %.pre, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.loopexit ], [ null, %12 ]
   store ptr %27, ptr %0, align 8, !tbaa !47
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %26, ptr %28, align 8, !tbaa !46
@@ -1268,7 +1268,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #19
   %67 = getelementptr inbounds nuw i8, ptr %.sroa.027.039, i64 32
   %.not = icmp eq ptr %67, %16
-  br i1 %.not, label %._crit_edge.loopexit, label %30
+  br i1 %.not, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.loopexit, label %30
 
 68:                                               ; preds = %.noexc.i
   %69 = landingpad { ptr, i32 }
@@ -1394,7 +1394,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7
   store ptr %108, ptr %105, align 8, !tbaa !46
   br label %112
 
-112:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_.exit, %_ZN6cmListD2Ev.exit
+112:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_.exit, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
   ret void
 }
 

@@ -1397,7 +1397,7 @@ Vec_IntFreeP.exit:                                ; preds = %7, %16
   store ptr null, ptr %4, align 8, !tbaa !78
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %22, %20
+Vec_IntFree.exit:                                 ; preds = %20, %22
   %calloc = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   %23 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
   tail call void @Mf_ManSetFlowRefs(ptr noundef nonnull %0, ptr noundef nonnull %calloc) #23

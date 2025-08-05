@@ -73921,22 +73921,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit527: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %96) #59
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %95) #59
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %108) #59
-  %1081 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  %1082 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  %1083 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #62
-          to label %1084 unwind label %2794
+  %1081 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #62
+          to label %1082 unwind label %2794
 
-1084:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit527
-  store ptr null, ptr %1083, align 8, !tbaa !462
-  %1085 = getelementptr inbounds nuw i8, ptr %1083, i64 8
-  store ptr %1083, ptr %108, align 8, !tbaa !1454
-  store ptr %1085, ptr %1081, align 8, !tbaa !1457
-  store ptr %1085, ptr %1082, align 8, !tbaa !1458
+1082:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit527
+  store ptr null, ptr %1081, align 8, !tbaa !462
+  %1083 = getelementptr inbounds nuw i8, ptr %1081, i64 8
+  %1084 = getelementptr inbounds nuw i8, ptr %108, i64 16
+  %1085 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  store ptr %1081, ptr %108, align 8, !tbaa !1454
+  store ptr %1083, ptr %1085, align 8, !tbaa !1457
+  store ptr %1083, ptr %1084, align 8, !tbaa !1458
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %109) #59
   invoke void @_ZN7testing8internal18GetInjectableArgvsB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.33") align 8 %109)
           to label %_ZN7testing8internal13ExecDeathTest32GetArgvsForDeathTestChildProcessB5cxx11Ev.exit unwind label %2796
 
-_ZN7testing8internal13ExecDeathTest32GetArgvsForDeathTestChildProcessB5cxx11Ev.exit: ; preds = %1084
+_ZN7testing8internal13ExecDeathTest32GetArgvsForDeathTestChildProcessB5cxx11Ev.exit: ; preds = %1082
   %1086 = load ptr, ptr %109, align 8, !tbaa !298
   %1087 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %1088 = load ptr, ptr %1087, align 8, !tbaa !298
@@ -73945,9 +73945,9 @@ _ZN7testing8internal13ExecDeathTest32GetArgvsForDeathTestChildProcessB5cxx11Ev.e
 
 .lr.ph.i:                                         ; preds = %_ZN7testing8internal13ExecDeathTest32GetArgvsForDeathTestChildProcessB5cxx11Ev.exit, %.noexc531
   %1089 = phi ptr [ %1121, %.noexc531 ], [ %1088, %_ZN7testing8internal13ExecDeathTest32GetArgvsForDeathTestChildProcessB5cxx11Ev.exit ]
-  %1090 = phi ptr [ %1122, %.noexc531 ], [ %1085, %_ZN7testing8internal13ExecDeathTest32GetArgvsForDeathTestChildProcessB5cxx11Ev.exit ]
-  %1091 = phi ptr [ %1123, %.noexc531 ], [ %1083, %_ZN7testing8internal13ExecDeathTest32GetArgvsForDeathTestChildProcessB5cxx11Ev.exit ]
-  %1092 = phi ptr [ %1124, %.noexc531 ], [ %1085, %_ZN7testing8internal13ExecDeathTest32GetArgvsForDeathTestChildProcessB5cxx11Ev.exit ]
+  %1090 = phi ptr [ %1122, %.noexc531 ], [ %1083, %_ZN7testing8internal13ExecDeathTest32GetArgvsForDeathTestChildProcessB5cxx11Ev.exit ]
+  %1091 = phi ptr [ %1123, %.noexc531 ], [ %1081, %_ZN7testing8internal13ExecDeathTest32GetArgvsForDeathTestChildProcessB5cxx11Ev.exit ]
+  %1092 = phi ptr [ %1124, %.noexc531 ], [ %1083, %_ZN7testing8internal13ExecDeathTest32GetArgvsForDeathTestChildProcessB5cxx11Ev.exit ]
   %.sroa.06.010.i = phi ptr [ %1125, %.noexc531 ], [ %1086, %_ZN7testing8internal13ExecDeathTest32GetArgvsForDeathTestChildProcessB5cxx11Ev.exit ]
   %1093 = getelementptr inbounds i8, ptr %1092, i64 -8
   %1094 = load ptr, ptr %.sroa.06.010.i, align 8, !tbaa !3
@@ -73963,7 +73963,7 @@ _ZNSt6vectorIPcSaIS0_EE13_M_insert_auxIS0_EEvN9__gnu_cxx17__normal_iteratorIPS0_
   %1100 = load ptr, ptr %1093, align 8, !tbaa !462
   store ptr %1100, ptr %1092, align 8, !tbaa !462
   %1101 = getelementptr inbounds nuw i8, ptr %1092, i64 8
-  store ptr %1101, ptr %1081, align 8, !tbaa !1457
+  store ptr %1101, ptr %1085, align 8, !tbaa !1457
   store ptr %1095, ptr %1099, align 8, !tbaa !462
   br label %.noexc531
 
@@ -74010,9 +74010,9 @@ _ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iterato
   call void @_ZdlPv(ptr noundef nonnull %1091) #60
   %1119 = getelementptr inbounds nuw i8, ptr %1114, i64 16
   store ptr %1113, ptr %108, align 8, !tbaa !1454
-  store ptr %1119, ptr %1081, align 8, !tbaa !1457
+  store ptr %1119, ptr %1085, align 8, !tbaa !1457
   %1120 = getelementptr inbounds nuw ptr, ptr %1113, i64 %1111
-  store ptr %1120, ptr %1082, align 8, !tbaa !1458
+  store ptr %1120, ptr %1084, align 8, !tbaa !1458
   %.pre = load ptr, ptr %1087, align 8, !tbaa !298
   br label %.noexc531
 
@@ -74055,9 +74055,9 @@ _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i, %_ZN7testing8internal13ExecDeathTest32GetArgvsForDeathTestChildProcessB5cxx11Ev.exit, %_ZN7testing8internal9Arguments12AddArgumentsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKSt6vectorIT_SaISA_EE.exit
   %.pr.i801 = phi ptr [ %.pre797, %_ZN7testing8internal9Arguments12AddArgumentsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKSt6vectorIT_SaISA_EE.exit ], [ %1086, %_ZN7testing8internal13ExecDeathTest32GetArgvsForDeathTestChildProcessB5cxx11Ev.exit ], [ %.pre797, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i ]
-  %1133 = phi ptr [ %1124, %_ZN7testing8internal9Arguments12AddArgumentsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKSt6vectorIT_SaISA_EE.exit ], [ %1085, %_ZN7testing8internal13ExecDeathTest32GetArgvsForDeathTestChildProcessB5cxx11Ev.exit ], [ %1124, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i ]
-  %1134 = phi ptr [ %1123, %_ZN7testing8internal9Arguments12AddArgumentsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKSt6vectorIT_SaISA_EE.exit ], [ %1083, %_ZN7testing8internal13ExecDeathTest32GetArgvsForDeathTestChildProcessB5cxx11Ev.exit ], [ %1123, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i ]
-  %1135 = phi ptr [ %1122, %_ZN7testing8internal9Arguments12AddArgumentsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKSt6vectorIT_SaISA_EE.exit ], [ %1085, %_ZN7testing8internal13ExecDeathTest32GetArgvsForDeathTestChildProcessB5cxx11Ev.exit ], [ %1122, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i ]
+  %1133 = phi ptr [ %1124, %_ZN7testing8internal9Arguments12AddArgumentsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKSt6vectorIT_SaISA_EE.exit ], [ %1083, %_ZN7testing8internal13ExecDeathTest32GetArgvsForDeathTestChildProcessB5cxx11Ev.exit ], [ %1124, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i ]
+  %1134 = phi ptr [ %1123, %_ZN7testing8internal9Arguments12AddArgumentsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKSt6vectorIT_SaISA_EE.exit ], [ %1081, %_ZN7testing8internal13ExecDeathTest32GetArgvsForDeathTestChildProcessB5cxx11Ev.exit ], [ %1123, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i ]
+  %1135 = phi ptr [ %1122, %_ZN7testing8internal9Arguments12AddArgumentsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKSt6vectorIT_SaISA_EE.exit ], [ %1083, %_ZN7testing8internal13ExecDeathTest32GetArgvsForDeathTestChildProcessB5cxx11Ev.exit ], [ %1122, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i ]
   %.not.i.i.i = icmp eq ptr %.pr.i801, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %1136
 
@@ -74081,7 +74081,7 @@ _ZNSt6vectorIPcSaIS0_EE13_M_insert_auxIS0_EEvN9__gnu_cxx17__normal_iteratorIPS0_
   %1144 = load ptr, ptr %1138, align 8, !tbaa !462
   store ptr %1144, ptr %1133, align 8, !tbaa !462
   %1145 = getelementptr inbounds nuw i8, ptr %1133, i64 8
-  store ptr %1145, ptr %1081, align 8, !tbaa !1457
+  store ptr %1145, ptr %1085, align 8, !tbaa !1457
   store ptr %1139, ptr %1143, align 8, !tbaa !462
   br label %_ZN7testing8internal9Arguments11AddArgumentEPKc.exit
 
@@ -74121,9 +74121,9 @@ _ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iterato
   call void @_ZdlPv(ptr noundef nonnull %1134) #60
   %1162 = getelementptr inbounds nuw i8, ptr %1157, i64 16
   store ptr %1156, ptr %108, align 8, !tbaa !1454
-  store ptr %1162, ptr %1081, align 8, !tbaa !1457
+  store ptr %1162, ptr %1085, align 8, !tbaa !1457
   %1163 = getelementptr inbounds nuw ptr, ptr %1156, i64 %1154
-  store ptr %1163, ptr %1082, align 8, !tbaa !1458
+  store ptr %1163, ptr %1084, align 8, !tbaa !1458
   %.pre798 = ptrtoint ptr %1156 to i64
   br label %_ZN7testing8internal9Arguments11AddArgumentEPKc.exit
 
@@ -74145,7 +74145,7 @@ _ZNSt6vectorIPcSaIS0_EE13_M_insert_auxIS0_EEvN9__gnu_cxx17__normal_iteratorIPS0_
   %1173 = load ptr, ptr %1168, align 8, !tbaa !462
   store ptr %1173, ptr %1166, align 8, !tbaa !462
   %1174 = getelementptr inbounds nuw i8, ptr %1166, i64 8
-  store ptr %1174, ptr %1081, align 8, !tbaa !1457
+  store ptr %1174, ptr %1085, align 8, !tbaa !1457
   store ptr %1169, ptr %1172, align 8, !tbaa !462
   br label %_ZN7testing8internal9Arguments11AddArgumentEPKc.exit535
 
@@ -74192,9 +74192,9 @@ _ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iterato
   call void @_ZdlPv(ptr noundef nonnull %1165) #60
   %1191 = getelementptr inbounds nuw i8, ptr %1186, i64 16
   store ptr %1185, ptr %108, align 8, !tbaa !1454
-  store ptr %1191, ptr %1081, align 8, !tbaa !1457
+  store ptr %1191, ptr %1085, align 8, !tbaa !1457
   %1192 = getelementptr inbounds nuw ptr, ptr %1185, i64 %1183
-  store ptr %1192, ptr %1082, align 8, !tbaa !1458
+  store ptr %1192, ptr %1084, align 8, !tbaa !1458
   br label %_ZN7testing8internal9Arguments11AddArgumentEPKc.exit535
 
 _ZN7testing8internal9Arguments11AddArgumentEPKc.exit535: ; preds = %_ZNSt6vectorIPcSaIS0_EE13_M_insert_auxIS0_EEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEOT_.exit.i765, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i773
@@ -78790,7 +78790,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit698: ; preds = %_Z
           cleanup
   br label %2883
 
-2796:                                             ; preds = %1084
+2796:                                             ; preds = %1082
   %2797 = landingpad { ptr, i32 }
           cleanup
   br label %2799
@@ -79043,7 +79043,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit725: ; preds = %_Z
   %2867 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %2867, align 8, !tbaa !1190
   %2868 = load ptr, ptr %108, align 8, !tbaa !1623
-  %2869 = load ptr, ptr %1081, align 8, !tbaa !1623
+  %2869 = load ptr, ptr %1085, align 8, !tbaa !1623
   %.not4.i = icmp eq ptr %2868, %2869
   br i1 %.not4.i, label %._crit_edge.i, label %.lr.ph.i726
 

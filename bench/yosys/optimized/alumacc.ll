@@ -9734,7 +9734,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit._crit_edge.i:    ; preds = %_ZN5Yosys5RTLIL7Sig
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14) #24
   br label %4045
 
-.loopexit271.i:                                   ; preds = %.noexc150.i, %_ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit149.i, %.noexc147.i, %_ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit146.i, %.noexc144.i, %_ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit143.i, %.noexc141.i, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE9push_backERKS3_.exit.i, %_ZNKSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i, %3924, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit.i211, %_ZSt4swapIN5Yosys5RTLIL7SigSpecEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit.i, %.thread261.i, %3900, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit135.i, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit.i239
+.loopexit271.i:                                   ; preds = %.noexc150.i, %_ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit149.i, %.noexc147.i, %_ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit146.i, %.noexc144.i, %_ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit143.i, %.noexc141.i, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %_ZNKSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i, %3924, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit.i211, %_ZSt4swapIN5Yosys5RTLIL7SigSpecEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit.i, %.thread261.i, %3900, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit135.i, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit.i239
   %lpad.loopexit273.i = landingpad { ptr, i32 }
           cleanup
   br label %4045
@@ -10000,9 +10000,9 @@ _ZNKSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; pred
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(680) %3925, i8 0, i64 272, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %3926, i8 0, i64 392, i1 false)
   %3927 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #27
-          to label %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE9push_backERKS3_.exit.i unwind label %.loopexit271.i
+          to label %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i unwind label %.loopexit271.i
 
-_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE9push_backERKS3_.exit.i: ; preds = %_ZNKSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
+_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %_ZNKSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
   %3928 = getelementptr inbounds nuw i8, ptr %3925, i64 16
   %3929 = getelementptr inbounds nuw i8, ptr %3925, i64 8
   %3930 = load ptr, ptr %3920, align 8, !tbaa !188
@@ -10022,7 +10022,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE9push_backERKS3_.exit.i: ; preds = %_ZN
   %3937 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %3936, ptr noundef nonnull align 8 dereferenceable(24) %3605)
           to label %.noexc141.i unwind label %.loopexit271.i
 
-.noexc141.i:                                      ; preds = %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE9push_backERKS3_.exit.i
+.noexc141.i:                                      ; preds = %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
   %3938 = getelementptr inbounds nuw i8, ptr %3925, i64 56
   %3939 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %3938, ptr noundef nonnull align 8 dereferenceable(24) %3606)
           to label %_ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit143.i unwind label %.loopexit271.i

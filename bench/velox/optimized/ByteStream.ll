@@ -2293,21 +2293,21 @@ if.then4.i.i.i.i:                                 ; preds = %call.i.noexc
   %_M_use_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arena_.val6, i64 8
   %12 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %12, 0
-  br i1 %tobool.i.not.i.i.i.i.i, label %if.end.i.i.i.i, label %if.end.i.i.i.thread.i
+  br i1 %tobool.i.not.i.i.i.i.i, label %if.endthread-pre-split.i.i.i.i, label %if.endthread-pre-split.i.i.i.thread.i
 
-if.end.i.i.i.thread.i:                            ; preds = %if.then4.i.i.i.i
+if.endthread-pre-split.i.i.i.thread.i:            ; preds = %if.then4.i.i.i.i
   %13 = load i32, ptr %_M_use_count.i.i.i.i.i, align 4
   %add.i.i.i.i.i.i = add nsw i32 %13, 1
   store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i, align 4
   br label %if.end9.i.i.i.i
 
-if.end.i.i.i.i:                                   ; preds = %if.then4.i.i.i.i
+if.endthread-pre-split.i.i.i.i:                   ; preds = %if.then4.i.i.i.i
   %14 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i, i32 1 acq_rel, align 4
   %.pr.i.i.i.pre.i = load ptr, ptr %11, align 8
   %cmp6.not.i.i.i.i = icmp eq ptr %.pr.i.i.i.pre.i, null
   br i1 %cmp6.not.i.i.i.i, label %if.end9.i.i.i.i, label %if.then7.i.i.i.i
 
-if.then7.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
+if.then7.i.i.i.i:                                 ; preds = %if.endthread-pre-split.i.i.i.i
   %_M_use_count.i5.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pr.i.i.i.pre.i, i64 8
   %15 = load atomic i64, ptr %_M_use_count.i5.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %15, 4294967297
@@ -2375,7 +2375,7 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   call void %24(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.pre.i) #23
   br label %if.end9.i.i.i.i
 
-if.end9.i.i.i.i:                                  ; preds = %if.end8.sink.split.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end.i.i.i.i, %if.end.i.i.i.thread.i
+if.end9.i.i.i.i:                                  ; preds = %if.end8.sink.split.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.endthread-pre-split.i.i.i.i, %if.endthread-pre-split.i.i.i.thread.i
   store ptr %arena_.val6, ptr %11, align 8
   br label %_ZNSt10shared_ptrIN8facebook5velox11StreamArenaEEaSERKS3_.exit.i
 

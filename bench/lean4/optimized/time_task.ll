@@ -736,12 +736,12 @@ _ZN4lean4nameC2ERKS0_.exit:                       ; preds = %37, %35, %29, %38
   %57 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %48, i64 noundef 16) #24
-  %.pre4.i = load ptr, ptr %47, align 8, !tbaa !72
-  %.not.i.i.i.i15 = icmp eq ptr %.pre4.i, null
+  %.pr.i = load ptr, ptr %47, align 8, !tbaa !72
+  %.not.i.i.i.i15 = icmp eq ptr %.pr.i, null
   br i1 %.not.i.i.i.i15, label %.body.thread.i, label %58
 
 58:                                               ; preds = %.body2.i
-  %59 = invoke noundef zeroext i1 %.pre4.i(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %46, i32 noundef 3)
+  %59 = invoke noundef zeroext i1 %.pr.i(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %46, i32 noundef 3)
           to label %.body.thread.i unwind label %60
 
 60:                                               ; preds = %58
@@ -791,7 +791,7 @@ _ZN4lean4nameC2ERKS0_.exit:                       ; preds = %37, %35, %29, %38
   unreachable
 
 .body.thread.i:                                   ; preds = %58, %.body2.i, %.body2.thread.i
-  %eh.lpad-body7.i = phi { ptr, i32 } [ %56, %.body2.thread.i ], [ %57, %.body2.i ], [ %57, %58 ]
+  %eh.lpad-body6.i = phi { ptr, i32 } [ %56, %.body2.thread.i ], [ %57, %.body2.i ], [ %57, %58 ]
   %79 = invoke noundef zeroext i1 @"_ZNSt17_Function_handlerIFvNSt6chrono8durationIdSt5ratioILl1ELl1EEEEEZN4lean9time_taskC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS6_7optionsENS6_4nameEE3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation"(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit5.i unwind label %80
 
@@ -895,7 +895,7 @@ _ZNKSt8functionIFvNSt6chrono8durationIdSt5ratioILl1ELl1EEEEEEclES4_.exit.i.i: ; 
 
 .body:                                            ; preds = %_ZNSt14_Function_baseD2Ev.exit5.i, %118
   %.sroa.5.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZNSt14_Function_baseD2Ev.exit5.i ], [ %30, %118 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %eh.lpad-body7.i, %_ZNSt14_Function_baseD2Ev.exit5.i ], [ %119, %118 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %eh.lpad-body6.i, %_ZNSt14_Function_baseD2Ev.exit5.i ], [ %119, %118 ]
   call fastcc void @"_ZZN4lean9time_taskC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7optionsENS_4nameEEN3$_0D2Ev"(ptr %.sroa.5.0) #22
   br label %120
 

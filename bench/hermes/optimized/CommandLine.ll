@@ -9995,7 +9995,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit45:               ; preds = %if.then.i.i43, %if.
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh2cl6parserIcE15printOptionDiffERKNS0_6OptionEcNS0_11OptionValueIcEEm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(145) %O, i8 noundef signext %V, ptr noundef readonly captures(none) %D, i64 noundef %GlobalWidth) local_unnamed_addr #0 align 2 {
-_ZN4llvh11raw_ostreamlsEc.exit:
+entry:
   %Str = alloca %"class.std::__cxx11::basic_string", align 8
   %SS = alloca %"class.llvh::raw_string_ostream", align 8
   tail call void @_ZNK4llvh2cl17basic_parser_impl15printOptionNameERKNS0_6OptionEm(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(145) %O, i64 noundef %GlobalWidth)
@@ -10020,11 +10020,11 @@ _ZN4llvh11raw_ostreamlsEc.exit:
   %cmp.i.i = icmp ult i64 %sub.ptr.sub.i9.i, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
 
-if.then.i.i:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
+if.then.i.i:                                      ; preds = %entry
   %call3.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %call2, ptr noundef nonnull @.str.28, i64 noundef 2) #28
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
-if.then4.i.i:                                     ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
+if.then4.i.i:                                     ; preds = %entry
   store i16 8253, ptr %1, align 1
   %2 = load ptr, ptr %OutBufCur.i6.i, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %2, i64 2

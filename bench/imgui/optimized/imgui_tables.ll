@@ -1201,15 +1201,15 @@ _ZN8ImVectorIfE6resizeEiRKf.exit:                 ; preds = %522, %_ZN8ImVectorI
   store i32 %549, ptr %553, align 4, !tbaa !280
   %554 = getelementptr inbounds nuw i8, ptr %7, i64 44
   store i32 %552, ptr %554, align 4, !tbaa !280
-  %555 = shl i32 %2, 3
-  %556 = add i32 %552, 3
-  %557 = add i32 %556, %549
+  %555 = mul i32 %2, 118
+  %556 = shl i32 %2, 3
+  %557 = add nsw i32 %555, 3
   %558 = and i32 %557, -4
   %559 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %558, ptr %559, align 8, !tbaa !280
   %560 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store i32 %555, ptr %560, align 8, !tbaa !280
-  %561 = add nsw i32 %558, %555
+  store i32 %556, ptr %560, align 8, !tbaa !280
+  %561 = add nsw i32 %558, %556
   %562 = ashr i32 %548, 3
   %563 = and i32 %562, -4
   br label %564
@@ -1709,15 +1709,15 @@ define void @_ZN5ImGui20TableBeginInitMemoryEP10ImGuiTablei(ptr noundef captures
   store i32 %5, ptr %10, align 4, !tbaa !280
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 44
   store i32 %9, ptr %11, align 4, !tbaa !280
-  %12 = shl i32 %1, 3
-  %13 = add i32 %9, 3
-  %14 = add i32 %13, %5
+  %12 = mul i32 %1, 118
+  %13 = shl i32 %1, 3
+  %14 = add nsw i32 %12, 3
   %15 = and i32 %14, -4
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %15, ptr %16, align 8, !tbaa !280
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store i32 %12, ptr %17, align 8, !tbaa !280
-  %18 = add nsw i32 %15, %12
+  store i32 %13, ptr %17, align 8, !tbaa !280
+  %18 = add nsw i32 %15, %13
   %19 = ashr i32 %4, 3
   %20 = and i32 %19, -4
   br label %62

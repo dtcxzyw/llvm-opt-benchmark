@@ -12607,7 +12607,7 @@ define dso_local void @_ZN21cmLocalNinjaGenerator27MakeCustomCommandGeneratorsER
   store i8 1, ptr %7, align 1, !tbaa !547
   br label %17
 
-17:                                               ; preds = %16, %4
+17:                                               ; preds = %4, %16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #27
   store ptr %1, ptr %8, align 8, !tbaa !548

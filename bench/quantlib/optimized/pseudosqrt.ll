@@ -2030,7 +2030,7 @@ lpad:                                             ; preds = %for.body.i.i.i.preh
   br label %ehcleanup508
 
 for.end:                                          ; preds = %_ZN8QuantLib6MatrixC2ERKS0_.exit
-  br i1 %lowerDiagonal, label %if.then, label %_ZN5boost10shared_ptrIN8QuantLib10LineSearchEEC2ERKS3_.exit.i
+  br i1 %lowerDiagonal, label %if.then, label %if.end
 
 for.end.thread:                                   ; preds = %invoke.cont2
   br i1 %lowerDiagonal, label %if.then, label %for.cond41.preheader
@@ -2205,7 +2205,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 _ZN8QuantLib6MatrixD2Ev.exit268:                  ; preds = %for.end35, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i267
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %approxMatrix) #22
-  br label %_ZN5boost10shared_ptrIN8QuantLib10LineSearchEEC2ERKS3_.exit.i
+  br label %if.end
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i270: ; preds = %lpad12
   call void @_ZdaPv(ptr noundef nonnull %35) #24
@@ -2237,9 +2237,9 @@ invoke.cont46:                                    ; preds = %for.cond41.preheade
 for.inc53:                                        ; preds = %invoke.cont46
   %inc54 = add nuw i64 %i.2591, 1
   %exitcond647.not = icmp eq i64 %inc54, %0
-  br i1 %exitcond647.not, label %_ZN5boost10shared_ptrIN8QuantLib10LineSearchEEC2ERKS3_.exit.i, label %for.cond41.preheader, !llvm.loop !59
+  br i1 %exitcond647.not, label %if.end, label %for.cond41.preheader, !llvm.loop !59
 
-_ZN5boost10shared_ptrIN8QuantLib10LineSearchEEC2ERKS3_.exit.i: ; preds = %for.inc53, %for.end, %_ZN8QuantLib6MatrixD2Ev.exit268
+if.end:                                           ; preds = %for.inc53, %for.end, %_ZN8QuantLib6MatrixD2Ev.exit268
   %variance.sroa.0.0674687 = phi ptr [ %variance.sroa.0.0674689, %_ZN8QuantLib6MatrixD2Ev.exit268 ], [ null, %for.end ], [ %call.i243, %for.inc53 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %optimize) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp56) #22
@@ -2250,7 +2250,7 @@ _ZN5boost10shared_ptrIN8QuantLib10LineSearchEEC2ERKS3_.exit.i: ; preds = %for.in
   invoke void @_ZN8QuantLib21LineSearchBasedMethodC2EN5boost10shared_ptrINS_10LineSearchEEE(ptr noundef nonnull align 8 dereferenceable(24) %optimize, ptr noundef nonnull %agg.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
 
-invoke.cont.i:                                    ; preds = %_ZN5boost10shared_ptrIN8QuantLib10LineSearchEEC2ERKS3_.exit.i
+invoke.cont.i:                                    ; preds = %if.end
   %pn.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 8
   %38 = load ptr, ptr %pn.i.i, align 8, !tbaa !40
   %cmp.not.i.i2.i = icmp eq ptr %38, null
@@ -2289,7 +2289,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
   call void @__clang_call_terminate(ptr %44) #26
   unreachable
 
-lpad.i:                                           ; preds = %_ZN5boost10shared_ptrIN8QuantLib10LineSearchEEC2ERKS3_.exit.i
+lpad.i:                                           ; preds = %if.end
   %45 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost10shared_ptrIN8QuantLib10LineSearchEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i) #22

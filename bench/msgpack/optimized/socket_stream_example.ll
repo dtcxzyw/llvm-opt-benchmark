@@ -538,19 +538,19 @@ _ZNSt6vectorIiSaIiEED2Ev.exit58:                  ; preds = %79, %83
   %97 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 0, ptr %97, align 8, !tbaa !73
   %98 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %99 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %100 = invoke noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #27
+  %99 = invoke noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #27
           to label %.noexc unwind label %163
 
 .noexc:                                           ; preds = %95
-  %101 = getelementptr inbounds nuw i8, ptr %11, i64 121
-  %102 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store ptr %100, ptr %98, align 8, !tbaa !74
-  store ptr %100, ptr %102, align 8, !tbaa !75
-  %103 = getelementptr inbounds nuw i8, ptr %100, i64 256
-  store ptr %103, ptr %99, align 8, !tbaa !76
+  %100 = getelementptr inbounds nuw i8, ptr %11, i64 121
+  %101 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %102 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  store ptr %99, ptr %98, align 8, !tbaa !74
+  store ptr %99, ptr %101, align 8, !tbaa !75
+  %103 = getelementptr inbounds nuw i8, ptr %99, i64 256
+  store ptr %103, ptr %102, align 8, !tbaa !76
   %104 = getelementptr inbounds nuw i8, ptr %11, i64 104
-  store ptr %101, ptr %104, align 8, !tbaa !77
+  store ptr %100, ptr %104, align 8, !tbaa !77
   %105 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #29
   %.not.i.i = icmp eq ptr %105, null
   br i1 %.not.i.i, label %106, label %117
@@ -569,7 +569,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit58:                  ; preds = %79, %83
   br i1 %.not.i.i.i.i.i.i.i, label %.body60, label %111
 
 111:                                              ; preds = %108
-  %112 = load ptr, ptr %99, align 8, !tbaa !76
+  %112 = load ptr, ptr %102, align 8, !tbaa !76
   %113 = ptrtoint ptr %112 to i64
   %114 = ptrtoint ptr %110 to i64
   %115 = sub i64 %113, %114
@@ -753,7 +753,7 @@ _ZN7msgpack2v16detail10decr_countEPv.exit.i.i:    ; preds = %178, %175, %_ZNSt7_
   br i1 %.not.i.i.i.i.i.i.i72, label %_ZN17json_like_printerD2Ev.exit, label %180
 
 180:                                              ; preds = %_ZN7msgpack2v16detail10decr_countEPv.exit.i.i
-  %181 = load ptr, ptr %99, align 8, !tbaa !76
+  %181 = load ptr, ptr %102, align 8, !tbaa !76
   %182 = ptrtoint ptr %181 to i64
   %183 = ptrtoint ptr %179 to i64
   %184 = sub i64 %182, %183

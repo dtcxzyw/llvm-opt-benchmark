@@ -2444,14 +2444,14 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #4
 define dso_local void @_ZN4Luau19EqSatSimplification6TTableC2ENS_5EqSat2IdE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 48)) %0, i32 %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 _ZNKSt6vectorIN4Luau5EqSat2IdESaIS2_EE12_M_check_lenEmPKc.exit.i.i:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
-  %5 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #34
-  store i32 %1, ptr %5, align 4, !tbaa !4
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store ptr %5, ptr %2, align 8, !tbaa !8
-  store ptr %6, ptr %3, align 8, !tbaa !12
+  %3 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #34
+  store i32 %1, ptr %3, align 4, !tbaa !4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store ptr %3, ptr %2, align 8, !tbaa !8
+  store ptr %6, ptr %5, align 8, !tbaa !12
   store ptr %6, ptr %4, align 8, !tbaa !13
   ret void
 }

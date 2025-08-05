@@ -1481,9 +1481,9 @@ cond.false.i65:                                   ; preds = %_ZN8QuantLib10DayCo
 invoke.cont50:                                    ; preds = %.noexc67, %_ZN8QuantLib10DayCounterD2Ev.exit
   %41 = phi ptr [ %40, %_ZN8QuantLib10DayCounterD2Ev.exit ], [ %.pre.i66, %.noexc67 ]
   invoke void @_ZNK8QuantLib21ExtOUWithJumpsProcess35getExtendedOrnsteinUhlenbeckProcessEv(ptr dead_on_unwind nonnull writable sret(%"class.boost::shared_ptr.44") align 8 %ref.tmp48, ptr noundef nonnull align 8 dereferenceable(240) %41)
-          to label %_ZN5boost10shared_ptrIN8QuantLib32ExtendedOrnsteinUhlenbeckProcessEED2Ev.exit unwind label %lpad49
+          to label %invoke.cont52 unwind label %lpad49
 
-_ZN5boost10shared_ptrIN8QuantLib32ExtendedOrnsteinUhlenbeckProcessEED2Ev.exit: ; preds = %invoke.cont50
+invoke.cont52:                                    ; preds = %invoke.cont50
   %42 = load ptr, ptr %ref.tmp48, align 8, !tbaa !86
   store ptr %42, ptr %ouProcess, align 8, !tbaa !88
   %pn.i = getelementptr inbounds nuw i8, ptr %ouProcess, i64 8
@@ -1495,7 +1495,7 @@ _ZN5boost10shared_ptrIN8QuantLib32ExtendedOrnsteinUhlenbeckProcessEED2Ev.exit: ;
   %call56 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #31
           to label %invoke.cont59 unwind label %lpad54
 
-invoke.cont59:                                    ; preds = %_ZN5boost10shared_ptrIN8QuantLib32ExtendedOrnsteinUhlenbeckProcessEED2Ev.exit
+invoke.cont59:                                    ; preds = %invoke.cont52
   %xGrid_ = getelementptr inbounds nuw i8, ptr %this, i64 408
   %44 = load i64, ptr %xGrid_, align 8, !tbaa !76
   invoke void @_ZN8QuantLib24FdmSimpleProcess1dMesherC1EmRKN5boost10shared_ptrINS_19StochasticProcess1DEEEdmdd(ptr noundef nonnull align 8 dereferenceable(80) %call56, i64 noundef %44, ptr noundef nonnull align 8 dereferenceable(16) %ouProcess, double noundef %39, i64 noundef 10, double noundef 1.000000e-04, double noundef 0x47EFFFFFE0000000)
@@ -3447,7 +3447,7 @@ lpad49:                                           ; preds = %cond.false.i65, %in
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp48) #28
   br label %ehcleanup261
 
-lpad54:                                           ; preds = %_ZN5boost10shared_ptrIN8QuantLib32ExtendedOrnsteinUhlenbeckProcessEED2Ev.exit
+lpad54:                                           ; preds = %invoke.cont52
   %332 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup259

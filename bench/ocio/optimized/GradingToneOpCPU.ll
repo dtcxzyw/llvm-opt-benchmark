@@ -729,12 +729,12 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %47 = load i8, ptr %46, align 4, !tbaa !83, !range !78, !noundef !37
   %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %100
+  br i1 %48, label %49, label %99
 
 49:                                               ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #26
   invoke void @_ZNK19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImpl18createEditableCopyEv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.11") align 8 %3, ptr noundef nonnull align 8 dereferenceable(1208) %45)
-          to label %50 unwind label %98
+          to label %50 unwind label %97
 
 50:                                               ; preds = %49
   %51 = load ptr, ptr %3, align 8, !tbaa !65
@@ -745,7 +745,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__
   %54 = load ptr, ptr %40, align 8, !tbaa !59
   store ptr %53, ptr %40, align 8, !tbaa !59
   %.not.i.i.i.i6 = icmp eq ptr %54, null
-  br i1 %.not.i.i.i.i6, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplEEaSEOS2_.exit10, label %55
+  br i1 %.not.i.i.i.i6, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15, label %55
 
 55:                                               ; preds = %50
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -791,67 +791,67 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i8: ; preds = %72, %
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %54) #26
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplEEaSEOS2_.exit10
 
-_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplEEaSEOS2_.exit10: ; preds = %50, %60, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i8, %75
-  %76 = load ptr, ptr %52, align 8, !tbaa !59
-  %.not.i.i11 = icmp eq ptr %76, null
-  br i1 %.not.i.i11, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15, label %77
+_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplEEaSEOS2_.exit10: ; preds = %60, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i8, %75
+  %.pr = load ptr, ptr %52, align 8, !tbaa !59
+  %.not.i.i11 = icmp eq ptr %.pr, null
+  br i1 %.not.i.i11, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15, label %76
 
-77:                                               ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplEEaSEOS2_.exit10
-  %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %79 = load atomic i64, ptr %78 acquire, align 8
-  %80 = icmp eq i64 %79, 4294967297
-  %81 = trunc i64 %79 to i32
-  br i1 %80, label %82, label %90
+76:                                               ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplEEaSEOS2_.exit10
+  %77 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
+  %78 = load atomic i64, ptr %77 acquire, align 8
+  %79 = icmp eq i64 %78, 4294967297
+  %80 = trunc i64 %78 to i32
+  br i1 %79, label %81, label %89
 
-82:                                               ; preds = %77
-  store i32 0, ptr %78, align 8, !tbaa !38
-  %83 = getelementptr inbounds nuw i8, ptr %76, i64 12
-  store i32 0, ptr %83, align 4, !tbaa !41
-  %84 = load ptr, ptr %76, align 8, !tbaa !42
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %86 = load ptr, ptr %85, align 8
-  call void %86(ptr noundef nonnull align 8 dereferenceable(16) %76) #26
-  %87 = load ptr, ptr %76, align 8, !tbaa !42
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
-  %89 = load ptr, ptr %88, align 8
-  call void %89(ptr noundef nonnull align 8 dereferenceable(16) %76) #26
+81:                                               ; preds = %76
+  store i32 0, ptr %77, align 8, !tbaa !38
+  %82 = getelementptr inbounds nuw i8, ptr %.pr, i64 12
+  store i32 0, ptr %82, align 4, !tbaa !41
+  %83 = load ptr, ptr %.pr, align 8, !tbaa !42
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
+  %85 = load ptr, ptr %84, align 8
+  call void %85(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #26
+  %86 = load ptr, ptr %.pr, align 8, !tbaa !42
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 24
+  %88 = load ptr, ptr %87, align 8
+  call void %88(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #26
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15
 
-90:                                               ; preds = %77
-  %91 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !60
-  %.not.i.i.i12 = icmp eq i8 %91, 0
-  br i1 %.not.i.i.i12, label %94, label %92
+89:                                               ; preds = %76
+  %90 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !60
+  %.not.i.i.i12 = icmp eq i8 %90, 0
+  br i1 %.not.i.i.i12, label %93, label %91
 
-92:                                               ; preds = %90
-  %93 = add nsw i32 %81, -1
-  store i32 %93, ptr %78, align 4, !tbaa !61
+91:                                               ; preds = %89
+  %92 = add nsw i32 %80, -1
+  store i32 %92, ptr %77, align 4, !tbaa !61
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i13
 
-94:                                               ; preds = %90
-  %95 = atomicrmw volatile add ptr %78, i32 -1 acq_rel, align 4
+93:                                               ; preds = %89
+  %94 = atomicrmw volatile add ptr %77, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i13
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i13: ; preds = %94, %92
-  %.0.i.i.i.i14 = phi i32 [ %81, %92 ], [ %95, %94 ]
-  %96 = icmp eq i32 %.0.i.i.i.i14, 1
-  br i1 %96, label %97, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15, !prof !64
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i13: ; preds = %93, %91
+  %.0.i.i.i.i14 = phi i32 [ %80, %91 ], [ %94, %93 ]
+  %95 = icmp eq i32 %.0.i.i.i.i14, 1
+  br i1 %95, label %96, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15, !prof !64
 
-97:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i13
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %76) #26
+96:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #26
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15
 
-_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplEEaSEOS2_.exit10, %82, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i13, %97
+_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15: ; preds = %50, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplEEaSEOS2_.exit10, %81, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i13, %96
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
-  br label %100
+  br label %99
 
-98:                                               ; preds = %49
-  %99 = landingpad { ptr, i32 }
+97:                                               ; preds = %49
+  %98 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
   call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #26
-  resume { ptr, i32 } %99
+  resume { ptr, i32 } %98
 
-100:                                              ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+99:                                               ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   ret void
 }
 

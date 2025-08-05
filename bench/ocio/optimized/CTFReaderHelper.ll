@@ -33854,7 +33854,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev27CTFReaderGradingRGBCurveElt5startE
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load ptr, ptr %58, align 8
   call void %59(ptr noundef nonnull align 8 dereferenceable(16) %46) #33
-  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15GradingRGBCurveEEaSEOS2_.exit
+  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15GradingRGBCurveEEaSEOS2_.exitthread-pre-split
 
 60:                                               ; preds = %47
   %61 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !34
@@ -33873,14 +33873,18 @@ define hidden void @_ZN19OpenColorIO_v2_5dev27CTFReaderGradingRGBCurveElt5startE
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %64, %62
   %.0.i.i.i.i.i.i = phi i32 [ %51, %62 ], [ %65, %64 ]
   %66 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %66, label %67, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15GradingRGBCurveEEaSEOS2_.exit, !prof !36
+  br i1 %66, label %67, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15GradingRGBCurveEEaSEOS2_.exitthread-pre-split, !prof !36
 
 67:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %46) #33
+  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15GradingRGBCurveEEaSEOS2_.exitthread-pre-split
+
+_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15GradingRGBCurveEEaSEOS2_.exitthread-pre-split: ; preds = %67, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %52
+  %.pr = load ptr, ptr %25, align 8, !tbaa !33
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15GradingRGBCurveEEaSEOS2_.exit
 
-_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15GradingRGBCurveEEaSEOS2_.exit: ; preds = %43, %52, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %67
-  %68 = load ptr, ptr %25, align 8, !tbaa !33
+_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15GradingRGBCurveEEaSEOS2_.exit: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15GradingRGBCurveEEaSEOS2_.exitthread-pre-split, %43
+  %68 = phi ptr [ %.pr, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15GradingRGBCurveEEaSEOS2_.exitthread-pre-split ], [ null, %43 ]
   %.not.i.i = icmp eq ptr %68, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15GradingRGBCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %69
 

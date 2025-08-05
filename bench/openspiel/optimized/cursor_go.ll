@@ -1611,18 +1611,18 @@ _ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i.i: ; preds = %79, %74, %71
   %80 = zext nneg i32 %34 to i64
   %81 = shl nuw nsw i64 %80, 1
   %82 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %81) #25
-          to label %_ZNSt6vectorItSaItEE7reserveEm.exit.i unwind label %.loopexit.split-lp.i, !noalias !4
+          to label %.noexc.i unwind label %.loopexit.split-lp.i, !noalias !4
 
-_ZNSt6vectorItSaItEE7reserveEm.exit.i:            ; preds = %_ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i.i
+.noexc.i:                                         ; preds = %_ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i.i
   %83 = getelementptr inbounds nuw i16, ptr %82, i64 %80
   br label %84
 
-84:                                               ; preds = %_ZNSt6vectorItSaItEE9push_backERKt.exit.i, %_ZNSt6vectorItSaItEE7reserveEm.exit.i
-  %.sroa.13.2 = phi ptr [ %83, %_ZNSt6vectorItSaItEE7reserveEm.exit.i ], [ %.sroa.13.3, %_ZNSt6vectorItSaItEE9push_backERKt.exit.i ]
-  %.sroa.011.0 = phi ptr [ %82, %_ZNSt6vectorItSaItEE7reserveEm.exit.i ], [ %.sroa.011.1, %_ZNSt6vectorItSaItEE9push_backERKt.exit.i ]
-  %indvars.iv.i = phi i64 [ 0, %_ZNSt6vectorItSaItEE7reserveEm.exit.i ], [ %indvars.iv.next.i, %_ZNSt6vectorItSaItEE9push_backERKt.exit.i ]
-  %85 = phi ptr [ %82, %_ZNSt6vectorItSaItEE7reserveEm.exit.i ], [ %.sroa.9.0, %_ZNSt6vectorItSaItEE9push_backERKt.exit.i ]
-  %86 = phi ptr [ %83, %_ZNSt6vectorItSaItEE7reserveEm.exit.i ], [ %108, %_ZNSt6vectorItSaItEE9push_backERKt.exit.i ]
+84:                                               ; preds = %_ZNSt6vectorItSaItEE9push_backERKt.exit.i, %.noexc.i
+  %.sroa.13.2 = phi ptr [ %83, %.noexc.i ], [ %.sroa.13.3, %_ZNSt6vectorItSaItEE9push_backERKt.exit.i ]
+  %.sroa.011.0 = phi ptr [ %82, %.noexc.i ], [ %.sroa.011.1, %_ZNSt6vectorItSaItEE9push_backERKt.exit.i ]
+  %indvars.iv.i = phi i64 [ 0, %.noexc.i ], [ %indvars.iv.next.i, %_ZNSt6vectorItSaItEE9push_backERKt.exit.i ]
+  %85 = phi ptr [ %82, %.noexc.i ], [ %.sroa.9.0, %_ZNSt6vectorItSaItEE9push_backERKt.exit.i ]
+  %86 = phi ptr [ %83, %.noexc.i ], [ %108, %_ZNSt6vectorItSaItEE9push_backERKt.exit.i ]
   %87 = getelementptr inbounds nuw [9 x i16], ptr @_ZZN10open_spiel9cursor_go12_GLOBAL__N_114HandicapStonesEiE9placement, i64 0, i64 %indvars.iv.i
   %.not.i.i = icmp eq ptr %85, %86
   br i1 %.not.i.i, label %90, label %88

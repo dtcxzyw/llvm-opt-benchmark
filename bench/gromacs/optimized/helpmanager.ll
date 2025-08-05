@@ -200,16 +200,16 @@ _ZNKSt6vectorIPKN3gmx10IHelpTopicESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   store ptr %3, ptr %0, align 8, !tbaa !26
   %5 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20
-          to label %_ZNSt6vectorIPKN3gmx10IHelpTopicESaIS3_EE9push_backEOS3_.exit unwind label %9
+          to label %_ZNSt6vectorIPKN3gmx10IHelpTopicESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i unwind label %9
 
-_ZNSt6vectorIPKN3gmx10IHelpTopicESaIS3_EE9push_backEOS3_.exit: ; preds = %_ZNKSt6vectorIPKN3gmx10IHelpTopicESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
+_ZNSt6vectorIPKN3gmx10IHelpTopicESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %_ZNKSt6vectorIPKN3gmx10IHelpTopicESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
   store ptr %1, ptr %5, align 8, !tbaa !18
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %5, ptr %4, align 8, !tbaa !28
-  store ptr %8, ptr %7, align 8, !tbaa !30
-  store ptr %8, ptr %6, align 8, !tbaa !31
+  store ptr %6, ptr %8, align 8, !tbaa !30
+  store ptr %6, ptr %7, align 8, !tbaa !31
   ret void
 
 9:                                                ; preds = %_ZNKSt6vectorIPKN3gmx10IHelpTopicESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i

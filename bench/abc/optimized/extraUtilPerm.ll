@@ -351,98 +351,97 @@ define noalias noundef ptr @Abc_ZddManAlloc(i32 noundef %0, i32 noundef %1) loca
   %25 = or i32 %0, -2147483648
   store i32 %25, ptr %21, align 4
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  %27 = or i32 %0, -2147483648
-  store i32 %27, ptr %26, align 4
-  %28 = icmp sgt i32 %0, 0
-  br i1 %28, label %.lr.ph, label %._crit_edge
+  store i32 %25, ptr %26, align 4
+  %27 = icmp sgt i32 %0, 0
+  br i1 %27, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %Abc_ZddUniqueCreate.exit
-  %29 = phi i32 [ %68, %Abc_ZddUniqueCreate.exit ], [ 2, %2 ]
-  %.035 = phi i32 [ %69, %Abc_ZddUniqueCreate.exit ], [ 0, %2 ]
-  %30 = mul nuw nsw i32 %.035, 12582917
-  %31 = add nuw nsw i32 %30, 4256249
-  %32 = and i32 %31, %9
-  %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %14, i64 %33
-  %35 = load i32, ptr %34, align 4, !tbaa !3
-  %.not41.i = icmp eq i32 %35, 0
+  %28 = phi i32 [ %67, %Abc_ZddUniqueCreate.exit ], [ 2, %2 ]
+  %.035 = phi i32 [ %68, %Abc_ZddUniqueCreate.exit ], [ 0, %2 ]
+  %29 = mul nuw nsw i32 %.035, 12582917
+  %30 = add nuw nsw i32 %29, 4256249
+  %31 = and i32 %30, %9
+  %32 = zext nneg i32 %31 to i64
+  %33 = getelementptr inbounds nuw i32, ptr %14, i64 %32
+  %34 = load i32, ptr %33, align 4, !tbaa !3
+  %.not41.i = icmp eq i32 %34, 0
   br i1 %.not41.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph, %50
-  %36 = phi i32 [ %52, %50 ], [ %35, %.lr.ph ]
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %21, i64 %37
-  %39 = load i32, ptr %38, align 4
-  %40 = and i32 %39, 2147483647
-  %41 = icmp eq i32 %40, %.035
-  br i1 %41, label %42, label %50
+.lr.ph.i:                                         ; preds = %.lr.ph, %49
+  %35 = phi i32 [ %51, %49 ], [ %34, %.lr.ph ]
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %21, i64 %36
+  %38 = load i32, ptr %37, align 4
+  %39 = and i32 %38, 2147483647
+  %40 = icmp eq i32 %39, %.035
+  br i1 %40, label %41, label %49
 
-42:                                               ; preds = %.lr.ph.i
-  %43 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  %44 = load i32, ptr %43, align 4, !tbaa !19
-  %45 = icmp eq i32 %44, 1
-  br i1 %45, label %46, label %50
+41:                                               ; preds = %.lr.ph.i
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 4
+  %43 = load i32, ptr %42, align 4, !tbaa !19
+  %44 = icmp eq i32 %43, 1
+  br i1 %44, label %45, label %49
 
-46:                                               ; preds = %42
-  %47 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %48 = load i32, ptr %47, align 4, !tbaa !21
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %Abc_ZddUniqueCreate.exit, label %50
+45:                                               ; preds = %41
+  %46 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %47 = load i32, ptr %46, align 4, !tbaa !21
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %Abc_ZddUniqueCreate.exit, label %49
 
-50:                                               ; preds = %46, %42, %.lr.ph.i
-  %51 = getelementptr inbounds i32, ptr %17, i64 %37
-  %52 = load i32, ptr %51, align 4, !tbaa !3
-  %.not.i = icmp eq i32 %52, 0
+49:                                               ; preds = %45, %41, %.lr.ph.i
+  %50 = getelementptr inbounds i32, ptr %17, i64 %36
+  %51 = load i32, ptr %50, align 4, !tbaa !3
+  %.not.i = icmp eq i32 %51, 0
   br i1 %.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i, !llvm.loop !23
 
-._crit_edge.i.loopexit:                           ; preds = %50
-  %53 = getelementptr inbounds i32, ptr %17, i64 %37
+._crit_edge.i.loopexit:                           ; preds = %49
+  %52 = getelementptr inbounds i32, ptr %17, i64 %36
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %.lr.ph
-  %.0.lcssa.i = phi ptr [ %34, %.lr.ph ], [ %53, %._crit_edge.i.loopexit ]
-  %54 = icmp eq i32 %29, %1
-  br i1 %54, label %55, label %59
+  %.0.lcssa.i = phi ptr [ %33, %.lr.ph ], [ %52, %._crit_edge.i.loopexit ]
+  %53 = icmp eq i32 %28, %1
+  br i1 %53, label %54, label %58
 
-55:                                               ; preds = %._crit_edge.i
-  %56 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %1)
-  %57 = load ptr, ptr @stdout, align 8, !tbaa !26
-  %58 = tail call i32 @fflush(ptr noundef %57)
-  br label %59
+54:                                               ; preds = %._crit_edge.i
+  %55 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %1)
+  %56 = load ptr, ptr @stdout, align 8, !tbaa !26
+  %57 = tail call i32 @fflush(ptr noundef %56)
+  br label %58
 
-59:                                               ; preds = %55, %._crit_edge.i
-  %60 = add nsw i32 %29, 1
-  store i32 %60, ptr %23, align 4, !tbaa !24
-  store i32 %29, ptr %.0.lcssa.i, align 4, !tbaa !3
-  %61 = sext i32 %29 to i64
-  %62 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %21, i64 %61
-  %63 = load i32, ptr %62, align 4
-  %64 = and i32 %63, -2147483648
-  %65 = or disjoint i32 %64, %.035
-  store i32 %65, ptr %62, align 4
-  %66 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %21, i64 %61, i32 1
-  store i32 1, ptr %66, align 4, !tbaa !19
-  %67 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %21, i64 %61, i32 2
-  store i32 0, ptr %67, align 4, !tbaa !21
+58:                                               ; preds = %54, %._crit_edge.i
+  %59 = add nsw i32 %28, 1
+  store i32 %59, ptr %23, align 4, !tbaa !24
+  store i32 %28, ptr %.0.lcssa.i, align 4, !tbaa !3
+  %60 = sext i32 %28 to i64
+  %61 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %21, i64 %60
+  %62 = load i32, ptr %61, align 4
+  %63 = and i32 %62, -2147483648
+  %64 = or disjoint i32 %63, %.035
+  store i32 %64, ptr %61, align 4
+  %65 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %21, i64 %60, i32 1
+  store i32 1, ptr %65, align 4, !tbaa !19
+  %66 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %21, i64 %60, i32 2
+  store i32 0, ptr %66, align 4, !tbaa !21
   br label %Abc_ZddUniqueCreate.exit
 
-Abc_ZddUniqueCreate.exit:                         ; preds = %46, %59
-  %68 = phi i32 [ %60, %59 ], [ %29, %46 ]
-  %69 = add nuw nsw i32 %.035, 1
-  %exitcond.not = icmp eq i32 %69, %0
+Abc_ZddUniqueCreate.exit:                         ; preds = %45, %58
+  %67 = phi i32 [ %59, %58 ], [ %28, %45 ]
+  %68 = add nuw nsw i32 %.035, 1
+  %exitcond.not = icmp eq i32 %68, %0
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %Abc_ZddUniqueCreate.exit, %2
   %narrow = sub i32 24, %notmask
-  %70 = zext i32 %narrow to i64
-  %71 = shl nuw nsw i64 %13, 2
-  %72 = mul nsw i64 %16, 12
-  %73 = lshr exact i64 %72, 2
-  %74 = add nsw i64 %73, %16
+  %69 = zext i32 %narrow to i64
+  %70 = shl nuw nsw i64 %13, 2
+  %71 = mul nsw i64 %16, 12
+  %72 = lshr exact i64 %71, 2
+  %73 = add nsw i64 %72, %16
+  %74 = add nsw i64 %73, %69
   %75 = add nsw i64 %74, %70
-  %76 = add nsw i64 %75, %71
-  %77 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store i64 %76, ptr %77, align 8, !tbaa !33
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  store i64 %75, ptr %76, align 8, !tbaa !33
   ret ptr %3
 }
 

@@ -4558,7 +4558,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDESt6vectorINS2_4html17RelexRew
   %44 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %39, i64 %43
   %.sroa.05.0.copyload50.i.i = load i32, ptr %44, align 4, !tbaa !20
   %45 = icmp eq i32 %.sroa.03.0.copyload.i, %.sroa.05.0.copyload50.i.i
-  br i1 %45, label %_ZSt8_DestroyIPN5clang4html17RelexRewriteCache12RawHighlightES3_EvT_S5_RSaIT0_E.exit.i.i, label %.lr.ph.i18.i, !prof !424
+  br i1 %45, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDESt6vectorINS2_4html17RelexRewriteCache12RawHighlightESaIS7_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E15LookupBucketForIS3_EEbRKT_RPSE_.exit.i, label %.lr.ph.i18.i, !prof !424
 
 .lr.ph.i18.i:                                     ; preds = %38, %50
   %.sroa.05.0.copyload54.i.i = phi i32 [ %.sroa.05.0.copyload.i.i, %50 ], [ %.sroa.05.0.copyload50.i.i, %38 ]
@@ -4572,7 +4572,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDESt6vectorINS2_4html17RelexRew
 48:                                               ; preds = %.lr.ph.i18.i
   %.not.i19.i = icmp eq ptr %.03352.i.i, null
   %49 = select i1 %.not.i19.i, ptr %46, ptr %.03352.i.i
-  br label %_ZSt8_DestroyIPN5clang4html17RelexRewriteCache12RawHighlightES3_EvT_S5_RSaIT0_E.exit.i.i
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDESt6vectorINS2_4html17RelexRewriteCache12RawHighlightESaIS7_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E15LookupBucketForIS3_EEbRKT_RPSE_.exit.i
 
 50:                                               ; preds = %.lr.ph.i18.i
   %51 = icmp eq i32 %.sroa.05.0.copyload54.i.i, -1
@@ -4586,9 +4586,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDESt6vectorINS2_4html17RelexRew
   %56 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %39, i64 %55
   %.sroa.05.0.copyload.i.i = load i32, ptr %56, align 4, !tbaa !20
   %57 = icmp eq i32 %.sroa.03.0.copyload.i, %.sroa.05.0.copyload.i.i
-  br i1 %57, label %_ZSt8_DestroyIPN5clang4html17RelexRewriteCache12RawHighlightES3_EvT_S5_RSaIT0_E.exit.i.i, label %.lr.ph.i18.i, !prof !426, !llvm.loop !535
+  br i1 %57, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDESt6vectorINS2_4html17RelexRewriteCache12RawHighlightESaIS7_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E15LookupBucketForIS3_EEbRKT_RPSE_.exit.i, label %.lr.ph.i18.i, !prof !426, !llvm.loop !535
 
-_ZSt8_DestroyIPN5clang4html17RelexRewriteCache12RawHighlightES3_EvT_S5_RSaIT0_E.exit.i.i: ; preds = %50, %48, %38
+_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDESt6vectorINS2_4html17RelexRewriteCache12RawHighlightESaIS7_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E15LookupBucketForIS3_EEbRKT_RPSE_.exit.i: ; preds = %50, %48, %38
   %.sink.i.i = phi ptr [ %49, %48 ], [ %44, %38 ], [ %56, %50 ]
   store i32 %.sroa.03.0.copyload.i, ptr %.sink.i.i, align 4, !tbaa !20
   %58 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
@@ -4609,7 +4609,7 @@ _ZSt8_DestroyIPN5clang4html17RelexRewriteCache12RawHighlightES3_EvT_S5_RSaIT0_E.
   store i32 %68, ptr %32, align 8, !tbaa !537
   br label %_ZNSt6vectorIN5clang4html17RelexRewriteCache12RawHighlightESaIS3_EED2Ev.exit.i
 
-_ZNSt6vectorIN5clang4html17RelexRewriteCache12RawHighlightESaIS3_EED2Ev.exit.i: ; preds = %_ZSt8_DestroyIPN5clang4html17RelexRewriteCache12RawHighlightES3_EvT_S5_RSaIT0_E.exit.i.i, %.lr.ph.i7, %.lr.ph.i7
+_ZNSt6vectorIN5clang4html17RelexRewriteCache12RawHighlightESaIS3_EED2Ev.exit.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDESt6vectorINS2_4html17RelexRewriteCache12RawHighlightESaIS7_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E15LookupBucketForIS3_EEbRKT_RPSE_.exit.i, %.lr.ph.i7, %.lr.ph.i7
   %69 = getelementptr inbounds nuw i8, ptr %.025.i, i64 32
   %.not.i8 = icmp eq ptr %69, %31
   br i1 %.not.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDESt6vectorINS2_4html17RelexRewriteCache12RawHighlightESaIS7_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E18moveFromOldBucketsEPSE_SH_.exit, label %.lr.ph.i7, !llvm.loop !540
@@ -5173,7 +5173,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDESt6vectorINS2_4html17RelexRew
   %44 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.287", ptr %39, i64 %43
   %.sroa.05.0.copyload50.i.i = load i32, ptr %44, align 4, !tbaa !20
   %45 = icmp eq i32 %.sroa.03.0.copyload.i, %.sroa.05.0.copyload50.i.i
-  br i1 %45, label %_ZSt8_DestroyIPN5clang4html17RelexRewriteCache9HighlightES3_EvT_S5_RSaIT0_E.exit.i.i, label %.lr.ph.i18.i, !prof !424
+  br i1 %45, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDESt6vectorINS2_4html17RelexRewriteCache9HighlightESaIS7_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E15LookupBucketForIS3_EEbRKT_RPSE_.exit.i, label %.lr.ph.i18.i, !prof !424
 
 .lr.ph.i18.i:                                     ; preds = %38, %50
   %.sroa.05.0.copyload54.i.i = phi i32 [ %.sroa.05.0.copyload.i.i, %50 ], [ %.sroa.05.0.copyload50.i.i, %38 ]
@@ -5187,7 +5187,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDESt6vectorINS2_4html17RelexRew
 48:                                               ; preds = %.lr.ph.i18.i
   %.not.i19.i = icmp eq ptr %.03352.i.i, null
   %49 = select i1 %.not.i19.i, ptr %46, ptr %.03352.i.i
-  br label %_ZSt8_DestroyIPN5clang4html17RelexRewriteCache9HighlightES3_EvT_S5_RSaIT0_E.exit.i.i
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDESt6vectorINS2_4html17RelexRewriteCache9HighlightESaIS7_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E15LookupBucketForIS3_EEbRKT_RPSE_.exit.i
 
 50:                                               ; preds = %.lr.ph.i18.i
   %51 = icmp eq i32 %.sroa.05.0.copyload54.i.i, -1
@@ -5201,9 +5201,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDESt6vectorINS2_4html17RelexRew
   %56 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.287", ptr %39, i64 %55
   %.sroa.05.0.copyload.i.i = load i32, ptr %56, align 4, !tbaa !20
   %57 = icmp eq i32 %.sroa.03.0.copyload.i, %.sroa.05.0.copyload.i.i
-  br i1 %57, label %_ZSt8_DestroyIPN5clang4html17RelexRewriteCache9HighlightES3_EvT_S5_RSaIT0_E.exit.i.i, label %.lr.ph.i18.i, !prof !426, !llvm.loop !554
+  br i1 %57, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDESt6vectorINS2_4html17RelexRewriteCache9HighlightESaIS7_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E15LookupBucketForIS3_EEbRKT_RPSE_.exit.i, label %.lr.ph.i18.i, !prof !426, !llvm.loop !554
 
-_ZSt8_DestroyIPN5clang4html17RelexRewriteCache9HighlightES3_EvT_S5_RSaIT0_E.exit.i.i: ; preds = %50, %48, %38
+_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDESt6vectorINS2_4html17RelexRewriteCache9HighlightESaIS7_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E15LookupBucketForIS3_EEbRKT_RPSE_.exit.i: ; preds = %50, %48, %38
   %.sink.i.i = phi ptr [ %49, %48 ], [ %44, %38 ], [ %56, %50 ]
   store i32 %.sroa.03.0.copyload.i, ptr %.sink.i.i, align 4, !tbaa !20
   %58 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
@@ -5224,7 +5224,7 @@ _ZSt8_DestroyIPN5clang4html17RelexRewriteCache9HighlightES3_EvT_S5_RSaIT0_E.exit
   store i32 %68, ptr %32, align 8, !tbaa !556
   br label %_ZNSt6vectorIN5clang4html17RelexRewriteCache9HighlightESaIS3_EED2Ev.exit.i
 
-_ZNSt6vectorIN5clang4html17RelexRewriteCache9HighlightESaIS3_EED2Ev.exit.i: ; preds = %_ZSt8_DestroyIPN5clang4html17RelexRewriteCache9HighlightES3_EvT_S5_RSaIT0_E.exit.i.i, %.lr.ph.i7, %.lr.ph.i7
+_ZNSt6vectorIN5clang4html17RelexRewriteCache9HighlightESaIS3_EED2Ev.exit.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDESt6vectorINS2_4html17RelexRewriteCache9HighlightESaIS7_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E15LookupBucketForIS3_EEbRKT_RPSE_.exit.i, %.lr.ph.i7, %.lr.ph.i7
   %69 = getelementptr inbounds nuw i8, ptr %.025.i, i64 32
   %.not.i8 = icmp eq ptr %69, %31
   br i1 %.not.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDESt6vectorINS2_4html17RelexRewriteCache9HighlightESaIS7_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E18moveFromOldBucketsEPSE_SH_.exit, label %.lr.ph.i7, !llvm.loop !559

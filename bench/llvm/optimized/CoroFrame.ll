@@ -16637,7 +16637,7 @@ _ZN4llvm4coro10AllocaInfoaSEOS1_.exit.i:          ; preds = %_ZN4llvm12DenseMapB
   %177 = load i32, ptr %176, align 8, !tbaa !405
   %178 = icmp eq i32 %177, 0
   %.pre2.i.i14.i = load ptr, ptr %175, align 8, !tbaa !406
-  br i1 %178, label %_ZN4llvm4coro10AllocaInfoD2Ev.exit, label %.lr.ph.preheader.i.i.i15.i
+  br i1 %178, label %"_ZSt11__push_heapIPN4llvm4coro10AllocaInfoElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_116FrameTypeBuilder18addFieldForAllocasERKNS0_8FunctionERNS7_13FrameDataInfoERNS1_5ShapeEbE3$_1EEEvT_T0_SJ_T1_RT2_.exit", label %.lr.ph.preheader.i.i.i15.i
 
 .lr.ph.preheader.i.i.i15.i:                       ; preds = %.critedge.i
   %179 = zext i32 %177 to i64
@@ -16687,9 +16687,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionESt8optionalINS_5APIntEENS_
   %.pre3.i.i24.i = load i32, ptr %176, align 8, !tbaa !405
   %196 = zext i32 %.pre3.i.i24.i to i64
   %197 = shl nuw nsw i64 %196, 5
-  br label %_ZN4llvm4coro10AllocaInfoD2Ev.exit
+  br label %"_ZSt11__push_heapIPN4llvm4coro10AllocaInfoElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_116FrameTypeBuilder18addFieldForAllocasERKNS0_8FunctionERNS7_13FrameDataInfoERNS1_5ShapeEbE3$_1EEEvT_T0_SJ_T1_RT2_.exit"
 
-_ZN4llvm4coro10AllocaInfoD2Ev.exit:               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionESt8optionalINS_5APIntEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E10destroyAllEv.exit.loopexit.i.i22.i, %.critedge.i
+"_ZSt11__push_heapIPN4llvm4coro10AllocaInfoElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_116FrameTypeBuilder18addFieldForAllocasERKNS0_8FunctionERNS7_13FrameDataInfoERNS1_5ShapeEbE3$_1EEEvT_T0_SJ_T1_RT2_.exit": ; preds = %.critedge.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionESt8optionalINS_5APIntEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E10destroyAllEv.exit.loopexit.i.i22.i
   %198 = phi i64 [ %197, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionESt8optionalINS_5APIntEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E10destroyAllEv.exit.loopexit.i.i22.i ], [ 0, %.critedge.i ]
   %199 = phi ptr [ %.pre.i.i23.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionESt8optionalINS_5APIntEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E10destroyAllEv.exit.loopexit.i.i22.i ], [ %.pre2.i.i14.i, %.critedge.i ]
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %199, i64 noundef %198, i64 noundef 8) #17
@@ -16755,7 +16755,7 @@ _ZN4llvm4coro10AllocaInfoaSEOS1_.exit:
   store i8 %25, ptr %11, align 8, !tbaa !404
   store ptr %2, ptr %1, align 8, !tbaa !372
   %26 = icmp eq i32 %22, 0
-  br i1 %26, label %_ZN4llvm4coro10AllocaInfoD2Ev.exit, label %.lr.ph.preheader.i.i.i5
+  br i1 %26, label %_ZN4llvm4coro10AllocaInfoaSEOS1_.exit15, label %.lr.ph.preheader.i.i.i5
 
 .lr.ph.preheader.i.i.i5:                          ; preds = %_ZN4llvm4coro10AllocaInfoaSEOS1_.exit
   %27 = zext i32 %22 to i64
@@ -16805,9 +16805,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionESt8optionalINS_5APIntEENS_
   %.pre3.i.i14 = load i32, ptr %21, align 8, !tbaa !405
   %44 = zext i32 %.pre3.i.i14 to i64
   %45 = shl nuw nsw i64 %44, 5
-  br label %_ZN4llvm4coro10AllocaInfoD2Ev.exit
+  br label %_ZN4llvm4coro10AllocaInfoaSEOS1_.exit15
 
-_ZN4llvm4coro10AllocaInfoD2Ev.exit:               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionESt8optionalINS_5APIntEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E10destroyAllEv.exit.loopexit.i.i12, %_ZN4llvm4coro10AllocaInfoaSEOS1_.exit
+_ZN4llvm4coro10AllocaInfoaSEOS1_.exit15:          ; preds = %_ZN4llvm4coro10AllocaInfoaSEOS1_.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionESt8optionalINS_5APIntEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E10destroyAllEv.exit.loopexit.i.i12
   %46 = phi i64 [ %45, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionESt8optionalINS_5APIntEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E10destroyAllEv.exit.loopexit.i.i12 ], [ 0, %_ZN4llvm4coro10AllocaInfoaSEOS1_.exit ]
   %47 = phi ptr [ %.pre.i.i13, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionESt8optionalINS_5APIntEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E10destroyAllEv.exit.loopexit.i.i12 ], [ null, %_ZN4llvm4coro10AllocaInfoaSEOS1_.exit ]
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %47, i64 noundef %46, i64 noundef 8) #17
@@ -16882,7 +16882,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIPN4llvm4coro10AllocaInfoEN9
   %30 = load i32, ptr %8, align 8, !tbaa !405
   %31 = icmp eq i32 %30, 0
   %.pre2.i.i = load ptr, ptr %7, align 8, !tbaa !406
-  br i1 %31, label %_ZN4llvm4coro10AllocaInfoD2Ev.exit, label %.lr.ph.preheader.i.i.i
+  br i1 %31, label %_ZN4llvm4coro10AllocaInfoaSEOS1_.exit, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %16
   %32 = zext i32 %30 to i64
@@ -16932,9 +16932,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionESt8optionalINS_5APIntEENS_
   %.pre3.i.i = load i32, ptr %8, align 8, !tbaa !405
   %49 = zext i32 %.pre3.i.i to i64
   %50 = shl nuw nsw i64 %49, 5
-  br label %_ZN4llvm4coro10AllocaInfoD2Ev.exit
+  br label %_ZN4llvm4coro10AllocaInfoaSEOS1_.exit
 
-_ZN4llvm4coro10AllocaInfoD2Ev.exit:               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionESt8optionalINS_5APIntEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E10destroyAllEv.exit.loopexit.i.i, %16
+_ZN4llvm4coro10AllocaInfoaSEOS1_.exit:            ; preds = %16, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionESt8optionalINS_5APIntEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E10destroyAllEv.exit.loopexit.i.i
   %51 = phi i64 [ %50, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionESt8optionalINS_5APIntEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E10destroyAllEv.exit.loopexit.i.i ], [ 0, %16 ]
   %52 = phi ptr [ %.pre.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionESt8optionalINS_5APIntEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E10destroyAllEv.exit.loopexit.i.i ], [ %.pre2.i.i, %16 ]
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %52, i64 noundef %51, i64 noundef 8) #17
@@ -16950,7 +16950,7 @@ _ZN4llvm4coro10AllocaInfoD2Ev.exit:               ; preds = %_ZN4llvm12DenseMapB
   call fastcc void @"_ZSt25__unguarded_linear_insertIPN4llvm4coro10AllocaInfoEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_116FrameTypeBuilder18addFieldForAllocasERKNS0_8FunctionERNS7_13FrameDataInfoERNS1_5ShapeEbE3$_1EEEvT_T0_"(ptr noundef nonnull %.038, ptr nonnull %2)
   br label %54
 
-54:                                               ; preds = %_ZN4llvm4coro10AllocaInfoD2Ev.exit, %53
+54:                                               ; preds = %_ZN4llvm4coro10AllocaInfoaSEOS1_.exit, %53
   %.0 = getelementptr inbounds nuw i8, ptr %.038, i64 40
   %.not = icmp eq ptr %.0, %1
   br i1 %.not, label %.loopexit, label %12, !llvm.loop !761
@@ -17094,7 +17094,7 @@ _ZN4llvm4coro10AllocaInfoaSEOS1_.exit:            ; preds = %20, %_ZN4llvm12Dens
   %63 = load i32, ptr %62, align 8, !tbaa !405
   %64 = icmp eq i32 %63, 0
   %.pre2.i.i11 = load ptr, ptr %61, align 8, !tbaa !406
-  br i1 %64, label %_ZN4llvm4coro10AllocaInfoD2Ev.exit, label %.lr.ph.preheader.i.i.i12
+  br i1 %64, label %_ZN4llvm4coro10AllocaInfoaSEOS1_.exit22, label %.lr.ph.preheader.i.i.i12
 
 .lr.ph.preheader.i.i.i12:                         ; preds = %60
   %65 = zext i32 %63 to i64
@@ -17144,9 +17144,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionESt8optionalINS_5APIntEENS_
   %.pre3.i.i21 = load i32, ptr %62, align 8, !tbaa !405
   %82 = zext i32 %.pre3.i.i21 to i64
   %83 = shl nuw nsw i64 %82, 5
-  br label %_ZN4llvm4coro10AllocaInfoD2Ev.exit
+  br label %_ZN4llvm4coro10AllocaInfoaSEOS1_.exit22
 
-_ZN4llvm4coro10AllocaInfoD2Ev.exit:               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionESt8optionalINS_5APIntEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E10destroyAllEv.exit.loopexit.i.i19, %60
+_ZN4llvm4coro10AllocaInfoaSEOS1_.exit22:          ; preds = %60, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionESt8optionalINS_5APIntEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E10destroyAllEv.exit.loopexit.i.i19
   %84 = phi i64 [ %83, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionESt8optionalINS_5APIntEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E10destroyAllEv.exit.loopexit.i.i19 ], [ 0, %60 ]
   %85 = phi ptr [ %.pre.i.i20, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionESt8optionalINS_5APIntEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E10destroyAllEv.exit.loopexit.i.i19 ], [ %.pre2.i.i11, %60 ]
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %85, i64 noundef %84, i64 noundef 8) #17

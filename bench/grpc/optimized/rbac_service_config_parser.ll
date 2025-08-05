@@ -17167,7 +17167,7 @@ _ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE12_M_che
   %32 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !49, !alias.scope !477, !noalias !474
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %33, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt22_Optional_payload_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5RulesEE10_M_destroyEv.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %34
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %34
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 16
@@ -17184,9 +17184,9 @@ _ZNKSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS3_EE12_M_che
   store ptr %35, ptr %37, align 8, !tbaa !42, !alias.scope !477, !noalias !474
   store ptr %35, ptr %39, align 8, !tbaa !47, !alias.scope !477, !noalias !474
   store i64 0, ptr %42, align 8, !tbaa !48, !alias.scope !477, !noalias !474
-  br label %_ZNSt22_Optional_payload_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5RulesEE10_M_destroyEv.exit.i.i.i.i.i.i.i.i.i.i.i.i
+  br label %_ZSt8_DestroyIPSt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZNSt22_Optional_payload_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5RulesEE10_M_destroyEv.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %34, %29
+_ZSt8_DestroyIPSt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %34, %29
   %.sink2.i.i.i.i.i.i = phi ptr [ %38, %34 ], [ %31, %29 ]
   %.sink1.i.i.i.i.i.i = phi ptr [ %40, %34 ], [ %31, %29 ]
   %.sink.i.i.i.i.i.i = phi i64 [ %43, %34 ], [ 0, %29 ]
@@ -17221,7 +17221,7 @@ _ZNSt22_Optional_payload_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5
   store i8 0, ptr %25, align 8, !tbaa !29, !alias.scope !477, !noalias !474
   br label %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i.i.i
 
-_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i.i.i: ; preds = %_ZNSt22_Optional_payload_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5RulesEE10_M_destroyEv.exit.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i
+_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicyES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i.i.i: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i
   %60 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 96
   %61 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 96
   %.not.i.i.i.i.i = icmp eq ptr %60, %4

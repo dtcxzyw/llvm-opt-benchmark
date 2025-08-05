@@ -15268,8 +15268,8 @@ _ZNK11OpenImageIO6v3_1_014ParamValueList16getattributetypeENS0_17basic_string_vi
   %18 = mul nuw nsw i64 %17, %spec.select.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not37 = icmp eq i64 %17, 0
-  br i1 %.not37, label %._crit_edge, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i
+  %.not = icmp eq i64 %17, 0
+  br i1 %.not, label %._crit_edge, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i: ; preds = %_ZNK11OpenImageIO6v3_1_014ParamValueList16getattributetypeENS0_17basic_string_viewIcSt11char_traitsIcEEEb.exit
   %20 = shl nuw nsw i64 %18, 2
@@ -15518,8 +15518,8 @@ _ZNK11OpenImageIO6v3_1_014ParamValueList16getattributetypeENS0_17basic_string_vi
   %18 = mul nuw nsw i64 %17, %spec.select.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not36 = icmp eq i64 %17, 0
-  br i1 %.not36, label %._crit_edge, label %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i
+  %.not = icmp eq i64 %17, 0
+  br i1 %.not, label %._crit_edge, label %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i: ; preds = %_ZNK11OpenImageIO6v3_1_014ParamValueList16getattributetypeENS0_17basic_string_viewIcSt11char_traitsIcEEEb.exit
   %20 = shl nuw nsw i64 %18, 2

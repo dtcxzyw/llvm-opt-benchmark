@@ -6131,7 +6131,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_24HdTokens_StaticTokenTy
   %183 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %10, ptr noundef nonnull @.str.14, ptr noundef null)
           to label %_ZNKSt6vectorIPN32pxrInternal_v0_24__pxrReserved__18UsdImagingDelegateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i unwind label %325
 
-_ZNKSt6vectorIPN32pxrInternal_v0_24__pxrReserved__18UsdImagingDelegateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %178, %176
+_ZNKSt6vectorIPN32pxrInternal_v0_24__pxrReserved__18UsdImagingDelegateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %176, %178
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   %184 = getelementptr inbounds nuw i8, ptr %5, i64 176
   %185 = load ptr, ptr %184, align 8

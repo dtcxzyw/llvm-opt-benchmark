@@ -2490,9 +2490,9 @@ define hidden noundef i32 @_ZN10duckdb_re26Regexp17FactorAlternationEPPS0_iNS0_1
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   invoke void @_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE17_M_realloc_insertIJRPPNS0_6RegexpERiEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
-          to label %_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDpOT_.exit unwind label %49
+          to label %_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDpOT_.exit.preheader unwind label %49
 
-_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDpOT_.exit: ; preds = %3
+_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDpOT_.exit.preheader: ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 120
@@ -2520,9 +2520,9 @@ _ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDp
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 120
-  br label %_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDpOT_.exit89
+  br label %_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDpOT_.exit
 
-_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDpOT_.exit89: ; preds = %_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDpOT_.exit89.backedge, %_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDpOT_.exit
+_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDpOT_.exit: ; preds = %_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDpOT_.exit.backedge, %_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDpOT_.exit.preheader
   %39 = load ptr, ptr %10, align 8, !tbaa !105
   %40 = getelementptr inbounds i8, ptr %39, i64 -48
   %41 = getelementptr inbounds i8, ptr %39, i64 -40
@@ -2540,7 +2540,7 @@ _ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDp
           cleanup
   br label %230
 
-51:                                               ; preds = %_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDpOT_.exit89
+51:                                               ; preds = %_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDpOT_.exit
   %52 = load i32, ptr %44, align 4, !tbaa !3
   %53 = ptrtoint ptr %47 to i64
   %54 = ptrtoint ptr %45 to i64
@@ -2574,14 +2574,14 @@ _ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDp
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %71, i8 0, i64 28, i1 false)
   %72 = getelementptr inbounds nuw i8, ptr %39, i64 48
   store ptr %72, ptr %10, align 8, !tbaa !118
-  br label %_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDpOT_.exit89.backedge
+  br label %_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDpOT_.exit.backedge
 
-_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDpOT_.exit89.backedge: ; preds = %67, %73, %222, %_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE8pop_backEv.exit
-  br label %_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDpOT_.exit89
+_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDpOT_.exit.backedge: ; preds = %67, %73, %222, %_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE8pop_backEv.exit
+  br label %_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDpOT_.exit
 
 73:                                               ; preds = %61
   invoke void @_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE17_M_realloc_insertIJRPPNS0_6RegexpERiEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr nonnull %39, ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef nonnull align 4 dereferenceable(4) %65)
-          to label %_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDpOT_.exit89.backedge unwind label %74
+          to label %_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDpOT_.exit.backedge unwind label %74
 
 74:                                               ; preds = %73, %169, %166, %163
   %75 = landingpad { ptr, i32 }
@@ -2832,7 +2832,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   %160 = icmp slt i32 %.2, %.pre
   br i1 %160, label %.preheader112, label %._crit_edge144, !llvm.loop !144
 
-161:                                              ; preds = %_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDpOT_.exit89, %_ZNSt6vectorIN10duckdb_re26SpliceESaIS1_EE5clearEv.exit
+161:                                              ; preds = %_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDpOT_.exit, %_ZNSt6vectorIN10duckdb_re26SpliceESaIS1_EE5clearEv.exit
   %.in = load i32, ptr %42, align 4, !tbaa !3
   %162 = add nsw i32 %.in, 1
   store i32 %162, ptr %42, align 4, !tbaa !3
@@ -2895,7 +2895,7 @@ _ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE8pop_backEv.exit: ; preds = %180, %184
   store i32 %179, ptr %191, align 4, !tbaa !125
   %192 = add nsw i32 %188, 1
   store i32 %192, ptr %187, align 8, !tbaa !146
-  br label %_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDpOT_.exit89.backedge
+  br label %_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDpOT_.exit.backedge
 
 193:                                              ; preds = %161
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %9) #32
@@ -2977,7 +2977,7 @@ _ZN10LogMessageD2Ev.exit98:                       ; preds = %_ZNKSt7__cxx1112bas
 222:                                              ; preds = %213, %216
   %storemerge = phi i32 [ %221, %216 ], [ 0, %213 ]
   store i32 %storemerge, ptr %44, align 4, !tbaa !3
-  br label %_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDpOT_.exit89.backedge
+  br label %_ZNSt6vectorIN10duckdb_re25FrameESaIS1_EE12emplace_backIJRPPNS0_6RegexpERiEEEvDpOT_.exit.backedge
 
 223:                                              ; preds = %172
   %.not4.i.i.i.i = icmp eq ptr %174, %173

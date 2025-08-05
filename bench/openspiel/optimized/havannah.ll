@@ -1589,32 +1589,32 @@ _ZNSt6vectorIS_ISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EESaIS6_EE6resiz
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !alias.scope !6
   %105 = zext nneg i32 %65 to i64
   invoke void @_ZNSt6vectorISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %105)
-          to label %_ZNSt6vectorISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EE6resizeEm.exit.i.i unwind label %134
+          to label %_ZNSt6vectorISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EE6resizeEm.exit.preheader.i.i unwind label %134
 
-_ZNSt6vectorISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EE6resizeEm.exit.i.i: ; preds = %104
+_ZNSt6vectorISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EE6resizeEm.exit.preheader.i.i: ; preds = %104
   %106 = icmp sgt i32 %2, 0
   br i1 %106, label %.preheader.us.preheader.i.i, label %_ZN10open_spiel8havannah12_GLOBAL__N_113gen_neighborsEi.exit.i
 
-.preheader.us.preheader.i.i:                      ; preds = %_ZNSt6vectorISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EE6resizeEm.exit.i.i
+.preheader.us.preheader.i.i:                      ; preds = %_ZNSt6vectorISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EE6resizeEm.exit.preheader.i.i
   %107 = sext i32 %63 to i64
-  %wide.trip.count38.i.i = zext nneg i32 %63 to i64
+  %wide.trip.count37.i.i = zext nneg i32 %63 to i64
   br label %.preheader.us.i.i
 
 .preheader.us.i.i:                                ; preds = %._crit_edge.us.i.i, %.preheader.us.preheader.i.i
-  %indvars.iv35.i.i = phi i64 [ 0, %.preheader.us.preheader.i.i ], [ %indvars.iv.next36.i.i, %._crit_edge.us.i.i ]
-  %108 = mul nsw i64 %indvars.iv35.i.i, %107
-  %109 = trunc nuw nsw i64 %indvars.iv35.i.i to i32
+  %indvars.iv34.i.i = phi i64 [ 0, %.preheader.us.preheader.i.i ], [ %indvars.iv.next35.i.i, %._crit_edge.us.i.i ]
+  %108 = mul nsw i64 %indvars.iv34.i.i, %107
+  %109 = trunc nuw nsw i64 %indvars.iv34.i.i to i32
   br label %110
 
 110:                                              ; preds = %112, %.preheader.us.i.i
-  %indvars.iv31.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next32.i.i, %112 ]
-  %111 = trunc nuw nsw i64 %indvars.iv31.i.i to i32
+  %indvars.iv30.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next31.i.i, %112 ]
+  %111 = trunc nuw nsw i64 %indvars.iv30.i.i to i32
   br label %113
 
 112:                                              ; preds = %113
-  %indvars.iv.next32.i.i = add nuw nsw i64 %indvars.iv31.i.i, 1
-  %exitcond34.not.i.i = icmp eq i64 %indvars.iv.next32.i.i, %wide.trip.count38.i.i
-  br i1 %exitcond34.not.i.i, label %._crit_edge.us.i.i, label %110, !llvm.loop !9
+  %indvars.iv.next31.i.i = add nuw nsw i64 %indvars.iv30.i.i, 1
+  %exitcond33.not.i.i = icmp eq i64 %indvars.iv.next31.i.i, %wide.trip.count37.i.i
+  br i1 %exitcond33.not.i.i, label %._crit_edge.us.i.i, label %110, !llvm.loop !9
 
 113:                                              ; preds = %113, %110
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %113 ], [ 0, %110 ]
@@ -1641,7 +1641,7 @@ _ZNSt6vectorISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EE6resizeEm.exit.i.
   %127 = mul nsw i32 %118, %63
   %128 = add nuw nsw i32 %127, %116
   %129 = load ptr, ptr %6, align 8, !alias.scope !6
-  %130 = getelementptr %"struct.std::array.35", ptr %129, i64 %indvars.iv31.i.i
+  %130 = getelementptr %"struct.std::array.35", ptr %129, i64 %indvars.iv30.i.i
   %131 = getelementptr %"struct.std::array.35", ptr %130, i64 %108
   %132 = getelementptr inbounds nuw [6 x %"struct.open_spiel::havannah::Move"], ptr %131, i64 0, i64 %indvars.iv.i.i
   %133 = shl i32 %128, 16
@@ -1657,9 +1657,9 @@ _ZNSt6vectorISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EE6resizeEm.exit.i.
   br i1 %exitcond.not.i.i, label %112, label %113, !llvm.loop !10
 
 ._crit_edge.us.i.i:                               ; preds = %112
-  %indvars.iv.next36.i.i = add nuw nsw i64 %indvars.iv35.i.i, 1
-  %exitcond39.not.i.i = icmp eq i64 %indvars.iv.next36.i.i, %wide.trip.count38.i.i
-  br i1 %exitcond39.not.i.i, label %_ZN10open_spiel8havannah12_GLOBAL__N_113gen_neighborsEi.exit.i, label %.preheader.us.i.i, !llvm.loop !11
+  %indvars.iv.next35.i.i = add nuw nsw i64 %indvars.iv34.i.i, 1
+  %exitcond38.not.i.i = icmp eq i64 %indvars.iv.next35.i.i, %wide.trip.count37.i.i
+  br i1 %exitcond38.not.i.i, label %_ZN10open_spiel8havannah12_GLOBAL__N_113gen_neighborsEi.exit.i, label %.preheader.us.i.i, !llvm.loop !11
 
 134:                                              ; preds = %104
   %135 = landingpad { ptr, i32 }
@@ -1677,7 +1677,7 @@ _ZNSt6vectorISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EE6resizeEm.exit.i.
   call void @_ZdlPvm(ptr noundef nonnull %136, i64 noundef %142) #30
   br label %.body
 
-_ZN10open_spiel8havannah12_GLOBAL__N_113gen_neighborsEi.exit.i: ; preds = %._crit_edge.us.i.i, %_ZNSt6vectorISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EE6resizeEm.exit.i.i
+_ZN10open_spiel8havannah12_GLOBAL__N_113gen_neighborsEi.exit.i: ; preds = %._crit_edge.us.i.i, %_ZNSt6vectorISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EE6resizeEm.exit.preheader.i.i
   %143 = load ptr, ptr @_ZN10open_spiel8havannah12_GLOBAL__N_113neighbor_listE, align 8
   %144 = getelementptr inbounds %"class.std::vector.19", ptr %143, i64 %73
   %145 = load ptr, ptr %144, align 8

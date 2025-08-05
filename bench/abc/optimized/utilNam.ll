@@ -1063,11 +1063,11 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %10
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !46
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %18 = shl nsw i32 %.sroa.4.0.copyload, 1
-  %.not.i29 = icmp slt i32 %.sroa.4.0.copyload, 1
+  %.not.i29 = icmp sgt i32 %.sroa.4.0.copyload, 0
   %19 = zext nneg i32 %18 to i64
   %20 = shl nuw nsw i64 %19, 2
-  %.sink72 = select i1 %.not.i29, i64 64, i64 %20
-  %.sink = select i1 %.not.i29, i32 16, i32 %18
+  %.sink72 = select i1 %.not.i29, i64 %20, i64 64
+  %.sink = select i1 %.not.i29, i32 %18, i32 16
   %21 = tail call noalias ptr @malloc(i64 noundef %.sink72) #21
   store ptr %21, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !19
   store i32 %.sink, ptr %17, align 8, !tbaa !20

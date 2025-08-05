@@ -5382,12 +5382,12 @@ _ZNSt6vectorIPN4mold6SymbolINS0_6X86_64EEESaIS4_EE9push_backERKS4_.exit: ; preds
   store i32 0, ptr %37, align 1, !tbaa !19
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i8 16, ptr %.sroa.5.0..sroa_idx, align 1, !tbaa !19
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 5
-  store i8 0, ptr %.sroa.9.0..sroa_idx, align 1, !tbaa !19
-  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 6
-  store i16 -15, ptr %.sroa.11.0..sroa_idx, align 1, !tbaa !19
-  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.12.0..sroa_idx, i8 0, i64 16, i1 false)
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 5
+  store i8 0, ptr %.sroa.8.0..sroa_idx, align 1, !tbaa !19
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 6
+  store i16 -15, ptr %.sroa.10.0..sroa_idx, align 1, !tbaa !19
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.11.0..sroa_idx, i8 0, i64 16, i1 false)
   %41 = load ptr, ptr %36, align 8, !tbaa !304
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store ptr %42, ptr %36, align 8, !tbaa !304
@@ -5420,12 +5420,12 @@ _ZNKSt6vectorIN4mold6ElfSymINS0_6X86_64EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i: 
   store i32 0, ptr %57, align 1, !tbaa !19
   %.sroa.5.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %57, i64 4
   store i8 16, ptr %.sroa.5.0..sroa_idx6, align 1, !tbaa !19
-  %.sroa.9.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %57, i64 5
-  store i8 0, ptr %.sroa.9.0..sroa_idx9, align 1, !tbaa !19
-  %.sroa.11.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %57, i64 6
-  store i16 -15, ptr %.sroa.11.0..sroa_idx11, align 1, !tbaa !19
-  %.sroa.12.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.12.0..sroa_idx13, i8 0, i64 16, i1 false)
+  %.sroa.8.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %57, i64 5
+  store i8 0, ptr %.sroa.8.0..sroa_idx8, align 1, !tbaa !19
+  %.sroa.10.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %57, i64 6
+  store i16 -15, ptr %.sroa.10.0..sroa_idx10, align 1, !tbaa !19
+  %.sroa.11.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.11.0..sroa_idx12, i8 0, i64 16, i1 false)
   %58 = icmp sgt i64 %47, 0
   br i1 %58, label %59, label %_ZNSt6vectorIN4mold6ElfSymINS0_6X86_64EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
 
@@ -13355,12 +13355,12 @@ define linkonce_odr dso_local noundef ptr @_ZZN4mold21add_synthetic_symbolsINS_6
   store i32 0, ptr %11, align 1, !tbaa !19
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i8 %7, ptr %.sroa.5.0..sroa_idx, align 1, !tbaa !19
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 5
-  store i8 2, ptr %.sroa.9.0..sroa_idx, align 1, !tbaa !19
-  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 6
-  store i16 -15, ptr %.sroa.11.0..sroa_idx, align 1, !tbaa !19
-  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.12.0..sroa_idx, i8 0, i64 16, i1 false)
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 5
+  store i8 2, ptr %.sroa.8.0..sroa_idx, align 1, !tbaa !19
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 6
+  store i16 -15, ptr %.sroa.10.0..sroa_idx, align 1, !tbaa !19
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.11.0..sroa_idx, i8 0, i64 16, i1 false)
   %15 = load ptr, ptr %10, align 8, !tbaa !304
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %16, ptr %10, align 8, !tbaa !304
@@ -13393,12 +13393,12 @@ _ZNKSt6vectorIN4mold6ElfSymINS0_6X86_64EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i: 
   store i32 0, ptr %31, align 1, !tbaa !19
   %.sroa.5.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i8 %7, ptr %.sroa.5.0..sroa_idx10, align 1, !tbaa !19
-  %.sroa.9.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %31, i64 5
-  store i8 2, ptr %.sroa.9.0..sroa_idx13, align 1, !tbaa !19
-  %.sroa.11.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %31, i64 6
-  store i16 -15, ptr %.sroa.11.0..sroa_idx15, align 1, !tbaa !19
-  %.sroa.12.0..sroa_idx17 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.12.0..sroa_idx17, i8 0, i64 16, i1 false)
+  %.sroa.8.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %31, i64 5
+  store i8 2, ptr %.sroa.8.0..sroa_idx12, align 1, !tbaa !19
+  %.sroa.10.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %31, i64 6
+  store i16 -15, ptr %.sroa.10.0..sroa_idx14, align 1, !tbaa !19
+  %.sroa.11.0..sroa_idx16 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.11.0..sroa_idx16, i8 0, i64 16, i1 false)
   %32 = icmp sgt i64 %21, 0
   br i1 %32, label %33, label %_ZNSt6vectorIN4mold6ElfSymINS0_6X86_64EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
 

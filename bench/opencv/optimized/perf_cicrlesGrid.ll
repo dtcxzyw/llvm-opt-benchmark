@@ -1872,37 +1872,37 @@ _ZN7testing7MessageD2Ev.exit:                     ; preds = %.noexc.i.i, %47, %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %75 = shl i64 %27, 32
   %sext = mul i64 %75, %.sroa.6.0.extract.shift
-  %76 = ashr exact i64 %sext, 32
-  %77 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.not = icmp eq i64 %sext, 0
-  br i1 %.not, label %85, label %78
+  br i1 %.not, label %85, label %77
 
-78:                                               ; preds = %74
+77:                                               ; preds = %74
+  %78 = ashr exact i64 %sext, 32
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %80 = icmp ugt i64 %76, 1152921504606846975
+  %80 = icmp ugt i64 %78, 1152921504606846975
   br i1 %80, label %81, label %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
-81:                                               ; preds = %78
+81:                                               ; preds = %77
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.71) #34
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %81
   unreachable
 
-_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %78
+_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %77
   %82 = ashr exact i64 %sext, 29
   %83 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %82) #31
-          to label %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i unwind label %.loopexit.split-lp
+          to label %.noexc59 unwind label %.loopexit.split-lp
 
-_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i: ; preds = %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+.noexc59:                                         ; preds = %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %83, i8 0, i64 %82, i1 false), !tbaa !73
   store ptr %83, ptr %6, align 8, !tbaa !75
-  %84 = getelementptr inbounds nuw %"class.cv::Point_", ptr %83, i64 %76
-  store ptr %84, ptr %77, align 8, !tbaa !78
+  %84 = getelementptr inbounds nuw %"class.cv::Point_", ptr %83, i64 %78
+  store ptr %84, ptr %76, align 8, !tbaa !78
   store ptr %84, ptr %79, align 8, !tbaa !79
   br label %85
 
-85:                                               ; preds = %74, %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i
+85:                                               ; preds = %74, %.noexc59
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #30
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %86, align 8, !tbaa !80

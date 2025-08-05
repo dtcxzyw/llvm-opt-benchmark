@@ -2523,9 +2523,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit319: ; preds = %_Z
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %575
   %578 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx451) #29
-          to label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i unwind label %581
+          to label %.noexc401 unwind label %581
 
-_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
+.noexc401:                                        ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %578, ptr align 4 %.val160, i64 %.idx451, i1 false)
   %579 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %578, ptr %57, align 8, !tbaa !135
@@ -2541,7 +2541,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %_ZNSt12_Vector
   %.not.i.i.i.i.i = icmp eq ptr %583, null
   br i1 %.not.i.i.i.i.i, label %.body320, label %.body320.sink.split
 
-_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit319, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i
+_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit319, %.noexc401
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %58) #28
   store i64 0, ptr %58, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59) #28
@@ -2764,10 +2764,10 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit341: ; preds = %_ZNS
   %.val162 = load ptr, ptr %663, align 8, !tbaa !129
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, i8 0, i64 24, i1 false), !alias.scope !140
   %664 = sext i32 %.val161 to i64
-  %.idx453 = shl nsw i64 %664, 2
+  %.idx454 = shl nsw i64 %664, 2
   %665 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %.not455 = icmp eq i32 %.val161, 0
-  br i1 %.not455, label %_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit346, label %666
+  %.not453 = icmp eq i32 %.val161, 0
+  br i1 %.not453, label %_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit346, label %666
 
 666:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit341
   %667 = icmp slt i32 %.val161, 0
@@ -2781,14 +2781,14 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit341: ; preds = %_ZNS
   unreachable
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i417: ; preds = %666
-  %669 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx453) #29
-          to label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i421 unwind label %672
+  %669 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx454) #29
+          to label %.noexc423 unwind label %672
 
-_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i421: ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i417
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %669, ptr align 4 %.val162, i64 %.idx453, i1 false)
+.noexc423:                                        ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i417
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %669, ptr align 4 %.val162, i64 %.idx454, i1 false)
   %670 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %669, ptr %62, align 8, !tbaa !135
-  %671 = getelementptr inbounds nuw i8, ptr %669, i64 %.idx453
+  %671 = getelementptr inbounds nuw i8, ptr %669, i64 %.idx454
   store ptr %671, ptr %670, align 8, !tbaa !137
   store ptr %671, ptr %665, align 8, !tbaa !138
   br label %_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit346
@@ -2798,8 +2798,8 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i421: ; preds = %_ZNSt12_Vec
           cleanup
   br label %.body344
 
-_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit346: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit341, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i421
-  %674 = phi ptr [ %669, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i421 ], [ null, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit341 ]
+_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit346: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit341, %.noexc423
+  %674 = phi ptr [ %669, %.noexc423 ], [ null, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit341 ]
   %675 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3dnn14dnn4_v20241223lsIiEERSoS3_RKSt6vectorIT_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(8) %661, ptr noundef nonnull align 8 dereferenceable(24) %62)
           to label %676 unwind label %721
 

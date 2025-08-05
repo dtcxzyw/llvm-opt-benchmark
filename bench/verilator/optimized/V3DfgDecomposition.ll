@@ -776,23 +776,23 @@ define dso_local void @_ZN8DfgGraph19splitIntoComponentsENSt7__cxx1112basic_stri
   %12 = load ptr, ptr %11, align 8, !tbaa !14, !noalias !4
   store ptr %12, ptr %10, align 8, !tbaa !14, !alias.scope !4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !noalias !4
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !15, !noalias !4
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %14 = icmp eq ptr %.pre.i, %13
-  br i1 %14, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !15, !noalias !4
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %16 = icmp eq ptr %14, %15
+  br i1 %16, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %3
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %16 = load i64, ptr %15, align 8, !tbaa !20, !noalias !4
-  %17 = icmp ult i64 %16, 16
-  call void @llvm.assume(i1 %17)
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %18 = load i64, ptr %17, align 8, !tbaa !20, !noalias !4
+  %19 = icmp ult i64 %18, 16
+  call void @llvm.assume(i1 %19)
   br label %_ZN19SplitIntoComponents5applyER8DfgGraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %3
-  %18 = load i64, ptr %13, align 8, !tbaa !21, !noalias !4
-  %19 = add i64 %18, 1
-  call void @_ZdlPvm(ptr noundef %.pre.i, i64 noundef %19) #24, !noalias !4
+  %20 = load i64, ptr %15, align 8, !tbaa !21, !noalias !4
+  %21 = add i64 %20, 1
+  call void @_ZdlPvm(ptr noundef %14, i64 noundef %21) #24, !noalias !4
   br label %_ZN19SplitIntoComponents5applyER8DfgGraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN19SplitIntoComponents5applyER8DfgGraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i

@@ -76,7 +76,7 @@ $_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernel
 define weak_odr dso_local void @_ZN3igl23barycentric_coordinatesIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS2_IfLi1ELi3ELi1ELi1ELi3EEES4_S4_S4_EEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERKNS5_IT2_EERNS1_15PlainObjectBaseIT3_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 4 dereferenceable(12) %4) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %6 = tail call noalias dereferenceable_or_null(12) ptr @malloc(i64 noundef 12) #13
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.noexc4.i.i, label %._crit_edge.i.i.i.i.i.i.i
+  br i1 %7, label %.noexc4.i.i, label %.sink.split.i.i.i.i
 
 .noexc4.i.i:                                      ; preds = %5
   %8 = tail call ptr @__cxa_allocate_exception(i64 8) #14
@@ -84,8 +84,8 @@ define weak_odr dso_local void @_ZN3igl23barycentric_coordinatesIN5Eigen6MatrixI
   tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #15
   unreachable
 
-._crit_edge.i.i.i.i.i.i.i:                        ; preds = %5, %._crit_edge.i.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i.i.i = phi i64 [ %15, %._crit_edge.i.i.i.i.i.i.i ], [ 0, %5 ]
+.sink.split.i.i.i.i:                              ; preds = %5, %.sink.split.i.i.i.i
+  %.05.i.i.i.i.i.i.i.i = phi i64 [ %15, %.sink.split.i.i.i.i ], [ 0, %5 ]
   %9 = getelementptr inbounds nuw float, ptr %6, i64 %.05.i.i.i.i.i.i.i.i
   %10 = getelementptr inbounds nuw float, ptr %2, i64 %.05.i.i.i.i.i.i.i.i
   %11 = getelementptr inbounds nuw float, ptr %1, i64 %.05.i.i.i.i.i.i.i.i
@@ -95,12 +95,12 @@ define weak_odr dso_local void @_ZN3igl23barycentric_coordinatesIN5Eigen6MatrixI
   store float %14, ptr %9, align 4, !tbaa !7
   %15 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %15, 3
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %16, label %._crit_edge.i.i.i.i.i.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %16, label %.sink.split.i.i.i.i, !llvm.loop !10
 
-16:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i
+16:                                               ; preds = %.sink.split.i.i.i.i
   %17 = tail call noalias dereferenceable_or_null(12) ptr @malloc(i64 noundef 12) #13
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %19, label %._crit_edge.i.i.i.i.i.i.i53
+  br i1 %18, label %19, label %.sink.split.i.i.i.i53
 
 19:                                               ; preds = %16
   %20 = tail call ptr @__cxa_allocate_exception(i64 8) #14
@@ -111,8 +111,8 @@ define weak_odr dso_local void @_ZN3igl23barycentric_coordinatesIN5Eigen6MatrixI
 .noexc4.i.i56:                                    ; preds = %19
   unreachable
 
-._crit_edge.i.i.i.i.i.i.i53:                      ; preds = %16, %._crit_edge.i.i.i.i.i.i.i53
-  %.05.i.i.i.i.i.i.i.i54 = phi i64 [ %27, %._crit_edge.i.i.i.i.i.i.i53 ], [ 0, %16 ]
+.sink.split.i.i.i.i53:                            ; preds = %16, %.sink.split.i.i.i.i53
+  %.05.i.i.i.i.i.i.i.i54 = phi i64 [ %27, %.sink.split.i.i.i.i53 ], [ 0, %16 ]
   %21 = getelementptr inbounds nuw float, ptr %17, i64 %.05.i.i.i.i.i.i.i.i54
   %22 = getelementptr inbounds nuw float, ptr %3, i64 %.05.i.i.i.i.i.i.i.i54
   %23 = getelementptr inbounds nuw float, ptr %1, i64 %.05.i.i.i.i.i.i.i.i54
@@ -122,17 +122,17 @@ define weak_odr dso_local void @_ZN3igl23barycentric_coordinatesIN5Eigen6MatrixI
   store float %26, ptr %21, align 4, !tbaa !7
   %27 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i54, 1
   %exitcond.not.i.i.i.i.i.i.i.i55 = icmp eq i64 %27, 3
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i55, label %30, label %._crit_edge.i.i.i.i.i.i.i53, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i55, label %30, label %.sink.split.i.i.i.i53, !llvm.loop !10
 
 28:                                               ; preds = %19
   %29 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-30:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i53
+30:                                               ; preds = %.sink.split.i.i.i.i53
   %31 = tail call noalias dereferenceable_or_null(12) ptr @malloc(i64 noundef 12) #13
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %._crit_edge.i.i.i.i.i.i.i58
+  br i1 %32, label %33, label %.sink.split.i.i.i.i58
 
 33:                                               ; preds = %30
   %34 = tail call ptr @__cxa_allocate_exception(i64 8) #14
@@ -143,12 +143,12 @@ define weak_odr dso_local void @_ZN3igl23barycentric_coordinatesIN5Eigen6MatrixI
 .noexc4.i.i61:                                    ; preds = %33
   unreachable
 
-._crit_edge.i.i.i.i.i.i.i58:                      ; preds = %30
+.sink.split.i.i.i.i58:                            ; preds = %30
   %35 = load ptr, ptr %0, align 8, !tbaa !12
   br label %36
 
-36:                                               ; preds = %36, %._crit_edge.i.i.i.i.i.i.i58
-  %.05.i.i.i.i.i.i.i.i59 = phi i64 [ 0, %._crit_edge.i.i.i.i.i.i.i58 ], [ %43, %36 ]
+36:                                               ; preds = %36, %.sink.split.i.i.i.i58
+  %.05.i.i.i.i.i.i.i.i59 = phi i64 [ 0, %.sink.split.i.i.i.i58 ], [ %43, %36 ]
   %37 = getelementptr inbounds nuw float, ptr %31, i64 %.05.i.i.i.i.i.i.i.i59
   %38 = getelementptr inbounds nuw float, ptr %35, i64 %.05.i.i.i.i.i.i.i.i59
   %39 = getelementptr inbounds nuw float, ptr %1, i64 %.05.i.i.i.i.i.i.i.i59

@@ -15477,8 +15477,8 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_132CompositeRandomAccessFileWrappe
   store ptr null, ptr %34, align 8, !tbaa !33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.not57 = icmp eq i64 %3, 0
-  br i1 %.not57, label %._crit_edge, label %36
+  %.not = icmp eq i64 %3, 0
+  br i1 %.not, label %._crit_edge, label %36
 
 36:                                               ; preds = %4
   invoke void @_ZNSt6vectorIN7rocksdb13FSReadRequestESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %3)
@@ -15594,7 +15594,7 @@ _ZN7rocksdb6StatusD2Ev.exit38:                    ; preds = %_ZN7rocksdb6Statusa
   %85 = phi ptr [ %81, %_ZN7rocksdb6StatusaSEOS0_.exit.thread ], [ null, %_ZN7rocksdb6StatusaSEOS0_.exit ], [ null, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i37 ]
   store ptr null, ptr %84, align 8, !tbaa !95
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #24
-  br i1 %.not57, label %._crit_edge53, label %.lr.ph52
+  br i1 %.not, label %._crit_edge53, label %.lr.ph52
 
 86:                                               ; preds = %._crit_edge
   %87 = landingpad { ptr, i32 }
@@ -15677,8 +15677,8 @@ _ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14de
 
 _ZN7rocksdb6StatusaSERKS0_.exit:                  ; preds = %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit.i, %.lr.ph52
   %119 = add nuw i64 %.051, 1
-  %exitcond55.not = icmp eq i64 %119, %3
-  br i1 %exitcond55.not, label %._crit_edge53, label %.lr.ph52, !llvm.loop !237
+  %exitcond56.not = icmp eq i64 %119, %3
+  br i1 %exitcond56.not, label %._crit_edge53, label %.lr.ph52, !llvm.loop !237
 
 ._crit_edge53:                                    ; preds = %_ZN7rocksdb6StatusaSERKS0_.exit, %_ZN7rocksdb6StatusD2Ev.exit38
   %120 = load ptr, ptr %8, align 8, !tbaa !214
@@ -15856,7 +15856,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusD2Ev.exit47
 
 _ZN7rocksdb6StatusD2Ev.exit47:                    ; preds = %43, %86, %183, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i45
-  %.pn63 = phi { ptr, i32 } [ %184, %183 ], [ %184, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i45 ], [ %44, %43 ], [ %87, %86 ]
+  %.pn61 = phi { ptr, i32 } [ %184, %183 ], [ %184, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i45 ], [ %44, %43 ], [ %87, %86 ]
   store ptr null, ptr %34, align 8, !tbaa !95
   call void @_ZNSt6vectorIN7rocksdb13FSReadRequestESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #24
@@ -15864,7 +15864,7 @@ _ZN7rocksdb6StatusD2Ev.exit47:                    ; preds = %43, %86, %183, %_ZN
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %7) #24
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #24
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6) #24
-  resume { ptr, i32 } %.pn63
+  resume { ptr, i32 } %.pn61
 }
 
 ; Function Attrs: mustprogress uwtable

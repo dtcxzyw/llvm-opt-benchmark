@@ -18604,8 +18604,8 @@ define linkonce_odr void @_ZN17IsoParametrizator17FinalOptimizationEPN3vcg3tri26
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %10 = load i32, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.not39 = icmp eq i32 %10, 0
-  br i1 %.not39, label %_ZNSt6vectorIN17IsoParametrizator9vert_paraESaIS1_EE6resizeEm.exit, label %12
+  %.not = icmp eq i32 %10, 0
+  br i1 %.not, label %_ZNSt6vectorIN17IsoParametrizator9vert_paraESaIS1_EE6resizeEm.exit, label %12
 
 12:                                               ; preds = %2
   %13 = sext i32 %10 to i64
@@ -18617,20 +18617,20 @@ _ZNSt6vectorIN17IsoParametrizator9vert_paraESaIS1_EE6resizeEm.exit: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %14, align 8
-  %.not33 = icmp eq ptr %16, %17
-  br i1 %.not33, label %._crit_edge, label %.lr.ph
+  %.not34 = icmp eq ptr %16, %17
+  br i1 %.not34, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN17IsoParametrizator9vert_paraESaIS1_EE6resizeEm.exit, %34
   %18 = phi ptr [ %35, %34 ], [ %17, %_ZNSt6vectorIN17IsoParametrizator9vert_paraESaIS1_EE6resizeEm.exit ]
   %19 = phi ptr [ %36, %34 ], [ %16, %_ZNSt6vectorIN17IsoParametrizator9vert_paraESaIS1_EE6resizeEm.exit ]
   %20 = phi i64 [ %38, %34 ], [ 0, %_ZNSt6vectorIN17IsoParametrizator9vert_paraESaIS1_EE6resizeEm.exit ]
-  %.01729 = phi i32 [ %37, %34 ], [ 0, %_ZNSt6vectorIN17IsoParametrizator9vert_paraESaIS1_EE6resizeEm.exit ]
+  %.01730 = phi i32 [ %37, %34 ], [ 0, %_ZNSt6vectorIN17IsoParametrizator9vert_paraESaIS1_EE6resizeEm.exit ]
   %21 = getelementptr inbounds nuw %class.BaseVertex, ptr %18, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, 1
-  %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %25, label %34
+  %.not25 = icmp eq i32 %24, 0
+  br i1 %.not25, label %25, label %34
 
 25:                                               ; preds = %.lr.ph
   %26 = invoke noundef float @_Z14StarDistorsionI8BaseMeshENT_10ScalarTypeEPNS1_10VertexTypeE(ptr noundef nonnull %21)
@@ -18644,7 +18644,7 @@ _ZNSt6vectorIN17IsoParametrizator9vert_paraESaIS1_EE6resizeEm.exit: ; preds = %2
   %31 = getelementptr inbounds nuw %"struct.IsoParametrizator::vert_para", ptr %30, i64 %20, i32 1
   store ptr %21, ptr %31, align 8
   %.pre = load ptr, ptr %15, align 8
-  %.pre36 = load ptr, ptr %14, align 8
+  %.pre37 = load ptr, ptr %14, align 8
   br label %34
 
 .loopexit:                                        ; preds = %57
@@ -18653,17 +18653,17 @@ _ZNSt6vectorIN17IsoParametrizator9vert_paraESaIS1_EE6resizeEm.exit: ; preds = %2
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %25
-  %lpad.loopexit25 = landingpad { ptr, i32 }
+  %lpad.loopexit26 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.noexc21, %46, %12
-  %lpad.loopexit.split-lp26 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp27 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp26, %.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp27, %.loopexit.split-lp.loopexit.split-lp ]
   %32 = load ptr, ptr %4, align 8
   %.not.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN17IsoParametrizator9vert_paraESaIS1_EED2Ev.exit, label %33
@@ -18676,9 +18676,9 @@ _ZNSt6vectorIN17IsoParametrizator9vert_paraESaIS1_EED2Ev.exit: ; preds = %.loope
   resume { ptr, i32 } %lpad.phi
 
 34:                                               ; preds = %.lr.ph, %27
-  %35 = phi ptr [ %18, %.lr.ph ], [ %.pre36, %27 ]
+  %35 = phi ptr [ %18, %.lr.ph ], [ %.pre37, %27 ]
   %36 = phi ptr [ %19, %.lr.ph ], [ %.pre, %27 ]
-  %37 = add i32 %.01729, 1
+  %37 = add i32 %.01730, 1
   %38 = zext i32 %37 to i64
   %39 = ptrtoint ptr %36 to i64
   %40 = ptrtoint ptr %35 to i64
@@ -18691,7 +18691,7 @@ _ZNSt6vectorIN17IsoParametrizator9vert_paraESaIS1_EED2Ev.exit: ; preds = %.loope
   %44 = load ptr, ptr %4, align 8
   %45 = load ptr, ptr %11, align 8
   %.not.i.i20 = icmp eq ptr %44, %45
-  br i1 %.not.i.i20, label %._crit_edge32, label %46
+  br i1 %.not.i.i20, label %._crit_edge33, label %46
 
 46:                                               ; preds = %._crit_edge
   %47 = ptrtoint ptr %45 to i64
@@ -18709,20 +18709,20 @@ _ZNSt6vectorIN17IsoParametrizator9vert_paraESaIS1_EED2Ev.exit: ; preds = %.loope
           to label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN17IsoParametrizator9vert_paraESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN17IsoParametrizator9vert_paraESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit: ; preds = %.noexc21
-  %.pre37 = load ptr, ptr %11, align 8
-  %.pre38 = load ptr, ptr %4, align 8
-  %54 = icmp eq ptr %.pre37, %.pre38
-  br i1 %54, label %._crit_edge32, label %.lr.ph31
+  %.pre38 = load ptr, ptr %11, align 8
+  %.pre39 = load ptr, ptr %4, align 8
+  %54 = icmp eq ptr %.pre38, %.pre39
+  br i1 %54, label %._crit_edge33, label %.lr.ph32
 
-.lr.ph31:                                         ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN17IsoParametrizator9vert_paraESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit
+.lr.ph32:                                         ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN17IsoParametrizator9vert_paraESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 1272
   br label %57
 
-57:                                               ; preds = %.lr.ph31, %70
-  %58 = phi ptr [ %.pre38, %.lr.ph31 ], [ %74, %70 ]
-  %59 = phi i64 [ 0, %.lr.ph31 ], [ %72, %70 ]
-  %.030 = phi i32 [ 0, %.lr.ph31 ], [ %71, %70 ]
+57:                                               ; preds = %.lr.ph32, %70
+  %58 = phi ptr [ %.pre39, %.lr.ph32 ], [ %74, %70 ]
+  %59 = phi i64 [ 0, %.lr.ph32 ], [ %72, %70 ]
+  %.031 = phi i32 [ 0, %.lr.ph32 ], [ %71, %70 ]
   %60 = getelementptr inbounds nuw %"struct.IsoParametrizator::vert_para", ptr %58, i64 %59
   %61 = load float, ptr %60, align 8
   %62 = fpext float %61 to double
@@ -18736,7 +18736,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN17IsoParametrizator9vert_paraESt6vect
           to label %70 unwind label %.loopexit
 
 70:                                               ; preds = %57
-  %71 = add i32 %.030, 1
+  %71 = add i32 %.031, 1
   %72 = zext i32 %71 to i64
   %73 = load ptr, ptr %11, align 8
   %74 = load ptr, ptr %4, align 8
@@ -18745,18 +18745,18 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN17IsoParametrizator9vert_paraESt6vect
   %77 = sub i64 %75, %76
   %78 = ashr exact i64 %77, 4
   %79 = icmp ugt i64 %78, %72
-  br i1 %79, label %57, label %._crit_edge32, !llvm.loop !157
+  br i1 %79, label %57, label %._crit_edge33, !llvm.loop !157
 
-._crit_edge32:                                    ; preds = %70, %._crit_edge, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN17IsoParametrizator9vert_paraESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit
-  %.lcssa = phi ptr [ %.pre38, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN17IsoParametrizator9vert_paraESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit ], [ %44, %._crit_edge ], [ %74, %70 ]
+._crit_edge33:                                    ; preds = %70, %._crit_edge, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN17IsoParametrizator9vert_paraESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit
+  %.lcssa = phi ptr [ %.pre39, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN17IsoParametrizator9vert_paraESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit ], [ %44, %._crit_edge ], [ %74, %70 ]
   %.not.i.i.i23 = icmp eq ptr %.lcssa, null
   br i1 %.not.i.i.i23, label %_ZNSt6vectorIN17IsoParametrizator9vert_paraESaIS1_EED2Ev.exit24, label %80
 
-80:                                               ; preds = %._crit_edge32
+80:                                               ; preds = %._crit_edge33
   call void @_ZdlPv(ptr noundef nonnull %.lcssa) #35
   br label %_ZNSt6vectorIN17IsoParametrizator9vert_paraESaIS1_EED2Ev.exit24
 
-_ZNSt6vectorIN17IsoParametrizator9vert_paraESaIS1_EED2Ev.exit24: ; preds = %._crit_edge32, %80
+_ZNSt6vectorIN17IsoParametrizator9vert_paraESaIS1_EED2Ev.exit24: ; preds = %._crit_edge33, %80
   ret void
 }
 
@@ -43719,9 +43719,9 @@ _ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i:
   %5 = alloca %"class.std::vector.926", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %6 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #38
-          to label %_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit unwind label %40
+          to label %_ZNSt6vectorIP10BaseVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i unwind label %40
 
-_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i
+_ZNSt6vectorIP10BaseVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %_ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -43734,7 +43734,7 @@ _ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNKSt6vecto
   invoke void @_Z13getSharedFaceI8BaseMeshEvRSt6vectorIPNT_10VertexTypeESaIS4_EERS1_IPNS2_8FaceTypeESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %.noexc20 unwind label %40
 
-.noexc20:                                         ; preds = %_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit
+.noexc20:                                         ; preds = %_ZNSt6vectorIP10BaseVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   invoke void @_Z17CopyMeshFromFacesI8BaseMeshEvRKSt6vectorIPNT_8FaceTypeESaIS4_EERS1_IPNS2_10VertexTypeESaISA_EERS2_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(628) %2)
           to label %_Z20CreateMeshVertexStarI8BaseMeshEvRSt6vectorIPNT_10VertexTypeESaIS4_EERS1_IPNS2_8FaceTypeESaIS9_EES7_RS2_.exit unwind label %40
 
@@ -43788,7 +43788,7 @@ _Z14InitDampRestUVI8BaseMeshEvRT_.exit:           ; preds = %.lr.ph.i
   %.not18 = or i1 %39, %.not
   br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !537
 
-40:                                               ; preds = %.noexc20, %_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit, %_ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i, %_Z20CreateMeshVertexStarI8BaseMeshEvRSt6vectorIPNT_10VertexTypeESaIS4_EERS1_IPNS2_8FaceTypeESaIS9_EES7_RS2_.exit
+40:                                               ; preds = %.noexc20, %_ZNSt6vectorIP10BaseVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %_ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i, %_Z20CreateMeshVertexStarI8BaseMeshEvRSt6vectorIPNT_10VertexTypeESaIS4_EERS1_IPNS2_8FaceTypeESaIS9_EES7_RS2_.exit
   %41 = landingpad { ptr, i32 }
           cleanup
   %42 = load ptr, ptr %5, align 8
@@ -44455,9 +44455,9 @@ _ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #38
-          to label %_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit unwind label %37
+          to label %_ZNSt6vectorIP10BaseVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i unwind label %37
 
-_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i
+_ZNSt6vectorIP10BaseVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %_ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %0, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -44467,7 +44467,7 @@ _ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNKSt6vecto
   invoke void @_Z13getSharedFaceI8BaseMeshEvRSt6vectorIPNT_10VertexTypeESaIS4_EERS1_IPNS2_8FaceTypeESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %10 unwind label %37
 
-10:                                               ; preds = %_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit
+10:                                               ; preds = %_ZNSt6vectorIP10BaseVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   %11 = load ptr, ptr %5, align 8
   %12 = load ptr, ptr %6, align 8
   %.not.i.i = icmp eq ptr %12, %11
@@ -44509,7 +44509,7 @@ _ZNSt6vectorIP10BaseVertexSaIS1_EE5clearEv.exit:  ; preds = %10, %13
   %36 = icmp ugt i64 %20, %35
   br i1 %36, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !548
 
-37:                                               ; preds = %_ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i, %47, %_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit
+37:                                               ; preds = %_ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i, %47, %_ZNSt6vectorIP10BaseVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   %38 = landingpad { ptr, i32 }
           cleanup
   %39 = load ptr, ptr %5, align 8
@@ -54999,9 +54999,9 @@ _ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i:
   %22 = alloca float, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %23 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #38
-          to label %_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit unwind label %114
+          to label %_ZNSt6vectorIP10BaseVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i unwind label %114
 
-_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i
+_ZNSt6vectorIP10BaseVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %_ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %23, align 8
@@ -55013,7 +55013,7 @@ _ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNKSt6vecto
   invoke void @_ZN3vcg3tri7TriMeshISt6vectorI10BaseVertexSaIS3_EES2_I8BaseFaceSaIS6_EENS0_14DummyContainerES9_S9_EC2Ev(ptr noundef nonnull align 8 dereferenceable(628) %8)
           to label %27 unwind label %.thread287
 
-27:                                               ; preds = %_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit
+27:                                               ; preds = %_ZNSt6vectorIP10BaseVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8BaseMesh, i64 16), ptr %8, align 8
   invoke void @_ZN3vcg3tri7TriMeshISt6vectorI10BaseVertexSaIS3_EES2_I8BaseFaceSaIS6_EENS0_14DummyContainerES9_S9_EC2Ev(ptr noundef nonnull align 8 dereferenceable(628) %9)
           to label %28 unwind label %.thread292
@@ -55208,7 +55208,7 @@ _ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit106: ; preds = %_ZNSt6vec
           cleanup
   br label %_ZNSt6vectorIP8BaseFaceSaIS1_EED2Ev.exit223
 
-.thread287:                                       ; preds = %_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit
+.thread287:                                       ; preds = %_ZNSt6vectorIP10BaseVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   %116 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIP10BaseVertexSaIS1_EED2Ev.exit221
@@ -84557,9 +84557,9 @@ _ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i:
   %7 = alloca %"class.std::vector.926", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %8 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #38
-          to label %_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit unwind label %99
+          to label %_ZNSt6vectorIP10BaseVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i unwind label %99
 
-_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i
+_ZNSt6vectorIP10BaseVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %_ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %8, align 8
@@ -84571,7 +84571,7 @@ _ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNKSt6vecto
   invoke void @_ZN3vcg3tri7TriMeshISt6vectorI10BaseVertexSaIS3_EES2_I8BaseFaceSaIS6_EENS0_14DummyContainerES9_S9_EC2Ev(ptr noundef nonnull align 8 dereferenceable(628) %4)
           to label %12 unwind label %.thread
 
-12:                                               ; preds = %_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit
+12:                                               ; preds = %_ZNSt6vectorIP10BaseVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8BaseMesh, i64 16), ptr %4, align 8
   invoke void @_ZN3vcg3tri7TriMeshISt6vectorI10BaseVertexSaIS3_EES2_I8BaseFaceSaIS6_EENS0_14DummyContainerES9_S9_EC2Ev(ptr noundef nonnull align 8 dereferenceable(628) %5)
           to label %13 unwind label %.thread80
@@ -84766,7 +84766,7 @@ _ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit41: ; preds = %_ZNSt6vect
           cleanup
   br label %_ZNSt6vectorIP8BaseFaceSaIS1_EED2Ev.exit53
 
-.thread:                                          ; preds = %_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit
+.thread:                                          ; preds = %_ZNSt6vectorIP10BaseVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   %101 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIP10BaseVertexSaIS1_EED2Ev.exit51
@@ -87490,9 +87490,9 @@ _ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %21 = load ptr, ptr %16, align 8
   %22 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #38
-          to label %_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backEOS1_.exit unwind label %.loopexit
+          to label %_ZNSt6vectorIP10BaseVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i unwind label %.loopexit
 
-_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+_ZNSt6vectorIP10BaseVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %_ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
   %23 = getelementptr inbounds nuw %class.BaseVertex, ptr %21, i64 %17
   store ptr %23, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -87502,7 +87502,7 @@ _ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNKSt6vector
   %25 = invoke noalias noundef nonnull dereferenceable(632) ptr @_Znwm(i64 noundef 632) #38
           to label %26 unwind label %.loopexit
 
-26:                                               ; preds = %_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backEOS1_.exit
+26:                                               ; preds = %_ZNSt6vectorIP10BaseVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(632) %25, i8 0, i64 632, i1 false)
   invoke void @_ZN3vcg3tri7TriMeshISt6vectorI10BaseVertexSaIS3_EES2_I8BaseFaceSaIS6_EENS0_14DummyContainerES9_S9_EC2Ev(ptr noundef nonnull align 8 dereferenceable(628) %25)
           to label %27 unwind label %51
@@ -87565,7 +87565,7 @@ _ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNKSt6vector
   call void @_ZdlPv(ptr noundef nonnull %49) #35
   br label %_ZNSt6vectorIP10BaseVertexSaIS1_EED2Ev.exit
 
-.loopexit:                                        ; preds = %_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backEOS1_.exit, %43, %_ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+.loopexit:                                        ; preds = %_ZNSt6vectorIP10BaseVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %43, %_ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -88706,9 +88706,9 @@ define linkonce_odr void @_ZN19BaryOptimizatorDualI8BaseMeshE19InitFaceEquilater
 _ZNKSt6vectorIP8BaseFaceSaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %21 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #38
-          to label %_ZNSt6vectorIP8BaseFaceSaIS1_EE9push_backERKS1_.exit unwind label %.loopexit
+          to label %_ZNSt6vectorIP8BaseFaceSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i unwind label %.loopexit
 
-_ZNSt6vectorIP8BaseFaceSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNKSt6vectorIP8BaseFaceSaIS1_EE12_M_check_lenEmPKc.exit.i.i
+_ZNSt6vectorIP8BaseFaceSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %_ZNKSt6vectorIP8BaseFaceSaIS1_EE12_M_check_lenEmPKc.exit.i.i
   store ptr %17, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %21, ptr %3, align 8
@@ -88717,7 +88717,7 @@ _ZNSt6vectorIP8BaseFaceSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNKSt6vectorIP
   %23 = invoke noalias noundef nonnull dereferenceable(632) ptr @_Znwm(i64 noundef 632) #38
           to label %24 unwind label %.loopexit
 
-24:                                               ; preds = %_ZNSt6vectorIP8BaseFaceSaIS1_EE9push_backERKS1_.exit
+24:                                               ; preds = %_ZNSt6vectorIP8BaseFaceSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(632) %23, i8 0, i64 632, i1 false)
   invoke void @_ZN3vcg3tri7TriMeshISt6vectorI10BaseVertexSaIS3_EES2_I8BaseFaceSaIS6_EENS0_14DummyContainerES9_S9_EC2Ev(ptr noundef nonnull align 8 dereferenceable(628) %23)
           to label %25 unwind label %80
@@ -88819,7 +88819,7 @@ _ZNSt6vectorIP10BaseVertexSaIS1_EED2Ev.exit:      ; preds = %50, %77
   call void @_ZdlPv(ptr noundef nonnull %78) #35
   br label %_ZNSt6vectorIP8BaseFaceSaIS1_EED2Ev.exit
 
-.loopexit:                                        ; preds = %_ZNSt6vectorIP8BaseFaceSaIS1_EE9push_backERKS1_.exit, %_ZNKSt6vectorIP8BaseFaceSaIS1_EE12_M_check_lenEmPKc.exit.i.i
+.loopexit:                                        ; preds = %_ZNSt6vectorIP8BaseFaceSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %_ZNKSt6vectorIP8BaseFaceSaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIP10BaseVertexSaIS1_EED2Ev.exit24
@@ -92919,15 +92919,15 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc70
   %23 = ptrtoint ptr %22 to i64
   br label %_ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
-_ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %.noexc, %6
+_ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %6, %.noexc
   %.sroa.096.1 = phi ptr [ %18, %.noexc ], [ null, %6 ]
   %.sroa.9.0 = phi i64 [ %23, %.noexc ], [ 0, %6 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %24 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #38
-          to label %_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit unwind label %.loopexit.split-lp
+          to label %_ZNSt6vectorIP10BaseVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i unwind label %.loopexit.split-lp
 
-_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i
+_ZNSt6vectorIP10BaseVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %_ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %24, align 8
@@ -92938,7 +92938,7 @@ _ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNKSt6vecto
   invoke void @_Z13getSharedFaceI8BaseMeshEvRSt6vectorIPNT_10VertexTypeESaIS4_EERS1_IPNS2_8FaceTypeESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %28 unwind label %.loopexit.split-lp
 
-28:                                               ; preds = %_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit
+28:                                               ; preds = %_ZNSt6vectorIP10BaseVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %5, align 8
@@ -93029,7 +93029,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit63.thread:           ; preds = %_ZNKSt6vectorIfSaIf
           cleanup
   br label %68
 
-.loopexit.split-lp:                               ; preds = %_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit, %_ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i, %38, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i77
+.loopexit.split-lp:                               ; preds = %_ZNSt6vectorIP10BaseVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %_ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i, %38, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i77
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %68
@@ -94589,9 +94589,9 @@ _ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %13 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #38
-          to label %_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit unwind label %62
+          to label %_ZNSt6vectorIP10BaseVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i unwind label %62
 
-_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i
+_ZNSt6vectorIP10BaseVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %_ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %13, align 8
@@ -94602,7 +94602,7 @@ _ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNKSt6vecto
   invoke void @_Z13getSharedFaceI8BaseMeshEvRSt6vectorIPNT_10VertexTypeESaIS4_EERS1_IPNS2_8FaceTypeESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %17 unwind label %62
 
-17:                                               ; preds = %_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit
+17:                                               ; preds = %_ZNSt6vectorIP10BaseVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   invoke void @_ZN3vcg3tri7TriMeshISt6vectorI10BaseVertexSaIS3_EES2_I8BaseFaceSaIS6_EENS0_14DummyContainerES9_S9_EC2Ev(ptr noundef nonnull align 8 dereferenceable(628) %5)
           to label %18 unwind label %62
 
@@ -94745,7 +94745,7 @@ _ZNSt6vectorIP10BaseVertexSaIS1_EED2Ev.exit:      ; preds = %54, %_ZNSt6vectorIP
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %.not108, label %73, label %57, !llvm.loop !1175
 
-62:                                               ; preds = %17, %_ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i, %_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit
+62:                                               ; preds = %17, %_ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i, %_ZNSt6vectorIP10BaseVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   %63 = landingpad { ptr, i32 }
           cleanup
   br label %218
@@ -95171,9 +95171,9 @@ _ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %8 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #38
-          to label %_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit unwind label %33
+          to label %_ZNSt6vectorIP10BaseVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i unwind label %33
 
-_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i
+_ZNSt6vectorIP10BaseVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %_ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %8, align 8
@@ -95184,7 +95184,7 @@ _ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNKSt6vecto
   invoke void @_Z13getSharedFaceI8BaseMeshEvRSt6vectorIPNT_10VertexTypeESaIS4_EERS1_IPNS2_8FaceTypeESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %12 unwind label %33
 
-12:                                               ; preds = %_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit
+12:                                               ; preds = %_ZNSt6vectorIP10BaseVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   invoke void @_Z17CopyMeshFromFacesI8BaseMeshEvRKSt6vectorIPNT_8FaceTypeESaIS4_EERS1_IPNS2_10VertexTypeESaISA_EERS2_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(628) %2)
           to label %13 unwind label %33
 
@@ -95223,7 +95223,7 @@ _ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNKSt6vecto
   %32 = icmp ugt i64 %20, %31
   br i1 %32, label %23, label %._crit_edge, !llvm.loop !1183
 
-33:                                               ; preds = %_ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i, %._crit_edge, %13, %12, %_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit
+33:                                               ; preds = %_ZNKSt6vectorIP10BaseVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i, %._crit_edge, %13, %12, %_ZNSt6vectorIP10BaseVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   %34 = landingpad { ptr, i32 }
           cleanup
   %35 = load ptr, ptr %6, align 8
@@ -106749,9 +106749,9 @@ define linkonce_odr void @_ZN18IsoParametrization8InitFaceERKf(ptr noundef nonnu
 _ZNKSt6vectorIP12AbstractFaceSaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %25 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #38
-          to label %_ZNSt6vectorIP12AbstractFaceSaIS1_EE9push_backERKS1_.exit unwind label %.loopexit80
+          to label %_ZNSt6vectorIP12AbstractFaceSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i unwind label %.loopexit80
 
-_ZNSt6vectorIP12AbstractFaceSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNKSt6vectorIP12AbstractFaceSaIS1_EE12_M_check_lenEmPKc.exit.i.i
+_ZNSt6vectorIP12AbstractFaceSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %_ZNKSt6vectorIP12AbstractFaceSaIS1_EE12_M_check_lenEmPKc.exit.i.i
   store ptr %21, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %25, ptr %3, align 8
@@ -106760,7 +106760,7 @@ _ZNSt6vectorIP12AbstractFaceSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNKSt6vec
   %27 = invoke noalias noundef nonnull dereferenceable(632) ptr @_Znwm(i64 noundef 632) #38
           to label %28 unwind label %.loopexit80
 
-28:                                               ; preds = %_ZNSt6vectorIP12AbstractFaceSaIS1_EE9push_backERKS1_.exit
+28:                                               ; preds = %_ZNSt6vectorIP12AbstractFaceSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(632) %27, i8 0, i64 632, i1 false)
   invoke void @_ZN3vcg3tri7TriMeshISt6vectorI14AbstractVertexSaIS3_EES2_I12AbstractFaceSaIS6_EENS0_14DummyContainerES9_S9_EC2Ev(ptr noundef nonnull align 8 dereferenceable(628) %27)
           to label %29 unwind label %199
@@ -107038,7 +107038,7 @@ _ZN18IsoParametrization11GetHresVertERiRSt6vectorIP11ParamVertexSaIS3_EE.exit: ;
   %198 = icmp ugt i64 %197, %185
   br i1 %198, label %.lr.ph, label %._crit_edge, !llvm.loop !1347
 
-.loopexit80:                                      ; preds = %_ZNSt6vectorIP12AbstractFaceSaIS1_EE9push_backERKS1_.exit, %29, %_ZNKSt6vectorIP12AbstractFaceSaIS1_EE12_M_check_lenEmPKc.exit.i.i
+.loopexit80:                                      ; preds = %_ZNSt6vectorIP12AbstractFaceSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %29, %_ZNKSt6vectorIP12AbstractFaceSaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit82 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIP14AbstractVertexSaIS1_EED2Ev.exit57
@@ -107381,7 +107381,7 @@ _ZNKSt4lessISt4pairIP14AbstractVertexS2_EEclERKS3_S6_.exit5.i.i: ; preds = %77
   call void @_ZdlPv(ptr noundef nonnull %58) #35
   br label %_ZNKSt6vectorIP12AbstractFaceSaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
-_ZNKSt6vectorIP12AbstractFaceSaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %.thread24.i, %97
+_ZNKSt6vectorIP12AbstractFaceSaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %97, %.thread24.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %98 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #38
           to label %_ZNKSt6vectorIP12AbstractFaceSaIS1_EE12_M_check_lenEmPKc.exit.i.i51 unwind label %.loopexit221
@@ -108825,9 +108825,9 @@ _ZNKSt6vectorIP14AbstractVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds =
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %26 = load ptr, ptr %21, align 8
   %27 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #38
-          to label %_ZNSt6vectorIP14AbstractVertexSaIS1_EE9push_backEOS1_.exit unwind label %.loopexit108
+          to label %_ZNSt6vectorIP14AbstractVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i unwind label %.loopexit108
 
-_ZNSt6vectorIP14AbstractVertexSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNKSt6vectorIP14AbstractVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+_ZNSt6vectorIP14AbstractVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %_ZNKSt6vectorIP14AbstractVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
   %28 = getelementptr inbounds nuw %class.AbstractVertex, ptr %26, i64 %22
   store ptr %28, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -108837,7 +108837,7 @@ _ZNSt6vectorIP14AbstractVertexSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNKSt6ve
   %30 = invoke noalias noundef nonnull dereferenceable(632) ptr @_Znwm(i64 noundef 632) #38
           to label %31 unwind label %.loopexit108
 
-31:                                               ; preds = %_ZNSt6vectorIP14AbstractVertexSaIS1_EE9push_backEOS1_.exit
+31:                                               ; preds = %_ZNSt6vectorIP14AbstractVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(632) %30, i8 0, i64 632, i1 false)
   invoke void @_ZN3vcg3tri7TriMeshISt6vectorI14AbstractVertexSaIS3_EES2_I12AbstractFaceSaIS6_EENS0_14DummyContainerES9_S9_EC2Ev(ptr noundef nonnull align 8 dereferenceable(628) %30)
           to label %32 unwind label %167
@@ -109079,7 +109079,7 @@ _ZN18IsoParametrization11GetHresVertERiRSt6vectorIP11ParamVertexSaIS3_EE.exit: ;
   %166 = icmp ugt i64 %165, %154
   br i1 %166, label %.lr.ph, label %._crit_edge, !llvm.loop !1358
 
-.loopexit108:                                     ; preds = %_ZNSt6vectorIP14AbstractVertexSaIS1_EE9push_backEOS1_.exit, %32, %_ZNKSt6vectorIP14AbstractVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+.loopexit108:                                     ; preds = %_ZNSt6vectorIP14AbstractVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %32, %_ZNKSt6vectorIP14AbstractVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit110 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIP12AbstractFaceSaIS1_EED2Ev.exit98

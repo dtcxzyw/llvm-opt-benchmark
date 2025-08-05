@@ -12437,7 +12437,7 @@ _ZNSt10shared_ptrIN4Luau12SourceModuleEEC2ERKS2_.exit: ; preds = %_ZNSt10shared_
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 24
   %147 = load ptr, ptr %146, align 8
   call void %147(ptr noundef nonnull align 8 dereferenceable(16) %134) #31
-  br label %_ZNSt10shared_ptrIN4Luau5ScopeEEaSEOS2_.exit
+  br label %_ZNSt10shared_ptrIN4Luau5ScopeEEaSEOS2_.exitthread-pre-split
 
 148:                                              ; preds = %135
   %149 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !121
@@ -12456,14 +12456,18 @@ _ZNSt10shared_ptrIN4Luau12SourceModuleEEC2ERKS2_.exit: ; preds = %_ZNSt10shared_
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %152, %150
   %.0.i.i.i.i.i.i = phi i32 [ %139, %150 ], [ %153, %152 ]
   %154 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %154, label %155, label %_ZNSt10shared_ptrIN4Luau5ScopeEEaSEOS2_.exit, !prof !122
+  br i1 %154, label %155, label %_ZNSt10shared_ptrIN4Luau5ScopeEEaSEOS2_.exitthread-pre-split, !prof !122
 
 155:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %134) #31
+  br label %_ZNSt10shared_ptrIN4Luau5ScopeEEaSEOS2_.exitthread-pre-split
+
+_ZNSt10shared_ptrIN4Luau5ScopeEEaSEOS2_.exitthread-pre-split: ; preds = %155, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %140
+  %.pr = load ptr, ptr %45, align 8, !tbaa !115
   br label %_ZNSt10shared_ptrIN4Luau5ScopeEEaSEOS2_.exit
 
-_ZNSt10shared_ptrIN4Luau5ScopeEEaSEOS2_.exit:     ; preds = %131, %140, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %155
-  %156 = load ptr, ptr %45, align 8, !tbaa !115
+_ZNSt10shared_ptrIN4Luau5ScopeEEaSEOS2_.exit:     ; preds = %_ZNSt10shared_ptrIN4Luau5ScopeEEaSEOS2_.exitthread-pre-split, %131
+  %156 = phi ptr [ %.pr, %_ZNSt10shared_ptrIN4Luau5ScopeEEaSEOS2_.exitthread-pre-split ], [ null, %131 ]
   %.not.i.i37 = icmp eq ptr %156, null
   br i1 %.not.i.i37, label %_ZNSt12__shared_ptrIN4Luau5ScopeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %157
 

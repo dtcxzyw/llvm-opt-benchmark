@@ -28588,7 +28588,7 @@ _ZN5arrow6StatusC2ERKS0_.exit:                    ; preds = %_ZNKSt14default_del
   %6133 = getelementptr inbounds nuw i8, ptr %6132, i64 24
   %6134 = load ptr, ptr %6133, align 8
   call void %6134(ptr noundef nonnull align 8 dereferenceable(16) %6121) #28
-  br label %_ZNSt10shared_ptrIN5arrow5ArrayEEaSEOS2_.exit
+  br label %_ZNSt10shared_ptrIN5arrow5ArrayEEaSEOS2_.exitthread-pre-split
 
 6135:                                             ; preds = %6122
   %6136 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !119
@@ -28607,14 +28607,18 @@ _ZN5arrow6StatusC2ERKS0_.exit:                    ; preds = %_ZNKSt14default_del
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %6139, %6137
   %.0.i.i.i.i.i.i = phi i32 [ %6126, %6137 ], [ %6140, %6139 ]
   %6141 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %6141, label %6142, label %_ZNSt10shared_ptrIN5arrow5ArrayEEaSEOS2_.exit, !prof !142
+  br i1 %6141, label %6142, label %_ZNSt10shared_ptrIN5arrow5ArrayEEaSEOS2_.exitthread-pre-split, !prof !142
 
 6142:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %6121) #28
+  br label %_ZNSt10shared_ptrIN5arrow5ArrayEEaSEOS2_.exitthread-pre-split
+
+_ZNSt10shared_ptrIN5arrow5ArrayEEaSEOS2_.exitthread-pre-split: ; preds = %6142, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %6127
+  %.pr1741 = load ptr, ptr %6095, align 8, !tbaa !129
   br label %_ZNSt10shared_ptrIN5arrow5ArrayEEaSEOS2_.exit
 
-_ZNSt10shared_ptrIN5arrow5ArrayEEaSEOS2_.exit:    ; preds = %6118, %6127, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %6142
-  %6143 = load ptr, ptr %6095, align 8, !tbaa !129
+_ZNSt10shared_ptrIN5arrow5ArrayEEaSEOS2_.exit:    ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEEaSEOS2_.exitthread-pre-split, %6118
+  %6143 = phi ptr [ %.pr1741, %_ZNSt10shared_ptrIN5arrow5ArrayEEaSEOS2_.exitthread-pre-split ], [ null, %6118 ]
   %.not.i.i1342 = icmp eq ptr %6143, null
   br i1 %.not.i.i1342, label %_ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit1346, label %6144
 

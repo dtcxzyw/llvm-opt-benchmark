@@ -2174,7 +2174,7 @@ _ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i: ; preds = %51, 
   %52 = load ptr, ptr %28, align 8, !tbaa !92
   store ptr %26, ptr %28, align 8, !tbaa !92
   %.not.i.i.i.i4.i.i = icmp eq ptr %52, null
-  br i1 %.not.i.i.i.i4.i.i, label %_ZN6duckdb11LogicalTypeaSEOS0_.exit23, label %53
+  br i1 %.not.i.i.i.i4.i.i, label %_ZN6duckdb11LogicalTypeaSEOS0_.exit, label %53
 
 53:                                               ; preds = %_ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -2195,7 +2195,7 @@ _ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i: ; preds = %51, 
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %65 = load ptr, ptr %64, align 8
   call void %65(ptr noundef nonnull align 8 dereferenceable(16) %52) #22
-  br label %_ZN6duckdb11LogicalTypeaSEOS0_.exit23
+  br label %_ZN6duckdb11LogicalTypeaSEOS0_.exit
 
 66:                                               ; preds = %53
   %67 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !99
@@ -2214,13 +2214,13 @@ _ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i: ; preds = %51, 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i6.i.i: ; preds = %70, %68
   %.0.i.i.i.i.i.i7.i.i = phi i32 [ %57, %68 ], [ %71, %70 ]
   %72 = icmp eq i32 %.0.i.i.i.i.i.i7.i.i, 1
-  br i1 %72, label %73, label %_ZN6duckdb11LogicalTypeaSEOS0_.exit23, !prof !91
+  br i1 %72, label %73, label %_ZN6duckdb11LogicalTypeaSEOS0_.exit, !prof !91
 
 73:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i6.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %52) #22
-  br label %_ZN6duckdb11LogicalTypeaSEOS0_.exit23
+  br label %_ZN6duckdb11LogicalTypeaSEOS0_.exit
 
-_ZN6duckdb11LogicalTypeaSEOS0_.exit23:            ; preds = %_ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i, %58, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i6.i.i, %73
+_ZN6duckdb11LogicalTypeaSEOS0_.exit:              ; preds = %_ZN6duckdb10shared_ptrINS_13ExtraTypeInfoELb1EEaSEOS2_.exit.i.i, %58, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i6.i.i, %73
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #22
@@ -2256,14 +2256,14 @@ common.resume:                                    ; preds = %92, %103, %_ZNSt10u
   %common.resume.op = phi { ptr, i32 } [ %89, %_ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit5.i ], [ %93, %92 ], [ %104, %103 ], [ %.pn, %_ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit33 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit5.i: ; preds = %_ZN6duckdb11LogicalTypeaSEOS0_.exit23
+_ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit5.i: ; preds = %_ZN6duckdb11LogicalTypeaSEOS0_.exit
   %89 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6duckdb12FunctionDataD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %87) #22, !noalias !209
   call void @_ZdlPv(ptr noundef nonnull %87) #24, !noalias !209
   br label %common.resume
 
-_ZNSt10unique_ptrIN6duckdb18ListLambdaBindDataESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN6duckdb11LogicalTypeaSEOS0_.exit23
+_ZNSt10unique_ptrIN6duckdb18ListLambdaBindDataESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN6duckdb11LogicalTypeaSEOS0_.exit
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 32
   store i64 0, ptr %90, align 8, !tbaa !101, !noalias !209
   %91 = getelementptr inbounds nuw i8, ptr %87, i64 40

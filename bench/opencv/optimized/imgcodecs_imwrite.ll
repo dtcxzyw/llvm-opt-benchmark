@@ -200,7 +200,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %87 = icmp slt i64 %indvars.iv.next.i, %86
   br i1 %87, label %44, label %._crit_edge.loopexit.i, !llvm.loop !31
 
-_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %._crit_edge.i, %.preheader.lr.ph.i, %.preheader27.i
+_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %._crit_edge.i, %.preheader27.i, %.preheader.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -329,9 +329,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49: ; preds = %_ZN
   br label %133
 
 133:                                              ; preds = %130, %.thread
-  %str.1.sink = phi ptr [ @str, %.thread ], [ @str.1, %130 ]
+  %str.sink = phi ptr [ @str, %.thread ], [ @str.1, %130 ]
   %not..0 = phi i32 [ 1, %.thread ], [ 0, %130 ]
-  %puts21 = call i32 @puts(ptr nonnull dereferenceable(1) %str.1.sink)
+  %puts = call i32 @puts(ptr nonnull dereferenceable(1) %str.sink)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %134 = getelementptr inbounds nuw i8, ptr %7, i64 8

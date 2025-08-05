@@ -16002,8 +16002,8 @@ _ZN5folly5splitIA2_cNS_5RangeIPKcEESt6vectorINSt7__cxx1112basic_stringIcSt11char
   %indvars.iv.in = phi i64 [ %indvars.iv, %.critedge15.i.i.i ], [ %137, %133 ]
   %.sroa.018.036.i.i.i = phi ptr [ %145, %.critedge15.i.i.i ], [ %135, %133 ]
   %indvars.iv = add i64 %indvars.iv.in, -1
-  %.not1378 = icmp eq i64 %indvars.iv, 0
-  %139 = select i1 %.not1378, i64 1, i64 2
+  %.not1377 = icmp eq i64 %indvars.iv, 0
+  %139 = select i1 %.not1377, i64 1, i64 2
   %scevgep = getelementptr i8, ptr %.sroa.018.036.i.i.i, i64 %139
   br label %.lr.ph.i.i.i
 
@@ -16074,9 +16074,9 @@ _ZNK5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEclIN9__gnu_cxx17__n
   %indvars.iv1366.in = phi i64 [ %indvars.iv1366, %.critedge15.i.i.i236 ], [ %148, %147 ]
   %.sroa.018.036.i.i.i228 = phi ptr [ %159, %.critedge15.i.i.i236 ], [ %149, %147 ]
   %indvars.iv1366 = add i64 %indvars.iv1366.in, -1
-  %.not1379 = icmp eq i64 %indvars.iv1366, 0
-  %153 = select i1 %.not1379, i64 1, i64 2
-  %scevgep1677 = getelementptr i8, ptr %.sroa.018.036.i.i.i228, i64 %153
+  %.not1378 = icmp eq i64 %indvars.iv1366, 0
+  %153 = select i1 %.not1378, i64 1, i64 2
+  %scevgep1679 = getelementptr i8, ptr %.sroa.018.036.i.i.i228, i64 %153
   br label %.lr.ph.i.i.i229
 
 .lr.ph.i.i.i229:                                  ; preds = %157, %.lr.ph.preheader.i.i.i227
@@ -16095,7 +16095,7 @@ _ZNK5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEclIN9__gnu_cxx17__n
   br i1 %exitcond1369, label %.critedge.i.i.i232, label %.lr.ph.i.i.i229, !llvm.loop !583
 
 .critedge.i.i.i232:                               ; preds = %157, %.lr.ph.i.i.i229
-  %.sroa.0.0.lcssa.ph.i.i.i233 = phi ptr [ %.sroa.0.029.i.i.i231, %.lr.ph.i.i.i229 ], [ %scevgep1677, %157 ]
+  %.sroa.0.0.lcssa.ph.i.i.i233 = phi ptr [ %.sroa.0.029.i.i.i231, %.lr.ph.i.i.i229 ], [ %scevgep1679, %157 ]
   %.012.lcssa.ph.i.i.i234.idx = phi i64 [ %.01230.i.i.i230.idx, %.lr.ph.i.i.i229 ], [ %153, %157 ]
   %.not13.i.i.i235 = icmp eq i64 %.012.lcssa.ph.i.i.i234.idx, 2
   br i1 %.not13.i.i.i235, label %_ZNK5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEclIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS_14iterator_rangeIT_EESJ_SJ_.exit.i.i239, label %.critedge15.i.i.i236
@@ -16344,8 +16344,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   invoke void @_ZN5folly7dynamicC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 8 dereferenceable(40) %236)
           to label %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_119MultipleOfValidatorEJRKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %240, !noalias !591
 
-common.resume:                                    ; preds = %268, %312, %356, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt13greater_equalIlEEESt14default_deleteIS6_EED2Ev.exit318, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt10less_equalIlEEESt14default_deleteIS6_EED2Ev.exit338, %513, %215, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_112RefValidatorESt14default_deleteIS3_EED2Ev.exit222, %1162, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt13greater_equalIlEEESt14default_deleteIS6_EED2Ev.exit485, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt10less_equalIlEEESt14default_deleteIS6_EED2Ev.exit510, %1300, %1588, %1623, %1698, %1771, %1805, %1839, %1879, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_120ArrayUniqueValidatorESt14default_deleteIS3_EED2Ev.exit444, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt10less_equalIlEEESt14default_deleteIS6_EED2Ev.exit424, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt13greater_equalIlEEESt14default_deleteIS6_EED2Ev.exit399, %644, %.body.i866, %1812, %1778, %.body864, %.body.i570, %1595, %.body822, %.body.i, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS3_EED2Ev.exit.i712, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS3_EED2Ev.exit121.i, %.body.i.i, %329, %285, %240
-  %common.resume.op = phi { ptr, i32 } [ %241, %240 ], [ %286, %285 ], [ %330, %329 ], [ %487, %.body.i.i ], [ %.pn34.i, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS3_EED2Ev.exit121.i ], [ %.pn53.pn.pn.pn.i, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS3_EED2Ev.exit.i712 ], [ %1274, %.body.i ], [ %.pn28.pn.pn.pn.pn.pn.i, %.body822 ], [ %1596, %1595 ], [ %.pn17.i.i, %.body.i570 ], [ %.pn.i832, %.body864 ], [ %1779, %1778 ], [ %1813, %1812 ], [ %eh.lpad-body.i867, %.body.i866 ], [ %514, %513 ], [ %428, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt10less_equalIlEEESt14default_deleteIS6_EED2Ev.exit338 ], [ %393, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt13greater_equalIlEEESt14default_deleteIS6_EED2Ev.exit318 ], [ %357, %356 ], [ %313, %312 ], [ %269, %268 ], [ %110, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_112RefValidatorESt14default_deleteIS3_EED2Ev.exit222 ], [ %.merged178, %215 ], [ %749, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_120ArrayUniqueValidatorESt14default_deleteIS3_EED2Ev.exit444 ], [ %716, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt10less_equalIlEEESt14default_deleteIS6_EED2Ev.exit424 ], [ %681, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt13greater_equalIlEEESt14default_deleteIS6_EED2Ev.exit399 ], [ %645, %644 ], [ %1880, %1879 ], [ %1840, %1839 ], [ %1806, %1805 ], [ %1772, %1771 ], [ %1699, %1698 ], [ %1624, %1623 ], [ %1589, %1588 ], [ %1301, %1300 ], [ %1234, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt10less_equalIlEEESt14default_deleteIS6_EED2Ev.exit510 ], [ %1199, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt13greater_equalIlEEESt14default_deleteIS6_EED2Ev.exit485 ], [ %1163, %1162 ]
+common.resume:                                    ; preds = %268, %312, %356, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt13greater_equalIlEEESt14default_deleteIS6_EED2Ev.exit318, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt10less_equalIlEEESt14default_deleteIS6_EED2Ev.exit338, %513, %215, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_112RefValidatorESt14default_deleteIS3_EED2Ev.exit222, %1162, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt13greater_equalIlEEESt14default_deleteIS6_EED2Ev.exit485, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt10less_equalIlEEESt14default_deleteIS6_EED2Ev.exit510, %1300, %1589, %1624, %1699, %1772, %1806, %1840, %1880, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_120ArrayUniqueValidatorESt14default_deleteIS3_EED2Ev.exit444, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt10less_equalIlEEESt14default_deleteIS6_EED2Ev.exit424, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt13greater_equalIlEEESt14default_deleteIS6_EED2Ev.exit399, %644, %.body.i866, %1813, %1779, %.body864, %.body.i570, %1596, %.body822, %.body.i, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS3_EED2Ev.exit.i712, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS3_EED2Ev.exit121.i, %.body.i.i, %329, %285, %240
+  %common.resume.op = phi { ptr, i32 } [ %241, %240 ], [ %286, %285 ], [ %330, %329 ], [ %487, %.body.i.i ], [ %.pn34.i, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS3_EED2Ev.exit121.i ], [ %.pn53.pn.pn.pn.i, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS3_EED2Ev.exit.i712 ], [ %1274, %.body.i ], [ %.pn28.pn.pn.pn.pn.pn.i, %.body822 ], [ %1597, %1596 ], [ %.pn17.i.i, %.body.i570 ], [ %.pn.i832, %.body864 ], [ %1780, %1779 ], [ %1814, %1813 ], [ %eh.lpad-body.i867, %.body.i866 ], [ %514, %513 ], [ %428, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt10less_equalIlEEESt14default_deleteIS6_EED2Ev.exit338 ], [ %393, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt13greater_equalIlEEESt14default_deleteIS6_EED2Ev.exit318 ], [ %357, %356 ], [ %313, %312 ], [ %269, %268 ], [ %110, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_112RefValidatorESt14default_deleteIS3_EED2Ev.exit222 ], [ %.merged178, %215 ], [ %749, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_120ArrayUniqueValidatorESt14default_deleteIS3_EED2Ev.exit444 ], [ %716, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt10less_equalIlEEESt14default_deleteIS6_EED2Ev.exit424 ], [ %681, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt13greater_equalIlEEESt14default_deleteIS6_EED2Ev.exit399 ], [ %645, %644 ], [ %1881, %1880 ], [ %1841, %1840 ], [ %1807, %1806 ], [ %1773, %1772 ], [ %1700, %1699 ], [ %1625, %1624 ], [ %1590, %1589 ], [ %1301, %1300 ], [ %1234, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt10less_equalIlEEESt14default_deleteIS6_EED2Ev.exit510 ], [ %1199, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt13greater_equalIlEEESt14default_deleteIS6_EED2Ev.exit485 ], [ %1163, %1162 ]
   resume { ptr, i32 } %common.resume.op
 
 240:                                              ; preds = %237
@@ -19549,7 +19549,7 @@ _ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_117RequiredValidatorESt14defau
 1302:                                             ; preds = %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_117RequiredValidatorESt14default_deleteIS3_EED2Ev.exit, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt10less_equalIlEEESt14default_deleteIS6_EED2Ev.exit507
   %1303 = call noundef ptr @_ZNKR5folly7dynamic7get_ptrENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr nonnull @.str.55, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.55, i64 12))
   %.not167 = icmp eq ptr %1303, null
-  br i1 %.not167, label %1590, label %1304
+  br i1 %.not167, label %1591, label %1304
 
 1304:                                             ; preds = %1302
   %1305 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -19594,9 +19594,9 @@ _ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S
   %1328 = load ptr, ptr %.sroa.01034.01249, align 8, !tbaa !769, !noalias !839
   %1329 = load i32, ptr %1328, align 8, !tbaa !563, !noalias !839
   %.not.i.i.i37.i756 = icmp eq i32 %1329, 6
-  br i1 %.not.i.i.i37.i756, label %1332, label %1534
+  br i1 %.not.i.i.i37.i756, label %1332, label %1535
 
-1330:                                             ; preds = %1436
+1330:                                             ; preds = %1437
   %1331 = landingpad { ptr, i32 }
           cleanup
   br label %.body822
@@ -19605,7 +19605,7 @@ _ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S
   %1333 = getelementptr inbounds nuw i8, ptr %1328, i64 40
   %1334 = load i32, ptr %1333, align 8, !tbaa !563, !noalias !839
   %.not.i.i.i38.i = icmp eq i32 %1334, 1
-  br i1 %.not.i.i.i38.i, label %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit.i807, label %1432
+  br i1 %.not.i.i.i38.i, label %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit.i807, label %1433
 
 _ZNKR5folly7dynamic9getStringB5cxx11Ev.exit.i807: ; preds = %1332
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10) #23, !noalias !839
@@ -19624,7 +19624,7 @@ _ZNKR5folly7dynamic9getStringB5cxx11Ev.exit.i807: ; preds = %1332
 
 .noexc.i.i.i.i821:                                ; preds = %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit.i807
   %1340 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(8) %9, i64 noundef 0)
-          to label %.noexc41.i unwind label %1377, !noalias !839
+          to label %.noexc41.i unwind label %1378, !noalias !839
 
 .noexc41.i:                                       ; preds = %.noexc.i.i.i.i821
   store ptr %1340, ptr %10, align 8, !tbaa !57, !alias.scope !842, !noalias !839
@@ -19636,19 +19636,19 @@ _ZNKR5folly7dynamic9getStringB5cxx11Ev.exit.i807: ; preds = %1332
   %1342 = phi ptr [ %1340, %.noexc41.i ], [ %1319, %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit.i807 ]
   switch i64 %1338, label %1345 [
     i64 1, label %1343
-    i64 0, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
+    i64 0, label %_ZSt9make_pairIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSC_INSD_IT0_E4typeEE6__typeEEOSE_OSJ_.exit.i
   ]
 
 1343:                                             ; preds = %._crit_edge.i.i.i.i.i
   %1344 = load i8, ptr %1336, align 1, !tbaa !16, !noalias !839
   store i8 %1344, ptr %1342, align 1, !tbaa !16, !noalias !839
-  br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
+  br label %_ZSt9make_pairIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSC_INSD_IT0_E4typeEE6__typeEEOSE_OSJ_.exit.i
 
 1345:                                             ; preds = %._crit_edge.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1342, ptr align 1 %1336, i64 %1338, i1 false), !noalias !839
-  br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
+  br label %_ZSt9make_pairIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSC_INSD_IT0_E4typeEE6__typeEEOSE_OSJ_.exit.i
 
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i: ; preds = %._crit_edge.i.i.i.i.i, %1343, %1345
+_ZSt9make_pairIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSC_INSD_IT0_E4typeEE6__typeEEOSE_OSJ_.exit.i: ; preds = %1345, %1343, %._crit_edge.i.i.i.i.i
   %1346 = load i64, ptr %9, align 8, !tbaa !240, !noalias !845
   store i64 %1346, ptr %1320, align 8, !tbaa !47, !alias.scope !842, !noalias !839
   %1347 = load ptr, ptr %10, align 8, !tbaa !57, !alias.scope !842, !noalias !839
@@ -19656,199 +19656,199 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   store i8 0, ptr %1348, align 1, !tbaa !16, !noalias !839
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #23, !noalias !845
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1321, i8 0, i64 24, i1 false)
-  %.pre1374 = load i32, ptr %1333, align 8, !tbaa !563, !noalias !839
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #23, !noalias !839
-  %.not.i.not.i.i.i43.i = icmp eq i32 %.pre1374, 1
-  br i1 %.not.i.not.i.i.i43.i, label %_ZNK5folly7dynamic3endEv.exit.i811, label %1349
+  %1349 = load i32, ptr %1333, align 8, !tbaa !563, !noalias !839
+  %.not.i.not.i.i.i43.i = icmp eq i32 %1349, 1
+  br i1 %.not.i.not.i.i.i43.i, label %_ZNK5folly7dynamic3endEv.exit.i811, label %1350
 
-1349:                                             ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
-  %1350 = load ptr, ptr @_ZN5folly7dynamic8TypeInfoISt6vectorIS0_SaIS0_EEE4nameE, align 8, !tbaa !577, !noalias !839
-  invoke void @_ZN5folly6detail16throw_exception_INS_9TypeErrorEJPKcNS_7dynamic4TypeEEEEvDpT0_(ptr noundef %1350, i32 noundef %.pre1374) #22
-          to label %.noexc44.i unwind label %1379, !noalias !839
+1350:                                             ; preds = %_ZSt9make_pairIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSC_INSD_IT0_E4typeEE6__typeEEOSE_OSJ_.exit.i
+  %1351 = load ptr, ptr @_ZN5folly7dynamic8TypeInfoISt6vectorIS0_SaIS0_EEE4nameE, align 8, !tbaa !577, !noalias !839
+  invoke void @_ZN5folly6detail16throw_exception_INS_9TypeErrorEJPKcNS_7dynamic4TypeEEEEvDpT0_(ptr noundef %1351, i32 noundef %1349) #22
+          to label %.noexc44.i unwind label %1380, !noalias !839
 
-.noexc44.i:                                       ; preds = %1349
+.noexc44.i:                                       ; preds = %1350
   unreachable
 
-_ZNK5folly7dynamic3endEv.exit.i811:               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
-  %1351 = getelementptr inbounds nuw i8, ptr %1328, i64 48
-  %1352 = load ptr, ptr %1351, align 8, !tbaa !32, !noalias !839
-  %1353 = getelementptr inbounds nuw i8, ptr %1328, i64 56
-  %1354 = load ptr, ptr %1353, align 8, !tbaa !32, !noalias !839
-  %.not10891245 = icmp eq ptr %1352, %1354
+_ZNK5folly7dynamic3endEv.exit.i811:               ; preds = %_ZSt9make_pairIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSC_INSD_IT0_E4typeEE6__typeEEOSE_OSJ_.exit.i
+  %1352 = getelementptr inbounds nuw i8, ptr %1328, i64 48
+  %1353 = load ptr, ptr %1352, align 8, !tbaa !32, !noalias !839
+  %1354 = getelementptr inbounds nuw i8, ptr %1328, i64 56
+  %1355 = load ptr, ptr %1354, align 8, !tbaa !32, !noalias !839
+  %.not10891245 = icmp eq ptr %1353, %1355
   br i1 %.not10891245, label %._crit_edge, label %.lr.ph1247
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.i, %_ZNK5folly7dynamic3endEv.exit.i811
-  %1355 = load ptr, ptr %1324, align 8, !tbaa !846, !noalias !839
-  %1356 = load ptr, ptr %1325, align 8, !tbaa !849, !noalias !839
-  %.not.i.i812 = icmp eq ptr %1355, %1356
-  br i1 %.not.i.i812, label %1376, label %1357
+  %1356 = load ptr, ptr %1324, align 8, !tbaa !846, !noalias !839
+  %1357 = load ptr, ptr %1325, align 8, !tbaa !849, !noalias !839
+  %.not.i.i812 = icmp eq ptr %1356, %1357
+  br i1 %.not.i.i812, label %1377, label %1358
 
-1357:                                             ; preds = %._crit_edge
-  %1358 = getelementptr inbounds nuw i8, ptr %1355, i64 16
-  store ptr %1358, ptr %1355, align 8, !tbaa !44, !noalias !839
-  %1359 = load ptr, ptr %10, align 8, !tbaa !57, !noalias !839
-  %1360 = icmp eq ptr %1359, %1319
-  br i1 %1360, label %1361, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
+1358:                                             ; preds = %._crit_edge
+  %1359 = getelementptr inbounds nuw i8, ptr %1356, i64 16
+  store ptr %1359, ptr %1356, align 8, !tbaa !44, !noalias !839
+  %1360 = load ptr, ptr %10, align 8, !tbaa !57, !noalias !839
+  %1361 = icmp eq ptr %1360, %1319
+  br i1 %1361, label %1362, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
 
-1361:                                             ; preds = %1357
-  %1362 = load i64, ptr %1320, align 8, !tbaa !47, !noalias !839
-  %1363 = icmp ult i64 %1362, 16
-  call void @llvm.assume(i1 %1363), !noalias !839
-  %1364 = add nuw nsw i64 %1362, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1358, ptr noundef nonnull align 8 dereferenceable(1) %1319, i64 %1364, i1 false), !noalias !839
+1362:                                             ; preds = %1358
+  %1363 = load i64, ptr %1320, align 8, !tbaa !47, !noalias !839
+  %1364 = icmp ult i64 %1363, 16
+  call void @llvm.assume(i1 %1364), !noalias !839
+  %1365 = add nuw nsw i64 %1363, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1359, ptr noundef nonnull align 8 dereferenceable(1) %1319, i64 %1365, i1 false), !noalias !839
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.thread
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i: ; preds = %1357
-  store ptr %1359, ptr %1355, align 8, !tbaa !57, !noalias !839
-  %1365 = load i64, ptr %1319, align 8, !tbaa !16, !noalias !839
-  store i64 %1365, ptr %1358, align 8, !tbaa !16, !noalias !839
-  %.pre1375 = load i64, ptr %1320, align 8, !tbaa !47, !noalias !839
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i: ; preds = %1358
+  store ptr %1360, ptr %1356, align 8, !tbaa !57, !noalias !839
+  %1366 = load i64, ptr %1319, align 8, !tbaa !16, !noalias !839
+  store i64 %1366, ptr %1359, align 8, !tbaa !16, !noalias !839
+  %.pre1374 = load i64, ptr %1320, align 8, !tbaa !47, !noalias !839
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.thread
 
-_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i, %1361
-  %1366 = phi i64 [ %.pre1375, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i ], [ %1362, %1361 ]
-  %1367 = getelementptr inbounds nuw i8, ptr %1355, i64 8
-  store i64 %1366, ptr %1367, align 8, !tbaa !47, !noalias !839
+_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i, %1362
+  %1367 = phi i64 [ %.pre1374, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i ], [ %1363, %1362 ]
+  %1368 = getelementptr inbounds nuw i8, ptr %1356, i64 8
+  store i64 %1367, ptr %1368, align 8, !tbaa !47, !noalias !839
   store ptr %1319, ptr %10, align 8, !tbaa !57, !noalias !839
   store i64 0, ptr %1320, align 8, !tbaa !47, !noalias !839
   store i8 0, ptr %1319, align 8, !tbaa !16, !noalias !839
-  %1368 = getelementptr inbounds nuw i8, ptr %1355, i64 32
-  %1369 = load ptr, ptr %1321, align 8, !tbaa !582, !noalias !839
-  store ptr %1369, ptr %1368, align 8, !tbaa !582, !noalias !839
-  %1370 = getelementptr inbounds nuw i8, ptr %1355, i64 40
-  %1371 = load ptr, ptr %1322, align 8, !tbaa !581, !noalias !839
-  store ptr %1371, ptr %1370, align 8, !tbaa !581, !noalias !839
-  %1372 = getelementptr inbounds nuw i8, ptr %1355, i64 48
-  %1373 = load ptr, ptr %1323, align 8, !tbaa !590, !noalias !839
-  store ptr %1373, ptr %1372, align 8, !tbaa !590, !noalias !839
+  %1369 = getelementptr inbounds nuw i8, ptr %1356, i64 32
+  %1370 = load ptr, ptr %1321, align 8, !tbaa !582, !noalias !839
+  store ptr %1370, ptr %1369, align 8, !tbaa !582, !noalias !839
+  %1371 = getelementptr inbounds nuw i8, ptr %1356, i64 40
+  %1372 = load ptr, ptr %1322, align 8, !tbaa !581, !noalias !839
+  store ptr %1372, ptr %1371, align 8, !tbaa !581, !noalias !839
+  %1373 = getelementptr inbounds nuw i8, ptr %1356, i64 48
+  %1374 = load ptr, ptr %1323, align 8, !tbaa !590, !noalias !839
+  store ptr %1374, ptr %1373, align 8, !tbaa !590, !noalias !839
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1321, i8 0, i64 24, i1 false), !noalias !839
-  %1374 = load ptr, ptr %1324, align 8, !tbaa !846, !noalias !839
-  %1375 = getelementptr inbounds nuw i8, ptr %1374, i64 56
-  store ptr %1375, ptr %1324, align 8, !tbaa !846, !noalias !839
+  %1375 = load ptr, ptr %1324, align 8, !tbaa !846, !noalias !839
+  %1376 = getelementptr inbounds nuw i8, ptr %1375, i64 56
+  store ptr %1376, ptr %1324, align 8, !tbaa !846, !noalias !839
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i
 
-1376:                                             ; preds = %._crit_edge
-  invoke void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS6_SaIS6_EEESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %1307, ptr %1355, ptr noundef nonnull align 8 dereferenceable(56) %10)
-          to label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS6_SaIS6_EEESaIS9_EE12emplace_backIJS9_EEERS9_DpOT_.exit.i unwind label %1428, !noalias !839
+1377:                                             ; preds = %._crit_edge
+  invoke void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS6_SaIS6_EEESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %1307, ptr %1356, ptr noundef nonnull align 8 dereferenceable(56) %10)
+          to label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS6_SaIS6_EEESaIS9_EE12emplace_backIJS9_EEERS9_DpOT_.exit.i unwind label %1429, !noalias !839
 
-_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS6_SaIS6_EEESaIS9_EE12emplace_backIJS9_EEERS9_DpOT_.exit.i: ; preds = %1376
-  %.pre1376 = load ptr, ptr %1321, align 8, !tbaa !582, !noalias !839
-  %.pre1377 = load ptr, ptr %1322, align 8, !tbaa !581, !noalias !839
-  %.not4.i.i.i.i.i.i = icmp eq ptr %.pre1376, %.pre1377
+_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS6_SaIS6_EEESaIS9_EE12emplace_backIJS9_EEERS9_DpOT_.exit.i: ; preds = %1377
+  %.pre1375 = load ptr, ptr %1321, align 8, !tbaa !582, !noalias !839
+  %.pre1376 = load ptr, ptr %1322, align 8, !tbaa !581, !noalias !839
+  %.not4.i.i.i.i.i.i = icmp eq ptr %.pre1375, %.pre1376
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i813
 
-1377:                                             ; preds = %.noexc.i.i.i.i821
-  %1378 = landingpad { ptr, i32 }
+1378:                                             ; preds = %.noexc.i.i.i.i821
+  %1379 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #23, !noalias !839
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #23, !noalias !839
+  br label %1432
+
+1380:                                             ; preds = %1350
+  %1381 = landingpad { ptr, i32 }
+          cleanup
   br label %1431
 
-1379:                                             ; preds = %1349
-  %1380 = landingpad { ptr, i32 }
-          cleanup
-  br label %1430
-
 .lr.ph1247:                                       ; preds = %_ZNK5folly7dynamic3endEv.exit.i811, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.i
-  %.sroa.01029.01246 = phi ptr [ %1404, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.i ], [ %1352, %_ZNK5folly7dynamic3endEv.exit.i811 ]
-  %1381 = load i32, ptr %.sroa.01029.01246, align 8, !tbaa !563, !noalias !839
-  %.not.i.i.i48.i = icmp eq i32 %1381, 6
+  %.sroa.01029.01246 = phi ptr [ %1405, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.i ], [ %1353, %_ZNK5folly7dynamic3endEv.exit.i811 ]
+  %1382 = load i32, ptr %.sroa.01029.01246, align 8, !tbaa !563, !noalias !839
+  %.not.i.i.i48.i = icmp eq i32 %1382, 6
   br i1 %.not.i.i.i48.i, label %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit51.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.i
 
 _ZNKR5folly7dynamic9getStringB5cxx11Ev.exit51.i:  ; preds = %.lr.ph1247
-  %1382 = getelementptr inbounds nuw i8, ptr %.sroa.01029.01246, i64 8
-  %1383 = load ptr, ptr %1322, align 8, !tbaa !581, !noalias !839
-  %1384 = load ptr, ptr %1323, align 8, !tbaa !590, !noalias !839
-  %.not.i52.i = icmp eq ptr %1383, %1384
-  br i1 %.not.i52.i, label %1403, label %1385
+  %1383 = getelementptr inbounds nuw i8, ptr %.sroa.01029.01246, i64 8
+  %1384 = load ptr, ptr %1322, align 8, !tbaa !581, !noalias !839
+  %1385 = load ptr, ptr %1323, align 8, !tbaa !590, !noalias !839
+  %.not.i52.i = icmp eq ptr %1384, %1385
+  br i1 %.not.i52.i, label %1404, label %1386
 
-1385:                                             ; preds = %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit51.i
-  %1386 = getelementptr inbounds nuw i8, ptr %1383, i64 16
-  store ptr %1386, ptr %1383, align 8, !tbaa !44, !noalias !839
-  %1387 = load ptr, ptr %1382, align 8, !tbaa !57, !noalias !839
-  %1388 = getelementptr inbounds nuw i8, ptr %.sroa.01029.01246, i64 16
-  %1389 = load i64, ptr %1388, align 8, !tbaa !47, !noalias !839
+1386:                                             ; preds = %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit51.i
+  %1387 = getelementptr inbounds nuw i8, ptr %1384, i64 16
+  store ptr %1387, ptr %1384, align 8, !tbaa !44, !noalias !839
+  %1388 = load ptr, ptr %1383, align 8, !tbaa !57, !noalias !839
+  %1389 = getelementptr inbounds nuw i8, ptr %.sroa.01029.01246, i64 16
+  %1390 = load i64, ptr %1389, align 8, !tbaa !47, !noalias !839
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #23, !noalias !839
-  store i64 %1389, ptr %8, align 8, !tbaa !240, !noalias !839
-  %1390 = icmp ugt i64 %1389, 15
-  br i1 %1390, label %.noexc.i.i.i.i.i820, label %._crit_edge.i.i.i.i.i.i819
+  store i64 %1390, ptr %8, align 8, !tbaa !240, !noalias !839
+  %1391 = icmp ugt i64 %1390, 15
+  br i1 %1391, label %.noexc.i.i.i.i.i820, label %._crit_edge.i.i.i.i.i.i819
 
-.noexc.i.i.i.i.i820:                              ; preds = %1385
-  %1391 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %1383, ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 0)
-          to label %.noexc53.i unwind label %1405, !noalias !839
+.noexc.i.i.i.i.i820:                              ; preds = %1386
+  %1392 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %1384, ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 0)
+          to label %.noexc53.i unwind label %1406, !noalias !839
 
 .noexc53.i:                                       ; preds = %.noexc.i.i.i.i.i820
-  store ptr %1391, ptr %1383, align 8, !tbaa !57, !noalias !839
-  %1392 = load i64, ptr %8, align 8, !tbaa !240, !noalias !839
-  store i64 %1392, ptr %1386, align 8, !tbaa !16, !noalias !839
+  store ptr %1392, ptr %1384, align 8, !tbaa !57, !noalias !839
+  %1393 = load i64, ptr %8, align 8, !tbaa !240, !noalias !839
+  store i64 %1393, ptr %1387, align 8, !tbaa !16, !noalias !839
   br label %._crit_edge.i.i.i.i.i.i819
 
-._crit_edge.i.i.i.i.i.i819:                       ; preds = %.noexc53.i, %1385
-  %1393 = phi ptr [ %1391, %.noexc53.i ], [ %1386, %1385 ]
-  switch i64 %1389, label %1396 [
-    i64 1, label %1394
+._crit_edge.i.i.i.i.i.i819:                       ; preds = %.noexc53.i, %1386
+  %1394 = phi ptr [ %1392, %.noexc53.i ], [ %1387, %1386 ]
+  switch i64 %1390, label %1397 [
+    i64 1, label %1395
     i64 0, label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i
   ]
 
-1394:                                             ; preds = %._crit_edge.i.i.i.i.i.i819
-  %1395 = load i8, ptr %1387, align 1, !tbaa !16, !noalias !839
-  store i8 %1395, ptr %1393, align 1, !tbaa !16, !noalias !839
+1395:                                             ; preds = %._crit_edge.i.i.i.i.i.i819
+  %1396 = load i8, ptr %1388, align 1, !tbaa !16, !noalias !839
+  store i8 %1396, ptr %1394, align 1, !tbaa !16, !noalias !839
   br label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i
 
-1396:                                             ; preds = %._crit_edge.i.i.i.i.i.i819
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1393, ptr align 1 %1387, i64 %1389, i1 false), !noalias !839
+1397:                                             ; preds = %._crit_edge.i.i.i.i.i.i819
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1394, ptr align 1 %1388, i64 %1390, i1 false), !noalias !839
   br label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i
 
-_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i: ; preds = %1396, %1394, %._crit_edge.i.i.i.i.i.i819
-  %1397 = load i64, ptr %8, align 8, !tbaa !240, !noalias !839
-  %1398 = getelementptr inbounds nuw i8, ptr %1383, i64 8
-  store i64 %1397, ptr %1398, align 8, !tbaa !47, !noalias !839
-  %1399 = load ptr, ptr %1383, align 8, !tbaa !57, !noalias !839
-  %1400 = getelementptr inbounds nuw i8, ptr %1399, i64 %1397
-  store i8 0, ptr %1400, align 1, !tbaa !16, !noalias !839
+_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i: ; preds = %1397, %1395, %._crit_edge.i.i.i.i.i.i819
+  %1398 = load i64, ptr %8, align 8, !tbaa !240, !noalias !839
+  %1399 = getelementptr inbounds nuw i8, ptr %1384, i64 8
+  store i64 %1398, ptr %1399, align 8, !tbaa !47, !noalias !839
+  %1400 = load ptr, ptr %1384, align 8, !tbaa !57, !noalias !839
+  %1401 = getelementptr inbounds nuw i8, ptr %1400, i64 %1398
+  store i8 0, ptr %1401, align 1, !tbaa !16, !noalias !839
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23, !noalias !839
-  %1401 = load ptr, ptr %1322, align 8, !tbaa !581, !noalias !839
-  %1402 = getelementptr inbounds nuw i8, ptr %1401, i64 32
-  store ptr %1402, ptr %1322, align 8, !tbaa !581, !noalias !839
+  %1402 = load ptr, ptr %1322, align 8, !tbaa !581, !noalias !839
+  %1403 = getelementptr inbounds nuw i8, ptr %1402, i64 32
+  store ptr %1403, ptr %1322, align 8, !tbaa !581, !noalias !839
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.i
 
-1403:                                             ; preds = %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit51.i
-  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %1321, ptr %1383, ptr noundef nonnull align 8 dereferenceable(32) %1382)
-          to label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.i unwind label %1405, !noalias !839
+1404:                                             ; preds = %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit51.i
+  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %1321, ptr %1384, ptr noundef nonnull align 8 dereferenceable(32) %1383)
+          to label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.i unwind label %1406, !noalias !839
 
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.i: ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i, %1403, %.lr.ph1247
-  %1404 = getelementptr inbounds nuw i8, ptr %.sroa.01029.01246, i64 40
-  %.not1089 = icmp eq ptr %1404, %1354
+_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.i: ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i, %1404, %.lr.ph1247
+  %1405 = getelementptr inbounds nuw i8, ptr %.sroa.01029.01246, i64 40
+  %.not1089 = icmp eq ptr %1405, %1355
   br i1 %.not1089, label %._crit_edge, label %.lr.ph1247
 
-1405:                                             ; preds = %.noexc.i.i.i.i.i820, %1403
-  %1406 = landingpad { ptr, i32 }
+1406:                                             ; preds = %.noexc.i.i.i.i.i820, %1404
+  %1407 = landingpad { ptr, i32 }
           cleanup
-  br label %1430
+  br label %1431
 
 .lr.ph.i.i.i.i.i.i813:                            ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS6_SaIS6_EEESaIS9_EE12emplace_backIJS9_EEERS9_DpOT_.exit.i, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i814 = phi ptr [ %1415, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i.i ], [ %.pre1376, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS6_SaIS6_EEESaIS9_EE12emplace_backIJS9_EEERS9_DpOT_.exit.i ]
-  %1407 = load ptr, ptr %.05.i.i.i.i.i.i814, align 8, !tbaa !57, !noalias !839
-  %1408 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i814, i64 16
-  %1409 = icmp eq ptr %1407, %1408
-  br i1 %1409, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i
+  %.05.i.i.i.i.i.i814 = phi ptr [ %1416, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i.i ], [ %.pre1375, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS6_SaIS6_EEESaIS9_EE12emplace_backIJS9_EEERS9_DpOT_.exit.i ]
+  %1408 = load ptr, ptr %.05.i.i.i.i.i.i814, align 8, !tbaa !57, !noalias !839
+  %1409 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i814, i64 16
+  %1410 = icmp eq ptr %1408, %1409
+  br i1 %1410, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i813
-  %1410 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i814, i64 8
-  %1411 = load i64, ptr %1410, align 8, !tbaa !47, !noalias !839
-  %1412 = icmp ult i64 %1411, 16
-  call void @llvm.assume(i1 %1412), !noalias !839
+  %1411 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i814, i64 8
+  %1412 = load i64, ptr %1411, align 8, !tbaa !47, !noalias !839
+  %1413 = icmp ult i64 %1412, 16
+  call void @llvm.assume(i1 %1413), !noalias !839
   br label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i813
-  %1413 = load i64, ptr %1408, align 8, !tbaa !16, !noalias !839
-  %1414 = add i64 %1413, 1
-  call void @_ZdlPvm(ptr noundef %1407, i64 noundef %1414) #47, !noalias !839
+  %1414 = load i64, ptr %1409, align 8, !tbaa !16, !noalias !839
+  %1415 = add i64 %1414, 1
+  call void @_ZdlPvm(ptr noundef %1408, i64 noundef %1415) #47, !noalias !839
   br label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i.i
 
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i
-  %1415 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i814, i64 32
-  %.not.i.i.i.i.i.i815 = icmp eq ptr %1415, %.pre1377
+  %1416 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i814, i64 32
+  %.not.i.i.i.i.i.i815 = icmp eq ptr %1416, %.pre1376
   br i1 %.not.i.i.i.i.i.i815, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i, label %.lr.ph.i.i.i.i.i.i813, !llvm.loop !589
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i: ; preds = %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i.i
@@ -19856,420 +19856,420 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS6_SaIS6_EEESaIS9_EE12emplace_backIJS9_EEERS9_DpOT_.exit.i
-  %1416 = phi ptr [ %.pr.i.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i ], [ %.pre1376, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS6_SaIS6_EEESaIS9_EE12emplace_backIJS9_EEERS9_DpOT_.exit.i ]
-  %.not.i.i.i.i55.i = icmp eq ptr %1416, null
-  br i1 %.not.i.i.i.i55.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i, label %1417
+  %1417 = phi ptr [ %.pr.i.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i ], [ %.pre1375, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS6_SaIS6_EEESaIS9_EE12emplace_backIJS9_EEERS9_DpOT_.exit.i ]
+  %.not.i.i.i.i55.i = icmp eq ptr %1417, null
+  br i1 %.not.i.i.i.i55.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i, label %1418
 
-1417:                                             ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i
-  %1418 = load ptr, ptr %1323, align 8, !tbaa !590, !noalias !839
-  %1419 = ptrtoint ptr %1418 to i64
-  %1420 = ptrtoint ptr %1416 to i64
-  %1421 = sub i64 %1419, %1420
-  call void @_ZdlPvm(ptr noundef nonnull %1416, i64 noundef %1421) #47, !noalias !839
+1418:                                             ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i
+  %1419 = load ptr, ptr %1323, align 8, !tbaa !590, !noalias !839
+  %1420 = ptrtoint ptr %1419 to i64
+  %1421 = ptrtoint ptr %1417 to i64
+  %1422 = sub i64 %1420, %1421
+  call void @_ZdlPvm(ptr noundef nonnull %1417, i64 noundef %1422) #47, !noalias !839
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i
 
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.thread, %1417, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i
-  %1422 = load ptr, ptr %10, align 8, !tbaa !57, !noalias !839
-  %1423 = icmp eq ptr %1422, %1319
-  br i1 %1423, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i817, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i816
+_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.thread, %1418, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i
+  %1423 = load ptr, ptr %10, align 8, !tbaa !57, !noalias !839
+  %1424 = icmp eq ptr %1423, %1319
+  br i1 %1424, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i817, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i816
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i817: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i
-  %1424 = load i64, ptr %1320, align 8, !tbaa !47, !noalias !839
-  %1425 = icmp ult i64 %1424, 16
-  call void @llvm.assume(i1 %1425), !noalias !839
+  %1425 = load i64, ptr %1320, align 8, !tbaa !47, !noalias !839
+  %1426 = icmp ult i64 %1425, 16
+  call void @llvm.assume(i1 %1426), !noalias !839
   br label %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EEED2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i816: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i
-  %1426 = load i64, ptr %1319, align 8, !tbaa !16, !noalias !839
-  %1427 = add i64 %1426, 1
-  call void @_ZdlPvm(ptr noundef %1422, i64 noundef %1427) #47, !noalias !839
+  %1427 = load i64, ptr %1319, align 8, !tbaa !16, !noalias !839
+  %1428 = add i64 %1427, 1
+  call void @_ZdlPvm(ptr noundef %1423, i64 noundef %1428) #47, !noalias !839
   br label %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EEED2Ev.exit.i
 
 _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i816, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i817
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10) #23, !noalias !839
   %.pr1068 = load i32, ptr %1333, align 8, !tbaa !563, !noalias !839
-  br label %1432
+  br label %1433
 
-1428:                                             ; preds = %1376
-  %1429 = landingpad { ptr, i32 }
+1429:                                             ; preds = %1377
+  %1430 = landingpad { ptr, i32 }
           cleanup
-  br label %1430
-
-1430:                                             ; preds = %1379, %1405, %1428
-  %.pn28.pn.pn.i = phi { ptr, i32 } [ %1429, %1428 ], [ %1406, %1405 ], [ %1380, %1379 ]
-  call void @_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #23, !noalias !839
   br label %1431
 
-1431:                                             ; preds = %1430, %1377
-  %.pn28.pn.pn.pn.i = phi { ptr, i32 } [ %.pn28.pn.pn.i, %1430 ], [ %1378, %1377 ]
+1431:                                             ; preds = %1380, %1406, %1429
+  %.pn28.pn.pn.i = phi { ptr, i32 } [ %1430, %1429 ], [ %1407, %1406 ], [ %1381, %1380 ]
+  call void @_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #23, !noalias !839
+  br label %1432
+
+1432:                                             ; preds = %1431, %1378
+  %.pn28.pn.pn.pn.i = phi { ptr, i32 } [ %.pn28.pn.pn.i, %1431 ], [ %1379, %1378 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10) #23, !noalias !839
   br label %.body822
 
-1432:                                             ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EEED2Ev.exit.i, %1332
-  %1433 = phi i32 [ %.pr1068, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EEED2Ev.exit.i ], [ %1334, %1332 ]
-  %.not.i.i.i56.i = icmp eq i32 %1433, 5
-  br i1 %.not.i.i.i56.i, label %1434, label %1534
+1433:                                             ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EEED2Ev.exit.i, %1332
+  %1434 = phi i32 [ %.pr1068, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EEED2Ev.exit.i ], [ %1334, %1332 ]
+  %.not.i.i.i56.i = icmp eq i32 %1434, 5
+  br i1 %.not.i.i.i56.i, label %1435, label %1535
 
-1434:                                             ; preds = %1432
-  %1435 = load i32, ptr %1328, align 8, !tbaa !563, !noalias !839
-  %.not.i.not.i.i.i57.i = icmp eq i32 %1435, 6
-  br i1 %.not.i.not.i.i.i57.i, label %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit59.i, label %1436
+1435:                                             ; preds = %1433
+  %1436 = load i32, ptr %1328, align 8, !tbaa !563, !noalias !839
+  %.not.i.not.i.i.i57.i = icmp eq i32 %1436, 6
+  br i1 %.not.i.not.i.i.i57.i, label %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit59.i, label %1437
 
-1436:                                             ; preds = %1434
-  %1437 = load ptr, ptr @_ZN5folly7dynamic8TypeInfoINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4nameE, align 8, !tbaa !577, !noalias !839
-  invoke void @_ZN5folly6detail16throw_exception_INS_9TypeErrorEJPKcNS_7dynamic4TypeEEEEvDpT0_(ptr noundef %1437, i32 noundef %1435) #22
+1437:                                             ; preds = %1435
+  %1438 = load ptr, ptr @_ZN5folly7dynamic8TypeInfoINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4nameE, align 8, !tbaa !577, !noalias !839
+  invoke void @_ZN5folly6detail16throw_exception_INS_9TypeErrorEJPKcNS_7dynamic4TypeEEEEvDpT0_(ptr noundef %1438, i32 noundef %1436) #22
           to label %.noexc58.i unwind label %1330, !noalias !839
 
-.noexc58.i:                                       ; preds = %1436
+.noexc58.i:                                       ; preds = %1437
   unreachable
 
-_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit59.i:  ; preds = %1434
-  %1438 = getelementptr inbounds nuw i8, ptr %1328, i64 8
+_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit59.i:  ; preds = %1435
+  %1439 = getelementptr inbounds nuw i8, ptr %1328, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #23, !noalias !839
   call void @llvm.experimental.noalias.scope.decl(metadata !850)
-  %1439 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #46
-          to label %.noexc60.i773 unwind label %1532
+  %1440 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #46
+          to label %.noexc60.i773 unwind label %1533
 
 .noexc60.i773:                                    ; preds = %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit59.i
-  %1440 = getelementptr inbounds nuw i8, ptr %1439, i64 8
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 16), ptr %1439, align 8, !tbaa !28, !noalias !853
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 72), ptr %1440, align 8, !tbaa !28, !noalias !853
-  %1441 = getelementptr inbounds nuw i8, ptr %1439, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1441, i8 0, i64 24, i1 false), !noalias !853
-  store ptr %1439, ptr %12, align 8, !tbaa !30, !alias.scope !850, !noalias !839
-  invoke fastcc void @_ZN5folly10jsonschema12_GLOBAL__N_115SchemaValidator10loadSchemaERNS1_22SchemaValidatorContextERKNS_7dynamicE(ptr noundef nonnull align 8 dereferenceable(40) %1439, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(40) %1333)
-          to label %_ZN5folly10jsonschema12_GLOBAL__N_115SchemaValidator4makeERNS1_22SchemaValidatorContextERKNS_7dynamicE.exit.i775 unwind label %1442, !noalias !854
+  %1441 = getelementptr inbounds nuw i8, ptr %1440, i64 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 16), ptr %1440, align 8, !tbaa !28, !noalias !853
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 72), ptr %1441, align 8, !tbaa !28, !noalias !853
+  %1442 = getelementptr inbounds nuw i8, ptr %1440, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1442, i8 0, i64 24, i1 false), !noalias !853
+  store ptr %1440, ptr %12, align 8, !tbaa !30, !alias.scope !850, !noalias !839
+  invoke fastcc void @_ZN5folly10jsonschema12_GLOBAL__N_115SchemaValidator10loadSchemaERNS1_22SchemaValidatorContextERKNS_7dynamicE(ptr noundef nonnull align 8 dereferenceable(40) %1440, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(40) %1333)
+          to label %_ZN5folly10jsonschema12_GLOBAL__N_115SchemaValidator4makeERNS1_22SchemaValidatorContextERKNS_7dynamicE.exit.i775 unwind label %1443, !noalias !854
 
-1442:                                             ; preds = %.noexc60.i773
-  %1443 = landingpad { ptr, i32 }
+1443:                                             ; preds = %.noexc60.i773
+  %1444 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #23, !noalias !839
   br label %.body.i770
 
 _ZN5folly10jsonschema12_GLOBAL__N_115SchemaValidator4makeERNS1_22SchemaValidatorContextERKNS_7dynamicE.exit.i775: ; preds = %.noexc60.i773
-  %1444 = load ptr, ptr %1326, align 8, !tbaa !857, !noalias !839
-  %1445 = load ptr, ptr %1327, align 8, !tbaa !860, !noalias !839
-  %.not.i61.i = icmp eq ptr %1444, %1445
-  br i1 %.not.i61.i, label %1465, label %1446
+  %1445 = load ptr, ptr %1326, align 8, !tbaa !857, !noalias !839
+  %1446 = load ptr, ptr %1327, align 8, !tbaa !860, !noalias !839
+  %.not.i61.i = icmp eq ptr %1445, %1446
+  br i1 %.not.i61.i, label %1466, label %1447
 
-1446:                                             ; preds = %_ZN5folly10jsonschema12_GLOBAL__N_115SchemaValidator4makeERNS1_22SchemaValidatorContextERKNS_7dynamicE.exit.i775
-  %1447 = getelementptr inbounds nuw i8, ptr %1444, i64 16
-  store ptr %1447, ptr %1444, align 8, !tbaa !44, !noalias !839
-  %1448 = load ptr, ptr %1438, align 8, !tbaa !57, !noalias !839
-  %1449 = getelementptr inbounds nuw i8, ptr %1328, i64 16
-  %1450 = load i64, ptr %1449, align 8, !tbaa !47, !noalias !839
+1447:                                             ; preds = %_ZN5folly10jsonschema12_GLOBAL__N_115SchemaValidator4makeERNS1_22SchemaValidatorContextERKNS_7dynamicE.exit.i775
+  %1448 = getelementptr inbounds nuw i8, ptr %1445, i64 16
+  store ptr %1448, ptr %1445, align 8, !tbaa !44, !noalias !839
+  %1449 = load ptr, ptr %1439, align 8, !tbaa !57, !noalias !839
+  %1450 = getelementptr inbounds nuw i8, ptr %1328, i64 16
+  %1451 = load i64, ptr %1450, align 8, !tbaa !47, !noalias !839
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #23, !noalias !839
-  store i64 %1450, ptr %7, align 8, !tbaa !240, !noalias !839
-  %1451 = icmp ugt i64 %1450, 15
-  br i1 %1451, label %.noexc.i.i.i.i.i.i792, label %._crit_edge.i.i.i.i.i.i.i776
+  store i64 %1451, ptr %7, align 8, !tbaa !240, !noalias !839
+  %1452 = icmp ugt i64 %1451, 15
+  br i1 %1452, label %.noexc.i.i.i.i.i.i792, label %._crit_edge.i.i.i.i.i.i.i776
 
-.noexc.i.i.i.i.i.i792:                            ; preds = %1446
-  %1452 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %1444, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0)
+.noexc.i.i.i.i.i.i792:                            ; preds = %1447
+  %1453 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %1445, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0)
           to label %.noexc65.i unwind label %.loopexit1092, !noalias !839
 
 .noexc65.i:                                       ; preds = %.noexc.i.i.i.i.i.i792
-  store ptr %1452, ptr %1444, align 8, !tbaa !57, !noalias !839
-  %1453 = load i64, ptr %7, align 8, !tbaa !240, !noalias !839
-  store i64 %1453, ptr %1447, align 8, !tbaa !16, !noalias !839
+  store ptr %1453, ptr %1445, align 8, !tbaa !57, !noalias !839
+  %1454 = load i64, ptr %7, align 8, !tbaa !240, !noalias !839
+  store i64 %1454, ptr %1448, align 8, !tbaa !16, !noalias !839
   br label %._crit_edge.i.i.i.i.i.i.i776
 
-._crit_edge.i.i.i.i.i.i.i776:                     ; preds = %.noexc65.i, %1446
-  %1454 = phi ptr [ %1452, %.noexc65.i ], [ %1447, %1446 ]
-  switch i64 %1450, label %1457 [
-    i64 1, label %1455
+._crit_edge.i.i.i.i.i.i.i776:                     ; preds = %.noexc65.i, %1447
+  %1455 = phi ptr [ %1453, %.noexc65.i ], [ %1448, %1447 ]
+  switch i64 %1451, label %1458 [
+    i64 1, label %1456
     i64 0, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE12emplace_backIJRKS6_S7_INSA_15SchemaValidatorESC_ISL_EEEEERSF_DpOT_.exit.i.thread
   ]
 
-1455:                                             ; preds = %._crit_edge.i.i.i.i.i.i.i776
-  %1456 = load i8, ptr %1448, align 1, !tbaa !16, !noalias !839
-  store i8 %1456, ptr %1454, align 1, !tbaa !16, !noalias !839
+1456:                                             ; preds = %._crit_edge.i.i.i.i.i.i.i776
+  %1457 = load i8, ptr %1449, align 1, !tbaa !16, !noalias !839
+  store i8 %1457, ptr %1455, align 1, !tbaa !16, !noalias !839
   br label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE12emplace_backIJRKS6_S7_INSA_15SchemaValidatorESC_ISL_EEEEERSF_DpOT_.exit.i.thread
 
-1457:                                             ; preds = %._crit_edge.i.i.i.i.i.i.i776
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1454, ptr align 1 %1448, i64 %1450, i1 false), !noalias !839
+1458:                                             ; preds = %._crit_edge.i.i.i.i.i.i.i776
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1455, ptr align 1 %1449, i64 %1451, i1 false), !noalias !839
   br label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE12emplace_backIJRKS6_S7_INSA_15SchemaValidatorESC_ISL_EEEEERSF_DpOT_.exit.i.thread
 
-_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE12emplace_backIJRKS6_S7_INSA_15SchemaValidatorESC_ISL_EEEEERSF_DpOT_.exit.i.thread: ; preds = %._crit_edge.i.i.i.i.i.i.i776, %1455, %1457
-  %1458 = load i64, ptr %7, align 8, !tbaa !240, !noalias !839
-  %1459 = getelementptr inbounds nuw i8, ptr %1444, i64 8
-  store i64 %1458, ptr %1459, align 8, !tbaa !47, !noalias !839
-  %1460 = load ptr, ptr %1444, align 8, !tbaa !57, !noalias !839
-  %1461 = getelementptr inbounds nuw i8, ptr %1460, i64 %1458
-  store i8 0, ptr %1461, align 1, !tbaa !16, !noalias !839
+_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE12emplace_backIJRKS6_S7_INSA_15SchemaValidatorESC_ISL_EEEEERSF_DpOT_.exit.i.thread: ; preds = %._crit_edge.i.i.i.i.i.i.i776, %1456, %1458
+  %1459 = load i64, ptr %7, align 8, !tbaa !240, !noalias !839
+  %1460 = getelementptr inbounds nuw i8, ptr %1445, i64 8
+  store i64 %1459, ptr %1460, align 8, !tbaa !47, !noalias !839
+  %1461 = load ptr, ptr %1445, align 8, !tbaa !57, !noalias !839
+  %1462 = getelementptr inbounds nuw i8, ptr %1461, i64 %1459
+  store i8 0, ptr %1462, align 1, !tbaa !16, !noalias !839
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #23, !noalias !839
-  %1462 = getelementptr inbounds nuw i8, ptr %1444, i64 32
-  store ptr %1439, ptr %1462, align 8, !tbaa !600, !noalias !839
-  %1463 = load ptr, ptr %1326, align 8, !tbaa !857, !noalias !839
-  %1464 = getelementptr inbounds nuw i8, ptr %1463, i64 40
-  store ptr %1464, ptr %1326, align 8, !tbaa !857, !noalias !839
+  %1463 = getelementptr inbounds nuw i8, ptr %1445, i64 32
+  store ptr %1440, ptr %1463, align 8, !tbaa !600, !noalias !839
+  %1464 = load ptr, ptr %1326, align 8, !tbaa !857, !noalias !839
+  %1465 = getelementptr inbounds nuw i8, ptr %1464, i64 40
+  store ptr %1465, ptr %1326, align 8, !tbaa !857, !noalias !839
   br label %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorESt14default_deleteIS3_EED2Ev.exit.i791
 
-1465:                                             ; preds = %_ZN5folly10jsonschema12_GLOBAL__N_115SchemaValidator4makeERNS1_22SchemaValidatorContextERKNS_7dynamicE.exit.i775
-  %.val5.i.i = load ptr, ptr %1438, align 8, !noalias !839
-  %1466 = getelementptr inbounds nuw i8, ptr %1328, i64 16
-  %.val6.i.i795 = load i64, ptr %1466, align 8, !noalias !839
+1466:                                             ; preds = %_ZN5folly10jsonschema12_GLOBAL__N_115SchemaValidator4makeERNS1_22SchemaValidatorContextERKNS_7dynamicE.exit.i775
+  %.val5.i.i = load ptr, ptr %1439, align 8, !noalias !839
+  %1467 = getelementptr inbounds nuw i8, ptr %1328, i64 16
+  %.val6.i.i795 = load i64, ptr %1467, align 8, !noalias !839
   %.val.i.i.i796 = load ptr, ptr %1308, align 8, !tbaa !861, !noalias !839
-  %1467 = ptrtoint ptr %1444 to i64
-  %1468 = ptrtoint ptr %.val.i.i.i796 to i64
-  %1469 = sub i64 %1467, %1468
-  %1470 = icmp eq i64 %1469, 9223372036854775800
-  br i1 %1470, label %1471, label %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE12_M_check_lenEmPKc.exit.i.i.i
+  %1468 = ptrtoint ptr %1445 to i64
+  %1469 = ptrtoint ptr %.val.i.i.i796 to i64
+  %1470 = sub i64 %1468, %1469
+  %1471 = icmp eq i64 %1470, 9223372036854775800
+  br i1 %1471, label %1472, label %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE12_M_check_lenEmPKc.exit.i.i.i
 
-1471:                                             ; preds = %1465
+1472:                                             ; preds = %1466
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.9) #44
           to label %.noexc66.i unwind label %.loopexit.split-lp1093, !noalias !839
 
-.noexc66.i:                                       ; preds = %1471
+.noexc66.i:                                       ; preds = %1472
   unreachable
 
-_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %1465
-  %1472 = sdiv exact i64 %1469, 40
-  %1473 = icmp eq ptr %1444, %.val.i.i.i796
-  %.sroa.speculated.i.i.i.i797 = select i1 %1473, i64 1, i64 %1472
-  %1474 = add nsw i64 %.sroa.speculated.i.i.i.i797, %1472
-  %1475 = icmp ult i64 %1474, %1472
-  %1476 = call i64 @llvm.umin.i64(i64 %1474, i64 230584300921369395)
-  %1477 = select i1 %1475, i64 230584300921369395, i64 %1476
-  %.not.i.i.i62.i = icmp eq i64 %1477, 0
-  br i1 %.not.i.i.i62.i, label %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE11_M_allocateEm.exit.i.i.i, label %1478
+_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %1466
+  %1473 = sdiv exact i64 %1470, 40
+  %1474 = icmp eq ptr %1445, %.val.i.i.i796
+  %.sroa.speculated.i.i.i.i797 = select i1 %1474, i64 1, i64 %1473
+  %1475 = add nsw i64 %.sroa.speculated.i.i.i.i797, %1473
+  %1476 = icmp ult i64 %1475, %1473
+  %1477 = call i64 @llvm.umin.i64(i64 %1475, i64 230584300921369395)
+  %1478 = select i1 %1476, i64 230584300921369395, i64 %1477
+  %.not.i.i.i62.i = icmp eq i64 %1478, 0
+  br i1 %.not.i.i.i62.i, label %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE11_M_allocateEm.exit.i.i.i, label %1479
 
-1478:                                             ; preds = %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE12_M_check_lenEmPKc.exit.i.i.i
-  %1479 = mul nuw nsw i64 %1477, 40
-  %1480 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1479) #46
+1479:                                             ; preds = %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE12_M_check_lenEmPKc.exit.i.i.i
+  %1480 = mul nuw nsw i64 %1478, 40
+  %1481 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1480) #46
           to label %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE11_M_allocateEm.exit.i.i.i unwind label %.loopexit1092, !noalias !839
 
-_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE11_M_allocateEm.exit.i.i.i: ; preds = %1478, %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE12_M_check_lenEmPKc.exit.i.i.i
-  %1481 = phi ptr [ null, %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %1480, %1478 ]
-  %1482 = getelementptr inbounds nuw i8, ptr %1481, i64 %1469
-  %1483 = getelementptr inbounds nuw i8, ptr %1482, i64 16
-  store ptr %1483, ptr %1482, align 8, !tbaa !44, !noalias !839
+_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE11_M_allocateEm.exit.i.i.i: ; preds = %1479, %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE12_M_check_lenEmPKc.exit.i.i.i
+  %1482 = phi ptr [ null, %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %1481, %1479 ]
+  %1483 = getelementptr inbounds nuw i8, ptr %1482, i64 %1470
+  %1484 = getelementptr inbounds nuw i8, ptr %1483, i64 16
+  store ptr %1484, ptr %1483, align 8, !tbaa !44, !noalias !839
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23, !noalias !839
   store i64 %.val6.i.i795, ptr %6, align 8, !tbaa !240, !noalias !839
-  %1484 = icmp ugt i64 %.val6.i.i795, 15
-  br i1 %1484, label %.noexc.i.i.i.i.i.i.i803, label %._crit_edge.i.i.i.i.i.i.i.i
+  %1485 = icmp ugt i64 %.val6.i.i795, 15
+  br i1 %1485, label %.noexc.i.i.i.i.i.i.i803, label %._crit_edge.i.i.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i.i.i803:                          ; preds = %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE11_M_allocateEm.exit.i.i.i
-  %1485 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %1482, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 0)
-          to label %.noexc.i.i.i804 unwind label %1522, !noalias !839
+  %1486 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %1483, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 0)
+          to label %.noexc.i.i.i804 unwind label %1523, !noalias !839
 
 .noexc.i.i.i804:                                  ; preds = %.noexc.i.i.i.i.i.i.i803
-  store ptr %1485, ptr %1482, align 8, !tbaa !57, !noalias !839
-  %1486 = load i64, ptr %6, align 8, !tbaa !240, !noalias !839
-  store i64 %1486, ptr %1483, align 8, !tbaa !16, !noalias !839
+  store ptr %1486, ptr %1483, align 8, !tbaa !57, !noalias !839
+  %1487 = load i64, ptr %6, align 8, !tbaa !240, !noalias !839
+  store i64 %1487, ptr %1484, align 8, !tbaa !16, !noalias !839
   br label %._crit_edge.i.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.noexc.i.i.i804, %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE11_M_allocateEm.exit.i.i.i
-  %1487 = phi ptr [ %1485, %.noexc.i.i.i804 ], [ %1483, %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE11_M_allocateEm.exit.i.i.i ]
-  switch i64 %.val6.i.i795, label %1490 [
-    i64 1, label %1488
-    i64 0, label %1491
+  %1488 = phi ptr [ %1486, %.noexc.i.i.i804 ], [ %1484, %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE11_M_allocateEm.exit.i.i.i ]
+  switch i64 %.val6.i.i795, label %1491 [
+    i64 1, label %1489
+    i64 0, label %1492
   ]
 
-1488:                                             ; preds = %._crit_edge.i.i.i.i.i.i.i.i
-  %1489 = load i8, ptr %.val5.i.i, align 1, !tbaa !16, !noalias !839
-  store i8 %1489, ptr %1487, align 1, !tbaa !16, !noalias !839
-  br label %1491
+1489:                                             ; preds = %._crit_edge.i.i.i.i.i.i.i.i
+  %1490 = load i8, ptr %.val5.i.i, align 1, !tbaa !16, !noalias !839
+  store i8 %1490, ptr %1488, align 1, !tbaa !16, !noalias !839
+  br label %1492
 
-1490:                                             ; preds = %._crit_edge.i.i.i.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1487, ptr readonly align 1 %.val5.i.i, i64 %.val6.i.i795, i1 false), !noalias !839
-  br label %1491
+1491:                                             ; preds = %._crit_edge.i.i.i.i.i.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1488, ptr readonly align 1 %.val5.i.i, i64 %.val6.i.i795, i1 false), !noalias !839
+  br label %1492
 
-1491:                                             ; preds = %1490, %1488, %._crit_edge.i.i.i.i.i.i.i.i
-  %1492 = load i64, ptr %6, align 8, !tbaa !240, !noalias !839
-  %1493 = getelementptr inbounds nuw i8, ptr %1482, i64 8
-  store i64 %1492, ptr %1493, align 8, !tbaa !47, !noalias !839
-  %1494 = load ptr, ptr %1482, align 8, !tbaa !57, !noalias !839
-  %1495 = getelementptr inbounds nuw i8, ptr %1494, i64 %1492
-  store i8 0, ptr %1495, align 1, !tbaa !16, !noalias !839
+1492:                                             ; preds = %1491, %1489, %._crit_edge.i.i.i.i.i.i.i.i
+  %1493 = load i64, ptr %6, align 8, !tbaa !240, !noalias !839
+  %1494 = getelementptr inbounds nuw i8, ptr %1483, i64 8
+  store i64 %1493, ptr %1494, align 8, !tbaa !47, !noalias !839
+  %1495 = load ptr, ptr %1483, align 8, !tbaa !57, !noalias !839
+  %1496 = getelementptr inbounds nuw i8, ptr %1495, i64 %1493
+  store i8 0, ptr %1496, align 1, !tbaa !16, !noalias !839
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23, !noalias !839
-  %1496 = getelementptr inbounds nuw i8, ptr %1482, i64 32
-  %1497 = load ptr, ptr %12, align 8, !tbaa !30, !noalias !839
-  store ptr %1497, ptr %1496, align 8, !tbaa !600, !noalias !839
-  br i1 %1473, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit42.i.i.i, label %.lr.ph.i.i.i.i.i63.i
+  %1497 = getelementptr inbounds nuw i8, ptr %1483, i64 32
+  %1498 = load ptr, ptr %12, align 8, !tbaa !30, !noalias !839
+  store ptr %1498, ptr %1497, align 8, !tbaa !600, !noalias !839
+  br i1 %1474, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit42.i.i.i, label %.lr.ph.i.i.i.i.i63.i
 
-.lr.ph.i.i.i.i.i63.i:                             ; preds = %1491, %_ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESF_SaISF_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i
-  %.03.i.i.i.i.i.i799 = phi ptr [ %1514, %_ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESF_SaISF_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i ], [ %1481, %1491 ]
-  %.092.i.i.i.i.i.i800 = phi ptr [ %1513, %_ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESF_SaISF_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i ], [ %.val.i.i.i796, %1491 ]
+.lr.ph.i.i.i.i.i63.i:                             ; preds = %1492, %_ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESF_SaISF_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i
+  %.03.i.i.i.i.i.i799 = phi ptr [ %1515, %_ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESF_SaISF_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i ], [ %1482, %1492 ]
+  %.092.i.i.i.i.i.i800 = phi ptr [ %1514, %_ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESF_SaISF_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i ], [ %.val.i.i.i796, %1492 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !862), !noalias !839
   call void @llvm.experimental.noalias.scope.decl(metadata !865), !noalias !839
-  %1498 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i799, i64 16
-  store ptr %1498, ptr %.03.i.i.i.i.i.i799, align 8, !tbaa !44, !alias.scope !862, !noalias !867
-  %1499 = load ptr, ptr %.092.i.i.i.i.i.i800, align 8, !tbaa !57, !alias.scope !865, !noalias !868
-  %1500 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i800, i64 16
-  %1501 = icmp eq ptr %1499, %1500
-  br i1 %1501, label %1502, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i
+  %1499 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i799, i64 16
+  store ptr %1499, ptr %.03.i.i.i.i.i.i799, align 8, !tbaa !44, !alias.scope !862, !noalias !867
+  %1500 = load ptr, ptr %.092.i.i.i.i.i.i800, align 8, !tbaa !57, !alias.scope !865, !noalias !868
+  %1501 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i800, i64 16
+  %1502 = icmp eq ptr %1500, %1501
+  br i1 %1502, label %1503, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i
 
-1502:                                             ; preds = %.lr.ph.i.i.i.i.i63.i
-  %1503 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i800, i64 8
-  %1504 = load i64, ptr %1503, align 8, !tbaa !47, !alias.scope !865, !noalias !868
-  %1505 = icmp ult i64 %1504, 16
-  call void @llvm.assume(i1 %1505), !noalias !839
-  %1506 = add nuw nsw i64 %1504, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1498, ptr noundef nonnull align 8 dereferenceable(1) %1500, i64 %1506, i1 false), !alias.scope !869, !noalias !839
+1503:                                             ; preds = %.lr.ph.i.i.i.i.i63.i
+  %1504 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i800, i64 8
+  %1505 = load i64, ptr %1504, align 8, !tbaa !47, !alias.scope !865, !noalias !868
+  %1506 = icmp ult i64 %1505, 16
+  call void @llvm.assume(i1 %1506), !noalias !839
+  %1507 = add nuw nsw i64 %1505, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1499, ptr noundef nonnull align 8 dereferenceable(1) %1501, i64 %1507, i1 false), !alias.scope !869, !noalias !839
   br label %_ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESF_SaISF_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i63.i
-  store ptr %1499, ptr %.03.i.i.i.i.i.i799, align 8, !tbaa !57, !alias.scope !862, !noalias !867
-  %1507 = load i64, ptr %1500, align 8, !tbaa !16, !alias.scope !865, !noalias !868
-  store i64 %1507, ptr %1498, align 8, !tbaa !16, !alias.scope !862, !noalias !867
+  store ptr %1500, ptr %.03.i.i.i.i.i.i799, align 8, !tbaa !57, !alias.scope !862, !noalias !867
+  %1508 = load i64, ptr %1501, align 8, !tbaa !16, !alias.scope !865, !noalias !868
+  store i64 %1508, ptr %1499, align 8, !tbaa !16, !alias.scope !862, !noalias !867
   %.phi.trans.insert.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i800, i64 8
   %.pre.i.i.i.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i.i.i.i, align 8, !tbaa !47, !alias.scope !865, !noalias !868
   br label %_ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESF_SaISF_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i
 
-_ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESF_SaISF_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i, %1502
-  %1508 = phi i64 [ %.pre.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %1504, %1502 ]
-  %1509 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i800, i64 8
-  %1510 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i799, i64 8
-  store i64 %1508, ptr %1510, align 8, !tbaa !47, !alias.scope !862, !noalias !867
-  store ptr %1500, ptr %.092.i.i.i.i.i.i800, align 8, !tbaa !57, !alias.scope !865, !noalias !868
-  store i64 0, ptr %1509, align 8, !tbaa !47, !alias.scope !865, !noalias !868
-  store i8 0, ptr %1500, align 1, !tbaa !16, !alias.scope !865, !noalias !868
-  %1511 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i799, i64 32
-  %1512 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i800, i64 32
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i801 = load i64, ptr %1512, align 8, !tbaa !61, !alias.scope !865, !noalias !868
-  store i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i801, ptr %1511, align 8, !tbaa !61, !alias.scope !862, !noalias !867
-  store ptr null, ptr %1512, align 8, !tbaa !61, !alias.scope !865, !noalias !868
-  %1513 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i800, i64 40
-  %1514 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i799, i64 40
-  %.not.i.i.i.i.i64.i = icmp eq ptr %1513, %1444
+_ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESF_SaISF_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i, %1503
+  %1509 = phi i64 [ %.pre.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %1505, %1503 ]
+  %1510 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i800, i64 8
+  %1511 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i799, i64 8
+  store i64 %1509, ptr %1511, align 8, !tbaa !47, !alias.scope !862, !noalias !867
+  store ptr %1501, ptr %.092.i.i.i.i.i.i800, align 8, !tbaa !57, !alias.scope !865, !noalias !868
+  store i64 0, ptr %1510, align 8, !tbaa !47, !alias.scope !865, !noalias !868
+  store i8 0, ptr %1501, align 1, !tbaa !16, !alias.scope !865, !noalias !868
+  %1512 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i799, i64 32
+  %1513 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i800, i64 32
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i801 = load i64, ptr %1513, align 8, !tbaa !61, !alias.scope !865, !noalias !868
+  store i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i801, ptr %1512, align 8, !tbaa !61, !alias.scope !862, !noalias !867
+  store ptr null, ptr %1513, align 8, !tbaa !61, !alias.scope !865, !noalias !868
+  %1514 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i800, i64 40
+  %1515 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i799, i64 40
+  %.not.i.i.i.i.i64.i = icmp eq ptr %1514, %1445
   br i1 %.not.i.i.i.i.i64.i, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit42.i.i.i, label %.lr.ph.i.i.i.i.i63.i, !llvm.loop !870
 
-_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit42.i.i.i: ; preds = %_ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESF_SaISF_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i, %1491
-  %.0.lcssa.i.i.i.i.i.i802 = phi ptr [ %1481, %1491 ], [ %1514, %_ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESF_SaISF_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i ]
-  %1515 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i802, i64 40
+_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit42.i.i.i: ; preds = %_ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESF_SaISF_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i, %1492
+  %.0.lcssa.i.i.i.i.i.i802 = phi ptr [ %1482, %1492 ], [ %1515, %_ZSt19__relocate_object_aISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESF_SaISF_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i ]
+  %1516 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i802, i64 40
   %.not.i43.i.i.i = icmp eq ptr %.val.i.i.i796, null
-  br i1 %.not.i43.i.i.i, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE12emplace_backIJRKS6_S7_INSA_15SchemaValidatorESC_ISL_EEEEERSF_DpOT_.exit.i, label %1516
+  br i1 %.not.i43.i.i.i, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE12emplace_backIJRKS6_S7_INSA_15SchemaValidatorESC_ISL_EEEEERSF_DpOT_.exit.i, label %1517
 
-1516:                                             ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit42.i.i.i
-  %1517 = load ptr, ptr %1327, align 8, !tbaa !860, !noalias !839
-  %1518 = ptrtoint ptr %1517 to i64
-  %1519 = sub i64 %1518, %1468
-  call void @_ZdlPvm(ptr noundef nonnull %.val.i.i.i796, i64 noundef %1519) #47, !noalias !839
+1517:                                             ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit42.i.i.i
+  %1518 = load ptr, ptr %1327, align 8, !tbaa !860, !noalias !839
+  %1519 = ptrtoint ptr %1518 to i64
+  %1520 = sub i64 %1519, %1469
+  call void @_ZdlPvm(ptr noundef nonnull %.val.i.i.i796, i64 noundef %1520) #47, !noalias !839
   br label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE12emplace_backIJRKS6_S7_INSA_15SchemaValidatorESC_ISL_EEEEERSF_DpOT_.exit.i
 
-1520:                                             ; preds = %1522
-  %1521 = landingpad { ptr, i32 }
+1521:                                             ; preds = %1523
+  %1522 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %.body68.i793 unwind label %1527, !noalias !839
+          to label %.body68.i793 unwind label %1528, !noalias !839
 
-1522:                                             ; preds = %.noexc.i.i.i.i.i.i.i803
-  %1523 = landingpad { ptr, i32 }
+1523:                                             ; preds = %.noexc.i.i.i.i.i.i.i803
+  %1524 = landingpad { ptr, i32 }
           catch ptr null
-  %1524 = extractvalue { ptr, i32 } %1523, 0
-  %1525 = call ptr @__cxa_begin_catch(ptr %1524) #23, !noalias !839
-  %1526 = mul nuw nsw i64 %1477, 40
-  call void @_ZdlPvm(ptr noundef nonnull %1481, i64 noundef %1526) #47, !noalias !839
+  %1525 = extractvalue { ptr, i32 } %1524, 0
+  %1526 = call ptr @__cxa_begin_catch(ptr %1525) #23, !noalias !839
+  %1527 = mul nuw nsw i64 %1478, 40
+  call void @_ZdlPvm(ptr noundef nonnull %1482, i64 noundef %1527) #47, !noalias !839
   invoke void @__cxa_rethrow() #44
-          to label %1530 unwind label %1520, !noalias !839
+          to label %1531 unwind label %1521, !noalias !839
 
-1527:                                             ; preds = %1520
-  %1528 = landingpad { ptr, i32 }
+1528:                                             ; preds = %1521
+  %1529 = landingpad { ptr, i32 }
           catch ptr null
-  %1529 = extractvalue { ptr, i32 } %1528, 0
-  call void @__clang_call_terminate(ptr %1529) #45, !noalias !839
+  %1530 = extractvalue { ptr, i32 } %1529, 0
+  call void @__clang_call_terminate(ptr %1530) #45, !noalias !839
   unreachable
 
-1530:                                             ; preds = %1522
+1531:                                             ; preds = %1523
   unreachable
 
-_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE12emplace_backIJRKS6_S7_INSA_15SchemaValidatorESC_ISL_EEEEERSF_DpOT_.exit.i: ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit42.i.i.i, %1516
-  store ptr %1481, ptr %1308, align 8, !tbaa !861, !noalias !839
-  store ptr %1515, ptr %1326, align 8, !tbaa !857, !noalias !839
-  %1531 = getelementptr inbounds nuw %"struct.std::pair.861", ptr %1481, i64 %1477
-  store ptr %1531, ptr %1327, align 8, !tbaa !860, !noalias !839
+_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE12emplace_backIJRKS6_S7_INSA_15SchemaValidatorESC_ISL_EEEEERSF_DpOT_.exit.i: ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit42.i.i.i, %1517
+  store ptr %1482, ptr %1308, align 8, !tbaa !861, !noalias !839
+  store ptr %1516, ptr %1326, align 8, !tbaa !857, !noalias !839
+  %1532 = getelementptr inbounds nuw %"struct.std::pair.861", ptr %1482, i64 %1478
+  store ptr %1532, ptr %1327, align 8, !tbaa !860, !noalias !839
   br label %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorESt14default_deleteIS3_EED2Ev.exit.i791
 
 _ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorESt14default_deleteIS3_EED2Ev.exit.i791: ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE12emplace_backIJRKS6_S7_INSA_15SchemaValidatorESC_ISL_EEEEERSF_DpOT_.exit.i, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EE12emplace_backIJRKS6_S7_INSA_15SchemaValidatorESC_ISL_EEEEERSF_DpOT_.exit.i.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #23, !noalias !839
-  br label %1534
+  br label %1535
 
-1532:                                             ; preds = %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit59.i
-  %1533 = landingpad { ptr, i32 }
+1533:                                             ; preds = %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit59.i
+  %1534 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i770
 
-.loopexit1092:                                    ; preds = %.noexc.i.i.i.i.i.i792, %1478
+.loopexit1092:                                    ; preds = %.noexc.i.i.i.i.i.i792, %1479
   %lpad.loopexit1094 = landingpad { ptr, i32 }
           cleanup
   br label %.body68.i793
 
-.loopexit.split-lp1093:                           ; preds = %1471
+.loopexit.split-lp1093:                           ; preds = %1472
   %lpad.loopexit.split-lp1095 = landingpad { ptr, i32 }
           cleanup
   br label %.body68.i793
 
-.body68.i793:                                     ; preds = %.loopexit1092, %.loopexit.split-lp1093, %1520
-  %eh.lpad-body69.i794 = phi { ptr, i32 } [ %1521, %1520 ], [ %lpad.loopexit1094, %.loopexit1092 ], [ %lpad.loopexit.split-lp1095, %.loopexit.split-lp1093 ]
+.body68.i793:                                     ; preds = %.loopexit1092, %.loopexit.split-lp1093, %1521
+  %eh.lpad-body69.i794 = phi { ptr, i32 } [ %1522, %1521 ], [ %lpad.loopexit1094, %.loopexit1092 ], [ %lpad.loopexit.split-lp1095, %.loopexit.split-lp1093 ]
   call fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #23, !noalias !839
   br label %.body.i770
 
-.body.i770:                                       ; preds = %1442, %1532, %.body68.i793
-  %.pn.i772 = phi { ptr, i32 } [ %eh.lpad-body69.i794, %.body68.i793 ], [ %1533, %1532 ], [ %1443, %1442 ]
+.body.i770:                                       ; preds = %1443, %1533, %.body68.i793
+  %.pn.i772 = phi { ptr, i32 } [ %eh.lpad-body69.i794, %.body68.i793 ], [ %1534, %1533 ], [ %1444, %1443 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #23, !noalias !839
   br label %.body822
 
-1534:                                             ; preds = %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorESt14default_deleteIS3_EED2Ev.exit.i791, %1432, %_ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit.i761
-  %1535 = getelementptr inbounds i8, ptr %.sroa.01034.01249, i64 -16
+1535:                                             ; preds = %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorESt14default_deleteIS3_EED2Ev.exit.i791, %1433, %_ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit.i761
+  %1536 = getelementptr inbounds i8, ptr %.sroa.01034.01249, i64 -16
   %.neg.i.i.i.i.i.i757 = mul i64 %.sroa.91037.01250, -8
-  %1536 = getelementptr inbounds i8, ptr %1535, i64 %.neg.i.i.i.i.i.i757
+  %1537 = getelementptr inbounds i8, ptr %1536, i64 %.neg.i.i.i.i.i.i757
   %.not19.i6.i.i.i.i758 = icmp eq i64 %.sroa.91037.01250, 0
   br i1 %.not19.i6.i.i.i.i758, label %.critedge.i.i.i.i.i764.preheader, label %thread-pre-split.i.i.i.i759
 
-.critedge.i.i.i.i.i764.preheader:                 ; preds = %1537, %1534
+.critedge.i.i.i.i.i764.preheader:                 ; preds = %1538, %1535
   br label %.critedge.i.i.i.i.i764
 
-1537:                                             ; preds = %thread-pre-split.i.i.i.i759
-  %.not19.i.i.i.i.i762 = icmp eq i64 %1540, 0
+1538:                                             ; preds = %thread-pre-split.i.i.i.i759
+  %.not19.i.i.i.i.i762 = icmp eq i64 %1541, 0
   br i1 %.not19.i.i.i.i.i762, label %.critedge.i.i.i.i.i764.preheader, label %thread-pre-split.i.i.i.i759
 
-thread-pre-split.i.i.i.i759:                      ; preds = %1534, %1537
-  %1538 = phi i64 [ %1540, %1537 ], [ %.sroa.91037.01250, %1534 ]
-  %1539 = phi ptr [ %1541, %1537 ], [ %.sroa.01034.01249, %1534 ]
-  %1540 = add i64 %1538, -1
-  %1541 = getelementptr inbounds i8, ptr %1539, i64 -8
-  %1542 = getelementptr inbounds nuw [14 x i8], ptr %1536, i64 0, i64 %1540
-  %1543 = load i8, ptr %1542, align 1, !tbaa !16, !noalias !839
-  %.not.i.i.i71.i760 = icmp eq i8 %1543, 0
-  br i1 %.not.i.i.i71.i760, label %1537, label %_ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit.i761.backedge, !prof !12, !llvm.loop !784
+thread-pre-split.i.i.i.i759:                      ; preds = %1535, %1538
+  %1539 = phi i64 [ %1541, %1538 ], [ %.sroa.91037.01250, %1535 ]
+  %1540 = phi ptr [ %1542, %1538 ], [ %.sroa.01034.01249, %1535 ]
+  %1541 = add i64 %1539, -1
+  %1542 = getelementptr inbounds i8, ptr %1540, i64 -8
+  %1543 = getelementptr inbounds nuw [14 x i8], ptr %1537, i64 0, i64 %1541
+  %1544 = load i8, ptr %1543, align 1, !tbaa !16, !noalias !839
+  %.not.i.i.i71.i760 = icmp eq i8 %1544, 0
+  br i1 %.not.i.i.i71.i760, label %1538, label %_ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit.i761.backedge, !prof !12, !llvm.loop !784
 
-.critedge.i.i.i.i.i764:                           ; preds = %.critedge.i.i.i.i.i764.preheader, %1547
-  %.017.i.i.i.i.i765 = phi ptr [ %1548, %1547 ], [ %1536, %.critedge.i.i.i.i.i764.preheader ]
-  %1544 = getelementptr inbounds nuw i8, ptr %.017.i.i.i.i.i765, i64 14
-  %1545 = load i8, ptr %1544, align 1, !tbaa !16, !noalias !839
-  %1546 = and i8 %1545, 15
-  %.not2.i.i.i.i766 = icmp eq i8 %1546, 0
-  br i1 %.not2.i.i.i.i766, label %1547, label %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_119DependencyValidatorEJRNS2_22SchemaValidatorContextERKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, !prof !217
+.critedge.i.i.i.i.i764:                           ; preds = %.critedge.i.i.i.i.i764.preheader, %1548
+  %.017.i.i.i.i.i765 = phi ptr [ %1549, %1548 ], [ %1537, %.critedge.i.i.i.i.i764.preheader ]
+  %1545 = getelementptr inbounds nuw i8, ptr %.017.i.i.i.i.i765, i64 14
+  %1546 = load i8, ptr %1545, align 1, !tbaa !16, !noalias !839
+  %1547 = and i8 %1546, 15
+  %.not2.i.i.i.i766 = icmp eq i8 %1547, 0
+  br i1 %.not2.i.i.i.i766, label %1548, label %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_119DependencyValidatorEJRNS2_22SchemaValidatorContextERKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, !prof !217
 
-1547:                                             ; preds = %.critedge.i.i.i.i.i764
-  %1548 = getelementptr inbounds i8, ptr %.017.i.i.i.i.i765, i64 -128
-  %1549 = load <16 x i8>, ptr %1548, align 16, !tbaa !16, !noalias !839
-  %1550 = icmp slt <16 x i8> %1549, zeroinitializer
-  %1551 = bitcast <16 x i1> %1550 to i16
-  %1552 = and i16 %1551, 16383
-  %1553 = getelementptr inbounds i8, ptr %.017.i.i.i.i.i765, i64 -256
-  call void @llvm.prefetch.p0(ptr nonnull %1553, i32 0, i32 3, i32 1), !noalias !839
-  %.not3.i.i.i.i769 = icmp eq i16 %1552, 0
-  br i1 %.not3.i.i.i.i769, label %.critedge.i.i.i.i.i764, label %1554, !prof !12, !llvm.loop !785
+1548:                                             ; preds = %.critedge.i.i.i.i.i764
+  %1549 = getelementptr inbounds i8, ptr %.017.i.i.i.i.i765, i64 -128
+  %1550 = load <16 x i8>, ptr %1549, align 16, !tbaa !16, !noalias !839
+  %1551 = icmp slt <16 x i8> %1550, zeroinitializer
+  %1552 = bitcast <16 x i1> %1551 to i16
+  %1553 = and i16 %1552, 16383
+  %1554 = getelementptr inbounds i8, ptr %.017.i.i.i.i.i765, i64 -256
+  call void @llvm.prefetch.p0(ptr nonnull %1554, i32 0, i32 3, i32 1), !noalias !839
+  %.not3.i.i.i.i769 = icmp eq i16 %1553, 0
+  br i1 %.not3.i.i.i.i769, label %.critedge.i.i.i.i.i764, label %1555, !prof !12, !llvm.loop !785
 
-1554:                                             ; preds = %1547
-  %1555 = zext nneg i16 %1552 to i32
-  %1556 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1555, i1 true)
-  %1557 = xor i32 %1556, 31
-  %1558 = zext nneg i32 %1557 to i64
-  %1559 = icmp ne ptr %1548, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
-  call void @llvm.assume(i1 %1559), !noalias !839
-  %1560 = getelementptr inbounds i8, ptr %.017.i.i.i.i.i765, i64 -112
-  %1561 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %1560, i64 0, i64 %1558
+1555:                                             ; preds = %1548
+  %1556 = zext nneg i16 %1553 to i32
+  %1557 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1556, i1 true)
+  %1558 = xor i32 %1557, 31
+  %1559 = zext nneg i32 %1558 to i64
+  %1560 = icmp ne ptr %1549, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
+  call void @llvm.assume(i1 %1560), !noalias !839
+  %1561 = getelementptr inbounds i8, ptr %.017.i.i.i.i.i765, i64 -112
+  %1562 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %1561, i64 0, i64 %1559
   br label %_ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit.i761.backedge
 
-_ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit.i761.backedge: ; preds = %thread-pre-split.i.i.i.i759, %1554
-  %.sroa.91037.01250.be = phi i64 [ %1558, %1554 ], [ %1540, %thread-pre-split.i.i.i.i759 ]
-  %.sroa.01034.01249.be = phi ptr [ %1561, %1554 ], [ %1541, %thread-pre-split.i.i.i.i759 ]
+_ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit.i761.backedge: ; preds = %thread-pre-split.i.i.i.i759, %1555
+  %.sroa.91037.01250.be = phi i64 [ %1559, %1555 ], [ %1541, %thread-pre-split.i.i.i.i759 ]
+  %.sroa.01034.01249.be = phi ptr [ %1562, %1555 ], [ %1542, %thread-pre-split.i.i.i.i759 ]
   br label %_ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit.i761
 
-.body822:                                         ; preds = %1330, %1431, %.body.i770
-  %.pn28.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn28.pn.pn.pn.i, %1431 ], [ %.pn.i772, %.body.i770 ], [ %1331, %1330 ]
+.body822:                                         ; preds = %1330, %1432, %.body.i770
+  %.pn28.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn28.pn.pn.pn.i, %1432 ], [ %.pn.i772, %.body.i770 ], [ %1331, %1330 ]
   call fastcc void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1308) #23, !noalias !839
   call void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS6_SaIS6_EEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1307) #23, !noalias !839
   call void @_ZdlPvm(ptr noundef nonnull %1306, i64 noundef 56) #47, !noalias !839
@@ -20277,1013 +20277,1013 @@ _ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S
 
 _ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_119DependencyValidatorEJRNS2_22SchemaValidatorContextERKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %.critedge.i.i.i.i.i764, %_ZNK5folly7dynamic5itemsEv.exit.i753, %1304
   store ptr %1306, ptr %44, align 8, !tbaa !871
-  %1562 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %1563 = load ptr, ptr %1562, align 8, !tbaa !596
-  %1564 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1565 = load ptr, ptr %1564, align 8, !tbaa !599
-  %.not.i537 = icmp eq ptr %1563, %1565
-  br i1 %.not.i537, label %1568, label %1566
+  %1563 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %1564 = load ptr, ptr %1563, align 8, !tbaa !596
+  %1565 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1566 = load ptr, ptr %1565, align 8, !tbaa !599
+  %.not.i537 = icmp eq ptr %1564, %1566
+  br i1 %.not.i537, label %1569, label %1567
 
-1566:                                             ; preds = %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_119DependencyValidatorEJRNS2_22SchemaValidatorContextERKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
+1567:                                             ; preds = %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_119DependencyValidatorEJRNS2_22SchemaValidatorContextERKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   store ptr null, ptr %44, align 8, !tbaa !871
-  store ptr %1306, ptr %1563, align 8, !tbaa !600
-  %1567 = getelementptr inbounds nuw i8, ptr %1563, i64 8
-  store ptr %1567, ptr %1562, align 8, !tbaa !596
+  store ptr %1306, ptr %1564, align 8, !tbaa !600
+  %1568 = getelementptr inbounds nuw i8, ptr %1564, i64 8
+  store ptr %1568, ptr %1563, align 8, !tbaa !596
   br label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_19DependencyValidatorES5_ISB_EEEEERS7_DpOT_.exit
 
-1568:                                             ; preds = %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_119DependencyValidatorEJRNS2_22SchemaValidatorContextERKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
+1569:                                             ; preds = %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_119DependencyValidatorEJRNS2_22SchemaValidatorContextERKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   %.val.i.i538 = load ptr, ptr %1305, align 8, !tbaa !602
-  %1569 = ptrtoint ptr %1563 to i64
-  %1570 = ptrtoint ptr %.val.i.i538 to i64
-  %1571 = sub i64 %1569, %1570
-  %1572 = icmp eq i64 %1571, 9223372036854775800
-  br i1 %1572, label %1573, label %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i539
+  %1570 = ptrtoint ptr %1564 to i64
+  %1571 = ptrtoint ptr %.val.i.i538 to i64
+  %1572 = sub i64 %1570, %1571
+  %1573 = icmp eq i64 %1572, 9223372036854775800
+  br i1 %1573, label %1574, label %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i539
 
-1573:                                             ; preds = %1568
+1574:                                             ; preds = %1569
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.9) #44
-          to label %.noexc550 unwind label %1588
+          to label %.noexc550 unwind label %1589
 
-.noexc550:                                        ; preds = %1573
+.noexc550:                                        ; preds = %1574
   unreachable
 
-_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i539: ; preds = %1568
-  %1574 = ashr exact i64 %1571, 3
-  %1575 = icmp eq ptr %1563, %.val.i.i538
-  %.sroa.speculated.i.i.i540 = select i1 %1575, i64 1, i64 %1574
-  %1576 = add nsw i64 %.sroa.speculated.i.i.i540, %1574
-  %1577 = icmp ult i64 %1576, %1574
-  %1578 = call i64 @llvm.umin.i64(i64 %1576, i64 1152921504606846975)
-  %1579 = select i1 %1577, i64 1152921504606846975, i64 %1578
-  %.not.i.i.i541 = icmp ne i64 %1579, 0
+_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i539: ; preds = %1569
+  %1575 = ashr exact i64 %1572, 3
+  %1576 = icmp eq ptr %1564, %.val.i.i538
+  %.sroa.speculated.i.i.i540 = select i1 %1576, i64 1, i64 %1575
+  %1577 = add nsw i64 %.sroa.speculated.i.i.i540, %1575
+  %1578 = icmp ult i64 %1577, %1575
+  %1579 = call i64 @llvm.umin.i64(i64 %1577, i64 1152921504606846975)
+  %1580 = select i1 %1578, i64 1152921504606846975, i64 %1579
+  %.not.i.i.i541 = icmp ne i64 %1580, 0
   call void @llvm.assume(i1 %.not.i.i.i541)
-  %1580 = shl nuw nsw i64 %1579, 3
-  %1581 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1580) #46
-          to label %.noexc551 unwind label %1588
+  %1581 = shl nuw nsw i64 %1580, 3
+  %1582 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1581) #46
+          to label %.noexc551 unwind label %1589
 
 .noexc551:                                        ; preds = %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i539
-  %1582 = getelementptr inbounds nuw i8, ptr %1581, i64 %1571
+  %1583 = getelementptr inbounds nuw i8, ptr %1582, i64 %1572
   store ptr null, ptr %44, align 8, !tbaa !871
-  store ptr %1306, ptr %1582, align 8, !tbaa !600
-  br i1 %1575, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i547, label %.lr.ph.i.i.i.i.i542
+  store ptr %1306, ptr %1583, align 8, !tbaa !600
+  br i1 %1576, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i547, label %.lr.ph.i.i.i.i.i542
 
 .lr.ph.i.i.i.i.i542:                              ; preds = %.noexc551, %.lr.ph.i.i.i.i.i542
-  %.03.i.i.i.i.i543 = phi ptr [ %1584, %.lr.ph.i.i.i.i.i542 ], [ %1581, %.noexc551 ]
-  %.092.i.i.i.i.i544 = phi ptr [ %1583, %.lr.ph.i.i.i.i.i542 ], [ %.val.i.i538, %.noexc551 ]
+  %.03.i.i.i.i.i543 = phi ptr [ %1585, %.lr.ph.i.i.i.i.i542 ], [ %1582, %.noexc551 ]
+  %.092.i.i.i.i.i544 = phi ptr [ %1584, %.lr.ph.i.i.i.i.i542 ], [ %.val.i.i538, %.noexc551 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !873)
   call void @llvm.experimental.noalias.scope.decl(metadata !876)
   %.val.i.i.i.i.i.i.i.i.i.i.i545 = load i64, ptr %.092.i.i.i.i.i544, align 8, !tbaa !61, !alias.scope !876, !noalias !873
   store i64 %.val.i.i.i.i.i.i.i.i.i.i.i545, ptr %.03.i.i.i.i.i543, align 8, !tbaa !61, !alias.scope !873, !noalias !876
   store ptr null, ptr %.092.i.i.i.i.i544, align 8, !tbaa !61, !alias.scope !876, !noalias !873
-  %1583 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i544, i64 8
-  %1584 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i543, i64 8
-  %.not.i.i.i.i.i546 = icmp eq ptr %1583, %1563
+  %1584 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i544, i64 8
+  %1585 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i543, i64 8
+  %.not.i.i.i.i.i546 = icmp eq ptr %1584, %1564
   br i1 %.not.i.i.i.i.i546, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i547, label %.lr.ph.i.i.i.i.i542, !llvm.loop !608
 
 _ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i547: ; preds = %.lr.ph.i.i.i.i.i542, %.noexc551
-  %.0.lcssa.i.i.i.i.i548 = phi ptr [ %1581, %.noexc551 ], [ %1584, %.lr.ph.i.i.i.i.i542 ]
-  %1585 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i548, i64 8
+  %.0.lcssa.i.i.i.i.i548 = phi ptr [ %1582, %.noexc551 ], [ %1585, %.lr.ph.i.i.i.i.i542 ]
+  %1586 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i548, i64 8
   %.not.i28.i.i549 = icmp eq ptr %.val.i.i538, null
-  br i1 %.not.i28.i.i549, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS0_INS3_19DependencyValidatorES5_ISB_EEEEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i, label %1586
+  br i1 %.not.i28.i.i549, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS0_INS3_19DependencyValidatorES5_ISB_EEEEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i, label %1587
 
-1586:                                             ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i547
-  call void @_ZdlPvm(ptr noundef nonnull %.val.i.i538, i64 noundef %1571) #47
+1587:                                             ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i547
+  call void @_ZdlPvm(ptr noundef nonnull %.val.i.i538, i64 noundef %1572) #47
   br label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS0_INS3_19DependencyValidatorES5_ISB_EEEEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i
 
-_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS0_INS3_19DependencyValidatorES5_ISB_EEEEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i: ; preds = %1586, %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i547
-  store ptr %1581, ptr %1305, align 8, !tbaa !602
-  store ptr %1585, ptr %1562, align 8, !tbaa !596
-  %1587 = getelementptr inbounds nuw %"class.std::unique_ptr.340", ptr %1581, i64 %1579
-  store ptr %1587, ptr %1564, align 8, !tbaa !599
+_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS0_INS3_19DependencyValidatorES5_ISB_EEEEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i: ; preds = %1587, %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i547
+  store ptr %1582, ptr %1305, align 8, !tbaa !602
+  store ptr %1586, ptr %1563, align 8, !tbaa !596
+  %1588 = getelementptr inbounds nuw %"class.std::unique_ptr.340", ptr %1582, i64 %1580
+  store ptr %1588, ptr %1565, align 8, !tbaa !599
   br label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_19DependencyValidatorES5_ISB_EEEEERS7_DpOT_.exit
 
-_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_19DependencyValidatorES5_ISB_EEEEERS7_DpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS0_INS3_19DependencyValidatorES5_ISB_EEEEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i, %1566
+_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_19DependencyValidatorES5_ISB_EEEEERS7_DpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS0_INS3_19DependencyValidatorES5_ISB_EEEEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i, %1567
   call fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_119DependencyValidatorESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %44) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #23
-  br label %1590
+  br label %1591
 
-1588:                                             ; preds = %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i539, %1573
-  %1589 = landingpad { ptr, i32 }
+1589:                                             ; preds = %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i539, %1574
+  %1590 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_119DependencyValidatorESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %44) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #23
   br label %common.resume
 
-1590:                                             ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_19DependencyValidatorES5_ISB_EEEEERS7_DpOT_.exit, %1302
-  %1591 = call noundef ptr @_ZNKR5folly7dynamic7get_ptrENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr nonnull @.str.56, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.56, i64 4))
-  %.not168 = icmp eq ptr %1591, null
-  br i1 %.not168, label %1625, label %1592
+1591:                                             ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_19DependencyValidatorES5_ISB_EEEEERS7_DpOT_.exit, %1302
+  %1592 = call noundef ptr @_ZNKR5folly7dynamic7get_ptrENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr nonnull @.str.56, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.56, i64 4))
+  %.not168 = icmp eq ptr %1592, null
+  br i1 %.not168, label %1626, label %1593
 
-1592:                                             ; preds = %1590
-  %1593 = getelementptr inbounds nuw i8, ptr %0, i64 16
+1593:                                             ; preds = %1591
+  %1594 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45) #23
   call void @llvm.experimental.noalias.scope.decl(metadata !878)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %23)
-  %1594 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #46, !noalias !878
-  invoke void @_ZN5folly7dynamicC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) %1591)
-          to label %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_113EnumValidatorEJRKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %1595, !noalias !878
+  %1595 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #46, !noalias !878
+  invoke void @_ZN5folly7dynamicC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) %1592)
+          to label %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_113EnumValidatorEJRKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %1596, !noalias !878
 
-1595:                                             ; preds = %1592
-  %1596 = landingpad { ptr, i32 }
+1596:                                             ; preds = %1593
+  %1597 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPvm(ptr noundef nonnull %1594, i64 noundef 48) #47, !noalias !878
+  call void @_ZdlPvm(ptr noundef nonnull %1595, i64 noundef 48) #47, !noalias !878
   br label %common.resume
 
-_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_113EnumValidatorEJRKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %1592
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_113EnumValidatorE, i64 16), ptr %1594, align 8, !tbaa !28, !noalias !878
-  %1597 = getelementptr inbounds nuw i8, ptr %1594, i64 8
-  call void @_ZN5folly7dynamicC1EOS0_(ptr noundef nonnull align 8 dereferenceable(40) %1597, ptr noundef nonnull align 8 dereferenceable(40) %23) #23, !noalias !878
-  store ptr %1594, ptr %45, align 8, !tbaa !881, !alias.scope !878
+_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_113EnumValidatorEJRKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %1593
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_113EnumValidatorE, i64 16), ptr %1595, align 8, !tbaa !28, !noalias !878
+  %1598 = getelementptr inbounds nuw i8, ptr %1595, i64 8
+  call void @_ZN5folly7dynamicC1EOS0_(ptr noundef nonnull align 8 dereferenceable(40) %1598, ptr noundef nonnull align 8 dereferenceable(40) %23) #23, !noalias !878
+  store ptr %1595, ptr %45, align 8, !tbaa !881, !alias.scope !878
   call void @_ZN5folly7dynamic7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %23) #23, !noalias !878
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23)
-  %1598 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %1599 = load ptr, ptr %1598, align 8, !tbaa !596
-  %1600 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1601 = load ptr, ptr %1600, align 8, !tbaa !599
-  %.not.i552 = icmp eq ptr %1599, %1601
-  br i1 %.not.i552, label %1603, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_13EnumValidatorES5_ISB_EEEEERS7_DpOT_.exit.thread
+  %1599 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %1600 = load ptr, ptr %1599, align 8, !tbaa !596
+  %1601 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1602 = load ptr, ptr %1601, align 8, !tbaa !599
+  %.not.i552 = icmp eq ptr %1600, %1602
+  br i1 %.not.i552, label %1604, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_13EnumValidatorES5_ISB_EEEEERS7_DpOT_.exit.thread
 
 _ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_13EnumValidatorES5_ISB_EEEEERS7_DpOT_.exit.thread: ; preds = %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_113EnumValidatorEJRKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  store ptr %1594, ptr %1599, align 8, !tbaa !600
-  %1602 = getelementptr inbounds nuw i8, ptr %1599, i64 8
-  store ptr %1602, ptr %1598, align 8, !tbaa !596
+  store ptr %1595, ptr %1600, align 8, !tbaa !600
+  %1603 = getelementptr inbounds nuw i8, ptr %1600, i64 8
+  store ptr %1603, ptr %1599, align 8, !tbaa !596
   br label %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113EnumValidatorESt14default_deleteIS3_EED2Ev.exit
 
-1603:                                             ; preds = %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_113EnumValidatorEJRKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %.val.i.i553 = load ptr, ptr %1593, align 8, !tbaa !602
-  %1604 = ptrtoint ptr %1599 to i64
-  %1605 = ptrtoint ptr %.val.i.i553 to i64
-  %1606 = sub i64 %1604, %1605
-  %1607 = icmp eq i64 %1606, 9223372036854775800
-  br i1 %1607, label %1608, label %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i554
+1604:                                             ; preds = %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_113EnumValidatorEJRKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
+  %.val.i.i553 = load ptr, ptr %1594, align 8, !tbaa !602
+  %1605 = ptrtoint ptr %1600 to i64
+  %1606 = ptrtoint ptr %.val.i.i553 to i64
+  %1607 = sub i64 %1605, %1606
+  %1608 = icmp eq i64 %1607, 9223372036854775800
+  br i1 %1608, label %1609, label %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i554
 
-1608:                                             ; preds = %1603
+1609:                                             ; preds = %1604
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.9) #44
-          to label %.noexc565 unwind label %1623
+          to label %.noexc565 unwind label %1624
 
-.noexc565:                                        ; preds = %1608
+.noexc565:                                        ; preds = %1609
   unreachable
 
-_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i554: ; preds = %1603
-  %1609 = ashr exact i64 %1606, 3
-  %1610 = icmp eq ptr %1599, %.val.i.i553
-  %.sroa.speculated.i.i.i555 = select i1 %1610, i64 1, i64 %1609
-  %1611 = add nsw i64 %.sroa.speculated.i.i.i555, %1609
-  %1612 = icmp ult i64 %1611, %1609
-  %1613 = call i64 @llvm.umin.i64(i64 %1611, i64 1152921504606846975)
-  %1614 = select i1 %1612, i64 1152921504606846975, i64 %1613
-  %.not.i.i.i556 = icmp ne i64 %1614, 0
+_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i554: ; preds = %1604
+  %1610 = ashr exact i64 %1607, 3
+  %1611 = icmp eq ptr %1600, %.val.i.i553
+  %.sroa.speculated.i.i.i555 = select i1 %1611, i64 1, i64 %1610
+  %1612 = add nsw i64 %.sroa.speculated.i.i.i555, %1610
+  %1613 = icmp ult i64 %1612, %1610
+  %1614 = call i64 @llvm.umin.i64(i64 %1612, i64 1152921504606846975)
+  %1615 = select i1 %1613, i64 1152921504606846975, i64 %1614
+  %.not.i.i.i556 = icmp ne i64 %1615, 0
   call void @llvm.assume(i1 %.not.i.i.i556)
-  %1615 = shl nuw nsw i64 %1614, 3
-  %1616 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1615) #46
-          to label %.noexc566 unwind label %1623
+  %1616 = shl nuw nsw i64 %1615, 3
+  %1617 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1616) #46
+          to label %.noexc566 unwind label %1624
 
 .noexc566:                                        ; preds = %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i554
-  %1617 = getelementptr inbounds nuw i8, ptr %1616, i64 %1606
-  store ptr %1594, ptr %1617, align 8, !tbaa !600
-  br i1 %1610, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i562, label %.lr.ph.i.i.i.i.i557
+  %1618 = getelementptr inbounds nuw i8, ptr %1617, i64 %1607
+  store ptr %1595, ptr %1618, align 8, !tbaa !600
+  br i1 %1611, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i562, label %.lr.ph.i.i.i.i.i557
 
 .lr.ph.i.i.i.i.i557:                              ; preds = %.noexc566, %.lr.ph.i.i.i.i.i557
-  %.03.i.i.i.i.i558 = phi ptr [ %1619, %.lr.ph.i.i.i.i.i557 ], [ %1616, %.noexc566 ]
-  %.092.i.i.i.i.i559 = phi ptr [ %1618, %.lr.ph.i.i.i.i.i557 ], [ %.val.i.i553, %.noexc566 ]
+  %.03.i.i.i.i.i558 = phi ptr [ %1620, %.lr.ph.i.i.i.i.i557 ], [ %1617, %.noexc566 ]
+  %.092.i.i.i.i.i559 = phi ptr [ %1619, %.lr.ph.i.i.i.i.i557 ], [ %.val.i.i553, %.noexc566 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !883)
   call void @llvm.experimental.noalias.scope.decl(metadata !886)
   %.val.i.i.i.i.i.i.i.i.i.i.i560 = load i64, ptr %.092.i.i.i.i.i559, align 8, !tbaa !61, !alias.scope !886, !noalias !883
   store i64 %.val.i.i.i.i.i.i.i.i.i.i.i560, ptr %.03.i.i.i.i.i558, align 8, !tbaa !61, !alias.scope !883, !noalias !886
   store ptr null, ptr %.092.i.i.i.i.i559, align 8, !tbaa !61, !alias.scope !886, !noalias !883
-  %1618 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i559, i64 8
-  %1619 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i558, i64 8
-  %.not.i.i.i.i.i561 = icmp eq ptr %1618, %1599
+  %1619 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i559, i64 8
+  %1620 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i558, i64 8
+  %.not.i.i.i.i.i561 = icmp eq ptr %1619, %1600
   br i1 %.not.i.i.i.i.i561, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i562, label %.lr.ph.i.i.i.i.i557, !llvm.loop !608
 
 _ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i562: ; preds = %.lr.ph.i.i.i.i.i557, %.noexc566
-  %.0.lcssa.i.i.i.i.i563 = phi ptr [ %1616, %.noexc566 ], [ %1619, %.lr.ph.i.i.i.i.i557 ]
-  %1620 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i563, i64 8
+  %.0.lcssa.i.i.i.i.i563 = phi ptr [ %1617, %.noexc566 ], [ %1620, %.lr.ph.i.i.i.i.i557 ]
+  %1621 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i563, i64 8
   %.not.i28.i.i564 = icmp eq ptr %.val.i.i553, null
-  br i1 %.not.i28.i.i564, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_13EnumValidatorES5_ISB_EEEEERS7_DpOT_.exit, label %1621
+  br i1 %.not.i28.i.i564, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_13EnumValidatorES5_ISB_EEEEERS7_DpOT_.exit, label %1622
 
-1621:                                             ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i562
-  call void @_ZdlPvm(ptr noundef nonnull %.val.i.i553, i64 noundef %1606) #47
+1622:                                             ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i562
+  call void @_ZdlPvm(ptr noundef nonnull %.val.i.i553, i64 noundef %1607) #47
   br label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_13EnumValidatorES5_ISB_EEEEERS7_DpOT_.exit
 
-_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_13EnumValidatorES5_ISB_EEEEERS7_DpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i562, %1621
-  store ptr %1616, ptr %1593, align 8, !tbaa !602
-  store ptr %1620, ptr %1598, align 8, !tbaa !596
-  %1622 = getelementptr inbounds nuw %"class.std::unique_ptr.340", ptr %1616, i64 %1614
-  store ptr %1622, ptr %1600, align 8, !tbaa !599
+_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_13EnumValidatorES5_ISB_EEEEERS7_DpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i562, %1622
+  store ptr %1617, ptr %1594, align 8, !tbaa !602
+  store ptr %1621, ptr %1599, align 8, !tbaa !596
+  %1623 = getelementptr inbounds nuw %"class.std::unique_ptr.340", ptr %1617, i64 %1615
+  store ptr %1623, ptr %1601, align 8, !tbaa !599
   br label %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113EnumValidatorESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113EnumValidatorESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_13EnumValidatorES5_ISB_EEEEERS7_DpOT_.exit, %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_13EnumValidatorES5_ISB_EEEEERS7_DpOT_.exit.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #23
-  br label %1625
+  br label %1626
 
-1623:                                             ; preds = %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i554, %1608
-  %1624 = landingpad { ptr, i32 }
+1624:                                             ; preds = %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i554, %1609
+  %1625 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113EnumValidatorESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %45) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #23
   br label %common.resume
 
-1625:                                             ; preds = %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113EnumValidatorESt14default_deleteIS3_EED2Ev.exit, %1590
-  %1626 = call noundef ptr @_ZNKR5folly7dynamic7get_ptrENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr nonnull @.str.57, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.57, i64 4))
-  %.not169 = icmp eq ptr %1626, null
-  br i1 %.not169, label %1700, label %1627
+1626:                                             ; preds = %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113EnumValidatorESt14default_deleteIS3_EED2Ev.exit, %1591
+  %1627 = call noundef ptr @_ZNKR5folly7dynamic7get_ptrENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr nonnull @.str.57, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.57, i64 4))
+  %.not169 = icmp eq ptr %1627, null
+  br i1 %.not169, label %1701, label %1628
 
-1627:                                             ; preds = %1625
-  %1628 = getelementptr inbounds nuw i8, ptr %0, i64 16
+1628:                                             ; preds = %1626
+  %1629 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #23
   call void @llvm.experimental.noalias.scope.decl(metadata !888)
-  %1629 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #46, !noalias !888
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_113TypeValidatorE, i64 16), ptr %1629, align 8, !tbaa !28, !noalias !888
-  %1630 = getelementptr inbounds nuw i8, ptr %1629, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1630, i8 0, i64 24, i1 false), !noalias !888
-  %1631 = getelementptr inbounds nuw i8, ptr %1629, i64 32
-  %1632 = getelementptr inbounds nuw i8, ptr %1629, i64 48
-  store ptr %1632, ptr %1631, align 8, !tbaa !44, !noalias !888
-  %1633 = getelementptr inbounds nuw i8, ptr %1629, i64 40
-  store i64 0, ptr %1633, align 8, !tbaa !47, !noalias !888
-  store i8 0, ptr %1632, align 1, !tbaa !16, !noalias !888
-  %1634 = load i32, ptr %1626, align 8, !tbaa !563, !noalias !888
-  switch i32 %1634, label %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_113TypeValidatorEJRKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit [
-    i32 6, label %1635
-    i32 1, label %1643
+  %1630 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #46, !noalias !888
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_113TypeValidatorE, i64 16), ptr %1630, align 8, !tbaa !28, !noalias !888
+  %1631 = getelementptr inbounds nuw i8, ptr %1630, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1631, i8 0, i64 24, i1 false), !noalias !888
+  %1632 = getelementptr inbounds nuw i8, ptr %1630, i64 32
+  %1633 = getelementptr inbounds nuw i8, ptr %1630, i64 48
+  store ptr %1633, ptr %1632, align 8, !tbaa !44, !noalias !888
+  %1634 = getelementptr inbounds nuw i8, ptr %1630, i64 40
+  store i64 0, ptr %1634, align 8, !tbaa !47, !noalias !888
+  store i8 0, ptr %1633, align 1, !tbaa !16, !noalias !888
+  %1635 = load i32, ptr %1627, align 8, !tbaa !563, !noalias !888
+  switch i32 %1635, label %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_113TypeValidatorEJRKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit [
+    i32 6, label %1636
+    i32 1, label %1644
   ]
 
-1635:                                             ; preds = %1627
-  %1636 = getelementptr inbounds nuw i8, ptr %1626, i64 8
-  %1637 = load ptr, ptr %1636, align 8, !tbaa !57, !noalias !888
-  %1638 = getelementptr inbounds nuw i8, ptr %1626, i64 16
-  %1639 = load i64, ptr %1638, align 8, !tbaa !47, !noalias !888
-  %1640 = getelementptr inbounds nuw i8, ptr %1637, i64 %1639
-  invoke fastcc void @_ZN5folly10jsonschema12_GLOBAL__N_113TypeValidator7addTypeENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(64) %1629, ptr %1637, ptr %1640)
-          to label %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_113TypeValidatorEJRKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %1641, !noalias !888
+1636:                                             ; preds = %1628
+  %1637 = getelementptr inbounds nuw i8, ptr %1627, i64 8
+  %1638 = load ptr, ptr %1637, align 8, !tbaa !57, !noalias !888
+  %1639 = getelementptr inbounds nuw i8, ptr %1627, i64 16
+  %1640 = load i64, ptr %1639, align 8, !tbaa !47, !noalias !888
+  %1641 = getelementptr inbounds nuw i8, ptr %1638, i64 %1640
+  invoke fastcc void @_ZN5folly10jsonschema12_GLOBAL__N_113TypeValidator7addTypeENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(64) %1630, ptr %1638, ptr %1641)
+          to label %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_113TypeValidatorEJRKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %1642, !noalias !888
 
-1641:                                             ; preds = %1635
-  %1642 = landingpad { ptr, i32 }
+1642:                                             ; preds = %1636
+  %1643 = landingpad { ptr, i32 }
           cleanup
-  br label %1659
+  br label %1660
 
-1643:                                             ; preds = %1627
-  %1644 = getelementptr inbounds nuw i8, ptr %1626, i64 8
-  %1645 = load ptr, ptr %1644, align 8, !tbaa !32, !noalias !888
-  %1646 = getelementptr inbounds nuw i8, ptr %1626, i64 16
-  %1647 = load ptr, ptr %1646, align 8, !tbaa !32, !noalias !888
-  %.not34.i.i = icmp eq ptr %1645, %1647
+1644:                                             ; preds = %1628
+  %1645 = getelementptr inbounds nuw i8, ptr %1627, i64 8
+  %1646 = load ptr, ptr %1645, align 8, !tbaa !32, !noalias !888
+  %1647 = getelementptr inbounds nuw i8, ptr %1627, i64 16
+  %1648 = load ptr, ptr %1647, align 8, !tbaa !32, !noalias !888
+  %.not34.i.i = icmp eq ptr %1646, %1648
   br i1 %.not34.i.i, label %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_113TypeValidatorEJRKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, label %.lr.ph.i.i568
 
-.lr.ph.i.i568:                                    ; preds = %1643, %1655
-  %.sroa.031.035.i.i = phi ptr [ %1656, %1655 ], [ %1645, %1643 ]
-  %1648 = load i32, ptr %.sroa.031.035.i.i, align 8, !tbaa !563, !noalias !888
-  %.not.i.i.i24.i.i = icmp eq i32 %1648, 6
-  br i1 %.not.i.i.i24.i.i, label %1649, label %1655
+.lr.ph.i.i568:                                    ; preds = %1644, %1656
+  %.sroa.031.035.i.i = phi ptr [ %1657, %1656 ], [ %1646, %1644 ]
+  %1649 = load i32, ptr %.sroa.031.035.i.i, align 8, !tbaa !563, !noalias !888
+  %.not.i.i.i24.i.i = icmp eq i32 %1649, 6
+  br i1 %.not.i.i.i24.i.i, label %1650, label %1656
 
-1649:                                             ; preds = %.lr.ph.i.i568
-  %1650 = getelementptr inbounds nuw i8, ptr %.sroa.031.035.i.i, i64 8
-  %1651 = load ptr, ptr %1650, align 8, !tbaa !57, !noalias !888
-  %1652 = getelementptr inbounds nuw i8, ptr %.sroa.031.035.i.i, i64 16
-  %1653 = load i64, ptr %1652, align 8, !tbaa !47, !noalias !888
-  %1654 = getelementptr inbounds nuw i8, ptr %1651, i64 %1653
-  invoke fastcc void @_ZN5folly10jsonschema12_GLOBAL__N_113TypeValidator7addTypeENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(64) %1629, ptr %1651, ptr %1654)
-          to label %1655 unwind label %1657, !noalias !888
+1650:                                             ; preds = %.lr.ph.i.i568
+  %1651 = getelementptr inbounds nuw i8, ptr %.sroa.031.035.i.i, i64 8
+  %1652 = load ptr, ptr %1651, align 8, !tbaa !57, !noalias !888
+  %1653 = getelementptr inbounds nuw i8, ptr %.sroa.031.035.i.i, i64 16
+  %1654 = load i64, ptr %1653, align 8, !tbaa !47, !noalias !888
+  %1655 = getelementptr inbounds nuw i8, ptr %1652, i64 %1654
+  invoke fastcc void @_ZN5folly10jsonschema12_GLOBAL__N_113TypeValidator7addTypeENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(64) %1630, ptr %1652, ptr %1655)
+          to label %1656 unwind label %1658, !noalias !888
 
-1655:                                             ; preds = %1649, %.lr.ph.i.i568
-  %1656 = getelementptr inbounds nuw i8, ptr %.sroa.031.035.i.i, i64 40
-  %.not.i.i569 = icmp eq ptr %1656, %1647
+1656:                                             ; preds = %1650, %.lr.ph.i.i568
+  %1657 = getelementptr inbounds nuw i8, ptr %.sroa.031.035.i.i, i64 40
+  %.not.i.i569 = icmp eq ptr %1657, %1648
   br i1 %.not.i.i569, label %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_113TypeValidatorEJRKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, label %.lr.ph.i.i568
 
-1657:                                             ; preds = %1649
-  %1658 = landingpad { ptr, i32 }
+1658:                                             ; preds = %1650
+  %1659 = landingpad { ptr, i32 }
           cleanup
-  br label %1659
+  br label %1660
 
-1659:                                             ; preds = %1657, %1641
-  %.pn17.i.i = phi { ptr, i32 } [ %1642, %1641 ], [ %1658, %1657 ]
-  %1660 = load ptr, ptr %1631, align 8, !tbaa !57, !noalias !888
-  %1661 = icmp eq ptr %1660, %1632
-  br i1 %1661, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
+1660:                                             ; preds = %1658, %1642
+  %.pn17.i.i = phi { ptr, i32 } [ %1643, %1642 ], [ %1659, %1658 ]
+  %1661 = load ptr, ptr %1632, align 8, !tbaa !57, !noalias !888
+  %1662 = icmp eq ptr %1661, %1633
+  br i1 %1662, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %1659
-  %1662 = load i64, ptr %1633, align 8, !tbaa !47, !noalias !888
-  %1663 = icmp ult i64 %1662, 16
-  call void @llvm.assume(i1 %1663)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %1660
+  %1663 = load i64, ptr %1634, align 8, !tbaa !47, !noalias !888
+  %1664 = icmp ult i64 %1663, 16
+  call void @llvm.assume(i1 %1664)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %1659
-  %1664 = load i64, ptr %1632, align 8, !tbaa !16, !noalias !888
-  %1665 = add i64 %1664, 1
-  call void @_ZdlPvm(ptr noundef %1660, i64 noundef %1665) #47, !noalias !888
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %1660
+  %1665 = load i64, ptr %1633, align 8, !tbaa !16, !noalias !888
+  %1666 = add i64 %1665, 1
+  call void @_ZdlPvm(ptr noundef %1661, i64 noundef %1666) #47, !noalias !888
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  %1666 = load ptr, ptr %1630, align 8, !tbaa !891, !noalias !888
-  %.not.i.i.i30.i.i = icmp eq ptr %1666, null
-  br i1 %.not.i.i.i30.i.i, label %.body.i570, label %1667
+  %1667 = load ptr, ptr %1631, align 8, !tbaa !891, !noalias !888
+  %.not.i.i.i30.i.i = icmp eq ptr %1667, null
+  br i1 %.not.i.i.i30.i.i, label %.body.i570, label %1668
 
-1667:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
-  %1668 = getelementptr inbounds nuw i8, ptr %1629, i64 24
-  %1669 = load ptr, ptr %1668, align 8, !tbaa !893, !noalias !888
-  %1670 = ptrtoint ptr %1669 to i64
-  %1671 = ptrtoint ptr %1666 to i64
-  %1672 = sub i64 %1670, %1671
-  call void @_ZdlPvm(ptr noundef nonnull %1666, i64 noundef %1672) #47, !noalias !888
+1668:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
+  %1669 = getelementptr inbounds nuw i8, ptr %1630, i64 24
+  %1670 = load ptr, ptr %1669, align 8, !tbaa !893, !noalias !888
+  %1671 = ptrtoint ptr %1670 to i64
+  %1672 = ptrtoint ptr %1667 to i64
+  %1673 = sub i64 %1671, %1672
+  call void @_ZdlPvm(ptr noundef nonnull %1667, i64 noundef %1673) #47, !noalias !888
   br label %.body.i570
 
-.body.i570:                                       ; preds = %1667, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %1629, i64 noundef 64) #47, !noalias !888
+.body.i570:                                       ; preds = %1668, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
+  call void @_ZdlPvm(ptr noundef nonnull %1630, i64 noundef 64) #47, !noalias !888
   br label %common.resume
 
-_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_113TypeValidatorEJRKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %1655, %1627, %1635, %1643
-  store ptr %1629, ptr %46, align 8, !tbaa !894, !alias.scope !888
-  %1673 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %1674 = load ptr, ptr %1673, align 8, !tbaa !596
-  %1675 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1676 = load ptr, ptr %1675, align 8, !tbaa !599
-  %.not.i571 = icmp eq ptr %1674, %1676
-  br i1 %.not.i571, label %1678, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_13TypeValidatorES5_ISB_EEEEERS7_DpOT_.exit.thread
+_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_113TypeValidatorEJRKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %1656, %1628, %1636, %1644
+  store ptr %1630, ptr %46, align 8, !tbaa !894, !alias.scope !888
+  %1674 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %1675 = load ptr, ptr %1674, align 8, !tbaa !596
+  %1676 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1677 = load ptr, ptr %1676, align 8, !tbaa !599
+  %.not.i571 = icmp eq ptr %1675, %1677
+  br i1 %.not.i571, label %1679, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_13TypeValidatorES5_ISB_EEEEERS7_DpOT_.exit.thread
 
 _ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_13TypeValidatorES5_ISB_EEEEERS7_DpOT_.exit.thread: ; preds = %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_113TypeValidatorEJRKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  store ptr %1629, ptr %1674, align 8, !tbaa !600
-  %1677 = getelementptr inbounds nuw i8, ptr %1674, i64 8
-  store ptr %1677, ptr %1673, align 8, !tbaa !596
+  store ptr %1630, ptr %1675, align 8, !tbaa !600
+  %1678 = getelementptr inbounds nuw i8, ptr %1675, i64 8
+  store ptr %1678, ptr %1674, align 8, !tbaa !596
   br label %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113TypeValidatorESt14default_deleteIS3_EED2Ev.exit
 
-1678:                                             ; preds = %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_113TypeValidatorEJRKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %.val.i.i572 = load ptr, ptr %1628, align 8, !tbaa !602
-  %1679 = ptrtoint ptr %1674 to i64
-  %1680 = ptrtoint ptr %.val.i.i572 to i64
-  %1681 = sub i64 %1679, %1680
-  %1682 = icmp eq i64 %1681, 9223372036854775800
-  br i1 %1682, label %1683, label %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i573
+1679:                                             ; preds = %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_113TypeValidatorEJRKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
+  %.val.i.i572 = load ptr, ptr %1629, align 8, !tbaa !602
+  %1680 = ptrtoint ptr %1675 to i64
+  %1681 = ptrtoint ptr %.val.i.i572 to i64
+  %1682 = sub i64 %1680, %1681
+  %1683 = icmp eq i64 %1682, 9223372036854775800
+  br i1 %1683, label %1684, label %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i573
 
-1683:                                             ; preds = %1678
+1684:                                             ; preds = %1679
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.9) #44
-          to label %.noexc584 unwind label %1698
+          to label %.noexc584 unwind label %1699
 
-.noexc584:                                        ; preds = %1683
+.noexc584:                                        ; preds = %1684
   unreachable
 
-_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i573: ; preds = %1678
-  %1684 = ashr exact i64 %1681, 3
-  %1685 = icmp eq ptr %1674, %.val.i.i572
-  %.sroa.speculated.i.i.i574 = select i1 %1685, i64 1, i64 %1684
-  %1686 = add nsw i64 %.sroa.speculated.i.i.i574, %1684
-  %1687 = icmp ult i64 %1686, %1684
-  %1688 = call i64 @llvm.umin.i64(i64 %1686, i64 1152921504606846975)
-  %1689 = select i1 %1687, i64 1152921504606846975, i64 %1688
-  %.not.i.i.i575 = icmp ne i64 %1689, 0
+_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i573: ; preds = %1679
+  %1685 = ashr exact i64 %1682, 3
+  %1686 = icmp eq ptr %1675, %.val.i.i572
+  %.sroa.speculated.i.i.i574 = select i1 %1686, i64 1, i64 %1685
+  %1687 = add nsw i64 %.sroa.speculated.i.i.i574, %1685
+  %1688 = icmp ult i64 %1687, %1685
+  %1689 = call i64 @llvm.umin.i64(i64 %1687, i64 1152921504606846975)
+  %1690 = select i1 %1688, i64 1152921504606846975, i64 %1689
+  %.not.i.i.i575 = icmp ne i64 %1690, 0
   call void @llvm.assume(i1 %.not.i.i.i575)
-  %1690 = shl nuw nsw i64 %1689, 3
-  %1691 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1690) #46
-          to label %.noexc585 unwind label %1698
+  %1691 = shl nuw nsw i64 %1690, 3
+  %1692 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1691) #46
+          to label %.noexc585 unwind label %1699
 
 .noexc585:                                        ; preds = %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i573
-  %1692 = getelementptr inbounds nuw i8, ptr %1691, i64 %1681
-  store ptr %1629, ptr %1692, align 8, !tbaa !600
-  br i1 %1685, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i581, label %.lr.ph.i.i.i.i.i576
+  %1693 = getelementptr inbounds nuw i8, ptr %1692, i64 %1682
+  store ptr %1630, ptr %1693, align 8, !tbaa !600
+  br i1 %1686, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i581, label %.lr.ph.i.i.i.i.i576
 
 .lr.ph.i.i.i.i.i576:                              ; preds = %.noexc585, %.lr.ph.i.i.i.i.i576
-  %.03.i.i.i.i.i577 = phi ptr [ %1694, %.lr.ph.i.i.i.i.i576 ], [ %1691, %.noexc585 ]
-  %.092.i.i.i.i.i578 = phi ptr [ %1693, %.lr.ph.i.i.i.i.i576 ], [ %.val.i.i572, %.noexc585 ]
+  %.03.i.i.i.i.i577 = phi ptr [ %1695, %.lr.ph.i.i.i.i.i576 ], [ %1692, %.noexc585 ]
+  %.092.i.i.i.i.i578 = phi ptr [ %1694, %.lr.ph.i.i.i.i.i576 ], [ %.val.i.i572, %.noexc585 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !896)
   call void @llvm.experimental.noalias.scope.decl(metadata !899)
   %.val.i.i.i.i.i.i.i.i.i.i.i579 = load i64, ptr %.092.i.i.i.i.i578, align 8, !tbaa !61, !alias.scope !899, !noalias !896
   store i64 %.val.i.i.i.i.i.i.i.i.i.i.i579, ptr %.03.i.i.i.i.i577, align 8, !tbaa !61, !alias.scope !896, !noalias !899
   store ptr null, ptr %.092.i.i.i.i.i578, align 8, !tbaa !61, !alias.scope !899, !noalias !896
-  %1693 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i578, i64 8
-  %1694 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i577, i64 8
-  %.not.i.i.i.i.i580 = icmp eq ptr %1693, %1674
+  %1694 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i578, i64 8
+  %1695 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i577, i64 8
+  %.not.i.i.i.i.i580 = icmp eq ptr %1694, %1675
   br i1 %.not.i.i.i.i.i580, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i581, label %.lr.ph.i.i.i.i.i576, !llvm.loop !608
 
 _ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i581: ; preds = %.lr.ph.i.i.i.i.i576, %.noexc585
-  %.0.lcssa.i.i.i.i.i582 = phi ptr [ %1691, %.noexc585 ], [ %1694, %.lr.ph.i.i.i.i.i576 ]
-  %1695 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i582, i64 8
+  %.0.lcssa.i.i.i.i.i582 = phi ptr [ %1692, %.noexc585 ], [ %1695, %.lr.ph.i.i.i.i.i576 ]
+  %1696 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i582, i64 8
   %.not.i28.i.i583 = icmp eq ptr %.val.i.i572, null
-  br i1 %.not.i28.i.i583, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_13TypeValidatorES5_ISB_EEEEERS7_DpOT_.exit, label %1696
+  br i1 %.not.i28.i.i583, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_13TypeValidatorES5_ISB_EEEEERS7_DpOT_.exit, label %1697
 
-1696:                                             ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i581
-  call void @_ZdlPvm(ptr noundef nonnull %.val.i.i572, i64 noundef %1681) #47
+1697:                                             ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i581
+  call void @_ZdlPvm(ptr noundef nonnull %.val.i.i572, i64 noundef %1682) #47
   br label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_13TypeValidatorES5_ISB_EEEEERS7_DpOT_.exit
 
-_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_13TypeValidatorES5_ISB_EEEEERS7_DpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i581, %1696
-  store ptr %1691, ptr %1628, align 8, !tbaa !602
-  store ptr %1695, ptr %1673, align 8, !tbaa !596
-  %1697 = getelementptr inbounds nuw %"class.std::unique_ptr.340", ptr %1691, i64 %1689
-  store ptr %1697, ptr %1675, align 8, !tbaa !599
+_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_13TypeValidatorES5_ISB_EEEEERS7_DpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i581, %1697
+  store ptr %1692, ptr %1629, align 8, !tbaa !602
+  store ptr %1696, ptr %1674, align 8, !tbaa !596
+  %1698 = getelementptr inbounds nuw %"class.std::unique_ptr.340", ptr %1692, i64 %1690
+  store ptr %1698, ptr %1676, align 8, !tbaa !599
   br label %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113TypeValidatorESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113TypeValidatorESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_13TypeValidatorES5_ISB_EEEEERS7_DpOT_.exit, %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_13TypeValidatorES5_ISB_EEEEERS7_DpOT_.exit.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #23
-  br label %1700
+  br label %1701
 
-1698:                                             ; preds = %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i573, %1683
-  %1699 = landingpad { ptr, i32 }
+1699:                                             ; preds = %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i573, %1684
+  %1700 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113TypeValidatorESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %46) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #23
   br label %common.resume
 
-1700:                                             ; preds = %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113TypeValidatorESt14default_deleteIS3_EED2Ev.exit, %1625
-  %1701 = call noundef ptr @_ZNKR5folly7dynamic7get_ptrENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr nonnull @.str.58, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.58, i64 5))
-  %.not170 = icmp eq ptr %1701, null
-  br i1 %.not170, label %1773, label %1702
+1701:                                             ; preds = %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113TypeValidatorESt14default_deleteIS3_EED2Ev.exit, %1626
+  %1702 = call noundef ptr @_ZNKR5folly7dynamic7get_ptrENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr nonnull @.str.58, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.58, i64 5))
+  %.not170 = icmp eq ptr %1702, null
+  br i1 %.not170, label %1774, label %1703
 
-1702:                                             ; preds = %1700
-  %1703 = getelementptr inbounds nuw i8, ptr %0, i64 16
+1703:                                             ; preds = %1701
+  %1704 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47) #23
-  %1704 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #46, !noalias !901
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_114AllOfValidatorE, i64 16), ptr %1704, align 8, !tbaa !28, !noalias !901
-  %1705 = getelementptr inbounds nuw i8, ptr %1704, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1705, i8 0, i64 24, i1 false), !noalias !901
-  %1706 = load i32, ptr %1701, align 8, !tbaa !563, !noalias !901
-  %.not.i.i.i.i824 = icmp eq i32 %1706, 1
+  %1705 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #46, !noalias !901
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_114AllOfValidatorE, i64 16), ptr %1705, align 8, !tbaa !28, !noalias !901
+  %1706 = getelementptr inbounds nuw i8, ptr %1705, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1706, i8 0, i64 24, i1 false), !noalias !901
+  %1707 = load i32, ptr %1702, align 8, !tbaa !563, !noalias !901
+  %.not.i.i.i.i824 = icmp eq i32 %1707, 1
   br i1 %.not.i.i.i.i824, label %_ZNK5folly7dynamic3endEv.exit.i829, label %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_114AllOfValidatorEJRNS2_22SchemaValidatorContextERKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
-_ZNK5folly7dynamic3endEv.exit.i829:               ; preds = %1702
-  %1707 = getelementptr inbounds nuw i8, ptr %1701, i64 8
-  %1708 = load ptr, ptr %1707, align 8, !tbaa !32, !noalias !901
-  %1709 = getelementptr inbounds nuw i8, ptr %1701, i64 16
-  %1710 = load ptr, ptr %1709, align 8, !tbaa !32, !noalias !901
-  %.not10901252 = icmp eq ptr %1708, %1710
+_ZNK5folly7dynamic3endEv.exit.i829:               ; preds = %1703
+  %1708 = getelementptr inbounds nuw i8, ptr %1702, i64 8
+  %1709 = load ptr, ptr %1708, align 8, !tbaa !32, !noalias !901
+  %1710 = getelementptr inbounds nuw i8, ptr %1702, i64 16
+  %1711 = load ptr, ptr %1710, align 8, !tbaa !32, !noalias !901
+  %.not10901252 = icmp eq ptr %1709, %1711
   br i1 %.not10901252, label %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_114AllOfValidatorEJRNS2_22SchemaValidatorContextERKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, label %.lr.ph1254
 
 .lr.ph1254:                                       ; preds = %_ZNK5folly7dynamic3endEv.exit.i829
-  %1711 = getelementptr inbounds nuw i8, ptr %1704, i64 16
-  %1712 = getelementptr inbounds nuw i8, ptr %1704, i64 24
-  br label %1713
+  %1712 = getelementptr inbounds nuw i8, ptr %1705, i64 16
+  %1713 = getelementptr inbounds nuw i8, ptr %1705, i64 24
+  br label %1714
 
-1713:                                             ; preds = %.lr.ph1254, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorESt14default_deleteIS3_EED2Ev.exit.i851
-  %.sroa.01040.01253 = phi ptr [ %1708, %.lr.ph1254 ], [ %1742, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorESt14default_deleteIS3_EED2Ev.exit.i851 ]
+1714:                                             ; preds = %.lr.ph1254, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorESt14default_deleteIS3_EED2Ev.exit.i851
+  %.sroa.01040.01253 = phi ptr [ %1709, %.lr.ph1254 ], [ %1743, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorESt14default_deleteIS3_EED2Ev.exit.i851 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #23, !noalias !901
   call void @llvm.experimental.noalias.scope.decl(metadata !904)
-  %1714 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #46
-          to label %.noexc16.i unwind label %1743
+  %1715 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #46
+          to label %.noexc16.i unwind label %1744
 
-.noexc16.i:                                       ; preds = %1713
-  %1715 = getelementptr inbounds nuw i8, ptr %1714, i64 8
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 16), ptr %1714, align 8, !tbaa !28, !noalias !907
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 72), ptr %1715, align 8, !tbaa !28, !noalias !907
-  %1716 = getelementptr inbounds nuw i8, ptr %1714, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1716, i8 0, i64 24, i1 false), !noalias !907
-  store ptr %1714, ptr %5, align 8, !tbaa !30, !alias.scope !904, !noalias !901
-  invoke fastcc void @_ZN5folly10jsonschema12_GLOBAL__N_115SchemaValidator10loadSchemaERNS1_22SchemaValidatorContextERKNS_7dynamicE(ptr noundef nonnull align 8 dereferenceable(40) %1714, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01040.01253)
-          to label %_ZN5folly10jsonschema12_GLOBAL__N_115SchemaValidator4makeERNS1_22SchemaValidatorContextERKNS_7dynamicE.exit.i834 unwind label %1717, !noalias !908
+.noexc16.i:                                       ; preds = %1714
+  %1716 = getelementptr inbounds nuw i8, ptr %1715, i64 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 16), ptr %1715, align 8, !tbaa !28, !noalias !907
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 72), ptr %1716, align 8, !tbaa !28, !noalias !907
+  %1717 = getelementptr inbounds nuw i8, ptr %1715, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1717, i8 0, i64 24, i1 false), !noalias !907
+  store ptr %1715, ptr %5, align 8, !tbaa !30, !alias.scope !904, !noalias !901
+  invoke fastcc void @_ZN5folly10jsonschema12_GLOBAL__N_115SchemaValidator10loadSchemaERNS1_22SchemaValidatorContextERKNS_7dynamicE(ptr noundef nonnull align 8 dereferenceable(40) %1715, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01040.01253)
+          to label %_ZN5folly10jsonschema12_GLOBAL__N_115SchemaValidator4makeERNS1_22SchemaValidatorContextERKNS_7dynamicE.exit.i834 unwind label %1718, !noalias !908
 
-1717:                                             ; preds = %.noexc16.i
-  %1718 = landingpad { ptr, i32 }
+1718:                                             ; preds = %.noexc16.i
+  %1719 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23, !noalias !901
   br label %.body864
 
 _ZN5folly10jsonschema12_GLOBAL__N_115SchemaValidator4makeERNS1_22SchemaValidatorContextERKNS_7dynamicE.exit.i834: ; preds = %.noexc16.i
-  %1719 = load ptr, ptr %1711, align 8, !tbaa !596, !noalias !901
-  %1720 = load ptr, ptr %1712, align 8, !tbaa !599, !noalias !901
-  %.not.i.i835 = icmp eq ptr %1719, %1720
-  br i1 %.not.i.i835, label %1722, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_15SchemaValidatorES5_ISB_EEEEERS7_DpOT_.exit.i836.thread
+  %1720 = load ptr, ptr %1712, align 8, !tbaa !596, !noalias !901
+  %1721 = load ptr, ptr %1713, align 8, !tbaa !599, !noalias !901
+  %.not.i.i835 = icmp eq ptr %1720, %1721
+  br i1 %.not.i.i835, label %1723, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_15SchemaValidatorES5_ISB_EEEEERS7_DpOT_.exit.i836.thread
 
 _ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_15SchemaValidatorES5_ISB_EEEEERS7_DpOT_.exit.i836.thread: ; preds = %_ZN5folly10jsonschema12_GLOBAL__N_115SchemaValidator4makeERNS1_22SchemaValidatorContextERKNS_7dynamicE.exit.i834
-  store ptr %1714, ptr %1719, align 8, !tbaa !600, !noalias !901
-  %1721 = getelementptr inbounds nuw i8, ptr %1719, i64 8
-  store ptr %1721, ptr %1711, align 8, !tbaa !596, !noalias !901
+  store ptr %1715, ptr %1720, align 8, !tbaa !600, !noalias !901
+  %1722 = getelementptr inbounds nuw i8, ptr %1720, i64 8
+  store ptr %1722, ptr %1712, align 8, !tbaa !596, !noalias !901
   br label %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorESt14default_deleteIS3_EED2Ev.exit.i851
 
-1722:                                             ; preds = %_ZN5folly10jsonschema12_GLOBAL__N_115SchemaValidator4makeERNS1_22SchemaValidatorContextERKNS_7dynamicE.exit.i834
-  %.val.i.i.i852 = load ptr, ptr %1705, align 8, !tbaa !602, !noalias !901
-  %1723 = ptrtoint ptr %1719 to i64
-  %1724 = ptrtoint ptr %.val.i.i.i852 to i64
-  %1725 = sub i64 %1723, %1724
-  %1726 = icmp eq i64 %1725, 9223372036854775800
-  br i1 %1726, label %1727, label %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i853
+1723:                                             ; preds = %_ZN5folly10jsonschema12_GLOBAL__N_115SchemaValidator4makeERNS1_22SchemaValidatorContextERKNS_7dynamicE.exit.i834
+  %.val.i.i.i852 = load ptr, ptr %1706, align 8, !tbaa !602, !noalias !901
+  %1724 = ptrtoint ptr %1720 to i64
+  %1725 = ptrtoint ptr %.val.i.i.i852 to i64
+  %1726 = sub i64 %1724, %1725
+  %1727 = icmp eq i64 %1726, 9223372036854775800
+  br i1 %1727, label %1728, label %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i853
 
-1727:                                             ; preds = %1722
+1728:                                             ; preds = %1723
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.9) #44
           to label %.noexc18.i unwind label %.loopexit.split-lp, !noalias !901
 
-.noexc18.i:                                       ; preds = %1727
+.noexc18.i:                                       ; preds = %1728
   unreachable
 
-_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i853: ; preds = %1722
-  %1728 = ashr exact i64 %1725, 3
-  %1729 = icmp eq ptr %1719, %.val.i.i.i852
-  %.sroa.speculated.i.i.i.i854 = select i1 %1729, i64 1, i64 %1728
-  %1730 = add nsw i64 %.sroa.speculated.i.i.i.i854, %1728
-  %1731 = icmp ult i64 %1730, %1728
-  %1732 = call i64 @llvm.umin.i64(i64 %1730, i64 1152921504606846975)
-  %1733 = select i1 %1731, i64 1152921504606846975, i64 %1732
-  %.not.i.i.i17.i = icmp ne i64 %1733, 0
+_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i853: ; preds = %1723
+  %1729 = ashr exact i64 %1726, 3
+  %1730 = icmp eq ptr %1720, %.val.i.i.i852
+  %.sroa.speculated.i.i.i.i854 = select i1 %1730, i64 1, i64 %1729
+  %1731 = add nsw i64 %.sroa.speculated.i.i.i.i854, %1729
+  %1732 = icmp ult i64 %1731, %1729
+  %1733 = call i64 @llvm.umin.i64(i64 %1731, i64 1152921504606846975)
+  %1734 = select i1 %1732, i64 1152921504606846975, i64 %1733
+  %.not.i.i.i17.i = icmp ne i64 %1734, 0
   call void @llvm.assume(i1 %.not.i.i.i17.i), !noalias !901
-  %1734 = shl nuw nsw i64 %1733, 3
-  %1735 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1734) #46
+  %1735 = shl nuw nsw i64 %1734, 3
+  %1736 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1735) #46
           to label %.noexc19.i unwind label %.loopexit, !noalias !901
 
 .noexc19.i:                                       ; preds = %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i853
-  %1736 = getelementptr inbounds nuw i8, ptr %1735, i64 %1725
-  store ptr %1714, ptr %1736, align 8, !tbaa !600, !noalias !901
-  br i1 %1729, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i.i860, label %.lr.ph.i.i.i.i.i.i855
+  %1737 = getelementptr inbounds nuw i8, ptr %1736, i64 %1726
+  store ptr %1715, ptr %1737, align 8, !tbaa !600, !noalias !901
+  br i1 %1730, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i.i860, label %.lr.ph.i.i.i.i.i.i855
 
 .lr.ph.i.i.i.i.i.i855:                            ; preds = %.noexc19.i, %.lr.ph.i.i.i.i.i.i855
-  %.03.i.i.i.i.i.i856 = phi ptr [ %1738, %.lr.ph.i.i.i.i.i.i855 ], [ %1735, %.noexc19.i ]
-  %.092.i.i.i.i.i.i857 = phi ptr [ %1737, %.lr.ph.i.i.i.i.i.i855 ], [ %.val.i.i.i852, %.noexc19.i ]
+  %.03.i.i.i.i.i.i856 = phi ptr [ %1739, %.lr.ph.i.i.i.i.i.i855 ], [ %1736, %.noexc19.i ]
+  %.092.i.i.i.i.i.i857 = phi ptr [ %1738, %.lr.ph.i.i.i.i.i.i855 ], [ %.val.i.i.i852, %.noexc19.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !911), !noalias !901
   call void @llvm.experimental.noalias.scope.decl(metadata !914), !noalias !901
   %.val.i.i.i.i.i.i.i.i.i.i.i.i858 = load i64, ptr %.092.i.i.i.i.i.i857, align 8, !tbaa !61, !alias.scope !914, !noalias !916
   store i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i858, ptr %.03.i.i.i.i.i.i856, align 8, !tbaa !61, !alias.scope !911, !noalias !917
   store ptr null, ptr %.092.i.i.i.i.i.i857, align 8, !tbaa !61, !alias.scope !914, !noalias !916
-  %1737 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i857, i64 8
-  %1738 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i856, i64 8
-  %.not.i.i.i.i.i.i859 = icmp eq ptr %1737, %1719
+  %1738 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i857, i64 8
+  %1739 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i856, i64 8
+  %.not.i.i.i.i.i.i859 = icmp eq ptr %1738, %1720
   br i1 %.not.i.i.i.i.i.i859, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i.i860, label %.lr.ph.i.i.i.i.i.i855, !llvm.loop !608
 
 _ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i.i860: ; preds = %.lr.ph.i.i.i.i.i.i855, %.noexc19.i
-  %.0.lcssa.i.i.i.i.i.i861 = phi ptr [ %1735, %.noexc19.i ], [ %1738, %.lr.ph.i.i.i.i.i.i855 ]
-  %1739 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i861, i64 8
+  %.0.lcssa.i.i.i.i.i.i861 = phi ptr [ %1736, %.noexc19.i ], [ %1739, %.lr.ph.i.i.i.i.i.i855 ]
+  %1740 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i861, i64 8
   %.not.i28.i.i.i862 = icmp eq ptr %.val.i.i.i852, null
-  br i1 %.not.i28.i.i.i862, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_15SchemaValidatorES5_ISB_EEEEERS7_DpOT_.exit.i836, label %1740
+  br i1 %.not.i28.i.i.i862, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_15SchemaValidatorES5_ISB_EEEEERS7_DpOT_.exit.i836, label %1741
 
-1740:                                             ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i.i860
-  call void @_ZdlPvm(ptr noundef nonnull %.val.i.i.i852, i64 noundef %1725) #47, !noalias !901
+1741:                                             ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i.i860
+  call void @_ZdlPvm(ptr noundef nonnull %.val.i.i.i852, i64 noundef %1726) #47, !noalias !901
   br label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_15SchemaValidatorES5_ISB_EEEEERS7_DpOT_.exit.i836
 
-_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_15SchemaValidatorES5_ISB_EEEEERS7_DpOT_.exit.i836: ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i.i860, %1740
-  store ptr %1735, ptr %1705, align 8, !tbaa !602, !noalias !901
-  store ptr %1739, ptr %1711, align 8, !tbaa !596, !noalias !901
-  %1741 = getelementptr inbounds nuw %"class.std::unique_ptr.340", ptr %1735, i64 %1733
-  store ptr %1741, ptr %1712, align 8, !tbaa !599, !noalias !901
+_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_15SchemaValidatorES5_ISB_EEEEERS7_DpOT_.exit.i836: ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i.i860, %1741
+  store ptr %1736, ptr %1706, align 8, !tbaa !602, !noalias !901
+  store ptr %1740, ptr %1712, align 8, !tbaa !596, !noalias !901
+  %1742 = getelementptr inbounds nuw %"class.std::unique_ptr.340", ptr %1736, i64 %1734
+  store ptr %1742, ptr %1713, align 8, !tbaa !599, !noalias !901
   br label %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorESt14default_deleteIS3_EED2Ev.exit.i851
 
 _ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorESt14default_deleteIS3_EED2Ev.exit.i851: ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_15SchemaValidatorES5_ISB_EEEEERS7_DpOT_.exit.i836, %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_15SchemaValidatorES5_ISB_EEEEERS7_DpOT_.exit.i836.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23, !noalias !901
-  %1742 = getelementptr inbounds nuw i8, ptr %.sroa.01040.01253, i64 40
-  %.not1090 = icmp eq ptr %1742, %1710
-  br i1 %.not1090, label %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_114AllOfValidatorEJRNS2_22SchemaValidatorContextERKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, label %1713
+  %1743 = getelementptr inbounds nuw i8, ptr %.sroa.01040.01253, i64 40
+  %.not1090 = icmp eq ptr %1743, %1711
+  br i1 %.not1090, label %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_114AllOfValidatorEJRNS2_22SchemaValidatorContextERKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, label %1714
 
-1743:                                             ; preds = %1713
-  %1744 = landingpad { ptr, i32 }
+1744:                                             ; preds = %1714
+  %1745 = landingpad { ptr, i32 }
           cleanup
   br label %.body864
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i853
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %1745
+  br label %1746
 
-.loopexit.split-lp:                               ; preds = %1727
+.loopexit.split-lp:                               ; preds = %1728
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %1745
+  br label %1746
 
-1745:                                             ; preds = %.loopexit.split-lp, %.loopexit
+1746:                                             ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23, !noalias !901
   br label %.body864
 
-.body864:                                         ; preds = %1717, %1743, %1745
-  %.pn.i832 = phi { ptr, i32 } [ %lpad.phi, %1745 ], [ %1744, %1743 ], [ %1718, %1717 ]
+.body864:                                         ; preds = %1718, %1744, %1746
+  %.pn.i832 = phi { ptr, i32 } [ %lpad.phi, %1746 ], [ %1745, %1744 ], [ %1719, %1718 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23, !noalias !901
-  call fastcc void @_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1705) #23, !noalias !901
-  call void @_ZdlPvm(ptr noundef nonnull %1704, i64 noundef 32) #47, !noalias !901
+  call fastcc void @_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1706) #23, !noalias !901
+  call void @_ZdlPvm(ptr noundef nonnull %1705, i64 noundef 32) #47, !noalias !901
   br label %common.resume
 
-_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_114AllOfValidatorEJRNS2_22SchemaValidatorContextERKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorESt14default_deleteIS3_EED2Ev.exit.i851, %_ZNK5folly7dynamic3endEv.exit.i829, %1702
-  store ptr %1704, ptr %47, align 8, !tbaa !918
-  %1746 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %1747 = load ptr, ptr %1746, align 8, !tbaa !596
-  %1748 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1749 = load ptr, ptr %1748, align 8, !tbaa !599
-  %.not.i588 = icmp eq ptr %1747, %1749
-  br i1 %.not.i588, label %1751, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_14AllOfValidatorES5_ISB_EEEEERS7_DpOT_.exit.thread
+_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_114AllOfValidatorEJRNS2_22SchemaValidatorContextERKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorESt14default_deleteIS3_EED2Ev.exit.i851, %_ZNK5folly7dynamic3endEv.exit.i829, %1703
+  store ptr %1705, ptr %47, align 8, !tbaa !918
+  %1747 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %1748 = load ptr, ptr %1747, align 8, !tbaa !596
+  %1749 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1750 = load ptr, ptr %1749, align 8, !tbaa !599
+  %.not.i588 = icmp eq ptr %1748, %1750
+  br i1 %.not.i588, label %1752, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_14AllOfValidatorES5_ISB_EEEEERS7_DpOT_.exit.thread
 
 _ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_14AllOfValidatorES5_ISB_EEEEERS7_DpOT_.exit.thread: ; preds = %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_114AllOfValidatorEJRNS2_22SchemaValidatorContextERKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  store ptr %1704, ptr %1747, align 8, !tbaa !600
-  %1750 = getelementptr inbounds nuw i8, ptr %1747, i64 8
-  store ptr %1750, ptr %1746, align 8, !tbaa !596
+  store ptr %1705, ptr %1748, align 8, !tbaa !600
+  %1751 = getelementptr inbounds nuw i8, ptr %1748, i64 8
+  store ptr %1751, ptr %1747, align 8, !tbaa !596
   br label %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_114AllOfValidatorESt14default_deleteIS3_EED2Ev.exit
 
-1751:                                             ; preds = %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_114AllOfValidatorEJRNS2_22SchemaValidatorContextERKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %.val.i.i589 = load ptr, ptr %1703, align 8, !tbaa !602
-  %1752 = ptrtoint ptr %1747 to i64
-  %1753 = ptrtoint ptr %.val.i.i589 to i64
-  %1754 = sub i64 %1752, %1753
-  %1755 = icmp eq i64 %1754, 9223372036854775800
-  br i1 %1755, label %1756, label %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i590
+1752:                                             ; preds = %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_114AllOfValidatorEJRNS2_22SchemaValidatorContextERKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
+  %.val.i.i589 = load ptr, ptr %1704, align 8, !tbaa !602
+  %1753 = ptrtoint ptr %1748 to i64
+  %1754 = ptrtoint ptr %.val.i.i589 to i64
+  %1755 = sub i64 %1753, %1754
+  %1756 = icmp eq i64 %1755, 9223372036854775800
+  br i1 %1756, label %1757, label %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i590
 
-1756:                                             ; preds = %1751
+1757:                                             ; preds = %1752
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.9) #44
-          to label %.noexc601 unwind label %1771
+          to label %.noexc601 unwind label %1772
 
-.noexc601:                                        ; preds = %1756
+.noexc601:                                        ; preds = %1757
   unreachable
 
-_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i590: ; preds = %1751
-  %1757 = ashr exact i64 %1754, 3
-  %1758 = icmp eq ptr %1747, %.val.i.i589
-  %.sroa.speculated.i.i.i591 = select i1 %1758, i64 1, i64 %1757
-  %1759 = add nsw i64 %.sroa.speculated.i.i.i591, %1757
-  %1760 = icmp ult i64 %1759, %1757
-  %1761 = call i64 @llvm.umin.i64(i64 %1759, i64 1152921504606846975)
-  %1762 = select i1 %1760, i64 1152921504606846975, i64 %1761
-  %.not.i.i.i592 = icmp ne i64 %1762, 0
+_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i590: ; preds = %1752
+  %1758 = ashr exact i64 %1755, 3
+  %1759 = icmp eq ptr %1748, %.val.i.i589
+  %.sroa.speculated.i.i.i591 = select i1 %1759, i64 1, i64 %1758
+  %1760 = add nsw i64 %.sroa.speculated.i.i.i591, %1758
+  %1761 = icmp ult i64 %1760, %1758
+  %1762 = call i64 @llvm.umin.i64(i64 %1760, i64 1152921504606846975)
+  %1763 = select i1 %1761, i64 1152921504606846975, i64 %1762
+  %.not.i.i.i592 = icmp ne i64 %1763, 0
   call void @llvm.assume(i1 %.not.i.i.i592)
-  %1763 = shl nuw nsw i64 %1762, 3
-  %1764 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1763) #46
-          to label %.noexc602 unwind label %1771
+  %1764 = shl nuw nsw i64 %1763, 3
+  %1765 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1764) #46
+          to label %.noexc602 unwind label %1772
 
 .noexc602:                                        ; preds = %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i590
-  %1765 = getelementptr inbounds nuw i8, ptr %1764, i64 %1754
-  store ptr %1704, ptr %1765, align 8, !tbaa !600
-  br i1 %1758, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i598, label %.lr.ph.i.i.i.i.i593
+  %1766 = getelementptr inbounds nuw i8, ptr %1765, i64 %1755
+  store ptr %1705, ptr %1766, align 8, !tbaa !600
+  br i1 %1759, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i598, label %.lr.ph.i.i.i.i.i593
 
 .lr.ph.i.i.i.i.i593:                              ; preds = %.noexc602, %.lr.ph.i.i.i.i.i593
-  %.03.i.i.i.i.i594 = phi ptr [ %1767, %.lr.ph.i.i.i.i.i593 ], [ %1764, %.noexc602 ]
-  %.092.i.i.i.i.i595 = phi ptr [ %1766, %.lr.ph.i.i.i.i.i593 ], [ %.val.i.i589, %.noexc602 ]
+  %.03.i.i.i.i.i594 = phi ptr [ %1768, %.lr.ph.i.i.i.i.i593 ], [ %1765, %.noexc602 ]
+  %.092.i.i.i.i.i595 = phi ptr [ %1767, %.lr.ph.i.i.i.i.i593 ], [ %.val.i.i589, %.noexc602 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !920)
   call void @llvm.experimental.noalias.scope.decl(metadata !923)
   %.val.i.i.i.i.i.i.i.i.i.i.i596 = load i64, ptr %.092.i.i.i.i.i595, align 8, !tbaa !61, !alias.scope !923, !noalias !920
   store i64 %.val.i.i.i.i.i.i.i.i.i.i.i596, ptr %.03.i.i.i.i.i594, align 8, !tbaa !61, !alias.scope !920, !noalias !923
   store ptr null, ptr %.092.i.i.i.i.i595, align 8, !tbaa !61, !alias.scope !923, !noalias !920
-  %1766 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i595, i64 8
-  %1767 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i594, i64 8
-  %.not.i.i.i.i.i597 = icmp eq ptr %1766, %1747
+  %1767 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i595, i64 8
+  %1768 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i594, i64 8
+  %.not.i.i.i.i.i597 = icmp eq ptr %1767, %1748
   br i1 %.not.i.i.i.i.i597, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i598, label %.lr.ph.i.i.i.i.i593, !llvm.loop !608
 
 _ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i598: ; preds = %.lr.ph.i.i.i.i.i593, %.noexc602
-  %.0.lcssa.i.i.i.i.i599 = phi ptr [ %1764, %.noexc602 ], [ %1767, %.lr.ph.i.i.i.i.i593 ]
-  %1768 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i599, i64 8
+  %.0.lcssa.i.i.i.i.i599 = phi ptr [ %1765, %.noexc602 ], [ %1768, %.lr.ph.i.i.i.i.i593 ]
+  %1769 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i599, i64 8
   %.not.i28.i.i600 = icmp eq ptr %.val.i.i589, null
-  br i1 %.not.i28.i.i600, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_14AllOfValidatorES5_ISB_EEEEERS7_DpOT_.exit, label %1769
+  br i1 %.not.i28.i.i600, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_14AllOfValidatorES5_ISB_EEEEERS7_DpOT_.exit, label %1770
 
-1769:                                             ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i598
-  call void @_ZdlPvm(ptr noundef nonnull %.val.i.i589, i64 noundef %1754) #47
+1770:                                             ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i598
+  call void @_ZdlPvm(ptr noundef nonnull %.val.i.i589, i64 noundef %1755) #47
   br label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_14AllOfValidatorES5_ISB_EEEEERS7_DpOT_.exit
 
-_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_14AllOfValidatorES5_ISB_EEEEERS7_DpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i598, %1769
-  store ptr %1764, ptr %1703, align 8, !tbaa !602
-  store ptr %1768, ptr %1746, align 8, !tbaa !596
-  %1770 = getelementptr inbounds nuw %"class.std::unique_ptr.340", ptr %1764, i64 %1762
-  store ptr %1770, ptr %1748, align 8, !tbaa !599
+_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_14AllOfValidatorES5_ISB_EEEEERS7_DpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i598, %1770
+  store ptr %1765, ptr %1704, align 8, !tbaa !602
+  store ptr %1769, ptr %1747, align 8, !tbaa !596
+  %1771 = getelementptr inbounds nuw %"class.std::unique_ptr.340", ptr %1765, i64 %1763
+  store ptr %1771, ptr %1749, align 8, !tbaa !599
   br label %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_114AllOfValidatorESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_114AllOfValidatorESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_14AllOfValidatorES5_ISB_EEEEERS7_DpOT_.exit, %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_14AllOfValidatorES5_ISB_EEEEERS7_DpOT_.exit.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #23
-  br label %1773
+  br label %1774
 
-1771:                                             ; preds = %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i590, %1756
-  %1772 = landingpad { ptr, i32 }
+1772:                                             ; preds = %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i590, %1757
+  %1773 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_114AllOfValidatorESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %47) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #23
   br label %common.resume
 
-1773:                                             ; preds = %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_114AllOfValidatorESt14default_deleteIS3_EED2Ev.exit, %1700
-  %1774 = call noundef ptr @_ZNKR5folly7dynamic7get_ptrENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr nonnull @.str.59, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.59, i64 5))
-  %.not171 = icmp eq ptr %1774, null
-  br i1 %.not171, label %1807, label %1775
+1774:                                             ; preds = %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_114AllOfValidatorESt14default_deleteIS3_EED2Ev.exit, %1701
+  %1775 = call noundef ptr @_ZNKR5folly7dynamic7get_ptrENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr nonnull @.str.59, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.59, i64 5))
+  %.not171 = icmp eq ptr %1775, null
+  br i1 %.not171, label %1808, label %1776
 
-1775:                                             ; preds = %1773
-  %1776 = getelementptr inbounds nuw i8, ptr %0, i64 16
+1776:                                             ; preds = %1774
+  %1777 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48) #23
-  %1777 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #46, !noalias !925
-  invoke fastcc void @_ZN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorC2ERNS1_22SchemaValidatorContextERKNS_7dynamicENS2_4TypeE(ptr noundef nonnull align 8 dereferenceable(40) %1777, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(40) %1774, i32 noundef 1)
-          to label %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorEJRNS2_22SchemaValidatorContextERKNS0_7dynamicENS3_4TypeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %1778, !noalias !925
+  %1778 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #46, !noalias !925
+  invoke fastcc void @_ZN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorC2ERNS1_22SchemaValidatorContextERKNS_7dynamicENS2_4TypeE(ptr noundef nonnull align 8 dereferenceable(40) %1778, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(40) %1775, i32 noundef 1)
+          to label %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorEJRNS2_22SchemaValidatorContextERKNS0_7dynamicENS3_4TypeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %1779, !noalias !925
 
-1778:                                             ; preds = %1775
-  %1779 = landingpad { ptr, i32 }
+1779:                                             ; preds = %1776
+  %1780 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPvm(ptr noundef nonnull %1777, i64 noundef 40) #47, !noalias !925
+  call void @_ZdlPvm(ptr noundef nonnull %1778, i64 noundef 40) #47, !noalias !925
   br label %common.resume
 
-_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorEJRNS2_22SchemaValidatorContextERKNS0_7dynamicENS3_4TypeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %1775
-  store ptr %1777, ptr %48, align 8, !tbaa !928
-  %1780 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %1781 = load ptr, ptr %1780, align 8, !tbaa !596
-  %1782 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1783 = load ptr, ptr %1782, align 8, !tbaa !599
-  %.not.i617 = icmp eq ptr %1781, %1783
-  br i1 %.not.i617, label %1785, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_14AnyOfValidatorES5_ISB_EEEEERS7_DpOT_.exit.thread
+_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorEJRNS2_22SchemaValidatorContextERKNS0_7dynamicENS3_4TypeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %1776
+  store ptr %1778, ptr %48, align 8, !tbaa !928
+  %1781 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %1782 = load ptr, ptr %1781, align 8, !tbaa !596
+  %1783 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1784 = load ptr, ptr %1783, align 8, !tbaa !599
+  %.not.i617 = icmp eq ptr %1782, %1784
+  br i1 %.not.i617, label %1786, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_14AnyOfValidatorES5_ISB_EEEEERS7_DpOT_.exit.thread
 
 _ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_14AnyOfValidatorES5_ISB_EEEEERS7_DpOT_.exit.thread: ; preds = %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorEJRNS2_22SchemaValidatorContextERKNS0_7dynamicENS3_4TypeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  store ptr %1777, ptr %1781, align 8, !tbaa !600
-  %1784 = getelementptr inbounds nuw i8, ptr %1781, i64 8
-  store ptr %1784, ptr %1780, align 8, !tbaa !596
+  store ptr %1778, ptr %1782, align 8, !tbaa !600
+  %1785 = getelementptr inbounds nuw i8, ptr %1782, i64 8
+  store ptr %1785, ptr %1781, align 8, !tbaa !596
   br label %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorESt14default_deleteIS3_EED2Ev.exit
 
-1785:                                             ; preds = %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorEJRNS2_22SchemaValidatorContextERKNS0_7dynamicENS3_4TypeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %.val.i.i618 = load ptr, ptr %1776, align 8, !tbaa !602
-  %1786 = ptrtoint ptr %1781 to i64
-  %1787 = ptrtoint ptr %.val.i.i618 to i64
-  %1788 = sub i64 %1786, %1787
-  %1789 = icmp eq i64 %1788, 9223372036854775800
-  br i1 %1789, label %1790, label %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i619
+1786:                                             ; preds = %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorEJRNS2_22SchemaValidatorContextERKNS0_7dynamicENS3_4TypeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
+  %.val.i.i618 = load ptr, ptr %1777, align 8, !tbaa !602
+  %1787 = ptrtoint ptr %1782 to i64
+  %1788 = ptrtoint ptr %.val.i.i618 to i64
+  %1789 = sub i64 %1787, %1788
+  %1790 = icmp eq i64 %1789, 9223372036854775800
+  br i1 %1790, label %1791, label %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i619
 
-1790:                                             ; preds = %1785
+1791:                                             ; preds = %1786
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.9) #44
-          to label %.noexc630 unwind label %1805
+          to label %.noexc630 unwind label %1806
 
-.noexc630:                                        ; preds = %1790
+.noexc630:                                        ; preds = %1791
   unreachable
 
-_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i619: ; preds = %1785
-  %1791 = ashr exact i64 %1788, 3
-  %1792 = icmp eq ptr %1781, %.val.i.i618
-  %.sroa.speculated.i.i.i620 = select i1 %1792, i64 1, i64 %1791
-  %1793 = add nsw i64 %.sroa.speculated.i.i.i620, %1791
-  %1794 = icmp ult i64 %1793, %1791
-  %1795 = call i64 @llvm.umin.i64(i64 %1793, i64 1152921504606846975)
-  %1796 = select i1 %1794, i64 1152921504606846975, i64 %1795
-  %.not.i.i.i621 = icmp ne i64 %1796, 0
+_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i619: ; preds = %1786
+  %1792 = ashr exact i64 %1789, 3
+  %1793 = icmp eq ptr %1782, %.val.i.i618
+  %.sroa.speculated.i.i.i620 = select i1 %1793, i64 1, i64 %1792
+  %1794 = add nsw i64 %.sroa.speculated.i.i.i620, %1792
+  %1795 = icmp ult i64 %1794, %1792
+  %1796 = call i64 @llvm.umin.i64(i64 %1794, i64 1152921504606846975)
+  %1797 = select i1 %1795, i64 1152921504606846975, i64 %1796
+  %.not.i.i.i621 = icmp ne i64 %1797, 0
   call void @llvm.assume(i1 %.not.i.i.i621)
-  %1797 = shl nuw nsw i64 %1796, 3
-  %1798 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1797) #46
-          to label %.noexc631 unwind label %1805
+  %1798 = shl nuw nsw i64 %1797, 3
+  %1799 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1798) #46
+          to label %.noexc631 unwind label %1806
 
 .noexc631:                                        ; preds = %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i619
-  %1799 = getelementptr inbounds nuw i8, ptr %1798, i64 %1788
-  store ptr %1777, ptr %1799, align 8, !tbaa !600
-  br i1 %1792, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i627, label %.lr.ph.i.i.i.i.i622
+  %1800 = getelementptr inbounds nuw i8, ptr %1799, i64 %1789
+  store ptr %1778, ptr %1800, align 8, !tbaa !600
+  br i1 %1793, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i627, label %.lr.ph.i.i.i.i.i622
 
 .lr.ph.i.i.i.i.i622:                              ; preds = %.noexc631, %.lr.ph.i.i.i.i.i622
-  %.03.i.i.i.i.i623 = phi ptr [ %1801, %.lr.ph.i.i.i.i.i622 ], [ %1798, %.noexc631 ]
-  %.092.i.i.i.i.i624 = phi ptr [ %1800, %.lr.ph.i.i.i.i.i622 ], [ %.val.i.i618, %.noexc631 ]
+  %.03.i.i.i.i.i623 = phi ptr [ %1802, %.lr.ph.i.i.i.i.i622 ], [ %1799, %.noexc631 ]
+  %.092.i.i.i.i.i624 = phi ptr [ %1801, %.lr.ph.i.i.i.i.i622 ], [ %.val.i.i618, %.noexc631 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !930)
   call void @llvm.experimental.noalias.scope.decl(metadata !933)
   %.val.i.i.i.i.i.i.i.i.i.i.i625 = load i64, ptr %.092.i.i.i.i.i624, align 8, !tbaa !61, !alias.scope !933, !noalias !930
   store i64 %.val.i.i.i.i.i.i.i.i.i.i.i625, ptr %.03.i.i.i.i.i623, align 8, !tbaa !61, !alias.scope !930, !noalias !933
   store ptr null, ptr %.092.i.i.i.i.i624, align 8, !tbaa !61, !alias.scope !933, !noalias !930
-  %1800 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i624, i64 8
-  %1801 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i623, i64 8
-  %.not.i.i.i.i.i626 = icmp eq ptr %1800, %1781
+  %1801 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i624, i64 8
+  %1802 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i623, i64 8
+  %.not.i.i.i.i.i626 = icmp eq ptr %1801, %1782
   br i1 %.not.i.i.i.i.i626, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i627, label %.lr.ph.i.i.i.i.i622, !llvm.loop !608
 
 _ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i627: ; preds = %.lr.ph.i.i.i.i.i622, %.noexc631
-  %.0.lcssa.i.i.i.i.i628 = phi ptr [ %1798, %.noexc631 ], [ %1801, %.lr.ph.i.i.i.i.i622 ]
-  %1802 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i628, i64 8
+  %.0.lcssa.i.i.i.i.i628 = phi ptr [ %1799, %.noexc631 ], [ %1802, %.lr.ph.i.i.i.i.i622 ]
+  %1803 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i628, i64 8
   %.not.i28.i.i629 = icmp eq ptr %.val.i.i618, null
-  br i1 %.not.i28.i.i629, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_14AnyOfValidatorES5_ISB_EEEEERS7_DpOT_.exit, label %1803
+  br i1 %.not.i28.i.i629, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_14AnyOfValidatorES5_ISB_EEEEERS7_DpOT_.exit, label %1804
 
-1803:                                             ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i627
-  call void @_ZdlPvm(ptr noundef nonnull %.val.i.i618, i64 noundef %1788) #47
+1804:                                             ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i627
+  call void @_ZdlPvm(ptr noundef nonnull %.val.i.i618, i64 noundef %1789) #47
   br label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_14AnyOfValidatorES5_ISB_EEEEERS7_DpOT_.exit
 
-_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_14AnyOfValidatorES5_ISB_EEEEERS7_DpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i627, %1803
-  store ptr %1798, ptr %1776, align 8, !tbaa !602
-  store ptr %1802, ptr %1780, align 8, !tbaa !596
-  %1804 = getelementptr inbounds nuw %"class.std::unique_ptr.340", ptr %1798, i64 %1796
-  store ptr %1804, ptr %1782, align 8, !tbaa !599
+_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_14AnyOfValidatorES5_ISB_EEEEERS7_DpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i627, %1804
+  store ptr %1799, ptr %1777, align 8, !tbaa !602
+  store ptr %1803, ptr %1781, align 8, !tbaa !596
+  %1805 = getelementptr inbounds nuw %"class.std::unique_ptr.340", ptr %1799, i64 %1797
+  store ptr %1805, ptr %1783, align 8, !tbaa !599
   br label %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_14AnyOfValidatorES5_ISB_EEEEERS7_DpOT_.exit, %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_14AnyOfValidatorES5_ISB_EEEEERS7_DpOT_.exit.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #23
-  br label %1807
+  br label %1808
 
-1805:                                             ; preds = %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i619, %1790
-  %1806 = landingpad { ptr, i32 }
+1806:                                             ; preds = %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i619, %1791
+  %1807 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %48) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #23
   br label %common.resume
 
-1807:                                             ; preds = %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorESt14default_deleteIS3_EED2Ev.exit, %1773
-  %1808 = call noundef ptr @_ZNKR5folly7dynamic7get_ptrENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr nonnull @.str.60, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.60, i64 5))
-  %.not172 = icmp eq ptr %1808, null
-  br i1 %.not172, label %1841, label %1809
+1808:                                             ; preds = %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorESt14default_deleteIS3_EED2Ev.exit, %1774
+  %1809 = call noundef ptr @_ZNKR5folly7dynamic7get_ptrENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr nonnull @.str.60, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.60, i64 5))
+  %.not172 = icmp eq ptr %1809, null
+  br i1 %.not172, label %1842, label %1810
 
-1809:                                             ; preds = %1807
-  %1810 = getelementptr inbounds nuw i8, ptr %0, i64 16
+1810:                                             ; preds = %1808
+  %1811 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49) #23
-  %1811 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #46, !noalias !935
-  invoke fastcc void @_ZN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorC2ERNS1_22SchemaValidatorContextERKNS_7dynamicENS2_4TypeE(ptr noundef nonnull align 8 dereferenceable(40) %1811, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(40) %1808, i32 noundef 0)
-          to label %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorEJRNS2_22SchemaValidatorContextERKNS0_7dynamicENS3_4TypeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit646 unwind label %1812, !noalias !935
+  %1812 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #46, !noalias !935
+  invoke fastcc void @_ZN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorC2ERNS1_22SchemaValidatorContextERKNS_7dynamicENS2_4TypeE(ptr noundef nonnull align 8 dereferenceable(40) %1812, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(40) %1809, i32 noundef 0)
+          to label %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorEJRNS2_22SchemaValidatorContextERKNS0_7dynamicENS3_4TypeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit646 unwind label %1813, !noalias !935
 
-1812:                                             ; preds = %1809
-  %1813 = landingpad { ptr, i32 }
+1813:                                             ; preds = %1810
+  %1814 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPvm(ptr noundef nonnull %1811, i64 noundef 40) #47, !noalias !935
+  call void @_ZdlPvm(ptr noundef nonnull %1812, i64 noundef 40) #47, !noalias !935
   br label %common.resume
 
-_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorEJRNS2_22SchemaValidatorContextERKNS0_7dynamicENS3_4TypeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit646: ; preds = %1809
-  store ptr %1811, ptr %49, align 8, !tbaa !928
-  %1814 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %1815 = load ptr, ptr %1814, align 8, !tbaa !596
-  %1816 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1817 = load ptr, ptr %1816, align 8, !tbaa !599
-  %.not.i647 = icmp eq ptr %1815, %1817
-  br i1 %.not.i647, label %1819, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_14AnyOfValidatorES5_ISB_EEEEERS7_DpOT_.exit663.thread
+_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorEJRNS2_22SchemaValidatorContextERKNS0_7dynamicENS3_4TypeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit646: ; preds = %1810
+  store ptr %1812, ptr %49, align 8, !tbaa !928
+  %1815 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %1816 = load ptr, ptr %1815, align 8, !tbaa !596
+  %1817 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1818 = load ptr, ptr %1817, align 8, !tbaa !599
+  %.not.i647 = icmp eq ptr %1816, %1818
+  br i1 %.not.i647, label %1820, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_14AnyOfValidatorES5_ISB_EEEEERS7_DpOT_.exit663.thread
 
 _ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_14AnyOfValidatorES5_ISB_EEEEERS7_DpOT_.exit663.thread: ; preds = %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorEJRNS2_22SchemaValidatorContextERKNS0_7dynamicENS3_4TypeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit646
-  store ptr %1811, ptr %1815, align 8, !tbaa !600
-  %1818 = getelementptr inbounds nuw i8, ptr %1815, i64 8
-  store ptr %1818, ptr %1814, align 8, !tbaa !596
+  store ptr %1812, ptr %1816, align 8, !tbaa !600
+  %1819 = getelementptr inbounds nuw i8, ptr %1816, i64 8
+  store ptr %1819, ptr %1815, align 8, !tbaa !596
   br label %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorESt14default_deleteIS3_EED2Ev.exit679
 
-1819:                                             ; preds = %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorEJRNS2_22SchemaValidatorContextERKNS0_7dynamicENS3_4TypeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit646
-  %.val.i.i648 = load ptr, ptr %1810, align 8, !tbaa !602
-  %1820 = ptrtoint ptr %1815 to i64
-  %1821 = ptrtoint ptr %.val.i.i648 to i64
-  %1822 = sub i64 %1820, %1821
-  %1823 = icmp eq i64 %1822, 9223372036854775800
-  br i1 %1823, label %1824, label %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i649
+1820:                                             ; preds = %_ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorEJRNS2_22SchemaValidatorContextERKNS0_7dynamicENS3_4TypeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit646
+  %.val.i.i648 = load ptr, ptr %1811, align 8, !tbaa !602
+  %1821 = ptrtoint ptr %1816 to i64
+  %1822 = ptrtoint ptr %.val.i.i648 to i64
+  %1823 = sub i64 %1821, %1822
+  %1824 = icmp eq i64 %1823, 9223372036854775800
+  br i1 %1824, label %1825, label %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i649
 
-1824:                                             ; preds = %1819
+1825:                                             ; preds = %1820
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.9) #44
-          to label %.noexc661 unwind label %1839
+          to label %.noexc661 unwind label %1840
 
-.noexc661:                                        ; preds = %1824
+.noexc661:                                        ; preds = %1825
   unreachable
 
-_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i649: ; preds = %1819
-  %1825 = ashr exact i64 %1822, 3
-  %1826 = icmp eq ptr %1815, %.val.i.i648
-  %.sroa.speculated.i.i.i650 = select i1 %1826, i64 1, i64 %1825
-  %1827 = add nsw i64 %.sroa.speculated.i.i.i650, %1825
-  %1828 = icmp ult i64 %1827, %1825
-  %1829 = call i64 @llvm.umin.i64(i64 %1827, i64 1152921504606846975)
-  %1830 = select i1 %1828, i64 1152921504606846975, i64 %1829
-  %.not.i.i.i651 = icmp ne i64 %1830, 0
+_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i649: ; preds = %1820
+  %1826 = ashr exact i64 %1823, 3
+  %1827 = icmp eq ptr %1816, %.val.i.i648
+  %.sroa.speculated.i.i.i650 = select i1 %1827, i64 1, i64 %1826
+  %1828 = add nsw i64 %.sroa.speculated.i.i.i650, %1826
+  %1829 = icmp ult i64 %1828, %1826
+  %1830 = call i64 @llvm.umin.i64(i64 %1828, i64 1152921504606846975)
+  %1831 = select i1 %1829, i64 1152921504606846975, i64 %1830
+  %.not.i.i.i651 = icmp ne i64 %1831, 0
   call void @llvm.assume(i1 %.not.i.i.i651)
-  %1831 = shl nuw nsw i64 %1830, 3
-  %1832 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1831) #46
-          to label %.noexc662 unwind label %1839
+  %1832 = shl nuw nsw i64 %1831, 3
+  %1833 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1832) #46
+          to label %.noexc662 unwind label %1840
 
 .noexc662:                                        ; preds = %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i649
-  %1833 = getelementptr inbounds nuw i8, ptr %1832, i64 %1822
-  store ptr %1811, ptr %1833, align 8, !tbaa !600
-  br i1 %1826, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i657, label %.lr.ph.i.i.i.i.i652
+  %1834 = getelementptr inbounds nuw i8, ptr %1833, i64 %1823
+  store ptr %1812, ptr %1834, align 8, !tbaa !600
+  br i1 %1827, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i657, label %.lr.ph.i.i.i.i.i652
 
 .lr.ph.i.i.i.i.i652:                              ; preds = %.noexc662, %.lr.ph.i.i.i.i.i652
-  %.03.i.i.i.i.i653 = phi ptr [ %1835, %.lr.ph.i.i.i.i.i652 ], [ %1832, %.noexc662 ]
-  %.092.i.i.i.i.i654 = phi ptr [ %1834, %.lr.ph.i.i.i.i.i652 ], [ %.val.i.i648, %.noexc662 ]
+  %.03.i.i.i.i.i653 = phi ptr [ %1836, %.lr.ph.i.i.i.i.i652 ], [ %1833, %.noexc662 ]
+  %.092.i.i.i.i.i654 = phi ptr [ %1835, %.lr.ph.i.i.i.i.i652 ], [ %.val.i.i648, %.noexc662 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !938)
   call void @llvm.experimental.noalias.scope.decl(metadata !941)
   %.val.i.i.i.i.i.i.i.i.i.i.i655 = load i64, ptr %.092.i.i.i.i.i654, align 8, !tbaa !61, !alias.scope !941, !noalias !938
   store i64 %.val.i.i.i.i.i.i.i.i.i.i.i655, ptr %.03.i.i.i.i.i653, align 8, !tbaa !61, !alias.scope !938, !noalias !941
   store ptr null, ptr %.092.i.i.i.i.i654, align 8, !tbaa !61, !alias.scope !941, !noalias !938
-  %1834 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i654, i64 8
-  %1835 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i653, i64 8
-  %.not.i.i.i.i.i656 = icmp eq ptr %1834, %1815
+  %1835 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i654, i64 8
+  %1836 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i653, i64 8
+  %.not.i.i.i.i.i656 = icmp eq ptr %1835, %1816
   br i1 %.not.i.i.i.i.i656, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i657, label %.lr.ph.i.i.i.i.i652, !llvm.loop !608
 
 _ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i657: ; preds = %.lr.ph.i.i.i.i.i652, %.noexc662
-  %.0.lcssa.i.i.i.i.i658 = phi ptr [ %1832, %.noexc662 ], [ %1835, %.lr.ph.i.i.i.i.i652 ]
-  %1836 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i658, i64 8
+  %.0.lcssa.i.i.i.i.i658 = phi ptr [ %1833, %.noexc662 ], [ %1836, %.lr.ph.i.i.i.i.i652 ]
+  %1837 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i658, i64 8
   %.not.i28.i.i659 = icmp eq ptr %.val.i.i648, null
-  br i1 %.not.i28.i.i659, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_14AnyOfValidatorES5_ISB_EEEEERS7_DpOT_.exit663, label %1837
+  br i1 %.not.i28.i.i659, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_14AnyOfValidatorES5_ISB_EEEEERS7_DpOT_.exit663, label %1838
 
-1837:                                             ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i657
-  call void @_ZdlPvm(ptr noundef nonnull %.val.i.i648, i64 noundef %1822) #47
+1838:                                             ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i657
+  call void @_ZdlPvm(ptr noundef nonnull %.val.i.i648, i64 noundef %1823) #47
   br label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_14AnyOfValidatorES5_ISB_EEEEERS7_DpOT_.exit663
 
-_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_14AnyOfValidatorES5_ISB_EEEEERS7_DpOT_.exit663: ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i657, %1837
-  store ptr %1832, ptr %1810, align 8, !tbaa !602
-  store ptr %1836, ptr %1814, align 8, !tbaa !596
-  %1838 = getelementptr inbounds nuw %"class.std::unique_ptr.340", ptr %1832, i64 %1830
-  store ptr %1838, ptr %1816, align 8, !tbaa !599
+_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_14AnyOfValidatorES5_ISB_EEEEERS7_DpOT_.exit663: ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i657, %1838
+  store ptr %1833, ptr %1811, align 8, !tbaa !602
+  store ptr %1837, ptr %1815, align 8, !tbaa !596
+  %1839 = getelementptr inbounds nuw %"class.std::unique_ptr.340", ptr %1833, i64 %1831
+  store ptr %1839, ptr %1817, align 8, !tbaa !599
   br label %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorESt14default_deleteIS3_EED2Ev.exit679
 
 _ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorESt14default_deleteIS3_EED2Ev.exit679: ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_14AnyOfValidatorES5_ISB_EEEEERS7_DpOT_.exit663, %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_14AnyOfValidatorES5_ISB_EEEEERS7_DpOT_.exit663.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #23
-  br label %1841
+  br label %1842
 
-1839:                                             ; preds = %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i649, %1824
-  %1840 = landingpad { ptr, i32 }
+1840:                                             ; preds = %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i649, %1825
+  %1841 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %49) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #23
   br label %common.resume
 
-1841:                                             ; preds = %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorESt14default_deleteIS3_EED2Ev.exit679, %1807
-  %1842 = call noundef ptr @_ZNKR5folly7dynamic7get_ptrENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr nonnull @.str.61, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.61, i64 3))
-  %.not173 = icmp eq ptr %1842, null
-  br i1 %.not173, label %.critedge, label %1843
+1842:                                             ; preds = %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorESt14default_deleteIS3_EED2Ev.exit679, %1808
+  %1843 = call noundef ptr @_ZNKR5folly7dynamic7get_ptrENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr nonnull @.str.61, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.61, i64 3))
+  %.not173 = icmp eq ptr %1843, null
+  br i1 %.not173, label %.critedge, label %1844
 
-1843:                                             ; preds = %1841
-  %1844 = getelementptr inbounds nuw i8, ptr %0, i64 16
+1844:                                             ; preds = %1842
+  %1845 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50) #23
-  %1845 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #46, !noalias !943
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_112NotValidatorE, i64 16), ptr %1845, align 8, !tbaa !28, !noalias !943
+  %1846 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #46, !noalias !943
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_112NotValidatorE, i64 16), ptr %1846, align 8, !tbaa !28, !noalias !943
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23, !noalias !943
   call void @llvm.experimental.noalias.scope.decl(metadata !946)
-  %1846 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #46
-          to label %.noexc.i868 unwind label %1856
+  %1847 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #46
+          to label %.noexc.i868 unwind label %1857
 
-.noexc.i868:                                      ; preds = %1843
-  %1847 = getelementptr inbounds nuw i8, ptr %1846, i64 8
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 16), ptr %1846, align 8, !tbaa !28, !noalias !949
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 72), ptr %1847, align 8, !tbaa !28, !noalias !949
-  %1848 = getelementptr inbounds nuw i8, ptr %1846, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1848, i8 0, i64 24, i1 false), !noalias !949
-  store ptr %1846, ptr %4, align 8, !tbaa !30, !alias.scope !946, !noalias !943
-  invoke fastcc void @_ZN5folly10jsonschema12_GLOBAL__N_115SchemaValidator10loadSchemaERNS1_22SchemaValidatorContextERKNS_7dynamicE(ptr noundef nonnull align 8 dereferenceable(40) %1846, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(40) %1842)
-          to label %_ZN5folly10jsonschema12_GLOBAL__N_115SchemaValidator4makeERNS1_22SchemaValidatorContextERKNS_7dynamicE.exit.i870 unwind label %1849, !noalias !950
+.noexc.i868:                                      ; preds = %1844
+  %1848 = getelementptr inbounds nuw i8, ptr %1847, i64 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 16), ptr %1847, align 8, !tbaa !28, !noalias !949
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 72), ptr %1848, align 8, !tbaa !28, !noalias !949
+  %1849 = getelementptr inbounds nuw i8, ptr %1847, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1849, i8 0, i64 24, i1 false), !noalias !949
+  store ptr %1847, ptr %4, align 8, !tbaa !30, !alias.scope !946, !noalias !943
+  invoke fastcc void @_ZN5folly10jsonschema12_GLOBAL__N_115SchemaValidator10loadSchemaERNS1_22SchemaValidatorContextERKNS_7dynamicE(ptr noundef nonnull align 8 dereferenceable(40) %1847, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(40) %1843)
+          to label %_ZN5folly10jsonschema12_GLOBAL__N_115SchemaValidator4makeERNS1_22SchemaValidatorContextERKNS_7dynamicE.exit.i870 unwind label %1850, !noalias !950
 
-1849:                                             ; preds = %.noexc.i868
-  %1850 = landingpad { ptr, i32 }
+1850:                                             ; preds = %.noexc.i868
+  %1851 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #23, !noalias !943
   br label %.body.i866
 
 _ZN5folly10jsonschema12_GLOBAL__N_115SchemaValidator4makeERNS1_22SchemaValidatorContextERKNS_7dynamicE.exit.i870: ; preds = %.noexc.i868
-  %1851 = getelementptr inbounds nuw i8, ptr %1845, i64 8
-  store ptr %1846, ptr %1851, align 8, !tbaa !600, !noalias !943
+  %1852 = getelementptr inbounds nuw i8, ptr %1846, i64 8
+  store ptr %1847, ptr %1852, align 8, !tbaa !600, !noalias !943
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23, !noalias !943
-  store ptr %1845, ptr %50, align 8, !tbaa !953
-  %1852 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %1853 = load ptr, ptr %1852, align 8, !tbaa !596
-  %1854 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1855 = load ptr, ptr %1854, align 8, !tbaa !599
-  %.not.i680 = icmp eq ptr %1853, %1855
-  br i1 %.not.i680, label %1859, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_12NotValidatorES5_ISB_EEEEERS7_DpOT_.exit.thread
+  store ptr %1846, ptr %50, align 8, !tbaa !953
+  %1853 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %1854 = load ptr, ptr %1853, align 8, !tbaa !596
+  %1855 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1856 = load ptr, ptr %1855, align 8, !tbaa !599
+  %.not.i680 = icmp eq ptr %1854, %1856
+  br i1 %.not.i680, label %1860, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_12NotValidatorES5_ISB_EEEEERS7_DpOT_.exit.thread
 
-1856:                                             ; preds = %1843
-  %1857 = landingpad { ptr, i32 }
+1857:                                             ; preds = %1844
+  %1858 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i866
 
-.body.i866:                                       ; preds = %1856, %1849
-  %eh.lpad-body.i867 = phi { ptr, i32 } [ %1857, %1856 ], [ %1850, %1849 ]
+.body.i866:                                       ; preds = %1857, %1850
+  %eh.lpad-body.i867 = phi { ptr, i32 } [ %1858, %1857 ], [ %1851, %1850 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23, !noalias !943
-  call void @_ZdlPvm(ptr noundef nonnull %1845, i64 noundef 16) #47, !noalias !943
+  call void @_ZdlPvm(ptr noundef nonnull %1846, i64 noundef 16) #47, !noalias !943
   br label %common.resume
 
 _ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_12NotValidatorES5_ISB_EEEEERS7_DpOT_.exit.thread: ; preds = %_ZN5folly10jsonschema12_GLOBAL__N_115SchemaValidator4makeERNS1_22SchemaValidatorContextERKNS_7dynamicE.exit.i870
-  store ptr %1845, ptr %1853, align 8, !tbaa !600
-  %1858 = getelementptr inbounds nuw i8, ptr %1853, i64 8
-  store ptr %1858, ptr %1852, align 8, !tbaa !596
+  store ptr %1846, ptr %1854, align 8, !tbaa !600
+  %1859 = getelementptr inbounds nuw i8, ptr %1854, i64 8
+  store ptr %1859, ptr %1853, align 8, !tbaa !596
   br label %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_112NotValidatorESt14default_deleteIS3_EED2Ev.exit
 
-1859:                                             ; preds = %_ZN5folly10jsonschema12_GLOBAL__N_115SchemaValidator4makeERNS1_22SchemaValidatorContextERKNS_7dynamicE.exit.i870
-  %.val.i.i681 = load ptr, ptr %1844, align 8, !tbaa !602
-  %1860 = ptrtoint ptr %1853 to i64
-  %1861 = ptrtoint ptr %.val.i.i681 to i64
-  %1862 = sub i64 %1860, %1861
-  %1863 = icmp eq i64 %1862, 9223372036854775800
-  br i1 %1863, label %1864, label %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i682
+1860:                                             ; preds = %_ZN5folly10jsonschema12_GLOBAL__N_115SchemaValidator4makeERNS1_22SchemaValidatorContextERKNS_7dynamicE.exit.i870
+  %.val.i.i681 = load ptr, ptr %1845, align 8, !tbaa !602
+  %1861 = ptrtoint ptr %1854 to i64
+  %1862 = ptrtoint ptr %.val.i.i681 to i64
+  %1863 = sub i64 %1861, %1862
+  %1864 = icmp eq i64 %1863, 9223372036854775800
+  br i1 %1864, label %1865, label %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i682
 
-1864:                                             ; preds = %1859
+1865:                                             ; preds = %1860
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.9) #44
-          to label %.noexc693 unwind label %1879
+          to label %.noexc693 unwind label %1880
 
-.noexc693:                                        ; preds = %1864
+.noexc693:                                        ; preds = %1865
   unreachable
 
-_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i682: ; preds = %1859
-  %1865 = ashr exact i64 %1862, 3
-  %1866 = icmp eq ptr %1853, %.val.i.i681
-  %.sroa.speculated.i.i.i683 = select i1 %1866, i64 1, i64 %1865
-  %1867 = add nsw i64 %.sroa.speculated.i.i.i683, %1865
-  %1868 = icmp ult i64 %1867, %1865
-  %1869 = call i64 @llvm.umin.i64(i64 %1867, i64 1152921504606846975)
-  %1870 = select i1 %1868, i64 1152921504606846975, i64 %1869
-  %.not.i.i.i684 = icmp ne i64 %1870, 0
+_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i682: ; preds = %1860
+  %1866 = ashr exact i64 %1863, 3
+  %1867 = icmp eq ptr %1854, %.val.i.i681
+  %.sroa.speculated.i.i.i683 = select i1 %1867, i64 1, i64 %1866
+  %1868 = add nsw i64 %.sroa.speculated.i.i.i683, %1866
+  %1869 = icmp ult i64 %1868, %1866
+  %1870 = call i64 @llvm.umin.i64(i64 %1868, i64 1152921504606846975)
+  %1871 = select i1 %1869, i64 1152921504606846975, i64 %1870
+  %.not.i.i.i684 = icmp ne i64 %1871, 0
   call void @llvm.assume(i1 %.not.i.i.i684)
-  %1871 = shl nuw nsw i64 %1870, 3
-  %1872 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1871) #46
-          to label %.noexc694 unwind label %1879
+  %1872 = shl nuw nsw i64 %1871, 3
+  %1873 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1872) #46
+          to label %.noexc694 unwind label %1880
 
 .noexc694:                                        ; preds = %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i682
-  %1873 = getelementptr inbounds nuw i8, ptr %1872, i64 %1862
-  store ptr %1845, ptr %1873, align 8, !tbaa !600
-  br i1 %1866, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i690, label %.lr.ph.i.i.i.i.i685
+  %1874 = getelementptr inbounds nuw i8, ptr %1873, i64 %1863
+  store ptr %1846, ptr %1874, align 8, !tbaa !600
+  br i1 %1867, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i690, label %.lr.ph.i.i.i.i.i685
 
 .lr.ph.i.i.i.i.i685:                              ; preds = %.noexc694, %.lr.ph.i.i.i.i.i685
-  %.03.i.i.i.i.i686 = phi ptr [ %1875, %.lr.ph.i.i.i.i.i685 ], [ %1872, %.noexc694 ]
-  %.092.i.i.i.i.i687 = phi ptr [ %1874, %.lr.ph.i.i.i.i.i685 ], [ %.val.i.i681, %.noexc694 ]
+  %.03.i.i.i.i.i686 = phi ptr [ %1876, %.lr.ph.i.i.i.i.i685 ], [ %1873, %.noexc694 ]
+  %.092.i.i.i.i.i687 = phi ptr [ %1875, %.lr.ph.i.i.i.i.i685 ], [ %.val.i.i681, %.noexc694 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !955)
   call void @llvm.experimental.noalias.scope.decl(metadata !958)
   %.val.i.i.i.i.i.i.i.i.i.i.i688 = load i64, ptr %.092.i.i.i.i.i687, align 8, !tbaa !61, !alias.scope !958, !noalias !955
   store i64 %.val.i.i.i.i.i.i.i.i.i.i.i688, ptr %.03.i.i.i.i.i686, align 8, !tbaa !61, !alias.scope !955, !noalias !958
   store ptr null, ptr %.092.i.i.i.i.i687, align 8, !tbaa !61, !alias.scope !958, !noalias !955
-  %1874 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i687, i64 8
-  %1875 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i686, i64 8
-  %.not.i.i.i.i.i689 = icmp eq ptr %1874, %1853
+  %1875 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i687, i64 8
+  %1876 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i686, i64 8
+  %.not.i.i.i.i.i689 = icmp eq ptr %1875, %1854
   br i1 %.not.i.i.i.i.i689, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i690, label %.lr.ph.i.i.i.i.i685, !llvm.loop !608
 
 _ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i690: ; preds = %.lr.ph.i.i.i.i.i685, %.noexc694
-  %.0.lcssa.i.i.i.i.i691 = phi ptr [ %1872, %.noexc694 ], [ %1875, %.lr.ph.i.i.i.i.i685 ]
-  %1876 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i691, i64 8
+  %.0.lcssa.i.i.i.i.i691 = phi ptr [ %1873, %.noexc694 ], [ %1876, %.lr.ph.i.i.i.i.i685 ]
+  %1877 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i691, i64 8
   %.not.i28.i.i692 = icmp eq ptr %.val.i.i681, null
-  br i1 %.not.i28.i.i692, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_12NotValidatorES5_ISB_EEEEERS7_DpOT_.exit, label %1877
+  br i1 %.not.i28.i.i692, label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_12NotValidatorES5_ISB_EEEEERS7_DpOT_.exit, label %1878
 
-1877:                                             ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i690
-  call void @_ZdlPvm(ptr noundef nonnull %.val.i.i681, i64 noundef %1862) #47
+1878:                                             ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i690
+  call void @_ZdlPvm(ptr noundef nonnull %.val.i.i681, i64 noundef %1863) #47
   br label %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_12NotValidatorES5_ISB_EEEEERS7_DpOT_.exit
 
-_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_12NotValidatorES5_ISB_EEEEERS7_DpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i690, %1877
-  store ptr %1872, ptr %1844, align 8, !tbaa !602
-  store ptr %1876, ptr %1852, align 8, !tbaa !596
-  %1878 = getelementptr inbounds nuw %"class.std::unique_ptr.340", ptr %1872, i64 %1870
-  store ptr %1878, ptr %1854, align 8, !tbaa !599
+_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_12NotValidatorES5_ISB_EEEEERS7_DpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27.i.i690, %1878
+  store ptr %1873, ptr %1845, align 8, !tbaa !602
+  store ptr %1877, ptr %1853, align 8, !tbaa !596
+  %1879 = getelementptr inbounds nuw %"class.std::unique_ptr.340", ptr %1873, i64 %1871
+  store ptr %1879, ptr %1855, align 8, !tbaa !599
   br label %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_112NotValidatorESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_112NotValidatorESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_12NotValidatorES5_ISB_EEEEERS7_DpOT_.exit, %_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_12NotValidatorES5_ISB_EEEEERS7_DpOT_.exit.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #23
   br label %.critedge
 
-1879:                                             ; preds = %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i682, %1864
-  %1880 = landingpad { ptr, i32 }
+1880:                                             ; preds = %_ZNKSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i682, %1865
+  %1881 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_112NotValidatorESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %50) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #23
   br label %common.resume
 
-.critedge:                                        ; preds = %1841, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_112NotValidatorESt14default_deleteIS3_EED2Ev.exit, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_112RefValidatorESt14default_deleteIS3_EED2Ev.exit, %209, %3, %_ZNK5folly7dynamic5emptyEv.exit
+.critedge:                                        ; preds = %1842, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_112NotValidatorESt14default_deleteIS3_EED2Ev.exit, %_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_112RefValidatorESt14default_deleteIS3_EED2Ev.exit, %209, %3, %_ZNK5folly7dynamic5emptyEv.exit
   ret void
 }
 

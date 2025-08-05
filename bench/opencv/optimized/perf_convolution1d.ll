@@ -2411,10 +2411,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit309: ; preds = %_Z
   %.val157 = load ptr, ptr %538, align 8, !tbaa !129
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, i8 0, i64 24, i1 false), !alias.scope !130
   %539 = sext i32 %.val to i64
-  %.idx439 = shl nsw i64 %539, 2
+  %.idx440 = shl nsw i64 %539, 2
   %540 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %.not443 = icmp eq i32 %.val, 0
-  br i1 %.not443, label %_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit, label %541
+  %.not439 = icmp eq i32 %.val, 0
+  br i1 %.not439, label %_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit, label %541
 
 541:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit309
   %542 = icmp slt i32 %.val, 0
@@ -2428,14 +2428,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit309: ; preds = %_Z
   unreachable
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %541
-  %544 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx439) #29
-          to label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i unwind label %547
+  %544 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx440) #29
+          to label %.noexc391 unwind label %547
 
-_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %544, ptr align 4 %.val157, i64 %.idx439, i1 false)
+.noexc391:                                        ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %544, ptr align 4 %.val157, i64 %.idx440, i1 false)
   %545 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %544, ptr %57, align 8, !tbaa !135
-  %546 = getelementptr inbounds nuw i8, ptr %544, i64 %.idx439
+  %546 = getelementptr inbounds nuw i8, ptr %544, i64 %.idx440
   store ptr %546, ptr %545, align 8, !tbaa !137
   store ptr %546, ptr %540, align 8, !tbaa !138
   br label %_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit
@@ -2447,7 +2447,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %_ZNSt12_Vector
   %.not.i.i.i.i.i = icmp eq ptr %549, null
   br i1 %.not.i.i.i.i.i, label %.body310, label %.body310.sink.split
 
-_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit309, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i
+_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit309, %.noexc391
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %58) #28
   store i64 0, ptr %58, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59) #28
@@ -2670,10 +2670,10 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit331: ; preds = %_ZNS
   %.val159 = load ptr, ptr %629, align 8, !tbaa !129
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, i8 0, i64 24, i1 false), !alias.scope !140
   %630 = sext i32 %.val158 to i64
-  %.idx441 = shl nsw i64 %630, 2
+  %.idx443 = shl nsw i64 %630, 2
   %631 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %.not444 = icmp eq i32 %.val158, 0
-  br i1 %.not444, label %_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit336, label %632
+  %.not442 = icmp eq i32 %.val158, 0
+  br i1 %.not442, label %_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit336, label %632
 
 632:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit331
   %633 = icmp slt i32 %.val158, 0
@@ -2687,14 +2687,14 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit331: ; preds = %_ZNS
   unreachable
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i407: ; preds = %632
-  %635 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx441) #29
-          to label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i411 unwind label %638
+  %635 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx443) #29
+          to label %.noexc413 unwind label %638
 
-_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i411: ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i407
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %635, ptr align 4 %.val159, i64 %.idx441, i1 false)
+.noexc413:                                        ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i407
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %635, ptr align 4 %.val159, i64 %.idx443, i1 false)
   %636 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %635, ptr %62, align 8, !tbaa !135
-  %637 = getelementptr inbounds nuw i8, ptr %635, i64 %.idx441
+  %637 = getelementptr inbounds nuw i8, ptr %635, i64 %.idx443
   store ptr %637, ptr %636, align 8, !tbaa !137
   store ptr %637, ptr %631, align 8, !tbaa !138
   br label %_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit336
@@ -2704,8 +2704,8 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i411: ; preds = %_ZNSt12_Vec
           cleanup
   br label %.body334
 
-_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit336: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit331, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i411
-  %640 = phi ptr [ %635, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i411 ], [ null, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit331 ]
+_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit336: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit331, %.noexc413
+  %640 = phi ptr [ %635, %.noexc413 ], [ null, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit331 ]
   %641 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3dnn14dnn4_v20241223lsIiEERSoS3_RKSt6vectorIT_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(8) %627, ptr noundef nonnull align 8 dereferenceable(24) %62)
           to label %642 unwind label %687
 

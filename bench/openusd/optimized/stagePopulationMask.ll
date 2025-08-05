@@ -707,7 +707,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__22UsdStagePopulationMask8GetU
   call void (ptr, i32, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %4, i32 noundef 1, ptr noundef nonnull @.str.1, ptr noundef %14)
   br label %15
 
-15:                                               ; preds = %7, %9
+15:                                               ; preds = %9, %7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16

@@ -2698,8 +2698,8 @@ define dso_local void @_ZNK4llvm5MachO19ObjCContainerRecord12getObjCIVarsEv(ptr 
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load i32, ptr %3, align 8, !tbaa !34
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not25 = icmp eq i32 %4, 0
-  br i1 %.not25, label %._crit_edge, label %.lr.ph
+  %.not10 = icmp eq i32 %4, 0
+  br i1 %.not10, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %6 = zext i32 %4 to i64
@@ -2719,10 +2719,10 @@ define dso_local void @_ZNK4llvm5MachO19ObjCContainerRecord12getObjCIVarsEv(ptr 
 
 15:                                               ; preds = %.lr.ph, %_ZNSt6vectorIPN4llvm5MachO14ObjCIVarRecordESaIS3_EE9push_backEOS3_.exit
   %16 = phi ptr [ %9, %.lr.ph ], [ %42, %_ZNSt6vectorIPN4llvm5MachO14ObjCIVarRecordESaIS3_EE9push_backEOS3_.exit ]
-  %.015 = phi ptr [ %12, %.lr.ph ], [ %45, %_ZNSt6vectorIPN4llvm5MachO14ObjCIVarRecordESaIS3_EE9push_backEOS3_.exit ]
+  %.016 = phi ptr [ %12, %.lr.ph ], [ %45, %_ZNSt6vectorIPN4llvm5MachO14ObjCIVarRecordESaIS3_EE9push_backEOS3_.exit ]
   %17 = phi ptr [ %10, %.lr.ph ], [ %44, %_ZNSt6vectorIPN4llvm5MachO14ObjCIVarRecordESaIS3_EE9push_backEOS3_.exit ]
   %18 = phi ptr [ %9, %.lr.ph ], [ %43, %_ZNSt6vectorIPN4llvm5MachO14ObjCIVarRecordESaIS3_EE9push_backEOS3_.exit ]
-  %19 = getelementptr inbounds nuw i8, ptr %.015, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.016, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !146
   %.not.i.i = icmp eq ptr %16, %17
   br i1 %.not.i.i, label %23, label %21
@@ -2784,15 +2784,15 @@ _ZNSt6vectorIPN4llvm5MachO14ObjCIVarRecordESaIS3_EE9push_backEOS3_.exit: ; preds
   %42 = phi ptr [ %22, %21 ], [ %39, %_ZNSt6vectorIPN4llvm5MachO14ObjCIVarRecordESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ]
   %43 = phi ptr [ %18, %21 ], [ %35, %_ZNSt6vectorIPN4llvm5MachO14ObjCIVarRecordESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ]
   %44 = phi ptr [ %17, %21 ], [ %41, %_ZNSt6vectorIPN4llvm5MachO14ObjCIVarRecordESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ]
-  %45 = getelementptr inbounds nuw i8, ptr %.015, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %.016, i64 24
   %.not = icmp eq ptr %45, %13
   br i1 %.not, label %._crit_edge, label %15
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPN4llvm5MachO14ObjCIVarRecordESaIS3_EE9push_backEOS3_.exit, %2
-  %.lcssa12 = phi ptr [ null, %2 ], [ %43, %_ZNSt6vectorIPN4llvm5MachO14ObjCIVarRecordESaIS3_EE9push_backEOS3_.exit ]
+  %.lcssa13 = phi ptr [ null, %2 ], [ %43, %_ZNSt6vectorIPN4llvm5MachO14ObjCIVarRecordESaIS3_EE9push_backEOS3_.exit ]
   %.lcssa = phi ptr [ null, %2 ], [ %44, %_ZNSt6vectorIPN4llvm5MachO14ObjCIVarRecordESaIS3_EE9push_backEOS3_.exit ]
   store ptr %.lcssa, ptr %5, align 8
-  store ptr %.lcssa12, ptr %0, align 8
+  store ptr %.lcssa13, ptr %0, align 8
   ret void
 }
 
@@ -2802,8 +2802,8 @@ define dso_local void @_ZNK4llvm5MachO19ObjCInterfaceRecord17getObjCCategoriesEv
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = load i32, ptr %3, align 8, !tbaa !34
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not24 = icmp eq i32 %4, 0
-  br i1 %.not24, label %._crit_edge, label %.lr.ph
+  %.not9 = icmp eq i32 %4, 0
+  br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %6 = zext i32 %4 to i64
@@ -2823,10 +2823,10 @@ define dso_local void @_ZNK4llvm5MachO19ObjCInterfaceRecord17getObjCCategoriesEv
 
 15:                                               ; preds = %.lr.ph, %_ZNSt6vectorIPN4llvm5MachO18ObjCCategoryRecordESaIS3_EE9push_backERKS3_.exit
   %16 = phi ptr [ %9, %.lr.ph ], [ %43, %_ZNSt6vectorIPN4llvm5MachO18ObjCCategoryRecordESaIS3_EE9push_backERKS3_.exit ]
-  %.014 = phi ptr [ %12, %.lr.ph ], [ %46, %_ZNSt6vectorIPN4llvm5MachO18ObjCCategoryRecordESaIS3_EE9push_backERKS3_.exit ]
+  %.015 = phi ptr [ %12, %.lr.ph ], [ %46, %_ZNSt6vectorIPN4llvm5MachO18ObjCCategoryRecordESaIS3_EE9push_backERKS3_.exit ]
   %17 = phi ptr [ %10, %.lr.ph ], [ %45, %_ZNSt6vectorIPN4llvm5MachO18ObjCCategoryRecordESaIS3_EE9push_backERKS3_.exit ]
   %18 = phi ptr [ %9, %.lr.ph ], [ %44, %_ZNSt6vectorIPN4llvm5MachO18ObjCCategoryRecordESaIS3_EE9push_backERKS3_.exit ]
-  %19 = getelementptr inbounds nuw i8, ptr %.014, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.015, i64 16
   %.not.i = icmp eq ptr %16, %17
   br i1 %.not.i, label %23, label %20
 
@@ -2889,15 +2889,15 @@ _ZNSt6vectorIPN4llvm5MachO18ObjCCategoryRecordESaIS3_EE9push_backERKS3_.exit: ; 
   %43 = phi ptr [ %22, %20 ], [ %40, %_ZNSt6vectorIPN4llvm5MachO18ObjCCategoryRecordESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ]
   %44 = phi ptr [ %18, %20 ], [ %35, %_ZNSt6vectorIPN4llvm5MachO18ObjCCategoryRecordESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ]
   %45 = phi ptr [ %17, %20 ], [ %42, %_ZNSt6vectorIPN4llvm5MachO18ObjCCategoryRecordESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ]
-  %46 = getelementptr inbounds nuw i8, ptr %.014, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %.015, i64 24
   %.not = icmp eq ptr %46, %13
   br i1 %.not, label %._crit_edge, label %15
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPN4llvm5MachO18ObjCCategoryRecordESaIS3_EE9push_backERKS3_.exit, %2
-  %.lcssa11 = phi ptr [ null, %2 ], [ %44, %_ZNSt6vectorIPN4llvm5MachO18ObjCCategoryRecordESaIS3_EE9push_backERKS3_.exit ]
+  %.lcssa12 = phi ptr [ null, %2 ], [ %44, %_ZNSt6vectorIPN4llvm5MachO18ObjCCategoryRecordESaIS3_EE9push_backERKS3_.exit ]
   %.lcssa = phi ptr [ null, %2 ], [ %45, %_ZNSt6vectorIPN4llvm5MachO18ObjCCategoryRecordESaIS3_EE9push_backERKS3_.exit ]
   store ptr %.lcssa, ptr %5, align 8
-  store ptr %.lcssa11, ptr %0, align 8
+  store ptr %.lcssa12, ptr %0, align 8
   ret void
 }
 

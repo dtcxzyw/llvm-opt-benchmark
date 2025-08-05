@@ -2657,7 +2657,7 @@ define linkonce_odr void @_ZN8LightGBM4DART4InitEPKNS_6ConfigEPKNS_7DatasetEPKNS
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8LightGBM4GBDT9MergeFromEPKNS_8BoostingE(ptr noundef nonnull align 8 dereferenceable(648) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt6vectorISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EED2Ev.exit:
+_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i:
   %2 = alloca %"class.std::vector.70", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #21
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -2688,8 +2688,8 @@ _ZNSt6vectorISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EED2Ev
   %19 = trunc i64 %18 to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNSt6vectorISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EED2Ev.exit
-  %20 = phi i32 [ %19, %._crit_edge.loopexit ], [ 0, %_ZNSt6vectorISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EED2Ev.exit ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i
+  %20 = phi i32 [ %19, %._crit_edge.loopexit ], [ 0, %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %22 = load i32, ptr %21, align 8, !tbaa !211
   %23 = sdiv i32 %20, %22
@@ -2703,8 +2703,8 @@ _ZNSt6vectorISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EED2Ev
   store i32 %23, ptr %25, align 4, !tbaa !213
   br label %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i32
 
-.lr.ph:                                           ; preds = %_ZNSt6vectorISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EED2Ev.exit, %_ZNSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS1_EED2Ev.exit
-  %.sroa.067.091 = phi ptr [ %58, %_ZNSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS1_EED2Ev.exit ], [ %12, %_ZNSt6vectorISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EED2Ev.exit ]
+.lr.ph:                                           ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i, %_ZNSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS1_EED2Ev.exit
+  %.sroa.067.091 = phi ptr [ %58, %_ZNSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS1_EED2Ev.exit ], [ %12, %_ZSt8_DestroyIPSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i ]
   %26 = invoke noalias noundef nonnull dereferenceable(648) ptr @_Znwm(i64 noundef 648) #33
           to label %27 unwind label %59
 

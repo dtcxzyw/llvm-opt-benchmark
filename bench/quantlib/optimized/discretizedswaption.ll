@@ -1286,7 +1286,7 @@ if.then.i.i.i75:                                  ; preds = %invoke.cont73
   %use_count_.i.i.i.i76 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %45 = atomicrmw sub ptr %use_count_.i.i.i.i76, i32 1 acq_rel, align 4
   %cmp.i.i.i.i77 = icmp eq i32 %45, 1
-  br i1 %cmp.i.i.i.i77, label %if.then.i.i.i.i78, label %_ZN5boost10shared_ptrIN8QuantLib16DiscretizedAssetEEaSINS1_15DiscretizedSwapEEERS3_ONS0_IT_EE.exit
+  br i1 %cmp.i.i.i.i77, label %if.then.i.i.i.i78, label %_ZN5boost10shared_ptrIN8QuantLib16DiscretizedAssetEEaSINS1_15DiscretizedSwapEEERS3_ONS0_IT_EE.exitthread-pre-split
 
 if.then.i.i.i.i78:                                ; preds = %if.then.i.i.i75
   %vtable.i.i.i.i79 = load ptr, ptr %44, align 8, !tbaa !51
@@ -1299,14 +1299,14 @@ if.then.i.i.i.i78:                                ; preds = %if.then.i.i.i75
   %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %44, i64 12
   %47 = atomicrmw sub ptr %weak_count_.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i = icmp eq i32 %47, 1
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN5boost10shared_ptrIN8QuantLib16DiscretizedAssetEEaSINS1_15DiscretizedSwapEEERS3_ONS0_IT_EE.exit
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN5boost10shared_ptrIN8QuantLib16DiscretizedAssetEEaSINS1_15DiscretizedSwapEEERS3_ONS0_IT_EE.exitthread-pre-split
 
 if.then.i.i.i.i.i:                                ; preds = %.noexc.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %44, align 8, !tbaa !51
   %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 24
   %48 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   invoke void %48(ptr noundef nonnull align 8 dereferenceable(16) %44)
-          to label %_ZN5boost10shared_ptrIN8QuantLib16DiscretizedAssetEEaSINS1_15DiscretizedSwapEEERS3_ONS0_IT_EE.exit unwind label %terminate.lpad.i.i.i
+          to label %_ZN5boost10shared_ptrIN8QuantLib16DiscretizedAssetEEaSINS1_15DiscretizedSwapEEERS3_ONS0_IT_EE.exitthread-pre-split unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i, %if.then.i.i.i.i78
   %49 = landingpad { ptr, i32 }
@@ -1315,8 +1315,12 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
   call void @__clang_call_terminate(ptr %50) #23
   unreachable
 
-_ZN5boost10shared_ptrIN8QuantLib16DiscretizedAssetEEaSINS1_15DiscretizedSwapEEERS3_ONS0_IT_EE.exit: ; preds = %invoke.cont73, %if.then.i.i.i75, %.noexc.i.i.i, %if.then.i.i.i.i.i
-  %51 = load ptr, ptr %pn3.i.i73, align 8, !tbaa !55
+_ZN5boost10shared_ptrIN8QuantLib16DiscretizedAssetEEaSINS1_15DiscretizedSwapEEERS3_ONS0_IT_EE.exitthread-pre-split: ; preds = %if.then.i.i.i.i.i, %.noexc.i.i.i, %if.then.i.i.i75
+  %.pr = load ptr, ptr %pn3.i.i73, align 8, !tbaa !55
+  br label %_ZN5boost10shared_ptrIN8QuantLib16DiscretizedAssetEEaSINS1_15DiscretizedSwapEEERS3_ONS0_IT_EE.exit
+
+_ZN5boost10shared_ptrIN8QuantLib16DiscretizedAssetEEaSINS1_15DiscretizedSwapEEERS3_ONS0_IT_EE.exit: ; preds = %_ZN5boost10shared_ptrIN8QuantLib16DiscretizedAssetEEaSINS1_15DiscretizedSwapEEERS3_ONS0_IT_EE.exitthread-pre-split, %invoke.cont73
+  %51 = phi ptr [ %.pr, %_ZN5boost10shared_ptrIN8QuantLib16DiscretizedAssetEEaSINS1_15DiscretizedSwapEEERS3_ONS0_IT_EE.exitthread-pre-split ], [ null, %invoke.cont73 ]
   %cmp.not.i.i82 = icmp eq ptr %51, null
   br i1 %cmp.not.i.i82, label %_ZN5boost10shared_ptrIN8QuantLib15DiscretizedSwapEED2Ev.exit, label %if.then.i.i83
 

@@ -3034,7 +3034,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit488: ; preds = %198, %192, %20
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 24
   %218 = load ptr, ptr %217, align 8
   call void %218(ptr noundef nonnull align 8 dereferenceable(16) %205) #24
-  br label %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEaSEOS3_.exit
+  br label %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEaSEOS3_.exitthread-pre-split
 
 219:                                              ; preds = %206
   %220 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !34
@@ -3053,14 +3053,18 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit488: ; preds = %198, %192, %20
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %223, %221
   %.0.i.i.i.i.i.i = phi i32 [ %210, %221 ], [ %224, %223 ]
   %225 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %225, label %226, label %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEaSEOS3_.exit, !prof !53
+  br i1 %225, label %226, label %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEaSEOS3_.exitthread-pre-split, !prof !53
 
 226:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %205) #24
+  br label %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEaSEOS3_.exitthread-pre-split
+
+_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEaSEOS3_.exitthread-pre-split: ; preds = %226, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %211
+  %.pr = load ptr, ptr %78, align 8, !tbaa !59
   br label %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEaSEOS3_.exit
 
-_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEaSEOS3_.exit: ; preds = %202, %211, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %226
-  %227 = load ptr, ptr %78, align 8, !tbaa !59
+_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEaSEOS3_.exit: ; preds = %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEaSEOS3_.exitthread-pre-split, %202
+  %227 = phi ptr [ %.pr, %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEaSEOS3_.exitthread-pre-split ], [ null, %202 ]
   %.not.i.i489 = icmp eq ptr %227, null
   br i1 %.not.i.i489, label %_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit493, label %228
 

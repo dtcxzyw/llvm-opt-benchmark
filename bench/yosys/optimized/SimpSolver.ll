@@ -280,13 +280,13 @@ define void @_ZN7Minisat10SimpSolverC2Ev(ptr noundef nonnull align 8 dereference
   %45 = tail call dereferenceable_or_null(8) ptr @reallocarray(ptr noundef null, i64 noundef 2, i64 noundef 4) #24
   store ptr %45, ptr %2, align 8, !tbaa !91
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %47, label %_ZN7Minisat3vecINS_3LitEiEC2EiRKS1_.exit
+  br i1 %46, label %47, label %._crit_edge.i
 
 47:                                               ; preds = %36
   %48 = tail call ptr @__errno_location() #25
   %49 = load i32, ptr %48, align 4, !tbaa !9
   %50 = icmp eq i32 %49, 12
-  br i1 %50, label %51, label %_ZN7Minisat3vecINS_3LitEiEC2EiRKS1_.exit
+  br i1 %50, label %51, label %._crit_edge.i
 
 51:                                               ; preds = %47
   %52 = tail call ptr @__cxa_allocate_exception(i64 1) #24
@@ -296,7 +296,7 @@ define void @_ZN7Minisat10SimpSolverC2Ev(ptr noundef nonnull align 8 dereference
 .noexc:                                           ; preds = %51
   unreachable
 
-_ZN7Minisat3vecINS_3LitEiEC2EiRKS1_.exit:         ; preds = %36, %47
+._crit_edge.i:                                    ; preds = %47, %36
   store i32 -2, ptr %45, align 4, !tbaa !9
   store i32 1, ptr %43, align 8, !tbaa !92
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 704
@@ -304,7 +304,7 @@ _ZN7Minisat3vecINS_3LitEiEC2EiRKS1_.exit:         ; preds = %36, %47
   %54 = invoke noundef i32 @_ZN7Minisat15ClauseAllocator5allocERKNS_3vecINS_3LitEiEEb(ptr noundef nonnull align 8 dereferenceable(25) %26, ptr noundef nonnull align 8 dereferenceable(16) %2, i1 noundef zeroext false)
           to label %55 unwind label %63
 
-55:                                               ; preds = %_ZN7Minisat3vecINS_3LitEiEC2EiRKS1_.exit
+55:                                               ; preds = %._crit_edge.i
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   store i32 %54, ptr %56, align 8, !tbaa !94
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 672
@@ -332,7 +332,7 @@ _ZN7Minisat3vecINS_3LitEiED2Ev.exit:              ; preds = %55, %.preheader.i.i
           cleanup
   br label %_ZN7Minisat3vecINS_3LitEiED2Ev.exit20
 
-63:                                               ; preds = %_ZN7Minisat3vecINS_3LitEiEC2EiRKS1_.exit
+63:                                               ; preds = %._crit_edge.i
   %64 = landingpad { ptr, i32 }
           cleanup
   %65 = load ptr, ptr %2, align 8, !tbaa !91

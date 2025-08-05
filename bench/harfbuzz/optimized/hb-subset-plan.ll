@@ -105360,27 +105360,27 @@ _ZN12hb_hashmap_tIjjLb1EE3delERKj.exit:           ; preds = %.lr.ph.i19, %._crit
   store i32 %121, ptr %7, align 4, !tbaa !246
   %122 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %2, ptr %122, align 4, !tbaa !246
-  %123 = getelementptr inbounds nuw i8, ptr %6, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %malloc.i = tail call dereferenceable_or_null(8) ptr @malloc(i64 8)
   %.not21.i.i25 = icmp eq ptr %malloc.i, null
-  br i1 %.not21.i.i25, label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.thread.i, label %124, !prof !244
+  br i1 %.not21.i.i25, label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.thread.i, label %123, !prof !244
 
-124:                                              ; preds = %_ZN12hb_hashmap_tIjjLb1EE3delERKj.exit
-  %125 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %malloc.i, ptr %125, align 8, !tbaa !254
+123:                                              ; preds = %_ZN12hb_hashmap_tIjjLb1EE3delERKj.exit
+  %124 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %malloc.i, ptr %124, align 8, !tbaa !254
   br label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.thread.i
 
-_ZN11hb_vector_tIjLb0EE5allocEjb.exit.thread.i:   ; preds = %124, %_ZN12hb_hashmap_tIjjLb1EE3delERKj.exit
-  %.sink.i.i = phi i32 [ 2, %124 ], [ -1, %_ZN12hb_hashmap_tIjjLb1EE3delERKj.exit ]
+_ZN11hb_vector_tIjLb0EE5allocEjb.exit.thread.i:   ; preds = %123, %_ZN12hb_hashmap_tIjjLb1EE3delERKj.exit
+  %.sink.i.i = phi i32 [ 2, %123 ], [ -1, %_ZN12hb_hashmap_tIjjLb1EE3delERKj.exit ]
   store i32 %.sink.i.i, ptr %6, align 8, !tbaa !252
+  %125 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %126 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %127 = load i32, ptr @_hb_NullPool, align 16
   br label %128
 
 thread-pre-split:                                 ; preds = %_ZN11hb_vector_tIjLb0EE4pushIJRKjEEEPjDpOT_.exit.i
   %.pr = load i32, ptr %6, align 8, !tbaa !252
-  %.pre = load i32, ptr %123, align 4, !tbaa !251
+  %.pre = load i32, ptr %125, align 4, !tbaa !251
   br label %128
 
 128:                                              ; preds = %thread-pre-split, %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.thread.i
@@ -105439,7 +105439,7 @@ _ZN11hb_vector_tIjLb0EE5allocEjb.exit.thread6.i.i: ; preds = %_ZN11hb_vector_tIj
 
 .critedge.i8.i:                                   ; preds = %128, %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.i.i, %143, %134
   %144 = phi ptr [ %142, %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.i.i ], [ %130, %143 ], [ %130, %134 ], [ %130, %128 ]
-  store i32 %.pre69, ptr %123, align 4, !tbaa !251
+  store i32 %.pre69, ptr %125, align 4, !tbaa !251
   %145 = zext i32 %129 to i64
   %146 = getelementptr inbounds nuw i32, ptr %144, i64 %145
   %147 = load i32, ptr %.013.i.ptr, align 4, !tbaa !246
@@ -105462,7 +105462,7 @@ _ZN11hb_vector_tIjLb0EEC2ESt16initializer_listIjE.exit: ; preds = %_ZN11hb_vecto
   br i1 %.not.i.i31, label %_ZN11hb_vector_tIjLb0EED2Ev.exit, label %152
 
 152:                                              ; preds = %_ZN11hb_vector_tIjLb0EEC2ESt16initializer_listIjE.exit
-  store i32 0, ptr %123, align 4, !tbaa !251
+  store i32 0, ptr %125, align 4, !tbaa !251
   %153 = load ptr, ptr %126, align 8, !tbaa !254
   call void @free(ptr noundef %153) #20
   br label %_ZN11hb_vector_tIjLb0EED2Ev.exit

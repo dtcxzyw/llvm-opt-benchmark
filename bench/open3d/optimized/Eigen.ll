@@ -53458,7 +53458,7 @@ define void @_ZN6open3d7utility43SolveJacobianSystemAndObtainExtrinsicMatrixERKN
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #5
   %14 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #53
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %.lr.ph.i.i.i.i.i.i.i
+  br i1 %15, label %16, label %.sink.split.i.i.i.i
 
 16:                                               ; preds = %11
   %17 = tail call ptr @__cxa_allocate_exception(i64 8) #5
@@ -53469,14 +53469,14 @@ define void @_ZN6open3d7utility43SolveJacobianSystemAndObtainExtrinsicMatrixERKN
 .noexc4.i.i:                                      ; preds = %16
   unreachable
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %11
+.sink.split.i.i.i.i:                              ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %14, ptr %7, align 8, !tbaa !651
   store i64 6, ptr %18, align 8, !tbaa !649
   br label %19
 
-19:                                               ; preds = %19, %.lr.ph.i.i.i.i.i.i.i
-  %.011.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i ], [ %24, %19 ]
+19:                                               ; preds = %19, %.sink.split.i.i.i.i
+  %.011.i.i.i.i.i.i.i = phi i64 [ 0, %.sink.split.i.i.i.i ], [ %24, %19 ]
   %20 = getelementptr inbounds nuw double, ptr %14, i64 %.011.i.i.i.i.i.i.i
   %21 = getelementptr inbounds nuw double, ptr %2, i64 %.011.i.i.i.i.i.i.i
   %22 = load <2 x i64>, ptr %21, align 16, !tbaa !16

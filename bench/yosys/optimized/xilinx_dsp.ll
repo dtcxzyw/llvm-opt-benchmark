@@ -126376,28 +126376,28 @@ _ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EEaSEOS4_.exit.i94: ; preds = %70, %_Z
   %77 = load ptr, ptr %76, align 8, !tbaa !82
   %.not.i.i.i.i.i4.i95 = icmp eq ptr %75, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, i8 0, i64 24, i1 false)
-  br i1 %.not.i.i.i.i.i4.i95, label %_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEC2EOS6_.exit.i, label %78
+  br i1 %.not.i.i.i.i.i4.i95, label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit109, label %78
 
 78:                                               ; preds = %_ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EEaSEOS4_.exit.i94
   %79 = ptrtoint ptr %77 to i64
   %80 = ptrtoint ptr %75 to i64
   %81 = sub i64 %79, %80
   tail call void @_ZdlPvm(ptr noundef nonnull %75, i64 noundef %81) #29
-  br label %_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEC2EOS6_.exit.i
+  br label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit109
 
-_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEC2EOS6_.exit.i: ; preds = %_ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EEaSEOS4_.exit.i94, %78
+_ZN5Yosys5RTLIL7SigSpecD2Ev.exit109:              ; preds = %78, %_ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EEaSEOS4_.exit.i94
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 872
   store ptr null, ptr %82, align 8, !tbaa !85
   %.sroa.4685.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 880
   store i8 0, ptr %.sroa.4685.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 888
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #28
-  %83 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %84 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %85, i64 16, i1 false), !tbaa.struct !268
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, i8 0, i64 16, i1 false)
+  %85 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %83, i64 16, i1 false), !tbaa.struct !268
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, i8 0, i64 16, i1 false)
   %86 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %88 = load ptr, ptr %87, align 8, !tbaa !75
@@ -126410,11 +126410,11 @@ _ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEC2EOS6_.exit.i: ; preds = %_ZNSt6ve
   %.not.i.i = icmp eq ptr %88, null
   br i1 %.not.i.i, label %_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEaSEOS6_.exit.thread, label %91
 
-_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEaSEOS6_.exit.thread: ; preds = %_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEC2EOS6_.exit.i
+_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEaSEOS6_.exit.thread: ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit109
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #28
   br label %_ZNSt14_Function_baseD2Ev.exit
 
-91:                                               ; preds = %_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEC2EOS6_.exit.i
+91:                                               ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit109
   %92 = invoke noundef zeroext i1 %88(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3)
           to label %_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEaSEOS6_.exit unwind label %93
 
@@ -126426,7 +126426,7 @@ _ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEaSEOS6_.exit.thread: ; preds = %_ZN
   unreachable
 
 _ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEaSEOS6_.exit: ; preds = %91
-  %.pre = load ptr, ptr %83, align 8, !tbaa !214
+  %.pre = load ptr, ptr %85, align 8, !tbaa !214
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #28
   %.not.i = icmp eq ptr %.pre, null
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %96
@@ -136402,24 +136402,24 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit797:              ; preds = %150, %_ZNSt6vectorI
   %158 = load ptr, ptr %157, align 8, !tbaa !1636
   %.not.i.i.i.i.i798 = icmp eq ptr %156, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %155, i8 0, i64 24, i1 false)
-  br i1 %.not.i.i.i.i.i798, label %_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEC2EOS6_.exit.i, label %159
+  br i1 %.not.i.i.i.i.i798, label %_ZNSt6vectorISt5tupleIJPN5Yosys5RTLIL4CellEiiiEESaIS5_EED2Ev.exit801, label %159
 
 159:                                              ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit797
   %160 = ptrtoint ptr %158 to i64
   %161 = ptrtoint ptr %156 to i64
   %162 = sub i64 %160, %161
   tail call void @_ZdlPvm(ptr noundef nonnull %156, i64 noundef %162) #29
-  br label %_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEC2EOS6_.exit.i
+  br label %_ZNSt6vectorISt5tupleIJPN5Yosys5RTLIL4CellEiiiEESaIS5_EED2Ev.exit801
 
-_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEC2EOS6_.exit.i: ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit797, %159
+_ZNSt6vectorISt5tupleIJPN5Yosys5RTLIL4CellEiiiEESaIS5_EED2Ev.exit801: ; preds = %159, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit797
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 960
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #28
-  %163 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %164 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %165 = getelementptr inbounds nuw i8, ptr %0, i64 960
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %165, i64 16, i1 false), !tbaa.struct !268
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %165, i8 0, i64 16, i1 false)
+  %165 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %163, i64 16, i1 false), !tbaa.struct !268
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %163, i8 0, i64 16, i1 false)
   %166 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 976
   %168 = load ptr, ptr %167, align 8, !tbaa !75
@@ -136432,11 +136432,11 @@ _ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEC2EOS6_.exit.i: ; preds = %_ZN5Yosy
   %.not.i.i = icmp eq ptr %168, null
   br i1 %.not.i.i, label %_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEaSEOS6_.exit.thread, label %171
 
-_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEaSEOS6_.exit.thread: ; preds = %_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEC2EOS6_.exit.i
+_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEaSEOS6_.exit.thread: ; preds = %_ZNSt6vectorISt5tupleIJPN5Yosys5RTLIL4CellEiiiEESaIS5_EED2Ev.exit801
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #28
   br label %_ZNSt14_Function_baseD2Ev.exit
 
-171:                                              ; preds = %_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEC2EOS6_.exit.i
+171:                                              ; preds = %_ZNSt6vectorISt5tupleIJPN5Yosys5RTLIL4CellEiiiEESaIS5_EED2Ev.exit801
   %172 = invoke noundef zeroext i1 %168(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3)
           to label %_ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEaSEOS6_.exit unwind label %173
 
@@ -136448,7 +136448,7 @@ _ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEaSEOS6_.exit.thread: ; preds = %_ZN
   unreachable
 
 _ZNSt8functionIFN5Yosys5RTLIL7SigSpecERKS2_EEaSEOS6_.exit: ; preds = %171
-  %.pre = load ptr, ptr %163, align 8, !tbaa !214
+  %.pre = load ptr, ptr %165, align 8, !tbaa !214
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #28
   %.not.i = icmp eq ptr %.pre, null
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %176

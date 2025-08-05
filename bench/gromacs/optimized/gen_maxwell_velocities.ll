@@ -180,7 +180,6 @@ _ZN3gmx14LogEntryWriterD2Ev.exit12:               ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEEvPSt5arrayIT_XT0_EES4_(ptr noundef nonnull align 8 dereferenceable(52) %17, i64 noundef 63)
   %51 = getelementptr inbounds nuw i8, ptr %17, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, i8 0, i64 16, i1 false)
-  %.sroa.74.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 24
   %52 = load i64, ptr %17, align 8, !tbaa !24
   %53 = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !tbaa !24
   %54 = xor i64 %52, %53
@@ -276,6 +275,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit12:               ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %133, i64 40, i1 false)
+  %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %17, i64 24
   %136 = fpext float %0 to double
   %137 = fmul double %136, 0x3F81072C483AF26D
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
@@ -322,7 +322,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit12:               ; preds = %_ZNKSt7__cxx1112bas
 150:                                              ; preds = %.lr.ph
   %151 = sext i32 %147 to i64
   store i64 %151, ptr %51, align 8
-  store i64 0, ptr %.sroa.74.0..sroa_idx.i, align 8, !tbaa !23
+  store i64 0, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !tbaa !23
   %152 = load i64, ptr %17, align 8, !tbaa !24
   %153 = add i64 %152, %151
   %154 = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !tbaa !24
@@ -413,7 +413,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit12:               ; preds = %_ZNKSt7__cxx1112bas
   %236 = getelementptr inbounds [3 x float], ptr %3, i64 %151
   %237 = fmul double %232, 5.000000e-01
   %.promoted = load i32, ptr %132, align 8
-  %.sroa.43.0..sroa_idx.i.i.promoted = load i64, ptr %.sroa.74.0..sroa_idx.i, align 8
+  %.sroa.43.0..sroa_idx.i.i.promoted = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8
   %.sroa.024.0.copyload.i.i = load i64, ptr %51, align 8
   %invariant.op = add i64 %152, %.sroa.024.0.copyload.i.i
   br label %240
@@ -450,7 +450,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit12:               ; preds = %_ZNKSt7__cxx1112bas
 248:                                              ; preds = %245
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   %249 = add i64 %241, 1
-  store i64 %249, ptr %.sroa.74.0..sroa_idx.i, align 8, !tbaa !24
+  store i64 %249, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !tbaa !24
   %250 = icmp eq i64 %249, 0
   br i1 %250, label %251, label %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit.i
 

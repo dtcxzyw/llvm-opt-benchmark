@@ -14393,7 +14393,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZNK4LIEF2PE17LoadConfiguration19guard_cf_flags_listEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.379") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(736) %1) local_unnamed_addr #1 align 2 {
-_ZNSt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE7reserveEm.exit:
+_ZNSt12_Vector_baseIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE11_M_allocateEm.exit.i:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #23
@@ -14403,85 +14403,84 @@ _ZNSt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE7reserveEm.exit:
   store ptr %5, ptr %2, align 8, !tbaa !1194
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 204
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %9
+  br label %8
 
-9:                                                ; preds = %_ZNSt20back_insert_iteratorISt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS4_EEEaSERKS4_.exit.i, %_ZNSt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE7reserveEm.exit
-  %10 = phi ptr [ %4, %_ZNSt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE7reserveEm.exit ], [ %38, %_ZNSt20back_insert_iteratorISt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS4_EEEaSERKS4_.exit.i ]
-  %11 = phi ptr [ %5, %_ZNSt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE7reserveEm.exit ], [ %39, %_ZNSt20back_insert_iteratorISt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS4_EEEaSERKS4_.exit.i ]
-  %12 = phi ptr [ %4, %_ZNSt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE7reserveEm.exit ], [ %40, %_ZNSt20back_insert_iteratorISt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS4_EEEaSERKS4_.exit.i ]
-  %.08.i.idx = phi i64 [ 0, %_ZNSt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE7reserveEm.exit ], [ %.08.i.add, %_ZNSt20back_insert_iteratorISt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS4_EEEaSERKS4_.exit.i ]
+8:                                                ; preds = %_ZNSt20back_insert_iteratorISt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS4_EEEaSERKS4_.exit.i, %_ZNSt12_Vector_baseIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE11_M_allocateEm.exit.i
+  %9 = phi ptr [ %4, %_ZNSt12_Vector_baseIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE11_M_allocateEm.exit.i ], [ %37, %_ZNSt20back_insert_iteratorISt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS4_EEEaSERKS4_.exit.i ]
+  %10 = phi ptr [ %5, %_ZNSt12_Vector_baseIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE11_M_allocateEm.exit.i ], [ %38, %_ZNSt20back_insert_iteratorISt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS4_EEEaSERKS4_.exit.i ]
+  %11 = phi ptr [ %4, %_ZNSt12_Vector_baseIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE11_M_allocateEm.exit.i ], [ %39, %_ZNSt20back_insert_iteratorISt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS4_EEEaSERKS4_.exit.i ]
+  %.08.i.idx = phi i64 [ 0, %_ZNSt12_Vector_baseIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE11_M_allocateEm.exit.i ], [ %.08.i.add, %_ZNSt20back_insert_iteratorISt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS4_EEEaSERKS4_.exit.i ]
   %.08.i.ptr = getelementptr inbounds nuw i8, ptr @_ZN4LIEF2PEL16IMAGE_GUARD_LISTE, i64 %.08.i.idx
-  %13 = load i32, ptr %.08.i.ptr, align 4, !tbaa !680
+  %12 = load i32, ptr %.08.i.ptr, align 4, !tbaa !680
   %.val.val.i = load i32, ptr %6, align 8
   %.val.val5.i = load i8, ptr %7, align 4, !tbaa !151, !range !15, !noundef !16
-  %14 = trunc nuw i8 %.val.val5.i to i1
-  %15 = and i32 %.val.val.i, %13
-  %16 = icmp ne i32 %15, 0
-  %.0.i.i.i = select i1 %14, i1 %16, i1 false
-  br i1 %.0.i.i.i, label %17, label %_ZNSt20back_insert_iteratorISt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS4_EEEaSERKS4_.exit.i
+  %13 = trunc nuw i8 %.val.val5.i to i1
+  %14 = and i32 %.val.val.i, %12
+  %15 = icmp ne i32 %14, 0
+  %.0.i.i.i = select i1 %13, i1 %15, i1 false
+  br i1 %.0.i.i.i, label %16, label %_ZNSt20back_insert_iteratorISt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS4_EEEaSERKS4_.exit.i
 
-17:                                               ; preds = %9
-  %.not.i.i.i = icmp eq ptr %12, %11
-  br i1 %.not.i.i.i, label %20, label %18
+16:                                               ; preds = %8
+  %.not.i.i.i = icmp eq ptr %11, %10
+  br i1 %.not.i.i.i, label %19, label %17
 
-18:                                               ; preds = %17
-  store i32 %13, ptr %12, align 4, !tbaa !680
-  %19 = getelementptr inbounds nuw i8, ptr %12, i64 4
+17:                                               ; preds = %16
+  store i32 %12, ptr %11, align 4, !tbaa !680
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 4
   br label %_ZNSt20back_insert_iteratorISt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS4_EEEaSERKS4_.exit.i
 
-20:                                               ; preds = %17
-  %21 = ptrtoint ptr %11 to i64
-  %22 = ptrtoint ptr %10 to i64
-  %23 = sub i64 %21, %22
-  %24 = icmp eq i64 %23, 9223372036854775804
-  br i1 %24, label %25, label %_ZNKSt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i
+19:                                               ; preds = %16
+  %20 = ptrtoint ptr %10 to i64
+  %21 = ptrtoint ptr %9 to i64
+  %22 = sub i64 %20, %21
+  %23 = icmp eq i64 %22, 9223372036854775804
+  br i1 %23, label %24, label %_ZNKSt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i
 
-25:                                               ; preds = %20
-  store ptr %12, ptr %8, align 8
-  store ptr %11, ptr %2, align 8
-  store ptr %10, ptr %0, align 8
+24:                                               ; preds = %19
+  store ptr %11, ptr %3, align 8
+  store ptr %10, ptr %2, align 8
+  store ptr %9, ptr %0, align 8
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.97) #25
   unreachable
 
-_ZNKSt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %20
-  %26 = ashr exact i64 %23, 2
-  %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %26, i64 1)
-  %27 = add nsw i64 %.sroa.speculated.i.i.i.i.i, %26
-  %28 = icmp ult i64 %27, %26
-  %29 = tail call i64 @llvm.umin.i64(i64 %27, i64 2305843009213693951)
-  %30 = select i1 %28, i64 2305843009213693951, i64 %29
-  %.not.i.i.i.i.i = icmp ne i64 %30, 0
+_ZNKSt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %19
+  %25 = ashr exact i64 %22, 2
+  %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %25, i64 1)
+  %26 = add nsw i64 %.sroa.speculated.i.i.i.i.i, %25
+  %27 = icmp ult i64 %26, %25
+  %28 = tail call i64 @llvm.umin.i64(i64 %26, i64 2305843009213693951)
+  %29 = select i1 %27, i64 2305843009213693951, i64 %28
+  %.not.i.i.i.i.i = icmp ne i64 %29, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i.i)
-  %31 = shl nuw nsw i64 %30, 2
-  %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #23
-  %33 = getelementptr inbounds i8, ptr %32, i64 %23
-  store i32 %13, ptr %33, align 4, !tbaa !680
-  %34 = icmp sgt i64 %23, 0
-  br i1 %34, label %35, label %_ZNSt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i
+  %30 = shl nuw nsw i64 %29, 2
+  %31 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #23
+  %32 = getelementptr inbounds i8, ptr %31, i64 %22
+  store i32 %12, ptr %32, align 4, !tbaa !680
+  %33 = icmp sgt i64 %22, 0
+  br i1 %33, label %34, label %_ZNSt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i
 
-35:                                               ; preds = %_ZNKSt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %32, ptr align 4 %10, i64 %23, i1 false)
+34:                                               ; preds = %_ZNKSt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %31, ptr align 4 %9, i64 %22, i1 false)
   br label %_ZNSt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i
 
-_ZNSt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %35, %_ZNKSt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i
-  %36 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  tail call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef %23) #24
-  %37 = getelementptr inbounds nuw i32, ptr %32, i64 %30
+_ZNSt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %34, %_ZNKSt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 4
+  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %22) #24
+  %36 = getelementptr inbounds nuw i32, ptr %31, i64 %29
   br label %_ZNSt20back_insert_iteratorISt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS4_EEEaSERKS4_.exit.i
 
-_ZNSt20back_insert_iteratorISt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS4_EEEaSERKS4_.exit.i: ; preds = %_ZNSt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i, %18, %9
-  %38 = phi ptr [ %32, %_ZNSt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i ], [ %10, %18 ], [ %10, %9 ]
-  %39 = phi ptr [ %37, %_ZNSt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i ], [ %11, %18 ], [ %11, %9 ]
-  %40 = phi ptr [ %36, %_ZNSt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i ], [ %19, %18 ], [ %12, %9 ]
+_ZNSt20back_insert_iteratorISt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS4_EEEaSERKS4_.exit.i: ; preds = %_ZNSt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i, %17, %8
+  %37 = phi ptr [ %31, %_ZNSt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i ], [ %9, %17 ], [ %9, %8 ]
+  %38 = phi ptr [ %36, %_ZNSt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i ], [ %10, %17 ], [ %10, %8 ]
+  %39 = phi ptr [ %35, %_ZNSt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i ], [ %18, %17 ], [ %11, %8 ]
   %.08.i.add = add nuw nsw i64 %.08.i.idx, 4
   %.not.i = icmp eq i64 %.08.i.add, 60
-  br i1 %.not.i, label %"_ZSt7copy_ifIPKN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESt20back_insert_iteratorISt6vectorIS3_SaIS3_EEEZNKS2_19guard_cf_flags_listEvE3$_0ET0_T_SD_SC_T1_.exit", label %9, !llvm.loop !682
+  br i1 %.not.i, label %"_ZSt7copy_ifIPKN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESt20back_insert_iteratorISt6vectorIS3_SaIS3_EEEZNKS2_19guard_cf_flags_listEvE3$_0ET0_T_SD_SC_T1_.exit", label %8, !llvm.loop !682
 
 "_ZSt7copy_ifIPKN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESt20back_insert_iteratorISt6vectorIS3_SaIS3_EEEZNKS2_19guard_cf_flags_listEvE3$_0ET0_T_SD_SC_T1_.exit": ; preds = %_ZNSt20back_insert_iteratorISt6vectorIN4LIEF2PE17LoadConfiguration11IMAGE_GUARDESaIS4_EEEaSERKS4_.exit.i
-  store ptr %40, ptr %8, align 8
-  store ptr %39, ptr %2, align 8
-  store ptr %38, ptr %0, align 8
+  store ptr %39, ptr %3, align 8
+  store ptr %38, ptr %2, align 8
+  store ptr %37, ptr %0, align 8
   ret void
 }
 

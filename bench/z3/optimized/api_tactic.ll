@@ -9215,46 +9215,46 @@ define noundef ptr @Z3_simplifier_using_params(ptr noundef %0, ptr noundef %1, p
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   %42 = load ptr, ptr %41, align 8, !tbaa !296
   %.not.i.i.not.i = icmp eq ptr %42, null
-  br i1 %.not.i.i.not.i, label %_ZNSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEEC2ERKSA_.exit.thread, label %43
-
-_ZNSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEEC2ERKSA_.exit.thread: ; preds = %36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
-  br label %57
+  br i1 %.not.i.i.not.i, label %.critedge, label %43
 
 43:                                               ; preds = %36
   %44 = invoke noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %38, i32 noundef 2)
-          to label %_ZNSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEEC2ERKSA_.exit unwind label %45
-
-45:                                               ; preds = %43
-  %46 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTI12z3_exception
-  %47 = load ptr, ptr %39, align 8, !tbaa !296
-  %.not.i.i = icmp eq ptr %47, null
-  br i1 %.not.i.i, label %.body48, label %48
-
-48:                                               ; preds = %45
-  %49 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
-          to label %.body48 unwind label %50
-
-50:                                               ; preds = %48
-  %51 = landingpad { ptr, i32 }
-          catch ptr null
-  %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #24
-  unreachable
+          to label %_ZNSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEEC2ERKSA_.exit unwind label %49
 
 _ZNSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEEC2ERKSA_.exit: ; preds = %43
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %54 = load ptr, ptr %53, align 8, !tbaa !298
-  store ptr %54, ptr %40, align 8, !tbaa !298
-  %55 = load ptr, ptr %41, align 8, !tbaa !296
-  store ptr %55, ptr %39, align 8, !tbaa !296
-  %56 = icmp eq ptr %55, null
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %46 = load ptr, ptr %45, align 8, !tbaa !298
+  store ptr %46, ptr %40, align 8, !tbaa !298
+  %47 = load ptr, ptr %41, align 8, !tbaa !296
+  store ptr %47, ptr %39, align 8, !tbaa !296
+  %48 = icmp eq ptr %47, null
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
-  br i1 %56, label %57, label %58
+  br i1 %48, label %57, label %58
 
-57:                                               ; preds = %_ZNSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEEC2ERKSA_.exit.thread, %_ZNSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEEC2ERKSA_.exit
+49:                                               ; preds = %43
+  %50 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTI12z3_exception
+  %51 = load ptr, ptr %39, align 8, !tbaa !296
+  %.not.i.i = icmp eq ptr %51, null
+  br i1 %.not.i.i, label %.body48, label %52
+
+52:                                               ; preds = %49
+  %53 = invoke noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
+          to label %.body48 unwind label %54
+
+54:                                               ; preds = %52
+  %55 = landingpad { ptr, i32 }
+          catch ptr null
+  %56 = extractvalue { ptr, i32 } %55, 0
+  call void @__clang_call_terminate(ptr %56) #24
+  unreachable
+
+.critedge:                                        ; preds = %36
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  br label %57
+
+57:                                               ; preds = %.critedge, %_ZNSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEEC2ERKSA_.exit
   invoke void @_ZSt25__throw_bad_function_callv() #26
           to label %.noexc unwind label %130
 
@@ -9262,7 +9262,7 @@ _ZNSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20depen
   unreachable
 
 58:                                               ; preds = %_ZNSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEEC2ERKSA_.exit
-  %59 = invoke noundef ptr %54(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(160) %6)
+  %59 = invoke noundef ptr %46(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(160) %6)
           to label %_ZNKSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEEclES3_S6_S8_.exit unwind label %130
 
 _ZNKSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEEclES3_S6_S8_.exit: ; preds = %58
@@ -9617,8 +9617,8 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN10scoped_ptrI25d
   call void @__clang_call_terminate(ptr %174) #24
   unreachable
 
-.body48:                                          ; preds = %170, %168, %48, %45
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %46, %48 ], [ %46, %45 ], [ %.pn.pn.pn.pn.pn.pn, %168 ], [ %.pn.pn.pn.pn.pn.pn, %170 ]
+.body48:                                          ; preds = %170, %168, %52, %49
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %50, %52 ], [ %50, %49 ], [ %.pn.pn.pn.pn.pn.pn, %168 ], [ %.pn.pn.pn.pn.pn.pn, %170 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #22
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22

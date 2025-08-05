@@ -5241,11 +5241,11 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_M_all
           to label %1969 unwind label %1987
 
 1969:                                             ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_M_allocateEm.exit.i.i
-  br i1 %1959, label %_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i.i, label %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEE7destroyIS2_EEvRS3_PT_.exit
+  br i1 %1959, label %_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i.i, label %.lr.ph.i.i.i.i.i636
 
-_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEE7destroyIS2_EEvRS3_PT_.exit: ; preds = %1969, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEE7destroyIS2_EEvRS3_PT_.exit
-  %.03.i.i.i.i.i = phi ptr [ %1981, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEE7destroyIS2_EEvRS3_PT_.exit ], [ %1967, %1969 ]
-  %.092.i.i.i.i.i = phi ptr [ %1980, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEE7destroyIS2_EEvRS3_PT_.exit ], [ %.val.i.i, %1969 ]
+.lr.ph.i.i.i.i.i636:                              ; preds = %1969, %.lr.ph.i.i.i.i.i636
+  %.03.i.i.i.i.i = phi ptr [ %1981, %.lr.ph.i.i.i.i.i636 ], [ %1967, %1969 ]
+  %.092.i.i.i.i.i = phi ptr [ %1980, %.lr.ph.i.i.i.i.i636 ], [ %.val.i.i, %1969 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !222)
   call void @llvm.experimental.noalias.scope.decl(metadata !225)
   %1970 = load ptr, ptr %.092.i.i.i.i.i, align 8, !tbaa !118, !alias.scope !225, !noalias !222
@@ -5266,10 +5266,10 @@ _ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEE7destro
   %1980 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 32
   %1981 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i637 = icmp eq ptr %1980, %1947
-  br i1 %.not.i.i.i.i.i637, label %_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i.i, label %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEE7destroyIS2_EEvRS3_PT_.exit, !llvm.loop !230
+  br i1 %.not.i.i.i.i.i637, label %_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i.i, label %.lr.ph.i.i.i.i.i636, !llvm.loop !230
 
-_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i.i: ; preds = %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEE7destroyIS2_EEvRS3_PT_.exit, %1969
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %1967, %1969 ], [ %1981, %_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEE7destroyIS2_EEvRS3_PT_.exit ]
+_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i.i: ; preds = %.lr.ph.i.i.i.i.i636, %1969
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %1967, %1969 ], [ %1981, %.lr.ph.i.i.i.i.i636 ]
   %1982 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 32
   %.not.i37.i.i = icmp eq ptr %.val.i.i, null
   br i1 %.not.i37.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %1983

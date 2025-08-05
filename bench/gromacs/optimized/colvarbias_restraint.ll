@@ -31045,7 +31045,7 @@ define noundef nonnull ptr @_ZTv0_n104_N27colvarbias_restraint_linear10write_tra
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN30colvarbias_restraint_histogramC2EPKc(ptr noundef nonnull align 8 dereferenceable(425) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-_ZN12colvarmodule8vector1dIdEC2Em.exit17:
+_ZN12colvarmodule8vector1dIdEC2Em.exit:
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @_ZN10colvarbiasC2EPKc(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull %3, ptr noundef %2)
   %4 = load ptr, ptr %1, align 8
@@ -31299,9 +31299,9 @@ define void @_ZN30colvarbias_restraint_histogramC1EPKc(ptr noundef nonnull align
 
 5:                                                ; preds = %2
   invoke void @_ZN10colvarbiasC2EPKc(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTT30colvarbias_restraint_histogram, i64 8), ptr noundef %1)
-          to label %_ZN12colvarmodule8vector1dIdEC2Em.exit20 unwind label %9
+          to label %_ZN12colvarmodule8vector1dIdEC2Em.exit unwind label %9
 
-_ZN12colvarmodule8vector1dIdEC2Em.exit20:         ; preds = %5
+_ZN12colvarmodule8vector1dIdEC2Em.exit:           ; preds = %5
   store ptr getelementptr inbounds nuw inrange(-32, 272) (i8, ptr @_ZTV30colvarbias_restraint_histogram, i64 32), ptr %0, align 8, !tbaa !4
   store ptr getelementptr inbounds nuw inrange(-72, 64) (i8, ptr @_ZTV30colvarbias_restraint_histogram, i64 376), ptr %3, align 8, !tbaa !4
   store ptr getelementptr inbounds nuw inrange(-56, 48) (i8, ptr @_ZTV30colvarbias_restraint_histogram, i64 496), ptr %4, align 8, !tbaa !4
@@ -31887,19 +31887,19 @@ _ZN12colvarmodule8vector1dIdED2Ev.exit30:         ; preds = %_ZNSt6vectorIdSaIdE
   %75 = sub i64 %74, %73
   %76 = ashr exact i64 %75, 3
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %76)
-          to label %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge4.i34 unwind label %82
+          to label %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge.i34 unwind label %82
 
-._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge4.i34: ; preds = %72
+._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge.i34: ; preds = %72
   %.pre.i35 = load ptr, ptr %71, align 8, !tbaa !66
-  %.pre5.i36 = load ptr, ptr %0, align 8, !tbaa !65
+  %.pre4.i36 = load ptr, ptr %0, align 8, !tbaa !65
   %77 = ptrtoint ptr %.pre.i35 to i64
-  %78 = ptrtoint ptr %.pre5.i36 to i64
+  %78 = ptrtoint ptr %.pre4.i36 to i64
   %79 = sub i64 %77, %78
   %80 = ashr exact i64 %79, 3
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i37
 
-_ZNSt6vectorIdSaIdEE6resizeEm.exit.i37:           ; preds = %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge4.i34, %_ZN12colvarmodule8vector1dIdED2Ev.exit30
-  %81 = phi i64 [ %80, %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge4.i34 ], [ 0, %_ZN12colvarmodule8vector1dIdED2Ev.exit30 ]
+_ZNSt6vectorIdSaIdEE6resizeEm.exit.i37:           ; preds = %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge.i34, %_ZN12colvarmodule8vector1dIdED2Ev.exit30
+  %81 = phi i64 [ %80, %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge.i34 ], [ 0, %_ZN12colvarmodule8vector1dIdED2Ev.exit30 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #29
   store double 0.000000e+00, ptr %4, align 8, !tbaa !59
   invoke void @_ZNSt6vectorIdSaIdEE14_M_fill_assignEmRKd(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %81, ptr noundef nonnull align 8 dereferenceable(8) %4)

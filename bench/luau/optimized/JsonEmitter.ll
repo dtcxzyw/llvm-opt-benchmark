@@ -254,19 +254,19 @@ define dso_local void @_ZN4Luau4Json11JsonEmitterC2Ev(ptr noundef nonnull align 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr null)
-          to label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJEEERS5_DpOT_.exit.i unwind label %5
+          to label %.noexc unwind label %5
 
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJEEERS5_DpOT_.exit.i: ; preds = %1
+.noexc:                                           ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre.i = load ptr, ptr %3, align 8, !tbaa !28
   %4 = getelementptr inbounds i8, ptr %.pre.i, i64 -32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 1024)
           to label %_ZN4Luau4Json11JsonEmitter8newChunkEv.exit unwind label %5
 
-_ZN4Luau4Json11JsonEmitter8newChunkEv.exit:       ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJEEERS5_DpOT_.exit.i
+_ZN4Luau4Json11JsonEmitter8newChunkEv.exit:       ; preds = %.noexc
   ret void
 
-5:                                                ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJEEERS5_DpOT_.exit.i, %1
+5:                                                ; preds = %.noexc, %1
   %6 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #20

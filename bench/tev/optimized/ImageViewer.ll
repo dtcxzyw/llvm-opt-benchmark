@@ -5940,14 +5940,14 @@ _ZNSt3__18functionIFvN7nanogui5ArrayIiLm2EEEEEC2ERKS5_.exit.i.i: ; preds = %1692
 _ZNSt3__18functionIFvN7nanogui5ArrayIiLm2EEEEED2Ev.exit: ; preds = %1716, %.sink.split.i.i952
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %148, i8 0, i64 16, i1 false)
   invoke void @_ZN3tev11ImageViewer11selectImageERKNSt3__110shared_ptrINS_5ImageEEEb(ptr noundef nonnull align 16 dereferenceable(972) %0, ptr noundef nonnull align 8 dereferenceable(16) %148, i1 noundef zeroext true)
-          to label %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit956 unwind label %1980
+          to label %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit unwind label %1980
 
-_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit956: ; preds = %_ZNSt3__18functionIFvN7nanogui5ArrayIiLm2EEEEED2Ev.exit
+_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit: ; preds = %_ZNSt3__18functionIFvN7nanogui5ArrayIiLm2EEEEED2Ev.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %149, i8 0, i64 16, i1 false)
   call void @_ZN3tev11ImageViewer15selectReferenceERKNSt3__110shared_ptrINS_5ImageEEE(ptr noundef nonnull align 16 dereferenceable(972) %0, ptr noundef nonnull align 8 dereferenceable(16) %149)
   br i1 %2, label %1982, label %1720
 
-1720:                                             ; preds = %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit956
+1720:                                             ; preds = %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit
   store i32 1024, ptr %150, align 4
   %1721 = getelementptr inbounds nuw i8, ptr %150, i64 4
   store i32 800, ptr %1721, align 4
@@ -6760,7 +6760,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit1052:            ; preds = %.sink.split.i.i1050
   call void @_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %148) #40
   br label %.body
 
-1982:                                             ; preds = %1722, %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit956
+1982:                                             ; preds = %1722, %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit
   invoke void @_ZN3tev11ImageViewer12updateLayoutEv(ptr noundef nonnull align 16 dereferenceable(972) %0)
           to label %1983 unwind label %190
 

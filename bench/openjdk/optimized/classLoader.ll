@@ -2380,96 +2380,96 @@ define hidden void @_ZN11ClassLoader26add_to_exploded_build_listEP10JavaThreadP6
   %25 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %23, i64 noundef %22, ptr noundef nonnull @.str.94, ptr noundef nonnull %16, i32 noundef %24, i32 noundef %24, ptr noundef nonnull %14) #21
   %26 = call noundef i32 @_ZN2os4statEPKcP4stat(ptr noundef %23, ptr noundef nonnull %3) #21
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %56
+  br i1 %27, label %28, label %57
 
 28:                                               ; preds = %2
   %29 = call noundef ptr @_ZN11ClassLoader23create_class_path_entryEP10JavaThreadPKcPK4statbb(ptr noundef nonnull %0, ptr noundef %23, ptr noundef nonnull %3, i1 zeroext poison, i1 noundef zeroext false)
   %.not = icmp eq ptr %29, null
-  br i1 %.not, label %56, label %_ZN19ModuleClassPathList11add_to_listEP14ClassPathEntry.exit
+  br i1 %.not, label %57, label %_ZN19ModuleClassPathList11add_to_listEP14ClassPathEntry.exit
 
 _ZN19ModuleClassPathList11add_to_listEP14ClassPathEntry.exit: ; preds = %28
   %30 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i8 noundef zeroext 1, i32 noundef 0) #21
   store ptr %1, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  store ptr %29, ptr %31, align 8
-  %.pre = load ptr, ptr @Module_lock, align 8
   store ptr %29, ptr %32, align 8
-  %.not.i.i = icmp eq ptr %.pre, null
-  br i1 %.not.i.i, label %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit, label %33
+  store ptr %29, ptr %31, align 8
+  %33 = load ptr, ptr @Module_lock, align 8
+  %.not.i.i = icmp eq ptr %33, null
+  br i1 %.not.i.i, label %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit, label %34
 
-33:                                               ; preds = %_ZN19ModuleClassPathList11add_to_listEP14ClassPathEntry.exit
-  call void @_ZN5Mutex4lockEP6Thread(ptr noundef nonnull align 8 dereferenceable(104) %.pre, ptr noundef nonnull %0) #21
+34:                                               ; preds = %_ZN19ModuleClassPathList11add_to_listEP14ClassPathEntry.exit
+  call void @_ZN5Mutex4lockEP6Thread(ptr noundef nonnull align 8 dereferenceable(104) %33, ptr noundef nonnull %0) #21
   br label %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit
 
-_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit: ; preds = %_ZN19ModuleClassPathList11add_to_listEP14ClassPathEntry.exit, %33
-  %34 = load ptr, ptr @_ZN11ClassLoader17_exploded_entriesE, align 8
-  %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  %37 = load i32, ptr %36, align 4
-  %38 = icmp eq i32 %35, %37
-  br i1 %38, label %39, label %_ZN26GrowableArrayWithAllocatorIP19ModuleClassPathList13GrowableArrayIS1_EE4pushERKS1_.exit
+_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit: ; preds = %_ZN19ModuleClassPathList11add_to_listEP14ClassPathEntry.exit, %34
+  %35 = load ptr, ptr @_ZN11ClassLoader17_exploded_entriesE, align 8
+  %36 = load i32, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  %38 = load i32, ptr %37, align 4
+  %39 = icmp eq i32 %36, %38
+  br i1 %39, label %40, label %_ZN26GrowableArrayWithAllocatorIP19ModuleClassPathList13GrowableArrayIS1_EE4pushERKS1_.exit
 
-39:                                               ; preds = %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit
-  %40 = add nsw i32 %35, 1
-  %41 = icmp sgt i32 %35, -1
-  %42 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %40)
-  %43 = icmp samesign ult i32 %42, 2
-  %or.cond.i.i.i.i.i = select i1 %41, i1 %43, i1 false
-  %44 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %40, i1 true)
-  %45 = sub nuw nsw i32 32, %44
-  %46 = shl nuw i32 1, %45
-  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %40, i32 %46
-  call void @_ZN26GrowableArrayWithAllocatorIP19ModuleClassPathList13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %34, i32 noundef %.0.i.i.i.i.i)
-  %.pre.i.i = load i32, ptr %34, align 8
+40:                                               ; preds = %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit
+  %41 = add nsw i32 %36, 1
+  %42 = icmp sgt i32 %36, -1
+  %43 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %41)
+  %44 = icmp samesign ult i32 %43, 2
+  %or.cond.i.i.i.i.i = select i1 %42, i1 %44, i1 false
+  %45 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %41, i1 true)
+  %46 = sub nuw nsw i32 32, %45
+  %47 = shl nuw i32 1, %46
+  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %41, i32 %47
+  call void @_ZN26GrowableArrayWithAllocatorIP19ModuleClassPathList13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %35, i32 noundef %.0.i.i.i.i.i)
+  %.pre.i.i = load i32, ptr %35, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP19ModuleClassPathList13GrowableArrayIS1_EE4pushERKS1_.exit
 
-_ZN26GrowableArrayWithAllocatorIP19ModuleClassPathList13GrowableArrayIS1_EE4pushERKS1_.exit: ; preds = %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit, %39
-  %47 = phi i32 [ %.pre.i.i, %39 ], [ %35, %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit ]
-  %48 = add nsw i32 %47, 1
-  store i32 %48, ptr %34, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %50 = load ptr, ptr %49, align 8
-  %51 = sext i32 %47 to i64
-  %52 = getelementptr inbounds ptr, ptr %50, i64 %51
-  store ptr %30, ptr %52, align 8
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %53
+_ZN26GrowableArrayWithAllocatorIP19ModuleClassPathList13GrowableArrayIS1_EE4pushERKS1_.exit: ; preds = %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit, %40
+  %48 = phi i32 [ %.pre.i.i, %40 ], [ %36, %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit ]
+  %49 = add nsw i32 %48, 1
+  store i32 %49, ptr %35, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %51 = load ptr, ptr %50, align 8
+  %52 = sext i32 %48 to i64
+  %53 = getelementptr inbounds ptr, ptr %51, i64 %52
+  store ptr %30, ptr %53, align 8
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %54
 
-53:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIP19ModuleClassPathList13GrowableArrayIS1_EE4pushERKS1_.exit
-  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %.pre) #21
+54:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIP19ModuleClassPathList13GrowableArrayIS1_EE4pushERKS1_.exit
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %33) #21
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN26GrowableArrayWithAllocatorIP19ModuleClassPathList13GrowableArrayIS1_EE4pushERKS1_.exit, %53
-  %54 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE16ELS1_74ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not18 = icmp eq ptr %54, null
-  br i1 %.not18, label %56, label %55
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN26GrowableArrayWithAllocatorIP19ModuleClassPathList13GrowableArrayIS1_EE4pushERKS1_.exit, %54
+  %55 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE16ELS1_74ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not18 = icmp eq ptr %55, null
+  br i1 %.not18, label %57, label %56
 
-55:                                               ; preds = %_ZN11MutexLockerD2Ev.exit
+56:                                               ; preds = %_ZN11MutexLockerD2Ev.exit
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE16ELS1_74ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.27, ptr noundef %23)
-  br label %56
+  br label %57
 
-56:                                               ; preds = %28, %_ZN11MutexLockerD2Ev.exit, %55, %2
-  %57 = load ptr, ptr %7, align 8
-  %.not.i.i.i.i = icmp eq ptr %57, null
-  br i1 %.not.i.i.i.i, label %59, label %58
+57:                                               ; preds = %28, %_ZN11MutexLockerD2Ev.exit, %56, %2
+  %58 = load ptr, ptr %7, align 8
+  %.not.i.i.i.i = icmp eq ptr %58, null
+  br i1 %.not.i.i.i.i, label %60, label %59
 
-58:                                               ; preds = %56
+59:                                               ; preds = %57
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %13) #21
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %7) #21
-  br label %59
+  br label %60
 
-59:                                               ; preds = %58, %56
-  %60 = load ptr, ptr %8, align 8
-  %.not8.i.i.i.i = icmp eq ptr %60, %9
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %61
+60:                                               ; preds = %59, %57
+  %61 = load ptr, ptr %8, align 8
+  %.not8.i.i.i.i = icmp eq ptr %61, %9
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %62
 
-61:                                               ; preds = %59
+62:                                               ; preds = %60
   store ptr %7, ptr %6, align 8
   store ptr %9, ptr %8, align 8
   store ptr %11, ptr %10, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %59, %61
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %60, %62
   ret void
 }
 

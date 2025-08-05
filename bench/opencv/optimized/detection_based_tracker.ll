@@ -5271,13 +5271,13 @@ define noundef i32 @_ZN2cv21DetectionBasedTracker9addObjectERKNS_5Rect_IiEE(ptr 
   store i32 1, ptr %4, align 8, !tbaa !152
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 0, ptr %5, align 4, !tbaa !160
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !80
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %8 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !80
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %8, ptr %3, align 8, !tbaa !51
-  store ptr %9, ptr %6, align 8, !tbaa !76
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %6, ptr %3, align 8, !tbaa !51
+  store ptr %9, ptr %8, align 8, !tbaa !76
   store ptr %9, ptr %7, align 8, !tbaa !79
   %10 = load i32, ptr @_ZZN2cv21DetectionBasedTracker13TrackedObject9getNextIdEvE3_id, align 4, !tbaa !55
   %11 = add nsw i32 %10, 1
@@ -5292,7 +5292,7 @@ define noundef i32 @_ZN2cv21DetectionBasedTracker9addObjectERKNS_5Rect_IiEE(ptr 
   br i1 %.not.i.i, label %22, label %_ZNSt6vectorIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE9push_backEOS2_.exit.thread
 
 _ZNSt6vectorIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE9push_backEOS2_.exit.thread: ; preds = %2
-  store ptr %8, ptr %14, align 8, !tbaa !51
+  store ptr %6, ptr %14, align 8, !tbaa !51
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %9, ptr %17, align 8, !tbaa !76
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 16

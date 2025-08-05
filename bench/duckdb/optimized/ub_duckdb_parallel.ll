@@ -3483,12 +3483,12 @@ _ZNSt6vectorIN6duckdb8weak_ptrINS0_8PipelineELb1EEESaIS3_EE9push_backEOS3_.exit.
           to label %_ZNSt6vectorIN6duckdb8weak_ptrINS0_8PipelineELb1EEESaIS3_EE9push_backEOS3_.exit unwind label %99
 
 _ZNSt6vectorIN6duckdb8weak_ptrINS0_8PipelineELb1EEESaIS3_EE9push_backEOS3_.exit: ; preds = %27
-  %.pre = load ptr, ptr %8, align 8, !tbaa !67
-  %.not.i.i.i = icmp eq ptr %.pre, null
+  %.pr = load ptr, ptr %8, align 8, !tbaa !67
+  %.not.i.i.i = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i, label %_ZN6duckdb8weak_ptrINS_8PipelineELb1EED2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt6vectorIN6duckdb8weak_ptrINS0_8PipelineELb1EEESaIS3_EE9push_backEOS3_.exit
-  %29 = getelementptr inbounds nuw i8, ptr %.pre, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %.pr, i64 12
   %30 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
   %.not.i.i.i.i6 = icmp eq i8 %30, 0
   br i1 %.not.i.i.i.i6, label %34, label %31
@@ -3509,10 +3509,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %34, %31
   br i1 %36, label %37, label %_ZN6duckdb8weak_ptrINS_8PipelineELb1EED2Ev.exit
 
 37:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  %38 = load ptr, ptr %.pre, align 8, !tbaa !54
+  %38 = load ptr, ptr %.pr, align 8, !tbaa !54
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(16) %.pre) #35
+  call void %40(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #35
   br label %_ZN6duckdb8weak_ptrINS_8PipelineELb1EED2Ev.exit
 
 _ZN6duckdb8weak_ptrINS_8PipelineELb1EED2Ev.exit:  ; preds = %_ZNSt6vectorIN6duckdb8weak_ptrINS0_8PipelineELb1EEESaIS3_EE9push_backEOS3_.exit.thread, %_ZNSt6vectorIN6duckdb8weak_ptrINS0_8PipelineELb1EEESaIS3_EE9push_backEOS3_.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %37
@@ -3571,12 +3571,12 @@ _ZNSt6vectorIN6duckdb8weak_ptrINS0_8PipelineELb1EEESaIS3_EE9push_backEOS3_.exit1
           to label %_ZNSt6vectorIN6duckdb8weak_ptrINS0_8PipelineELb1EEESaIS3_EE9push_backEOS3_.exit12 unwind label %115
 
 _ZNSt6vectorIN6duckdb8weak_ptrINS0_8PipelineELb1EEESaIS3_EE9push_backEOS3_.exit12: ; preds = %63
-  %.pre32 = load ptr, ptr %44, align 8, !tbaa !67
-  %.not.i.i.i13 = icmp eq ptr %.pre32, null
+  %.pr32 = load ptr, ptr %44, align 8, !tbaa !67
+  %.not.i.i.i13 = icmp eq ptr %.pr32, null
   br i1 %.not.i.i.i13, label %_ZN6duckdb8weak_ptrINS_8PipelineELb1EED2Ev.exit17, label %64
 
 64:                                               ; preds = %_ZNSt6vectorIN6duckdb8weak_ptrINS0_8PipelineELb1EEESaIS3_EE9push_backEOS3_.exit12
-  %65 = getelementptr inbounds nuw i8, ptr %.pre32, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %.pr32, i64 12
   %66 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
   %.not.i.i.i.i14 = icmp eq i8 %66, 0
   br i1 %.not.i.i.i.i14, label %70, label %67
@@ -3597,10 +3597,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i15: ; preds = %70, %6
   br i1 %72, label %73, label %_ZN6duckdb8weak_ptrINS_8PipelineELb1EED2Ev.exit17
 
 73:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i15
-  %74 = load ptr, ptr %.pre32, align 8, !tbaa !54
+  %74 = load ptr, ptr %.pr32, align 8, !tbaa !54
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %76 = load ptr, ptr %75, align 8
-  call void %76(ptr noundef nonnull align 8 dereferenceable(16) %.pre32) #35
+  call void %76(ptr noundef nonnull align 8 dereferenceable(16) %.pr32) #35
   br label %_ZN6duckdb8weak_ptrINS_8PipelineELb1EED2Ev.exit17
 
 _ZN6duckdb8weak_ptrINS_8PipelineELb1EED2Ev.exit17: ; preds = %_ZNSt6vectorIN6duckdb8weak_ptrINS0_8PipelineELb1EEESaIS3_EE9push_backEOS3_.exit12.thread, %_ZNSt6vectorIN6duckdb8weak_ptrINS0_8PipelineELb1EEESaIS3_EE9push_backEOS3_.exit12, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i15, %73
@@ -11107,12 +11107,12 @@ _ZNSt6vectorIN6duckdb8weak_ptrINS0_5EventELb1EEESaIS3_EE9push_backEOS3_.exit.thr
           to label %_ZNSt6vectorIN6duckdb8weak_ptrINS0_5EventELb1EEESaIS3_EE9push_backEOS3_.exit unwind label %66
 
 _ZNSt6vectorIN6duckdb8weak_ptrINS0_5EventELb1EEESaIS3_EE9push_backEOS3_.exit: ; preds = %30
-  %.pre = load ptr, ptr %11, align 8, !tbaa !67
-  %.not.i.i.i = icmp eq ptr %.pre, null
+  %.pr = load ptr, ptr %11, align 8, !tbaa !67
+  %.not.i.i.i = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i, label %_ZN6duckdb8weak_ptrINS_5EventELb1EED2Ev.exit, label %31
 
 31:                                               ; preds = %_ZNSt6vectorIN6duckdb8weak_ptrINS0_5EventELb1EEESaIS3_EE9push_backEOS3_.exit
-  %32 = getelementptr inbounds nuw i8, ptr %.pre, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %.pr, i64 12
   %33 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
   %.not.i.i.i.i3 = icmp eq i8 %33, 0
   br i1 %.not.i.i.i.i3, label %37, label %34
@@ -11133,10 +11133,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %37, %34
   br i1 %39, label %40, label %_ZN6duckdb8weak_ptrINS_5EventELb1EED2Ev.exit
 
 40:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  %41 = load ptr, ptr %.pre, align 8, !tbaa !54
+  %41 = load ptr, ptr %.pr, align 8, !tbaa !54
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(16) %.pre) #35
+  call void %43(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #35
   br label %_ZN6duckdb8weak_ptrINS_5EventELb1EED2Ev.exit
 
 _ZN6duckdb8weak_ptrINS_5EventELb1EED2Ev.exit:     ; preds = %_ZNSt6vectorIN6duckdb8weak_ptrINS0_5EventELb1EEESaIS3_EE9push_backEOS3_.exit.thread, %_ZNSt6vectorIN6duckdb8weak_ptrINS0_5EventELb1EEESaIS3_EE9push_backEOS3_.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %40

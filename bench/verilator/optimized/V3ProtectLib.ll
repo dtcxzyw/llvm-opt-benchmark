@@ -18566,9 +18566,9 @@ define linkonce_odr dso_local void @_ZN7AstNode11foreachImplI8AstCFuncZN14Protec
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #23
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   invoke void @_ZNSt6vectorIP7AstNodeSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef 32)
-          to label %_ZZN7AstNode11foreachImplI8AstCFuncZN14ProtectVisitor13configSectionEP13AstNodeModuleP12AstTextBlockP8FileLineEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit unwind label %14
+          to label %.noexc unwind label %14
 
-_ZZN7AstNode11foreachImplI8AstCFuncZN14ProtectVisitor13configSectionEP13AstNodeModuleP12AstTextBlockP8FileLineEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit: ; preds = %3
+.noexc:                                           ; preds = %3
   %.pre3.i = load ptr, ptr %6, align 8, !tbaa !74
   %10 = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 16
   store ptr %10, ptr %7, align 8, !tbaa !384
@@ -18587,8 +18587,8 @@ _ZZN7AstNode11foreachImplI8AstCFuncZN14ProtectVisitor13configSectionEP13AstNodeM
           cleanup
   br label %138
 
-16:                                               ; preds = %_ZZN7AstNode11foreachImplI8AstCFuncZN14ProtectVisitor13configSectionEP13AstNodeModuleP12AstTextBlockP8FileLineEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit, %16
-  %indvars.iv = phi i64 [ -2, %_ZZN7AstNode11foreachImplI8AstCFuncZN14ProtectVisitor13configSectionEP13AstNodeModuleP12AstTextBlockP8FileLineEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit ], [ %indvars.iv.next, %16 ]
+16:                                               ; preds = %.noexc, %16
+  %indvars.iv = phi i64 [ -2, %.noexc ], [ %indvars.iv.next, %16 ]
   %17 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
   store ptr %0, ptr %17, align 8, !tbaa !144
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -18623,8 +18623,8 @@ _ZZN7AstNode11foreachImplI8AstCFuncZN14ProtectVisitor13configSectionEP13AstNodeM
 
 29:                                               ; preds = %.lr.ph, %_ZZN7AstNode11foreachImplI8AstCFuncZN14ProtectVisitor13configSectionEP13AstNodeModuleP12AstTextBlockP8FileLineEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit
   %30 = phi ptr [ %25, %.lr.ph ], [ %128, %_ZZN7AstNode11foreachImplI8AstCFuncZN14ProtectVisitor13configSectionEP13AstNodeModuleP12AstTextBlockP8FileLineEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit ]
-  %.049 = phi ptr [ %12, %.lr.ph ], [ %.1, %_ZZN7AstNode11foreachImplI8AstCFuncZN14ProtectVisitor13configSectionEP13AstNodeModuleP12AstTextBlockP8FileLineEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit ]
-  %.04448 = phi ptr [ %10, %.lr.ph ], [ %.145, %_ZZN7AstNode11foreachImplI8AstCFuncZN14ProtectVisitor13configSectionEP13AstNodeModuleP12AstTextBlockP8FileLineEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit ]
+  %.048 = phi ptr [ %12, %.lr.ph ], [ %.1, %_ZZN7AstNode11foreachImplI8AstCFuncZN14ProtectVisitor13configSectionEP13AstNodeModuleP12AstTextBlockP8FileLineEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit ]
+  %.04447 = phi ptr [ %10, %.lr.ph ], [ %.145, %_ZZN7AstNode11foreachImplI8AstCFuncZN14ProtectVisitor13configSectionEP13AstNodeModuleP12AstTextBlockP8FileLineEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit ]
   %31 = getelementptr inbounds i8, ptr %30, i64 -8
   store ptr %31, ptr %7, align 8, !tbaa !384
   %32 = load ptr, ptr %31, align 8, !tbaa !144
@@ -18634,7 +18634,7 @@ _ZZN7AstNode11foreachImplI8AstCFuncZN14ProtectVisitor13configSectionEP13AstNodeM
   call void @llvm.prefetch.p0(ptr nonnull %35, i32 0, i32 3, i32 1)
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 64
   call void @llvm.prefetch.p0(ptr nonnull %36, i32 0, i32 3, i32 1)
-  %.not18 = icmp ult ptr %31, %.049
+  %.not18 = icmp ult ptr %31, %.048
   br i1 %.not18, label %65, label %37, !prof !162
 
 37:                                               ; preds = %29
@@ -18673,7 +18673,7 @@ _ZZN7AstNode11foreachImplI8AstCFuncZN14ProtectVisitor13configSectionEP13AstNodeM
 _ZZN7AstNode11foreachImplI8AstCFuncZN14ProtectVisitor13configSectionEP13AstNodeModuleP12AstTextBlockP8FileLineEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28: ; preds = %.noexc27, %48, %50, %52
   %53 = phi ptr [ %.pre3.i24, %.noexc27 ], [ %39, %48 ], [ %39, %50 ], [ %39, %52 ]
   %54 = ptrtoint ptr %31 to i64
-  %55 = ptrtoint ptr %.04448 to i64
+  %55 = ptrtoint ptr %.04447 to i64
   %56 = sub i64 %54, %55
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %58 = getelementptr inbounds i8, ptr %57, i64 %56
@@ -18694,8 +18694,8 @@ _ZZN7AstNode11foreachImplI8AstCFuncZN14ProtectVisitor13configSectionEP13AstNodeM
 
 65:                                               ; preds = %_ZZN7AstNode11foreachImplI8AstCFuncZN14ProtectVisitor13configSectionEP13AstNodeModuleP12AstTextBlockP8FileLineEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28, %29
   %66 = phi ptr [ %31, %29 ], [ %58, %_ZZN7AstNode11foreachImplI8AstCFuncZN14ProtectVisitor13configSectionEP13AstNodeModuleP12AstTextBlockP8FileLineEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
-  %.145 = phi ptr [ %.04448, %29 ], [ %57, %_ZZN7AstNode11foreachImplI8AstCFuncZN14ProtectVisitor13configSectionEP13AstNodeModuleP12AstTextBlockP8FileLineEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
-  %.1 = phi ptr [ %.049, %29 ], [ %60, %_ZZN7AstNode11foreachImplI8AstCFuncZN14ProtectVisitor13configSectionEP13AstNodeModuleP12AstTextBlockP8FileLineEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
+  %.145 = phi ptr [ %.04447, %29 ], [ %57, %_ZZN7AstNode11foreachImplI8AstCFuncZN14ProtectVisitor13configSectionEP13AstNodeModuleP12AstTextBlockP8FileLineEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
+  %.1 = phi ptr [ %.048, %29 ], [ %60, %_ZZN7AstNode11foreachImplI8AstCFuncZN14ProtectVisitor13configSectionEP13AstNodeModuleP12AstTextBlockP8FileLineEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28 ]
   %67 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %68 = load ptr, ptr %67, align 8, !tbaa !349
   %.not19 = icmp eq ptr %68, null

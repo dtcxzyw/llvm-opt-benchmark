@@ -2563,15 +2563,15 @@ define void @_ZN6colvar4tilt14calc_gradientsEv(ptr noundef nonnull readonly alig
   %35 = fdiv double %19, %20
   %36 = fmul double %35, %27
   %37 = fdiv double %36, %31
-  br label %_ZN12colvarmodule8vector1dINS_7rvectorEEC2Em.exit
+  br label %_ZNK12colvarmodule8rotation13dcos_theta_dqERKNS_7rvectorE.exit
 
 38:                                               ; preds = %1
   %39 = fmul double %22, %22
   %40 = fmul double %19, %39
   %41 = fdiv double 4.000000e+00, %40
-  br label %_ZN12colvarmodule8vector1dINS_7rvectorEEC2Em.exit
+  br label %_ZNK12colvarmodule8rotation13dcos_theta_dqERKNS_7rvectorE.exit
 
-_ZN12colvarmodule8vector1dINS_7rvectorEEC2Em.exit: ; preds = %24, %38
+_ZNK12colvarmodule8rotation13dcos_theta_dqERKNS_7rvectorE.exit: ; preds = %24, %38
   %.sink26.i = phi double [ %34, %24 ], [ 0.000000e+00, %38 ]
   %.pn.i = phi double [ %37, %24 ], [ %41, %38 ]
   %.sink.i = fmul double %18, %.pn.i
@@ -2593,7 +2593,7 @@ _ZN12colvarmodule8vector1dINS_7rvectorEEC2Em.exit: ; preds = %24, %38
   %.not = icmp eq ptr %50, %51
   br i1 %.not, label %_ZN12colvarmodule8vector1dINS_7rvectorEED2Ev.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN12colvarmodule8vector1dINS_7rvectorEEC2Em.exit
+.lr.ph:                                           ; preds = %_ZNK12colvarmodule8rotation13dcos_theta_dqERKNS_7rvectorE.exit
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -2664,7 +2664,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE5clearEv.exit.i: ; preds = %99, %._
   call void @_ZdlPvm(ptr noundef nonnull %.pre, i64 noundef %104) #21
   br label %_ZN12colvarmodule8vector1dINS_7rvectorEED2Ev.exit
 
-_ZN12colvarmodule8vector1dINS_7rvectorEED2Ev.exit: ; preds = %_ZN12colvarmodule8vector1dINS_7rvectorEEC2Em.exit, %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE5clearEv.exit.i, %100
+_ZN12colvarmodule8vector1dINS_7rvectorEED2Ev.exit: ; preds = %_ZNK12colvarmodule8rotation13dcos_theta_dqERKNS_7rvectorE.exit, %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE5clearEv.exit.i, %100
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #22
   ret void
 
@@ -3107,14 +3107,14 @@ define void @_ZN6colvar10spin_angle14calc_gradientsEv(ptr noundef nonnull readon
   %36 = fmul double %35, %28
   %37 = fmul double %18, %32
   %38 = fmul double %37, %28
-  br label %_ZN12colvarmodule8vector1dINS_7rvectorEEC2Em.exit
+  br label %_ZNK12colvarmodule8rotation14dspin_angle_dqERKNS_7rvectorE.exit
 
 39:                                               ; preds = %1
   %40 = fdiv double -1.000000e+00, %19
   %41 = fmul double %40, 0x405CA5DC1A63C1F8
-  br label %_ZN12colvarmodule8vector1dINS_7rvectorEEC2Em.exit
+  br label %_ZNK12colvarmodule8rotation14dspin_angle_dqERKNS_7rvectorE.exit
 
-_ZN12colvarmodule8vector1dINS_7rvectorEEC2Em.exit: ; preds = %22, %39
+_ZNK12colvarmodule8rotation14dspin_angle_dqERKNS_7rvectorE.exit: ; preds = %22, %39
   %.sink15.i = phi double [ %31, %22 ], [ %41, %39 ]
   %.sink14.i = phi double [ %34, %22 ], [ 0.000000e+00, %39 ]
   %.sink13.i = phi double [ %36, %22 ], [ 0.000000e+00, %39 ]
@@ -3135,7 +3135,7 @@ _ZN12colvarmodule8vector1dINS_7rvectorEEC2Em.exit: ; preds = %22, %39
   %.not = icmp eq ptr %50, %51
   br i1 %.not, label %_ZN12colvarmodule8vector1dINS_7rvectorEED2Ev.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN12colvarmodule8vector1dINS_7rvectorEEC2Em.exit
+.lr.ph:                                           ; preds = %_ZNK12colvarmodule8rotation14dspin_angle_dqERKNS_7rvectorE.exit
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -3206,7 +3206,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE5clearEv.exit.i: ; preds = %99, %._
   call void @_ZdlPvm(ptr noundef nonnull %.pre, i64 noundef %104) #21
   br label %_ZN12colvarmodule8vector1dINS_7rvectorEED2Ev.exit
 
-_ZN12colvarmodule8vector1dINS_7rvectorEED2Ev.exit: ; preds = %_ZN12colvarmodule8vector1dINS_7rvectorEEC2Em.exit, %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE5clearEv.exit.i, %100
+_ZN12colvarmodule8vector1dINS_7rvectorEED2Ev.exit: ; preds = %_ZNK12colvarmodule8rotation14dspin_angle_dqERKNS_7rvectorE.exit, %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE5clearEv.exit.i, %100
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #22
   ret void
 

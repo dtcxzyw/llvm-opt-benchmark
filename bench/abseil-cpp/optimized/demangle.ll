@@ -268,7 +268,7 @@ define dso_local noundef zeroext i1 @_ZN4absl18debugging_internal8DemangleEPKcPc
   %12 = tail call noundef zeroext i1 @_ZN4absl18debugging_internal26DemangleRustSymbolEncodingEPKcPcm(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2)
   br label %71
 
-13:                                               ; preds = %3, %7
+13:                                               ; preds = %7, %3
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #15
   store ptr %0, ptr %4, align 8, !tbaa !7
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -405,8 +405,8 @@ _ZN4absl18debugging_internalL6StrLenEPKc.exit.i.i: ; preds = %65
   %spec.select = and i1 %.not, %69
   br label %_ZN4absl18debugging_internalL24ParseTopLevelMangledNameEPNS0_5StateE.exit
 
-_ZN4absl18debugging_internalL24ParseTopLevelMangledNameEPNS0_5StateE.exit: ; preds = %_ZN4absl18debugging_internalL21IsFunctionCloneSuffixEPKc.exit.thread.i, %26, %13, %22, %.loopexit
-  %70 = phi i1 [ %spec.select, %.loopexit ], [ false, %22 ], [ false, %13 ], [ false, %26 ], [ false, %_ZN4absl18debugging_internalL21IsFunctionCloneSuffixEPKc.exit.thread.i ]
+_ZN4absl18debugging_internalL24ParseTopLevelMangledNameEPNS0_5StateE.exit: ; preds = %_ZN4absl18debugging_internalL21IsFunctionCloneSuffixEPKc.exit.thread.i, %26, %22, %13, %.loopexit
+  %70 = phi i1 [ %spec.select, %.loopexit ], [ false, %13 ], [ false, %22 ], [ false, %26 ], [ false, %_ZN4absl18debugging_internalL21IsFunctionCloneSuffixEPKc.exit.thread.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #15
   br label %71
 

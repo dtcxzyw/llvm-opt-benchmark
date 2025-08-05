@@ -10335,7 +10335,7 @@ _ZN6duckdb12BufferHandle3PtrEv.exit70:            ; preds = %46
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 24
   %92 = load ptr, ptr %91, align 8
   call void %92(ptr noundef nonnull align 8 dereferenceable(16) %79) #33
-  br label %_ZN6duckdb10shared_ptrINS_11BlockHandleELb1EEaSEOS2_.exit
+  br label %_ZN6duckdb10shared_ptrINS_11BlockHandleELb1EEaSEOS2_.exitthread-pre-split
 
 93:                                               ; preds = %80
   %94 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !215
@@ -10354,14 +10354,18 @@ _ZN6duckdb12BufferHandle3PtrEv.exit70:            ; preds = %46
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %97, %95
   %.0.i.i.i.i.i.i = phi i32 [ %84, %95 ], [ %98, %97 ]
   %99 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %99, label %100, label %_ZN6duckdb10shared_ptrINS_11BlockHandleELb1EEaSEOS2_.exit, !prof !57
+  br i1 %99, label %100, label %_ZN6duckdb10shared_ptrINS_11BlockHandleELb1EEaSEOS2_.exitthread-pre-split, !prof !57
 
 100:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %79) #33
+  br label %_ZN6duckdb10shared_ptrINS_11BlockHandleELb1EEaSEOS2_.exitthread-pre-split
+
+_ZN6duckdb10shared_ptrINS_11BlockHandleELb1EEaSEOS2_.exitthread-pre-split: ; preds = %100, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %85
+  %.pr = load ptr, ptr %51, align 8, !tbaa !210
   br label %_ZN6duckdb10shared_ptrINS_11BlockHandleELb1EEaSEOS2_.exit
 
-_ZN6duckdb10shared_ptrINS_11BlockHandleELb1EEaSEOS2_.exit: ; preds = %76, %85, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %100
-  %101 = load ptr, ptr %51, align 8, !tbaa !210
+_ZN6duckdb10shared_ptrINS_11BlockHandleELb1EEaSEOS2_.exit: ; preds = %_ZN6duckdb10shared_ptrINS_11BlockHandleELb1EEaSEOS2_.exitthread-pre-split, %76
+  %101 = phi ptr [ %.pr, %_ZN6duckdb10shared_ptrINS_11BlockHandleELb1EEaSEOS2_.exitthread-pre-split ], [ null, %76 ]
   %.not.i.i.i = icmp eq ptr %101, null
   br i1 %.not.i.i.i, label %_ZN6duckdb10shared_ptrINS_11BlockHandleELb1EED2Ev.exit, label %102
 

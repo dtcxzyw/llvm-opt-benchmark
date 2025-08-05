@@ -178313,7 +178313,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang10GlobalDeclENS_9StringSetINS_15Mallo
   %26 = icmp eq i64 %.sroa.07.0.copyload, %.sroa.011.0.copyload68.i
   %27 = icmp eq i32 %.sroa.28.0.copyload, %.sroa.212.0.copyload70.i
   %28 = select i1 %26, i1 %27, i1 false
-  br i1 %28, label %_ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev.exit, label %.lr.ph.i32, !prof !438
+  br i1 %28, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang10GlobalDeclENS_9StringSetINS_15MallocAllocatorEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPSB_.exit, label %.lr.ph.i32, !prof !438
 
 .lr.ph.i32:                                       ; preds = %15, %35
   %.sroa.212.0.copyload75.i = phi i32 [ %.sroa.212.0.copyload.i, %35 ], [ %.sroa.212.0.copyload70.i, %15 ]
@@ -178330,7 +178330,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang10GlobalDeclENS_9StringSetINS_15Mallo
 33:                                               ; preds = %.lr.ph.i32
   %.not.i33 = icmp eq ptr %.05172.i, null
   %34 = select i1 %.not.i33, ptr %29, ptr %.05172.i
-  br label %_ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev.exit
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang10GlobalDeclENS_9StringSetINS_15MallocAllocatorEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPSB_.exit
 
 35:                                               ; preds = %.lr.ph.i32
   %36 = icmp eq i64 %.sroa.011.0.copyload74.i, -1
@@ -178349,9 +178349,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang10GlobalDeclENS_9StringSetINS_15Mallo
   %43 = icmp eq i64 %.sroa.07.0.copyload, %.sroa.011.0.copyload.i
   %44 = icmp eq i32 %.sroa.28.0.copyload, %.sroa.212.0.copyload.i
   %45 = select i1 %43, i1 %44, i1 false
-  br i1 %45, label %_ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev.exit, label %.lr.ph.i32, !prof !440, !llvm.loop !2066
+  br i1 %45, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang10GlobalDeclENS_9StringSetINS_15MallocAllocatorEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPSB_.exit, label %.lr.ph.i32, !prof !440, !llvm.loop !2066
 
-_ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev.exit: ; preds = %35, %33, %15
+_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang10GlobalDeclENS_9StringSetINS_15MallocAllocatorEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPSB_.exit: ; preds = %35, %15, %33
   %.sink.i = phi ptr [ %34, %33 ], [ %25, %15 ], [ %42, %35 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sink.i, ptr noundef nonnull align 8 dereferenceable(12) %.042, i64 12, i1 false), !tbaa.struct !2070
   %46 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 16
@@ -178380,7 +178380,7 @@ _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev.exit: ; preds = %35, %
   store i32 %62, ptr %4, align 8, !tbaa !2068
   br label %63
 
-63:                                               ; preds = %_ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev.exit, %.lr.ph
+63:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang10GlobalDeclENS_9StringSetINS_15MallocAllocatorEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPSB_.exit, %.lr.ph
   %64 = getelementptr inbounds nuw i8, ptr %.042, i64 40
   %.not = icmp eq ptr %64, %2
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !2377

@@ -14217,14 +14217,14 @@ define void @_ZN2cv6detail18GraphCutSeamFinder4Impl10findInPairEmmNS_5Rect_IiEE(
 66:                                               ; preds = %65
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %23) #31
   invoke void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %58, i32 noundef %59, i32 noundef 5)
-          to label %.preheader212 unwind label %336
+          to label %.preheader213 unwind label %336
 
-.preheader212:                                    ; preds = %66
+.preheader213:                                    ; preds = %66
   %67 = add i32 %.sroa.28.8.extract.trunc, 10
   %68 = icmp sgt i32 %.sroa.28.8.extract.trunc, -20
-  br i1 %68, label %.preheader211.lr.ph, label %._crit_edge215
+  br i1 %68, label %.preheader212.lr.ph, label %._crit_edge216
 
-.preheader211.lr.ph:                              ; preds = %.preheader212
+.preheader212.lr.ph:                              ; preds = %.preheader213
   %69 = icmp sgt i32 %.sroa.13.8.extract.trunc, -20
   %70 = sub nsw i32 %.sroa.7111.0.extract.trunc, %.sroa.790.0.copyload
   %71 = sub nsw i32 %.sroa.0105.0.extract.trunc, %.sroa.087.0.copyload
@@ -14266,30 +14266,30 @@ define void @_ZN2cv6detail18GraphCutSeamFinder4Impl10findInPairEmmNS_5Rect_IiEE(
   %107 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %108 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %109 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  br i1 %69, label %.preheader211.us.preheader, label %._crit_edge215
+  br i1 %69, label %.preheader212.us.preheader, label %._crit_edge216
 
-.preheader211.us.preheader:                       ; preds = %.preheader211.lr.ph
+.preheader212.us.preheader:                       ; preds = %.preheader212.lr.ph
   %110 = add i32 %.sroa.13.8.extract.trunc, 9
   %smax = call i32 @llvm.smax.i32(i32 %110, i32 -10)
   %111 = add i32 %smax, 1
-  %smax226 = call i32 @llvm.smax.i32(i32 %67, i32 -9)
-  %wide.trip.count = sext i32 %smax226 to i64
-  br label %.preheader211.us
+  %smax227 = call i32 @llvm.smax.i32(i32 %67, i32 -9)
+  %wide.trip.count = sext i32 %smax227 to i64
+  br label %.preheader212.us
 
-.preheader211.us:                                 ; preds = %.preheader211.us.preheader, %._crit_edge.us
-  %indvars.iv223 = phi i64 [ -10, %.preheader211.us.preheader ], [ %indvars.iv.next224, %._crit_edge.us ]
-  %112 = trunc nsw i64 %indvars.iv223 to i32
+.preheader212.us:                                 ; preds = %.preheader212.us.preheader, %._crit_edge.us
+  %indvars.iv224 = phi i64 [ -10, %.preheader212.us.preheader ], [ %indvars.iv.next225, %._crit_edge.us ]
+  %112 = trunc nsw i64 %indvars.iv224 to i32
   %113 = add nsw i32 %70, %112
   %114 = icmp sgt i32 %113, -1
-  %115 = add nsw i64 %indvars.iv223, 10
+  %115 = add nsw i64 %indvars.iv224, 10
   %116 = zext nneg i32 %113 to i64
   %117 = add nsw i32 %90, %112
   %118 = icmp sgt i32 %117, -1
   %119 = zext nneg i32 %117 to i64
   br label %120
 
-120:                                              ; preds = %.preheader211.us, %277
-  %indvars.iv = phi i64 [ -10, %.preheader211.us ], [ %indvars.iv.next, %277 ]
+120:                                              ; preds = %.preheader212.us, %277
+  %indvars.iv = phi i64 [ -10, %.preheader212.us ], [ %indvars.iv.next, %277 ]
   %121 = trunc nsw i64 %indvars.iv to i32
   %122 = add nsw i32 %71, %121
   %123 = icmp sgt i32 %122, -1
@@ -14503,11 +14503,11 @@ define void @_ZN2cv6detail18GraphCutSeamFinder4Impl10findInPairEmmNS_5Rect_IiEE(
   br i1 %exitcond.not, label %._crit_edge.us, label %120, !llvm.loop !413
 
 ._crit_edge.us:                                   ; preds = %277
-  %indvars.iv.next224 = add nsw i64 %indvars.iv223, 1
-  %exitcond227.not = icmp eq i64 %indvars.iv.next224, %wide.trip.count
-  br i1 %exitcond227.not, label %._crit_edge215, label %.preheader211.us, !llvm.loop !414
+  %indvars.iv.next225 = add nsw i64 %indvars.iv224, 1
+  %exitcond228.not = icmp eq i64 %indvars.iv.next225, %wide.trip.count
+  br i1 %exitcond228.not, label %._crit_edge216, label %.preheader212.us, !llvm.loop !414
 
-._crit_edge215:                                   ; preds = %._crit_edge.us, %.preheader211.lr.ph, %.preheader212
+._crit_edge216:                                   ; preds = %._crit_edge.us, %.preheader212.lr.ph, %.preheader213
   %284 = mul nsw i32 %58, %59
   %285 = add nsw i32 %.sroa.28.8.extract.trunc, 19
   %286 = mul nsw i32 %285, %59
@@ -14517,10 +14517,10 @@ define void @_ZN2cv6detail18GraphCutSeamFinder4Impl10findInPairEmmNS_5Rect_IiEE(
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %24, i8 0, i64 48, i1 false)
   %289 = zext i32 %284 to i64
   %290 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %.not = icmp eq i32 %284, 0
-  br i1 %.not, label %_ZNSt6vectorIN2cv6detail7GCGraphIfE3VtxESaIS4_EE7reserveEm.exit.i, label %_ZNSt12_Vector_baseIN2cv6detail7GCGraphIfE3VtxESaIS4_EE11_M_allocateEm.exit.i.i
+  %.not210 = icmp eq i32 %284, 0
+  br i1 %.not210, label %_ZNSt6vectorIN2cv6detail7GCGraphIfE3VtxESaIS4_EE7reserveEm.exit.i, label %_ZNSt12_Vector_baseIN2cv6detail7GCGraphIfE3VtxESaIS4_EE11_M_allocateEm.exit.i.i
 
-_ZNSt12_Vector_baseIN2cv6detail7GCGraphIfE3VtxESaIS4_EE11_M_allocateEm.exit.i.i: ; preds = %._crit_edge215
+_ZNSt12_Vector_baseIN2cv6detail7GCGraphIfE3VtxESaIS4_EE11_M_allocateEm.exit.i.i: ; preds = %._crit_edge216
   %291 = shl nuw nsw i64 %289, 5
   %292 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %291) #29
           to label %.noexc204 unwind label %_ZNSt6vectorIN2cv6detail7GCGraphIfE4EdgeESaIS4_EED2Ev.exit.i.thread
@@ -14538,15 +14538,15 @@ _ZNSt6vectorIN2cv6detail7GCGraphIfE4EdgeESaIS4_EED2Ev.exit.i.thread: ; preds = %
   store ptr %295, ptr %290, align 8, !tbaa !374
   br label %_ZNSt6vectorIN2cv6detail7GCGraphIfE3VtxESaIS4_EE7reserveEm.exit.i
 
-_ZNSt6vectorIN2cv6detail7GCGraphIfE3VtxESaIS4_EE7reserveEm.exit.i: ; preds = %.noexc204, %._crit_edge215
-  %296 = phi ptr [ %292, %.noexc204 ], [ null, %._crit_edge215 ]
+_ZNSt6vectorIN2cv6detail7GCGraphIfE3VtxESaIS4_EE7reserveEm.exit.i: ; preds = %.noexc204, %._crit_edge216
+  %296 = phi ptr [ %292, %.noexc204 ], [ null, %._crit_edge216 ]
   %297 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %298 = add i32 %288, 2
   %299 = add i32 %298, %286
   %300 = zext i32 %299 to i64
   %301 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %.not241 = icmp eq i32 %299, 0
-  br i1 %.not241, label %338, label %_ZNSt12_Vector_baseIN2cv6detail7GCGraphIfE4EdgeESaIS4_EE11_M_allocateEm.exit.i.i
+  %.not = icmp eq i32 %299, 0
+  br i1 %.not, label %338, label %_ZNSt12_Vector_baseIN2cv6detail7GCGraphIfE4EdgeESaIS4_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIN2cv6detail7GCGraphIfE4EdgeESaIS4_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt6vectorIN2cv6detail7GCGraphIfE3VtxESaIS4_EE7reserveEm.exit.i
   %302 = mul nuw nsw i64 %300, 12
@@ -14714,20 +14714,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 359:                                              ; preds = %345, %342
   %360 = invoke noundef float @_ZN2cv6detail7GCGraphIfE7maxFlowEv(ptr noundef nonnull align 8 dereferenceable(52) %24)
-          to label %.preheader210 unwind label %343
+          to label %.preheader211 unwind label %343
 
-.preheader210:                                    ; preds = %359
+.preheader211:                                    ; preds = %359
   %361 = icmp sgt i32 %.sroa.28.8.extract.trunc, 0
-  br i1 %361, label %.preheader.lr.ph, label %._crit_edge218
+  br i1 %361, label %.preheader.lr.ph, label %._crit_edge219
 
-.preheader.lr.ph:                                 ; preds = %.preheader210
+.preheader.lr.ph:                                 ; preds = %.preheader211
   %362 = icmp sgt i32 %.sroa.13.8.extract.trunc, 0
   %363 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %364 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %365 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %366 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %367 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  br i1 %362, label %.preheader.us.preheader, label %._crit_edge218
+  br i1 %362, label %.preheader.us.preheader, label %._crit_edge219
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %368 = sub i32 %.sroa.0105.0.extract.trunc, %.sroa.087.0.copyload
@@ -14740,25 +14740,25 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %375 = sext i32 %368 to i64
   %376 = sext i32 %371 to i64
   %377 = sext i32 %369 to i64
-  %wide.trip.count234 = and i64 %4, 2147483647
+  %wide.trip.count235 = and i64 %4, 2147483647
   br label %.preheader.us
 
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us219
-  %indvars.iv236 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next237, %._crit_edge.us219 ]
-  %indvars.iv228 = phi i32 [ %373, %.preheader.us.preheader ], [ %indvars.iv.next229, %._crit_edge.us219 ]
-  %378 = trunc i64 %indvars.iv236 to i32
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us220
+  %indvars.iv237 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next238, %._crit_edge.us220 ]
+  %indvars.iv229 = phi i32 [ %373, %.preheader.us.preheader ], [ %indvars.iv.next230, %._crit_edge.us220 ]
+  %378 = trunc i64 %indvars.iv237 to i32
   %379 = add i32 %378, 10
   %380 = mul i32 %379, %59
   %invariant.op.us = add nuw i32 %380, 10
-  %381 = add nsw i64 %indvars.iv236, %376
-  %382 = add nsw i64 %indvars.iv236, %377
+  %381 = add nsw i64 %indvars.iv237, %376
+  %382 = add nsw i64 %indvars.iv237, %377
   %383 = sext i32 %invariant.op.us to i64
-  %384 = icmp sgt i32 %indvars.iv228, -11
+  %384 = icmp sgt i32 %indvars.iv229, -11
   br label %385
 
 385:                                              ; preds = %.preheader.us, %428
-  %indvars.iv230 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next231, %428 ]
-  %386 = add nsw i64 %indvars.iv230, %383
+  %indvars.iv231 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next232, %428 ]
+  %386 = add nsw i64 %indvars.iv231, %383
   br i1 %384, label %387, label %.split.us
 
 387:                                              ; preds = %385
@@ -14784,7 +14784,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %402 = load i64, ptr %401, align 8, !tbaa !84
   %403 = mul i64 %402, %381
   %404 = getelementptr inbounds nuw i8, ptr %400, i64 %403
-  %405 = getelementptr i8, ptr %404, i64 %indvars.iv230
+  %405 = getelementptr i8, ptr %404, i64 %indvars.iv231
   %406 = getelementptr i8, ptr %405, i64 %374
   %407 = load i8, ptr %406, align 1, !tbaa !85
   %.not.us = icmp eq i8 %407, 0
@@ -14801,7 +14801,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %414 = load i64, ptr %413, align 8, !tbaa !84
   %415 = mul i64 %414, %382
   %416 = getelementptr inbounds nuw i8, ptr %412, i64 %415
-  %417 = getelementptr i8, ptr %416, i64 %indvars.iv230
+  %417 = getelementptr i8, ptr %416, i64 %indvars.iv231
   %418 = getelementptr i8, ptr %417, i64 %375
   %419 = load i8, ptr %418, align 1, !tbaa !85
   %.not168.us = icmp eq i8 %419, 0
@@ -14820,32 +14820,32 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %423 = load i64, ptr %.sink266, align 8, !tbaa !84
   %424 = mul i64 %423, %.sink265
   %425 = getelementptr inbounds nuw i8, ptr %.sink262, i64 %424
-  %426 = getelementptr i8, ptr %425, i64 %indvars.iv230
+  %426 = getelementptr i8, ptr %425, i64 %indvars.iv231
   %427 = getelementptr i8, ptr %426, i64 %.sink260
   store i8 0, ptr %427, align 1, !tbaa !85
   br label %428
 
 428:                                              ; preds = %.sink.split, %411, %399
-  %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
-  %exitcond235.not = icmp eq i64 %indvars.iv.next231, %wide.trip.count234
-  br i1 %exitcond235.not, label %._crit_edge.us219, label %385, !llvm.loop !417
+  %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
+  %exitcond236.not = icmp eq i64 %indvars.iv.next232, %wide.trip.count235
+  br i1 %exitcond236.not, label %._crit_edge.us220, label %385, !llvm.loop !417
 
-._crit_edge.us219:                                ; preds = %428
-  %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
-  %indvars.iv.next229 = add i32 %indvars.iv228, %59
-  %exitcond240.not = icmp eq i64 %indvars.iv.next237, %.sroa.28.8.extract.shift
-  br i1 %exitcond240.not, label %._crit_edge218, label %.preheader.us, !llvm.loop !418
+._crit_edge.us220:                                ; preds = %428
+  %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
+  %indvars.iv.next230 = add i32 %indvars.iv229, %59
+  %exitcond241.not = icmp eq i64 %indvars.iv.next238, %.sroa.28.8.extract.shift
+  br i1 %exitcond241.not, label %._crit_edge219, label %.preheader.us, !llvm.loop !418
 
-._crit_edge218:                                   ; preds = %._crit_edge.us219, %.preheader.lr.ph, %.preheader210
+._crit_edge219:                                   ; preds = %._crit_edge.us220, %.preheader.lr.ph, %.preheader211
   %429 = load ptr, ptr %297, align 8, !tbaa !405
   %.not.i.i.i.i199 = icmp eq ptr %429, null
   br i1 %.not.i.i.i.i199, label %_ZNSt6vectorIN2cv6detail7GCGraphIfE4EdgeESaIS4_EED2Ev.exit.i200, label %430
 
-430:                                              ; preds = %._crit_edge218
+430:                                              ; preds = %._crit_edge219
   call void @_ZdlPv(ptr noundef nonnull %429) #30
   br label %_ZNSt6vectorIN2cv6detail7GCGraphIfE4EdgeESaIS4_EED2Ev.exit.i200
 
-_ZNSt6vectorIN2cv6detail7GCGraphIfE4EdgeESaIS4_EED2Ev.exit.i200: ; preds = %430, %._crit_edge218
+_ZNSt6vectorIN2cv6detail7GCGraphIfE4EdgeESaIS4_EED2Ev.exit.i200: ; preds = %430, %._crit_edge219
   %431 = load ptr, ptr %24, align 8, !tbaa !375
   %.not.i.i.i1.i = icmp eq ptr %431, null
   br i1 %.not.i.i.i1.i, label %_ZN2cv6detail7GCGraphIfED2Ev.exit, label %432

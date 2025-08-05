@@ -4159,14 +4159,14 @@ entry:
   %schemeDesc_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %schemeDesc_, align 8, !tbaa !172
   %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %cond.false.i, label %_ZN5boost10shared_ptrIN8QuantLib18FdCIRVanillaEngineEED2Ev.exit, !prof !93
+  br i1 %cmp.not.i, label %cond.false.i, label %_ZNK5boost10shared_ptrIN8QuantLib13FdmSchemeDescEEdeEv.exit, !prof !93
 
 cond.false.i:                                     ; preds = %entry
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib13FdmSchemeDescEEdeEv, ptr noundef nonnull @.str.15, i64 noundef 778)
   %.pre.i = load ptr, ptr %schemeDesc_, align 8, !tbaa !172
-  br label %_ZN5boost10shared_ptrIN8QuantLib18FdCIRVanillaEngineEED2Ev.exit
+  br label %_ZNK5boost10shared_ptrIN8QuantLib13FdmSchemeDescEEdeEv.exit
 
-_ZN5boost10shared_ptrIN8QuantLib18FdCIRVanillaEngineEED2Ev.exit: ; preds = %cond.false.i, %entry
+_ZNK5boost10shared_ptrIN8QuantLib13FdmSchemeDescEEdeEv.exit: ; preds = %entry, %cond.false.i
   %1 = phi ptr [ %0, %entry ], [ %.pre.i, %cond.false.i ]
   %rho_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %dampingSteps_ = getelementptr inbounds nuw i8, ptr %this, i64 88

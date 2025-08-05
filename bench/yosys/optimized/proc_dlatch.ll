@@ -34319,9 +34319,9 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i160: ; preds = %297, %293
   store ptr null, ptr %287, align 8, !tbaa !151
   store i32 0, ptr %288, align 8, !tbaa !16
   %308 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #28
-          to label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i unwind label %316
+          to label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i unwind label %316
 
-_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %305
+_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %305
   store i32 %307, ptr %308, align 4, !tbaa !113
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 4
   store ptr %308, ptr %289, align 8, !tbaa !125
@@ -34330,7 +34330,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %305
   %310 = invoke fastcc noundef i32 @_ZN5Yosys7hashlib5idictIN12_GLOBAL__N_116proc_dlatch_db_t11rule_node_tELi3ENS0_8hash_opsIS4_EEEclERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %292, ptr noundef nonnull align 8 dereferenceable(56) %10)
           to label %311 unwind label %316
 
-311:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i
+311:                                              ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i
   %.val5.i = load ptr, ptr %289, align 8, !tbaa !125
   %.not.i.i.i.i.i165 = icmp eq ptr %.val5.i, null
   br i1 %.not.i.i.i.i.i165, label %322, label %312
@@ -34343,7 +34343,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %305
   call void @_ZdlPvm(ptr noundef nonnull %.val5.i, i64 noundef %315) #27
   br label %322
 
-316:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i, %305
+316:                                              ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %305
   %317 = landingpad { ptr, i32 }
           cleanup
   %.val.i = load ptr, ptr %289, align 8, !tbaa !125
@@ -34427,9 +34427,9 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i166: ; preds = %330, %326
   store i32 0, ptr %343, align 8, !tbaa !16
   %345 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %346 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #28
-          to label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i175 unwind label %356
+          to label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i175 unwind label %356
 
-_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i175:     ; preds = %338
+_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i175: ; preds = %338
   %347 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 %340, ptr %346, align 4, !tbaa !113
   %348 = getelementptr inbounds nuw i8, ptr %346, i64 4
@@ -34440,7 +34440,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i175:     ; preds = %338
   %350 = invoke fastcc noundef i32 @_ZN5Yosys7hashlib5idictIN12_GLOBAL__N_116proc_dlatch_db_t11rule_node_tELi3ENS0_8hash_opsIS4_EEEclERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %349, ptr noundef nonnull align 8 dereferenceable(56) %9)
           to label %351 unwind label %356
 
-351:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i175
+351:                                              ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i175
   %.val5.i176 = load ptr, ptr %344, align 8, !tbaa !125
   %.not.i.i.i.i.i177 = icmp eq ptr %.val5.i176, null
   br i1 %.not.i.i.i.i.i177, label %362, label %352
@@ -34453,7 +34453,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i175:     ; preds = %338
   call void @_ZdlPvm(ptr noundef nonnull %.val5.i176, i64 noundef %355) #27
   br label %362
 
-356:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i175, %338
+356:                                              ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i175, %338
   %357 = landingpad { ptr, i32 }
           cleanup
   %.val.i171 = load ptr, ptr %344, align 8, !tbaa !125
@@ -34872,9 +34872,9 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i225: ; preds = %513, %_ZNK5Yosys
   store ptr null, ptr %382, align 8, !tbaa !151
   store i32 1, ptr %383, align 8, !tbaa !16
   %525 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #28
-          to label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i234 unwind label %533
+          to label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i234 unwind label %533
 
-_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i234:     ; preds = %522
+_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i234: ; preds = %522
   store i32 %524, ptr %525, align 4, !tbaa !113
   %526 = getelementptr inbounds nuw i8, ptr %525, i64 4
   store ptr %525, ptr %384, align 8, !tbaa !125
@@ -34883,7 +34883,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i234:     ; preds = %522
   %527 = invoke fastcc noundef i32 @_ZN5Yosys7hashlib5idictIN12_GLOBAL__N_116proc_dlatch_db_t11rule_node_tELi3ENS0_8hash_opsIS4_EEEclERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %387, ptr noundef nonnull align 8 dereferenceable(56) %8)
           to label %528 unwind label %533
 
-528:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i234
+528:                                              ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i234
   %.val5.i235 = load ptr, ptr %384, align 8, !tbaa !125
   %.not.i.i.i.i.i236 = icmp eq ptr %.val5.i235, null
   br i1 %.not.i.i.i.i.i236, label %539, label %529
@@ -34896,7 +34896,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i234:     ; preds = %522
   call void @_ZdlPvm(ptr noundef nonnull %.val5.i235, i64 noundef %532) #27
   br label %539
 
-533:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i234, %522
+533:                                              ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i234, %522
   %534 = landingpad { ptr, i32 }
           cleanup
   %.val.i230 = load ptr, ptr %384, align 8, !tbaa !125

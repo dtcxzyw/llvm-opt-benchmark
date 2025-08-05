@@ -687,9 +687,9 @@ entry:
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib5China6IbImplE, i64 16), ptr %this, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #21
   invoke void @_ZN5boost11make_sharedIN8QuantLib5China7SseImplEJEEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.boost::shared_ptr.7") align 8 %ref.tmp)
-          to label %_ZN5boost10shared_ptrIN8QuantLib5China7SseImplEED2Ev.exit unwind label %lpad
+          to label %invoke.cont unwind label %lpad
 
-_ZN5boost10shared_ptrIN8QuantLib5China7SseImplEED2Ev.exit: ; preds = %entry
+invoke.cont:                                      ; preds = %entry
   %sseImpl = getelementptr inbounds nuw i8, ptr %this, i64 104
   %2 = load ptr, ptr %ref.tmp, align 8, !tbaa !28
   store ptr %2, ptr %sseImpl, align 8, !tbaa !18

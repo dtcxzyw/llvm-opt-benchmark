@@ -7170,7 +7170,7 @@ _ZNK5boost10shared_ptrINS_6spirit7classic11basic_chsetIcEEE6uniqueEv.exit: ; pre
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load atomic i32, ptr %5 acquire, align 4
   %7 = icmp eq i32 %6, 1
-  br i1 %7, label %63, label %_ZNK5boost10shared_ptrINS_6spirit7classic11basic_chsetIcEEE6uniqueEv.exit.thread
+  br i1 %7, label %62, label %_ZNK5boost10shared_ptrINS_6spirit7classic11basic_chsetIcEEE6uniqueEv.exit.thread
 
 _ZNK5boost10shared_ptrINS_6spirit7classic11basic_chsetIcEEE6uniqueEv.exit.thread: ; preds = %1, %_ZNK5boost10shared_ptrINS_6spirit7classic11basic_chsetIcEEE6uniqueEv.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #22
@@ -7225,7 +7225,7 @@ _ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIcEEEC2IS4_EEPT_.exit: ; pr
   %25 = load ptr, ptr %3, align 8, !tbaa !9
   store ptr %11, ptr %3, align 8, !tbaa !9
   %.not.i.i.i4 = icmp eq ptr %25, null
-  br i1 %.not.i.i.i4, label %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIcEEEaSEOS5_.exit, label %26
+  br i1 %.not.i.i.i4, label %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIcEEED2Ev.exit, label %26
 
 26:                                               ; preds = %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIcEEEC2IS4_EEPT_.exit
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -7260,49 +7260,49 @@ _ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIcEEEC2IS4_EEPT_.exit: ; pr
   tail call void @__clang_call_terminate(ptr %43) #23
   unreachable
 
-_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIcEEEaSEOS5_.exit: ; preds = %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIcEEEC2IS4_EEPT_.exit, %26, %.noexc.i.i.i, %37
-  %44 = load ptr, ptr %10, align 8, !tbaa !9
-  %.not.i.i = icmp eq ptr %44, null
-  br i1 %.not.i.i, label %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIcEEED2Ev.exit, label %45
+_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIcEEEaSEOS5_.exit: ; preds = %26, %.noexc.i.i.i, %37
+  %.pr = load ptr, ptr %10, align 8, !tbaa !9
+  %.not.i.i = icmp eq ptr %.pr, null
+  br i1 %.not.i.i, label %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIcEEED2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIcEEEaSEOS5_.exit
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %47 = atomicrmw sub ptr %46, i32 1 acq_rel, align 4
-  %48 = icmp eq i32 %47, 1
-  br i1 %48, label %49, label %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIcEEED2Ev.exit
+44:                                               ; preds = %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIcEEEaSEOS5_.exit
+  %45 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
+  %46 = atomicrmw sub ptr %45, i32 1 acq_rel, align 4
+  %47 = icmp eq i32 %46, 1
+  br i1 %47, label %48, label %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIcEEED2Ev.exit
 
-49:                                               ; preds = %45
-  %50 = load ptr, ptr %44, align 8, !tbaa !11
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %52 = load ptr, ptr %51, align 8
-  invoke void %52(ptr noundef nonnull align 8 dereferenceable(16) %44)
-          to label %.noexc.i.i unwind label %60
+48:                                               ; preds = %44
+  %49 = load ptr, ptr %.pr, align 8, !tbaa !11
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %51 = load ptr, ptr %50, align 8
+  invoke void %51(ptr noundef nonnull align 8 dereferenceable(16) %.pr)
+          to label %.noexc.i.i unwind label %59
 
-.noexc.i.i:                                       ; preds = %49
-  %53 = getelementptr inbounds nuw i8, ptr %44, i64 12
-  %54 = atomicrmw sub ptr %53, i32 1 acq_rel, align 4
-  %55 = icmp eq i32 %54, 1
-  br i1 %55, label %56, label %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIcEEED2Ev.exit
+.noexc.i.i:                                       ; preds = %48
+  %52 = getelementptr inbounds nuw i8, ptr %.pr, i64 12
+  %53 = atomicrmw sub ptr %52, i32 1 acq_rel, align 4
+  %54 = icmp eq i32 %53, 1
+  br i1 %54, label %55, label %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIcEEED2Ev.exit
 
-56:                                               ; preds = %.noexc.i.i
-  %57 = load ptr, ptr %44, align 8, !tbaa !11
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %59 = load ptr, ptr %58, align 8
-  invoke void %59(ptr noundef nonnull align 8 dereferenceable(16) %44)
-          to label %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIcEEED2Ev.exit unwind label %60
+55:                                               ; preds = %.noexc.i.i
+  %56 = load ptr, ptr %.pr, align 8, !tbaa !11
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %58 = load ptr, ptr %57, align 8
+  invoke void %58(ptr noundef nonnull align 8 dereferenceable(16) %.pr)
+          to label %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIcEEED2Ev.exit unwind label %59
 
-60:                                               ; preds = %56, %49
-  %61 = landingpad { ptr, i32 }
+59:                                               ; preds = %55, %48
+  %60 = landingpad { ptr, i32 }
           catch ptr null
-  %62 = extractvalue { ptr, i32 } %61, 0
-  tail call void @__clang_call_terminate(ptr %62) #23
+  %61 = extractvalue { ptr, i32 } %60, 0
+  tail call void @__clang_call_terminate(ptr %61) #23
   unreachable
 
-_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIcEEED2Ev.exit: ; preds = %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIcEEEaSEOS5_.exit, %45, %.noexc.i.i, %56
+_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIcEEED2Ev.exit: ; preds = %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIcEEEC2IS4_EEPT_.exit, %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIcEEEaSEOS5_.exit, %44, %.noexc.i.i, %55
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #22
-  br label %63
+  br label %62
 
-63:                                               ; preds = %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIcEEED2Ev.exit, %_ZNK5boost10shared_ptrINS_6spirit7classic11basic_chsetIcEEE6uniqueEv.exit
+62:                                               ; preds = %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIcEEED2Ev.exit, %_ZNK5boost10shared_ptrINS_6spirit7classic11basic_chsetIcEEE6uniqueEv.exit
   ret void
 }
 
@@ -8930,7 +8930,7 @@ _ZNK5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEE6uniqueEv.exit: ; pre
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load atomic i32, ptr %5 acquire, align 4
   %7 = icmp eq i32 %6, 1
-  br i1 %7, label %83, label %_ZNK5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEE6uniqueEv.exit.thread
+  br i1 %7, label %82, label %_ZNK5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEE6uniqueEv.exit.thread
 
 _ZNK5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEE6uniqueEv.exit.thread: ; preds = %1, %_ZNK5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEE6uniqueEv.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #22
@@ -8960,14 +8960,14 @@ _ZNK5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEE6uniqueEv.exit.thread
 
 .noexc.i.i.i.i:                                   ; preds = %19
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #26
-          to label %.noexc unwind label %81
+          to label %.noexc unwind label %80
 
 .noexc:                                           ; preds = %.noexc.i.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIN5boost6spirit7classic7utility4impl5rangeIwEEEE8allocateERS7_m.exit.i.i.i.i.i.i: ; preds = %19
   %21 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #24
-          to label %.lr.ph.i.i.i.i.i.i.i.preheader unwind label %81
+          to label %.lr.ph.i.i.i.i.i.i.i.preheader unwind label %80
 
 .lr.ph.i.i.i.i.i.i.i.preheader:                   ; preds = %_ZNSt16allocator_traitsISaIN5boost6spirit7classic7utility4impl5rangeIwEEEE8allocateERS7_m.exit.i.i.i.i.i.i
   store ptr %21, ptr %8, align 8, !tbaa !82
@@ -9023,8 +9023,8 @@ _ZNSt16allocator_traitsISaIN5boost6spirit7classic7utility4impl5rangeIwEEEE8alloc
 39:                                               ; preds = %31
   unreachable
 
-common.resume:                                    ; preds = %81, %.body
-  %common.resume.op = phi { ptr, i32 } [ %35, %.body ], [ %82, %81 ]
+common.resume:                                    ; preds = %80, %.body
+  %common.resume.op = phi { ptr, i32 } [ %35, %.body ], [ %81, %80 ]
   resume { ptr, i32 } %common.resume.op
 
 .body:                                            ; preds = %34
@@ -9044,7 +9044,7 @@ _ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEEC2IS4_EEPT_.exit: ; pr
   %43 = load ptr, ptr %3, align 8, !tbaa !9
   store ptr %30, ptr %3, align 8, !tbaa !9
   %.not.i.i.i5 = icmp eq ptr %43, null
-  br i1 %.not.i.i.i5, label %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEEaSEOS5_.exit, label %44
+  br i1 %.not.i.i.i5, label %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEED2Ev.exit, label %44
 
 44:                                               ; preds = %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEEC2IS4_EEPT_.exit
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -9079,56 +9079,56 @@ _ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEEC2IS4_EEPT_.exit: ; pr
   tail call void @__clang_call_terminate(ptr %61) #23
   unreachable
 
-_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEEaSEOS5_.exit: ; preds = %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEEC2IS4_EEPT_.exit, %44, %.noexc.i.i.i, %55
-  %62 = load ptr, ptr %29, align 8, !tbaa !9
-  %.not.i.i = icmp eq ptr %62, null
-  br i1 %.not.i.i, label %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEED2Ev.exit, label %63
+_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEEaSEOS5_.exit: ; preds = %44, %.noexc.i.i.i, %55
+  %.pr = load ptr, ptr %29, align 8, !tbaa !9
+  %.not.i.i = icmp eq ptr %.pr, null
+  br i1 %.not.i.i, label %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEED2Ev.exit, label %62
 
-63:                                               ; preds = %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEEaSEOS5_.exit
-  %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %65 = atomicrmw sub ptr %64, i32 1 acq_rel, align 4
-  %66 = icmp eq i32 %65, 1
-  br i1 %66, label %67, label %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEED2Ev.exit
+62:                                               ; preds = %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEEaSEOS5_.exit
+  %63 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
+  %64 = atomicrmw sub ptr %63, i32 1 acq_rel, align 4
+  %65 = icmp eq i32 %64, 1
+  br i1 %65, label %66, label %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEED2Ev.exit
 
-67:                                               ; preds = %63
-  %68 = load ptr, ptr %62, align 8, !tbaa !11
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  %70 = load ptr, ptr %69, align 8
-  invoke void %70(ptr noundef nonnull align 8 dereferenceable(16) %62)
-          to label %.noexc.i.i unwind label %78
+66:                                               ; preds = %62
+  %67 = load ptr, ptr %.pr, align 8, !tbaa !11
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  %69 = load ptr, ptr %68, align 8
+  invoke void %69(ptr noundef nonnull align 8 dereferenceable(16) %.pr)
+          to label %.noexc.i.i unwind label %77
 
-.noexc.i.i:                                       ; preds = %67
-  %71 = getelementptr inbounds nuw i8, ptr %62, i64 12
-  %72 = atomicrmw sub ptr %71, i32 1 acq_rel, align 4
-  %73 = icmp eq i32 %72, 1
-  br i1 %73, label %74, label %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEED2Ev.exit
+.noexc.i.i:                                       ; preds = %66
+  %70 = getelementptr inbounds nuw i8, ptr %.pr, i64 12
+  %71 = atomicrmw sub ptr %70, i32 1 acq_rel, align 4
+  %72 = icmp eq i32 %71, 1
+  br i1 %72, label %73, label %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEED2Ev.exit
 
-74:                                               ; preds = %.noexc.i.i
-  %75 = load ptr, ptr %62, align 8, !tbaa !11
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %77 = load ptr, ptr %76, align 8
-  invoke void %77(ptr noundef nonnull align 8 dereferenceable(16) %62)
-          to label %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEED2Ev.exit unwind label %78
+73:                                               ; preds = %.noexc.i.i
+  %74 = load ptr, ptr %.pr, align 8, !tbaa !11
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
+  %76 = load ptr, ptr %75, align 8
+  invoke void %76(ptr noundef nonnull align 8 dereferenceable(16) %.pr)
+          to label %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEED2Ev.exit unwind label %77
 
-78:                                               ; preds = %74, %67
-  %79 = landingpad { ptr, i32 }
+77:                                               ; preds = %73, %66
+  %78 = landingpad { ptr, i32 }
           catch ptr null
-  %80 = extractvalue { ptr, i32 } %79, 0
-  tail call void @__clang_call_terminate(ptr %80) #23
+  %79 = extractvalue { ptr, i32 } %78, 0
+  tail call void @__clang_call_terminate(ptr %79) #23
   unreachable
 
-_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEED2Ev.exit: ; preds = %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEEaSEOS5_.exit, %63, %.noexc.i.i, %74
+_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEED2Ev.exit: ; preds = %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEEC2IS4_EEPT_.exit, %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEEaSEOS5_.exit, %62, %.noexc.i.i, %73
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #22
-  br label %83
+  br label %82
 
-81:                                               ; preds = %_ZNSt16allocator_traitsISaIN5boost6spirit7classic7utility4impl5rangeIwEEEE8allocateERS7_m.exit.i.i.i.i.i.i, %.noexc.i.i.i.i
-  %82 = landingpad { ptr, i32 }
+80:                                               ; preds = %_ZNSt16allocator_traitsISaIN5boost6spirit7classic7utility4impl5rangeIwEEEE8allocateERS7_m.exit.i.i.i.i.i.i, %.noexc.i.i.i.i
+  %81 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef 24) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #22
   br label %common.resume
 
-83:                                               ; preds = %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEED2Ev.exit, %_ZNK5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEE6uniqueEv.exit
+82:                                               ; preds = %_ZN5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEED2Ev.exit, %_ZNK5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEE6uniqueEv.exit
   ret void
 }
 

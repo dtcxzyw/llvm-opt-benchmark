@@ -2747,27 +2747,25 @@ _ZN5StackIP5KlassL8MEMFLAGS5EE4pushES1_.exit:     ; preds = %2
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV5StackIP5KlassL8MEMFLAGS5EE, i64 16), ptr %3, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %14 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 4088, i8 noundef zeroext 5, i32 noundef 0) #21
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4080
-  store ptr null, ptr %15, align 8
-  store ptr %14, ptr %.phi.trans.insert, align 8
-  store i64 0, ptr %11, align 8
-  store ptr %6, ptr %14, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
+  %12 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 4088, i8 noundef zeroext 5, i32 noundef 0) #21
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 4080
+  store ptr null, ptr %14, align 8
+  store ptr %12, ptr %13, align 8
+  store ptr %6, ptr %12, align 8
   store i64 1, ptr %10, align 8
-  %16 = load ptr, ptr %.phi.trans.insert, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %_ZN5StackIP5KlassL8MEMFLAGS5EE13free_segmentsEPS1_.exit.i.i, label %.lr.ph53
+  %15 = load ptr, ptr %13, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %_ZN5StackIP5KlassL8MEMFLAGS5EE13free_segmentsEPS1_.exit.i.i, label %.lr.ph53
 
 .lr.ph53:                                         ; preds = %_ZN5StackIP5KlassL8MEMFLAGS5EE4pushES1_.exit
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 64
   br label %19
 
 19:                                               ; preds = %.lr.ph53, %.loopexit
-  %20 = phi ptr [ %16, %.lr.ph53 ], [ %130, %.loopexit ]
+  %20 = phi ptr [ %15, %.lr.ph53 ], [ %130, %.loopexit ]
   %21 = load i64, ptr %10, align 8
   %22 = add i64 %21, -1
   store i64 %22, ptr %10, align 8
@@ -2781,7 +2779,7 @@ _ZN5StackIP5KlassL8MEMFLAGS5EE4pushES1_.exit:     ; preds = %2
   %28 = shl i64 %27, 3
   %29 = getelementptr inbounds i8, ptr %20, i64 %28
   %30 = load ptr, ptr %29, align 8
-  %31 = load i64, ptr %13, align 8
+  %31 = load i64, ptr %17, align 8
   %32 = load i64, ptr %9, align 8
   %33 = icmp ult i64 %31, %32
   br i1 %33, label %34, label %38
@@ -2790,9 +2788,9 @@ _ZN5StackIP5KlassL8MEMFLAGS5EE4pushES1_.exit:     ; preds = %2
   %35 = load ptr, ptr %18, align 8
   store ptr %35, ptr %29, align 8
   store ptr %20, ptr %18, align 8
-  %36 = load i64, ptr %13, align 8
+  %36 = load i64, ptr %17, align 8
   %37 = add i64 %36, 1
-  store i64 %37, ptr %13, align 8
+  store i64 %37, ptr %17, align 8
   br label %_ZN5StackIP5KlassL8MEMFLAGS5EE11pop_segmentEv.exit.i
 
 38:                                               ; preds = %26
@@ -2805,7 +2803,7 @@ _ZN5StackIP5KlassL8MEMFLAGS5EE4pushES1_.exit:     ; preds = %2
 
 _ZN5StackIP5KlassL8MEMFLAGS5EE11pop_segmentEv.exit.i: ; preds = %38, %34
   %43 = icmp eq ptr %30, null
-  store ptr %30, ptr %.phi.trans.insert, align 8
+  store ptr %30, ptr %13, align 8
   %44 = load i64, ptr %7, align 8
   store i64 %44, ptr %10, align 8
   %spec.select.i.i22 = select i1 %43, i64 0, i64 %44
@@ -2867,11 +2865,11 @@ _ZN5Klass14clean_subklassEv.exit:                 ; preds = %.lr.ph.i, %_ZNK5Kla
   br i1 %65, label %66, label %._crit_edge.i26
 
 ._crit_edge.i26:                                  ; preds = %62
-  %.pre.i28 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre.i28 = load ptr, ptr %13, align 8
   br label %_ZN5StackIP5KlassL8MEMFLAGS5EE4pushES1_.exit37
 
 66:                                               ; preds = %62
-  %67 = load i64, ptr %13, align 8
+  %67 = load i64, ptr %17, align 8
   %.not.i.i30 = icmp eq i64 %67, 0
   br i1 %.not.i.i30, label %74, label %68
 
@@ -2882,7 +2880,7 @@ _ZN5Klass14clean_subklassEv.exit:                 ; preds = %.lr.ph.i, %_ZNK5Kla
   %72 = load ptr, ptr %71, align 8
   store ptr %72, ptr %18, align 8
   %73 = add i64 %67, -1
-  store i64 %73, ptr %13, align 8
+  store i64 %73, ptr %17, align 8
   br label %_ZN5StackIP5KlassL8MEMFLAGS5EE12push_segmentEv.exit.i31
 
 74:                                               ; preds = %66
@@ -2898,11 +2896,11 @@ _ZN5Klass14clean_subklassEv.exit:                 ; preds = %.lr.ph.i, %_ZNK5Kla
 _ZN5StackIP5KlassL8MEMFLAGS5EE12push_segmentEv.exit.i31: ; preds = %74, %68
   %.pre-phi.i.i32 = phi i64 [ %.pre2.i.i36, %74 ], [ %70, %68 ]
   %.0.i.i33 = phi ptr [ %79, %74 ], [ %69, %68 ]
-  %80 = load ptr, ptr %.phi.trans.insert, align 8
+  %80 = load ptr, ptr %13, align 8
   %81 = icmp eq ptr %80, null
   %82 = getelementptr inbounds i8, ptr %.0.i.i33, i64 %.pre-phi.i.i32
   store ptr %80, ptr %82, align 8
-  store ptr %.0.i.i33, ptr %.phi.trans.insert, align 8
+  store ptr %.0.i.i33, ptr %13, align 8
   %83 = load i64, ptr %7, align 8
   %spec.select.i.i34 = select i1 %81, i64 0, i64 %83
   %84 = load i64, ptr %11, align 8
@@ -2933,11 +2931,11 @@ _ZN5StackIP5KlassL8MEMFLAGS5EE4pushES1_.exit37:   ; preds = %._crit_edge.i26, %_
   br i1 %95, label %96, label %._crit_edge.i38
 
 ._crit_edge.i38:                                  ; preds = %92
-  %.pre.i40 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre.i40 = load ptr, ptr %13, align 8
   br label %_ZN5StackIP5KlassL8MEMFLAGS5EE4pushES1_.exit49
 
 96:                                               ; preds = %92
-  %97 = load i64, ptr %13, align 8
+  %97 = load i64, ptr %17, align 8
   %.not.i.i42 = icmp eq i64 %97, 0
   br i1 %.not.i.i42, label %104, label %98
 
@@ -2948,7 +2946,7 @@ _ZN5StackIP5KlassL8MEMFLAGS5EE4pushES1_.exit37:   ; preds = %._crit_edge.i26, %_
   %102 = load ptr, ptr %101, align 8
   store ptr %102, ptr %18, align 8
   %103 = add i64 %97, -1
-  store i64 %103, ptr %13, align 8
+  store i64 %103, ptr %17, align 8
   br label %_ZN5StackIP5KlassL8MEMFLAGS5EE12push_segmentEv.exit.i43
 
 104:                                              ; preds = %96
@@ -2964,11 +2962,11 @@ _ZN5StackIP5KlassL8MEMFLAGS5EE4pushES1_.exit37:   ; preds = %._crit_edge.i26, %_
 _ZN5StackIP5KlassL8MEMFLAGS5EE12push_segmentEv.exit.i43: ; preds = %104, %98
   %.pre-phi.i.i44 = phi i64 [ %.pre2.i.i48, %104 ], [ %100, %98 ]
   %.0.i.i45 = phi ptr [ %109, %104 ], [ %99, %98 ]
-  %110 = load ptr, ptr %.phi.trans.insert, align 8
+  %110 = load ptr, ptr %13, align 8
   %111 = icmp eq ptr %110, null
   %112 = getelementptr inbounds i8, ptr %.0.i.i45, i64 %.pre-phi.i.i44
   store ptr %110, ptr %112, align 8
-  store ptr %.0.i.i45, ptr %.phi.trans.insert, align 8
+  store ptr %.0.i.i45, ptr %13, align 8
   %113 = load i64, ptr %7, align 8
   %spec.select.i.i46 = select i1 %111, i64 0, i64 %113
   %114 = load i64, ptr %11, align 8
@@ -3010,7 +3008,7 @@ _ZN5StackIP5KlassL8MEMFLAGS5EE4pushES1_.exit49:   ; preds = %._crit_edge.i38, %_
   br i1 %.not21, label %.loopexit, label %.lr.ph, !llvm.loop !34
 
 .loopexit:                                        ; preds = %.lr.ph, %124, %120, %119
-  %130 = load ptr, ptr %.phi.trans.insert, align 8
+  %130 = load ptr, ptr %13, align 8
   %131 = icmp eq ptr %130, null
   br i1 %131, label %_ZN5StackIP5KlassL8MEMFLAGS5EE13free_segmentsEPS1_.exit.i.i, label %19, !llvm.loop !35
 

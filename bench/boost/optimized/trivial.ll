@@ -1122,7 +1122,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix7sources3aux16logger_
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17, !noalias !83
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17, !noalias !83
   invoke void @_ZN5boost11make_sharedINS_3log11v2_mt_posix7sources3aux13logger_holderINS3_18severity_logger_mtINS2_7trivial14severity_levelEEEEEJPKcjS9_EEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.boost::shared_ptr.10") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(96) %7)
-          to label %_ZN5boost10shared_ptrINS_3log11v2_mt_posix7sources3aux13logger_holderINS3_18severity_logger_mtINS2_7trivial14severity_levelEEEEEED2Ev.exit unwind label %42
+          to label %_ZN5boost10shared_ptrINS_3log11v2_mt_posix7sources3aux13logger_holderINS3_18severity_logger_mtINS2_7trivial14severity_levelEEEEEED2Ev.exit unwind label %44
 
 _ZN5boost10shared_ptrINS_3log11v2_mt_posix7sources3aux13logger_holderINS3_18severity_logger_mtINS2_7trivial14severity_levelEEEEEED2Ev.exit: ; preds = %1
   %8 = load ptr, ptr %4, align 8, !tbaa !36
@@ -1132,82 +1132,82 @@ _ZN5boost10shared_ptrINS_3log11v2_mt_posix7sources3aux13logger_holderINS3_18seve
   %11 = load ptr, ptr %10, align 8, !tbaa !52
   store ptr %11, ptr %9, align 8, !tbaa !52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !51
-  %.not.i.i.i = icmp eq ptr %.pre, null
-  br i1 %.not.i.i.i, label %_ZN5boost3log11v2_mt_posix9attributeD2Ev.exit.i, label %12
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  %13 = load ptr, ptr %12, align 8, !tbaa !51
+  %.not.i.i.i = icmp eq ptr %13, null
+  br i1 %.not.i.i.i, label %_ZN5boost3log11v2_mt_posix9attributeD2Ev.exit.i, label %14
 
-12:                                               ; preds = %_ZN5boost10shared_ptrINS_3log11v2_mt_posix7sources3aux13logger_holderINS3_18severity_logger_mtINS2_7trivial14severity_levelEEEEEED2Ev.exit
-  %13 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %14 = atomicrmw add ptr %13, i32 -1 acq_rel, align 4
-  %15 = icmp eq i32 %14, 1
-  br i1 %15, label %16, label %_ZN5boost3log11v2_mt_posix9attributeD2Ev.exit.i
+14:                                               ; preds = %_ZN5boost10shared_ptrINS_3log11v2_mt_posix7sources3aux13logger_holderINS3_18severity_logger_mtINS2_7trivial14severity_levelEEEEEED2Ev.exit
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %16 = atomicrmw add ptr %15, i32 -1 acq_rel, align 4
+  %17 = icmp eq i32 %16, 1
+  br i1 %17, label %18, label %_ZN5boost3log11v2_mt_posix9attributeD2Ev.exit.i
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %.pre, align 8, !tbaa !8
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(12) %.pre) #17
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %13, align 8, !tbaa !8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = load ptr, ptr %20, align 8
+  call void %21(ptr noundef nonnull align 8 dereferenceable(12) %13) #17
   br label %_ZN5boost3log11v2_mt_posix9attributeD2Ev.exit.i
 
-_ZN5boost3log11v2_mt_posix9attributeD2Ev.exit.i:  ; preds = %16, %12, %_ZN5boost10shared_ptrINS_3log11v2_mt_posix7sources3aux13logger_holderINS3_18severity_logger_mtINS2_7trivial14severity_levelEEEEEED2Ev.exit
-  %20 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  call void @_ZN5boost3log11v2_mt_posix13attribute_setD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #17
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %22 = load ptr, ptr %21, align 8, !tbaa !52
-  %.not.i.i.i.i = icmp eq ptr %22, null
-  br i1 %.not.i.i.i.i, label %_ZN5boost3log11v2_mt_posix7sources21basic_severity_loggerINS2_12basic_loggerIcNS2_18severity_logger_mtINS1_7trivial14severity_levelEEENS2_18multi_thread_modelINS1_3aux14light_rw_mutexEEEEES7_ED2Ev.exit, label %23
+_ZN5boost3log11v2_mt_posix9attributeD2Ev.exit.i:  ; preds = %18, %14, %_ZN5boost10shared_ptrINS_3log11v2_mt_posix7sources3aux13logger_holderINS3_18severity_logger_mtINS2_7trivial14severity_levelEEEEEED2Ev.exit
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  call void @_ZN5boost3log11v2_mt_posix13attribute_setD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #17
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %24 = load ptr, ptr %23, align 8, !tbaa !52
+  %.not.i.i.i.i = icmp eq ptr %24, null
+  br i1 %.not.i.i.i.i, label %_ZN5boost3log11v2_mt_posix7sources21basic_severity_loggerINS2_12basic_loggerIcNS2_18severity_logger_mtINS1_7trivial14severity_levelEEENS2_18multi_thread_modelINS1_3aux14light_rw_mutexEEEEES7_ED2Ev.exit, label %25
 
-23:                                               ; preds = %_ZN5boost3log11v2_mt_posix9attributeD2Ev.exit.i
-  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %25 = atomicrmw sub ptr %24, i32 1 acq_rel, align 4
-  %26 = icmp eq i32 %25, 1
-  br i1 %26, label %27, label %_ZN5boost3log11v2_mt_posix7sources21basic_severity_loggerINS2_12basic_loggerIcNS2_18severity_logger_mtINS1_7trivial14severity_levelEEENS2_18multi_thread_modelINS1_3aux14light_rw_mutexEEEEES7_ED2Ev.exit
+25:                                               ; preds = %_ZN5boost3log11v2_mt_posix9attributeD2Ev.exit.i
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %27 = atomicrmw sub ptr %26, i32 1 acq_rel, align 4
+  %28 = icmp eq i32 %27, 1
+  br i1 %28, label %29, label %_ZN5boost3log11v2_mt_posix7sources21basic_severity_loggerINS2_12basic_loggerIcNS2_18severity_logger_mtINS1_7trivial14severity_levelEEENS2_18multi_thread_modelINS1_3aux14light_rw_mutexEEEEES7_ED2Ev.exit
 
-27:                                               ; preds = %23
-  %28 = load ptr, ptr %22, align 8, !tbaa !8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %30 = load ptr, ptr %29, align 8
-  invoke void %30(ptr noundef nonnull align 8 dereferenceable(16) %22)
-          to label %.noexc.i.i.i.i unwind label %38
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %24, align 8, !tbaa !8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %32 = load ptr, ptr %31, align 8
+  invoke void %32(ptr noundef nonnull align 8 dereferenceable(16) %24)
+          to label %.noexc.i.i.i.i unwind label %40
 
-.noexc.i.i.i.i:                                   ; preds = %27
-  %31 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  %32 = atomicrmw sub ptr %31, i32 1 acq_rel, align 4
-  %33 = icmp eq i32 %32, 1
-  br i1 %33, label %34, label %_ZN5boost3log11v2_mt_posix7sources21basic_severity_loggerINS2_12basic_loggerIcNS2_18severity_logger_mtINS1_7trivial14severity_levelEEENS2_18multi_thread_modelINS1_3aux14light_rw_mutexEEEEES7_ED2Ev.exit
+.noexc.i.i.i.i:                                   ; preds = %29
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 12
+  %34 = atomicrmw sub ptr %33, i32 1 acq_rel, align 4
+  %35 = icmp eq i32 %34, 1
+  br i1 %35, label %36, label %_ZN5boost3log11v2_mt_posix7sources21basic_severity_loggerINS2_12basic_loggerIcNS2_18severity_logger_mtINS1_7trivial14severity_levelEEENS2_18multi_thread_modelINS1_3aux14light_rw_mutexEEEEES7_ED2Ev.exit
 
-34:                                               ; preds = %.noexc.i.i.i.i
-  %35 = load ptr, ptr %22, align 8, !tbaa !8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %37 = load ptr, ptr %36, align 8
-  invoke void %37(ptr noundef nonnull align 8 dereferenceable(16) %22)
-          to label %_ZN5boost3log11v2_mt_posix7sources21basic_severity_loggerINS2_12basic_loggerIcNS2_18severity_logger_mtINS1_7trivial14severity_levelEEENS2_18multi_thread_modelINS1_3aux14light_rw_mutexEEEEES7_ED2Ev.exit unwind label %38
+36:                                               ; preds = %.noexc.i.i.i.i
+  %37 = load ptr, ptr %24, align 8, !tbaa !8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %39 = load ptr, ptr %38, align 8
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %24)
+          to label %_ZN5boost3log11v2_mt_posix7sources21basic_severity_loggerINS2_12basic_loggerIcNS2_18severity_logger_mtINS1_7trivial14severity_levelEEENS2_18multi_thread_modelINS1_3aux14light_rw_mutexEEEEES7_ED2Ev.exit unwind label %40
 
-38:                                               ; preds = %34, %27
-  %39 = landingpad { ptr, i32 }
+40:                                               ; preds = %36, %29
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #20
+  %42 = extractvalue { ptr, i32 } %41, 0
+  call void @__clang_call_terminate(ptr %42) #20
   unreachable
 
-_ZN5boost3log11v2_mt_posix7sources21basic_severity_loggerINS2_12basic_loggerIcNS2_18severity_logger_mtINS1_7trivial14severity_levelEEENS2_18multi_thread_modelINS1_3aux14light_rw_mutexEEEEES7_ED2Ev.exit: ; preds = %_ZN5boost3log11v2_mt_posix9attributeD2Ev.exit.i, %23, %.noexc.i.i.i.i, %34
-  %41 = call i32 @pthread_rwlock_destroy(ptr noundef nonnull align 8 dereferenceable(96) %7) #17
+_ZN5boost3log11v2_mt_posix7sources21basic_severity_loggerINS2_12basic_loggerIcNS2_18severity_logger_mtINS1_7trivial14severity_levelEEENS2_18multi_thread_modelINS1_3aux14light_rw_mutexEEEEES7_ED2Ev.exit: ; preds = %_ZN5boost3log11v2_mt_posix9attributeD2Ev.exit.i, %25, %.noexc.i.i.i.i, %36
+  %43 = call i32 @pthread_rwlock_destroy(ptr noundef nonnull align 8 dereferenceable(96) %7) #17
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
   ret void
 
-42:                                               ; preds = %1
-  %43 = landingpad { ptr, i32 }
+44:                                               ; preds = %1
+  %45 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost3log11v2_mt_posix7sources21basic_severity_loggerINS2_12basic_loggerIcNS2_18severity_logger_mtINS1_7trivial14severity_levelEEENS2_18multi_thread_modelINS1_3aux14light_rw_mutexEEEEES7_ED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #17
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
-  resume { ptr, i32 } %43
+  resume { ptr, i32 } %45
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable

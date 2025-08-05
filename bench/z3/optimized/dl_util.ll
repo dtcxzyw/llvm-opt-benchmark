@@ -281,14 +281,14 @@ define hidden void @_ZN7datalog14verbose_actionC2EPKcj(ptr noundef nonnull align
   %17 = load i32, ptr %16, align 8, !tbaa !13
   %18 = or i32 %17, 1
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %15, i32 noundef %18)
-  br label %_ZN9stopwatch5startEv.exit
+  br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
 
 19:                                               ; preds = %9
   %20 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull %1, i64 noundef %20)
-  br label %_ZN9stopwatch5startEv.exit
+  br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
 
-_ZN9stopwatch5startEv.exit:                       ; preds = %11, %19
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %11, %19
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull @.str, i64 noundef 3)
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
   %24 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
@@ -315,26 +315,26 @@ _ZN9stopwatch5startEv.exit:                       ; preds = %11, %19
   %35 = load i32, ptr %34, align 8, !tbaa !13
   %36 = or i32 %35, 1
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %33, i32 noundef %36)
-  br label %40
+  br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit4
 
 37:                                               ; preds = %27
   %38 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %39 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull %1, i64 noundef %38)
-  br label %40
+  br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit4
 
-40:                                               ; preds = %37, %29
-  %41 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str, i64 noundef 3)
-  %42 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %28)
-  %43 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %43, i8 0, i64 17, i1 false)
-  store ptr %43, ptr %4, align 8, !tbaa !10
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %45 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #25
-  store i64 %45, ptr %43, align 8, !tbaa !23
-  store i8 1, ptr %44, align 8, !tbaa !24
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit4: ; preds = %29, %37
+  %40 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str, i64 noundef 3)
+  %41 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %28)
+  %42 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %42, i8 0, i64 17, i1 false)
+  store ptr %42, ptr %4, align 8, !tbaa !10
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %44 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #25
+  store i64 %44, ptr %42, align 8, !tbaa !23
+  store i8 1, ptr %43, align 8, !tbaa !24
   br label %_ZN9stopwatch5startEv.exit5
 
-_ZN9stopwatch5startEv.exit5:                      ; preds = %40, %_ZN9stopwatch5startEv.exit, %3
+_ZN9stopwatch5startEv.exit5:                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit4, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %3
   ret void
 }
 

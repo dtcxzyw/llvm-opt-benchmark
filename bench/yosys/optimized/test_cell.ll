@@ -30211,8 +30211,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit510: ; preds = %_Z
   %930 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %931 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %932 = getelementptr inbounds nuw i8, ptr %82, i64 24
-  %933 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %934 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %933 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %934 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %935 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %936 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %937 = getelementptr inbounds nuw i8, ptr %84, i64 16
@@ -36455,13 +36455,13 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1031:             ; preds = %_ZSt8_DestroyIPN5Yo
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %83) #27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, i8 0, i64 24, i1 false)
   %3505 = load ptr, ptr %79, align 8, !tbaa !427
-  %3506 = load ptr, ptr %934, align 8, !tbaa !427
+  %3506 = load ptr, ptr %933, align 8, !tbaa !427
   invoke void @_ZNSt6vectorIiSaIiEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPiS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %83, ptr null, ptr %3505, ptr %3506)
           to label %3507 unwind label %3549
 
 3507:                                             ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1031
   %3508 = load ptr, ptr %83, align 8, !tbaa !427
-  %3509 = load ptr, ptr %933, align 8, !tbaa !427
+  %3509 = load ptr, ptr %934, align 8, !tbaa !427
   %3510 = load ptr, ptr %81, align 8, !tbaa !427
   %3511 = load ptr, ptr %935, align 8, !tbaa !427
   %3512 = ptrtoint ptr %3509 to i64

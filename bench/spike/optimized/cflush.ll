@@ -312,9 +312,9 @@ _ZNKSt6vectorI11insn_desc_tSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i:
   store ptr %5, ptr %2, align 8, !tbaa !23
   store ptr %5, ptr %3, align 8, !tbaa !24
   %6 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #22
-          to label %_ZNSt6vectorI11insn_desc_tSaIS0_EE9push_backEOS0_.exit14 unwind label %14
+          to label %_ZNKSt6vectorI11insn_desc_tSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i16 unwind label %14
 
-_ZNSt6vectorI11insn_desc_tSaIS0_EE9push_backEOS0_.exit14: ; preds = %_ZNKSt6vectorI11insn_desc_tSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
+_ZNKSt6vectorI11insn_desc_tSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i16: ; preds = %_ZNKSt6vectorI11insn_desc_tSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store i64 4229955699, ptr %7, align 8, !tbaa !19
   %.sroa.646.0..sroa_idx47 = getelementptr inbounds nuw i8, ptr %6, i64 88
@@ -343,9 +343,9 @@ _ZNSt6vectorI11insn_desc_tSaIS0_EE9push_backEOS0_.exit14: ; preds = %_ZNKSt6vect
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 160
   store ptr %9, ptr %3, align 8, !tbaa !24
   %10 = invoke noalias noundef nonnull dereferenceable(320) ptr @_Znwm(i64 noundef 320) #22
-          to label %.noexc23 unwind label %16
+          to label %_ZNSt6vectorI11insn_desc_tSaIS0_EE9push_backEOS0_.exit24 unwind label %16
 
-.noexc23:                                         ; preds = %_ZNSt6vectorI11insn_desc_tSaIS0_EE9push_backEOS0_.exit14
+_ZNSt6vectorI11insn_desc_tSaIS0_EE9push_backEOS0_.exit24: ; preds = %_ZNKSt6vectorI11insn_desc_tSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i16
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 160
   store i64 4228907123, ptr %11, align 8, !tbaa !19
   %.sroa.6.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %10, i64 168
@@ -380,7 +380,7 @@ _ZNSt6vectorI11insn_desc_tSaIS0_EE9push_backEOS0_.exit14: ; preds = %_ZNKSt6vect
           cleanup
   br label %_ZNSt6vectorI11insn_desc_tSaIS0_EED2Ev.exit
 
-16:                                               ; preds = %_ZNSt6vectorI11insn_desc_tSaIS0_EE9push_backEOS0_.exit14
+16:                                               ; preds = %_ZNKSt6vectorI11insn_desc_tSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i16
   %17 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorI11insn_desc_tSaIS0_EED2Ev.exit

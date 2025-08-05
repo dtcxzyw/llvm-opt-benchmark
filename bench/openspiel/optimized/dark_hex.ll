@@ -2682,17 +2682,17 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit32: ; preds = %75, %93, %106, %_
 
 121:                                              ; preds = %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit32
   invoke void @_ZNSt6vectorIN10open_spiel3hex9CellStateESaIS2_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S4_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %118, ptr null, i64 noundef %120, ptr noundef nonnull align 4 dereferenceable(4) %9)
-          to label %._ZNSt6vectorIN10open_spiel3hex9CellStateESaIS2_EE6resizeEmRKS2_.exit_crit_edge40 unwind label %145
+          to label %._ZNSt6vectorIN10open_spiel3hex9CellStateESaIS2_EE6resizeEmRKS2_.exit_crit_edge unwind label %145
 
-._ZNSt6vectorIN10open_spiel3hex9CellStateESaIS2_EE6resizeEmRKS2_.exit_crit_edge40: ; preds = %121
+._ZNSt6vectorIN10open_spiel3hex9CellStateESaIS2_EE6resizeEmRKS2_.exit_crit_edge: ; preds = %121
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 264
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.pre41 = load ptr, ptr %119, align 8
+  %.pre40 = load ptr, ptr %119, align 8
   br label %_ZNSt6vectorIN10open_spiel3hex9CellStateESaIS2_EE6resizeEmRKS2_.exit
 
-_ZNSt6vectorIN10open_spiel3hex9CellStateESaIS2_EE6resizeEmRKS2_.exit: ; preds = %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit32, %._ZNSt6vectorIN10open_spiel3hex9CellStateESaIS2_EE6resizeEmRKS2_.exit_crit_edge40
-  %122 = phi ptr [ %.pre41, %._ZNSt6vectorIN10open_spiel3hex9CellStateESaIS2_EE6resizeEmRKS2_.exit_crit_edge40 ], [ null, %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit32 ]
-  %123 = phi ptr [ %.pre, %._ZNSt6vectorIN10open_spiel3hex9CellStateESaIS2_EE6resizeEmRKS2_.exit_crit_edge40 ], [ null, %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit32 ]
+_ZNSt6vectorIN10open_spiel3hex9CellStateESaIS2_EE6resizeEmRKS2_.exit: ; preds = %._ZNSt6vectorIN10open_spiel3hex9CellStateESaIS2_EE6resizeEmRKS2_.exit_crit_edge, %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit32
+  %122 = phi ptr [ %.pre40, %._ZNSt6vectorIN10open_spiel3hex9CellStateESaIS2_EE6resizeEmRKS2_.exit_crit_edge ], [ null, %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit32 ]
+  %123 = phi ptr [ %.pre, %._ZNSt6vectorIN10open_spiel3hex9CellStateESaIS2_EE6resizeEmRKS2_.exit_crit_edge ], [ null, %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit32 ]
   store i32 0, ptr %10, align 4
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %125 = ptrtoint ptr %123 to i64

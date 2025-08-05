@@ -1936,15 +1936,15 @@ _ZN4absl7debian211string_viewC2EPKc.exit:         ; preds = %_ZN10open_spiel4jso
 42:                                               ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit
   unreachable
 
-common.resume543:                                 ; preds = %204, %_ZN4absl7debian28optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit94, %43
-  %common.resume543.op = phi { ptr, i32 } [ %44, %43 ], [ %.pn.i, %204 ], [ %.pn31.i, %_ZN4absl7debian28optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit94 ]
-  resume { ptr, i32 } %common.resume543.op
+common.resume541:                                 ; preds = %204, %_ZN4absl7debian28optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit94, %43
+  %common.resume541.op = phi { ptr, i32 } [ %44, %43 ], [ %.pn.i, %204 ], [ %.pn31.i, %_ZN4absl7debian28optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit94 ]
+  resume { ptr, i32 } %common.resume541.op
 
 43:                                               ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit
   %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
-  br label %common.resume543
+  br label %common.resume541
 
 _ZNK4absl7debian211string_view2atEm.exit:         ; preds = %_ZN10open_spiel4json12_GLOBAL__N_117ConsumeWhitespaceEPN4absl7debian211string_viewE.exit
   %45 = load i8, ptr %.sroa.01.0.copyload, align 1
@@ -2210,11 +2210,11 @@ _ZN4absl7debian211string_viewC2EPKc.exit.i37:     ; preds = %_ZN4absl7debian210S
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 4, ptr %117, align 8
   store i8 1, ptr %0, align 8
-  %.pre417 = load i8, ptr %22, align 8
+  %.pre415 = load i8, ptr %22, align 8
   br label %_ZN4absl7debian28optionalIN10open_spiel4json5ValueEEC2INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXsr4absl11conjunctionINS0_8negationISt7is_sameIS4_T_EEESt16is_constructibleIS4_JOSG_EENSE_INS0_17optional_internal42is_constructible_convertible_from_optionalIS4_SG_EEEESt14is_convertibleISK_S4_EEE5valueEbE4typeELb0EEEONS1_ISG_EE.exit
 
 _ZN4absl7debian28optionalIN10open_spiel4json5ValueEEC2INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXsr4absl11conjunctionINS0_8negationISt7is_sameIS4_T_EEESt16is_constructibleIS4_JOSG_EENSE_INS0_17optional_internal42is_constructible_convertible_from_optionalIS4_SG_EEEESt14is_convertibleISK_S4_EEE5valueEbE4typeELb0EEEONS1_ISG_EE.exit: ; preds = %115, %111
-  %118 = phi i8 [ %.pre417, %115 ], [ %113, %111 ]
+  %118 = phi i8 [ %.pre415, %115 ], [ %113, %111 ]
   %119 = trunc i8 %118 to i1
   br i1 %119, label %120, label %_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantINS0_4NullEEEN4absl7debian28optionalINS0_5ValueEEEPNS5_11string_viewES9_T_.exit
 
@@ -2294,16 +2294,16 @@ _ZN4absl7debian211string_viewC2EPKc.exit74:       ; preds = %143, %_ZN4absl7debi
   br i1 %.not.i.i67, label %157, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i68
 
 _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i68: ; preds = %130, %_ZN4absl7debian211string_viewC2EPKc.exit74
-  %.pr208423 = phi i64 [ %.pr208, %_ZN4absl7debian211string_viewC2EPKc.exit74 ], [ %131, %130 ]
-  %.sroa.01.0.copyload.i421 = phi ptr [ %.sroa.01.0.copyload.i, %_ZN4absl7debian211string_viewC2EPKc.exit74 ], [ %132, %130 ]
-  %lhsc215 = load i8, ptr %.sroa.01.0.copyload.i421, align 1
+  %.pr208421 = phi i64 [ %.pr208, %_ZN4absl7debian211string_viewC2EPKc.exit74 ], [ %131, %130 ]
+  %.sroa.01.0.copyload.i419 = phi ptr [ %.sroa.01.0.copyload.i, %_ZN4absl7debian211string_viewC2EPKc.exit74 ], [ %132, %130 ]
+  %lhsc215 = load i8, ptr %.sroa.01.0.copyload.i419, align 1
   %146 = icmp eq i8 %lhsc215, 93
   br i1 %146, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i70, label %.thread
 
 _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i70: ; preds = %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i68
-  %147 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload.i421, i64 1
+  %147 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload.i419, i64 1
   store ptr %147, ptr %1, align 8
-  %148 = add i64 %.pr208423, -1
+  %148 = add i64 %.pr208421, -1
   store i64 %148, ptr %25, align 8
   %149 = load ptr, ptr %14, align 8
   %150 = load ptr, ptr %126, align 8
@@ -2346,23 +2346,23 @@ _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i: ; preds = %.thread
   br i1 %158, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i, label %_ZN4absl7debian211string_viewC2EPKc.exit57.invoke
 
 _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i: ; preds = %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i
-  %159 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload.i421, i64 1
+  %159 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload.i419, i64 1
   store ptr %159, ptr %1, align 8
-  %160 = add i64 %.pr208423, -1
+  %160 = add i64 %.pr208421, -1
   store i64 %160, ptr %25, align 8
   br label %thread-pre-split207
 
 _ZN4absl7debian211string_viewC2EPKc.exit57.invoke: ; preds = %157, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i87, %_ZN4absl7debian211string_viewC2EPKc.exit50.loopexit
   %161 = phi ptr [ @.str.44, %_ZN4absl7debian211string_viewC2EPKc.exit50.loopexit ], [ @.str.44, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i87 ], [ @.str.43, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i ], [ @.str.43, %157 ]
   %162 = phi i64 [ 16, %_ZN4absl7debian211string_viewC2EPKc.exit50.loopexit ], [ 16, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i87 ], [ 12, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i ], [ 12, %157 ]
-  %163 = phi ptr [ %.sroa.0.0.copyload.i42.pre, %_ZN4absl7debian211string_viewC2EPKc.exit50.loopexit ], [ %122, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i87 ], [ %.sroa.01.0.copyload.i, %157 ], [ %.sroa.01.0.copyload.i421, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i ]
-  %164 = phi i64 [ 0, %_ZN4absl7debian211string_viewC2EPKc.exit50.loopexit ], [ 0, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i87 ], [ 0, %157 ], [ %.pr208423, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i ]
+  %163 = phi ptr [ %.sroa.0.0.copyload.i42.pre, %_ZN4absl7debian211string_viewC2EPKc.exit50.loopexit ], [ %122, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i87 ], [ %.sroa.01.0.copyload.i, %157 ], [ %.sroa.01.0.copyload.i419, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i ]
+  %164 = phi i64 [ 0, %_ZN4absl7debian211string_viewC2EPKc.exit50.loopexit ], [ 0, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i87 ], [ 0, %157 ], [ %.pr208421, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i ]
   invoke fastcc void @_ZN10open_spiel4json12_GLOBAL__N_110ParseErrorEN4absl7debian211string_viewES4_(ptr nonnull %161, i64 %162, ptr %163, i64 %164)
           to label %_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantINS0_4NullEEEN4absl7debian28optionalINS0_5ValueEEEPNS5_11string_viewES9_T_.exit.critedge unwind label %.loopexit.split-lp
 
 thread-pre-split207:                              ; preds = %.thread, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i
-  %165 = phi ptr [ %159, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i ], [ %.sroa.01.0.copyload.i421, %.thread ]
-  %166 = phi i64 [ %160, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i ], [ %.pr208423, %.thread ]
+  %165 = phi ptr [ %159, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i ], [ %.sroa.01.0.copyload.i419, %.thread ]
+  %166 = phi i64 [ %160, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i ], [ %.pr208421, %.thread ]
   %167 = getelementptr inbounds i8, ptr %165, i64 %166
   %168 = icmp sgt i64 %166, 0
   br i1 %168, label %.lr.ph.i52, label %_ZN10open_spiel4json12_GLOBAL__N_117ConsumeWhitespaceEPN4absl7debian211string_viewE.exit56
@@ -2493,7 +2493,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit50.loopexit: ; preds = %thread-pre-split
 204:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.body
   %.pn.i = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorIN10open_spiel4json5ValueESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #22
-  br label %common.resume543
+  br label %common.resume541
 
 _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i166: ; preds = %_ZNK4absl7debian211string_view2atEm.exit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11)
@@ -2571,16 +2571,16 @@ _ZN4absl7debian211string_viewC2EPKc.exit153:      ; preds = %230, %_ZN4absl7debi
   br i1 %.not.i.i146, label %253, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i147
 
 _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i147: ; preds = %219, %_ZN4absl7debian211string_viewC2EPKc.exit153
-  %.pr210432 = phi i64 [ %.pr210, %_ZN4absl7debian211string_viewC2EPKc.exit153 ], [ %217, %219 ]
-  %.sroa.04.0.copyload.i430 = phi ptr [ %.sroa.04.0.copyload.i, %_ZN4absl7debian211string_viewC2EPKc.exit153 ], [ %.sroa.0.0.copyload.i46, %219 ]
-  %lhsc211 = load i8, ptr %.sroa.04.0.copyload.i430, align 1
+  %.pr210430 = phi i64 [ %.pr210, %_ZN4absl7debian211string_viewC2EPKc.exit153 ], [ %217, %219 ]
+  %.sroa.04.0.copyload.i428 = phi ptr [ %.sroa.04.0.copyload.i, %_ZN4absl7debian211string_viewC2EPKc.exit153 ], [ %.sroa.0.0.copyload.i46, %219 ]
+  %lhsc211 = load i8, ptr %.sroa.04.0.copyload.i428, align 1
   %233 = icmp eq i8 %lhsc211, 125
-  br i1 %233, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i149, label %.thread529
+  br i1 %233, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i149, label %.thread527
 
 _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i149: ; preds = %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i147
-  %234 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.copyload.i430, i64 1
+  %234 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.copyload.i428, i64 1
   store ptr %234, ptr %1, align 8
-  %235 = add i64 %.pr210432, -1
+  %235 = add i64 %.pr210430, -1
   store i64 %235, ptr %25, align 8
   store i8 1, ptr %23, align 8
   %236 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -2635,24 +2635,24 @@ _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i149: ; preds = %
 253:                                              ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit153
   br i1 %.0.i44, label %_ZN10open_spiel4json12_GLOBAL__N_117ConsumeWhitespaceEPN4absl7debian211string_viewE.exit129, label %_ZN4absl7debian211string_viewC2EPKc.exit130
 
-.thread529:                                       ; preds = %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i147
+.thread527:                                       ; preds = %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i147
   br i1 %.0.i44, label %thread-pre-split209, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i135
 
-_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i135: ; preds = %.thread529
+_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i135: ; preds = %.thread527
   %254 = icmp eq i8 %lhsc211, 44
   br i1 %254, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i137, label %_ZN4absl7debian211string_viewC2EPKc.exit130
 
 _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i137: ; preds = %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i135
-  %255 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.copyload.i430, i64 1
+  %255 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.copyload.i428, i64 1
   store ptr %255, ptr %1, align 8
-  %256 = add i64 %.pr210432, -1
+  %256 = add i64 %.pr210430, -1
   store i64 %256, ptr %25, align 8
   br label %thread-pre-split209
 
 _ZN4absl7debian211string_viewC2EPKc.exit130:      ; preds = %253, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i135
-  %.pr210433534542 = phi i64 [ %.pr210432, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i135 ], [ 0, %253 ]
-  %.sroa.04.0.copyload.i431535540 = phi ptr [ %.sroa.04.0.copyload.i430, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i135 ], [ %.sroa.04.0.copyload.i, %253 ]
-  invoke fastcc void @_ZN10open_spiel4json12_GLOBAL__N_110ParseErrorEN4absl7debian211string_viewES4_(ptr nonnull @.str.43, i64 12, ptr %.sroa.04.0.copyload.i431535540, i64 %.pr210433534542)
+  %.pr210431532540 = phi i64 [ %.pr210430, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i135 ], [ 0, %253 ]
+  %.sroa.04.0.copyload.i429533538 = phi ptr [ %.sroa.04.0.copyload.i428, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.i135 ], [ %.sroa.04.0.copyload.i, %253 ]
+  invoke fastcc void @_ZN10open_spiel4json12_GLOBAL__N_110ParseErrorEN4absl7debian211string_viewES4_(ptr nonnull @.str.43, i64 12, ptr %.sroa.04.0.copyload.i429533538, i64 %.pr210431532540)
           to label %257 unwind label %.loopexit.split-lp219
 
 257:                                              ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit130
@@ -2660,9 +2660,9 @@ _ZN4absl7debian211string_viewC2EPKc.exit130:      ; preds = %253, %_ZN4absl7debi
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %212, i8 0, i64 48, i1 false)
   br label %_ZN10open_spiel4json12_GLOBAL__N_111ParseObjectB5cxx11EPN4absl7debian211string_viewE.exit
 
-thread-pre-split209:                              ; preds = %.thread529, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i137
-  %258 = phi ptr [ %255, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i137 ], [ %.sroa.04.0.copyload.i430, %.thread529 ]
-  %259 = phi i64 [ %256, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i137 ], [ %.pr210432, %.thread529 ]
+thread-pre-split209:                              ; preds = %.thread527, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i137
+  %258 = phi ptr [ %255, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i137 ], [ %.sroa.04.0.copyload.i428, %.thread527 ]
+  %259 = phi i64 [ %256, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i137 ], [ %.pr210430, %.thread527 ]
   %260 = getelementptr inbounds i8, ptr %258, i64 %259
   %261 = icmp sgt i64 %259, 0
   br i1 %261, label %.lr.ph.i125, label %_ZN10open_spiel4json12_GLOBAL__N_117ConsumeWhitespaceEPN4absl7debian211string_viewE.exit129
@@ -2987,7 +2987,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit93:       ; preds = %216
 _ZN4absl7debian28optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit94: ; preds = %.loopexit218, %.loopexit.split-lp219, %350, %347
   %.pn31.i = phi { ptr, i32 } [ %.pn.i45, %347 ], [ %.pn.i45, %350 ], [ %lpad.loopexit220, %.loopexit218 ], [ %lpad.loopexit.split-lp221, %.loopexit.split-lp219 ]
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel4json5ValueESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #22
-  br label %common.resume543
+  br label %common.resume541
 
 _ZN10open_spiel4json12_GLOBAL__N_111ParseObjectB5cxx11EPN4absl7debian211string_viewE.exit: ; preds = %_ZN4absl7debian28optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit95, %257, %351, %238, %248, %.critedge.i, %354
   %355 = load ptr, ptr %208, align 8
@@ -3002,14 +3002,14 @@ _ZN10open_spiel4json12_GLOBAL__N_111ParseObjectB5cxx11EPN4absl7debian211string_v
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel4json5ValueESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit: ; preds = %_ZN10open_spiel4json12_GLOBAL__N_111ParseObjectB5cxx11EPN4absl7debian211string_viewE.exit
-  %.pre413 = load i8, ptr %23, align 8
+  %.pre411 = load i8, ptr %23, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
   store i8 0, ptr %0, align 8
   %359 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %359, i8 0, i64 56, i1 false)
-  %360 = trunc i8 %.pre413 to i1
+  %360 = trunc i8 %.pre411 to i1
   br i1 %360, label %361, label %_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantINS0_4NullEEEN4absl7debian28optionalINS0_5ValueEEEPNS5_11string_viewES9_T_.exit
 
 361:                                              ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel4json5ValueESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit
@@ -3074,8 +3074,8 @@ _ZN10open_spiel4json12_GLOBAL__N_113ParseConstantINS0_4NullEEEN4absl7debian28opt
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %388 = getelementptr inbounds nuw i8, ptr %.0.i3.i.i, i64 48
   %389 = load i8, ptr %388, align 8
-  %.not.i.i516 = icmp eq i8 %389, -1
-  br i1 %.not.i.i516, label %_ZNSt8__detail9__variant13_Variant_baseIJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS3_5ValueESaISC_EESt3mapISA_SC_St4lessISA_ESaISt4pairIKSA_SC_EEEEED2Ev.exit.i.i, label %390
+  %.not.i.i514 = icmp eq i8 %389, -1
+  br i1 %.not.i.i514, label %_ZNSt8__detail9__variant13_Variant_baseIJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS3_5ValueESaISC_EESt3mapISA_SC_St4lessISA_ESaISt4pairIKSA_SC_EEEEED2Ev.exit.i.i, label %390
 
 390:                                              ; preds = %.lr.ph.i.i
   invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS4_5ValueESaISD_EESt3mapISB_SD_St4lessISB_ESaISt4pairIKSB_SD_EEEEE8_M_resetEvEUlOT_E_JRSt7variantIJS5_bldSB_SF_SN_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(49) %.0.i3.i.i)
@@ -3104,8 +3104,8 @@ _ZSt8_DestroyIPN10open_spiel4json5ValueES2_EvT_S4_RSaIT0_E.exitthread-pre-split.
 
 _ZSt8_DestroyIPN10open_spiel4json5ValueES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN10open_spiel4json5ValueES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantINS0_4NullEEEN4absl7debian28optionalINS0_5ValueEEEPNS5_11string_viewES9_T_.exit.critedge
   %395 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN10open_spiel4json5ValueES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %385, %_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantINS0_4NullEEEN4absl7debian28optionalINS0_5ValueEEEPNS5_11string_viewES9_T_.exit.critedge ]
-  %.not.i.i.i517 = icmp eq ptr %395, null
-  br i1 %.not.i.i.i517, label %_ZNSt6vectorIN10open_spiel4json5ValueESaIS2_EED2Ev.exit, label %396
+  %.not.i.i.i515 = icmp eq ptr %395, null
+  br i1 %.not.i.i.i515, label %_ZNSt6vectorIN10open_spiel4json5ValueESaIS2_EED2Ev.exit, label %396
 
 396:                                              ; preds = %_ZSt8_DestroyIPN10open_spiel4json5ValueES2_EvT_S4_RSaIT0_E.exit.i
   %397 = getelementptr inbounds nuw i8, ptr %14, i64 16

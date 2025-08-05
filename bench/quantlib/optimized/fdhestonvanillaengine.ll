@@ -7389,14 +7389,14 @@ entry:
   %schemeDesc_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %schemeDesc_, align 8, !tbaa !247
   %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %cond.false.i, label %_ZN5boost10shared_ptrIN8QuantLib21FdHestonVanillaEngineEED2Ev.exit, !prof !106
+  br i1 %cmp.not.i, label %cond.false.i, label %_ZNK5boost10shared_ptrIN8QuantLib13FdmSchemeDescEEdeEv.exit, !prof !106
 
 cond.false.i:                                     ; preds = %entry
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.12, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib13FdmSchemeDescEEdeEv, ptr noundef nonnull @.str.13, i64 noundef 778)
   %.pre.i = load ptr, ptr %schemeDesc_, align 8, !tbaa !247
-  br label %_ZN5boost10shared_ptrIN8QuantLib21FdHestonVanillaEngineEED2Ev.exit
+  br label %_ZNK5boost10shared_ptrIN8QuantLib13FdmSchemeDescEEdeEv.exit
 
-_ZN5boost10shared_ptrIN8QuantLib21FdHestonVanillaEngineEED2Ev.exit: ; preds = %cond.false.i, %entry
+_ZNK5boost10shared_ptrIN8QuantLib13FdmSchemeDescEEdeEv.exit: ; preds = %entry, %cond.false.i
   %1 = phi ptr [ %0, %entry ], [ %.pre.i, %cond.false.i ]
   %dampingSteps_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %vGrid_ = getelementptr inbounds nuw i8, ptr %this, i64 56

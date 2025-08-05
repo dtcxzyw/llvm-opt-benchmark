@@ -2977,9 +2977,9 @@ define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter19WriteBinaryMateri
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %13 = invoke noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #24
-          to label %_ZN6Assimp5WriteIjEEmPNS_8IOStreamERKT_.exit unwind label %40
+          to label %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i unwind label %40
 
-_ZN6Assimp5WriteIjEEmPNS_8IOStreamERKT_.exit:     ; preds = %3
+_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i:      ; preds = %3
   store ptr %13, ptr %5, align 8
   store i64 4096, ptr %8, align 8
   store i32 %11, ptr %13, align 1
@@ -2991,8 +2991,8 @@ _ZN6Assimp5WriteIjEEmPNS_8IOStreamERKT_.exit:     ; preds = %3
   %.pre = load ptr, ptr %7, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN6Assimp5WriteIjEEmPNS_8IOStreamERKT_.exit
-  %14 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %1, %_ZN6Assimp5WriteIjEEmPNS_8IOStreamERKT_.exit ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i
+  %14 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %1, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i ]
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %4, align 8
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %34, label %15
@@ -3047,8 +3047,8 @@ _ZN6Assimp17AssbinChunkWriterD2Ev.exit:           ; preds = %34, %36
           cleanup
   br label %51
 
-.lr.ph:                                           ; preds = %_ZN6Assimp5WriteIjEEmPNS_8IOStreamERKT_.exit, %45
-  %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %_ZN6Assimp5WriteIjEEmPNS_8IOStreamERKT_.exit ]
+.lr.ph:                                           ; preds = %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i, %45
+  %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i ]
   %42 = load ptr, ptr %2, align 8
   %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8
@@ -3093,9 +3093,9 @@ define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter15WriteBinaryAnimEP
   %11 = load i32, ptr %2, align 4
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %13 = invoke noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #24
-          to label %.noexc unwind label %77
+          to label %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i unwind label %77
 
-.noexc:                                           ; preds = %3
+_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i:      ; preds = %3
   store ptr %13, ptr %6, align 8
   store i64 4096, ptr %9, align 8
   store i32 %11, ptr %13, align 1
@@ -3105,22 +3105,22 @@ define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter15WriteBinaryAnimEP
   %16 = icmp ugt i32 %11, 4092
   br i1 %16, label %17, label %_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit
 
-17:                                               ; preds = %.noexc
+17:                                               ; preds = %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i
   %18 = tail call i64 @llvm.umax.i64(i64 %14, i64 6140)
   %19 = add nuw nsw i64 %18, 4
   %20 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %19) #24
-          to label %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i unwind label %77
+          to label %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i24 unwind label %77
 
-_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i:      ; preds = %17
+_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i24:    ; preds = %17
   store ptr %20, ptr %6, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) %20, ptr noundef nonnull align 1 dereferenceable(4096) %13, i64 4096, i1 false)
   tail call void @_ZdaPv(ptr noundef nonnull %13) #23
   store i64 %19, ptr %9, align 8
   br label %_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit
 
-_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit: ; preds = %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i, %.noexc
-  %21 = phi i64 [ %19, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i ], [ 4096, %.noexc ]
-  %22 = phi ptr [ %20, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i ], [ %13, %.noexc ]
+_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit: ; preds = %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i24, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i
+  %21 = phi i64 [ %19, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i24 ], [ 4096, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i ]
+  %22 = phi ptr [ %20, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i24 ], [ %13, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %15, i64 %14, i1 false)
   %24 = add nuw nsw i64 %14, 4
@@ -3135,17 +3135,17 @@ _ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit: ; preds = %_ZN6Assimp17Ass
   %30 = add nuw nsw i64 %29, %21
   %31 = tail call i64 @llvm.umax.i64(i64 %26, i64 %30)
   %32 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %31) #24
-          to label %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i26 unwind label %77
+          to label %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i25 unwind label %77
 
-_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i26:    ; preds = %28
+_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i25:    ; preds = %28
   store ptr %32, ptr %6, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %32, ptr noundef nonnull align 1 dereferenceable(1) %22, i64 %21, i1 false)
   tail call void @_ZdaPv(ptr noundef nonnull %22) #23
   store i64 %31, ptr %9, align 8
   br label %_ZN6Assimp5WriteIdEEmPNS_8IOStreamERKT_.exit
 
-_ZN6Assimp5WriteIdEEmPNS_8IOStreamERKT_.exit:     ; preds = %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i26, %_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit
-  %33 = phi ptr [ %32, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i26 ], [ %22, %_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit ]
+_ZN6Assimp5WriteIdEEmPNS_8IOStreamERKT_.exit:     ; preds = %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i25, %_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit
+  %33 = phi ptr [ %32, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i25 ], [ %22, %_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit ]
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 %24
   %35 = load i64, ptr %25, align 8
   store i64 %35, ptr %34, align 1
@@ -3338,27 +3338,27 @@ define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter18WriteBinaryTextur
           to label %.sink.split.sink.split unwind label %32
 
 .sink.split.sink.split:                           ; preds = %40, %29
-  %.sink51 = phi ptr [ %31, %29 ], [ %42, %40 ]
+  %.sink50 = phi ptr [ %31, %29 ], [ %42, %40 ]
   %.sink = phi i64 [ %30, %29 ], [ %41, %40 ]
-  %.sink48.ph = phi i64 [ %26, %29 ], [ %37, %40 ]
+  %.sink47.ph = phi i64 [ %26, %29 ], [ %37, %40 ]
   %.pre-phi.ph = phi i64 [ %27, %29 ], [ %38, %40 ]
-  store ptr %.sink51, ptr %5, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) %.sink51, ptr noundef nonnull align 1 dereferenceable(4096) %12, i64 4096, i1 false)
+  store ptr %.sink50, ptr %5, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) %.sink50, ptr noundef nonnull align 1 dereferenceable(4096) %12, i64 4096, i1 false)
   tail call void @_ZdaPv(ptr noundef nonnull %12) #23
   store i64 %.sink, ptr %8, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %34, %25
-  %.sink49 = phi ptr [ %12, %25 ], [ %12, %34 ], [ %.sink51, %.sink.split.sink.split ]
-  %.sink48 = phi i64 [ %26, %25 ], [ %37, %34 ], [ %.sink48.ph, %.sink.split.sink.split ]
+  %.sink48 = phi ptr [ %12, %25 ], [ %12, %34 ], [ %.sink50, %.sink.split.sink.split ]
+  %.sink47 = phi i64 [ %26, %25 ], [ %37, %34 ], [ %.sink47.ph, %.sink.split.sink.split ]
   %.pre-phi = phi i64 [ %27, %25 ], [ %38, %34 ], [ %.pre-phi.ph, %.sink.split.sink.split ]
-  %43 = getelementptr inbounds nuw i8, ptr %.sink49, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr align 1 %24, i64 %.sink48, i1 false)
+  %43 = getelementptr inbounds nuw i8, ptr %.sink48, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr align 1 %24, i64 %.sink47, i1 false)
   store i64 %.pre-phi, ptr %11, align 8
   br label %44
 
 44:                                               ; preds = %.sink.split, %13
-  %45 = phi ptr [ %.sink49, %.sink.split ], [ %12, %13 ]
+  %45 = phi ptr [ %.sink48, %.sink.split ], [ %12, %13 ]
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %4, align 8
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %.thread, label %46
@@ -3389,12 +3389,12 @@ define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter18WriteBinaryTextur
           to label %65 unwind label %67
 
 65:                                               ; preds = %57
-  %.pre46 = load ptr, ptr %5, align 8
-  %.not2.i = icmp eq ptr %.pre46, null
+  %.pre45 = load ptr, ptr %5, align 8
+  %.not2.i = icmp eq ptr %.pre45, null
   br i1 %.not2.i, label %_ZN6Assimp17AssbinChunkWriterD2Ev.exit, label %.thread
 
 .thread:                                          ; preds = %44, %65
-  %66 = phi ptr [ %.pre46, %65 ], [ %45, %44 ]
+  %66 = phi ptr [ %.pre45, %65 ], [ %45, %44 ]
   call void @_ZdaPv(ptr noundef nonnull %66) #23
   br label %_ZN6Assimp17AssbinChunkWriterD2Ev.exit
 
@@ -3428,9 +3428,9 @@ define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter16WriteBinaryLightE
   %10 = load i32, ptr %2, align 4
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = invoke noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #24
-          to label %.noexc unwind label %100
+          to label %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i unwind label %100
 
-.noexc:                                           ; preds = %3
+_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i:      ; preds = %3
   store ptr %12, ptr %5, align 8
   store i64 4096, ptr %8, align 8
   store i32 %10, ptr %12, align 1
@@ -3440,22 +3440,22 @@ define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter16WriteBinaryLightE
   %15 = icmp ugt i32 %10, 4092
   br i1 %15, label %16, label %_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit
 
-16:                                               ; preds = %.noexc
+16:                                               ; preds = %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i
   %17 = tail call i64 @llvm.umax.i64(i64 %13, i64 6140)
   %18 = add nuw nsw i64 %17, 4
   %19 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %18) #24
-          to label %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i unwind label %100
+          to label %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i53 unwind label %100
 
-_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i:      ; preds = %16
+_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i53:    ; preds = %16
   store ptr %19, ptr %5, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) %19, ptr noundef nonnull align 1 dereferenceable(4096) %12, i64 4096, i1 false)
   tail call void @_ZdaPv(ptr noundef nonnull %12) #23
   store i64 %18, ptr %8, align 8
   br label %_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit
 
-_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit: ; preds = %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i, %.noexc
-  %20 = phi i64 [ %18, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i ], [ 4096, %.noexc ]
-  %21 = phi ptr [ %19, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i ], [ %12, %.noexc ]
+_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit: ; preds = %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i53, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i
+  %20 = phi i64 [ %18, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i53 ], [ 4096, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i ]
+  %21 = phi ptr [ %19, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i53 ], [ %12, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull align 1 %14, i64 %13, i1 false)
   %23 = add nuw nsw i64 %13, 4
@@ -3471,17 +3471,17 @@ _ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit: ; preds = %_ZN6Assimp17Ass
   %30 = add nuw nsw i64 %29, %20
   %31 = tail call i64 @llvm.umax.i64(i64 %26, i64 %30)
   %32 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %31) #24
-          to label %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i55 unwind label %102
+          to label %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i54 unwind label %102
 
-_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i55:    ; preds = %28
+_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i54:    ; preds = %28
   store ptr %32, ptr %5, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %32, ptr noundef nonnull align 1 dereferenceable(1) %21, i64 %20, i1 false)
   tail call void @_ZdaPv(ptr noundef nonnull %21) #23
   store i64 %31, ptr %8, align 8
   br label %33
 
-33:                                               ; preds = %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i55, %_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit
-  %34 = phi ptr [ %32, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i55 ], [ %21, %_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit ]
+33:                                               ; preds = %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i54, %_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit
+  %34 = phi ptr [ %32, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i54 ], [ %21, %_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit ]
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %23
   store i32 %25, ptr %35, align 1
   %36 = load i64, ptr %11, align 8
@@ -3766,9 +3766,9 @@ define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter17WriteBinaryCamera
   %10 = load i32, ptr %2, align 4
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = invoke noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #24
-          to label %.noexc unwind label %123
+          to label %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i unwind label %123
 
-.noexc:                                           ; preds = %3
+_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i:      ; preds = %3
   store ptr %12, ptr %5, align 8
   store i64 4096, ptr %8, align 8
   store i32 %10, ptr %12, align 1
@@ -3778,22 +3778,22 @@ define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter17WriteBinaryCamera
   %15 = icmp ugt i32 %10, 4092
   br i1 %15, label %16, label %_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit
 
-16:                                               ; preds = %.noexc
+16:                                               ; preds = %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i
   %17 = tail call i64 @llvm.umax.i64(i64 %13, i64 6140)
   %18 = add nuw nsw i64 %17, 4
   %19 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %18) #24
-          to label %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i unwind label %123
+          to label %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i30 unwind label %123
 
-_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i:      ; preds = %16
+_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i30:    ; preds = %16
   store ptr %19, ptr %5, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) %19, ptr noundef nonnull align 1 dereferenceable(4096) %12, i64 4096, i1 false)
   tail call void @_ZdaPv(ptr noundef nonnull %12) #23
   store i64 %18, ptr %8, align 8
   br label %_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit
 
-_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit: ; preds = %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i, %.noexc
-  %20 = phi i64 [ %18, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i ], [ 4096, %.noexc ]
-  %21 = phi ptr [ %19, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i ], [ %12, %.noexc ]
+_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit: ; preds = %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i30, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i
+  %20 = phi i64 [ %18, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i30 ], [ 4096, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i ]
+  %21 = phi ptr [ %19, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i30 ], [ %12, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull align 1 %14, i64 %13, i1 false)
   %23 = add nuw nsw i64 %13, 4
@@ -4214,9 +4214,9 @@ define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter15WriteBinaryBoneEP
   %15 = load i32, ptr %2, align 4
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %17 = invoke noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #24
-          to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc:                                           ; preds = %3
+_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i:      ; preds = %3
   store ptr %17, ptr %10, align 8
   store i64 4096, ptr %13, align 8
   store i32 %15, ptr %17, align 1
@@ -4226,22 +4226,22 @@ define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter15WriteBinaryBoneEP
   %20 = icmp ugt i32 %15, 4092
   br i1 %20, label %21, label %_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit
 
-21:                                               ; preds = %.noexc
+21:                                               ; preds = %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i
   %22 = tail call i64 @llvm.umax.i64(i64 %18, i64 6140)
   %23 = add nuw nsw i64 %22, 4
   %24 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %23) #24
-          to label %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i57 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i:      ; preds = %21
+_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i57:    ; preds = %21
   store ptr %24, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) %24, ptr noundef nonnull align 1 dereferenceable(4096) %17, i64 4096, i1 false)
   tail call void @_ZdaPv(ptr noundef nonnull %17) #23
   store i64 %23, ptr %13, align 8
   br label %_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit
 
-_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit: ; preds = %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i, %.noexc
-  %25 = phi i64 [ %23, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i ], [ 4096, %.noexc ]
-  %26 = phi ptr [ %24, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i ], [ %17, %.noexc ]
+_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit: ; preds = %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i57, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i
+  %25 = phi i64 [ %23, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i57 ], [ 4096, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i ]
+  %26 = phi ptr [ %24, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i57 ], [ %17, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i ]
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull align 1 %19, i64 %18, i1 false)
   %28 = add nuw nsw i64 %18, 4
@@ -4594,9 +4594,9 @@ define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter27WriteBinaryMateri
   %13 = load i32, ptr %2, align 4
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %15 = invoke noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #24
-          to label %.noexc unwind label %110
+          to label %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i24 unwind label %110
 
-.noexc:                                           ; preds = %3
+_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i24:    ; preds = %3
   store ptr %15, ptr %8, align 8
   store i64 4096, ptr %11, align 8
   store i32 %13, ptr %15, align 1
@@ -4606,7 +4606,7 @@ define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter27WriteBinaryMateri
   %18 = icmp ugt i32 %13, 4092
   br i1 %18, label %19, label %_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit
 
-19:                                               ; preds = %.noexc
+19:                                               ; preds = %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i24
   %20 = tail call i64 @llvm.umax.i64(i64 %16, i64 6140)
   %21 = add nuw nsw i64 %20, 4
   %22 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %21) #24
@@ -4619,9 +4619,9 @@ _ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i29:    ; preds = %19
   store i64 %21, ptr %11, align 8
   br label %_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit
 
-_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit: ; preds = %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i29, %.noexc
-  %23 = phi i64 [ %21, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i29 ], [ 4096, %.noexc ]
-  %24 = phi ptr [ %22, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i29 ], [ %15, %.noexc ]
+_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit: ; preds = %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i29, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i24
+  %23 = phi i64 [ %21, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i29 ], [ 4096, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i24 ]
+  %24 = phi ptr [ %22, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i29 ], [ %15, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i24 ]
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull align 1 %17, i64 %16, i1 false)
   %26 = add nuw nsw i64 %16, 4
@@ -4637,17 +4637,17 @@ _ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit: ; preds = %_ZN6Assimp17Ass
   %33 = add nuw nsw i64 %32, %23
   %34 = tail call i64 @llvm.umax.i64(i64 %29, i64 %33)
   %35 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %34) #24
-          to label %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i34 unwind label %110
+          to label %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i33 unwind label %110
 
-_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i34:    ; preds = %31
+_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i33:    ; preds = %31
   store ptr %35, ptr %8, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %35, ptr noundef nonnull align 1 dereferenceable(1) %24, i64 %23, i1 false)
   tail call void @_ZdaPv(ptr noundef nonnull %24) #23
   store i64 %34, ptr %11, align 8
   br label %36
 
-36:                                               ; preds = %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i34, %_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit
-  %37 = phi ptr [ %35, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i34 ], [ %24, %_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit ]
+36:                                               ; preds = %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i33, %_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit
+  %37 = phi ptr [ %35, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i33 ], [ %24, %_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit ]
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 %26
   store i32 %28, ptr %38, align 1
   %39 = load i64, ptr %14, align 8
@@ -4824,9 +4824,9 @@ define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter19WriteBinaryNodeAn
   %14 = load i32, ptr %2, align 4
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %16 = invoke noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #24
-          to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc:                                           ; preds = %3
+_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i:      ; preds = %3
   store ptr %16, ptr %9, align 8
   store i64 4096, ptr %12, align 8
   store i32 %14, ptr %16, align 1
@@ -4836,22 +4836,22 @@ define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter19WriteBinaryNodeAn
   %19 = icmp ugt i32 %14, 4092
   br i1 %19, label %20, label %_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit
 
-20:                                               ; preds = %.noexc
+20:                                               ; preds = %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i
   %21 = tail call i64 @llvm.umax.i64(i64 %17, i64 6140)
   %22 = add nuw nsw i64 %21, 4
   %23 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %22) #24
-          to label %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i81 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i:      ; preds = %20
+_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i81:    ; preds = %20
   store ptr %23, ptr %9, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) %23, ptr noundef nonnull align 1 dereferenceable(4096) %16, i64 4096, i1 false)
   tail call void @_ZdaPv(ptr noundef nonnull %16) #23
   store i64 %22, ptr %12, align 8
   br label %_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit
 
-_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit: ; preds = %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i, %.noexc
-  %24 = phi i64 [ %22, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i ], [ 4096, %.noexc ]
-  %25 = phi ptr [ %23, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i ], [ %16, %.noexc ]
+_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit: ; preds = %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i81, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i
+  %24 = phi i64 [ %22, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i81 ], [ 4096, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i ]
+  %25 = phi ptr [ %23, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i81 ], [ %16, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr nonnull align 1 %18, i64 %17, i1 false)
   %27 = add nuw nsw i64 %17, 4
@@ -4867,17 +4867,17 @@ _ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit: ; preds = %_ZN6Assimp17Ass
   %34 = add nuw nsw i64 %33, %24
   %35 = tail call i64 @llvm.umax.i64(i64 %30, i64 %34)
   %36 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %35) #24
-          to label %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i83 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i82 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i83:    ; preds = %32
+_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i82:    ; preds = %32
   store ptr %36, ptr %9, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %36, ptr noundef nonnull align 1 dereferenceable(1) %25, i64 %24, i1 false)
   tail call void @_ZdaPv(ptr noundef nonnull %25) #23
   store i64 %35, ptr %12, align 8
   br label %37
 
-37:                                               ; preds = %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i83, %_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit
-  %38 = phi ptr [ %36, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i83 ], [ %25, %_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit ]
+37:                                               ; preds = %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i82, %_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit
+  %38 = phi ptr [ %36, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i82 ], [ %25, %_ZN6Assimp5WriteI8aiStringEEmPNS_8IOStreamERKT_.exit ]
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 %27
   store i32 %29, ptr %39, align 1
   %40 = load i64, ptr %15, align 8

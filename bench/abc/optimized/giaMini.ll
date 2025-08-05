@@ -4761,7 +4761,7 @@ define ptr @Abc_FrameReadMiniAigEquivClasses(ptr noundef readonly captures(none)
   %.pre17 = load ptr, ptr %12, align 8, !tbaa !130
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %22, %26
+Vec_IntFree.exit:                                 ; preds = %26, %22
   %27 = phi ptr [ %.pre17, %26 ], [ %17, %22 ]
   %28 = load ptr, ptr %7, align 8, !tbaa !119
   %29 = tail call ptr @Gia_ManMapEquivAfterScorr(ptr noundef %27, ptr noundef %28)

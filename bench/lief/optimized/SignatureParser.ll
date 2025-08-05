@@ -7499,7 +7499,7 @@ define void @_ZN4LIEF2PE15SignatureParser16parse_attributesERNS_12BinaryStreamE(
   %100 = load ptr, ptr %99, align 8
   %101 = call noundef i64 %100(ptr noundef nonnull align 8 dereferenceable(24) %1) #21
   %102 = icmp ult i64 %97, %101
-  br i1 %102, label %103, label %_ZNSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EED2Ev.exit
+  br i1 %102, label %103, label %_ZSt8_DestroyIPSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i
 
 103:                                              ; preds = %96
   %104 = call { i64, i8 } @_ZN4LIEF10ASN1Reader8read_tagEi(ptr noundef nonnull align 8 dereferenceable(8) %29, i32 noundef 48) #21
@@ -7518,7 +7518,7 @@ define void @_ZN4LIEF2PE15SignatureParser16parse_attributesERNS_12BinaryStreamE(
   call void @_ZN6spdlog6logger4log_IJRKmEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %108, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %27, i32 noundef 2, ptr nonnull @.str.67, i64 33, ptr noundef nonnull align 8 dereferenceable(8) %30)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #21
-  br label %_ZNSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EED2Ev.exit
+  br label %_ZSt8_DestroyIPSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i
 
 109:                                              ; preds = %103
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %31) #21
@@ -9287,9 +9287,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 767:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i110, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i111, %757
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %31) #21
-  br i1 %switch31, label %96, label %_ZNSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EED2Ev.exit
+  br i1 %switch31, label %96, label %_ZSt8_DestroyIPSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i
 
-_ZNSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EED2Ev.exit: ; preds = %767, %96, %.thread306
+_ZSt8_DestroyIPSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i: ; preds = %767, %96, %.thread306
   %768 = load ptr, ptr %28, align 8, !tbaa !171
   store ptr %768, ptr %0, align 8, !tbaa !171
   %769 = getelementptr inbounds nuw i8, ptr %0, i64 8

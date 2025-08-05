@@ -7736,8 +7736,8 @@ _ZN7AstNode9privateAsI6AstVarPS_EEPT_S2_.exit.i.i.i: ; preds = %238, %229
   %.sroa.0.1.i = phi ptr [ %.sroa.0.4.i, %"_ZZN7AstNode11foreachImplI9AstVarRefZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextE3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit.i.i" ], [ %224, %.lr.ph.i.preheader.i ]
   %.sroa.13.1.i = phi ptr [ %.sroa.13.4.i, %"_ZZN7AstNode11foreachImplI9AstVarRefZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextE3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit.i.i" ], [ %226, %.lr.ph.i.preheader.i ]
   %.sroa.21.1.i = phi ptr [ %.sroa.21.4.i, %"_ZZN7AstNode11foreachImplI9AstVarRefZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextE3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit.i.i" ], [ %226, %.lr.ph.i.preheader.i ]
-  %.063.i.i = phi ptr [ %.1.i.i, %"_ZZN7AstNode11foreachImplI9AstVarRefZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextE3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit.i.i" ], [ %275, %.lr.ph.i.preheader.i ]
-  %.05362.i.i = phi ptr [ %.154.i.i, %"_ZZN7AstNode11foreachImplI9AstVarRefZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextE3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit.i.i" ], [ %.ptr35.i, %.lr.ph.i.preheader.i ]
+  %.062.i.i = phi ptr [ %.1.i.i, %"_ZZN7AstNode11foreachImplI9AstVarRefZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextE3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit.i.i" ], [ %275, %.lr.ph.i.preheader.i ]
+  %.05361.i.i = phi ptr [ %.154.i.i, %"_ZZN7AstNode11foreachImplI9AstVarRefZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextE3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit.i.i" ], [ %.ptr35.i, %.lr.ph.i.preheader.i ]
   %280 = phi ptr [ %400, %"_ZZN7AstNode11foreachImplI9AstVarRefZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextE3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit.i.i" ], [ %.3.ptr.i, %.lr.ph.i.preheader.i ]
   %281 = getelementptr inbounds i8, ptr %280, i64 -8
   %282 = load ptr, ptr %281, align 8, !tbaa !327
@@ -7747,7 +7747,7 @@ _ZN7AstNode9privateAsI6AstVarPS_EEPT_S2_.exit.i.i.i: ; preds = %238, %229
   call void @llvm.prefetch.p0(ptr nonnull %285, i32 0, i32 3, i32 1)
   %286 = getelementptr inbounds nuw i8, ptr %284, i64 64
   call void @llvm.prefetch.p0(ptr nonnull %286, i32 0, i32 3, i32 1)
-  %.not17.i.i = icmp ult ptr %281, %.063.i.i
+  %.not17.i.i = icmp ult ptr %281, %.062.i.i
   br i1 %.not17.i.i, label %336, label %287, !prof !274
 
 287:                                              ; preds = %.lr.ph.i.i
@@ -7845,7 +7845,7 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i: ; preds =
   %.sroa.13.3.i = phi ptr [ %324, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i ], [ %308, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %303, %302 ], [ %spec.select.i, %326 ]
   %.sroa.21.3.i = phi ptr [ %325, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i ], [ %.sroa.21.1.i, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %.sroa.21.1.i, %302 ], [ %.sroa.21.1.i, %326 ]
   %329 = ptrtoint ptr %281 to i64
-  %330 = ptrtoint ptr %.05362.i.i to i64
+  %330 = ptrtoint ptr %.05361.i.i to i64
   %331 = sub i64 %329, %330
   %332 = getelementptr inbounds nuw i8, ptr %.sroa.0.3.i, i64 16
   %333 = getelementptr inbounds i8, ptr %332, i64 %331
@@ -7873,8 +7873,8 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i: ; preds =
   %.sroa.13.4.i = phi ptr [ %.sroa.13.1.i, %.lr.ph.i.i ], [ %.sroa.13.3.i, %"_ZZN7AstNode11foreachImplI9AstVarRefZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextE3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28.i.i" ]
   %.sroa.21.4.i = phi ptr [ %.sroa.21.1.i, %.lr.ph.i.i ], [ %.sroa.21.3.i, %"_ZZN7AstNode11foreachImplI9AstVarRefZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextE3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28.i.i" ]
   %337 = phi ptr [ %281, %.lr.ph.i.i ], [ %333, %"_ZZN7AstNode11foreachImplI9AstVarRefZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextE3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28.i.i" ]
-  %.154.i.i = phi ptr [ %.05362.i.i, %.lr.ph.i.i ], [ %332, %"_ZZN7AstNode11foreachImplI9AstVarRefZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextE3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28.i.i" ]
-  %.1.i.i = phi ptr [ %.063.i.i, %.lr.ph.i.i ], [ %335, %"_ZZN7AstNode11foreachImplI9AstVarRefZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextE3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28.i.i" ]
+  %.154.i.i = phi ptr [ %.05361.i.i, %.lr.ph.i.i ], [ %332, %"_ZZN7AstNode11foreachImplI9AstVarRefZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextE3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28.i.i" ]
+  %.1.i.i = phi ptr [ %.062.i.i, %.lr.ph.i.i ], [ %335, %"_ZZN7AstNode11foreachImplI9AstVarRefZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextE3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28.i.i" ]
   %338 = getelementptr inbounds nuw i8, ptr %282, i64 8
   %339 = load ptr, ptr %338, align 8, !tbaa !333
   %.not18.i.i = icmp eq ptr %339, null

@@ -117,7 +117,6 @@ define void @_ZN5nblib16generateVelocityEfjRKSt6vectorIfSaIfEE(ptr dead_on_unwin
   call void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEEvPSt5arrayIT_XT0_EES4_(ptr noundef nonnull align 8 dereferenceable(52) %8, i64 noundef 63)
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  %.sroa.74.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %18 = load i64, ptr %8, align 8, !tbaa !10
   %19 = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !tbaa !10
   %20 = xor i64 %18, %19
@@ -240,6 +239,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: 
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %110, i64 %109
   store ptr %scevgep.i.i.i.i.i.i, ptr %111, align 8, !tbaa !27, !alias.scope !16
   %114 = fmul float %1, 0x3F81072C40000000
+  %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   br label %123
 
 ._crit_edge.i:                                    ; preds = %319
@@ -266,7 +266,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: 
 
 127:                                              ; preds = %123
   store i64 %.05083.i, ptr %17, align 8, !noalias !16
-  store i64 0, ptr %.sroa.74.0..sroa_idx.i, align 8, !tbaa !9, !noalias !16
+  store i64 0, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !tbaa !9, !noalias !16
   %128 = add i64 %22, %.05083.i
   %129 = xor i64 %128, %23
   %130 = add i64 %129, %128
@@ -345,7 +345,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: 
   %200 = fpext float %125 to double
   %201 = fmul double %200, 5.000000e-01
   %.promoted = load i32, ptr %98, align 8
-  %.sroa.43.0..sroa_idx.i.i.promoted = load i64, ptr %.sroa.74.0..sroa_idx.i, align 8
+  %.sroa.43.0..sroa_idx.i.i.promoted = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8
   %.sroa.024.0.copyload.i5 = load i64, ptr %17, align 8
   %202 = add i64 %.sroa.024.0.copyload.i5, %18
   br label %205
@@ -382,7 +382,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: 
 213:                                              ; preds = %210
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !16
   %214 = add i64 %206, 1
-  store i64 %214, ptr %.sroa.74.0..sroa_idx.i, align 8, !tbaa !10, !noalias !16
+  store i64 %214, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !tbaa !10, !noalias !16
   %215 = icmp eq i64 %214, 0
   br i1 %215, label %216, label %.noexc59.i
 

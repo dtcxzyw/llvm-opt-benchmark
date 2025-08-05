@@ -4218,8 +4218,8 @@ _ZNSt6vectorIjSaIjEED2Ev.exit179.i:               ; preds = %.lr.ph.i1378, %.pre
   store ptr %631, ptr %630, align 8, !tbaa !4
   store i64 0, ptr %632, align 8, !tbaa !15
   store i8 0, ptr %631, align 8, !tbaa !14
-  %.not485.i = icmp ne i64 %.393.i, 0
-  call void @llvm.assume(i1 %.not485.i)
+  %.not414.i = icmp ne i64 %.393.i, 0
+  call void @llvm.assume(i1 %.not414.i)
   %760 = icmp ugt i64 %.393.i, 2305843009213693951
   br i1 %760, label %761, label %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i
 
@@ -4413,7 +4413,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit190.i:               ; preds = %791, %.critedge165.
   br label %928
 
 802:                                              ; preds = %923, %.lr.ph413.i
-  %indvars.iv481.i = phi i64 [ 0, %.lr.ph413.i ], [ %indvars.iv.next482.i, %923 ]
+  %indvars.iv482.i = phi i64 [ 0, %.lr.ph413.i ], [ %indvars.iv.next483.i, %923 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45) #24
   %803 = call i64 @fread(ptr noundef nonnull %45, i64 noundef 8, i64 noundef 1, ptr noundef nonnull %609)
   %.not149.i = icmp eq i64 %803, 1
@@ -4427,7 +4427,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit190.i:               ; preds = %791, %.critedge165.
 
 806:                                              ; preds = %802
   %807 = load ptr, ptr %74, align 8, !tbaa !55
-  %808 = getelementptr inbounds nuw %class.MXNetParam, ptr %807, i64 %indvars.iv481.i
+  %808 = getelementptr inbounds nuw %class.MXNetParam, ptr %807, i64 %indvars.iv482.i
   %809 = load i64, ptr %45, align 8, !tbaa !10
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %808, i64 noundef %809, i8 noundef signext 0)
           to label %.noexc unwind label %984
@@ -4761,11 +4761,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit210.i: ; preds = %
 
 923:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit210.i, %866
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #24
-  %indvars.iv.next482.i = add nuw nsw i64 %indvars.iv481.i, 1
+  %indvars.iv.next483.i = add nuw nsw i64 %indvars.iv482.i, 1
   %924 = load i64, ptr %44, align 8, !tbaa !10
   %sext.i = shl i64 %924, 32
   %925 = ashr exact i64 %sext.i, 32
-  %.not155.i = icmp slt i64 %indvars.iv.next482.i, %925
+  %.not155.i = icmp slt i64 %indvars.iv.next483.i, %925
   br i1 %.not155.i, label %802, label %.critedge163.i, !llvm.loop !78
 
 926:                                              ; preds = %918, %864

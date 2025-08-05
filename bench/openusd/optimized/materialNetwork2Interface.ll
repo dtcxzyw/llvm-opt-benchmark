@@ -2601,8 +2601,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27HdMaterialNetwork2Interface2
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.not32 = icmp eq i32 %10, 0
-  br i1 %.not32, label %._crit_edge, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__21HdMaterialConnection2ESaIS1_EE11_M_allocateEm.exit.i
+  %.not28 = icmp eq i32 %10, 0
+  br i1 %.not28, label %._crit_edge, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__21HdMaterialConnection2ESaIS1_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__21HdMaterialConnection2ESaIS1_EE11_M_allocateEm.exit.i: ; preds = %8
   %13 = shl nuw nsw i64 %11, 4
@@ -2627,8 +2627,8 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__21HdMaterialConnection2ES
   br label %25
 
 25:                                               ; preds = %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__21HdMaterialConnection2D2Ev.exit
-  %.01729 = phi ptr [ %spec.select.i.i, %.lr.ph ], [ %83, %_ZN32pxrInternal_v0_24__pxrReserved__21HdMaterialConnection2D2Ev.exit ]
-  %26 = load ptr, ptr %.01729, align 8
+  %.01730 = phi ptr [ %spec.select.i.i, %.lr.ph ], [ %83, %_ZN32pxrInternal_v0_24__pxrReserved__21HdMaterialConnection2D2Ev.exit ]
+  %26 = load ptr, ptr %.01730, align 8
   %27 = ptrtoint ptr %26 to i64
   %28 = and i64 %27, -8
   %.not.i = icmp eq i64 %28, 0
@@ -2649,7 +2649,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit: ; preds 
           to label %35 unwind label %.loopexit
 
 35:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit
-  %36 = getelementptr inbounds nuw i8, ptr %.01729, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.01730, i64 8
   %37 = load i64, ptr %36, align 8
   store i64 %37, ptr %22, align 8
   %38 = and i64 %37, 7
@@ -2744,7 +2744,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i: ; preds = %_ZNSt6vecto
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__21HdMaterialConnection2D2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i, %66, %79
-  %83 = getelementptr inbounds nuw i8, ptr %.01729, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %.01730, i64 16
   %.not19 = icmp eq ptr %83, %21
   br i1 %.not19, label %._crit_edge, label %25
 

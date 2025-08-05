@@ -8532,8 +8532,8 @@ define internal fastcc void @_ZSt13__adjust_heapIN5boost9container12vec_iterator
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %_ZN3ue212_GLOBAL__N_112DAccelSchemeaSEOS1_.exit
-  %.09 = phi i64 [ %spec.select, %_ZN3ue212_GLOBAL__N_112DAccelSchemeaSEOS1_.exit ], [ %0, %3 ]
-  %8 = shl i64 %.09, 1
+  %.010 = phi i64 [ %spec.select, %_ZN3ue212_GLOBAL__N_112DAccelSchemeaSEOS1_.exit ], [ %0, %3 ]
+  %8 = shl i64 %.010, 1
   %9 = add i64 %8, 2
   %10 = getelementptr inbounds %"struct.ue2::(anonymous namespace)::DAccelScheme", ptr %.0.val, i64 %9
   %11 = or disjoint i64 %8, 1
@@ -8541,8 +8541,8 @@ define internal fastcc void @_ZSt13__adjust_heapIN5boost9container12vec_iterator
   %13 = tail call fastcc noundef zeroext i1 @_ZNK3ue212_GLOBAL__N_112DAccelSchemeltERKS1_(ptr noundef nonnull align 8 dereferenceable(68) %10, ptr noundef nonnull align 8 dereferenceable(68) %12)
   %spec.select = select i1 %13, i64 %11, i64 %9
   %14 = getelementptr inbounds %"struct.ue2::(anonymous namespace)::DAccelScheme", ptr %.0.val, i64 %spec.select
-  %15 = getelementptr inbounds %"struct.ue2::(anonymous namespace)::DAccelScheme", ptr %.0.val, i64 %.09
-  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %spec.select, %.09
+  %15 = getelementptr inbounds %"struct.ue2::(anonymous namespace)::DAccelScheme", ptr %.0.val, i64 %.010
+  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %spec.select, %.010
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN3ue212_GLOBAL__N_112DAccelSchemeaSEOS1_.exit, label %16, !prof !115
 
 16:                                               ; preds = %.lr.ph
@@ -8723,8 +8723,8 @@ _ZN3ue212_GLOBAL__N_112DAccelSchemeaSEOS1_.exit42: ; preds = %47, %_ZN5boost9con
   %.not.i.i.i.i.i.i.i.i.i44 = icmp eq i64 %93, 0
   %94 = load ptr, ptr %4, align 8
   %95 = icmp eq ptr %77, %94
-  %or.cond15 = select i1 %.not.i.i.i.i.i.i.i.i.i44, i1 true, i1 %95
-  br i1 %or.cond15, label %common.resume, label %common.resume.sink.split
+  %or.cond16 = select i1 %.not.i.i.i.i.i.i.i.i.i44, i1 true, i1 %95
+  br i1 %or.cond16, label %common.resume, label %common.resume.sink.split
 
 common.resume.sink.split:                         ; preds = %91, %154
   %.sink = phi ptr [ %157, %154 ], [ %94, %91 ]
@@ -8822,12 +8822,12 @@ _ZN3ue212_GLOBAL__N_112DAccelSchemeaSEOS1_.exit.i: ; preds = %.noexc.i.i.i.i.i.i
   %.09.lcssa.i = phi i64 [ %.1, %_ZN3ue212_GLOBAL__N_112DAccelSchemeC2EOS1_.exit ], [ %.097.i, %.noexc ], [ %.08.i, %_ZN3ue212_GLOBAL__N_112DAccelSchemeaSEOS1_.exit.i ]
   %128 = getelementptr inbounds %"struct.ue2::(anonymous namespace)::DAccelScheme", ptr %.0.val, i64 %.09.lcssa.i
   %.not.i.i.i.i.i.i.i.i17.i = icmp eq ptr %4, %128
-  br i1 %.not.i.i.i.i.i.i.i.i17.i, label %147, label %129, !prof !115
+  br i1 %.not.i.i.i.i.i.i.i.i17.i, label %148, label %129, !prof !115
 
 129:                                              ; preds = %.critedge.i
   %130 = load ptr, ptr %4, align 8
   %.not16.i.i.i.i.i.i.i.i.i18.i = icmp eq ptr %77, %130
-  br i1 %.not16.i.i.i.i.i.i.i.i.i18.i, label %141, label %131
+  br i1 %.not16.i.i.i.i.i.i.i.i.i18.i, label %142, label %131
 
 131:                                              ; preds = %129
   %132 = getelementptr inbounds nuw i8, ptr %128, i64 8
@@ -8837,49 +8837,50 @@ _ZN3ue212_GLOBAL__N_112DAccelSchemeaSEOS1_.exit.i: ; preds = %.noexc.i.i.i.i.i.i
   %134 = getelementptr inbounds nuw i8, ptr %128, i64 24
   %135 = icmp eq ptr %134, %133
   %or.cond.i.i.i.i.i.i.i.i.i20.i = select i1 %.not.i.i.i.i.i.i.i.i.i19.i, i1 true, i1 %135
-  br i1 %or.cond.i.i.i.i.i.i.i.i.i20.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPS4_m.exit.i.i.i.i.i.i.i.i.i21.i, label %136, !prof !169
+  br i1 %or.cond.i.i.i.i.i.i.i.i.i20.i, label %.thread, label %136, !prof !169
 
 136:                                              ; preds = %131
   call void @_ZdlPv(ptr noundef nonnull %133) #25
-  %.pre11 = load ptr, ptr %4, align 8
-  br label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPS4_m.exit.i.i.i.i.i.i.i.i.i21.i
+  %.pre12 = load ptr, ptr %4, align 8
+  br label %.thread
 
-_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPS4_m.exit.i.i.i.i.i.i.i.i.i21.i: ; preds = %136, %131
-  %137 = phi ptr [ %.pre11, %136 ], [ %130, %131 ]
+.thread:                                          ; preds = %131, %136
+  %137 = phi ptr [ %130, %131 ], [ %.pre12, %136 ]
   store ptr %137, ptr %128, align 8
   %138 = load i64, ptr %78, align 8
   store i64 %138, ptr %132, align 8
   %139 = load i64, ptr %79, align 8
   %140 = getelementptr inbounds nuw i8, ptr %128, i64 16
   store i64 %139, ptr %140, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %4, i8 0, i64 24, i1 false)
-  br label %147
+  %141 = getelementptr inbounds nuw i8, ptr %128, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %141, ptr noundef nonnull align 8 dereferenceable(36) %96, i64 36, i1 false)
+  br label %_ZN3ue212_GLOBAL__N_112DAccelSchemeD2Ev.exit
 
-141:                                              ; preds = %129
-  %142 = load i64, ptr %78, align 8, !noalias !545
-  %143 = getelementptr inbounds nuw %"struct.std::pair.127", ptr %130, i64 %142
-  invoke void @_ZN5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6assignINS_13move_iteratorIPS3_EEEEvT_SC_PNS_11move_detail13disable_if_orIvNSD_7is_sameINSD_17integral_constantIjLj1EEENSG_IjLj0EEEEENSD_14is_convertibleISC_mEENS0_3dtl17is_input_iteratorISC_Xsr21has_iterator_categoryISC_EE5valueEEENSD_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(68) %128, ptr %130, ptr %143, ptr noundef null)
-          to label %.noexc.i.i.i.i.i.i.i.i22.i unwind label %144
+142:                                              ; preds = %129
+  %143 = load i64, ptr %78, align 8, !noalias !545
+  %144 = getelementptr inbounds nuw %"struct.std::pair.127", ptr %130, i64 %143
+  invoke void @_ZN5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6assignINS_13move_iteratorIPS3_EEEEvT_SC_PNS_11move_detail13disable_if_orIvNSD_7is_sameINSD_17integral_constantIjLj1EEENSG_IjLj0EEEEENSD_14is_convertibleISC_mEENS0_3dtl17is_input_iteratorISC_Xsr21has_iterator_categoryISC_EE5valueEEENSD_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(68) %128, ptr %130, ptr %144, ptr noundef null)
+          to label %.noexc.i.i.i.i.i.i.i.i22.i unwind label %145
 
-.noexc.i.i.i.i.i.i.i.i22.i:                       ; preds = %141
+.noexc.i.i.i.i.i.i.i.i22.i:                       ; preds = %142
   store i64 0, ptr %78, align 8
-  br label %147
+  br label %148
 
-144:                                              ; preds = %141
-  %145 = landingpad { ptr, i32 }
+145:                                              ; preds = %142
+  %146 = landingpad { ptr, i32 }
           catch ptr null
-  %146 = extractvalue { ptr, i32 } %145, 0
-  call void @__clang_call_terminate(ptr %146) #27
+  %147 = extractvalue { ptr, i32 } %146, 0
+  call void @__clang_call_terminate(ptr %147) #27
   unreachable
 
-147:                                              ; preds = %.noexc.i.i.i.i.i.i.i.i22.i, %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPS4_m.exit.i.i.i.i.i.i.i.i.i21.i, %.critedge.i
-  %148 = getelementptr inbounds nuw i8, ptr %128, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %148, ptr noundef nonnull align 8 dereferenceable(36) %96, i64 36, i1 false)
-  %149 = load i64, ptr %79, align 8
-  %.not.i.i.i.i.i = icmp eq i64 %149, 0
+148:                                              ; preds = %.noexc.i.i.i.i.i.i.i.i22.i, %.critedge.i
+  %.pr = load i64, ptr %79, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %128, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %149, ptr noundef nonnull align 8 dereferenceable(36) %96, i64 36, i1 false)
+  %.not.i.i.i.i.i = icmp eq i64 %.pr, 0
   br i1 %.not.i.i.i.i.i, label %_ZN3ue212_GLOBAL__N_112DAccelSchemeD2Ev.exit, label %150
 
-150:                                              ; preds = %147
+150:                                              ; preds = %148
   %151 = load ptr, ptr %4, align 8
   %152 = icmp eq ptr %77, %151
   br i1 %152, label %_ZN3ue212_GLOBAL__N_112DAccelSchemeD2Ev.exit, label %153
@@ -8888,7 +8889,7 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIhh
   call void @_ZdlPv(ptr noundef %151) #25
   br label %_ZN3ue212_GLOBAL__N_112DAccelSchemeD2Ev.exit
 
-_ZN3ue212_GLOBAL__N_112DAccelSchemeD2Ev.exit:     ; preds = %147, %150, %153
+_ZN3ue212_GLOBAL__N_112DAccelSchemeD2Ev.exit:     ; preds = %.thread, %148, %150, %153
   ret void
 
 154:                                              ; preds = %.lr.ph.i
@@ -9034,23 +9035,23 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIhh
   %53 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 24
   %54 = icmp eq ptr %53, %52
   %or.cond.i.i.i.i.i.i.i.i.i10.i = select i1 %.not.i.i.i.i.i.i.i.i.i9.i, i1 true, i1 %54
-  br i1 %or.cond.i.i.i.i.i.i.i.i.i10.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPS4_m.exit.i.i.i.i.i.i.i.i.i11.i, label %55, !prof !169
+  br i1 %or.cond.i.i.i.i.i.i.i.i.i10.i, label %.thread.i, label %55, !prof !169
 
 55:                                               ; preds = %50
   call void @_ZdlPv(ptr noundef nonnull %52) #25
   %.pre.i = load ptr, ptr %1, align 8
-  br label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPS4_m.exit.i.i.i.i.i.i.i.i.i11.i
+  br label %.thread.i
 
-_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPS4_m.exit.i.i.i.i.i.i.i.i.i11.i: ; preds = %55, %50
-  %56 = phi ptr [ %.pre.i, %55 ], [ %49, %50 ]
+.thread.i:                                        ; preds = %55, %50
+  %56 = phi ptr [ %49, %50 ], [ %.pre.i, %55 ]
   store ptr %56, ptr %.0.val1, align 8
   %57 = load i64, ptr %3, align 8
   store i64 %57, ptr %51, align 8
   %58 = load i64, ptr %4, align 8
   %59 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 16
   store i64 %58, ptr %59, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %1, i8 0, i64 24, i1 false)
-  br label %66
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %47, ptr noundef nonnull align 8 dereferenceable(36) %23, i64 36, i1 false)
+  br label %_ZSt4swapIN3ue212_GLOBAL__N_112DAccelSchemeEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit
 
 60:                                               ; preds = %48
   %61 = load i64, ptr %3, align 8, !noalias !554
@@ -9069,22 +9070,22 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIhh
   call void @__clang_call_terminate(ptr %65) #27
   unreachable
 
-66:                                               ; preds = %.noexc.i.i.i.i.i.i.i.i12.i, %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPS4_m.exit.i.i.i.i.i.i.i.i.i11.i, %46
+66:                                               ; preds = %.noexc.i.i.i.i.i.i.i.i12.i, %46
+  %.pr.i = load i64, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %47, ptr noundef nonnull align 8 dereferenceable(36) %23, i64 36, i1 false)
-  %67 = load i64, ptr %4, align 8
-  %.not.i.i.i.i.i.i = icmp eq i64 %67, 0
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt4swapIN3ue212_GLOBAL__N_112DAccelSchemeEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit, label %68
+  %.not.i.i.i.i.i.i = icmp eq i64 %.pr.i, 0
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt4swapIN3ue212_GLOBAL__N_112DAccelSchemeEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit, label %67
 
-68:                                               ; preds = %66
-  %69 = load ptr, ptr %1, align 8
-  %70 = icmp eq ptr %2, %69
-  br i1 %70, label %_ZSt4swapIN3ue212_GLOBAL__N_112DAccelSchemeEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit, label %71
+67:                                               ; preds = %66
+  %68 = load ptr, ptr %1, align 8
+  %69 = icmp eq ptr %2, %68
+  br i1 %69, label %_ZSt4swapIN3ue212_GLOBAL__N_112DAccelSchemeEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit, label %70
 
-71:                                               ; preds = %68
-  call void @_ZdlPv(ptr noundef %69) #25
+70:                                               ; preds = %67
+  call void @_ZdlPv(ptr noundef %68) #25
   br label %_ZSt4swapIN3ue212_GLOBAL__N_112DAccelSchemeEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit
 
-_ZSt4swapIN3ue212_GLOBAL__N_112DAccelSchemeEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit: ; preds = %66, %68, %71
+_ZSt4swapIN3ue212_GLOBAL__N_112DAccelSchemeEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit: ; preds = %.thread.i, %66, %67, %70
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %1) #24
   ret void
 }
@@ -9100,9 +9101,9 @@ define internal fastcc void @_ZSt16__insertion_sortIN5boost9container12vec_itera
   br i1 %3, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %0
-  %.sroa.08.014 = getelementptr inbounds nuw i8, ptr %.0.val, i64 72
-  %.not15 = icmp eq ptr %.sroa.08.014, %.0.val1
-  br i1 %.not15, label %.loopexit, label %.lr.ph
+  %.sroa.08.015 = getelementptr inbounds nuw i8, ptr %.0.val, i64 72
+  %.not16 = icmp eq ptr %.sroa.08.015, %.0.val1
+  br i1 %.not16, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -9117,35 +9118,35 @@ define internal fastcc void @_ZSt16__insertion_sortIN5boost9container12vec_itera
   %12 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
   br label %13
 
-13:                                               ; preds = %.lr.ph, %90
-  %.sroa.08.017 = phi ptr [ %.sroa.08.014, %.lr.ph ], [ %.sroa.08.0, %90 ]
-  %.0.val.pn16 = phi ptr [ %.0.val, %.lr.ph ], [ %.sroa.08.017, %90 ]
-  %14 = call fastcc noundef zeroext i1 @_ZNK3ue212_GLOBAL__N_112DAccelSchemeltERKS1_(ptr noundef nonnull align 8 dereferenceable(68) %.sroa.08.017, ptr noundef nonnull align 8 dereferenceable(68) %.0.val)
-  br i1 %14, label %15, label %89
+13:                                               ; preds = %.lr.ph, %89
+  %.sroa.08.018 = phi ptr [ %.sroa.08.015, %.lr.ph ], [ %.sroa.08.0, %89 ]
+  %.0.val.pn17 = phi ptr [ %.0.val, %.lr.ph ], [ %.sroa.08.018, %89 ]
+  %14 = call fastcc noundef zeroext i1 @_ZNK3ue212_GLOBAL__N_112DAccelSchemeltERKS1_(ptr noundef nonnull align 8 dereferenceable(68) %.sroa.08.018, ptr noundef nonnull align 8 dereferenceable(68) %.0.val)
+  br i1 %14, label %15, label %88
 
 15:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %1) #24
   store ptr %4, ptr %1, align 8
   store i64 0, ptr %5, align 8
   store i64 4, ptr %6, align 8
-  %16 = load ptr, ptr %.sroa.08.017, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %.0.val.pn16, i64 96
+  %16 = load ptr, ptr %.sroa.08.018, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %.0.val.pn17, i64 96
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %17, %16
   br i1 %.not.i.i.i.i.i.i.i.i, label %23, label %18
 
 18:                                               ; preds = %15
   store ptr %16, ptr %1, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %.0.val.pn16, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val.pn17, i64 80
   %20 = load i64, ptr %19, align 8
   store i64 %20, ptr %5, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %.0.val.pn16, i64 88
+  %21 = getelementptr inbounds nuw i8, ptr %.0.val.pn17, i64 88
   %22 = load i64, ptr %21, align 8
   store i64 %22, ptr %6, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %.sroa.08.017, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %.sroa.08.018, i8 0, i64 24, i1 false)
   br label %_ZN3ue212_GLOBAL__N_112DAccelSchemeC2EOS1_.exit
 
 23:                                               ; preds = %15
-  %24 = getelementptr inbounds nuw i8, ptr %.0.val.pn16, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %.0.val.pn17, i64 80
   %25 = load i64, ptr %24, align 8, !noalias !557
   %26 = getelementptr inbounds nuw %"struct.std::pair.127", ptr %16, i64 %25
   invoke void @_ZN5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6assignINS_13move_iteratorIPS3_EEEEvT_SC_PNS_11move_detail13disable_if_orIvNSD_7is_sameINSD_17integral_constantIjLj1EEENSG_IjLj0EEEEENSD_14is_convertibleISC_mEENS0_3dtl17is_input_iteratorISC_Xsr21has_iterator_categoryISC_EE5valueEEENSD_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(68) %1, ptr %16, ptr %26, ptr noundef null)
@@ -9175,20 +9176,20 @@ _ZN5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE
   resume { ptr, i32 } %28
 
 _ZN3ue212_GLOBAL__N_112DAccelSchemeC2EOS1_.exit:  ; preds = %18, %.noexc.i.i.i.i.i.i.i
-  %34 = getelementptr inbounds nuw i8, ptr %.0.val.pn16, i64 104
+  %34 = getelementptr inbounds nuw i8, ptr %.0.val.pn17, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull align 8 dereferenceable(36) %34, i64 36, i1 false)
-  %35 = ptrtoint ptr %.sroa.08.017 to i64
+  %35 = ptrtoint ptr %.sroa.08.018 to i64
   %36 = sub i64 %35, %8
   %37 = icmp sgt i64 %36, 0
   br i1 %37, label %.lr.ph.preheader.i.i.i.i.i, label %_ZSt13move_backwardIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112DAccelSchemeELb0EEES7_ET0_T_S9_S8_.exit
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZN3ue212_GLOBAL__N_112DAccelSchemeC2EOS1_.exit
-  %38 = getelementptr inbounds nuw i8, ptr %.0.val.pn16, i64 144
+  %38 = getelementptr inbounds nuw i8, ptr %.0.val.pn17, i64 144
   %39 = udiv exact i64 %36, 72
   br label %40
 
 40:                                               ; preds = %.lr.ph.preheader.i.i.i.i.i, %_ZN3ue212_GLOBAL__N_112DAccelSchemeaSEOS1_.exit.i.i.i.i.i
-  %.sroa.05.0.i.i.i.i = phi ptr [ %.sroa.08.017, %.lr.ph.preheader.i.i.i.i.i ], [ %41, %_ZN3ue212_GLOBAL__N_112DAccelSchemeaSEOS1_.exit.i.i.i.i.i ]
+  %.sroa.05.0.i.i.i.i = phi ptr [ %.sroa.08.018, %.lr.ph.preheader.i.i.i.i.i ], [ %41, %_ZN3ue212_GLOBAL__N_112DAccelSchemeaSEOS1_.exit.i.i.i.i.i ]
   %.sroa.0.0.i.i.i.i = phi ptr [ %38, %.lr.ph.preheader.i.i.i.i.i ], [ %42, %_ZN3ue212_GLOBAL__N_112DAccelSchemeaSEOS1_.exit.i.i.i.i.i ]
   %.01.i.i.i.i.i = phi i64 [ %39, %.lr.ph.preheader.i.i.i.i.i ], [ %66, %_ZN3ue212_GLOBAL__N_112DAccelSchemeaSEOS1_.exit.i.i.i.i.i ]
   %41 = getelementptr inbounds i8, ptr %.sroa.05.0.i.i.i.i, i64 -72
@@ -9265,22 +9266,22 @@ _ZSt13move_backwardIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112DAccel
   %.not.i.i.i.i.i.i.i.i.i21 = icmp eq ptr %71, null
   %72 = icmp eq ptr %10, %71
   %or.cond.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i21, i1 true, i1 %72
-  br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPS4_m.exit.i.i.i.i.i.i.i.i.i, label %73, !prof !169
+  br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %.thread, label %73, !prof !169
 
 73:                                               ; preds = %70
   call void @_ZdlPv(ptr noundef nonnull %71) #25
   %.pre = load ptr, ptr %1, align 8
-  br label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPS4_m.exit.i.i.i.i.i.i.i.i.i
+  br label %.thread
 
-_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPS4_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %73, %70
-  %74 = phi ptr [ %.pre, %73 ], [ %69, %70 ]
+.thread:                                          ; preds = %70, %73
+  %74 = phi ptr [ %69, %70 ], [ %.pre, %73 ]
   store ptr %74, ptr %.0.val, align 8
   %75 = load i64, ptr %5, align 8
   store i64 %75, ptr %9, align 8
   %76 = load i64, ptr %6, align 8
   store i64 %76, ptr %11, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %1, i8 0, i64 24, i1 false)
-  br label %83
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef nonnull align 8 dereferenceable(36) %7, i64 36, i1 false)
+  br label %_ZN3ue212_GLOBAL__N_112DAccelSchemeD2Ev.exit
 
 77:                                               ; preds = %68
   %78 = load i64, ptr %5, align 8, !noalias !575
@@ -9299,36 +9300,36 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIhh
   call void @__clang_call_terminate(ptr %82) #27
   unreachable
 
-83:                                               ; preds = %.noexc.i.i.i.i.i.i.i.i, %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPS4_m.exit.i.i.i.i.i.i.i.i.i, %_ZSt13move_backwardIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112DAccelSchemeELb0EEES7_ET0_T_S9_S8_.exit
+83:                                               ; preds = %.noexc.i.i.i.i.i.i.i.i, %_ZSt13move_backwardIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112DAccelSchemeELb0EEES7_ET0_T_S9_S8_.exit
+  %.pr = load i64, ptr %6, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef nonnull align 8 dereferenceable(36) %7, i64 36, i1 false)
-  %84 = load i64, ptr %6, align 8
-  %.not.i.i.i.i.i = icmp eq i64 %84, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN3ue212_GLOBAL__N_112DAccelSchemeD2Ev.exit, label %85
+  %.not.i.i.i.i.i = icmp eq i64 %.pr, 0
+  br i1 %.not.i.i.i.i.i, label %_ZN3ue212_GLOBAL__N_112DAccelSchemeD2Ev.exit, label %84
 
-85:                                               ; preds = %83
-  %86 = load ptr, ptr %1, align 8
-  %87 = icmp eq ptr %4, %86
-  br i1 %87, label %_ZN3ue212_GLOBAL__N_112DAccelSchemeD2Ev.exit, label %88
+84:                                               ; preds = %83
+  %85 = load ptr, ptr %1, align 8
+  %86 = icmp eq ptr %4, %85
+  br i1 %86, label %_ZN3ue212_GLOBAL__N_112DAccelSchemeD2Ev.exit, label %87
 
-88:                                               ; preds = %85
-  call void @_ZdlPv(ptr noundef %86) #25
+87:                                               ; preds = %84
+  call void @_ZdlPv(ptr noundef %85) #25
   br label %_ZN3ue212_GLOBAL__N_112DAccelSchemeD2Ev.exit
 
-_ZN3ue212_GLOBAL__N_112DAccelSchemeD2Ev.exit:     ; preds = %83, %85, %88
+_ZN3ue212_GLOBAL__N_112DAccelSchemeD2Ev.exit:     ; preds = %.thread, %83, %84, %87
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %1) #24
-  br label %90
+  br label %89
 
-89:                                               ; preds = %13
-  store ptr %.sroa.08.017, ptr %2, align 8
+88:                                               ; preds = %13
+  store ptr %.sroa.08.018, ptr %2, align 8
   call fastcc void @_ZSt25__unguarded_linear_insertIN5boost9container12vec_iteratorIPN3ue212_GLOBAL__N_112DAccelSchemeELb0EEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_(ptr noundef %2)
-  br label %90
+  br label %89
 
-90:                                               ; preds = %_ZN3ue212_GLOBAL__N_112DAccelSchemeD2Ev.exit, %89
-  %.sroa.08.0 = getelementptr inbounds nuw i8, ptr %.sroa.08.017, i64 72
+89:                                               ; preds = %_ZN3ue212_GLOBAL__N_112DAccelSchemeD2Ev.exit, %88
+  %.sroa.08.0 = getelementptr inbounds nuw i8, ptr %.sroa.08.018, i64 72
   %.not = icmp eq ptr %.sroa.08.0, %.0.val1
   br i1 %.not, label %.loopexit, label %13, !llvm.loop !578
 
-.loopexit:                                        ; preds = %90, %.preheader, %0
+.loopexit:                                        ; preds = %89, %.preheader, %0
   ret void
 }
 
@@ -9491,12 +9492,12 @@ _ZN3ue212_GLOBAL__N_112DAccelSchemeD2Ev.exit:     ; preds = %54, %57, %60
 
 61:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN3ue212_GLOBAL__N_112DAccelSchemeEN5boost9container12vec_iteratorIPS5_Lb0EEEEEbRT_T0_.exit
   %.not.i.i.i.i.i.i.i.i10 = icmp eq ptr %2, %.val3
-  br i1 %.not.i.i.i.i.i.i.i.i10, label %80, label %62, !prof !115
+  br i1 %.not.i.i.i.i.i.i.i.i10, label %81, label %62, !prof !115
 
 62:                                               ; preds = %61
   %63 = load ptr, ptr %2, align 8
   %.not16.i.i.i.i.i.i.i.i.i11 = icmp eq ptr %3, %63
-  br i1 %.not16.i.i.i.i.i.i.i.i.i11, label %74, label %64
+  br i1 %.not16.i.i.i.i.i.i.i.i.i11, label %75, label %64
 
 64:                                               ; preds = %62
   %65 = getelementptr inbounds nuw i8, ptr %.val3, i64 8
@@ -9506,49 +9507,50 @@ _ZN3ue212_GLOBAL__N_112DAccelSchemeD2Ev.exit:     ; preds = %54, %57, %60
   %67 = getelementptr inbounds nuw i8, ptr %.val3, i64 24
   %68 = icmp eq ptr %67, %66
   %or.cond.i.i.i.i.i.i.i.i.i13 = select i1 %.not.i.i.i.i.i.i.i.i.i12, i1 true, i1 %68
-  br i1 %or.cond.i.i.i.i.i.i.i.i.i13, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPS4_m.exit.i.i.i.i.i.i.i.i.i14, label %69, !prof !169
+  br i1 %or.cond.i.i.i.i.i.i.i.i.i13, label %.thread, label %69, !prof !169
 
 69:                                               ; preds = %64
   call void @_ZdlPv(ptr noundef nonnull %66) #25
   %.pre = load ptr, ptr %2, align 8
-  br label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPS4_m.exit.i.i.i.i.i.i.i.i.i14
+  br label %.thread
 
-_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPS4_m.exit.i.i.i.i.i.i.i.i.i14: ; preds = %69, %64
-  %70 = phi ptr [ %.pre, %69 ], [ %63, %64 ]
+.thread:                                          ; preds = %64, %69
+  %70 = phi ptr [ %63, %64 ], [ %.pre, %69 ]
   store ptr %70, ptr %.val3, align 8
   %71 = load i64, ptr %4, align 8
   store i64 %71, ptr %65, align 8
   %72 = load i64, ptr %5, align 8
   %73 = getelementptr inbounds nuw i8, ptr %.val3, i64 16
   store i64 %72, ptr %73, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %2, i8 0, i64 24, i1 false)
-  br label %80
+  %74 = getelementptr inbounds nuw i8, ptr %.val3, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %74, ptr noundef nonnull align 8 dereferenceable(36) %24, i64 36, i1 false)
+  br label %_ZN3ue212_GLOBAL__N_112DAccelSchemeD2Ev.exit18
 
-74:                                               ; preds = %62
-  %75 = load i64, ptr %4, align 8, !noalias !586
-  %76 = getelementptr inbounds nuw %"struct.std::pair.127", ptr %63, i64 %75
-  invoke void @_ZN5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6assignINS_13move_iteratorIPS3_EEEEvT_SC_PNS_11move_detail13disable_if_orIvNSD_7is_sameINSD_17integral_constantIjLj1EEENSG_IjLj0EEEEENSD_14is_convertibleISC_mEENS0_3dtl17is_input_iteratorISC_Xsr21has_iterator_categoryISC_EE5valueEEENSD_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(68) %.val3, ptr %63, ptr %76, ptr noundef null)
-          to label %.noexc.i.i.i.i.i.i.i.i15 unwind label %77
+75:                                               ; preds = %62
+  %76 = load i64, ptr %4, align 8, !noalias !586
+  %77 = getelementptr inbounds nuw %"struct.std::pair.127", ptr %63, i64 %76
+  invoke void @_ZN5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6assignINS_13move_iteratorIPS3_EEEEvT_SC_PNS_11move_detail13disable_if_orIvNSD_7is_sameINSD_17integral_constantIjLj1EEENSG_IjLj0EEEEENSD_14is_convertibleISC_mEENS0_3dtl17is_input_iteratorISC_Xsr21has_iterator_categoryISC_EE5valueEEENSD_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(68) %.val3, ptr %63, ptr %77, ptr noundef null)
+          to label %.noexc.i.i.i.i.i.i.i.i15 unwind label %78
 
-.noexc.i.i.i.i.i.i.i.i15:                         ; preds = %74
+.noexc.i.i.i.i.i.i.i.i15:                         ; preds = %75
   store i64 0, ptr %4, align 8
-  br label %80
+  br label %81
 
-77:                                               ; preds = %74
-  %78 = landingpad { ptr, i32 }
+78:                                               ; preds = %75
+  %79 = landingpad { ptr, i32 }
           catch ptr null
-  %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #27
+  %80 = extractvalue { ptr, i32 } %79, 0
+  call void @__clang_call_terminate(ptr %80) #27
   unreachable
 
-80:                                               ; preds = %.noexc.i.i.i.i.i.i.i.i15, %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPS4_m.exit.i.i.i.i.i.i.i.i.i14, %61
-  %81 = getelementptr inbounds nuw i8, ptr %.val3, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %81, ptr noundef nonnull align 8 dereferenceable(36) %24, i64 36, i1 false)
-  %82 = load i64, ptr %5, align 8
-  %.not.i.i.i.i.i17 = icmp eq i64 %82, 0
+81:                                               ; preds = %.noexc.i.i.i.i.i.i.i.i15, %61
+  %.pr = load i64, ptr %5, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %.val3, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %82, ptr noundef nonnull align 8 dereferenceable(36) %24, i64 36, i1 false)
+  %.not.i.i.i.i.i17 = icmp eq i64 %.pr, 0
   br i1 %.not.i.i.i.i.i17, label %_ZN3ue212_GLOBAL__N_112DAccelSchemeD2Ev.exit18, label %83
 
-83:                                               ; preds = %80
+83:                                               ; preds = %81
   %84 = load ptr, ptr %2, align 8
   %85 = icmp eq ptr %3, %84
   br i1 %85, label %_ZN3ue212_GLOBAL__N_112DAccelSchemeD2Ev.exit18, label %86
@@ -9557,7 +9559,7 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIhh
   call void @_ZdlPv(ptr noundef %84) #25
   br label %_ZN3ue212_GLOBAL__N_112DAccelSchemeD2Ev.exit18
 
-_ZN3ue212_GLOBAL__N_112DAccelSchemeD2Ev.exit18:   ; preds = %80, %83, %86
+_ZN3ue212_GLOBAL__N_112DAccelSchemeD2Ev.exit18:   ; preds = %.thread, %81, %83, %86
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #24
   ret void
 }
@@ -13228,23 +13230,22 @@ _ZN5boost9container12small_vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %52 = icmp eq ptr %51, %50
   %or.cond.i.i.i.i9 = select i1 %.not.i.i.i.i8, i1 true, i1 %52
-  br i1 %or.cond.i.i.i.i9, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPSB_m.exit.i.i.i.i10, label %53, !prof !169
+  br i1 %or.cond.i.i.i.i9, label %_ZN5boost9container12small_vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEELm1ESaISA_EvEaSEOSC_.exit12.thread, label %53, !prof !169
 
 53:                                               ; preds = %48
   call void @_ZdlPv(ptr noundef nonnull %50) #25
   %.pre = load ptr, ptr %3, align 8
-  br label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPSB_m.exit.i.i.i.i10
+  br label %_ZN5boost9container12small_vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEELm1ESaISA_EvEaSEOSC_.exit12.thread
 
-_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPSB_m.exit.i.i.i.i10: ; preds = %53, %48
-  %54 = phi ptr [ %.pre, %53 ], [ %47, %48 ]
+_ZN5boost9container12small_vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEELm1ESaISA_EvEaSEOSC_.exit12.thread: ; preds = %48, %53
+  %54 = phi ptr [ %47, %48 ], [ %.pre, %53 ]
   store ptr %54, ptr %1, align 8
   %55 = load i64, ptr %5, align 8
   store i64 %55, ptr %49, align 8
   %56 = load i64, ptr %6, align 8
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %56, ptr %57, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 24, i1 false)
-  br label %_ZN5boost9container12small_vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEELm1ESaISA_EvEaSEOSC_.exit12
+  br label %_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvED2Ev.exit
 
 58:                                               ; preds = %46
   %59 = load i64, ptr %5, align 8, !noalias !679
@@ -13263,21 +13264,21 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212gra
   call void @__clang_call_terminate(ptr %63) #27
   unreachable
 
-_ZN5boost9container12small_vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEELm1ESaISA_EvEaSEOSC_.exit12: ; preds = %.noexc.i.i.i11, %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPSB_m.exit.i.i.i.i10, %_ZN5boost9container12small_vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEELm1ESaISA_EvEaSEOSC_.exit
-  %64 = load i64, ptr %6, align 8
-  %.not.i.i13 = icmp eq i64 %64, 0
-  br i1 %.not.i.i13, label %_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvED2Ev.exit, label %65
+_ZN5boost9container12small_vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEELm1ESaISA_EvEaSEOSC_.exit12: ; preds = %.noexc.i.i.i11, %_ZN5boost9container12small_vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEELm1ESaISA_EvEaSEOSC_.exit
+  %.pr = load i64, ptr %6, align 8
+  %.not.i.i13 = icmp eq i64 %.pr, 0
+  br i1 %.not.i.i13, label %_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvED2Ev.exit, label %64
 
-65:                                               ; preds = %_ZN5boost9container12small_vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEELm1ESaISA_EvEaSEOSC_.exit12
-  %66 = load ptr, ptr %3, align 8
-  %67 = icmp eq ptr %4, %66
-  br i1 %67, label %_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvED2Ev.exit, label %68
+64:                                               ; preds = %_ZN5boost9container12small_vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEELm1ESaISA_EvEaSEOSC_.exit12
+  %65 = load ptr, ptr %3, align 8
+  %66 = icmp eq ptr %4, %65
+  br i1 %66, label %_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvED2Ev.exit, label %67
 
-68:                                               ; preds = %65
-  call void @_ZdlPv(ptr noundef %66) #25
+67:                                               ; preds = %64
+  call void @_ZdlPv(ptr noundef %65) #25
   br label %_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvED2Ev.exit
 
-_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvED2Ev.exit: ; preds = %_ZN5boost9container12small_vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEELm1ESaISA_EvEaSEOSC_.exit12, %65, %68
+_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvED2Ev.exit: ; preds = %_ZN5boost9container12small_vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEELm1ESaISA_EvEaSEOSC_.exit12.thread, %_ZN5boost9container12small_vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEELm1ESaISA_EvEaSEOSC_.exit12, %64, %67
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #24
   ret void
 }

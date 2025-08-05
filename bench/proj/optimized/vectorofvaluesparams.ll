@@ -38,7 +38,7 @@ define hidden void @_ZN5osgeo4proj9operation14VectorOfValuesC2ESt16initializer_l
   %.idx.i = mul nuw nsw i64 %2, 24
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
   %.not1.i = icmp eq i64 %2, 0
-  br i1 %.not1.i, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EED2Ev.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %_ZN5osgeo4proj9operationL30buildParameterValueFromMeasureERKSt16initializer_listINS0_6common7MeasureEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -151,9 +151,9 @@ _ZN5osgeo4proj9operationL30buildParameterValueFromMeasureERKSt16initializer_list
   %.pre = load ptr, ptr %5, align 8, !tbaa !28
   %.pre3 = load ptr, ptr %7, align 8, !tbaa !6
   %.pre5 = load ptr, ptr %8, align 8, !tbaa !12
-  br label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EED2Ev.exit
+  br label %_ZN5osgeo4proj9operationL30buildParameterValueFromMeasureERKSt16initializer_listINS0_6common7MeasureEE.exit
 
-_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EED2Ev.exit: ; preds = %_ZN5osgeo4proj9operationL30buildParameterValueFromMeasureERKSt16initializer_listINS0_6common7MeasureEE.exit.loopexit, %3
+_ZN5osgeo4proj9operationL30buildParameterValueFromMeasureERKSt16initializer_listINS0_6common7MeasureEE.exit: ; preds = %_ZN5osgeo4proj9operationL30buildParameterValueFromMeasureERKSt16initializer_listINS0_6common7MeasureEE.exit.loopexit, %3
   %48 = phi ptr [ %.pre5, %_ZN5osgeo4proj9operationL30buildParameterValueFromMeasureERKSt16initializer_listINS0_6common7MeasureEE.exit.loopexit ], [ null, %3 ]
   %49 = phi ptr [ %.pre3, %_ZN5osgeo4proj9operationL30buildParameterValueFromMeasureERKSt16initializer_listINS0_6common7MeasureEE.exit.loopexit ], [ null, %3 ]
   %50 = phi ptr [ %.pre, %_ZN5osgeo4proj9operationL30buildParameterValueFromMeasureERKSt16initializer_listINS0_6common7MeasureEE.exit.loopexit ], [ null, %3 ]

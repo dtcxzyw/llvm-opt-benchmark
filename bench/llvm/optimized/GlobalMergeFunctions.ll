@@ -2475,7 +2475,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIjjEmNS_12DenseMapInfoIS3_vEENS_6deta
 .lr.ph57.i:                                       ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIjjEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E5beginEv.exit.i118
   %583 = icmp ugt i32 %557, 1
   %wide.trip.count.i = zext i32 %557 to i64
-  br label %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
+  br label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i
 
 ._crit_edge58.i:                                  ; preds = %_ZN4llvm16DenseMapIteratorISt4pairIjjEmNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_mEELb0EEppEv.exit.i123
   %.pre.i124 = load ptr, ptr %65, align 8, !tbaa !219, !noalias !210
@@ -2485,7 +2485,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIjjEmNS_12DenseMapInfoIS3_vEENS_6deta
   %.not4959.i = icmp eq ptr %.pre.i124, %63
   br i1 %.not4959.i, label %_ZL16computeParamInfoRKN4llvm11SmallVectorISt10unique_ptrINS_17StableFunctionMap19StableFunctionEntryESt14default_deleteIS3_EELj6EEE.exit, label %.lr.ph62.i
 
-_ZNSt6vectorImSaImEE9push_backERKm.exit.i:        ; preds = %_ZN4llvm16DenseMapIteratorISt4pairIjjEmNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_mEELb0EEppEv.exit.i123, %.lr.ph57.i
+_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %_ZN4llvm16DenseMapIteratorISt4pairIjjEmNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_mEELb0EEppEv.exit.i123, %.lr.ph57.i
   %.sroa.045.056.i = phi ptr [ %.pn13.i.i119, %.lr.ph57.i ], [ %.sroa.045.2.i, %_ZN4llvm16DenseMapIteratorISt4pairIjjEmNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_mEELb0EEppEv.exit.i123 ]
   %584 = getelementptr inbounds nuw i8, ptr %.sroa.045.056.i, i64 8
   %585 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
@@ -2494,7 +2494,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit.i:        ; preds = %_ZN4llvm16DenseMapI
   %587 = getelementptr inbounds nuw i8, ptr %585, i64 8
   br i1 %583, label %.lr.ph.i127, label %_ZNSt6vectorImSaImEED2Ev.exit.i
 
-.lr.ph.i127:                                      ; preds = %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
+.lr.ph.i127:                                      ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i
   %588 = getelementptr inbounds nuw i8, ptr %.sroa.045.056.i, i64 4
   br label %589
 
@@ -2905,9 +2905,9 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIjjELb1EE9push_backES2_.exit.i: ; preds
   store i32 %787, ptr %774, align 8, !tbaa !26
   br label %_ZNSt6vectorImSaImEED2Ev.exit.i
 
-_ZNSt6vectorImSaImEED2Ev.exit.i:                  ; preds = %_ZNSt6vectorImSaImEE9push_backERKm.exit.i, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIjjELb1EE9push_backES2_.exit.i, %._crit_edge.i
-  %.sroa.0.8 = phi ptr [ %585, %_ZNSt6vectorImSaImEE9push_backERKm.exit.i ], [ %.sroa.0.11, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIjjELb1EE9push_backES2_.exit.i ], [ %.sroa.0.11, %._crit_edge.i ]
-  %.sroa.12.8 = phi ptr [ %587, %_ZNSt6vectorImSaImEE9push_backERKm.exit.i ], [ %.sroa.12.11, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIjjELb1EE9push_backES2_.exit.i ], [ %.sroa.12.11, %._crit_edge.i ]
+_ZNSt6vectorImSaImEED2Ev.exit.i:                  ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIjjELb1EE9push_backES2_.exit.i, %._crit_edge.i
+  %.sroa.0.8 = phi ptr [ %585, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %.sroa.0.11, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIjjELb1EE9push_backES2_.exit.i ], [ %.sroa.0.11, %._crit_edge.i ]
+  %.sroa.12.8 = phi ptr [ %587, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %.sroa.12.11, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIjjELb1EE9push_backES2_.exit.i ], [ %.sroa.12.11, %._crit_edge.i ]
   %788 = ptrtoint ptr %.sroa.12.8 to i64
   %789 = ptrtoint ptr %.sroa.0.8 to i64
   %790 = sub i64 %788, %789
@@ -2940,7 +2940,7 @@ _ZNSt6vectorImSaImEED2Ev.exit.i:                  ; preds = %_ZNSt6vectorImSaImE
 _ZN4llvm16DenseMapIteratorISt4pairIjjEmNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_mEELb0EEppEv.exit.i123: ; preds = %.critedge2.i5.i.i125, %798, %_ZNSt6vectorImSaImEED2Ev.exit.i
   %.sroa.045.2.i = phi ptr [ %791, %_ZNSt6vectorImSaImEED2Ev.exit.i ], [ %802, %.critedge2.i5.i.i125 ], [ %.sroa.045.1.i, %798 ]
   %.not48.i = icmp eq ptr %.sroa.045.2.i, %582
-  br i1 %.not48.i, label %._crit_edge58.i, label %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
+  br i1 %.not48.i, label %._crit_edge58.i, label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i
 
 ._crit_edge63.i:                                  ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorISt4pairIjjELj4EEELb0EE9push_backEOS4_.exit.i
   %.val.pre.i = load ptr, ptr %27, align 8, !tbaa !25, !alias.scope !210

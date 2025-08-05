@@ -2492,7 +2492,6 @@ define weak_odr void @_Z38pressureCouplingCalculateScalingMatrixIL16PressureCoup
   store i64 24576, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !149
   call void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEEvPSt5arrayIT_XT0_EES4_(ptr noundef nonnull align 8 dereferenceable(52) %13, i64 noundef 63)
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %.sroa.74.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 24
   %20 = load i64, ptr %13, align 8, !tbaa !146
   %21 = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !146
   %22 = xor i64 %20, %21
@@ -2515,10 +2514,11 @@ define weak_odr void @_Z38pressureCouplingCalculateScalingMatrixIL16PressureCoup
   %34 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store float 0.000000e+00, ptr %34, align 4, !tbaa !257
   store i64 %1, ptr %19, align 8
-  store i64 0, ptr %.sroa.74.0..sroa_idx.i.i.i, align 8, !tbaa !149
+  %.sroa.43.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 24
+  store i64 0, ptr %.sroa.43.0..sroa_idx.i.i.i, align 8, !tbaa !149
   %35 = add i64 %20, %1
   %36 = add i64 %35, %21
-  %37 = xor i64 %24, %36
+  %37 = xor i64 %36, %24
   %38 = add i64 %37, %36
   %39 = call i64 @llvm.fshl.i64(i64 %37, i64 %37, i64 42)
   %40 = xor i64 %39, %38
@@ -7545,46 +7545,46 @@ define noundef float @_Z20vrescale_resamplekinffffll(float noundef %0, float nou
   store i64 20480, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !tbaa !149
   call void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEEvPSt5arrayIT_XT0_EES4_(ptr noundef nonnull align 8 dereferenceable(52) %9, i64 noundef 63)
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sroa.74.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 24
   %12 = load i64, ptr %9, align 8, !tbaa !146
   %13 = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !tbaa !146
   %14 = xor i64 %12, %13
   %15 = xor i64 %14, 2004413935125273122
-  %16 = call i64 @llvm.fshl.i64(i64 %13, i64 %13, i64 16)
-  %17 = add i64 %15, 1
-  %18 = add i64 %12, 2
-  %19 = add i64 %13, 3
-  %20 = add i64 %15, 4
-  %21 = add i64 %12, 5
-  %22 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %16 = add i64 %13, %12
+  %17 = call i64 @llvm.fshl.i64(i64 %13, i64 %13, i64 16)
+  %18 = add i64 %15, 1
+  %19 = add i64 %12, 2
+  %20 = add i64 %13, 3
+  %21 = add i64 %15, 4
+  %22 = add i64 %12, 5
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %.sroa.4.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %23 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 48
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #22
   store float 0.000000e+00, ptr %10, align 4, !tbaa !252
-  %24 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store float 1.000000e+00, ptr %24, align 4, !tbaa !254
-  %25 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i8 0, ptr %25, align 4, !tbaa !255
-  %26 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store float 0.000000e+00, ptr %26, align 4, !tbaa !257
-  %27 = fpext float %3 to double
-  %28 = fcmp ogt double %27, 1.000000e-01
-  br i1 %28, label %29, label %34
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  store float 1.000000e+00, ptr %25, align 4, !tbaa !254
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i8 0, ptr %26, align 4, !tbaa !255
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  store float 0.000000e+00, ptr %27, align 4, !tbaa !257
+  %28 = fpext float %3 to double
+  %29 = fcmp ogt double %28, 1.000000e-01
+  br i1 %29, label %30, label %35
 
-29:                                               ; preds = %6
-  %30 = fdiv double -1.000000e+00, %27
-  %31 = call double @exp(double noundef %30) #22, !tbaa !136
-  %32 = fptrunc double %31 to float
-  %33 = fpext float %32 to double
-  br label %34
+30:                                               ; preds = %6
+  %31 = fdiv double -1.000000e+00, %28
+  %32 = call double @exp(double noundef %31) #22, !tbaa !136
+  %33 = fptrunc double %32 to float
+  %34 = fpext float %33 to double
+  br label %35
 
-34:                                               ; preds = %6, %29
-  %.0 = phi double [ %33, %29 ], [ 0.000000e+00, %6 ]
+35:                                               ; preds = %6, %30
+  %.0 = phi double [ %34, %30 ], [ 0.000000e+00, %6 ]
   store i64 %4, ptr %11, align 8
-  store i64 0, ptr %.sroa.74.0..sroa_idx.i, align 8, !tbaa !149
-  %35 = add i64 %12, %4
-  %36 = add i64 %35, %13
-  %37 = xor i64 %16, %36
+  %.sroa.43.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store i64 0, ptr %.sroa.43.0..sroa_idx.i, align 8, !tbaa !149
+  %36 = add i64 %16, %4
+  %37 = xor i64 %17, %36
   %38 = add i64 %37, %36
   %39 = call i64 @llvm.fshl.i64(i64 %37, i64 %37, i64 42)
   %40 = xor i64 %39, %38
@@ -7595,7 +7595,7 @@ define noundef float @_Z20vrescale_resamplekinffffll(float noundef %0, float nou
   %45 = call i64 @llvm.fshl.i64(i64 %43, i64 %43, i64 31)
   %46 = xor i64 %45, %44
   %47 = add i64 %44, %13
-  %48 = add i64 %46, %17
+  %48 = add i64 %46, %18
   %49 = add i64 %47, %48
   %50 = call i64 @llvm.fshl.i64(i64 %48, i64 %48, i64 16)
   %51 = xor i64 %50, %49
@@ -7609,7 +7609,7 @@ define noundef float @_Z20vrescale_resamplekinffffll(float noundef %0, float nou
   %59 = call i64 @llvm.fshl.i64(i64 %57, i64 %57, i64 21)
   %60 = xor i64 %59, %58
   %61 = add i64 %58, %15
-  %62 = add i64 %60, %18
+  %62 = add i64 %60, %19
   %63 = add i64 %61, %62
   %64 = call i64 @llvm.fshl.i64(i64 %62, i64 %62, i64 16)
   %65 = xor i64 %64, %63
@@ -7623,7 +7623,7 @@ define noundef float @_Z20vrescale_resamplekinffffll(float noundef %0, float nou
   %73 = call i64 @llvm.fshl.i64(i64 %71, i64 %71, i64 31)
   %74 = xor i64 %73, %72
   %75 = add i64 %72, %12
-  %76 = add i64 %74, %19
+  %76 = add i64 %74, %20
   %77 = add i64 %75, %76
   %78 = call i64 @llvm.fshl.i64(i64 %76, i64 %76, i64 16)
   %79 = xor i64 %78, %77
@@ -7637,7 +7637,7 @@ define noundef float @_Z20vrescale_resamplekinffffll(float noundef %0, float nou
   %87 = call i64 @llvm.fshl.i64(i64 %85, i64 %85, i64 21)
   %88 = xor i64 %87, %86
   %89 = add i64 %86, %13
-  %90 = add i64 %88, %20
+  %90 = add i64 %88, %21
   %91 = add i64 %89, %90
   %92 = call i64 @llvm.fshl.i64(i64 %90, i64 %90, i64 16)
   %93 = xor i64 %92, %91
@@ -7651,10 +7651,10 @@ define noundef float @_Z20vrescale_resamplekinffffll(float noundef %0, float nou
   %101 = call i64 @llvm.fshl.i64(i64 %99, i64 %99, i64 31)
   %102 = xor i64 %101, %100
   %103 = add i64 %100, %15
-  %104 = add i64 %102, %21
-  store i64 %103, ptr %22, align 8
+  %104 = add i64 %102, %22
+  store i64 %103, ptr %23, align 8
   store i64 %104, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !149
-  store i32 0, ptr %23, align 8, !tbaa !258
+  store i32 0, ptr %24, align 8, !tbaa !258
   %105 = call noundef float @_ZN3gmx18NormalDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(52) %9, ptr noundef nonnull align 4 dereferenceable(16) %10)
   %106 = fadd float %2, -1.000000e+00
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
@@ -7663,7 +7663,7 @@ define noundef float @_Z20vrescale_resamplekinffffll(float noundef %0, float nou
   %108 = fcmp olt float %106, 0x4000003460000000
   br i1 %108, label %109, label %125
 
-109:                                              ; preds = %34
+109:                                              ; preds = %35
   %110 = call float @llvm.rint.f32(float %106)
   %111 = fptosi float %110 to i32
   %112 = sitofp i32 %111 to float
@@ -7704,7 +7704,7 @@ define noundef float @_Z20vrescale_resamplekinffffll(float noundef %0, float nou
   %exitcond.not.i = icmp eq i32 %124, %111
   br i1 %exitcond.not.i, label %_ZL18vrescale_sumnoisesfPN3gmx12ThreeFry2x64ILj64EEEPNS_18NormalDistributionIfEE.exit, label %.lr.ph.i, !llvm.loop !417
 
-125:                                              ; preds = %34
+125:                                              ; preds = %35
   %126 = call noundef float @_ZN3gmx17GammaDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(52) %9, ptr noundef nonnull align 4 dereferenceable(8) %7)
   %127 = fmul float %126, 2.000000e+00
   br label %_ZL18vrescale_sumnoisesfPN3gmx12ThreeFry2x64ILj64EEEPNS_18NormalDistributionIfEE.exit

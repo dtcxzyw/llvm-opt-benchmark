@@ -1115,9 +1115,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBase
   %379 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %375, ptr %379, align 8, !noalias !32
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(184) %365)
-          to label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEESaIS3_EED2Ev.exit.i.i26 unwind label %457, !noalias !32
+          to label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEES3_EvT_S5_RSaIT0_E.exit.i.i.i26 unwind label %457, !noalias !32
 
-_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEESaIS3_EED2Ev.exit.i.i26: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEESaIS3_EEC2ERKS5_.exit.i.i25
+_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEES3_EvT_S5_RSaIT0_E.exit.i.i.i26: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEESaIS3_EEC2ERKS5_.exit.i.i25
   %380 = getelementptr inbounds nuw i8, ptr %365, i64 120
   store ptr %372, ptr %380, align 8, !noalias !32
   %381 = getelementptr inbounds nuw i8, ptr %365, i64 128
@@ -1134,7 +1134,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBase
   %.not.i.i.i15.i.i27 = icmp eq ptr %385, null
   br i1 %.not.i.i.i15.i.i27, label %399, label %386
 
-386:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEESaIS3_EED2Ev.exit.i.i26
+386:                                              ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEES3_EvT_S5_RSaIT0_E.exit.i.i.i26
   %387 = getelementptr inbounds nuw i8, ptr %385, i64 8
   %388 = load atomic i32, ptr %387 monotonic, align 4, !noalias !32
   %389 = icmp slt i32 %388, 0
@@ -1160,7 +1160,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBase
   %398 = atomicrmw add ptr %387, i32 1 monotonic, align 4, !noalias !32
   br label %399
 
-399:                                              ; preds = %397, %396, %391, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEESaIS3_EED2Ev.exit.i.i26
+399:                                              ; preds = %397, %396, %391, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEES3_EvT_S5_RSaIT0_E.exit.i.i.i26
   %400 = getelementptr inbounds nuw i8, ptr %365, i64 160
   %401 = getelementptr inbounds nuw i8, ptr %365, i64 168
   store ptr null, ptr %401, align 8, !noalias !32

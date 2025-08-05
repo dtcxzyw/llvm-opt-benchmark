@@ -5297,13 +5297,13 @@ _ZN4llvm3rdf12RegisterAggrC2ERKNS0_20PhysicalRegisterInfoE.exit: ; preds = %_ZSt
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store i64 0, ptr %50, align 8, !tbaa !108
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %53 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #27
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  store ptr %53, ptr %51, align 8, !tbaa !64
-  store ptr %53, ptr %54, align 8, !tbaa !417
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 256
-  store ptr %55, ptr %52, align 8, !tbaa !418
+  %52 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #27
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  store ptr %52, ptr %51, align 8, !tbaa !64
+  store ptr %52, ptr %53, align 8, !tbaa !417
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 256
+  store ptr %55, ptr %54, align 8, !tbaa !418
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 496
   store i32 0, ptr %56, align 8, !tbaa !419
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 504
@@ -5438,13 +5438,13 @@ _ZN4llvm3rdf12RegisterAggrC2ERKNS0_20PhysicalRegisterInfoE.exit: ; preds = %_ZSt
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store i64 0, ptr %48, align 8, !tbaa !108
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %51 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #27
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  store ptr %51, ptr %49, align 8, !tbaa !64
-  store ptr %51, ptr %52, align 8, !tbaa !417
-  %53 = getelementptr inbounds nuw i8, ptr %51, i64 256
-  store ptr %53, ptr %50, align 8, !tbaa !418
+  %50 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #27
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  store ptr %50, ptr %49, align 8, !tbaa !64
+  store ptr %50, ptr %51, align 8, !tbaa !417
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 256
+  store ptr %53, ptr %52, align 8, !tbaa !418
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 496
   store i32 0, ptr %54, align 8, !tbaa !419
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 504

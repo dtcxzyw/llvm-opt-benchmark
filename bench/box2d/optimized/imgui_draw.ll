@@ -2423,193 +2423,193 @@ _ZN8ImVectorI9ImDrawCmdE5clearEv.exit.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %1, i8 0, i64 200, i1 false)
   store ptr %3, ptr %4, align 8, !tbaa !50
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre = load i32, ptr %0, align 8, !tbaa !43
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %7 = icmp sgt i32 %.pre, 0
-  br i1 %7, label %_ZNK8ImVectorI9ImDrawCmdE14_grow_capacityEi.exit.i.i, label %_ZN8ImVectorI9ImDrawCmdE6resizeEi.exit.i
+  %6 = load i32, ptr %0, align 8, !tbaa !43
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %8 = icmp sgt i32 %6, 0
+  br i1 %8, label %_ZNK8ImVectorI9ImDrawCmdE14_grow_capacityEi.exit.i.i, label %_ZN8ImVectorI9ImDrawCmdE6resizeEi.exit.i
 
 _ZNK8ImVectorI9ImDrawCmdE14_grow_capacityEi.exit.i.i: ; preds = %_ZN8ImVectorI9ImDrawCmdE5clearEv.exit.i
-  %8 = tail call i32 @llvm.umax.i32(i32 %.pre, i32 8)
-  %9 = zext nneg i32 %8 to i64
-  %10 = mul nuw nsw i64 %9, 56
-  %11 = tail call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %10)
-  %12 = load ptr, ptr %5, align 8, !tbaa !42
-  %.not6.i.i.i = icmp eq ptr %12, null
-  br i1 %.not6.i.i.i, label %18, label %13
+  %9 = tail call i32 @llvm.umax.i32(i32 %6, i32 8)
+  %10 = zext nneg i32 %9 to i64
+  %11 = mul nuw nsw i64 %10, 56
+  %12 = tail call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %11)
+  %13 = load ptr, ptr %5, align 8, !tbaa !42
+  %.not6.i.i.i = icmp eq ptr %13, null
+  br i1 %.not6.i.i.i, label %19, label %14
 
-13:                                               ; preds = %_ZNK8ImVectorI9ImDrawCmdE14_grow_capacityEi.exit.i.i
-  %14 = load i32, ptr %1, align 8, !tbaa !43
-  %15 = sext i32 %14 to i64
-  %16 = mul nsw i64 %15, 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr nonnull align 8 %12, i64 %16, i1 false)
-  %17 = load ptr, ptr %5, align 8, !tbaa !42
-  tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef %17)
-  br label %18
+14:                                               ; preds = %_ZNK8ImVectorI9ImDrawCmdE14_grow_capacityEi.exit.i.i
+  %15 = load i32, ptr %1, align 8, !tbaa !43
+  %16 = sext i32 %15 to i64
+  %17 = mul nsw i64 %16, 56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr nonnull align 8 %13, i64 %17, i1 false)
+  %18 = load ptr, ptr %5, align 8, !tbaa !42
+  tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef %18)
+  br label %19
 
-18:                                               ; preds = %13, %_ZNK8ImVectorI9ImDrawCmdE14_grow_capacityEi.exit.i.i
-  store ptr %11, ptr %5, align 8, !tbaa !42
-  store i32 %8, ptr %6, align 4, !tbaa !41
+19:                                               ; preds = %14, %_ZNK8ImVectorI9ImDrawCmdE14_grow_capacityEi.exit.i.i
+  store ptr %12, ptr %5, align 8, !tbaa !42
+  store i32 %9, ptr %7, align 4, !tbaa !41
   br label %_ZN8ImVectorI9ImDrawCmdE6resizeEi.exit.i
 
-_ZN8ImVectorI9ImDrawCmdE6resizeEi.exit.i:         ; preds = %18, %_ZN8ImVectorI9ImDrawCmdE5clearEv.exit.i
-  %19 = phi ptr [ null, %_ZN8ImVectorI9ImDrawCmdE5clearEv.exit.i ], [ %11, %18 ]
-  store i32 %.pre, ptr %1, align 8, !tbaa !43
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !42
-  %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %_ZN8ImVectorI9ImDrawCmdEaSERKS1_.exit, label %22
+_ZN8ImVectorI9ImDrawCmdE6resizeEi.exit.i:         ; preds = %19, %_ZN8ImVectorI9ImDrawCmdE5clearEv.exit.i
+  %20 = phi ptr [ null, %_ZN8ImVectorI9ImDrawCmdE5clearEv.exit.i ], [ %12, %19 ]
+  store i32 %6, ptr %1, align 8, !tbaa !43
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !42
+  %.not.i = icmp eq ptr %22, null
+  br i1 %.not.i, label %_ZN8ImVectorI9ImDrawCmdEaSERKS1_.exit, label %23
 
-22:                                               ; preds = %_ZN8ImVectorI9ImDrawCmdE6resizeEi.exit.i
-  %23 = sext i32 %.pre to i64
-  %24 = mul nsw i64 %23, 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr nonnull align 8 %21, i64 %24, i1 false)
+23:                                               ; preds = %_ZN8ImVectorI9ImDrawCmdE6resizeEi.exit.i
+  %24 = sext i32 %6 to i64
+  %25 = mul nsw i64 %24, 56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr nonnull align 8 %22, i64 %25, i1 false)
   br label %_ZN8ImVectorI9ImDrawCmdEaSERKS1_.exit
 
-_ZN8ImVectorI9ImDrawCmdEaSERKS1_.exit:            ; preds = %_ZN8ImVectorI9ImDrawCmdE6resizeEi.exit.i, %22
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %28 = load ptr, ptr %27, align 8, !tbaa !45
-  %.not.i.i7 = icmp eq ptr %28, null
-  br i1 %.not.i.i7, label %_ZN8ImVectorItE5clearEv.exit.i, label %29
+_ZN8ImVectorI9ImDrawCmdEaSERKS1_.exit:            ; preds = %_ZN8ImVectorI9ImDrawCmdE6resizeEi.exit.i, %23
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %29 = load ptr, ptr %28, align 8, !tbaa !45
+  %.not.i.i7 = icmp eq ptr %29, null
+  br i1 %.not.i.i7, label %_ZN8ImVectorItE5clearEv.exit.i, label %30
 
-29:                                               ; preds = %_ZN8ImVectorI9ImDrawCmdEaSERKS1_.exit
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i32 0, ptr %30, align 4, !tbaa !44
-  store i32 0, ptr %26, align 8, !tbaa !46
-  tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %28)
-  store ptr null, ptr %27, align 8, !tbaa !45
+30:                                               ; preds = %_ZN8ImVectorI9ImDrawCmdEaSERKS1_.exit
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  store i32 0, ptr %31, align 4, !tbaa !44
+  store i32 0, ptr %27, align 8, !tbaa !46
+  tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %29)
+  store ptr null, ptr %28, align 8, !tbaa !45
   br label %_ZN8ImVectorItE5clearEv.exit.i
 
-_ZN8ImVectorItE5clearEv.exit.i:                   ; preds = %29, %_ZN8ImVectorI9ImDrawCmdEaSERKS1_.exit
-  %31 = load i32, ptr %25, align 8, !tbaa !46
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %33 = load i32, ptr %32, align 4, !tbaa !44
-  %34 = icmp sgt i32 %31, %33
-  br i1 %34, label %35, label %_ZN8ImVectorItE6resizeEi.exit.i
+_ZN8ImVectorItE5clearEv.exit.i:                   ; preds = %30, %_ZN8ImVectorI9ImDrawCmdEaSERKS1_.exit
+  %32 = load i32, ptr %26, align 8, !tbaa !46
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %34 = load i32, ptr %33, align 4, !tbaa !44
+  %35 = icmp sgt i32 %32, %34
+  br i1 %35, label %36, label %_ZN8ImVectorItE6resizeEi.exit.i
 
-35:                                               ; preds = %_ZN8ImVectorItE5clearEv.exit.i
-  %.not.i.i.i9 = icmp eq i32 %33, 0
-  br i1 %.not.i.i.i9, label %_ZNK8ImVectorItE14_grow_capacityEi.exit.i.i, label %36
+36:                                               ; preds = %_ZN8ImVectorItE5clearEv.exit.i
+  %.not.i.i.i9 = icmp eq i32 %34, 0
+  br i1 %.not.i.i.i9, label %_ZNK8ImVectorItE14_grow_capacityEi.exit.i.i, label %37
 
-36:                                               ; preds = %35
-  %37 = sdiv i32 %33, 2
-  %38 = add nsw i32 %37, %33
+37:                                               ; preds = %36
+  %38 = sdiv i32 %34, 2
+  %39 = add nsw i32 %38, %34
   br label %_ZNK8ImVectorItE14_grow_capacityEi.exit.i.i
 
-_ZNK8ImVectorItE14_grow_capacityEi.exit.i.i:      ; preds = %36, %35
-  %39 = phi i32 [ %38, %36 ], [ 8, %35 ]
-  %40 = tail call noundef i32 @llvm.smax.i32(i32 %39, i32 %31)
-  %41 = sext i32 %40 to i64
-  %42 = shl nsw i64 %41, 1
-  %43 = tail call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %42)
-  %44 = load ptr, ptr %27, align 8, !tbaa !45
-  %.not6.i.i.i10 = icmp eq ptr %44, null
-  br i1 %.not6.i.i.i10, label %50, label %45
+_ZNK8ImVectorItE14_grow_capacityEi.exit.i.i:      ; preds = %37, %36
+  %40 = phi i32 [ %39, %37 ], [ 8, %36 ]
+  %41 = tail call noundef i32 @llvm.smax.i32(i32 %40, i32 %32)
+  %42 = sext i32 %41 to i64
+  %43 = shl nsw i64 %42, 1
+  %44 = tail call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %43)
+  %45 = load ptr, ptr %28, align 8, !tbaa !45
+  %.not6.i.i.i10 = icmp eq ptr %45, null
+  br i1 %.not6.i.i.i10, label %51, label %46
 
-45:                                               ; preds = %_ZNK8ImVectorItE14_grow_capacityEi.exit.i.i
-  %46 = load i32, ptr %26, align 8, !tbaa !46
-  %47 = sext i32 %46 to i64
-  %48 = shl nsw i64 %47, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %43, ptr nonnull align 2 %44, i64 %48, i1 false)
-  %49 = load ptr, ptr %27, align 8, !tbaa !45
-  tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef %49)
-  br label %50
+46:                                               ; preds = %_ZNK8ImVectorItE14_grow_capacityEi.exit.i.i
+  %47 = load i32, ptr %27, align 8, !tbaa !46
+  %48 = sext i32 %47 to i64
+  %49 = shl nsw i64 %48, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %44, ptr nonnull align 2 %45, i64 %49, i1 false)
+  %50 = load ptr, ptr %28, align 8, !tbaa !45
+  tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef %50)
+  br label %51
 
-50:                                               ; preds = %45, %_ZNK8ImVectorItE14_grow_capacityEi.exit.i.i
-  store ptr %43, ptr %27, align 8, !tbaa !45
-  store i32 %40, ptr %32, align 4, !tbaa !44
+51:                                               ; preds = %46, %_ZNK8ImVectorItE14_grow_capacityEi.exit.i.i
+  store ptr %44, ptr %28, align 8, !tbaa !45
+  store i32 %41, ptr %33, align 4, !tbaa !44
   br label %_ZN8ImVectorItE6resizeEi.exit.i
 
-_ZN8ImVectorItE6resizeEi.exit.i:                  ; preds = %50, %_ZN8ImVectorItE5clearEv.exit.i
-  %51 = phi ptr [ null, %_ZN8ImVectorItE5clearEv.exit.i ], [ %43, %50 ]
-  store i32 %31, ptr %26, align 8, !tbaa !46
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %53 = load ptr, ptr %52, align 8, !tbaa !45
-  %.not.i8 = icmp eq ptr %53, null
-  br i1 %.not.i8, label %_ZN8ImVectorItEaSERKS0_.exit, label %54
+_ZN8ImVectorItE6resizeEi.exit.i:                  ; preds = %51, %_ZN8ImVectorItE5clearEv.exit.i
+  %52 = phi ptr [ null, %_ZN8ImVectorItE5clearEv.exit.i ], [ %44, %51 ]
+  store i32 %32, ptr %27, align 8, !tbaa !46
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %54 = load ptr, ptr %53, align 8, !tbaa !45
+  %.not.i8 = icmp eq ptr %54, null
+  br i1 %.not.i8, label %_ZN8ImVectorItEaSERKS0_.exit, label %55
 
-54:                                               ; preds = %_ZN8ImVectorItE6resizeEi.exit.i
-  %55 = sext i32 %31 to i64
-  %56 = shl nsw i64 %55, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %51, ptr nonnull align 2 %53, i64 %56, i1 false)
+55:                                               ; preds = %_ZN8ImVectorItE6resizeEi.exit.i
+  %56 = sext i32 %32 to i64
+  %57 = shl nsw i64 %56, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %52, ptr nonnull align 2 %54, i64 %57, i1 false)
   br label %_ZN8ImVectorItEaSERKS0_.exit
 
-_ZN8ImVectorItEaSERKS0_.exit:                     ; preds = %_ZN8ImVectorItE6resizeEi.exit.i, %54
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %60 = load ptr, ptr %59, align 8, !tbaa !48
-  %.not.i.i11 = icmp eq ptr %60, null
-  br i1 %.not.i.i11, label %_ZN8ImVectorI10ImDrawVertE5clearEv.exit.i, label %61
+_ZN8ImVectorItEaSERKS0_.exit:                     ; preds = %_ZN8ImVectorItE6resizeEi.exit.i, %55
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %61 = load ptr, ptr %60, align 8, !tbaa !48
+  %.not.i.i11 = icmp eq ptr %61, null
+  br i1 %.not.i.i11, label %_ZN8ImVectorI10ImDrawVertE5clearEv.exit.i, label %62
 
-61:                                               ; preds = %_ZN8ImVectorItEaSERKS0_.exit
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 0, ptr %62, align 4, !tbaa !47
-  store i32 0, ptr %58, align 8, !tbaa !49
-  tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %60)
-  store ptr null, ptr %59, align 8, !tbaa !48
+62:                                               ; preds = %_ZN8ImVectorItEaSERKS0_.exit
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  store i32 0, ptr %63, align 4, !tbaa !47
+  store i32 0, ptr %59, align 8, !tbaa !49
+  tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %61)
+  store ptr null, ptr %60, align 8, !tbaa !48
   br label %_ZN8ImVectorI10ImDrawVertE5clearEv.exit.i
 
-_ZN8ImVectorI10ImDrawVertE5clearEv.exit.i:        ; preds = %61, %_ZN8ImVectorItEaSERKS0_.exit
-  %63 = load i32, ptr %57, align 8, !tbaa !49
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %65 = load i32, ptr %64, align 4, !tbaa !47
-  %66 = icmp sgt i32 %63, %65
-  br i1 %66, label %67, label %_ZN8ImVectorI10ImDrawVertE6resizeEi.exit.i
+_ZN8ImVectorI10ImDrawVertE5clearEv.exit.i:        ; preds = %62, %_ZN8ImVectorItEaSERKS0_.exit
+  %64 = load i32, ptr %58, align 8, !tbaa !49
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %66 = load i32, ptr %65, align 4, !tbaa !47
+  %67 = icmp sgt i32 %64, %66
+  br i1 %67, label %68, label %_ZN8ImVectorI10ImDrawVertE6resizeEi.exit.i
 
-67:                                               ; preds = %_ZN8ImVectorI10ImDrawVertE5clearEv.exit.i
-  %.not.i.i.i13 = icmp eq i32 %65, 0
-  br i1 %.not.i.i.i13, label %_ZNK8ImVectorI10ImDrawVertE14_grow_capacityEi.exit.i.i, label %68
+68:                                               ; preds = %_ZN8ImVectorI10ImDrawVertE5clearEv.exit.i
+  %.not.i.i.i13 = icmp eq i32 %66, 0
+  br i1 %.not.i.i.i13, label %_ZNK8ImVectorI10ImDrawVertE14_grow_capacityEi.exit.i.i, label %69
 
-68:                                               ; preds = %67
-  %69 = sdiv i32 %65, 2
-  %70 = add nsw i32 %69, %65
+69:                                               ; preds = %68
+  %70 = sdiv i32 %66, 2
+  %71 = add nsw i32 %70, %66
   br label %_ZNK8ImVectorI10ImDrawVertE14_grow_capacityEi.exit.i.i
 
-_ZNK8ImVectorI10ImDrawVertE14_grow_capacityEi.exit.i.i: ; preds = %68, %67
-  %71 = phi i32 [ %70, %68 ], [ 8, %67 ]
-  %72 = tail call noundef i32 @llvm.smax.i32(i32 %71, i32 %63)
-  %73 = sext i32 %72 to i64
-  %74 = mul nsw i64 %73, 20
-  %75 = tail call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %74)
-  %76 = load ptr, ptr %59, align 8, !tbaa !48
-  %.not6.i.i.i14 = icmp eq ptr %76, null
-  br i1 %.not6.i.i.i14, label %82, label %77
+_ZNK8ImVectorI10ImDrawVertE14_grow_capacityEi.exit.i.i: ; preds = %69, %68
+  %72 = phi i32 [ %71, %69 ], [ 8, %68 ]
+  %73 = tail call noundef i32 @llvm.smax.i32(i32 %72, i32 %64)
+  %74 = sext i32 %73 to i64
+  %75 = mul nsw i64 %74, 20
+  %76 = tail call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %75)
+  %77 = load ptr, ptr %60, align 8, !tbaa !48
+  %.not6.i.i.i14 = icmp eq ptr %77, null
+  br i1 %.not6.i.i.i14, label %83, label %78
 
-77:                                               ; preds = %_ZNK8ImVectorI10ImDrawVertE14_grow_capacityEi.exit.i.i
-  %78 = load i32, ptr %58, align 8, !tbaa !49
-  %79 = sext i32 %78 to i64
-  %80 = mul nsw i64 %79, 20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %75, ptr nonnull align 4 %76, i64 %80, i1 false)
-  %81 = load ptr, ptr %59, align 8, !tbaa !48
-  tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef %81)
-  br label %82
+78:                                               ; preds = %_ZNK8ImVectorI10ImDrawVertE14_grow_capacityEi.exit.i.i
+  %79 = load i32, ptr %59, align 8, !tbaa !49
+  %80 = sext i32 %79 to i64
+  %81 = mul nsw i64 %80, 20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %76, ptr nonnull align 4 %77, i64 %81, i1 false)
+  %82 = load ptr, ptr %60, align 8, !tbaa !48
+  tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef %82)
+  br label %83
 
-82:                                               ; preds = %77, %_ZNK8ImVectorI10ImDrawVertE14_grow_capacityEi.exit.i.i
-  store ptr %75, ptr %59, align 8, !tbaa !48
-  store i32 %72, ptr %64, align 4, !tbaa !47
+83:                                               ; preds = %78, %_ZNK8ImVectorI10ImDrawVertE14_grow_capacityEi.exit.i.i
+  store ptr %76, ptr %60, align 8, !tbaa !48
+  store i32 %73, ptr %65, align 4, !tbaa !47
   br label %_ZN8ImVectorI10ImDrawVertE6resizeEi.exit.i
 
-_ZN8ImVectorI10ImDrawVertE6resizeEi.exit.i:       ; preds = %82, %_ZN8ImVectorI10ImDrawVertE5clearEv.exit.i
-  %83 = phi ptr [ null, %_ZN8ImVectorI10ImDrawVertE5clearEv.exit.i ], [ %75, %82 ]
-  store i32 %63, ptr %58, align 8, !tbaa !49
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %85 = load ptr, ptr %84, align 8, !tbaa !48
-  %.not.i12 = icmp eq ptr %85, null
-  br i1 %.not.i12, label %_ZN8ImVectorI10ImDrawVertEaSERKS1_.exit, label %86
+_ZN8ImVectorI10ImDrawVertE6resizeEi.exit.i:       ; preds = %83, %_ZN8ImVectorI10ImDrawVertE5clearEv.exit.i
+  %84 = phi ptr [ null, %_ZN8ImVectorI10ImDrawVertE5clearEv.exit.i ], [ %76, %83 ]
+  store i32 %64, ptr %59, align 8, !tbaa !49
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %86 = load ptr, ptr %85, align 8, !tbaa !48
+  %.not.i12 = icmp eq ptr %86, null
+  br i1 %.not.i12, label %_ZN8ImVectorI10ImDrawVertEaSERKS1_.exit, label %87
 
-86:                                               ; preds = %_ZN8ImVectorI10ImDrawVertE6resizeEi.exit.i
-  %87 = sext i32 %63 to i64
-  %88 = mul nsw i64 %87, 20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %83, ptr nonnull align 4 %85, i64 %88, i1 false)
+87:                                               ; preds = %_ZN8ImVectorI10ImDrawVertE6resizeEi.exit.i
+  %88 = sext i32 %64 to i64
+  %89 = mul nsw i64 %88, 20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %84, ptr nonnull align 4 %86, i64 %89, i1 false)
   br label %_ZN8ImVectorI10ImDrawVertEaSERKS1_.exit
 
-_ZN8ImVectorI10ImDrawVertEaSERKS1_.exit:          ; preds = %_ZN8ImVectorI10ImDrawVertE6resizeEi.exit.i, %86
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %90 = load i32, ptr %89, align 8, !tbaa !52
-  %91 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i32 %90, ptr %91, align 8, !tbaa !52
+_ZN8ImVectorI10ImDrawVertEaSERKS1_.exit:          ; preds = %_ZN8ImVectorI10ImDrawVertE6resizeEi.exit.i, %87
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %91 = load i32, ptr %90, align 8, !tbaa !52
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store i32 %91, ptr %92, align 8, !tbaa !52
   ret ptr %1
 }
 
@@ -22400,109 +22400,109 @@ _ZNK8ImVectorI10stbrp_rectE14_grow_capacityEi.exit.i:
   %7 = zext nneg i32 %6 to i64
   %8 = mul nuw nsw i64 %7, 24
   %9 = invoke noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %8)
-          to label %10 unwind label %21
+          to label %.noexc29 unwind label %20
 
-10:                                               ; preds = %_ZNK8ImVectorI10stbrp_rectE14_grow_capacityEi.exit.i
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %9, ptr %12, align 8, !tbaa !374
-  store i32 %6, ptr %11, align 4, !tbaa !375
+.noexc29:                                         ; preds = %_ZNK8ImVectorI10stbrp_rectE14_grow_capacityEi.exit.i
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %9, ptr %11, align 8, !tbaa !374
+  store i32 %6, ptr %10, align 4, !tbaa !375
   store i32 %4, ptr %2, align 8, !tbaa !372
-  %13 = mul nuw nsw i32 %4, 24
-  %14 = zext nneg i32 %13 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 4 %9, i8 0, i64 %14, i1 false)
-  %15 = load i32, ptr %3, align 8, !tbaa !263
-  %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.lr.ph, label %._crit_edge
+  %12 = mul nuw nsw i32 %4, 24
+  %13 = zext nneg i32 %12 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 4 %9, i8 0, i64 %13, i1 false)
+  %14 = load i32, ptr %3, align 8, !tbaa !263
+  %15 = icmp sgt i32 %14, 0
+  br i1 %15, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %10
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %18 = load ptr, ptr %17, align 8, !tbaa !247
-  %wide.trip.count = zext nneg i32 %15 to i64
-  br label %23
+.lr.ph:                                           ; preds = %.noexc29
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %17 = load ptr, ptr %16, align 8, !tbaa !247
+  %wide.trip.count = zext nneg i32 %14 to i64
+  br label %22
 
-._crit_edge:                                      ; preds = %23, %10
+._crit_edge:                                      ; preds = %22, %.noexc29
   invoke fastcc void @_ZL16stbrp_pack_rectsP13stbrp_contextP10stbrp_recti(ptr noundef %1, ptr noundef nonnull %9, i32 noundef %4)
-          to label %.lr.ph32 unwind label %21
+          to label %.lr.ph32 unwind label %20
 
 .lr.ph32:                                         ; preds = %._crit_edge
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %wide.trip.count38 = zext nneg i32 %4 to i64
-  br label %36
+  br label %35
 
-21:                                               ; preds = %._crit_edge, %_ZNK8ImVectorI10stbrp_rectE14_grow_capacityEi.exit.i
-  %22 = landingpad { ptr, i32 }
+20:                                               ; preds = %._crit_edge, %_ZNK8ImVectorI10stbrp_rectE14_grow_capacityEi.exit.i
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8ImVectorI10stbrp_rectED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #42
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #42
-  resume { ptr, i32 } %22
+  resume { ptr, i32 } %21
 
-23:                                               ; preds = %.lr.ph, %23
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr inbounds nuw %struct.ImFontAtlasCustomRect, ptr %18, i64 %indvars.iv
-  %25 = load i16, ptr %24, align 8, !tbaa !301
-  %26 = zext i16 %25 to i32
-  %27 = getelementptr inbounds nuw %struct.stbrp_rect, ptr %9, i64 %indvars.iv
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  store i32 %26, ptr %28, align 4, !tbaa !392
-  %29 = getelementptr inbounds nuw i8, ptr %24, i64 2
-  %30 = load i16, ptr %29, align 2, !tbaa !302
-  %31 = zext i16 %30 to i32
-  %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store i32 %31, ptr %32, align 4, !tbaa !394
+22:                                               ; preds = %.lr.ph, %22
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
+  %23 = getelementptr inbounds nuw %struct.ImFontAtlasCustomRect, ptr %17, i64 %indvars.iv
+  %24 = load i16, ptr %23, align 8, !tbaa !301
+  %25 = zext i16 %24 to i32
+  %26 = getelementptr inbounds nuw %struct.stbrp_rect, ptr %9, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  store i32 %25, ptr %27, align 4, !tbaa !392
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 2
+  %29 = load i16, ptr %28, align 2, !tbaa !302
+  %30 = zext i16 %29 to i32
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  store i32 %30, ptr %31, align 4, !tbaa !394
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !519
+  br i1 %exitcond.not, label %._crit_edge, label %22, !llvm.loop !519
 
-._crit_edge33:                                    ; preds = %56
+._crit_edge33:                                    ; preds = %55
   invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %9)
-          to label %_ZN8ImVectorI10stbrp_rectED2Ev.exit unwind label %33
+          to label %_ZN8ImVectorI10stbrp_rectED2Ev.exit unwind label %32
 
-33:                                               ; preds = %._crit_edge33
-  %34 = landingpad { ptr, i32 }
+32:                                               ; preds = %._crit_edge33
+  %33 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  tail call void @__clang_call_terminate(ptr %35) #44
+  %34 = extractvalue { ptr, i32 } %33, 0
+  tail call void @__clang_call_terminate(ptr %34) #44
   unreachable
 
 _ZN8ImVectorI10stbrp_rectED2Ev.exit:              ; preds = %._crit_edge33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #42
   ret void
 
-36:                                               ; preds = %.lr.ph32, %56
-  %indvars.iv35 = phi i64 [ 0, %.lr.ph32 ], [ %indvars.iv.next36, %56 ]
-  %37 = getelementptr inbounds nuw %struct.stbrp_rect, ptr %9, i64 %indvars.iv35
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 20
-  %39 = load i32, ptr %38, align 4, !tbaa !412
-  %.not = icmp eq i32 %39, 0
-  br i1 %.not, label %56, label %40
+35:                                               ; preds = %.lr.ph32, %55
+  %indvars.iv35 = phi i64 [ 0, %.lr.ph32 ], [ %indvars.iv.next36, %55 ]
+  %36 = getelementptr inbounds nuw %struct.stbrp_rect, ptr %9, i64 %indvars.iv35
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 20
+  %38 = load i32, ptr %37, align 4, !tbaa !412
+  %.not = icmp eq i32 %38, 0
+  br i1 %.not, label %55, label %39
 
-40:                                               ; preds = %36
-  %41 = getelementptr inbounds nuw i8, ptr %37, i64 12
-  %42 = load i32, ptr %41, align 4, !tbaa !423
-  %43 = trunc i32 %42 to i16
-  %44 = load ptr, ptr %19, align 8, !tbaa !247
-  %45 = getelementptr inbounds nuw %struct.ImFontAtlasCustomRect, ptr %44, i64 %indvars.iv35
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  store i16 %43, ptr %46, align 4, !tbaa !296
-  %47 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %48 = load i32, ptr %47, align 4, !tbaa !413
-  %49 = trunc i32 %48 to i16
-  %50 = getelementptr inbounds nuw i8, ptr %45, i64 6
-  store i16 %49, ptr %50, align 2, !tbaa !299
-  %51 = load i32, ptr %20, align 4, !tbaa !276
-  %52 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %53 = load i32, ptr %52, align 4, !tbaa !394
-  %54 = add nsw i32 %53, %48
-  %55 = tail call noundef i32 @llvm.smax.i32(i32 %51, i32 %54)
-  store i32 %55, ptr %20, align 4, !tbaa !276
-  br label %56
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 12
+  %41 = load i32, ptr %40, align 4, !tbaa !423
+  %42 = trunc i32 %41 to i16
+  %43 = load ptr, ptr %18, align 8, !tbaa !247
+  %44 = getelementptr inbounds nuw %struct.ImFontAtlasCustomRect, ptr %43, i64 %indvars.iv35
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
+  store i16 %42, ptr %45, align 4, !tbaa !296
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %47 = load i32, ptr %46, align 4, !tbaa !413
+  %48 = trunc i32 %47 to i16
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 6
+  store i16 %48, ptr %49, align 2, !tbaa !299
+  %50 = load i32, ptr %19, align 4, !tbaa !276
+  %51 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %52 = load i32, ptr %51, align 4, !tbaa !394
+  %53 = add nsw i32 %52, %47
+  %54 = tail call noundef i32 @llvm.smax.i32(i32 %50, i32 %53)
+  store i32 %54, ptr %19, align 4, !tbaa !276
+  br label %55
 
-56:                                               ; preds = %36, %40
+55:                                               ; preds = %35, %39
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count38
-  br i1 %exitcond39.not, label %._crit_edge33, label %36, !llvm.loop !520
+  br i1 %exitcond39.not, label %._crit_edge33, label %35, !llvm.loop !520
 }
 
 ; Function Attrs: mustprogress nofree uwtable

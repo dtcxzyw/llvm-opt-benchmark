@@ -1323,7 +1323,7 @@ invoke.cont44:                                    ; preds = %if.then38
   %80 = load ptr, ptr %pn.i, align 8, !tbaa !37
   store ptr %79, ptr %pn.i, align 8, !tbaa !37
   %cmp.not.i.i.i70 = icmp eq ptr %80, null
-  br i1 %cmp.not.i.i.i70, label %_ZN5boost10shared_ptrIN8QuantLib10IntegratorEEaSINS1_23GaussKronrodNonAdaptiveEEERS3_ONS0_IT_EE.exit, label %if.then.i.i.i71
+  br i1 %cmp.not.i.i.i70, label %_ZN5boost10shared_ptrIN8QuantLib23GaussKronrodNonAdaptiveEED2Ev.exit, label %if.then.i.i.i71
 
 if.then.i.i.i71:                                  ; preds = %invoke.cont44
   %use_count_.i.i.i.i72 = getelementptr inbounds nuw i8, ptr %80, i64 8
@@ -1358,45 +1358,45 @@ terminate.lpad.i.i.i77:                           ; preds = %if.then.i.i.i.i.i81
   call void @__clang_call_terminate(ptr %86) #28
   unreachable
 
-_ZN5boost10shared_ptrIN8QuantLib10IntegratorEEaSINS1_23GaussKronrodNonAdaptiveEEERS3_ONS0_IT_EE.exit: ; preds = %invoke.cont44, %if.then.i.i.i71, %.noexc.i.i.i78, %if.then.i.i.i.i.i81
-  %87 = load ptr, ptr %pn3.i.i69, align 8, !tbaa !37
-  %cmp.not.i.i85 = icmp eq ptr %87, null
+_ZN5boost10shared_ptrIN8QuantLib10IntegratorEEaSINS1_23GaussKronrodNonAdaptiveEEERS3_ONS0_IT_EE.exit: ; preds = %if.then.i.i.i71, %.noexc.i.i.i78, %if.then.i.i.i.i.i81
+  %.pr = load ptr, ptr %pn3.i.i69, align 8, !tbaa !37
+  %cmp.not.i.i85 = icmp eq ptr %.pr, null
   br i1 %cmp.not.i.i85, label %_ZN5boost10shared_ptrIN8QuantLib23GaussKronrodNonAdaptiveEED2Ev.exit, label %if.then.i.i86
 
 if.then.i.i86:                                    ; preds = %_ZN5boost10shared_ptrIN8QuantLib10IntegratorEEaSINS1_23GaussKronrodNonAdaptiveEEERS3_ONS0_IT_EE.exit
-  %use_count_.i.i.i87 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %88 = atomicrmw sub ptr %use_count_.i.i.i87, i32 1 acq_rel, align 4
-  %cmp.i.i.i88 = icmp eq i32 %88, 1
+  %use_count_.i.i.i87 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
+  %87 = atomicrmw sub ptr %use_count_.i.i.i87, i32 1 acq_rel, align 4
+  %cmp.i.i.i88 = icmp eq i32 %87, 1
   br i1 %cmp.i.i.i88, label %if.then.i.i.i89, label %_ZN5boost10shared_ptrIN8QuantLib23GaussKronrodNonAdaptiveEED2Ev.exit
 
 if.then.i.i.i89:                                  ; preds = %if.then.i.i86
-  %vtable.i.i.i90 = load ptr, ptr %87, align 8, !tbaa !35
+  %vtable.i.i.i90 = load ptr, ptr %.pr, align 8, !tbaa !35
   %vfn.i.i.i91 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i90, i64 16
-  %89 = load ptr, ptr %vfn.i.i.i91, align 8
-  invoke void %89(ptr noundef nonnull align 8 dereferenceable(16) %87)
+  %88 = load ptr, ptr %vfn.i.i.i91, align 8
+  invoke void %88(ptr noundef nonnull align 8 dereferenceable(16) %.pr)
           to label %.noexc.i.i93 unwind label %terminate.lpad.i.i92
 
 .noexc.i.i93:                                     ; preds = %if.then.i.i.i89
-  %weak_count_.i.i.i.i94 = getelementptr inbounds nuw i8, ptr %87, i64 12
-  %90 = atomicrmw sub ptr %weak_count_.i.i.i.i94, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i95 = icmp eq i32 %90, 1
+  %weak_count_.i.i.i.i94 = getelementptr inbounds nuw i8, ptr %.pr, i64 12
+  %89 = atomicrmw sub ptr %weak_count_.i.i.i.i94, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i95 = icmp eq i32 %89, 1
   br i1 %cmp.i.i.i.i95, label %if.then.i.i.i.i96, label %_ZN5boost10shared_ptrIN8QuantLib23GaussKronrodNonAdaptiveEED2Ev.exit
 
 if.then.i.i.i.i96:                                ; preds = %.noexc.i.i93
-  %vtable.i.i.i.i97 = load ptr, ptr %87, align 8, !tbaa !35
+  %vtable.i.i.i.i97 = load ptr, ptr %.pr, align 8, !tbaa !35
   %vfn.i.i.i.i98 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i97, i64 24
-  %91 = load ptr, ptr %vfn.i.i.i.i98, align 8
-  invoke void %91(ptr noundef nonnull align 8 dereferenceable(16) %87)
+  %90 = load ptr, ptr %vfn.i.i.i.i98, align 8
+  invoke void %90(ptr noundef nonnull align 8 dereferenceable(16) %.pr)
           to label %_ZN5boost10shared_ptrIN8QuantLib23GaussKronrodNonAdaptiveEED2Ev.exit unwind label %terminate.lpad.i.i92
 
 terminate.lpad.i.i92:                             ; preds = %if.then.i.i.i.i96, %if.then.i.i.i89
-  %92 = landingpad { ptr, i32 }
+  %91 = landingpad { ptr, i32 }
           catch ptr null
-  %93 = extractvalue { ptr, i32 } %92, 0
-  call void @__clang_call_terminate(ptr %93) #28
+  %92 = extractvalue { ptr, i32 } %91, 0
+  call void @__clang_call_terminate(ptr %92) #28
   unreachable
 
-_ZN5boost10shared_ptrIN8QuantLib23GaussKronrodNonAdaptiveEED2Ev.exit: ; preds = %_ZN5boost10shared_ptrIN8QuantLib10IntegratorEEaSINS1_23GaussKronrodNonAdaptiveEEERS3_ONS0_IT_EE.exit, %if.then.i.i86, %.noexc.i.i93, %if.then.i.i.i.i96
+_ZN5boost10shared_ptrIN8QuantLib23GaussKronrodNonAdaptiveEED2Ev.exit: ; preds = %invoke.cont44, %_ZN5boost10shared_ptrIN8QuantLib10IntegratorEEaSINS1_23GaussKronrodNonAdaptiveEEERS3_ONS0_IT_EE.exit, %if.then.i.i86, %.noexc.i.i93, %if.then.i.i.i.i96
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp42) #27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp41) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp40) #27
@@ -1404,7 +1404,7 @@ _ZN5boost10shared_ptrIN8QuantLib23GaussKronrodNonAdaptiveEED2Ev.exit: ; preds = 
   br label %if.end51
 
 lpad43:                                           ; preds = %if.then38
-  %94 = landingpad { ptr, i32 }
+  %93 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp42) #27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp41) #27
@@ -1416,7 +1416,7 @@ if.end51:                                         ; preds = %_ZN5boost10shared_p
   ret void
 
 ehcleanup52:                                      ; preds = %lpad43, %lpad33, %lpad23
-  %.pn = phi { ptr, i32 } [ %94, %lpad43 ], [ %76, %lpad33 ], [ %75, %lpad23 ]
+  %.pn = phi { ptr, i32 } [ %93, %lpad43 ], [ %76, %lpad33 ], [ %75, %lpad23 ]
   call void @_ZN5boost10shared_ptrIN8QuantLib10IntegratorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %integrator_) #27
   call void @_ZN8QuantLib10DayCounterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %volDayCounter_) #27
   br label %ehcleanup54
@@ -3086,7 +3086,7 @@ invoke.cont37:                                    ; preds = %if.then31
   %78 = load ptr, ptr %pn.i, align 8, !tbaa !37
   store ptr %77, ptr %pn.i, align 8, !tbaa !37
   %cmp.not.i.i.i74 = icmp eq ptr %78, null
-  br i1 %cmp.not.i.i.i74, label %_ZN5boost10shared_ptrIN8QuantLib10IntegratorEEaSINS1_23GaussKronrodNonAdaptiveEEERS3_ONS0_IT_EE.exit, label %if.then.i.i.i75
+  br i1 %cmp.not.i.i.i74, label %_ZN5boost10shared_ptrIN8QuantLib23GaussKronrodNonAdaptiveEED2Ev.exit, label %if.then.i.i.i75
 
 if.then.i.i.i75:                                  ; preds = %invoke.cont37
   %use_count_.i.i.i.i76 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -3121,45 +3121,45 @@ terminate.lpad.i.i.i81:                           ; preds = %if.then.i.i.i.i.i85
   call void @__clang_call_terminate(ptr %84) #28
   unreachable
 
-_ZN5boost10shared_ptrIN8QuantLib10IntegratorEEaSINS1_23GaussKronrodNonAdaptiveEEERS3_ONS0_IT_EE.exit: ; preds = %invoke.cont37, %if.then.i.i.i75, %.noexc.i.i.i82, %if.then.i.i.i.i.i85
-  %85 = load ptr, ptr %pn3.i.i73, align 8, !tbaa !37
-  %cmp.not.i.i89 = icmp eq ptr %85, null
+_ZN5boost10shared_ptrIN8QuantLib10IntegratorEEaSINS1_23GaussKronrodNonAdaptiveEEERS3_ONS0_IT_EE.exit: ; preds = %if.then.i.i.i75, %.noexc.i.i.i82, %if.then.i.i.i.i.i85
+  %.pr = load ptr, ptr %pn3.i.i73, align 8, !tbaa !37
+  %cmp.not.i.i89 = icmp eq ptr %.pr, null
   br i1 %cmp.not.i.i89, label %_ZN5boost10shared_ptrIN8QuantLib23GaussKronrodNonAdaptiveEED2Ev.exit, label %if.then.i.i90
 
 if.then.i.i90:                                    ; preds = %_ZN5boost10shared_ptrIN8QuantLib10IntegratorEEaSINS1_23GaussKronrodNonAdaptiveEEERS3_ONS0_IT_EE.exit
-  %use_count_.i.i.i91 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %86 = atomicrmw sub ptr %use_count_.i.i.i91, i32 1 acq_rel, align 4
-  %cmp.i.i.i92 = icmp eq i32 %86, 1
+  %use_count_.i.i.i91 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
+  %85 = atomicrmw sub ptr %use_count_.i.i.i91, i32 1 acq_rel, align 4
+  %cmp.i.i.i92 = icmp eq i32 %85, 1
   br i1 %cmp.i.i.i92, label %if.then.i.i.i93, label %_ZN5boost10shared_ptrIN8QuantLib23GaussKronrodNonAdaptiveEED2Ev.exit
 
 if.then.i.i.i93:                                  ; preds = %if.then.i.i90
-  %vtable.i.i.i94 = load ptr, ptr %85, align 8, !tbaa !35
+  %vtable.i.i.i94 = load ptr, ptr %.pr, align 8, !tbaa !35
   %vfn.i.i.i95 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i94, i64 16
-  %87 = load ptr, ptr %vfn.i.i.i95, align 8
-  invoke void %87(ptr noundef nonnull align 8 dereferenceable(16) %85)
+  %86 = load ptr, ptr %vfn.i.i.i95, align 8
+  invoke void %86(ptr noundef nonnull align 8 dereferenceable(16) %.pr)
           to label %.noexc.i.i97 unwind label %terminate.lpad.i.i96
 
 .noexc.i.i97:                                     ; preds = %if.then.i.i.i93
-  %weak_count_.i.i.i.i98 = getelementptr inbounds nuw i8, ptr %85, i64 12
-  %88 = atomicrmw sub ptr %weak_count_.i.i.i.i98, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i99 = icmp eq i32 %88, 1
+  %weak_count_.i.i.i.i98 = getelementptr inbounds nuw i8, ptr %.pr, i64 12
+  %87 = atomicrmw sub ptr %weak_count_.i.i.i.i98, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i99 = icmp eq i32 %87, 1
   br i1 %cmp.i.i.i.i99, label %if.then.i.i.i.i100, label %_ZN5boost10shared_ptrIN8QuantLib23GaussKronrodNonAdaptiveEED2Ev.exit
 
 if.then.i.i.i.i100:                               ; preds = %.noexc.i.i97
-  %vtable.i.i.i.i101 = load ptr, ptr %85, align 8, !tbaa !35
+  %vtable.i.i.i.i101 = load ptr, ptr %.pr, align 8, !tbaa !35
   %vfn.i.i.i.i102 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i101, i64 24
-  %89 = load ptr, ptr %vfn.i.i.i.i102, align 8
-  invoke void %89(ptr noundef nonnull align 8 dereferenceable(16) %85)
+  %88 = load ptr, ptr %vfn.i.i.i.i102, align 8
+  invoke void %88(ptr noundef nonnull align 8 dereferenceable(16) %.pr)
           to label %_ZN5boost10shared_ptrIN8QuantLib23GaussKronrodNonAdaptiveEED2Ev.exit unwind label %terminate.lpad.i.i96
 
 terminate.lpad.i.i96:                             ; preds = %if.then.i.i.i.i100, %if.then.i.i.i93
-  %90 = landingpad { ptr, i32 }
+  %89 = landingpad { ptr, i32 }
           catch ptr null
-  %91 = extractvalue { ptr, i32 } %90, 0
-  call void @__clang_call_terminate(ptr %91) #28
+  %90 = extractvalue { ptr, i32 } %89, 0
+  call void @__clang_call_terminate(ptr %90) #28
   unreachable
 
-_ZN5boost10shared_ptrIN8QuantLib23GaussKronrodNonAdaptiveEED2Ev.exit: ; preds = %_ZN5boost10shared_ptrIN8QuantLib10IntegratorEEaSINS1_23GaussKronrodNonAdaptiveEEERS3_ONS0_IT_EE.exit, %if.then.i.i90, %.noexc.i.i97, %if.then.i.i.i.i100
+_ZN5boost10shared_ptrIN8QuantLib23GaussKronrodNonAdaptiveEED2Ev.exit: ; preds = %invoke.cont37, %_ZN5boost10shared_ptrIN8QuantLib10IntegratorEEaSINS1_23GaussKronrodNonAdaptiveEEERS3_ONS0_IT_EE.exit, %if.then.i.i90, %.noexc.i.i97, %if.then.i.i.i.i100
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp35) #27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp34) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp33) #27
@@ -3167,7 +3167,7 @@ _ZN5boost10shared_ptrIN8QuantLib23GaussKronrodNonAdaptiveEED2Ev.exit: ; preds = 
   br label %if.end44
 
 lpad36:                                           ; preds = %if.then31
-  %92 = landingpad { ptr, i32 }
+  %91 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp35) #27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp34) #27
@@ -3179,7 +3179,7 @@ if.end44:                                         ; preds = %_ZN5boost10shared_p
   ret void
 
 ehcleanup45:                                      ; preds = %lpad36, %lpad26, %lpad18
-  %.pn = phi { ptr, i32 } [ %92, %lpad36 ], [ %74, %lpad26 ], [ %73, %lpad18 ]
+  %.pn = phi { ptr, i32 } [ %91, %lpad36 ], [ %74, %lpad26 ], [ %73, %lpad18 ]
   call void @_ZN5boost10shared_ptrIN8QuantLib10IntegratorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %integrator_) #27
   call void @_ZN8QuantLib10DayCounterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %volDayCounter_) #27
   br label %ehcleanup47

@@ -3721,9 +3721,9 @@ if.end763:                                        ; preds = %do.body553, %invoke
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %nullCalendar) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp764) #24
   invoke void @_ZN8QuantLib12NullCalendarC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp764)
-          to label %_ZN8QuantLib8CalendarD2Ev.exit unwind label %lpad765
+          to label %invoke.cont766 unwind label %lpad765
 
-_ZN8QuantLib8CalendarD2Ev.exit:                   ; preds = %if.end763
+invoke.cont766:                                   ; preds = %if.end763
   %352 = load ptr, ptr %ref.tmp764, align 8, !tbaa !11
   store ptr %352, ptr %nullCalendar, align 8, !tbaa !11
   %pn.i.i648 = getelementptr inbounds nuw i8, ptr %nullCalendar, i64 8
@@ -3735,7 +3735,7 @@ _ZN8QuantLib8CalendarD2Ev.exit:                   ; preds = %if.end763
   invoke void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %seed)
           to label %invoke.cont769 unwind label %lpad768
 
-invoke.cont769:                                   ; preds = %_ZN8QuantLib8CalendarD2Ev.exit
+invoke.cont769:                                   ; preds = %invoke.cont766
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %exitDate) #24
   invoke void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %exitDate)
           to label %invoke.cont771 unwind label %lpad770
@@ -3770,7 +3770,7 @@ lpad765:                                          ; preds = %if.end763
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp764) #24
   br label %ehcleanup1789
 
-lpad768:                                          ; preds = %_ZN8QuantLib8CalendarD2Ev.exit
+lpad768:                                          ; preds = %invoke.cont766
   %357 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup1786
@@ -10783,7 +10783,7 @@ invoke.cont131:                                   ; preds = %if.then128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp129, i8 0, i64 16, i1 false)
   store ptr %75, ptr %calendar, align 8, !tbaa !46
   store ptr %76, ptr %pn.i.i, align 8, !tbaa !15
-  br i1 %cmp.not.i.i.i, label %_ZN8QuantLib8CalendaraSEOS0_.exit, label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZN8QuantLib8CalendarD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont131
   %use_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %73, i64 8
@@ -10818,63 +10818,63 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   call void @__clang_call_terminate(ptr %82) #25
   unreachable
 
-_ZN8QuantLib8CalendaraSEOS0_.exit:                ; preds = %invoke.cont131, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
-  %83 = load ptr, ptr %pn3.i.i.i, align 8, !tbaa !15
-  %cmp.not.i.i.i96 = icmp eq ptr %83, null
+_ZN8QuantLib8CalendaraSEOS0_.exit:                ; preds = %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
+  %.pr = load ptr, ptr %pn3.i.i.i, align 8, !tbaa !15
+  %cmp.not.i.i.i96 = icmp eq ptr %.pr, null
   br i1 %cmp.not.i.i.i96, label %_ZN8QuantLib8CalendarD2Ev.exit, label %if.then.i.i.i97
 
 if.then.i.i.i97:                                  ; preds = %_ZN8QuantLib8CalendaraSEOS0_.exit
-  %use_count_.i.i.i.i98 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %84 = atomicrmw sub ptr %use_count_.i.i.i.i98, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i = icmp eq i32 %84, 1
+  %use_count_.i.i.i.i98 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
+  %83 = atomicrmw sub ptr %use_count_.i.i.i.i98, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i = icmp eq i32 %83, 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i99, label %_ZN8QuantLib8CalendarD2Ev.exit
 
 if.then.i.i.i.i99:                                ; preds = %if.then.i.i.i97
-  %vtable.i.i.i.i = load ptr, ptr %83, align 8, !tbaa !62
+  %vtable.i.i.i.i = load ptr, ptr %.pr, align 8, !tbaa !62
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 16
-  %85 = load ptr, ptr %vfn.i.i.i.i, align 8
-  invoke void %85(ptr noundef nonnull align 8 dereferenceable(16) %83)
+  %84 = load ptr, ptr %vfn.i.i.i.i, align 8
+  invoke void %84(ptr noundef nonnull align 8 dereferenceable(16) %.pr)
           to label %.noexc.i.i.i unwind label %terminate.lpad.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %if.then.i.i.i.i99
-  %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %83, i64 12
-  %86 = atomicrmw sub ptr %weak_count_.i.i.i.i.i, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i.i100 = icmp eq i32 %86, 1
+  %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pr, i64 12
+  %85 = atomicrmw sub ptr %weak_count_.i.i.i.i.i, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i.i100 = icmp eq i32 %85, 1
   br i1 %cmp.i.i.i.i.i100, label %if.then.i.i.i.i.i101, label %_ZN8QuantLib8CalendarD2Ev.exit
 
 if.then.i.i.i.i.i101:                             ; preds = %.noexc.i.i.i
-  %vtable.i.i.i.i.i102 = load ptr, ptr %83, align 8, !tbaa !62
+  %vtable.i.i.i.i.i102 = load ptr, ptr %.pr, align 8, !tbaa !62
   %vfn.i.i.i.i.i103 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i102, i64 24
-  %87 = load ptr, ptr %vfn.i.i.i.i.i103, align 8
-  invoke void %87(ptr noundef nonnull align 8 dereferenceable(16) %83)
+  %86 = load ptr, ptr %vfn.i.i.i.i.i103, align 8
+  invoke void %86(ptr noundef nonnull align 8 dereferenceable(16) %.pr)
           to label %_ZN8QuantLib8CalendarD2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i101, %if.then.i.i.i.i99
-  %88 = landingpad { ptr, i32 }
+  %87 = landingpad { ptr, i32 }
           catch ptr null
-  %89 = extractvalue { ptr, i32 } %88, 0
-  call void @__clang_call_terminate(ptr %89) #25
+  %88 = extractvalue { ptr, i32 } %87, 0
+  call void @__clang_call_terminate(ptr %88) #25
   unreachable
 
-_ZN8QuantLib8CalendarD2Ev.exit:                   ; preds = %_ZN8QuantLib8CalendaraSEOS0_.exit, %if.then.i.i.i97, %.noexc.i.i.i, %if.then.i.i.i.i.i101
+_ZN8QuantLib8CalendarD2Ev.exit:                   ; preds = %invoke.cont131, %_ZN8QuantLib8CalendaraSEOS0_.exit, %if.then.i.i.i97, %.noexc.i.i.i, %if.then.i.i.i.i.i101
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp129) #24
   br label %if.end134
 
 lpad125:                                          ; preds = %cond.false.i.i105
-  %90 = landingpad { ptr, i32 }
+  %89 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup144
 
 lpad130:                                          ; preds = %if.then128
-  %91 = landingpad { ptr, i32 }
+  %90 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp129) #24
   br label %ehcleanup144
 
 if.end134:                                        ; preds = %_ZN8QuantLib8CalendarD2Ev.exit, %_ZN8QuantLib8CalendarC2ERKS0_.exit
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %effectiveDate_, align 8, !tbaa !47
-  %92 = load i8, ptr %tenor_, align 8, !tbaa !3, !range !9, !noundef !10
-  %loadedv.i.i.i104 = trunc nuw i8 %92 to i1
+  %91 = load i8, ptr %tenor_, align 8, !tbaa !3, !range !9, !noundef !10
+  %loadedv.i.i.i104 = trunc nuw i8 %91 to i1
   br i1 %loadedv.i.i.i104, label %invoke.cont138, label %cond.false.i.i105, !prof !72
 
 cond.false.i.i105:                                ; preds = %if.end134
@@ -10883,104 +10883,104 @@ cond.false.i.i105:                                ; preds = %if.end134
 
 invoke.cont138:                                   ; preds = %if.end134, %cond.false.i.i105
   %m_storage.i.i.i106 = getelementptr inbounds nuw i8, ptr %this, i64 36
-  %93 = load ptr, ptr %calendar, align 8, !tbaa !11
-  store ptr %93, ptr %agg.tmp140, align 8, !tbaa !11
+  %92 = load ptr, ptr %calendar, align 8, !tbaa !11
+  store ptr %92, ptr %agg.tmp140, align 8, !tbaa !11
   %pn.i.i107 = getelementptr inbounds nuw i8, ptr %agg.tmp140, i64 8
-  %94 = load ptr, ptr %pn.i.i, align 8, !tbaa !15
-  store ptr %94, ptr %pn.i.i107, align 8, !tbaa !15
-  %cmp.not.i.i.i109 = icmp eq ptr %94, null
+  %93 = load ptr, ptr %pn.i.i, align 8, !tbaa !15
+  store ptr %93, ptr %pn.i.i107, align 8, !tbaa !15
+  %cmp.not.i.i.i109 = icmp eq ptr %93, null
   br i1 %cmp.not.i.i.i109, label %_ZN8QuantLib8CalendarC2ERKS0_.exit112, label %if.then.i.i.i110
 
 if.then.i.i.i110:                                 ; preds = %invoke.cont138
-  %use_count_.i.i.i.i111 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %95 = atomicrmw add ptr %use_count_.i.i.i.i111, i32 1 monotonic, align 4
+  %use_count_.i.i.i.i111 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  %94 = atomicrmw add ptr %use_count_.i.i.i.i111, i32 1 monotonic, align 4
   br label %_ZN8QuantLib8CalendarC2ERKS0_.exit112
 
 _ZN8QuantLib8CalendarC2ERKS0_.exit112:            ; preds = %invoke.cont138, %if.then.i.i.i110
   %rule_ = getelementptr inbounds nuw i8, ptr %this, i64 60
-  %96 = load i32, ptr %rule_, align 4, !tbaa !195
+  %95 = load i32, ptr %rule_, align 4, !tbaa !195
   %endOfMonth_ = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %97 = load i8, ptr %endOfMonth_, align 8, !tbaa !197, !range !9, !noundef !10
-  %loadedv = trunc nuw i8 %97 to i1
+  %96 = load i8, ptr %endOfMonth_, align 8, !tbaa !197, !range !9, !noundef !10
+  %loadedv = trunc nuw i8 %96 to i1
   %firstDate_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %nextToLastDate_ = getelementptr inbounds nuw i8, ptr %this, i64 80
-  invoke void @_ZN8QuantLib8ScheduleC1ENS_4DateERKS1_RKNS_6PeriodENS_8CalendarENS_21BusinessDayConventionES8_NS_14DateGeneration4RuleEbS3_S3_(ptr noundef nonnull align 8 dereferenceable(136) %agg.result, i64 %agg.tmp.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %terminationDate_, ptr noundef nonnull align 4 dereferenceable(8) %m_storage.i.i.i106, ptr noundef nonnull %agg.tmp140, i32 noundef %convention.0, i32 noundef %terminationDateConvention.0, i32 noundef %96, i1 noundef zeroext %loadedv, ptr noundef nonnull align 8 dereferenceable(8) %firstDate_, ptr noundef nonnull align 8 dereferenceable(8) %nextToLastDate_)
+  invoke void @_ZN8QuantLib8ScheduleC1ENS_4DateERKS1_RKNS_6PeriodENS_8CalendarENS_21BusinessDayConventionES8_NS_14DateGeneration4RuleEbS3_S3_(ptr noundef nonnull align 8 dereferenceable(136) %agg.result, i64 %agg.tmp.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %terminationDate_, ptr noundef nonnull align 4 dereferenceable(8) %m_storage.i.i.i106, ptr noundef nonnull %agg.tmp140, i32 noundef %convention.0, i32 noundef %terminationDateConvention.0, i32 noundef %95, i1 noundef zeroext %loadedv, ptr noundef nonnull align 8 dereferenceable(8) %firstDate_, ptr noundef nonnull align 8 dereferenceable(8) %nextToLastDate_)
           to label %invoke.cont142 unwind label %lpad141
 
 invoke.cont142:                                   ; preds = %_ZN8QuantLib8CalendarC2ERKS0_.exit112
-  %98 = load ptr, ptr %pn.i.i107, align 8, !tbaa !15
-  %cmp.not.i.i.i114 = icmp eq ptr %98, null
+  %97 = load ptr, ptr %pn.i.i107, align 8, !tbaa !15
+  %cmp.not.i.i.i114 = icmp eq ptr %97, null
   br i1 %cmp.not.i.i.i114, label %_ZN8QuantLib8CalendarD2Ev.exit128, label %if.then.i.i.i115
 
 if.then.i.i.i115:                                 ; preds = %invoke.cont142
-  %use_count_.i.i.i.i116 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %99 = atomicrmw sub ptr %use_count_.i.i.i.i116, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i117 = icmp eq i32 %99, 1
+  %use_count_.i.i.i.i116 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  %98 = atomicrmw sub ptr %use_count_.i.i.i.i116, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i117 = icmp eq i32 %98, 1
   br i1 %cmp.i.i.i.i117, label %if.then.i.i.i.i118, label %_ZN8QuantLib8CalendarD2Ev.exit128
 
 if.then.i.i.i.i118:                               ; preds = %if.then.i.i.i115
-  %vtable.i.i.i.i119 = load ptr, ptr %98, align 8, !tbaa !62
+  %vtable.i.i.i.i119 = load ptr, ptr %97, align 8, !tbaa !62
   %vfn.i.i.i.i120 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i119, i64 16
-  %100 = load ptr, ptr %vfn.i.i.i.i120, align 8
-  invoke void %100(ptr noundef nonnull align 8 dereferenceable(16) %98)
+  %99 = load ptr, ptr %vfn.i.i.i.i120, align 8
+  invoke void %99(ptr noundef nonnull align 8 dereferenceable(16) %97)
           to label %.noexc.i.i.i122 unwind label %terminate.lpad.i.i.i121
 
 .noexc.i.i.i122:                                  ; preds = %if.then.i.i.i.i118
-  %weak_count_.i.i.i.i.i123 = getelementptr inbounds nuw i8, ptr %98, i64 12
-  %101 = atomicrmw sub ptr %weak_count_.i.i.i.i.i123, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i.i124 = icmp eq i32 %101, 1
+  %weak_count_.i.i.i.i.i123 = getelementptr inbounds nuw i8, ptr %97, i64 12
+  %100 = atomicrmw sub ptr %weak_count_.i.i.i.i.i123, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i.i124 = icmp eq i32 %100, 1
   br i1 %cmp.i.i.i.i.i124, label %if.then.i.i.i.i.i125, label %_ZN8QuantLib8CalendarD2Ev.exit128
 
 if.then.i.i.i.i.i125:                             ; preds = %.noexc.i.i.i122
-  %vtable.i.i.i.i.i126 = load ptr, ptr %98, align 8, !tbaa !62
+  %vtable.i.i.i.i.i126 = load ptr, ptr %97, align 8, !tbaa !62
   %vfn.i.i.i.i.i127 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i126, i64 24
-  %102 = load ptr, ptr %vfn.i.i.i.i.i127, align 8
-  invoke void %102(ptr noundef nonnull align 8 dereferenceable(16) %98)
+  %101 = load ptr, ptr %vfn.i.i.i.i.i127, align 8
+  invoke void %101(ptr noundef nonnull align 8 dereferenceable(16) %97)
           to label %_ZN8QuantLib8CalendarD2Ev.exit128 unwind label %terminate.lpad.i.i.i121
 
 terminate.lpad.i.i.i121:                          ; preds = %if.then.i.i.i.i.i125, %if.then.i.i.i.i118
-  %103 = landingpad { ptr, i32 }
+  %102 = landingpad { ptr, i32 }
           catch ptr null
-  %104 = extractvalue { ptr, i32 } %103, 0
-  call void @__clang_call_terminate(ptr %104) #25
+  %103 = extractvalue { ptr, i32 } %102, 0
+  call void @__clang_call_terminate(ptr %103) #25
   unreachable
 
 _ZN8QuantLib8CalendarD2Ev.exit128:                ; preds = %invoke.cont142, %if.then.i.i.i115, %.noexc.i.i.i122, %if.then.i.i.i.i.i125
-  %105 = load ptr, ptr %pn.i.i, align 8, !tbaa !15
-  %cmp.not.i.i.i130 = icmp eq ptr %105, null
+  %104 = load ptr, ptr %pn.i.i, align 8, !tbaa !15
+  %cmp.not.i.i.i130 = icmp eq ptr %104, null
   br i1 %cmp.not.i.i.i130, label %_ZN8QuantLib8CalendarD2Ev.exit144, label %if.then.i.i.i131
 
 if.then.i.i.i131:                                 ; preds = %_ZN8QuantLib8CalendarD2Ev.exit128
-  %use_count_.i.i.i.i132 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %106 = atomicrmw sub ptr %use_count_.i.i.i.i132, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i133 = icmp eq i32 %106, 1
+  %use_count_.i.i.i.i132 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %105 = atomicrmw sub ptr %use_count_.i.i.i.i132, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i133 = icmp eq i32 %105, 1
   br i1 %cmp.i.i.i.i133, label %if.then.i.i.i.i134, label %_ZN8QuantLib8CalendarD2Ev.exit144
 
 if.then.i.i.i.i134:                               ; preds = %if.then.i.i.i131
-  %vtable.i.i.i.i135 = load ptr, ptr %105, align 8, !tbaa !62
+  %vtable.i.i.i.i135 = load ptr, ptr %104, align 8, !tbaa !62
   %vfn.i.i.i.i136 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i135, i64 16
-  %107 = load ptr, ptr %vfn.i.i.i.i136, align 8
-  invoke void %107(ptr noundef nonnull align 8 dereferenceable(16) %105)
+  %106 = load ptr, ptr %vfn.i.i.i.i136, align 8
+  invoke void %106(ptr noundef nonnull align 8 dereferenceable(16) %104)
           to label %.noexc.i.i.i138 unwind label %terminate.lpad.i.i.i137
 
 .noexc.i.i.i138:                                  ; preds = %if.then.i.i.i.i134
-  %weak_count_.i.i.i.i.i139 = getelementptr inbounds nuw i8, ptr %105, i64 12
-  %108 = atomicrmw sub ptr %weak_count_.i.i.i.i.i139, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i.i140 = icmp eq i32 %108, 1
+  %weak_count_.i.i.i.i.i139 = getelementptr inbounds nuw i8, ptr %104, i64 12
+  %107 = atomicrmw sub ptr %weak_count_.i.i.i.i.i139, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i.i140 = icmp eq i32 %107, 1
   br i1 %cmp.i.i.i.i.i140, label %if.then.i.i.i.i.i141, label %_ZN8QuantLib8CalendarD2Ev.exit144
 
 if.then.i.i.i.i.i141:                             ; preds = %.noexc.i.i.i138
-  %vtable.i.i.i.i.i142 = load ptr, ptr %105, align 8, !tbaa !62
+  %vtable.i.i.i.i.i142 = load ptr, ptr %104, align 8, !tbaa !62
   %vfn.i.i.i.i.i143 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i142, i64 24
-  %109 = load ptr, ptr %vfn.i.i.i.i.i143, align 8
-  invoke void %109(ptr noundef nonnull align 8 dereferenceable(16) %105)
+  %108 = load ptr, ptr %vfn.i.i.i.i.i143, align 8
+  invoke void %108(ptr noundef nonnull align 8 dereferenceable(16) %104)
           to label %_ZN8QuantLib8CalendarD2Ev.exit144 unwind label %terminate.lpad.i.i.i137
 
 terminate.lpad.i.i.i137:                          ; preds = %if.then.i.i.i.i.i141, %if.then.i.i.i.i134
-  %110 = landingpad { ptr, i32 }
+  %109 = landingpad { ptr, i32 }
           catch ptr null
-  %111 = extractvalue { ptr, i32 } %110, 0
-  call void @__clang_call_terminate(ptr %111) #25
+  %110 = extractvalue { ptr, i32 } %109, 0
+  call void @__clang_call_terminate(ptr %110) #25
   unreachable
 
 _ZN8QuantLib8CalendarD2Ev.exit144:                ; preds = %_ZN8QuantLib8CalendarD2Ev.exit128, %if.then.i.i.i131, %.noexc.i.i.i138, %if.then.i.i.i.i.i141
@@ -10988,13 +10988,13 @@ _ZN8QuantLib8CalendarD2Ev.exit144:                ; preds = %_ZN8QuantLib8Calend
   ret void
 
 lpad141:                                          ; preds = %_ZN8QuantLib8CalendarC2ERKS0_.exit112
-  %112 = landingpad { ptr, i32 }
+  %111 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8QuantLib8CalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp140) #24
   br label %ehcleanup144
 
 ehcleanup144:                                     ; preds = %lpad141, %lpad130, %lpad125
-  %.pn = phi { ptr, i32 } [ %112, %lpad141 ], [ %90, %lpad125 ], [ %91, %lpad130 ]
+  %.pn = phi { ptr, i32 } [ %111, %lpad141 ], [ %89, %lpad125 ], [ %90, %lpad130 ]
   call void @_ZN8QuantLib8CalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %calendar) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %calendar) #24
   br label %eh.resume

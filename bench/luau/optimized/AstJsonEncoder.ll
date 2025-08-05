@@ -1872,9 +1872,9 @@ define dso_local void @_ZN4Luau6toJsonB5cxx11EPNS_7AstNodeE(ptr dead_on_unwind n
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %4, i8 0, i64 25, i1 false)
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr null)
-          to label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJEEERS5_DpOT_.exit.i.i unwind label %7
+          to label %.noexc.i unwind label %7
 
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJEEERS5_DpOT_.exit.i.i: ; preds = %2
+.noexc.i:                                         ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.pre.i.i = load ptr, ptr %5, align 8, !tbaa !10
   %6 = getelementptr inbounds i8, ptr %.pre.i.i, i64 -32
@@ -1885,13 +1885,13 @@ common.resume:                                    ; preds = %30, %7
   %common.resume.op = phi { ptr, i32 } [ %8, %7 ], [ %31, %30 ]
   resume { ptr, i32 } %common.resume.op
 
-7:                                                ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJEEERS5_DpOT_.exit.i.i, %2
+7:                                                ; preds = %.noexc.i, %2
   %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #20
   br label %common.resume
 
-_ZN4Luau14AstJsonEncoderC2Ev.exit:                ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJEEERS5_DpOT_.exit.i.i
+_ZN4Luau14AstJsonEncoderC2Ev.exit:                ; preds = %.noexc.i
   %9 = load ptr, ptr %1, align 8, !tbaa !8
   %10 = load ptr, ptr %9, align 8
   invoke void %10(ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef nonnull %3)
@@ -2037,9 +2037,9 @@ define dso_local void @_ZN4Luau6toJsonB5cxx11EPNS_7AstNodeERKSt6vectorINS_7Comme
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %6, i8 0, i64 25, i1 false)
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr null)
-          to label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJEEERS5_DpOT_.exit.i.i unwind label %9
+          to label %.noexc.i unwind label %9
 
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJEEERS5_DpOT_.exit.i.i: ; preds = %3
+.noexc.i:                                         ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.pre.i.i = load ptr, ptr %7, align 8, !tbaa !10
   %8 = getelementptr inbounds i8, ptr %.pre.i.i, i64 -32
@@ -2050,13 +2050,13 @@ common.resume:                                    ; preds = %_ZNSt6vectorIN4Luau
   %common.resume.op = phi { ptr, i32 } [ %10, %9 ], [ %.pn, %_ZNSt6vectorIN4Luau7CommentESaIS1_EED2Ev.exit14 ]
   resume { ptr, i32 } %common.resume.op
 
-9:                                                ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJEEERS5_DpOT_.exit.i.i, %3
+9:                                                ; preds = %.noexc.i, %3
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #20
   br label %common.resume
 
-_ZN4Luau14AstJsonEncoderC2Ev.exit:                ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJEEERS5_DpOT_.exit.i.i
+_ZN4Luau14AstJsonEncoderC2Ev.exit:                ; preds = %.noexc.i
   invoke void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %4, i64 8, ptr nonnull @.str)
           to label %_ZN4Luau14AstJsonEncoder8writeRawESt17basic_string_viewIcSt11char_traitsIcEE.exit unwind label %59
 

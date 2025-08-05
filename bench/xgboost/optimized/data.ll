@@ -12067,17 +12067,17 @@ _ZN7xgboost6common4IotaIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEEEvP
 
 58:                                               ; preds = %51
   %59 = icmp slt i64 %57, 2
-  br i1 %59, label %"_ZN7xgboost6common10StableSortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZNKS_8MetaInfo12LabelAbsSortEPKNS_7ContextEE3$_0EEvSC_T_SE_OT0_.exit", label %_ZNSt6vectorIN14__gnu_parallel6_PieceIlEESaIS2_EE17_M_default_appendEm.exit.i.i.i.i
+  br i1 %59, label %"_ZN7xgboost6common10StableSortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZNKS_8MetaInfo12LabelAbsSortEPKNS_7ContextEE3$_0EEvSC_T_SE_OT0_.exit", label %.lr.ph.i.i.i.i.i.i.preheader.i.i.i.i.i
 
-_ZNSt6vectorIN14__gnu_parallel6_PieceIlEESaIS2_EE17_M_default_appendEm.exit.i.i.i.i: ; preds = %58
+.lr.ph.i.i.i.i.i.i.preheader.i.i.i.i.i:           ; preds = %58
   %60 = add nuw i64 %56, 8
   %61 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %60) #43
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %61, ptr align 8 %45, i64 %56, i1 false)
   %62 = getelementptr inbounds i8, ptr %61, i64 %56
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %select.unfold.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIN14__gnu_parallel6_PieceIlEESaIS2_EE17_M_default_appendEm.exit.i.i.i.i
-  %.010.i.i.in.in.i.i.i.i.i.i.i.i.i = phi i64 [ %.010.i.i.i.i.i.i.i.i.i.i.i, %select.unfold.i.i.i.i.i.i.i.i.i.i.i ], [ %57, %_ZNSt6vectorIN14__gnu_parallel6_PieceIlEESaIS2_EE17_M_default_appendEm.exit.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %select.unfold.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.preheader.i.i.i.i.i
+  %.010.i.i.in.in.i.i.i.i.i.i.i.i.i = phi i64 [ %.010.i.i.i.i.i.i.i.i.i.i.i, %select.unfold.i.i.i.i.i.i.i.i.i.i.i ], [ %57, %.lr.ph.i.i.i.i.i.i.preheader.i.i.i.i.i ]
   %.010.i.i.in.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %.010.i.i.in.in.i.i.i.i.i.i.i.i.i, 1
   %.010.i.i.i.i.i.i.i.i.i.i.i = lshr i64 %.010.i.i.in.i.i.i.i.i.i.i.i.i, 1
   %63 = shl nuw nsw i64 %.010.i.i.i.i.i.i.i.i.i.i.i, 3

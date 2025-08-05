@@ -1553,83 +1553,83 @@ define linkonce_odr dso_local void @_ZN4LIEF15filter_iteratorIRKSt6vectorISt10un
   store ptr %8, ptr %5, align 8, !tbaa !50
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt6vectorISt8functionIFbRKSt10unique_ptrIN4LIEF5MachO6SymbolESt14default_deleteIS4_EEEESaISB_EE17_M_realloc_insertIJRKSB_EEEvN9__gnu_cxx17__normal_iteratorIPSB_SD_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr null, ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %_ZNSt6vectorISt8functionIFbRKSt10unique_ptrIN4LIEF5MachO6SymbolESt14default_deleteIS4_EEEESaISB_EE9push_backERKSB_.exit unwind label %.loopexit.split-lp
+          to label %_ZNSt6vectorISt8functionIFbRKSt10unique_ptrIN4LIEF5MachO6SymbolESt14default_deleteIS4_EEEESaISB_EE9push_backERKSB_.exit unwind label %.body.loopexit.split-lp
 
 _ZNSt6vectorISt8functionIFbRKSt10unique_ptrIN4LIEF5MachO6SymbolESt14default_deleteIS4_EEEESaISB_EE9push_backERKSB_.exit: ; preds = %3
-  %.pre = load ptr, ptr %4, align 8, !tbaa !67
-  %.pre11 = load ptr, ptr %.pre, align 8, !tbaa !50
-  store ptr %.pre11, ptr %5, align 8, !tbaa !50
-  %10 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !67
   %11 = load ptr, ptr %10, align 8, !tbaa !50
-  %.not = icmp eq ptr %.pre11, %11
-  br i1 %.not, label %_ZN4LIEF15filter_iteratorIRKSt6vectorISt10unique_ptrINS_5MachO6SymbolESt14default_deleteIS4_EESaIS7_EEPKS4_N9__gnu_cxx17__normal_iteratorIPKS7_S9_EEE4nextEv.exit, label %12
+  store ptr %11, ptr %5, align 8, !tbaa !50
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !50
+  %.not = icmp eq ptr %11, %13
+  br i1 %.not, label %_ZN4LIEF15filter_iteratorIRKSt6vectorISt10unique_ptrINS_5MachO6SymbolESt14default_deleteIS4_EESaIS7_EEPKS4_N9__gnu_cxx17__normal_iteratorIPKS7_S9_EEE4nextEv.exit, label %14
 
-12:                                               ; preds = %_ZNSt6vectorISt8functionIFbRKSt10unique_ptrIN4LIEF5MachO6SymbolESt14default_deleteIS4_EEEESaISB_EE9push_backERKSB_.exit
-  %13 = load ptr, ptr %6, align 8, !tbaa !101
-  %14 = load ptr, ptr %9, align 8, !tbaa !101
-  %15 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt8functionIFbRKSt10unique_ptrIN4LIEF5MachO6SymbolESt14default_deleteIS6_EEEESt6vectorISD_SaISD_EEEENS0_5__ops12_Iter_negateIZNS4_15filter_iteratorIRKSF_IS9_SaIS9_EEPKS6_NS1_IPSA_SN_EEEC1ESP_SD_EUlRKSD_E_EEET_SZ_SZ_T0_St26random_access_iterator_tag(ptr %13, ptr %14, ptr nonnull %0)
-          to label %16 unwind label %.loopexit.split-lp
+14:                                               ; preds = %_ZNSt6vectorISt8functionIFbRKSt10unique_ptrIN4LIEF5MachO6SymbolESt14default_deleteIS4_EEEESaISB_EE9push_backERKSB_.exit
+  %15 = load ptr, ptr %6, align 8, !tbaa !101
+  %16 = load ptr, ptr %9, align 8, !tbaa !101
+  %17 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt8functionIFbRKSt10unique_ptrIN4LIEF5MachO6SymbolESt14default_deleteIS6_EEEESt6vectorISD_SaISD_EEEENS0_5__ops12_Iter_negateIZNS4_15filter_iteratorIRKSF_IS9_SaIS9_EEPKS6_NS1_IPSA_SN_EEEC1ESP_SD_EUlRKSD_E_EEET_SZ_SZ_T0_St26random_access_iterator_tag(ptr %15, ptr %16, ptr nonnull %0)
+          to label %18 unwind label %.body.loopexit.split-lp
 
-16:                                               ; preds = %12
-  %17 = icmp eq ptr %14, %15
-  br i1 %17, label %_ZN4LIEF15filter_iteratorIRKSt6vectorISt10unique_ptrINS_5MachO6SymbolESt14default_deleteIS4_EESaIS7_EEPKS4_N9__gnu_cxx17__normal_iteratorIPKS7_S9_EEE4nextEv.exit, label %18
+18:                                               ; preds = %14
+  %19 = icmp eq ptr %16, %17
+  br i1 %19, label %_ZN4LIEF15filter_iteratorIRKSt6vectorISt10unique_ptrINS_5MachO6SymbolESt14default_deleteIS4_EESaIS7_EEPKS4_N9__gnu_cxx17__normal_iteratorIPKS7_S9_EEE4nextEv.exit, label %20
 
-18:                                               ; preds = %16
-  %19 = load ptr, ptr %4, align 8, !tbaa !67
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !50
-  %22 = load ptr, ptr %5, align 8, !tbaa !50
-  %23 = icmp eq ptr %22, %21
-  br i1 %23, label %24, label %.preheader.i
+20:                                               ; preds = %18
+  %21 = load ptr, ptr %4, align 8, !tbaa !67
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !50
+  %24 = load ptr, ptr %5, align 8, !tbaa !50
+  %25 = icmp eq ptr %24, %23
+  br i1 %25, label %26, label %.preheader.i
 
-24:                                               ; preds = %18
-  %25 = load ptr, ptr %19, align 8, !tbaa !89
-  %26 = ptrtoint ptr %21 to i64
-  %27 = ptrtoint ptr %25 to i64
-  %28 = sub i64 %26, %27
-  %29 = ashr exact i64 %28, 3
-  store i64 %29, ptr %7, align 8, !tbaa !86
+26:                                               ; preds = %20
+  %27 = load ptr, ptr %21, align 8, !tbaa !89
+  %28 = ptrtoint ptr %23 to i64
+  %29 = ptrtoint ptr %27 to i64
+  %30 = sub i64 %28, %29
+  %31 = ashr exact i64 %30, 3
+  store i64 %31, ptr %7, align 8, !tbaa !86
   br label %_ZN4LIEF15filter_iteratorIRKSt6vectorISt10unique_ptrINS_5MachO6SymbolESt14default_deleteIS4_EESaIS7_EEPKS4_N9__gnu_cxx17__normal_iteratorIPKS7_S9_EEE4nextEv.exit
 
-.preheader.i:                                     ; preds = %18, %.noexc9
+.preheader.i:                                     ; preds = %20, %.noexc9
   %.sroa.03.0.copyload.i = load ptr, ptr %5, align 8, !tbaa !50
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.copyload.i, i64 8
-  store ptr %30, ptr %5, align 8, !tbaa !50
-  %31 = load i64, ptr %7, align 8, !tbaa !86
-  %32 = add nsw i64 %31, 1
-  store i64 %32, ptr %7, align 8, !tbaa !86
-  %33 = load ptr, ptr %4, align 8, !tbaa !67
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !50
-  %.not.i8 = icmp eq ptr %30, %35
-  br i1 %.not.i8, label %_ZN4LIEF15filter_iteratorIRKSt6vectorISt10unique_ptrINS_5MachO6SymbolESt14default_deleteIS4_EESaIS7_EEPKS4_N9__gnu_cxx17__normal_iteratorIPKS7_S9_EEE4nextEv.exit, label %36
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.copyload.i, i64 8
+  store ptr %32, ptr %5, align 8, !tbaa !50
+  %33 = load i64, ptr %7, align 8, !tbaa !86
+  %34 = add nsw i64 %33, 1
+  store i64 %34, ptr %7, align 8, !tbaa !86
+  %35 = load ptr, ptr %4, align 8, !tbaa !67
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !50
+  %.not.i8 = icmp eq ptr %32, %37
+  br i1 %.not.i8, label %_ZN4LIEF15filter_iteratorIRKSt6vectorISt10unique_ptrINS_5MachO6SymbolESt14default_deleteIS4_EESaIS7_EEPKS4_N9__gnu_cxx17__normal_iteratorIPKS7_S9_EEE4nextEv.exit, label %38
 
-36:                                               ; preds = %.preheader.i
-  %37 = load ptr, ptr %6, align 8, !tbaa !101
-  %38 = load ptr, ptr %9, align 8, !tbaa !101
-  %39 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt8functionIFbRKSt10unique_ptrIN4LIEF5MachO6SymbolESt14default_deleteIS6_EEEESt6vectorISD_SaISD_EEEENS0_5__ops12_Iter_negateIZNS4_15filter_iteratorIRKSF_IS9_SaIS9_EEPKS6_NS1_IPSA_SN_EEE4nextEvEUlRKSD_E_EEET_SZ_SZ_T0_St26random_access_iterator_tag(ptr %37, ptr %38, ptr nonnull align 8 dereferenceable(56) %0)
-          to label %.noexc9 unwind label %.loopexit
+38:                                               ; preds = %.preheader.i
+  %39 = load ptr, ptr %6, align 8, !tbaa !101
+  %40 = load ptr, ptr %9, align 8, !tbaa !101
+  %41 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt8functionIFbRKSt10unique_ptrIN4LIEF5MachO6SymbolESt14default_deleteIS6_EEEESt6vectorISD_SaISD_EEEENS0_5__ops12_Iter_negateIZNS4_15filter_iteratorIRKSF_IS9_SaIS9_EEPKS6_NS1_IPSA_SN_EEE4nextEvEUlRKSD_E_EEET_SZ_SZ_T0_St26random_access_iterator_tag(ptr %39, ptr %40, ptr nonnull align 8 dereferenceable(56) %0)
+          to label %.noexc9 unwind label %.body.loopexit
 
-.noexc9:                                          ; preds = %36
-  %40 = icmp eq ptr %38, %39
-  br i1 %40, label %_ZN4LIEF15filter_iteratorIRKSt6vectorISt10unique_ptrINS_5MachO6SymbolESt14default_deleteIS4_EESaIS7_EEPKS4_N9__gnu_cxx17__normal_iteratorIPKS7_S9_EEE4nextEv.exit, label %.preheader.i, !llvm.loop !102
+.noexc9:                                          ; preds = %38
+  %42 = icmp eq ptr %40, %41
+  br i1 %42, label %_ZN4LIEF15filter_iteratorIRKSt6vectorISt10unique_ptrINS_5MachO6SymbolESt14default_deleteIS4_EESaIS7_EEPKS4_N9__gnu_cxx17__normal_iteratorIPKS7_S9_EEE4nextEv.exit, label %.preheader.i, !llvm.loop !102
 
-.loopexit:                                        ; preds = %36
+.body.loopexit:                                   ; preds = %38
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %3, %12
+.body.loopexit.split-lp:                          ; preds = %3, %14
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %.loopexit, %.loopexit.split-lp
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.body:                                            ; preds = %.body.loopexit.split-lp, %.body.loopexit
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.body.loopexit ], [ %lpad.loopexit.split-lp, %.body.loopexit.split-lp ]
   tail call void @_ZNSt6vectorISt8functionIFbRKSt10unique_ptrIN4LIEF5MachO6SymbolESt14default_deleteIS4_EEEESaISB_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #22
-  resume { ptr, i32 } %eh.lpad-body
+  resume { ptr, i32 } %lpad.phi
 
-_ZN4LIEF15filter_iteratorIRKSt6vectorISt10unique_ptrINS_5MachO6SymbolESt14default_deleteIS4_EESaIS7_EEPKS4_N9__gnu_cxx17__normal_iteratorIPKS7_S9_EEE4nextEv.exit: ; preds = %.noexc9, %.preheader.i, %24, %16, %_ZNSt6vectorISt8functionIFbRKSt10unique_ptrIN4LIEF5MachO6SymbolESt14default_deleteIS4_EEEESaISB_EE9push_backERKSB_.exit
+_ZN4LIEF15filter_iteratorIRKSt6vectorISt10unique_ptrINS_5MachO6SymbolESt14default_deleteIS4_EESaIS7_EEPKS4_N9__gnu_cxx17__normal_iteratorIPKS7_S9_EEE4nextEv.exit: ; preds = %.noexc9, %.preheader.i, %26, %18, %_ZNSt6vectorISt8functionIFbRKSt10unique_ptrIN4LIEF5MachO6SymbolESt14default_deleteIS4_EEEESaISB_EE9push_backERKSB_.exit
   ret void
 }
 

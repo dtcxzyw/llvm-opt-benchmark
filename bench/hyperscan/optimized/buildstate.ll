@@ -141,7 +141,7 @@ define hidden void @_ZN3ue222makeGlushkovBuildStateERNS_10NFABuilderEb(ptr dead_
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8, !noalias !5
   %12 = invoke noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
-          to label %.noexc.i unwind label %82, !noalias !5
+          to label %.noexc.i unwind label %81, !noalias !5
 
 .noexc.i:                                         ; preds = %3
   store i32 %12, ptr %8, align 8, !noalias !5
@@ -150,7 +150,7 @@ define hidden void @_ZN3ue222makeGlushkovBuildStateERNS_10NFABuilderEb(ptr dead_
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load ptr, ptr %15, align 8, !noalias !5
   %17 = invoke noundef i32 %16(ptr noundef nonnull align 8 dereferenceable(8) %1)
-          to label %.noexc3.i unwind label %82, !noalias !5
+          to label %.noexc3.i unwind label %81, !noalias !5
 
 .noexc3.i:                                        ; preds = %.noexc.i
   store i32 %17, ptr %13, align 4, !noalias !5
@@ -158,7 +158,7 @@ define hidden void @_ZN3ue222makeGlushkovBuildStateERNS_10NFABuilderEb(ptr dead_
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = load ptr, ptr %19, align 8, !noalias !5
   %21 = invoke noundef i32 %20(ptr noundef nonnull align 8 dereferenceable(8) %1)
-          to label %.noexc4.i unwind label %82, !noalias !5
+          to label %.noexc4.i unwind label %81, !noalias !5
 
 .noexc4.i:                                        ; preds = %.noexc3.i
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -167,7 +167,7 @@ define hidden void @_ZN3ue222makeGlushkovBuildStateERNS_10NFABuilderEb(ptr dead_
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %25 = load ptr, ptr %24, align 8, !noalias !5
   %26 = invoke noundef i32 %25(ptr noundef nonnull align 8 dereferenceable(8) %1)
-          to label %.noexc5.i unwind label %82, !noalias !5
+          to label %.noexc5.i unwind label %81, !noalias !5
 
 .noexc5.i:                                        ; preds = %.noexc4.i
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 20
@@ -197,7 +197,7 @@ define hidden void @_ZN3ue222makeGlushkovBuildStateERNS_10NFABuilderEb(ptr dead_
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %40 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
-          to label %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i14.i.i unwind label %71, !noalias !5
+          to label %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i14.i.i unwind label %70, !noalias !5
 
 _ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i14.i.i: ; preds = %.noexc5.i
   %.sroa.071.0.insert.ext73.i.i = zext i32 %37 to i64
@@ -208,7 +208,7 @@ _ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i14.i.i: 
   store ptr %41, ptr %39, align 8, !noalias !5
   %42 = load i32, ptr %13, align 4, !noalias !5
   %43 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %.lr.ph.i.i.i.i.i.i.i18.preheader.i.i unwind label %73, !noalias !5
+          to label %.lr.ph.i.i.i.i.i.i.i18.preheader.i.i unwind label %72, !noalias !5
 
 .lr.ph.i.i.i.i.i.i.i18.preheader.i.i:             ; preds = %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i14.i.i
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -227,113 +227,113 @@ _ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i14.i.i: 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE9push_backEOS1_.exit44.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i18.preheader.i.i
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %49 = zext i32 %.pre.pre.i.i to i64
-  store i64 %49, ptr %46, align 4, !noalias !5
-  %50 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %.sroa.0.0.insert.ext52.i.i = zext i32 %.pre.pre.i.i to i64
+  store i64 %.sroa.0.0.insert.ext52.i.i, ptr %46, align 4, !noalias !5
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %46, ptr %5, align 8, !noalias !5
-  store ptr %50, ptr %48, align 8, !noalias !5
-  store ptr %50, ptr %47, align 8, !noalias !5
-  %51 = load ptr, ptr %7, align 8, !noalias !5
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  %53 = load ptr, ptr %52, align 8, !noalias !5
-  invoke void %53(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
-          to label %54 unwind label %76, !noalias !5
+  store ptr %49, ptr %48, align 8, !noalias !5
+  store ptr %49, ptr %47, align 8, !noalias !5
+  %50 = load ptr, ptr %7, align 8, !noalias !5
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %52 = load ptr, ptr %51, align 8, !noalias !5
+  invoke void %52(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
+          to label %53 unwind label %75, !noalias !5
 
-54:                                               ; preds = %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE9push_backEOS1_.exit44.i.i
-  %55 = load ptr, ptr %30, align 8, !noalias !5
-  %56 = load i32, ptr %8, align 8, !noalias !5
-  %57 = load ptr, ptr %55, align 8, !noalias !5
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 64
-  %59 = load ptr, ptr %58, align 8, !noalias !5
-  invoke void %59(ptr noundef nonnull align 8 dereferenceable(8) %55, i32 noundef %56, i32 noundef 0)
-          to label %60 unwind label %76, !noalias !5
+53:                                               ; preds = %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE9push_backEOS1_.exit44.i.i
+  %54 = load ptr, ptr %30, align 8, !noalias !5
+  %55 = load i32, ptr %8, align 8, !noalias !5
+  %56 = load ptr, ptr %54, align 8, !noalias !5
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 64
+  %58 = load ptr, ptr %57, align 8, !noalias !5
+  invoke void %58(ptr noundef nonnull align 8 dereferenceable(8) %54, i32 noundef %55, i32 noundef 0)
+          to label %59 unwind label %75, !noalias !5
 
-60:                                               ; preds = %54
-  %61 = load ptr, ptr %30, align 8, !noalias !5
-  %62 = load i32, ptr %13, align 4, !noalias !5
-  %63 = load ptr, ptr %61, align 8, !noalias !5
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 64
-  %65 = load ptr, ptr %64, align 8, !noalias !5
-  invoke void %65(ptr noundef nonnull align 8 dereferenceable(8) %61, i32 noundef %62, i32 noundef 0)
-          to label %66 unwind label %76, !noalias !5
+59:                                               ; preds = %53
+  %60 = load ptr, ptr %30, align 8, !noalias !5
+  %61 = load i32, ptr %13, align 4, !noalias !5
+  %62 = load ptr, ptr %60, align 8, !noalias !5
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 64
+  %64 = load ptr, ptr %63, align 8, !noalias !5
+  invoke void %64(ptr noundef nonnull align 8 dereferenceable(8) %60, i32 noundef %61, i32 noundef 0)
+          to label %65 unwind label %75, !noalias !5
 
-66:                                               ; preds = %60
-  %67 = load ptr, ptr %5, align 8, !noalias !5
-  %.not.i.i.i.i.i = icmp eq ptr %67, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit.i.i, label %68
+65:                                               ; preds = %59
+  %66 = load ptr, ptr %5, align 8, !noalias !5
+  %.not.i.i.i.i.i = icmp eq ptr %66, null
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit.i.i, label %67
 
-68:                                               ; preds = %66
-  call void @_ZdlPv(ptr noundef nonnull %67) #26, !noalias !5
+67:                                               ; preds = %65
+  call void @_ZdlPv(ptr noundef nonnull %66) #26, !noalias !5
   br label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit.i.i
 
-_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit.i.i: ; preds = %68, %66
+_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit.i.i: ; preds = %67, %65
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #25, !noalias !5
-  %69 = load ptr, ptr %4, align 8, !noalias !5
-  %.not.i.i.i45.i.i = icmp eq ptr %69, null
-  br i1 %.not.i.i.i45.i.i, label %_ZNSt10unique_ptrIN3ue212_GLOBAL__N_122GlushkovBuildStateImplESt14default_deleteIS2_EED2Ev.exit, label %70
+  %68 = load ptr, ptr %4, align 8, !noalias !5
+  %.not.i.i.i45.i.i = icmp eq ptr %68, null
+  br i1 %.not.i.i.i45.i.i, label %_ZNSt10unique_ptrIN3ue212_GLOBAL__N_122GlushkovBuildStateImplESt14default_deleteIS2_EED2Ev.exit, label %69
 
-70:                                               ; preds = %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit.i.i
-  call void @_ZdlPv(ptr noundef nonnull %69) #26, !noalias !5
+69:                                               ; preds = %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit.i.i
+  call void @_ZdlPv(ptr noundef nonnull %68) #26, !noalias !5
   br label %_ZNSt10unique_ptrIN3ue212_GLOBAL__N_122GlushkovBuildStateImplESt14default_deleteIS2_EED2Ev.exit
 
-71:                                               ; preds = %.noexc5.i
-  %72 = landingpad { ptr, i32 }
+70:                                               ; preds = %.noexc5.i
+  %71 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit48.i.i
 
-73:                                               ; preds = %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i14.i.i
-  %74 = landingpad { ptr, i32 }
+72:                                               ; preds = %_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i14.i.i
+  %73 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit48.i.i
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit48.i.thread.i: ; preds = %.lr.ph.i.i.i.i.i.i.i18.preheader.i.i
-  %75 = landingpad { ptr, i32 }
+  %74 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #25, !noalias !5
-  br label %79
+  br label %78
 
-76:                                               ; preds = %60, %54, %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE9push_backEOS1_.exit44.i.i
-  %77 = landingpad { ptr, i32 }
+75:                                               ; preds = %59, %53, %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE9push_backEOS1_.exit44.i.i
+  %76 = landingpad { ptr, i32 }
           cleanup
-  %.pre86.i.i = load ptr, ptr %5, align 8, !noalias !5
-  %.not.i.i.i47.i.i = icmp eq ptr %.pre86.i.i, null
-  br i1 %.not.i.i.i47.i.i, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit48.i.i, label %78
+  %.pre84.i.i = load ptr, ptr %5, align 8, !noalias !5
+  %.not.i.i.i47.i.i = icmp eq ptr %.pre84.i.i, null
+  br i1 %.not.i.i.i47.i.i, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit48.i.i, label %77
 
-78:                                               ; preds = %76
-  call void @_ZdlPv(ptr noundef nonnull %.pre86.i.i) #26, !noalias !5
+77:                                               ; preds = %75
+  call void @_ZdlPv(ptr noundef nonnull %.pre84.i.i) #26, !noalias !5
   br label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit48.i.i
 
-_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit48.i.i: ; preds = %78, %76, %73, %71
-  %.pn90.i.ph.i = phi { ptr, i32 } [ %74, %73 ], [ %72, %71 ], [ %77, %78 ], [ %77, %76 ]
+_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit48.i.i: ; preds = %77, %75, %72, %70
+  %.pn88.i.ph.i = phi { ptr, i32 } [ %73, %72 ], [ %71, %70 ], [ %76, %77 ], [ %76, %75 ]
   %.pr.i = load ptr, ptr %4, align 8, !noalias !5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #25, !noalias !5
   %.not.i.i.i49.i.i = icmp eq ptr %.pr.i, null
-  br i1 %.not.i.i.i49.i.i, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit50.i.i, label %79
+  br i1 %.not.i.i.i49.i.i, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit50.i.i, label %78
 
-79:                                               ; preds = %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit48.i.i, %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit48.i.thread.i
-  %.pn90.i3.i = phi { ptr, i32 } [ %75, %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit48.i.thread.i ], [ %.pn90.i.ph.i, %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit48.i.i ]
-  %80 = phi ptr [ %43, %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit48.i.thread.i ], [ %.pr.i, %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit48.i.i ]
-  call void @_ZdlPv(ptr noundef nonnull %80) #26, !noalias !5
+78:                                               ; preds = %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit48.i.i, %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit48.i.thread.i
+  %.pn88.i3.i = phi { ptr, i32 } [ %74, %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit48.i.thread.i ], [ %.pn88.i.ph.i, %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit48.i.i ]
+  %79 = phi ptr [ %43, %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit48.i.thread.i ], [ %.pr.i, %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit48.i.i ]
+  call void @_ZdlPv(ptr noundef nonnull %79) #26, !noalias !5
   br label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit50.i.i
 
-_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit50.i.i: ; preds = %79, %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit48.i.i
-  %.pn90.i4.i = phi { ptr, i32 } [ %.pn90.i3.i, %79 ], [ %.pn90.i.ph.i, %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit48.i.i ]
-  %81 = getelementptr inbounds nuw i8, ptr %7, i64 48
+_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit50.i.i: ; preds = %78, %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit48.i.i
+  %.pn88.i4.i = phi { ptr, i32 } [ %.pn88.i3.i, %78 ], [ %.pn88.i.ph.i, %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit48.i.i ]
+  %80 = getelementptr inbounds nuw i8, ptr %7, i64 48
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #25, !noalias !5
-  call void @_ZNSt3mapIjN3ue28flat_setINS0_12PositionInfoESt4lessIS2_ESaIS2_EEES3_IjESaISt4pairIKjS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %81) #25, !noalias !5
+  call void @_ZNSt3mapIjN3ue28flat_setINS0_12PositionInfoESt4lessIS2_ESaIS2_EEES3_IjESaISt4pairIKjS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %80) #25, !noalias !5
   br label %.body.i
 
-82:                                               ; preds = %.noexc4.i, %.noexc3.i, %.noexc.i, %3
-  %83 = landingpad { ptr, i32 }
+81:                                               ; preds = %.noexc4.i, %.noexc3.i, %.noexc.i, %3
+  %82 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
-.body.i:                                          ; preds = %82, %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit50.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %83, %82 ], [ %.pn90.i4.i, %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit50.i.i ]
+.body.i:                                          ; preds = %81, %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit50.i.i
+  %eh.lpad-body.i = phi { ptr, i32 } [ %82, %81 ], [ %.pn88.i4.i, %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit50.i.i ]
   call void @_ZdlPv(ptr noundef nonnull %7) #26, !noalias !5
   resume { ptr, i32 } %eh.lpad-body.i
 
-_ZNSt10unique_ptrIN3ue212_GLOBAL__N_122GlushkovBuildStateImplESt14default_deleteIS2_EED2Ev.exit: ; preds = %70, %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit.i.i
+_ZNSt10unique_ptrIN3ue212_GLOBAL__N_122GlushkovBuildStateImplESt14default_deleteIS2_EED2Ev.exit: ; preds = %69, %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #25, !noalias !5
   store ptr %7, ptr %0, align 8
   ret void

@@ -2185,7 +2185,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   %use_count_.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   %25 = atomicrmw sub ptr %use_count_.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i = icmp eq i32 %25, 1
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN5boost10shared_ptrIN8QuantLib8CashFlowEEaSINS1_17AmortizingPaymentEEERS3_ONS0_IT_EE.exit
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN5boost10shared_ptrIN8QuantLib8CashFlowEEaSINS1_17AmortizingPaymentEEERS3_ONS0_IT_EE.exitthread-pre-split
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %24, align 8, !tbaa !32
@@ -2198,14 +2198,14 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 12
   %27 = atomicrmw sub ptr %weak_count_.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i = icmp eq i32 %27, 1
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN5boost10shared_ptrIN8QuantLib8CashFlowEEaSINS1_17AmortizingPaymentEEERS3_ONS0_IT_EE.exit
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN5boost10shared_ptrIN8QuantLib8CashFlowEEaSINS1_17AmortizingPaymentEEERS3_ONS0_IT_EE.exitthread-pre-split
 
 if.then.i.i.i.i.i:                                ; preds = %.noexc.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %24, align 8, !tbaa !32
   %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 24
   %28 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   invoke void %28(ptr noundef nonnull align 8 dereferenceable(16) %24)
-          to label %_ZN5boost10shared_ptrIN8QuantLib8CashFlowEEaSINS1_17AmortizingPaymentEEERS3_ONS0_IT_EE.exit unwind label %terminate.lpad.i.i.i
+          to label %_ZN5boost10shared_ptrIN8QuantLib8CashFlowEEaSINS1_17AmortizingPaymentEEERS3_ONS0_IT_EE.exitthread-pre-split unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i, %if.then.i.i.i.i
   %29 = landingpad { ptr, i32 }
@@ -2214,8 +2214,12 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
   call void @__clang_call_terminate(ptr %30) #30
   unreachable
 
-_ZN5boost10shared_ptrIN8QuantLib8CashFlowEEaSINS1_17AmortizingPaymentEEERS3_ONS0_IT_EE.exit: ; preds = %invoke.cont, %if.then.i.i.i, %.noexc.i.i.i, %if.then.i.i.i.i.i
-  %31 = load ptr, ptr %pn3.i.i, align 8, !tbaa !62
+_ZN5boost10shared_ptrIN8QuantLib8CashFlowEEaSINS1_17AmortizingPaymentEEERS3_ONS0_IT_EE.exitthread-pre-split: ; preds = %if.then.i.i.i.i.i, %.noexc.i.i.i, %if.then.i.i.i
+  %.pr = load ptr, ptr %pn3.i.i, align 8, !tbaa !62
+  br label %_ZN5boost10shared_ptrIN8QuantLib8CashFlowEEaSINS1_17AmortizingPaymentEEERS3_ONS0_IT_EE.exit
+
+_ZN5boost10shared_ptrIN8QuantLib8CashFlowEEaSINS1_17AmortizingPaymentEEERS3_ONS0_IT_EE.exit: ; preds = %_ZN5boost10shared_ptrIN8QuantLib8CashFlowEEaSINS1_17AmortizingPaymentEEERS3_ONS0_IT_EE.exitthread-pre-split, %invoke.cont
+  %31 = phi ptr [ %.pr, %_ZN5boost10shared_ptrIN8QuantLib8CashFlowEEaSINS1_17AmortizingPaymentEEERS3_ONS0_IT_EE.exitthread-pre-split ], [ null, %invoke.cont ]
   %cmp.not.i.i = icmp eq ptr %31, null
   br i1 %cmp.not.i.i, label %_ZN5boost10shared_ptrIN8QuantLib17AmortizingPaymentEED2Ev.exit, label %if.then.i.i
 
@@ -2281,7 +2285,7 @@ if.then.i.i.i38:                                  ; preds = %invoke.cont26
   %use_count_.i.i.i.i39 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %42 = atomicrmw sub ptr %use_count_.i.i.i.i39, i32 1 acq_rel, align 4
   %cmp.i.i.i.i40 = icmp eq i32 %42, 1
-  br i1 %cmp.i.i.i.i40, label %if.then.i.i.i.i41, label %_ZN5boost10shared_ptrIN8QuantLib8CashFlowEEaSINS1_10RedemptionEEERS3_ONS0_IT_EE.exit
+  br i1 %cmp.i.i.i.i40, label %if.then.i.i.i.i41, label %_ZN5boost10shared_ptrIN8QuantLib8CashFlowEEaSINS1_10RedemptionEEERS3_ONS0_IT_EE.exitthread-pre-split
 
 if.then.i.i.i.i41:                                ; preds = %if.then.i.i.i38
   %vtable.i.i.i.i42 = load ptr, ptr %41, align 8, !tbaa !32
@@ -2294,14 +2298,14 @@ if.then.i.i.i.i41:                                ; preds = %if.then.i.i.i38
   %weak_count_.i.i.i.i.i46 = getelementptr inbounds nuw i8, ptr %41, i64 12
   %44 = atomicrmw sub ptr %weak_count_.i.i.i.i.i46, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i47 = icmp eq i32 %44, 1
-  br i1 %cmp.i.i.i.i.i47, label %if.then.i.i.i.i.i48, label %_ZN5boost10shared_ptrIN8QuantLib8CashFlowEEaSINS1_10RedemptionEEERS3_ONS0_IT_EE.exit
+  br i1 %cmp.i.i.i.i.i47, label %if.then.i.i.i.i.i48, label %_ZN5boost10shared_ptrIN8QuantLib8CashFlowEEaSINS1_10RedemptionEEERS3_ONS0_IT_EE.exitthread-pre-split
 
 if.then.i.i.i.i.i48:                              ; preds = %.noexc.i.i.i45
   %vtable.i.i.i.i.i49 = load ptr, ptr %41, align 8, !tbaa !32
   %vfn.i.i.i.i.i50 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i49, i64 24
   %45 = load ptr, ptr %vfn.i.i.i.i.i50, align 8
   invoke void %45(ptr noundef nonnull align 8 dereferenceable(16) %41)
-          to label %_ZN5boost10shared_ptrIN8QuantLib8CashFlowEEaSINS1_10RedemptionEEERS3_ONS0_IT_EE.exit unwind label %terminate.lpad.i.i.i44
+          to label %_ZN5boost10shared_ptrIN8QuantLib8CashFlowEEaSINS1_10RedemptionEEERS3_ONS0_IT_EE.exitthread-pre-split unwind label %terminate.lpad.i.i.i44
 
 terminate.lpad.i.i.i44:                           ; preds = %if.then.i.i.i.i.i48, %if.then.i.i.i.i41
   %46 = landingpad { ptr, i32 }
@@ -2310,8 +2314,12 @@ terminate.lpad.i.i.i44:                           ; preds = %if.then.i.i.i.i.i48
   call void @__clang_call_terminate(ptr %47) #30
   unreachable
 
-_ZN5boost10shared_ptrIN8QuantLib8CashFlowEEaSINS1_10RedemptionEEERS3_ONS0_IT_EE.exit: ; preds = %invoke.cont26, %if.then.i.i.i38, %.noexc.i.i.i45, %if.then.i.i.i.i.i48
-  %48 = load ptr, ptr %pn3.i.i35, align 8, !tbaa !62
+_ZN5boost10shared_ptrIN8QuantLib8CashFlowEEaSINS1_10RedemptionEEERS3_ONS0_IT_EE.exitthread-pre-split: ; preds = %if.then.i.i.i.i.i48, %.noexc.i.i.i45, %if.then.i.i.i38
+  %.pr106 = load ptr, ptr %pn3.i.i35, align 8, !tbaa !62
+  br label %_ZN5boost10shared_ptrIN8QuantLib8CashFlowEEaSINS1_10RedemptionEEERS3_ONS0_IT_EE.exit
+
+_ZN5boost10shared_ptrIN8QuantLib8CashFlowEEaSINS1_10RedemptionEEERS3_ONS0_IT_EE.exit: ; preds = %_ZN5boost10shared_ptrIN8QuantLib8CashFlowEEaSINS1_10RedemptionEEERS3_ONS0_IT_EE.exitthread-pre-split, %invoke.cont26
+  %48 = phi ptr [ %.pr106, %_ZN5boost10shared_ptrIN8QuantLib8CashFlowEEaSINS1_10RedemptionEEERS3_ONS0_IT_EE.exitthread-pre-split ], [ null, %invoke.cont26 ]
   %cmp.not.i.i52 = icmp eq ptr %48, null
   br i1 %cmp.not.i.i52, label %_ZN5boost10shared_ptrIN8QuantLib10RedemptionEED2Ev.exit, label %if.then.i.i53
 

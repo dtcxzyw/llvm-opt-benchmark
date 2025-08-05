@@ -2652,9 +2652,9 @@ _ZN5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEED2Ev.exit: ; preds = %invok
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %analyticEuropeanEngine) #30
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp258) #30
   invoke void @_ZN5boost11make_sharedIN8QuantLib22AnalyticEuropeanEngineEJRKNS_10shared_ptrINS1_30GeneralizedBlackScholesProcessEEEEEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.boost::shared_ptr.35") align 8 %ref.tmp258, ptr noundef nonnull align 8 dereferenceable(16) %process_)
-          to label %_ZN5boost10shared_ptrIN8QuantLib22AnalyticEuropeanEngineEED2Ev.exit unwind label %lpad260
+          to label %invoke.cont261 unwind label %lpad260
 
-_ZN5boost10shared_ptrIN8QuantLib22AnalyticEuropeanEngineEED2Ev.exit: ; preds = %_ZN5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEED2Ev.exit
+invoke.cont261:                                   ; preds = %_ZN5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEED2Ev.exit
   %138 = load ptr, ptr %ref.tmp258, align 8, !tbaa !108
   store ptr %138, ptr %analyticEuropeanEngine, align 8, !tbaa !110
   %pn.i366 = getelementptr inbounds nuw i8, ptr %analyticEuropeanEngine, i64 8
@@ -2665,7 +2665,7 @@ _ZN5boost10shared_ptrIN8QuantLib22AnalyticEuropeanEngineEED2Ev.exit: ; preds = %
   invoke void @_ZN8QuantLib10Instrument16setPricingEngineERKN5boost10shared_ptrINS_13PricingEngineEEE(ptr noundef nonnull align 8 dereferenceable(104) %europeanOption, ptr noundef nonnull align 8 dereferenceable(16) %analyticEuropeanEngine)
           to label %invoke.cont265 unwind label %lpad264
 
-invoke.cont265:                                   ; preds = %_ZN5boost10shared_ptrIN8QuantLib22AnalyticEuropeanEngineEED2Ev.exit
+invoke.cont265:                                   ; preds = %invoke.cont261
   %call268 = invoke noundef double @_ZNK8QuantLib10Instrument3NPVEv(ptr noundef nonnull align 8 dereferenceable(104) %europeanOption)
           to label %invoke.cont267 unwind label %lpad266
 
@@ -2769,7 +2769,7 @@ lpad260:                                          ; preds = %_ZN5boost10shared_p
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp258) #30
   br label %ehcleanup758
 
-lpad264:                                          ; preds = %_ZN5boost10shared_ptrIN8QuantLib22AnalyticEuropeanEngineEED2Ev.exit
+lpad264:                                          ; preds = %invoke.cont261
   %152 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup757

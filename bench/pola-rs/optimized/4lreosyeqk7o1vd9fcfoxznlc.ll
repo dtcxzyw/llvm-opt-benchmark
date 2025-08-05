@@ -129351,7 +129351,7 @@ define hidden void @"_ZN53_$LT$S$u20$as$u20$futures_core..stream..TryStream$GT$1
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %18
 
-18:                                               ; preds = %.thread10.i, %3
+18:                                               ; preds = %46, %3
   %19 = load atomic ptr, ptr %10 acquire, align 8, !alias.scope !22781, !noalias !22783
   %20 = icmp eq ptr %19, null
   br i1 %20, label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h367fe60e1c50ad45E.exit.i", label %21
@@ -129401,7 +129401,7 @@ define hidden void @"_ZN53_$LT$S$u20$as$u20$futures_core..stream..TryStream$GT$1
 43:                                               ; preds = %40
   %44 = load ptr, ptr %13, align 8, !noalias !22785, !align !51, !noundef !8
   %.not.i2.i = icmp eq ptr %44, null
-  br i1 %.not.i2.i, label %.thread.i, label %.thread10.i
+  br i1 %.not.i2.i, label %.thread.i, label %46
 
 .thread.i:                                        ; preds = %43
   store i8 1, ptr %12, align 8, !alias.scope !22791, !noalias !22792
@@ -129411,20 +129411,20 @@ define hidden void @"_ZN53_$LT$S$u20$as$u20$futures_core..stream..TryStream$GT$1
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5), !noalias !22785
   call fastcc void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hb8ad8efb7a836353E"(ptr noalias noundef align 8 captures(none) dereferenceable(72) %5, ptr noalias noundef nonnull align 8 dereferenceable(112) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !noalias !22778
   %45 = load i64, ptr %5, align 8, !range !22795, !noalias !22785, !noundef !8
-  switch i64 %45, label %49 [
+  switch i64 %45, label %50 [
     i64 -9223372036854775788, label %"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered$LT$St$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hdcf650bc54bd4b70E.exit"
     i64 -9223372036854775789, label %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h9fda2136460dc8e9E.exit.i"
   ]
 
-.thread10.i:                                      ; preds = %43
-  %46 = load ptr, ptr %14, align 8, !noalias !22785, !nonnull !8, !align !46, !noundef !8
+46:                                               ; preds = %43
+  %47 = load ptr, ptr %14, align 8, !noalias !22785, !nonnull !8, !align !46, !noundef !8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !22785
-  %47 = load i64, ptr %15, align 8, !alias.scope !22781, !noalias !22783, !noundef !8
+  %48 = load i64, ptr %15, align 8, !alias.scope !22781, !noalias !22783, !noundef !8
   store ptr %44, ptr %4, align 8, !noalias !22785
-  store ptr %46, ptr %16, align 8, !noalias !22785
-  store i64 %47, ptr %17, align 8, !noalias !22785
-  %48 = add i64 %47, 1
-  store i64 %48, ptr %15, align 8, !alias.scope !22781, !noalias !22783
+  store ptr %47, ptr %16, align 8, !noalias !22785
+  store i64 %48, ptr %17, align 8, !noalias !22785
+  %49 = add i64 %48, 1
+  store i64 %49, ptr %15, align 8, !alias.scope !22781, !noalias !22783
   call fastcc void @"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4push17hce2bc71244e20555E"(ptr noundef nonnull align 8 %9, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4), !noalias !22778
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !22785
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !22785
@@ -129434,21 +129434,21 @@ define hidden void @"_ZN53_$LT$S$u20$as$u20$futures_core..stream..TryStream$GT$1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !22785
   br label %.loopexit.i
 
-49:                                               ; preds = %.loopexit.i
+50:                                               ; preds = %.loopexit.i
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.48.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.48.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.4.0..sroa_idx.i, i64 64, i1 false), !noalias !22796
   br label %"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered$LT$St$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hdcf650bc54bd4b70E.exit"
 
 "_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h9fda2136460dc8e9E.exit.i": ; preds = %.loopexit.i
-  %50 = load i8, ptr %12, align 8, !range !430, !alias.scope !22781, !noalias !22783, !noundef !8
-  %51 = trunc nuw i8 %50 to i1
-  %..i = select i1 %51, i64 -9223372036854775789, i64 -9223372036854775788
+  %51 = load i8, ptr %12, align 8, !range !430, !alias.scope !22781, !noalias !22783, !noundef !8
+  %52 = trunc nuw i8 %51 to i1
+  %..i = select i1 %52, i64 -9223372036854775789, i64 -9223372036854775788
   br label %"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered$LT$St$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hdcf650bc54bd4b70E.exit"
 
-"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered$LT$St$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hdcf650bc54bd4b70E.exit": ; preds = %.loopexit.i, %49, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h9fda2136460dc8e9E.exit.i"
-  %storemerge13.i = phi i64 [ %..i, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h9fda2136460dc8e9E.exit.i" ], [ %45, %49 ], [ %45, %.loopexit.i ]
-  store i64 %storemerge13.i, ptr %0, align 8, !alias.scope !22778, !noalias !22796
+"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered$LT$St$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hdcf650bc54bd4b70E.exit": ; preds = %.loopexit.i, %50, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h9fda2136460dc8e9E.exit.i"
+  %storemerge12.i = phi i64 [ %..i, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h9fda2136460dc8e9E.exit.i" ], [ %45, %50 ], [ %45, %.loopexit.i ]
+  store i64 %storemerge12.i, ptr %0, align 8, !alias.scope !22778, !noalias !22796
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !22785
   ret void
 }
@@ -129484,7 +129484,7 @@ define hidden void @"_ZN53_$LT$S$u20$as$u20$futures_core..stream..TryStream$GT$1
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %18
 
-18:                                               ; preds = %.thread10.i, %3
+18:                                               ; preds = %46, %3
   %19 = load atomic ptr, ptr %10 acquire, align 8, !alias.scope !22804, !noalias !22806
   %20 = icmp eq ptr %19, null
   br i1 %20, label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h367fe60e1c50ad45E.exit.i", label %21
@@ -129534,7 +129534,7 @@ define hidden void @"_ZN53_$LT$S$u20$as$u20$futures_core..stream..TryStream$GT$1
 43:                                               ; preds = %40
   %44 = load ptr, ptr %13, align 8, !noalias !22808, !align !51, !noundef !8
   %.not.i2.i = icmp eq ptr %44, null
-  br i1 %.not.i2.i, label %.thread.i, label %.thread10.i
+  br i1 %.not.i2.i, label %.thread.i, label %46
 
 .thread.i:                                        ; preds = %43
   store i8 1, ptr %12, align 8, !alias.scope !22814, !noalias !22815
@@ -129544,20 +129544,20 @@ define hidden void @"_ZN53_$LT$S$u20$as$u20$futures_core..stream..TryStream$GT$1
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5), !noalias !22808
   call fastcc void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hb8ad8efb7a836353E"(ptr noalias noundef align 8 captures(none) dereferenceable(72) %5, ptr noalias noundef nonnull align 8 dereferenceable(112) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !noalias !22801
   %45 = load i64, ptr %5, align 8, !range !22795, !noalias !22808, !noundef !8
-  switch i64 %45, label %49 [
+  switch i64 %45, label %50 [
     i64 -9223372036854775788, label %"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered$LT$St$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hbe7646e6882133e1E.exit"
     i64 -9223372036854775789, label %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h9fda2136460dc8e9E.exit.i"
   ]
 
-.thread10.i:                                      ; preds = %43
-  %46 = load ptr, ptr %14, align 8, !noalias !22808, !nonnull !8, !align !46, !noundef !8
+46:                                               ; preds = %43
+  %47 = load ptr, ptr %14, align 8, !noalias !22808, !nonnull !8, !align !46, !noundef !8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !22808
-  %47 = load i64, ptr %15, align 8, !alias.scope !22804, !noalias !22806, !noundef !8
+  %48 = load i64, ptr %15, align 8, !alias.scope !22804, !noalias !22806, !noundef !8
   store ptr %44, ptr %4, align 8, !noalias !22808
-  store ptr %46, ptr %16, align 8, !noalias !22808
-  store i64 %47, ptr %17, align 8, !noalias !22808
-  %48 = add i64 %47, 1
-  store i64 %48, ptr %15, align 8, !alias.scope !22804, !noalias !22806
+  store ptr %47, ptr %16, align 8, !noalias !22808
+  store i64 %48, ptr %17, align 8, !noalias !22808
+  %49 = add i64 %48, 1
+  store i64 %49, ptr %15, align 8, !alias.scope !22804, !noalias !22806
   call fastcc void @"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4push17hce2bc71244e20555E"(ptr noundef nonnull align 8 %9, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4), !noalias !22801
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !22808
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !22808
@@ -129567,21 +129567,21 @@ define hidden void @"_ZN53_$LT$S$u20$as$u20$futures_core..stream..TryStream$GT$1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !22808
   br label %.loopexit.i
 
-49:                                               ; preds = %.loopexit.i
+50:                                               ; preds = %.loopexit.i
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.48.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.48.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.4.0..sroa_idx.i, i64 64, i1 false), !noalias !22818
   br label %"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered$LT$St$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hbe7646e6882133e1E.exit"
 
 "_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h9fda2136460dc8e9E.exit.i": ; preds = %.loopexit.i
-  %50 = load i8, ptr %12, align 8, !range !430, !alias.scope !22804, !noalias !22806, !noundef !8
-  %51 = trunc nuw i8 %50 to i1
-  %..i = select i1 %51, i64 -9223372036854775789, i64 -9223372036854775788
+  %51 = load i8, ptr %12, align 8, !range !430, !alias.scope !22804, !noalias !22806, !noundef !8
+  %52 = trunc nuw i8 %51 to i1
+  %..i = select i1 %52, i64 -9223372036854775789, i64 -9223372036854775788
   br label %"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered$LT$St$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hbe7646e6882133e1E.exit"
 
-"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered$LT$St$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hbe7646e6882133e1E.exit": ; preds = %.loopexit.i, %49, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h9fda2136460dc8e9E.exit.i"
-  %storemerge13.i = phi i64 [ %..i, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h9fda2136460dc8e9E.exit.i" ], [ %45, %49 ], [ %45, %.loopexit.i ]
-  store i64 %storemerge13.i, ptr %0, align 8, !alias.scope !22801, !noalias !22818
+"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered$LT$St$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hbe7646e6882133e1E.exit": ; preds = %.loopexit.i, %50, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h9fda2136460dc8e9E.exit.i"
+  %storemerge12.i = phi i64 [ %..i, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h9fda2136460dc8e9E.exit.i" ], [ %45, %50 ], [ %45, %.loopexit.i ]
+  store i64 %storemerge12.i, ptr %0, align 8, !alias.scope !22801, !noalias !22818
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !22808
   ret void
 }
@@ -129606,7 +129606,7 @@ define hidden void @"_ZN53_$LT$S$u20$as$u20$futures_core..stream..TryStream$GT$1
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %18
 
-18:                                               ; preds = %.thread10.i, %3
+18:                                               ; preds = %46, %3
   %19 = load atomic ptr, ptr %10 acquire, align 8, !alias.scope !22822, !noalias !22824
   %20 = icmp eq ptr %19, null
   br i1 %20, label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h367fe60e1c50ad45E.exit.i", label %21
@@ -129656,7 +129656,7 @@ define hidden void @"_ZN53_$LT$S$u20$as$u20$futures_core..stream..TryStream$GT$1
 43:                                               ; preds = %40
   %44 = load ptr, ptr %13, align 8, !noalias !22826, !align !51, !noundef !8
   %.not.i2.i = icmp eq ptr %44, null
-  br i1 %.not.i2.i, label %.thread.i, label %.thread10.i
+  br i1 %.not.i2.i, label %.thread.i, label %46
 
 .thread.i:                                        ; preds = %43
   store i8 1, ptr %12, align 8, !alias.scope !22832, !noalias !22833
@@ -129666,20 +129666,20 @@ define hidden void @"_ZN53_$LT$S$u20$as$u20$futures_core..stream..TryStream$GT$1
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5), !noalias !22826
   call fastcc void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hb8ad8efb7a836353E"(ptr noalias noundef align 8 captures(none) dereferenceable(72) %5, ptr noalias noundef nonnull align 8 dereferenceable(112) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !noalias !22819
   %45 = load i64, ptr %5, align 8, !range !22795, !noalias !22826, !noundef !8
-  switch i64 %45, label %49 [
+  switch i64 %45, label %50 [
     i64 -9223372036854775788, label %"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered$LT$St$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hd1b617d96809c1f6E.exit"
     i64 -9223372036854775789, label %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h9fda2136460dc8e9E.exit.i"
   ]
 
-.thread10.i:                                      ; preds = %43
-  %46 = load ptr, ptr %14, align 8, !noalias !22826, !nonnull !8, !align !46, !noundef !8
+46:                                               ; preds = %43
+  %47 = load ptr, ptr %14, align 8, !noalias !22826, !nonnull !8, !align !46, !noundef !8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !22826
-  %47 = load i64, ptr %15, align 8, !alias.scope !22822, !noalias !22824, !noundef !8
+  %48 = load i64, ptr %15, align 8, !alias.scope !22822, !noalias !22824, !noundef !8
   store ptr %44, ptr %4, align 8, !noalias !22826
-  store ptr %46, ptr %16, align 8, !noalias !22826
-  store i64 %47, ptr %17, align 8, !noalias !22826
-  %48 = add i64 %47, 1
-  store i64 %48, ptr %15, align 8, !alias.scope !22822, !noalias !22824
+  store ptr %47, ptr %16, align 8, !noalias !22826
+  store i64 %48, ptr %17, align 8, !noalias !22826
+  %49 = add i64 %48, 1
+  store i64 %49, ptr %15, align 8, !alias.scope !22822, !noalias !22824
   call fastcc void @"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4push17hce2bc71244e20555E"(ptr noundef nonnull align 8 %9, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4), !noalias !22819
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !22826
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !22826
@@ -129689,21 +129689,21 @@ define hidden void @"_ZN53_$LT$S$u20$as$u20$futures_core..stream..TryStream$GT$1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !22826
   br label %.loopexit.i
 
-49:                                               ; preds = %.loopexit.i
+50:                                               ; preds = %.loopexit.i
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.48.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.48.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.4.0..sroa_idx.i, i64 64, i1 false), !noalias !22836
   br label %"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered$LT$St$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hd1b617d96809c1f6E.exit"
 
 "_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h9fda2136460dc8e9E.exit.i": ; preds = %.loopexit.i
-  %50 = load i8, ptr %12, align 8, !range !430, !alias.scope !22822, !noalias !22824, !noundef !8
-  %51 = trunc nuw i8 %50 to i1
-  %..i = select i1 %51, i64 -9223372036854775789, i64 -9223372036854775788
+  %51 = load i8, ptr %12, align 8, !range !430, !alias.scope !22822, !noalias !22824, !noundef !8
+  %52 = trunc nuw i8 %51 to i1
+  %..i = select i1 %52, i64 -9223372036854775789, i64 -9223372036854775788
   br label %"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered$LT$St$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hd1b617d96809c1f6E.exit"
 
-"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered$LT$St$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hd1b617d96809c1f6E.exit": ; preds = %.loopexit.i, %49, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h9fda2136460dc8e9E.exit.i"
-  %storemerge13.i = phi i64 [ %..i, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h9fda2136460dc8e9E.exit.i" ], [ %45, %49 ], [ %45, %.loopexit.i ]
-  store i64 %storemerge13.i, ptr %0, align 8, !alias.scope !22819, !noalias !22836
+"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered$LT$St$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hd1b617d96809c1f6E.exit": ; preds = %.loopexit.i, %50, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h9fda2136460dc8e9E.exit.i"
+  %storemerge12.i = phi i64 [ %..i, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h9fda2136460dc8e9E.exit.i" ], [ %45, %50 ], [ %45, %.loopexit.i ]
+  store i64 %storemerge12.i, ptr %0, align 8, !alias.scope !22819, !noalias !22836
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !22826
   ret void
 }
@@ -131216,7 +131216,7 @@ define hidden void @"_ZN53_$LT$S$u20$as$u20$futures_core..stream..TryStream$GT$1
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %18
 
-18:                                               ; preds = %.thread10.i, %3
+18:                                               ; preds = %46, %3
   %19 = load atomic ptr, ptr %10 acquire, align 8, !alias.scope !23009, !noalias !23011
   %20 = icmp eq ptr %19, null
   br i1 %20, label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h367fe60e1c50ad45E.exit.i", label %21
@@ -131266,7 +131266,7 @@ define hidden void @"_ZN53_$LT$S$u20$as$u20$futures_core..stream..TryStream$GT$1
 43:                                               ; preds = %40
   %44 = load ptr, ptr %13, align 8, !noalias !23013, !align !51, !noundef !8
   %.not.i2.i = icmp eq ptr %44, null
-  br i1 %.not.i2.i, label %.thread.i, label %.thread10.i
+  br i1 %.not.i2.i, label %.thread.i, label %46
 
 .thread.i:                                        ; preds = %43
   store i8 1, ptr %12, align 8, !alias.scope !23019, !noalias !23020
@@ -131276,20 +131276,20 @@ define hidden void @"_ZN53_$LT$S$u20$as$u20$futures_core..stream..TryStream$GT$1
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5), !noalias !23013
   call fastcc void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hb8ad8efb7a836353E"(ptr noalias noundef align 8 captures(none) dereferenceable(72) %5, ptr noalias noundef nonnull align 8 dereferenceable(112) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !noalias !23006
   %45 = load i64, ptr %5, align 8, !range !22795, !noalias !23013, !noundef !8
-  switch i64 %45, label %49 [
+  switch i64 %45, label %50 [
     i64 -9223372036854775788, label %"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered$LT$St$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hdae368999a9c9696E.exit"
     i64 -9223372036854775789, label %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h9fda2136460dc8e9E.exit.i"
   ]
 
-.thread10.i:                                      ; preds = %43
-  %46 = load ptr, ptr %14, align 8, !noalias !23013, !nonnull !8, !align !46, !noundef !8
+46:                                               ; preds = %43
+  %47 = load ptr, ptr %14, align 8, !noalias !23013, !nonnull !8, !align !46, !noundef !8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !23013
-  %47 = load i64, ptr %15, align 8, !alias.scope !23009, !noalias !23011, !noundef !8
+  %48 = load i64, ptr %15, align 8, !alias.scope !23009, !noalias !23011, !noundef !8
   store ptr %44, ptr %4, align 8, !noalias !23013
-  store ptr %46, ptr %16, align 8, !noalias !23013
-  store i64 %47, ptr %17, align 8, !noalias !23013
-  %48 = add i64 %47, 1
-  store i64 %48, ptr %15, align 8, !alias.scope !23009, !noalias !23011
+  store ptr %47, ptr %16, align 8, !noalias !23013
+  store i64 %48, ptr %17, align 8, !noalias !23013
+  %49 = add i64 %48, 1
+  store i64 %49, ptr %15, align 8, !alias.scope !23009, !noalias !23011
   call fastcc void @"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4push17hce2bc71244e20555E"(ptr noundef nonnull align 8 %9, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4), !noalias !23006
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !23013
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !23013
@@ -131299,21 +131299,21 @@ define hidden void @"_ZN53_$LT$S$u20$as$u20$futures_core..stream..TryStream$GT$1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !23013
   br label %.loopexit.i
 
-49:                                               ; preds = %.loopexit.i
+50:                                               ; preds = %.loopexit.i
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.48.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.48.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.4.0..sroa_idx.i, i64 64, i1 false), !noalias !23023
   br label %"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered$LT$St$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hdae368999a9c9696E.exit"
 
 "_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h9fda2136460dc8e9E.exit.i": ; preds = %.loopexit.i
-  %50 = load i8, ptr %12, align 8, !range !430, !alias.scope !23009, !noalias !23011, !noundef !8
-  %51 = trunc nuw i8 %50 to i1
-  %..i = select i1 %51, i64 -9223372036854775789, i64 -9223372036854775788
+  %51 = load i8, ptr %12, align 8, !range !430, !alias.scope !23009, !noalias !23011, !noundef !8
+  %52 = trunc nuw i8 %51 to i1
+  %..i = select i1 %52, i64 -9223372036854775789, i64 -9223372036854775788
   br label %"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered$LT$St$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hdae368999a9c9696E.exit"
 
-"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered$LT$St$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hdae368999a9c9696E.exit": ; preds = %.loopexit.i, %49, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h9fda2136460dc8e9E.exit.i"
-  %storemerge13.i = phi i64 [ %..i, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h9fda2136460dc8e9E.exit.i" ], [ %45, %49 ], [ %45, %.loopexit.i ]
-  store i64 %storemerge13.i, ptr %0, align 8, !alias.scope !23006, !noalias !23023
+"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered$LT$St$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hdae368999a9c9696E.exit": ; preds = %.loopexit.i, %50, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h9fda2136460dc8e9E.exit.i"
+  %storemerge12.i = phi i64 [ %..i, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h9fda2136460dc8e9E.exit.i" ], [ %45, %50 ], [ %45, %.loopexit.i ]
+  store i64 %storemerge12.i, ptr %0, align 8, !alias.scope !23006, !noalias !23023
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !23013
   ret void
 }
