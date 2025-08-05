@@ -2807,7 +2807,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %54, %57
   %81 = and i64 %79, %80
   %.not122 = icmp eq i64 %81, 0
   %.053.not = xor i1 %.053, true
-  %brmerge = select i1 %.not122, i1 true, i1 %.053.not
+  %brmerge = or i1 %.not122, %.053.not
   br i1 %brmerge, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.preheader124
@@ -2840,7 +2840,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %54, %57
   br i1 %.not58, label %.loopexit, label %.lr.ph131, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.lr.ph131, %90, %.preheader, %.preheader124
-  %.154 = phi i1 [ %.not122, %.preheader124 ], [ %.053, %.preheader ], [ %.053, %90 ], [ %.053, %.lr.ph131 ]
+  %.154 = phi i1 [ %.not122, %.preheader124 ], [ true, %.preheader ], [ true, %90 ], [ true, %.lr.ph131 ]
   %96 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %18, i64 %.055
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 26
   %98 = load i16, ptr %97, align 2

@@ -2653,7 +2653,7 @@ _ZN9Stockfish6OptionD2Ev.exit77:                  ; preds = %109, %127
 
 134:                                              ; preds = %132
   %135 = load ptr, ptr %28, align 64
-  %136 = getelementptr inbounds %"struct.Stockfish::Search::RootMove", ptr %135, i64 %.093
+  %136 = getelementptr inbounds %"struct.Stockfish::Search::RootMove", ptr %135, i64 %30
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %138 = load i8, ptr %137, align 8
   %139 = trunc i8 %138 to i1

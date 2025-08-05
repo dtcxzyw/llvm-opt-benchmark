@@ -465,7 +465,7 @@ define dso_local zeroext i1 @drm_edid_block_valid(ptr noundef %0, i32 noundef %1
   br label %.thread13
 
 .thread13:                                        ; preds = %.thread11, %106, %106, %116, %107, %7
-  %118 = phi i1 [ false, %7 ], [ %111, %116 ], [ %111, %107 ], [ true, %106 ], [ true, %106 ], [ true, %.thread11 ]
+  %118 = phi i1 [ false, %7 ], [ false, %116 ], [ %111, %107 ], [ true, %106 ], [ true, %106 ], [ true, %.thread11 ]
   ret i1 %118
 }
 

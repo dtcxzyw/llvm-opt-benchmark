@@ -1174,7 +1174,7 @@ dom_seek_utf8_non_ascii.exit.thread.i:            ; preds = %.lr.ph.i, %.lr.ph77
   %73 = load ptr, ptr %11, align 8, !tbaa !10
   %74 = icmp eq ptr %73, %4
   call void @llvm.assume(i1 %74)
-  store ptr %4, ptr %3, align 8, !tbaa !10
+  store ptr %73, ptr %3, align 8, !tbaa !10
   store i32 14, ptr %20, align 4, !tbaa !146
   br label %dom_decode_encode_fast_path.exit
 

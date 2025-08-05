@@ -105835,7 +105835,7 @@ _ZNK5clang11CXXFoldExpr10isLeftFoldEv.exit:       ; preds = %322
   br label %_ZNK5clang11CXXFoldExpr10isLeftFoldEv.exit.thread
 
 _ZNK5clang11CXXFoldExpr10isLeftFoldEv.exit.thread: ; preds = %322, %343, %_ZNK5clang11CXXFoldExpr10isLeftFoldEv.exit
-  %344 = phi i1 [ %326, %343 ], [ %326, %_ZNK5clang11CXXFoldExpr10isLeftFoldEv.exit ], [ true, %322 ]
+  %344 = phi i1 [ false, %343 ], [ %326, %_ZNK5clang11CXXFoldExpr10isLeftFoldEv.exit ], [ true, %322 ]
   %.sroa.0210.0 = phi i64 [ %341, %343 ], [ %320, %_ZNK5clang11CXXFoldExpr10isLeftFoldEv.exit ], [ %320, %322 ]
   %345 = load i32, ptr %12, align 8, !tbaa !837
   %.not127270 = icmp eq i32 %345, 0

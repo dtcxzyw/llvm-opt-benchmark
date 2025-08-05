@@ -70419,7 +70419,7 @@ define hidden noundef zeroext i1 @"_ZN18tracing_subscriber3fmt6format6pretty186_
 156:                                              ; preds = %165, %.thread321, %146
   %157 = phi i8 [ %129, %.thread321 ], [ %152, %146 ], [ 1, %165 ]
   %158 = phi i8 [ %128, %.thread321 ], [ %150, %146 ], [ 0, %165 ]
-  %.sroa.037.0326 = phi i1 [ false, %.thread321 ], [ %148, %146 ], [ %148, %165 ]
+  %.sroa.037.0326 = phi i1 [ false, %.thread321 ], [ %148, %146 ], [ true, %165 ]
   %.sroa.439.0325 = phi i32 [ undef, %.thread321 ], [ %.fca.1.extract35, %146 ], [ %.fca.1.extract35, %165 ]
   %159 = load ptr, ptr %2, align 8, !nonnull !4, !align !493, !noundef !4
   %160 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -71931,7 +71931,7 @@ define hidden noundef zeroext i1 @"_ZN18tracing_subscriber3fmt6format6pretty186_
 156:                                              ; preds = %165, %.thread321, %146
   %157 = phi i8 [ %129, %.thread321 ], [ %152, %146 ], [ 1, %165 ]
   %158 = phi i8 [ %128, %.thread321 ], [ %150, %146 ], [ 0, %165 ]
-  %.sroa.037.0326 = phi i1 [ false, %.thread321 ], [ %148, %146 ], [ %148, %165 ]
+  %.sroa.037.0326 = phi i1 [ false, %.thread321 ], [ %148, %146 ], [ true, %165 ]
   %.sroa.439.0325 = phi i32 [ undef, %.thread321 ], [ %.fca.1.extract35, %146 ], [ %.fca.1.extract35, %165 ]
   %159 = load ptr, ptr %2, align 8, !nonnull !4, !align !493, !noundef !4
   %160 = getelementptr inbounds nuw i8, ptr %2, i64 8

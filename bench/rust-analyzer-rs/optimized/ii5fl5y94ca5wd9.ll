@@ -31584,7 +31584,7 @@ define hidden noundef zeroext i1 @"_ZN68_$LT$hir_def..data..FunctionData$u20$as$
 52:                                               ; preds = %44
   %53 = getelementptr i8, ptr %.val, i64 16
   %54 = getelementptr i8, ptr %.val3, i64 16
-  %55 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h068154aa3a3f5981E.llvm.15956212377945586164"(ptr noalias noundef nonnull readonly align 8 %53, i64 noundef %46, ptr noalias noundef nonnull readonly align 8 %54, i64 noundef %48), !noalias !7130
+  %55 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h068154aa3a3f5981E.llvm.15956212377945586164"(ptr noalias noundef nonnull readonly align 8 %53, i64 noundef %46, ptr noalias noundef nonnull readonly align 8 %54, i64 noundef %46), !noalias !7130
   br i1 %55, label %56, label %.critedge
 
 "_ZN68_$LT$hir_expand..attrs..RawAttrs$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2b1a5ad5e063fa97E.exit": ; preds = %39, %44

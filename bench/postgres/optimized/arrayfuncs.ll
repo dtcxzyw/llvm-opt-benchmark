@@ -1267,7 +1267,7 @@ define dso_local void @CopyArrayEls(ptr noundef captures(address) %0, ptr nounde
   %50 = or i32 %.03664.us71, %.03763.us72
   %51 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv93
   %52 = load i64, ptr %51, align 8
-  %53 = tail call fastcc i32 @ArrayCastAndSet(i64 noundef %52, i32 noundef %4, i1 noundef zeroext %5, i8 noundef signext %6, ptr noundef %.04161.us74)
+  %53 = tail call fastcc i32 @ArrayCastAndSet(i64 noundef %52, i32 noundef %4, i1 noundef zeroext false, i8 noundef signext %6, ptr noundef %.04161.us74)
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds i8, ptr %.04161.us74, i64 %54
   %56 = load i64, ptr %51, align 8

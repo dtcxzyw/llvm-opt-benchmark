@@ -2428,18 +2428,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83: ; preds = %_ZN
 
 .critedge47:                                      ; preds = %_ZN7rocksdb13PerfStepTimerD2Ev.exit73
   %.val.pre = load i8, ptr %20, align 2, !tbaa !124, !range !122
-  %175 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #36
-  %176 = trunc nuw i8 %.val.pre to i1
-  br i1 %176, label %177, label %_ZN7rocksdb12_GLOBAL__N_115PosixFileSystem34GetLogicalBlockSizeForReadIfNeededERKNS_10EnvOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit
+  %175 = trunc nuw i8 %.val.pre to i1
+  %176 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #36
+  br i1 %175, label %177, label %_ZN7rocksdb12_GLOBAL__N_115PosixFileSystem34GetLogicalBlockSizeForReadIfNeededERKNS_10EnvOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit
 
 177:                                              ; preds = %.critedge47.thread, %.critedge47
-  %178 = phi ptr [ %110, %.critedge47.thread ], [ %175, %.critedge47 ]
+  %178 = phi ptr [ %110, %.critedge47.thread ], [ %176, %.critedge47 ]
   %.034120 = phi ptr [ null, %.critedge47.thread ], [ %143, %.critedge47 ]
   %179 = invoke noundef i64 @_ZN7rocksdb21LogicalBlockSizeCache19GetLogicalBlockSizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(168) @_ZN7rocksdb12_GLOBAL__N_115PosixFileSystem25logical_block_size_cache_E, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef range(i32 0, -2147483648) %55)
           to label %_ZN7rocksdb12_GLOBAL__N_115PosixFileSystem34GetLogicalBlockSizeForReadIfNeededERKNS_10EnvOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit unwind label %190
 
 _ZN7rocksdb12_GLOBAL__N_115PosixFileSystem34GetLogicalBlockSizeForReadIfNeededERKNS_10EnvOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit: ; preds = %.critedge47, %177
-  %180 = phi ptr [ %175, %.critedge47 ], [ %178, %177 ]
+  %180 = phi ptr [ %176, %.critedge47 ], [ %178, %177 ]
   %.034119 = phi ptr [ %143, %.critedge47 ], [ %.034120, %177 ]
   %181 = phi i64 [ 4096, %.critedge47 ], [ %179, %177 ]
   invoke void @_ZN7rocksdb19PosixSequentialFileC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8_IO_FILEimRKNS_10EnvOptionsE(ptr noundef nonnull align 8 dereferenceable(64) %180, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %.034119, i32 noundef %55, i64 noundef %181, ptr noundef nonnull align 8 dereferenceable(48) %3)

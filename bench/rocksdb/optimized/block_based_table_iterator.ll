@@ -2662,7 +2662,7 @@ define void @_ZN7rocksdb23BlockBasedTableIterator11SeekForPrevERKNS_5SliceE(ptr 
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %23 = load ptr, ptr %22, align 8, !tbaa !11
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 784
-  %25 = call noundef zeroext i1 @_ZNK7rocksdb15BlockBasedTable19PrefixRangeMayMatchERKNS_5SliceERKNS_11ReadOptionsEPKNS_14SliceTransformEbPNS_23BlockCacheLookupContextEPb(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(168) %21, ptr noundef %23, i1 noundef zeroext %13, ptr noundef nonnull %24, ptr noundef nonnull %5)
+  %25 = call noundef zeroext i1 @_ZNK7rocksdb15BlockBasedTable19PrefixRangeMayMatchERKNS_5SliceERKNS_11ReadOptionsEPKNS_14SliceTransformEbPNS_23BlockCacheLookupContextEPb(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(168) %21, ptr noundef %23, i1 noundef zeroext false, ptr noundef nonnull %24, ptr noundef nonnull %5)
   br i1 %25, label %37, label %26
 
 26:                                               ; preds = %17

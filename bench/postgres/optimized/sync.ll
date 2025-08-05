@@ -649,33 +649,25 @@ declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
 define dso_local zeroext i1 @RegisterSyncRequest(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @pendingOps, align 8
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %.preheader, label %8
+  br i1 %.not, label %.preheader, label %6
 
 .preheader:                                       ; preds = %3
   %5 = tail call zeroext i1 @ForwardSyncRequest(ptr noundef %0, i32 noundef %1) #9
   %.not9 = xor i1 %2, true
   %brmerge10 = or i1 %5, %.not9
-  br i1 %brmerge10, label %.loopexit, label %.lr.ph
+  br i1 %brmerge10, label %.loopexit, label %.lr.ph.split
 
-.lr.ph:                                           ; preds = %.preheader
-  br i1 %2, label %.lr.ph.split, label %.lr.ph.split.us
-
-.lr.ph.split.us:                                  ; preds = %.lr.ph
-  %6 = tail call i32 @WaitLatch(ptr noundef null, i32 noundef 40, i64 noundef 10, i32 noundef 150994949) #9
-  %7 = tail call zeroext i1 @ForwardSyncRequest(ptr noundef %0, i32 noundef %1) #9
-  br label %.loopexit
-
-8:                                                ; preds = %3
+6:                                                ; preds = %3
   tail call void @RememberSyncRequest(ptr noundef %0, i32 noundef %1)
   br label %.loopexit
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %9 = tail call i32 @WaitLatch(ptr noundef null, i32 noundef 40, i64 noundef 10, i32 noundef 150994949) #9
-  %10 = tail call zeroext i1 @ForwardSyncRequest(ptr noundef %0, i32 noundef %1) #9
-  br i1 %10, label %.loopexit, label %.lr.ph.split
+.lr.ph.split:                                     ; preds = %.preheader, %.lr.ph.split
+  %7 = tail call i32 @WaitLatch(ptr noundef null, i32 noundef 40, i64 noundef 10, i32 noundef 150994949) #9
+  %8 = tail call zeroext i1 @ForwardSyncRequest(ptr noundef %0, i32 noundef %1) #9
+  br i1 %8, label %.loopexit, label %.lr.ph.split
 
-.loopexit:                                        ; preds = %.lr.ph.split, %.preheader, %.lr.ph.split.us, %8
-  %.0 = phi i1 [ true, %8 ], [ %5, %.preheader ], [ %7, %.lr.ph.split.us ], [ true, %.lr.ph.split ]
+.loopexit:                                        ; preds = %.lr.ph.split, %.preheader, %6
+  %.0 = phi i1 [ true, %6 ], [ %5, %.preheader ], [ true, %.lr.ph.split ]
   ret i1 %.0
 }
 

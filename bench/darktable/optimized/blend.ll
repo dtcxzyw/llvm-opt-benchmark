@@ -514,7 +514,7 @@ define void @dt_develop_blend_process(ptr noundef %0, ptr noundef %1, ptr nounde
 78:                                               ; preds = %.thread360, %72, %75
   %.not305364 = phi i1 [ false, %75 ], [ %.not305, %72 ], [ %.not305362, %.thread360 ]
   %79 = phi i32 [ %73, %75 ], [ %73, %72 ], [ 0, %.thread360 ]
-  %80 = phi i1 [ %67, %75 ], [ %67, %72 ], [ false, %.thread360 ]
+  %80 = phi i1 [ true, %75 ], [ %67, %72 ], [ false, %.thread360 ]
   %81 = phi i32 [ %77, %75 ], [ 0, %72 ], [ 0, %.thread360 ]
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %83 = load i32, ptr %82, align 4, !tbaa !28

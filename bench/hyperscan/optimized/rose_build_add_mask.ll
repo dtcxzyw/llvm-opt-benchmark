@@ -9251,8 +9251,8 @@ define internal fastcc void @_ZN3ue2L15findMaskLiteralERKSt6vectorINS_9CharReach
   br i1 %.062115, label %.thread, label %60
 
 .thread:                                          ; preds = %44
-  %.not86 = icmp eq i64 %59, 2
-  %spec.select89 = select i1 %.not86, i8 %.171, i8 1
+  %.not86 = icmp ne i64 %59, 2
+  %spec.select89 = zext i1 %.not86 to i8
   br label %61
 
 60:                                               ; preds = %44

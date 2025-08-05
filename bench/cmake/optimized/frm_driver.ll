@@ -1813,7 +1813,7 @@ define dso_local ptr @_nc_First_Active_Field(ptr noundef readonly captures(none)
 Next_Field_On_Page.exit:                          ; preds = %35
   %.not.i.not = xor i1 %.not.i, true
   %brmerge = or i1 %43, %.not.i.not
-  br i1 %brmerge, label %65, label %44
+  br i1 %brmerge, label %64, label %44
 
 44:                                               ; preds = %Next_Field_On_Page.exit
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 34
@@ -1836,22 +1836,21 @@ Next_Field_On_Page.exit:                          ; preds = %35
   %59 = load i32, ptr %58, align 8, !tbaa !19
   %60 = and i32 %59, 1
   %.not30 = icmp ne i32 %60, 0
-  %.not31 = icmp eq ptr %39, %57
+  %.not31 = icmp eq ptr %13, %57
   %or.cond = or i1 %.not31, %.not30
   br i1 %or.cond, label %61, label %53, !llvm.loop !85
 
 61:                                               ; preds = %53
-  %62 = icmp eq ptr %57, %13
   %.not32 = icmp eq i32 %60, 0
-  %or.cond33 = and i1 %62, %.not32
-  br i1 %or.cond33, label %63, label %65
+  %or.cond33 = and i1 %.not31, %.not32
+  br i1 %or.cond33, label %62, label %64
 
-63:                                               ; preds = %61
-  %64 = load ptr, ptr %52, align 8, !tbaa !81
-  br label %65
+62:                                               ; preds = %61
+  %63 = load ptr, ptr %52, align 8, !tbaa !81
+  br label %64
 
-65:                                               ; preds = %Next_Field_On_Page.exit, %61, %63
-  %.0 = phi ptr [ %39, %Next_Field_On_Page.exit ], [ %64, %63 ], [ %57, %61 ]
+64:                                               ; preds = %Next_Field_On_Page.exit, %61, %62
+  %.0 = phi ptr [ %39, %Next_Field_On_Page.exit ], [ %63, %62 ], [ %57, %61 ]
   ret ptr %.0
 }
 
@@ -2038,7 +2037,7 @@ define dso_local i32 @form_driver(ptr noundef %0, i32 noundef %1) local_unnamed_
 3:                                                ; preds = %2
   %4 = tail call ptr @__errno_location() #14
   store i32 -2, ptr %4, align 4, !tbaa !32
-  br label %129
+  br label %128
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -2049,11 +2048,11 @@ define dso_local i32 @form_driver(ptr noundef %0, i32 noundef %1) local_unnamed_
 8:                                                ; preds = %5
   %9 = tail call ptr @__errno_location() #14
   store i32 -11, ptr %9, align 4, !tbaa !32
-  br label %129
+  br label %128
 
 10:                                               ; preds = %5
   %11 = icmp eq i32 %1, -291056
-  br i1 %11, label %12, label %75
+  br i1 %11, label %12, label %74
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2129,126 +2128,125 @@ Next_Field_On_Page.exit.i:                        ; preds = %44
   %68 = load i32, ptr %67, align 8, !tbaa !19
   %69 = and i32 %68, 1
   %.not30.i = icmp ne i32 %69, 0
-  %.not31.i = icmp eq ptr %48, %66
+  %.not31.i = icmp eq ptr %22, %66
   %or.cond.i = or i1 %.not31.i, %.not30.i
   br i1 %or.cond.i, label %70, label %62, !llvm.loop !85
 
 70:                                               ; preds = %62
-  %71 = icmp eq ptr %66, %22
   %.not32.i = icmp eq i32 %69, 0
-  %or.cond33.i = and i1 %71, %.not32.i
-  br i1 %or.cond33.i, label %72, label %_nc_First_Active_Field.exit
+  %or.cond33.i = and i1 %.not31.i, %.not32.i
+  br i1 %or.cond33.i, label %71, label %_nc_First_Active_Field.exit
 
-72:                                               ; preds = %70
-  %73 = load ptr, ptr %61, align 8, !tbaa !81
+71:                                               ; preds = %70
+  %72 = load ptr, ptr %61, align 8, !tbaa !81
   br label %_nc_First_Active_Field.exit
 
-_nc_First_Active_Field.exit:                      ; preds = %Next_Field_On_Page.exit.i, %70, %72
-  %.0.i = phi ptr [ %48, %Next_Field_On_Page.exit.i ], [ %73, %72 ], [ %66, %70 ]
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %.0.i, ptr %74, align 8, !tbaa !14
-  br label %129
+_nc_First_Active_Field.exit:                      ; preds = %Next_Field_On_Page.exit.i, %70, %71
+  %.0.i = phi ptr [ %48, %Next_Field_On_Page.exit.i ], [ %72, %71 ], [ %66, %70 ]
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store ptr %.0.i, ptr %73, align 8, !tbaa !14
+  br label %128
 
-75:                                               ; preds = %10
-  %76 = load i16, ptr %0, align 8, !tbaa !45
-  %77 = zext i16 %76 to i32
-  %78 = and i32 %77, 2
-  %.not42 = icmp eq i32 %78, 0
-  br i1 %.not42, label %81, label %79
+74:                                               ; preds = %10
+  %75 = load i16, ptr %0, align 8, !tbaa !45
+  %76 = zext i16 %75 to i32
+  %77 = and i32 %76, 2
+  %.not42 = icmp eq i32 %77, 0
+  br i1 %.not42, label %80, label %78
 
-79:                                               ; preds = %75
-  %80 = tail call ptr @__errno_location() #14
-  store i32 -5, ptr %80, align 4, !tbaa !32
-  br label %129
+78:                                               ; preds = %74
+  %79 = tail call ptr @__errno_location() #14
+  store i32 -5, ptr %79, align 4, !tbaa !32
+  br label %128
 
-81:                                               ; preds = %75
-  %82 = and i32 %77, 1
-  %.not43 = icmp eq i32 %82, 0
-  br i1 %.not43, label %83, label %85
+80:                                               ; preds = %74
+  %81 = and i32 %76, 1
+  %.not43 = icmp eq i32 %81, 0
+  br i1 %.not43, label %82, label %84
 
-83:                                               ; preds = %81
-  %84 = tail call ptr @__errno_location() #14
-  store i32 -7, ptr %84, align 4, !tbaa !32
-  br label %129
+82:                                               ; preds = %80
+  %83 = tail call ptr @__errno_location() #14
+  store i32 -7, ptr %83, align 4, !tbaa !32
+  br label %128
 
-85:                                               ; preds = %81
-  %86 = add i32 %1, -512
-  %or.cond = icmp ult i32 %86, 57
-  br i1 %or.cond, label %87, label %109
+84:                                               ; preds = %80
+  %85 = add i32 %1, -512
+  %or.cond = icmp ult i32 %85, 57
+  br i1 %or.cond, label %86, label %108
 
-87:                                               ; preds = %85
-  %88 = zext nneg i32 %86 to i64
-  %89 = getelementptr inbounds nuw [57 x %struct.Binding_Info], ptr @bindings, i64 0, i64 %88
-  %90 = load i32, ptr %89, align 16, !tbaa !89
-  %91 = and i32 %90, 65535
-  %92 = icmp eq i32 %91, %1
-  br i1 %92, label %93, label %.thread51
+86:                                               ; preds = %84
+  %87 = zext nneg i32 %85 to i64
+  %88 = getelementptr inbounds nuw [57 x %struct.Binding_Info], ptr @bindings, i64 0, i64 %87
+  %89 = load i32, ptr %88, align 16, !tbaa !89
+  %90 = and i32 %89, 65535
+  %91 = icmp eq i32 %90, %1
+  br i1 %91, label %92, label %.thread51
 
-93:                                               ; preds = %87
-  %94 = lshr i32 %90, 16
-  %95 = zext nneg i32 %94 to i64
-  %96 = icmp ugt i32 %90, 589823
-  br i1 %96, label %.thread51, label %97
+92:                                               ; preds = %86
+  %93 = lshr i32 %89, 16
+  %94 = zext nneg i32 %93 to i64
+  %95 = icmp ugt i32 %89, 589823
+  br i1 %95, label %.thread51, label %96
 
-97:                                               ; preds = %93
-  %98 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %99 = load ptr, ptr %98, align 8, !tbaa !91
-  %.not47 = icmp eq ptr %99, null
-  br i1 %.not47, label %.thread51, label %100
+96:                                               ; preds = %92
+  %97 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %98 = load ptr, ptr %97, align 8, !tbaa !91
+  %.not47 = icmp eq ptr %98, null
+  br i1 %.not47, label %.thread51, label %99
 
-100:                                              ; preds = %97
-  %101 = shl nuw nsw i64 1, %95
-  %102 = and i64 %101, 452
-  %.not48.not = icmp eq i64 %102, 0
-  br i1 %.not48.not, label %103, label %107
+99:                                               ; preds = %96
+  %100 = shl nuw nsw i64 1, %94
+  %101 = and i64 %100, 452
+  %.not48.not = icmp eq i64 %101, 0
+  br i1 %.not48.not, label %102, label %106
 
-103:                                              ; preds = %100
-  %104 = getelementptr inbounds nuw [9 x ptr], ptr @form_driver.Generic_Methods, i64 0, i64 %95
-  %105 = load ptr, ptr %104, align 8, !tbaa !92
-  %106 = tail call i32 %105(ptr noundef nonnull %99, ptr noundef nonnull %0) #13
+102:                                              ; preds = %99
+  %103 = getelementptr inbounds nuw [9 x ptr], ptr @form_driver.Generic_Methods, i64 0, i64 %94
+  %104 = load ptr, ptr %103, align 8, !tbaa !92
+  %105 = tail call i32 %104(ptr noundef nonnull %98, ptr noundef nonnull %0) #13
   br label %.thread51
 
-107:                                              ; preds = %100
-  %108 = tail call i32 %99(ptr noundef nonnull %0) #13
+106:                                              ; preds = %99
+  %107 = tail call i32 %98(ptr noundef nonnull %0) #13
   br label %.thread51
 
-109:                                              ; preds = %85
+108:                                              ; preds = %84
   %.not45 = icmp ult i32 %1, 256
-  br i1 %.not45, label %110, label %.thread51
+  br i1 %.not45, label %109, label %.thread51
 
-110:                                              ; preds = %109
-  %111 = tail call ptr @__ctype_b_loc() #14
-  %112 = load ptr, ptr %111, align 8, !tbaa !93
-  %113 = zext nneg i32 %1 to i64
-  %114 = getelementptr inbounds nuw i16, ptr %112, i64 %113
-  %115 = load i16, ptr %114, align 2, !tbaa !95
-  %116 = and i16 %115, 16384
-  %.not46 = icmp eq i16 %116, 0
-  br i1 %.not46, label %.thread51, label %117
+109:                                              ; preds = %108
+  %110 = tail call ptr @__ctype_b_loc() #14
+  %111 = load ptr, ptr %110, align 8, !tbaa !93
+  %112 = zext nneg i32 %1 to i64
+  %113 = getelementptr inbounds nuw i16, ptr %111, i64 %112
+  %114 = load i16, ptr %113, align 2, !tbaa !95
+  %115 = and i16 %114, 16384
+  %.not46 = icmp eq i16 %115, 0
+  br i1 %.not46, label %.thread51, label %116
 
-117:                                              ; preds = %110
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %119 = load ptr, ptr %118, align 8, !tbaa !14
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 88
-  %121 = load ptr, ptr %120, align 8, !tbaa !63
-  %122 = getelementptr inbounds nuw i8, ptr %119, i64 96
-  %123 = load ptr, ptr %122, align 8, !tbaa !64
-  %124 = tail call fastcc zeroext i1 @Check_Char(ptr noundef %121, i32 noundef %1, ptr noundef %123)
-  br i1 %124, label %125, label %.thread51
+116:                                              ; preds = %109
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %118 = load ptr, ptr %117, align 8, !tbaa !14
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 88
+  %120 = load ptr, ptr %119, align 8, !tbaa !63
+  %121 = getelementptr inbounds nuw i8, ptr %118, i64 96
+  %122 = load ptr, ptr %121, align 8, !tbaa !64
+  %123 = tail call fastcc zeroext i1 @Check_Char(ptr noundef %120, i32 noundef %1, ptr noundef %122)
+  br i1 %123, label %124, label %.thread51
 
-125:                                              ; preds = %117
-  %126 = tail call fastcc i32 @Data_Entry(ptr noundef %0, i32 noundef %1)
+124:                                              ; preds = %116
+  %125 = tail call fastcc i32 @Data_Entry(ptr noundef %0, i32 noundef %1)
   br label %.thread51
 
-.thread51:                                        ; preds = %87, %97, %93, %107, %103, %109, %110, %117, %125
-  %.2 = phi i32 [ -8, %109 ], [ %126, %125 ], [ -8, %117 ], [ -8, %110 ], [ -1, %97 ], [ -1, %93 ], [ %106, %103 ], [ %108, %107 ], [ -8, %87 ]
-  %127 = tail call i32 @_nc_Refresh_Current_Field(ptr noundef nonnull %0)
-  %128 = tail call ptr @__errno_location() #14
-  store i32 %.2, ptr %128, align 4, !tbaa !32
-  br label %129
+.thread51:                                        ; preds = %86, %96, %92, %106, %102, %108, %109, %116, %124
+  %.2 = phi i32 [ -8, %108 ], [ %125, %124 ], [ -8, %116 ], [ -8, %109 ], [ -1, %96 ], [ -1, %92 ], [ %105, %102 ], [ %107, %106 ], [ -8, %86 ]
+  %126 = tail call i32 @_nc_Refresh_Current_Field(ptr noundef nonnull %0)
+  %127 = tail call ptr @__errno_location() #14
+  store i32 %.2, ptr %127, align 4, !tbaa !32
+  br label %128
 
-129:                                              ; preds = %.thread51, %83, %79, %_nc_First_Active_Field.exit, %8, %3
-  %.0 = phi i32 [ 0, %_nc_First_Active_Field.exit ], [ -5, %79 ], [ %.2, %.thread51 ], [ -7, %83 ], [ -11, %8 ], [ -2, %3 ]
+128:                                              ; preds = %.thread51, %82, %78, %_nc_First_Active_Field.exit, %8, %3
+  %.0 = phi i32 [ 0, %_nc_First_Active_Field.exit ], [ -5, %78 ], [ %.2, %.thread51 ], [ -7, %82 ], [ -11, %8 ], [ -2, %3 ]
   ret i32 %.0
 }
 

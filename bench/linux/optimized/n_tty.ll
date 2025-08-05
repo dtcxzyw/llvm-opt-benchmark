@@ -5322,7 +5322,7 @@ define internal fastcc zeroext i1 @n_tty_receive_char_flow_ctrl(ptr noundef %0, 
   br label %35
 
 35:                                               ; preds = %.thread, %34, %33, %27, %21, %13, %7
-  %36 = phi i1 [ %10, %.thread ], [ %10, %34 ], [ true, %33 ], [ true, %27 ], [ true, %21 ], [ true, %13 ], [ true, %7 ]
+  %36 = phi i1 [ %10, %.thread ], [ true, %34 ], [ true, %33 ], [ true, %27 ], [ true, %21 ], [ true, %13 ], [ true, %7 ]
   ret i1 %36
 }
 

@@ -49786,7 +49786,7 @@ define noundef zeroext i1 @_ZN7httplib6Server24process_and_close_socketEi(ptr no
 
 31:                                               ; preds = %"_ZZN7httplib6detail21process_server_socketIZNS_6Server24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEimlllllT_ENKUlbRbE_clEbS9_.exit.i.i", %15
   %.012.i.i = phi i64 [ %18, %15 ], [ %70, %"_ZZN7httplib6detail21process_server_socketIZNS_6Server24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEimlllllT_ENKUlbRbE_clEbS9_.exit.i.i" ]
-  %.011.i.i = phi i1 [ false, %15 ], [ %52, %"_ZZN7httplib6detail21process_server_socketIZNS_6Server24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEimlllllT_ENKUlbRbE_clEbS9_.exit.i.i" ]
+  %.011.i.i = phi i1 [ false, %15 ], [ true, %"_ZZN7httplib6detail21process_server_socketIZNS_6Server24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEimlllllT_ENKUlbRbE_clEbS9_.exit.i.i" ]
   %.not14.i.i = icmp eq i64 %.012.i.i, 0
   br i1 %.not14.i.i, label %"_ZN7httplib6detail21process_server_socketIZNS_6Server24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEimlllllT_.exit", label %32
 
@@ -81245,7 +81245,7 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
 
 77:                                               ; preds = %"_ZZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_ENKUlbRbE_clEbSB_.exit.i.i", %59
   %.012.i.i = phi i64 [ %63, %59 ], [ %116, %"_ZZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_ENKUlbRbE_clEbSB_.exit.i.i" ]
-  %.011.i.i = phi i1 [ false, %59 ], [ %98, %"_ZZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_ENKUlbRbE_clEbSB_.exit.i.i" ]
+  %.011.i.i = phi i1 [ false, %59 ], [ true, %"_ZZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_ENKUlbRbE_clEbSB_.exit.i.i" ]
   %.not14.i.i = icmp eq i64 %.012.i.i, 0
   br i1 %.not14.i.i, label %"_ZN7httplib6detail25process_server_socket_sslIZNS_9SSLServer24process_and_close_socketEiE3$_0EEbRKSt6atomicIiEP6ssl_stimlllllT_.exit", label %78
 

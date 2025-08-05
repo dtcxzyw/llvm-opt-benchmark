@@ -108,7 +108,7 @@ define internal ptr @ExecMaterial(ptr noundef captures(none) %0) #0 {
   br i1 %32, label %.thread59, label %33
 
 33:                                               ; preds = %29
-  %34 = tail call zeroext i1 @tuplestore_advance(ptr noundef %.04355, i1 noundef zeroext %9) #2
+  %34 = tail call zeroext i1 @tuplestore_advance(ptr noundef %.04355, i1 noundef zeroext false) #2
   br i1 %34, label %.thread59, label %76
 
 .thread59:                                        ; preds = %33, %29

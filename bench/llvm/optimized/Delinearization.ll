@@ -4157,7 +4157,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit31.i: ; pre
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit31.i, %._crit_edge.i, %31
-  %155 = phi i1 [ %50, %._crit_edge.i ], [ %50, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit31.i ], [ true, %31 ]
+  %155 = phi i1 [ %50, %._crit_edge.i ], [ false, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit31.i ], [ true, %31 ]
   %156 = load ptr, ptr %4, align 8, !tbaa !3
   %157 = icmp eq ptr %156, %32
   br i1 %157, label %_ZN12_GLOBAL__N_127SCEVCollectAddRecMultiplies6followEPKN4llvm4SCEVE.exit, label %158

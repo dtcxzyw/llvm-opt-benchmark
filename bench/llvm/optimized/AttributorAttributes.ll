@@ -117927,7 +117927,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %spec.select.i.i.i.i = getelementptr inbounds nuw i8, ptr %214, i64 %spec.select.idx.i.i.i.i
   %spec.select2.i.i.i.i = zext i1 %217 to i8
   %.sink1.i.i.i.i = load ptr, ptr %spec.select.i.i.i.i, align 8, !tbaa !678, !noalias !2467
-  %.sink1.i.i.i.i152 = ptrtoint ptr %.sink1.i.i.i.i to i64
+  %.sink1.i.i.i.i151 = ptrtoint ptr %.sink1.i.i.i.i to i64
   %218 = load ptr, ptr %214, align 8, !noalias !2476
   %219 = ptrtoint ptr %218 to i64
   %220 = getelementptr inbounds nuw i8, ptr %1, i64 272
@@ -117954,7 +117954,7 @@ _ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_16SmallSetIteratorIlLj4E
   %228 = shl nuw nsw i64 %222, 3
   %229 = add i64 %228, %219
   %230 = add i64 %229, -8
-  %231 = sub i64 %230, %.sink1.i.i.i.i152
+  %231 = sub i64 %230, %.sink1.i.i.i.i151
   %232 = lshr i64 %231, 2
   %233 = and i64 %232, 4611686018427387902
   %234 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -118103,8 +118103,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23.us.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22.us.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21.us.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #39, !noalias !2492
   %299 = getelementptr inbounds nuw i8, ptr %.sroa.032.048.us.i.i.i, i64 8
-  %.not.i71 = icmp eq ptr %299, %.sink1.i.i.i5.i
-  br i1 %.not.i71, label %._crit_edge.i.i.i, label %.lr.ph.split.us.i.i.i, !llvm.loop !2509
+  %.not35.i = icmp eq ptr %299, %.sink1.i.i.i5.i
+  br i1 %.not35.i, label %._crit_edge.i.i.i, label %.lr.ph.split.us.i.i.i, !llvm.loop !2509
 
 ._crit_edge.i.i.i:                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23.us.i.i.i
   %.02.lcssa.i.i.i = phi i64 [ %293, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23.us.i.i.i ], [ %375, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23.i.i.i ]
@@ -118288,8 +118288,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #39, !noalias !2492
   %381 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.032.048.i.i.i) #42
-  %.not = icmp eq ptr %381, %.sink1.i.i.i5.i
-  br i1 %.not, label %._crit_edge.i.i.i, label %.lr.ph.split.i.i.i, !llvm.loop !2524
+  %.not.i71 = icmp eq ptr %381, %.sink1.i.i.i5.i
+  br i1 %.not.i71, label %._crit_edge.i.i.i, label %.lr.ph.split.i.i.i, !llvm.loop !2524
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.split.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31.i.i.i
   %.sroa.022.0.i.i = phi ptr [ %storemerge.i.i24.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31.i.i.i ], [ %.sink1.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i ]

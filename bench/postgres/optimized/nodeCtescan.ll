@@ -228,7 +228,7 @@ define internal ptr @CteScanNext(ptr noundef readonly captures(none) %0) #0 {
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %16
-  %22 = tail call zeroext i1 @tuplestore_advance(ptr noundef %10, i1 noundef zeroext %6) #3
+  %22 = tail call zeroext i1 @tuplestore_advance(ptr noundef %10, i1 noundef zeroext false) #3
   br i1 %22, label %.thread, label %58
 
 23:                                               ; preds = %1

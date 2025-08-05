@@ -17526,17 +17526,17 @@ _ZNKSt13unordered_mapIN4Luau13AstExprBinary2OpEPKcSt4hashIS2_ESt8equal_toIS2_ESa
 
 263:                                              ; preds = %_ZNKSt13unordered_mapIN4Luau13AstExprBinary2OpEPKcSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit
   %264 = extractvalue { ptr, i8 } %262, 0
-  %265 = extractvalue { ptr, i8 } %262, 1
   %.sroa.064.0.copyload = load ptr, ptr %0, align 8, !tbaa !139
-  %266 = invoke { ptr, i8 } @_ZN4Luau12getMetatableEPKNS_4TypeENS_7NotNullINS_12BuiltinTypesEEE(ptr noundef %77, ptr %.sroa.064.0.copyload)
+  %265 = invoke { ptr, i8 } @_ZN4Luau12getMetatableEPKNS_4TypeENS_7NotNullINS_12BuiltinTypesEEE(ptr noundef %77, ptr %.sroa.064.0.copyload)
           to label %_ZSteqIPKN4Luau4TypeES3_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS5_ERKSE_IS8_E.exit unwind label %286
 
 _ZSteqIPKN4Luau4TypeES3_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS5_ERKSE_IS8_E.exit: ; preds = %263
-  %267 = extractvalue { ptr, i8 } %266, 0
-  %268 = extractvalue { ptr, i8 } %266, 1
+  %266 = extractvalue { ptr, i8 } %262, 1
+  %267 = extractvalue { ptr, i8 } %265, 0
+  %268 = extractvalue { ptr, i8 } %265, 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #34
-  %269 = trunc nuw i8 %265 to i1
-  %270 = icmp eq i8 %265, %268
+  %269 = trunc nuw i8 %266 to i1
+  %270 = icmp eq i8 %266, %268
   %brmerge.not.i = and i1 %270, %269
   %271 = icmp eq ptr %264, %267
   %spec.select783 = select i1 %brmerge.not.i, i1 %271, i1 %270
@@ -17604,7 +17604,7 @@ _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit343: ; preds = %292
   br i1 %or.cond10, label %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit343.thread, label %298
 
 298:                                              ; preds = %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit343
-  invoke fastcc void @"_ZZN4Luau12TypeChecker25visitEPNS_13AstExprBinaryEPNS_7AstNodeEENK3$_0clEPKNS_9UnionTypeESt8optionalIPKNS_4TypeEE"(ptr nonnull %10, ptr %275, ptr noundef %295, ptr %264, i8 %265)
+  invoke fastcc void @"_ZZN4Luau12TypeChecker25visitEPNS_13AstExprBinaryEPNS_7AstNodeEENK3$_0clEPKNS_9UnionTypeESt8optionalIPKNS_4TypeEE"(ptr nonnull %10, ptr %275, ptr noundef %295, ptr %264, i8 1)
           to label %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit343.thread unwind label %299
 
 299:                                              ; preds = %298

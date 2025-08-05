@@ -43356,7 +43356,7 @@ _ZN5ImGui15TabItemCalcSizeEPKcb.exit:             ; preds = %_ZN5ImGui17TabBarFi
   br label %286
 
 286:                                              ; preds = %.thread374, %283, %278
-  %.0240378 = phi i1 [ false, %.thread374 ], [ %282, %283 ], [ %282, %278 ]
+  %.0240378 = phi i1 [ false, %.thread374 ], [ true, %283 ], [ %282, %278 ]
   %287 = load i8, ptr %14, align 1, !tbaa !212, !range !153, !noundef !154
   %288 = trunc nuw i8 %287 to i1
   %or.cond9.not = select i1 %288, i1 %157, i1 false

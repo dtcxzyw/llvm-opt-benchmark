@@ -2542,7 +2542,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit193:         ; preds = %_ZNSt7__cxx1112basi
   br label %.thread487
 
 933:                                              ; preds = %.thread, %_ZN5clang17DiagnosticBuilderD2Ev.exit172, %733
-  %934 = phi i1 [ %734, %_ZN5clang17DiagnosticBuilderD2Ev.exit172 ], [ %734, %733 ], [ %710, %.thread ]
+  %934 = phi i1 [ false, %_ZN5clang17DiagnosticBuilderD2Ev.exit172 ], [ %734, %733 ], [ %710, %.thread ]
   %.2457 = phi i32 [ %609, %_ZN5clang17DiagnosticBuilderD2Ev.exit172 ], [ %609, %733 ], [ %732, %.thread ]
   %.sroa.0406.5456 = phi i64 [ %.sroa.0406.3, %_ZN5clang17DiagnosticBuilderD2Ev.exit172 ], [ %.sroa.0406.3, %733 ], [ %.sroa.0406.6, %.thread ]
   %.sroa.0378.1455 = phi i64 [ %.sroa.0378.0, %_ZN5clang17DiagnosticBuilderD2Ev.exit172 ], [ %.sroa.0378.0, %733 ], [ %709, %.thread ]
@@ -2674,7 +2674,7 @@ _ZNSt6vectorIPN5clang4ExprESaIS2_EED2Ev.exit:     ; preds = %_ZNSt6vectorIPN5cla
   %.sroa.0378.1455466.ph = phi i64 [ %.sroa.0378.1455, %933 ], [ %.sroa.0378.0, %_ZN5clang17DiagnosticBuilderD2Ev.exit181 ], [ %.sroa.0378.0, %_ZN5clang17DiagnosticBuilderD2Ev.exit193 ]
   %.sroa.0406.5456465.ph = phi i64 [ %.sroa.0406.5456, %933 ], [ %.sroa.0406.3, %_ZN5clang17DiagnosticBuilderD2Ev.exit181 ], [ %.sroa.0406.3, %_ZN5clang17DiagnosticBuilderD2Ev.exit193 ]
   %.2457464.ph = phi i32 [ %.2457, %933 ], [ %609, %_ZN5clang17DiagnosticBuilderD2Ev.exit181 ], [ %609, %_ZN5clang17DiagnosticBuilderD2Ev.exit193 ]
-  %.ph469 = phi i1 [ %934, %933 ], [ %734, %_ZN5clang17DiagnosticBuilderD2Ev.exit181 ], [ %734, %_ZN5clang17DiagnosticBuilderD2Ev.exit193 ]
+  %.ph469 = phi i1 [ %934, %933 ], [ false, %_ZN5clang17DiagnosticBuilderD2Ev.exit181 ], [ false, %_ZN5clang17DiagnosticBuilderD2Ev.exit193 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %33) #20
   br label %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit199
 

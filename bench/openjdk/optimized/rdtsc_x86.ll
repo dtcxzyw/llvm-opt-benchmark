@@ -316,12 +316,11 @@ _ZL26initialize_elapsed_counterv.exit:            ; preds = %85, %.thread29.i.i,
   %103 = and i64 %102, 32768
   %.not.i = icmp ne i64 %103, 0
   %spec.select = select i1 %.not.i, ptr @.str, ptr @.str.4
-  %spec.select4 = or i1 %.not.i, %101
   call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull %spec.select) #6
   br label %_ZL10ergonomicsv.exit
 
 _ZL10ergonomicsv.exit:                            ; preds = %.sink.split.i, %98, %_ZL26initialize_elapsed_counterv.exit.thread, %_ZL26initialize_elapsed_counterv.exit
-  %.0.in = phi i1 [ false, %_ZL26initialize_elapsed_counterv.exit ], [ false, %_ZL26initialize_elapsed_counterv.exit.thread ], [ %spec.select4, %.sink.split.i ], [ %101, %98 ]
+  %.0.in = phi i1 [ false, %_ZL26initialize_elapsed_counterv.exit ], [ false, %_ZL26initialize_elapsed_counterv.exit.thread ], [ %.not.i, %.sink.split.i ], [ %101, %98 ]
   %104 = zext i1 %.0.in to i8
   store i8 %104, ptr @_ZL29rdtsc_elapsed_counter_enabled, align 1
   store i1 true, ptr @_ZZN5Rdtsc10initializeEvE11initialized, align 1

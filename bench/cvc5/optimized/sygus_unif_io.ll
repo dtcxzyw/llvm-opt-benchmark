@@ -3176,7 +3176,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_6theory11quantifiers11SubsumeT
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit152: ; preds = %269, %263, %271
   %273 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 40
-  invoke void @_ZN4cvc58internal6theory11quantifiers11SubsumeTrie15addTermInternalENS0_12NodeTemplateILb1EEERKSt6vectorIS5_SaIS5_EEbRS8_bjibb(ptr dead_on_unwind writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %273, ptr noundef nonnull %19, ptr noundef nonnull align 8 dereferenceable(24) %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i1 noundef zeroext %6, i32 noundef %228, i32 noundef -1, i1 noundef zeroext %9, i1 noundef zeroext true)
+  invoke void @_ZN4cvc58internal6theory11quantifiers11SubsumeTrie15addTermInternalENS0_12NodeTemplateILb1EEERKSt6vectorIS5_SaIS5_EEbRS8_bjibb(ptr dead_on_unwind writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %273, ptr noundef nonnull %19, ptr noundef nonnull align 8 dereferenceable(24) %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i1 noundef zeroext %6, i32 noundef %228, i32 noundef -1, i1 noundef zeroext false, i1 noundef zeroext true)
           to label %274 unwind label %302
 
 274:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit152

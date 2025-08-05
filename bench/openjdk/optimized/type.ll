@@ -16292,7 +16292,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %10, %_ZNK10ciMetada
 
 37:                                               ; preds = %31, %33, %_ZNK10ciMetadata9is_loadedEv.exit.thread
   %.042 = phi ptr [ %32, %33 ], [ %0, %31 ], [ %0, %_ZNK10ciMetadata9is_loadedEv.exit.thread ]
-  %.1.in = phi i1 [ %36, %33 ], [ %29, %31 ], [ %29, %_ZNK10ciMetadata9is_loadedEv.exit.thread ]
+  %.1.in = phi i1 [ %36, %33 ], [ false, %31 ], [ %29, %_ZNK10ciMetadata9is_loadedEv.exit.thread ]
   %.not4 = xor i1 %.1.in, true
   %or.cond6 = and i1 %2, %.not4
   %or.cond8 = and i1 %30, %or.cond6
@@ -16327,7 +16327,7 @@ _ZN15ciInstanceKlass12has_subklassEv.exit.thread54: ; preds = %47, %_ZN15ciInsta
   br label %_ZN15ciInstanceKlass12has_subklassEv.exit.thread
 
 _ZN15ciInstanceKlass12has_subklassEv.exit.thread: ; preds = %43, %37, %38, %_ZN15ciInstanceKlass12has_subklassEv.exit, %_ZN15ciInstanceKlass12has_subklassEv.exit.thread54, %_ZNK10ciMetadata9is_loadedEv.exit
-  %.041.shrunk = phi i1 [ %.1.in, %38 ], [ %.1.in, %_ZN15ciInstanceKlass12has_subklassEv.exit ], [ true, %_ZN15ciInstanceKlass12has_subklassEv.exit.thread54 ], [ %.1.in, %37 ], [ false, %_ZNK10ciMetadata9is_loadedEv.exit ], [ %.1.in, %43 ]
+  %.041.shrunk = phi i1 [ false, %38 ], [ false, %_ZN15ciInstanceKlass12has_subklassEv.exit ], [ true, %_ZN15ciInstanceKlass12has_subklassEv.exit.thread54 ], [ %.1.in, %37 ], [ false, %_ZNK10ciMetadata9is_loadedEv.exit ], [ false, %43 ]
   %51 = call noundef ptr @_ZN7TypePtr10interfacesERP7ciKlassbbbN4Type17InterfaceHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %5, i1 zeroext poison, i1 zeroext poison, i1 zeroext poison, i32 noundef %3)
   %52 = load ptr, ptr %5, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16

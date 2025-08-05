@@ -7545,7 +7545,7 @@ land.end:                                         ; preds = %if.end146
   %31 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node11per_process18enabled_debug_listE, i64 72), align 1
   %tobool.i = trunc i8 %31 to i1
   %or.cond = select i1 %.not, i1 true, i1 %tobool.i
-  br i1 %or.cond, label %if.then156, label %if.end158
+  br i1 %or.cond, label %if.then156, label %return
 
 if.then156:                                       ; preds = %if.end146, %land.end
   %32 = phi i1 [ %cmp.i.i45, %land.end ], [ false, %if.end146 ]
@@ -7555,15 +7555,12 @@ if.then156:                                       ; preds = %if.end146, %land.en
   %34 = load ptr, ptr %event_loop_.i.i, align 8
   %35 = load ptr, ptr @stderr, align 8
   call void @_ZN4node27PrintLibuvHandleInformationEP9uv_loop_sP8_IO_FILE(ptr noundef %34, ptr noundef %35) #23
-  br label %if.end158
-
-if.end158:                                        ; preds = %land.end, %if.then156
-  %36 = phi i1 [ %cmp.i.i45, %land.end ], [ %32, %if.then156 ]
-  %. = select i1 %36, i32 0, i32 14
+  %cond.fr = freeze i1 %32
+  %spec.select = select i1 %cond.fr, i32 0, i32 14
   br label %return
 
-return:                                           ; preds = %cleanup.thread, %if.end158, %cleanup.cont
-  %retval.1 = phi i32 [ 14, %cleanup.cont ], [ %., %if.end158 ], [ %retval.0.ph, %cleanup.thread ]
+return:                                           ; preds = %if.then156, %land.end, %cleanup.thread, %cleanup.cont
+  %retval.1 = phi i32 [ 14, %cleanup.cont ], [ %retval.0.ph, %cleanup.thread ], [ 0, %land.end ], [ %spec.select, %if.then156 ]
   ret i32 %retval.1
 }
 

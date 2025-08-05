@@ -16759,7 +16759,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 25:                                               ; preds = %17
   %26 = getelementptr i8, ptr %.val6, i64 16
   %27 = getelementptr i8, ptr %.val3.i.i.i, i64 16
-  %28 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h068154aa3a3f5981E.llvm.15956212377945586164"(ptr noalias noundef nonnull readonly align 8 %26, i64 noundef %19, ptr noalias noundef nonnull readonly align 8 %27, i64 noundef %21), !noalias !6078
+  %28 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h068154aa3a3f5981E.llvm.15956212377945586164"(ptr noalias noundef nonnull readonly align 8 %26, i64 noundef %19, ptr noalias noundef nonnull readonly align 8 %27, i64 noundef %19), !noalias !6078
   br i1 %28, label %.backedge, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17ha59ef17fe060eb05E.exit.thread"
 
 "_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17ha59ef17fe060eb05E.exit": ; preds = %14, %17
@@ -36634,7 +36634,7 @@ define hidden noundef zeroext i1 @"_ZN94_$LT$std..collections..hash..map..HashMa
 39:                                               ; preds = %31
   %40 = getelementptr i8, ptr %.val6.i, i64 16
   %41 = getelementptr i8, ptr %.val3.i.i.i.i, i64 16
-  %42 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h068154aa3a3f5981E.llvm.15956212377945586164"(ptr noalias noundef nonnull readonly align 8 %40, i64 noundef %33, ptr noalias noundef nonnull readonly align 8 %41, i64 noundef %35), !noalias !12380
+  %42 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h068154aa3a3f5981E.llvm.15956212377945586164"(ptr noalias noundef nonnull readonly align 8 %40, i64 noundef %33, ptr noalias noundef nonnull readonly align 8 %41, i64 noundef %33), !noalias !12380
   br i1 %42, label %.backedge.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd9f863e74b947cc8E.llvm.14358968814291841630.exit
 
 "_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17ha59ef17fe060eb05E.exit.i": ; preds = %31, %28

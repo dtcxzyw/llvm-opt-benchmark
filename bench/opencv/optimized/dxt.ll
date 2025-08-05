@@ -519,7 +519,7 @@ define linkonce_odr hidden void @_ZN2cv15OcvDftBasicImpl4initEiiiiPb(ptr noundef
   br label %87
 
 87:                                               ; preds = %.loopexit, %.thread76, %.thread
-  %88 = phi i1 [ %34, %.thread ], [ %86, %.loopexit ], [ true, %.thread76 ]
+  %88 = phi i1 [ false, %.thread ], [ %86, %.loopexit ], [ true, %.thread76 ]
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %90 = load i32, ptr %8, align 4, !tbaa !40
   %91 = select i1 %10, i32 3, i32 4

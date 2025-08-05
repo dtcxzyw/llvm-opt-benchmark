@@ -52724,13 +52724,13 @@ define hidden void @_ZN11ruff_linter5rules13flake8_django5rules30non_leading_rec
   call void @_ZN16ruff_diagnostics10diagnostic10Diagnostic3new17h80d939253c680463E(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %6, i32 noundef %67, i32 noundef %68)
   call void @_ZN11ruff_linter8checkers3ast7Checker17report_diagnostic17heec61577efacc51fE(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(120) %6)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %6)
-  br i1 %.sroa.0.0.i.i, label %69, label %.thread34
+  br label %69
 
-69:                                               ; preds = %64, %.thread
+69:                                               ; preds = %.thread, %64
   br label %.thread34
 
-.thread34:                                        ; preds = %16, %"_ZN11ruff_linter5rules13flake8_django5rules30non_leading_receiver_decorator30non_leading_receiver_decorator28_$u7b$$u7b$closure$u7d$$u7d$17h2e4f147b6867e3ebE.exit.thread", %64, %69, %.thread
-  %.sroa.0.1 = phi i8 [ %.mux, %64 ], [ 1, %69 ], [ 0, %.thread ], [ 0, %"_ZN11ruff_linter5rules13flake8_django5rules30non_leading_receiver_decorator30non_leading_receiver_decorator28_$u7b$$u7b$closure$u7d$$u7d$17h2e4f147b6867e3ebE.exit.thread" ], [ 0, %16 ]
+.thread34:                                        ; preds = %16, %"_ZN11ruff_linter5rules13flake8_django5rules30non_leading_receiver_decorator30non_leading_receiver_decorator28_$u7b$$u7b$closure$u7d$$u7d$17h2e4f147b6867e3ebE.exit.thread", %64, %69
+  %.sroa.0.1 = phi i8 [ %.mux, %64 ], [ 1, %69 ], [ 0, %"_ZN11ruff_linter5rules13flake8_django5rules30non_leading_receiver_decorator30non_leading_receiver_decorator28_$u7b$$u7b$closure$u7d$$u7d$17h2e4f147b6867e3ebE.exit.thread" ], [ 0, %16 ]
   %70 = icmp eq ptr %17, %10
   br i1 %70, label %.loopexit, label %16
 }

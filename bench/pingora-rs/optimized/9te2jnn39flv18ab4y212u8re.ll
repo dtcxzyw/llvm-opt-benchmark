@@ -17993,7 +17993,7 @@ common.resume:                                    ; preds = %.body, %36
   %.pn = phi { ptr, i32 } [ %62, %61 ], [ %56, %55 ], [ %43, %42 ]
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.val30 = load ptr, ptr %41, align 8
-  invoke fastcc void @"_ZN4core3ptr149drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$httpdate..date..HttpDate$GT$$C$alloc..boxed..Box$LT$pingora_error..Error$GT$$GT$$GT$17h1fa8ea998b4c3494E"(i16 %26, ptr %.val30) #19
+  invoke fastcc void @"_ZN4core3ptr149drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$httpdate..date..HttpDate$GT$$C$alloc..boxed..Box$LT$pingora_error..Error$GT$$GT$$GT$17h1fa8ea998b4c3494E"(i16 0, ptr %.val30) #19
           to label %common.resume unwind label %67
 
 42:                                               ; preds = %38
@@ -18046,7 +18046,7 @@ common.resume:                                    ; preds = %.body, %36
           cleanup
   %63 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.val26 = load ptr, ptr %63, align 8
-  invoke fastcc void @"_ZN4core3ptr149drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$httpdate..date..HttpDate$GT$$C$alloc..boxed..Box$LT$pingora_error..Error$GT$$GT$$GT$17h1fa8ea998b4c3494E"(i16 %45, ptr %.val26) #19
+  invoke fastcc void @"_ZN4core3ptr149drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$httpdate..date..HttpDate$GT$$C$alloc..boxed..Box$LT$pingora_error..Error$GT$$GT$$GT$17h1fa8ea998b4c3494E"(i16 0, ptr %.val26) #19
           to label %.body unwind label %67
 
 64:                                               ; preds = %57

@@ -966,12 +966,11 @@ list_length.exit:                                 ; preds = %10
 
 .critedge.sink.split:                             ; preds = %33, %29
   %.sink = phi i32 [ %32, %29 ], [ %35, %33 ]
-  %.1.ph = phi i1 [ true, %29 ], [ %36, %33 ]
   store i32 %.sink, ptr %1, align 4
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %5, %10, %33, %25, %7, %4, %list_length.exit, %22, %16
-  %.1 = phi i1 [ false, %7 ], [ false, %list_length.exit ], [ %not., %25 ], [ false, %22 ], [ false, %16 ], [ %36, %33 ], [ false, %4 ], [ false, %10 ], [ false, %5 ], [ %.1.ph, %.critedge.sink.split ]
+  %.1 = phi i1 [ false, %7 ], [ false, %list_length.exit ], [ %not., %25 ], [ false, %22 ], [ false, %16 ], [ %36, %33 ], [ false, %4 ], [ false, %10 ], [ false, %5 ], [ true, %.critedge.sink.split ]
   ret i1 %.1
 }
 

@@ -63995,7 +63995,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit221: ; preds = %11
   br label %1193
 
 1193:                                             ; preds = %1189, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit221, %1184, %1152, %1037, %1037, %1190
-  %.0122 = phi i1 [ false, %1190 ], [ false, %1189 ], [ false, %1037 ], [ false, %1037 ], [ %1059, %1152 ], [ %1059, %1184 ], [ %1059, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit221 ]
+  %.0122 = phi i1 [ false, %1190 ], [ false, %1189 ], [ false, %1037 ], [ false, %1037 ], [ %1059, %1152 ], [ true, %1184 ], [ true, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit221 ]
   %.6120 = phi i1 [ %.1115612, %1190 ], [ %.1115612, %1189 ], [ %.1115612, %1037 ], [ %.1115612, %1037 ], [ %.4118.mux, %1152 ], [ %.4118, %1184 ], [ %.4118, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit221 ]
   %.7 = phi i8 [ 1, %1190 ], [ %.1614, %1189 ], [ %.1614, %1037 ], [ %.1614, %1037 ], [ %.5, %1152 ], [ 1, %1184 ], [ 1, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit221 ]
   %1194 = call fastcc noundef zeroext i1 @_ZL33defaultedSpecialMemberIsConstexprRN5clang4SemaEPNS_13CXXRecordDeclENS_20CXXSpecialMemberKindEbPNS_18CXXConstructorDeclEPNS0_24InheritedConstructorInfoE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %62, i32 noundef %2, i1 noundef zeroext %.0122, ptr noundef null, ptr noundef null)

@@ -2287,7 +2287,7 @@ define range(i32 -1, 1) i32 @H5HF__sect_row_revive(ptr noundef %0, ptr noundef c
   %8 = trunc nuw i8 %7 to i1
   %9 = xor i1 %8, true
   %10 = select i1 %6, i1 true, i1 %9
-  br i1 %10, label %11, label %93, !prof !9
+  br i1 %10, label %11, label %95, !prof !9
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2351,7 +2351,6 @@ H5HF__sect_row_parent_removed.exit:               ; preds = %.lr.ph.i, %28
   %.pre = load ptr, ptr %12, align 8, !tbaa !26
   %.pre13 = load i8, ptr @H5HF_init_g, align 1, !tbaa !3, !range !7
   %.pre14 = load i8, ptr @H5_libterm_g, align 1, !range !7
-  %.pre15 = trunc nuw i8 %.pre14 to i1
   br label %56
 
 49:                                               ; preds = %23
@@ -2361,82 +2360,83 @@ H5HF__sect_row_parent_removed.exit:               ; preds = %.lr.ph.i, %28
   %53 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !18
   %54 = load i64, ptr @H5E_CANTUPDATE_g, align 8, !tbaa !18
   %55 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__sect_row_revive, i32 noundef 1269, i64 noundef %53, i64 noundef %54, ptr noundef nonnull @.str.7) #13
-  br label %93
+  br label %95
 
 56:                                               ; preds = %H5HF__sect_row_parent_removed.exit, %17, %11
-  %.pre-phi = phi i1 [ %.pre15, %H5HF__sect_row_parent_removed.exit ], [ %8, %17 ], [ %8, %11 ]
-  %57 = phi i8 [ %.pre13, %H5HF__sect_row_parent_removed.exit ], [ %5, %17 ], [ %5, %11 ]
-  %58 = phi ptr [ %.pre, %H5HF__sect_row_parent_removed.exit ], [ %13, %17 ], [ %13, %11 ]
+  %57 = phi i8 [ %.pre14, %H5HF__sect_row_parent_removed.exit ], [ %7, %17 ], [ %7, %11 ]
+  %58 = phi i8 [ %.pre13, %H5HF__sect_row_parent_removed.exit ], [ %5, %17 ], [ %5, %11 ]
+  %59 = phi ptr [ %.pre, %H5HF__sect_row_parent_removed.exit ], [ %13, %17 ], [ %13, %11 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #13
-  %59 = trunc nuw i8 %57 to i1
-  %60 = xor i1 %.pre-phi, true
-  %61 = select i1 %59, i1 true, i1 %60
-  br i1 %61, label %62, label %H5HF__sect_indirect_revive_row.exit.thread11, !prof !9
+  %60 = trunc nuw i8 %58 to i1
+  %61 = trunc nuw i8 %57 to i1
+  %62 = xor i1 %61, true
+  %63 = select i1 %60, i1 true, i1 %62
+  br i1 %63, label %64, label %H5HF__sect_indirect_revive_row.exit.thread11, !prof !9
 
 H5HF__sect_indirect_revive_row.exit.thread11:     ; preds = %56
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  br label %93
+  br label %95
 
-62:                                               ; preds = %56
-  %63 = load i64, ptr %58, align 8, !tbaa !23
-  %64 = call i32 @H5HF__man_dblock_locate(ptr noundef %0, i64 noundef %63, ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %4, i32 noundef 128) #13
-  %65 = icmp slt i32 %64, 0
-  br i1 %65, label %66, label %70
+64:                                               ; preds = %56
+  %65 = load i64, ptr %59, align 8, !tbaa !23
+  %66 = call i32 @H5HF__man_dblock_locate(ptr noundef %0, i64 noundef %65, ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %4, i32 noundef 128) #13
+  %67 = icmp slt i32 %66, 0
+  br i1 %67, label %68, label %72
 
-66:                                               ; preds = %62
-  %67 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !18
-  %68 = load i64, ptr @H5E_CANTCOMPUTE_g, align 8, !tbaa !18
-  %69 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__sect_indirect_revive_row, i32 noundef 2592, i64 noundef %67, i64 noundef %68, ptr noundef nonnull @.str.19) #13
-  br label %78
+68:                                               ; preds = %64
+  %69 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !18
+  %70 = load i64, ptr @H5E_CANTCOMPUTE_g, align 8, !tbaa !18
+  %71 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__sect_indirect_revive_row, i32 noundef 2592, i64 noundef %69, i64 noundef %70, ptr noundef nonnull @.str.19) #13
+  br label %80
 
-70:                                               ; preds = %62
-  %71 = load ptr, ptr %3, align 8, !tbaa !76
-  %72 = call fastcc i32 @H5HF__sect_indirect_revive(ptr noundef %0, ptr noundef nonnull %58, ptr noundef %71)
-  %73 = icmp slt i32 %72, 0
-  br i1 %73, label %74, label %78
+72:                                               ; preds = %64
+  %73 = load ptr, ptr %3, align 8, !tbaa !76
+  %74 = call fastcc i32 @H5HF__sect_indirect_revive(ptr noundef %0, ptr noundef nonnull %59, ptr noundef %73)
+  %75 = icmp slt i32 %74, 0
+  br i1 %75, label %76, label %80
 
-74:                                               ; preds = %70
-  %75 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !18
-  %76 = load i64, ptr @H5E_CANTREVIVE_g, align 8, !tbaa !18
-  %77 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__sect_indirect_revive_row, i32 noundef 2596, i64 noundef %75, i64 noundef %76, ptr noundef nonnull @.str.8) #13
-  br label %78
+76:                                               ; preds = %72
+  %77 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !18
+  %78 = load i64, ptr @H5E_CANTREVIVE_g, align 8, !tbaa !18
+  %79 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__sect_indirect_revive_row, i32 noundef 2596, i64 noundef %77, i64 noundef %78, ptr noundef nonnull @.str.8) #13
+  br label %80
 
-78:                                               ; preds = %74, %70, %66
-  %79 = phi i1 [ true, %66 ], [ true, %74 ], [ false, %70 ]
-  %80 = load ptr, ptr %3, align 8, !tbaa !76
-  %.not.i8 = icmp eq ptr %80, null
-  br i1 %.not.i8, label %H5HF__sect_indirect_revive_row.exit, label %81
+80:                                               ; preds = %76, %72, %68
+  %81 = phi i1 [ true, %68 ], [ true, %76 ], [ false, %72 ]
+  %82 = load ptr, ptr %3, align 8, !tbaa !76
+  %.not.i8 = icmp eq ptr %82, null
+  br i1 %.not.i8, label %H5HF__sect_indirect_revive_row.exit, label %83
 
-81:                                               ; preds = %78
-  %82 = load i8, ptr %4, align 1, !tbaa !3, !range !7, !noundef !8
-  %83 = trunc nuw i8 %82 to i1
-  %84 = call i32 @H5HF__man_iblock_unprotect(ptr noundef nonnull %80, i32 noundef 0, i1 noundef zeroext %83) #13
-  %85 = icmp slt i32 %84, 0
-  br i1 %85, label %H5HF__sect_indirect_revive_row.exit.thread, label %H5HF__sect_indirect_revive_row.exit
+83:                                               ; preds = %80
+  %84 = load i8, ptr %4, align 1, !tbaa !3, !range !7, !noundef !8
+  %85 = trunc nuw i8 %84 to i1
+  %86 = call i32 @H5HF__man_iblock_unprotect(ptr noundef nonnull %82, i32 noundef 0, i1 noundef zeroext %85) #13
+  %87 = icmp slt i32 %86, 0
+  br i1 %87, label %H5HF__sect_indirect_revive_row.exit.thread, label %H5HF__sect_indirect_revive_row.exit
 
-H5HF__sect_indirect_revive_row.exit.thread:       ; preds = %81
-  %86 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !18
-  %87 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8, !tbaa !18
-  %88 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__sect_indirect_revive_row, i32 noundef 2601, i64 noundef %86, i64 noundef %87, ptr noundef nonnull @.str.21) #13
+H5HF__sect_indirect_revive_row.exit.thread:       ; preds = %83
+  %88 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !18
+  %89 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8, !tbaa !18
+  %90 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__sect_indirect_revive_row, i32 noundef 2601, i64 noundef %88, i64 noundef %89, ptr noundef nonnull @.str.21) #13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  br label %89
+  br label %91
 
-H5HF__sect_indirect_revive_row.exit:              ; preds = %78, %81
+H5HF__sect_indirect_revive_row.exit:              ; preds = %80, %83
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  br i1 %79, label %89, label %93
+  br i1 %81, label %91, label %95
 
-89:                                               ; preds = %H5HF__sect_indirect_revive_row.exit.thread, %H5HF__sect_indirect_revive_row.exit
-  %90 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !18
-  %91 = load i64, ptr @H5E_CANTREVIVE_g, align 8, !tbaa !18
-  %92 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__sect_row_revive, i32 noundef 1274, i64 noundef %90, i64 noundef %91, ptr noundef nonnull @.str.8) #13
-  br label %93
+91:                                               ; preds = %H5HF__sect_indirect_revive_row.exit.thread, %H5HF__sect_indirect_revive_row.exit
+  %92 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !18
+  %93 = load i64, ptr @H5E_CANTREVIVE_g, align 8, !tbaa !18
+  %94 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__sect_row_revive, i32 noundef 1274, i64 noundef %92, i64 noundef %93, ptr noundef nonnull @.str.8) #13
+  br label %95
 
-93:                                               ; preds = %H5HF__sect_indirect_revive_row.exit.thread11, %49, %89, %H5HF__sect_indirect_revive_row.exit, %2
-  %.0 = phi i32 [ -1, %49 ], [ -1, %89 ], [ 0, %H5HF__sect_indirect_revive_row.exit ], [ 0, %2 ], [ 0, %H5HF__sect_indirect_revive_row.exit.thread11 ]
+95:                                               ; preds = %H5HF__sect_indirect_revive_row.exit.thread11, %49, %91, %H5HF__sect_indirect_revive_row.exit, %2
+  %.0 = phi i32 [ -1, %49 ], [ -1, %91 ], [ 0, %H5HF__sect_indirect_revive_row.exit ], [ 0, %2 ], [ 0, %H5HF__sect_indirect_revive_row.exit.thread11 ]
   ret i32 %.0
 }
 

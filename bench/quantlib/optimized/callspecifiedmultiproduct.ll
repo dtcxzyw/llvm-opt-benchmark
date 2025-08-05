@@ -3071,13 +3071,12 @@ if.then:                                          ; preds = %entry
   %12 = load ptr, ptr %vfn, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 %currentState)
   %.pre = load i8, ptr %wasCalled_, align 8, !tbaa !107, !range !109
-  %.pre42 = trunc nuw i8 %.pre to i1
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %loadedv25.pre-phi = phi i1 [ %.pre42, %if.then ], [ %loadedv21, %entry ]
   %13 = phi i8 [ %.pre, %if.then ], [ %10, %entry ]
-  %loadedv25.not = xor i1 %loadedv25.pre-phi, true
+  %loadedv25 = trunc nuw i8 %13 to i1
+  %loadedv25.not = xor i1 %loadedv25, true
   %or.cond1 = select i1 %loadedv25.not, i1 %loadedv7, i1 false
   %callable_ = getelementptr inbounds nuw i8, ptr %this, i64 280
   %14 = load i8, ptr %callable_, align 8, !range !109

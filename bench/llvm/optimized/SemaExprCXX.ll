@@ -22764,9 +22764,9 @@ _ZN4llvm11SmallVectorIN12_GLOBAL__N_118UsualDeallocFnInfoELj4EED2Ev.exit: ; pred
   %or.cond16 = select i1 %.not271, i1 true, i1 %662
   %663 = getelementptr inbounds nuw i8, ptr %33, i64 18
   %664 = load i8, ptr %663, align 2, !range !691
-  %665 = icmp eq i8 %664, %657
-  %spec.select144 = select i1 %665, i8 0, i8 %653
-  %.1132 = select i1 %or.cond16, i8 %653, i8 %spec.select144
+  %665 = icmp ne i8 %664, %657
+  %narrow = select i1 %or.cond16, i1 true, i1 %665
+  %.1132 = zext i1 %narrow to i8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33) #27
   br label %666
 
