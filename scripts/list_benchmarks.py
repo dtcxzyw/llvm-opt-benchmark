@@ -46,6 +46,7 @@ def get_last_updated(dir, head="HEAD"):
 
 
 def guess_language(dir: str):
+    active_files = len(os.listdir(os.path.join(dir, "optimized")))
     if "/llvm" in dir or "/libcxx" in dir:
         llvm_dir = os.path.join(bench_dir, "..", "llvm", "llvm-project")
         llvm_version = open(os.path.join(dir, "version")).read().strip()
@@ -54,6 +55,7 @@ def guess_language(dir: str):
             "C++",
             "https://github.com/llvm/llvm-project",
             get_last_updated(llvm_dir, llvm_version),
+            active_files,
         )
 
     for subdir in os.listdir(dir):
@@ -75,7 +77,7 @@ def guess_language(dir: str):
         if name == "jdk":
             name = "openjdk"
         if dir.endswith("-rs"):
-            return (name, "Rust", url, last_updated)
+            return (name, "Rust", url, last_updated, active_files)
 
         count_c = 0
         count_cpp = 0
@@ -100,10 +102,10 @@ def guess_language(dir: str):
                 elif f.endswith(".rs"):
                     count_rs += os.stat(path).st_size
         if count_rs >= count_cpp and count_rs >= count_c:
-            return (name, "Rust", url, last_updated)
+            return (name, "Rust", url, last_updated, active_files)
         if count_cpp >= count_rs and count_cpp >= count_c:
-            return (name, "C++", url, last_updated)
-        return (name, "C", url, last_updated)
+            return (name, "C++", url, last_updated, active_files)
+        return (name, "C", url, last_updated, active_files)
     raise Exception("Unknown language for " + dir)
 
 
@@ -143,10 +145,10 @@ for dir in os.listdir(bench_dir):
     bench_list.append(guess_language(os.path.join(bench_dir, dir)))
 
 bench_list.sort(key=lambda x: (priority[x[1]], x[0]))
-info = "|Name|Language|Stars|Last Updated|\n"
-info += "|---|---|---|---|\n"
-for name, lang, url, date in bench_list:
-    info += f"|[{name}]({url})|{lang}|![stars]({get_stars(url)}?style=flat)|{date}|\n"
+info = "|Name|Language|Stars|Last Updated|Active Files|\n"
+info += "|---|---|---|---|---|\n"
+for name, lang, url, date, active_files in bench_list:
+    info += f"|[{name}]({url})|{lang}|![stars]({get_stars(url)}?style=flat)|{date}|{active_files}|\n"
 
 with open("README.md", "r") as f:
     content = f.read()
