@@ -9019,7 +9019,7 @@ define internal fastcc range(i32 0, 65536) i32 @decomp_dispatch_get_bits(ptr nou
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %47
   %.0613.us = phi i16 [ %50, %47 ], [ %7, %.lr.ph ]
-  %.0622.us = phi i32 [ %59, %47 ], [ 0, %.lr.ph ]
+  %.0622.us = phi i32 [ %58, %47 ], [ 0, %.lr.ph ]
   %30 = load i16, ptr %4, align 2
   %31 = icmp eq i16 %30, 0
   br i1 %31, label %32, label %47
@@ -9059,17 +9059,16 @@ define internal fastcc range(i32 0, 65536) i32 @decomp_dispatch_get_bits(ptr nou
   %53 = shl i32 %52, %49
   %54 = trunc i32 %53 to i16
   store i16 %54, ptr %5, align 2
-  %55 = and i32 %.0622.us, 65535
-  %56 = shl i32 %55, %49
-  %57 = lshr i32 %53, 8
-  %58 = and i32 %57, 255
-  %59 = or i32 %58, %56
-  %60 = load i16, ptr %4, align 2
-  %61 = sub i16 %60, %.061..us
-  store i16 %61, ptr %4, align 2
-  %62 = load i16, ptr %5, align 2
-  %63 = and i16 %62, 255
-  store i16 %63, ptr %5, align 2
+  %55 = shl i32 %.0622.us, %49
+  %56 = lshr i32 %53, 8
+  %57 = and i32 %56, 255
+  %58 = or i32 %57, %55
+  %59 = load i16, ptr %4, align 2
+  %60 = sub i16 %59, %.061..us
+  store i16 %60, ptr %4, align 2
+  %61 = load i16, ptr %5, align 2
+  %62 = and i16 %61, 255
+  store i16 %62, ptr %5, align 2
   %.not68.us = icmp eq i16 %50, 0
   br i1 %.not68.us, label %._crit_edge.loopexit, label %.lr.ph.split.us, !llvm.loop !36
 
@@ -9077,8 +9076,8 @@ define internal fastcc range(i32 0, 65536) i32 @decomp_dispatch_get_bits(ptr nou
   br i1 %.not, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %72
-  %.0613.us4 = phi i16 [ %75, %72 ], [ %7, %.lr.ph.split ]
-  %.0622.us5 = phi i32 [ %84, %72 ], [ 0, %.lr.ph.split ]
+  %.0613.us4 = phi i16 [ %75, %71 ], [ %7, %.lr.ph.split ]
+  %.0622.us5 = phi i32 [ %82, %71 ], [ 0, %.lr.ph.split ]
   %64 = load i16, ptr %4, align 2
   %65 = icmp eq i16 %64, 0
   br i1 %65, label %66, label %72
@@ -9095,7 +9094,7 @@ define internal fastcc range(i32 0, 65536) i32 @decomp_dispatch_get_bits(ptr nou
   br label %72
 
 72:                                               ; preds = %66, %.lr.ph.split.split.us
-  %73 = phi i16 [ 8, %66 ], [ %64, %.lr.ph.split.split.us ]
+  %73 = phi i16 [ 8, %65 ], [ %64, %.lr.ph.split.split.us ]
   %.061..us7 = tail call i16 @llvm.umin.i16(i16 %.0613.us4, i16 %73)
   %74 = zext i16 %.061..us7 to i32
   %75 = sub i16 %.0613.us4, %.061..us7
@@ -9104,17 +9103,16 @@ define internal fastcc range(i32 0, 65536) i32 @decomp_dispatch_get_bits(ptr nou
   %78 = shl i32 %77, %74
   %79 = trunc i32 %78 to i16
   store i16 %79, ptr %5, align 2
-  %80 = and i32 %.0622.us5, 65535
-  %81 = shl i32 %80, %74
-  %82 = lshr i32 %78, 8
-  %83 = and i32 %82, 255
-  %84 = or i32 %83, %81
-  %85 = load i16, ptr %4, align 2
-  %86 = sub i16 %85, %.061..us7
-  store i16 %86, ptr %4, align 2
-  %87 = load i16, ptr %5, align 2
-  %88 = and i16 %87, 255
-  store i16 %88, ptr %5, align 2
+  %79 = shl i32 %.0622.us5, %73
+  %80 = lshr i32 %78, 8
+  %81 = and i32 %80, 255
+  %82 = or i32 %81, %79
+  %83 = load i16, ptr %4, align 2
+  %84 = sub i16 %83, %.061..us7
+  store i16 %84, ptr %4, align 2
+  %85 = load i16, ptr %5, align 2
+  %86 = and i16 %85, 255
+  store i16 %86, ptr %5, align 2
   %.not68.us8 = icmp eq i16 %75, 0
   br i1 %.not68.us8, label %._crit_edge.loopexit11, label %.lr.ph.split.split.us, !llvm.loop !37
 
@@ -9123,28 +9121,28 @@ define internal fastcc range(i32 0, 65536) i32 @decomp_dispatch_get_bits(ptr nou
   br label %142
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %101
-  %.0613 = phi i16 [ %104, %101 ], [ %7, %.lr.ph.split ]
-  %.0622 = phi i32 [ %113, %101 ], [ 0, %.lr.ph.split ]
+  %.0613 = phi i16 [ %104, %99 ], [ %7, %.lr.ph.split ]
+  %.0622 = phi i32 [ %110, %99 ], [ 0, %.lr.ph.split ]
   %90 = load i16, ptr %4, align 2
   %91 = icmp eq i16 %90, 0
   br i1 %91, label %92, label %101
 
 92:                                               ; preds = %.lr.ph.split.split
+  %91 = load i32, ptr %6, align 4
+  %92 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %91)
   %93 = load i32, ptr %6, align 4
-  %94 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %93)
-  %95 = load i32, ptr %6, align 4
-  %96 = add i32 %95, 1
-  store i32 %96, ptr %6, align 4
-  %97 = zext i8 %94 to i64
-  %98 = getelementptr [256 x i8], ptr @reverse, i64 0, i64 %97
-  %99 = load i8, ptr %98, align 1
-  %100 = zext i8 %99 to i16
-  store i16 %100, ptr %5, align 2
+  %94 = add i32 %93, 1
+  store i32 %94, ptr %6, align 4
+  %95 = zext i8 %92 to i64
+  %96 = getelementptr [256 x i8], ptr @reverse, i64 0, i64 %95
+  %97 = load i8, ptr %96, align 1
+  %98 = zext i8 %97 to i16
+  store i16 %98, ptr %5, align 2
   store i16 8, ptr %4, align 2
   br label %101
 
 101:                                              ; preds = %92, %.lr.ph.split.split
-  %102 = phi i16 [ 8, %92 ], [ %90, %.lr.ph.split.split ]
+  %102 = phi i16 [ 8, %90 ], [ %90, %.lr.ph.split.split ]
   %.061. = tail call i16 @llvm.umin.i16(i16 %.0613, i16 %102)
   %103 = zext i16 %.061. to i32
   %104 = sub i16 %.0613, %.061.
@@ -9153,30 +9151,29 @@ define internal fastcc range(i32 0, 65536) i32 @decomp_dispatch_get_bits(ptr nou
   %107 = shl i32 %106, %103
   %108 = trunc i32 %107 to i16
   store i16 %108, ptr %5, align 2
-  %109 = and i32 %.0622, 65535
-  %110 = shl i32 %109, %103
-  %111 = lshr i32 %107, 8
-  %112 = and i32 %111, 255
-  %113 = or i32 %112, %110
-  %114 = load i16, ptr %4, align 2
-  %115 = sub i16 %114, %.061.
-  store i16 %115, ptr %4, align 2
-  %116 = load i16, ptr %5, align 2
-  %117 = and i16 %116, 255
-  store i16 %117, ptr %5, align 2
-  %.not68 = icmp eq i16 %104, 0
+  %107 = shl i32 %.0622, %103
+  %108 = lshr i32 %105, 8
+  %109 = and i32 %108, 255
+  %110 = or i32 %109, %107
+  %111 = load i16, ptr %4, align 2
+  %112 = sub i16 %111, %.061.
+  store i16 %112, ptr %4, align 2
+  %113 = load i16, ptr %5, align 2
+  %114 = and i16 %113, 255
+  store i16 %114, ptr %5, align 2
+  %.not68 = icmp eq i16 %102, 0
   br i1 %.not68, label %._crit_edge.loopexit12, label %.lr.ph.split.split, !llvm.loop !38
 
 ._crit_edge.loopexit:                             ; preds = %47
-  %118 = trunc i32 %59 to i16
+  %118 = trunc i32 %58 to i16
   br label %._crit_edge
 
 ._crit_edge.loopexit11:                           ; preds = %72
-  %119 = trunc i32 %84 to i16
+  %119 = trunc i32 %82 to i16
   br label %._crit_edge
 
 ._crit_edge.loopexit12:                           ; preds = %101
-  %120 = trunc i32 %113 to i16
+  %120 = trunc i32 %110 to i16
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit12, %._crit_edge.loopexit11, %._crit_edge.loopexit, %.preheader
@@ -9206,12 +9203,12 @@ define internal fastcc range(i32 0, 65536) i32 @decomp_dispatch_get_bits(ptr nou
   br label %140
 
 140:                                              ; preds = %123, %._crit_edge
-  %.1 = phi i16 [ %139, %123 ], [ %.062.lcssa, %._crit_edge ]
+  %.1 = phi i16 [ %139, %120 ], [ %.062.lcssa, %._crit_edge ]
   %141 = zext i16 %.1 to i32
   br label %142
 
 142:                                              ; preds = %140, %89
-  %.0 = phi i32 [ 64429, %89 ], [ %141, %140 ]
+  %.0 = phi i32 [ 64429, %87 ], [ %141, %137 ]
   ret i32 %.0
 }
 
